@@ -71,7 +71,7 @@ function mountPeekaboo(env: PlayEnv): ActivityInstance {
   shell.body.append(h('div', { class: 'pb-layout' }, yard, tray), say);
 
   function speak(text: string, announce = true): void {
-    if (playClip(text)) return;
+    playClip(text);
     say.textContent = text;
     say.classList.add('is-on');
     shell.cancel(sayTimer);

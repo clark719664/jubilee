@@ -79,7 +79,7 @@ function mountTreats(env: PlayEnv): ActivityInstance {
 
   let sayTimer: number | null = null;
   function speak(text: string): void {
-    if (playClip(text)) return;
+    playClip(text);
     say.textContent = text;
     say.classList.add('is-on');
     shell.cancel(sayTimer);

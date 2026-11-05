@@ -129,7 +129,7 @@ function mountMonster(env: PlayEnv): ActivityInstance {
   }
 
   function speak(text: string): void {
-    if (playClip(text)) return;
+    playClip(text);
     say.textContent = text;
     say.classList.add('is-on');
     shell.cancel(sayTimer);
