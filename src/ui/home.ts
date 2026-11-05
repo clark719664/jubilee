@@ -24,7 +24,7 @@ import { THEMES } from '../theme/themes';
 import { mountCelebration } from './celebrate';
 import { COPY, fmt, VIEW_NAMES } from './copy';
 import { h } from './dom';
-import { onVoicesChanged, speak, speakableVoice } from './greetings';
+import { canHear, onVoicesChanged, speak } from './greetings';
 import { mountHero } from './hero';
 import { icon } from './icons';
 import { mascot } from './mascot';
@@ -96,7 +96,7 @@ function helloCard(ctx: AppContext, g: Greeting): Piece {
   const hear = h('button', { class: 'btn btn-secondary btn-icon hello-hear hidden', type: 'button', 'aria-label': `${COPY.hearIt}: ${g.text}` },
     icon('speaker', 20));
   hear.addEventListener('click', () => { speak(g.text, g.lang); });
-  const refresh = (): void => { hear.classList.toggle('hidden', speakableVoice(g.lang) === null); };
+  const refresh = (): void => { hear.classList.toggle('hidden', !canHear(g.text, g.lang)); };
   refresh();
   const stop = onVoicesChanged(refresh);
   const el = h('section', { class: 'hello card', 'aria-label': 'Today’s hello' },

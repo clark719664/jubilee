@@ -21,7 +21,7 @@ const content: HolidayContent = {
       wow: true,
     },
     {
-      text: 'The Iranian calendar counts years from a different starting point. The year that begins at Nowruz in March 2026 is the year 1405. In 2010 the United Nations made 21 March the International Day of Nowruz.',
+      text: 'The Iranian calendar counts years from a different starting point. The year that begins at Nowruz in March 2026 is the year 1405. In 2010 the United Nations made March 21 the International Day of Nowruz.',
       bigKids: true,
     },
     {
@@ -256,7 +256,7 @@ const content: HolidayContent = {
   ],
 
   parentNote:
-    'Nowruz begins at the exact moment of the March equinox, worked out by astronomers. Depending on the year and your time zone that moment falls on 19, 20 or 21 March, so the first day can differ by one day depending on where you live. The thirteen days shown run from Nowruz to Sizdah Bedar. Chaharshanbe Suri fire-jumping is a grown-up activity. Some families today choose a bowl of oranges or a toy fish for the Haft-Seen instead of a live goldfish.',
+    'Nowruz begins at the exact moment of the March equinox, worked out by astronomers. Depending on the year and your time zone that moment falls on 19, March 20 or 21, so the first day can differ by one day depending on where you live. The thirteen days shown run from Nowruz to Sizdah Bedar. Chaharshanbe Suri fire-jumping is a grown-up activity. Some families today choose a bowl of oranges or a toy fish for the Haft-Seen instead of a live goldfish.',
 
   sources: [
     "UNESCO, Representative List of the Intangible Cultural Heritage of Humanity, 'Nowruz' (inscribed 2009, extended 2016)",

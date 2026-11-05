@@ -11,7 +11,7 @@ const easter: HolidayContent = {
 
   facts: [
     {
-      text: 'The rule for finding Easter is about 1,700 years old: it is the first Sunday after the first full moon on or after 21 March. The earliest it can ever be is 22 March and the latest is 25 April. The next 25 April Easter is in 2038.',
+      text: 'The rule for finding Easter is about 1,700 years old: it is the first Sunday after the first full moon on or after March 21. The earliest it can ever be is March 22 and the latest is April 25. The next April 25 Easter is in 2038.',
       bigKids: true,
     },
     {
@@ -266,7 +266,7 @@ const easter: HolidayContent = {
   ],
 
   parentNote:
-    'Easter Sunday is the first Sunday after the first full moon on or after 21 March, so it falls between 22 March and 25 April. Orthodox Easter is worked out on the older Julian calendar and usually lands one to five weeks later, though some years, like 2025, the two coincide; this app lists it separately. Good Friday, Easter Monday or both are public holidays in many countries (the UK, Ireland, Australia, Canada and much of Europe) but not in the US. The recipes use sugar-shelled mini eggs, which are a choking hazard under 4, and the egg craft needs a grown-up at the stove.',
+    'Easter Sunday is the first Sunday after the first full moon on or after March 21, so it falls between March 22 and April 25. Orthodox Easter is worked out on the older Julian calendar and usually lands one to five weeks later, though some years, like 2025, the two coincide; this app lists it separately. Good Friday, Easter Monday or both are public holidays in many countries (the UK, Ireland, Australia, Canada and much of Europe) but not in the US. The recipes use sugar-shelled mini eggs, which are a choking hazard under 4, and the egg craft needs a grown-up at the stove.',
   sources: [
     'Encyclopaedia Britannica, "Easter"',
     'US Naval Observatory, Astronomical Applications Department, "The Date of Easter"',

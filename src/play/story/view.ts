@@ -23,6 +23,7 @@ import { fridgeFullDialog, keepStory, keptItem, type Dialog } from './keep';
 import { coverLeaf, coverPlate, endLeaf, endPlate, pageLeaf, type CoverLeaf, type EndLeaf, type PageLeaf } from './leaf';
 import { picture, type Picture } from './picture';
 import { printBooklet } from './print';
+import { loadVoice } from '../../ui/voice';
 import { bookLang, ReadAloud, type ReadState } from './reader';
 import { bookTitle, cleanFriend, pageSentences, starring, who, wordAt, wordSpans, type Who } from './text';
 import type { Camera, StoryBook } from './types';
@@ -103,6 +104,7 @@ export function mountStory(env: PlayEnv, book: StoryBook): ActivityInstance {
   };
   let offVoices: () => void = () => undefined;
   try { offVoices = onVoicesChanged(syncReadBtn); } catch { /* speech that throws: the button just stays hidden */ }
+  void loadVoice().then(() => syncReadBtn());
 
   function toggleRead(): void {
     if (reader.active) { reader.stop(); syncReadBtn(); return; }
@@ -110,7 +112,8 @@ export function mountStory(env: PlayEnv, book: StoryBook): ActivityInstance {
     if (!page || !current) return;
     const sentences = pageSentences(page, w);
     const spans = sentences.map(wordSpans);
-    reader.read(sentences, (si, ch) => wordAt(spans[si] ?? [], ch));
+    const recorded = pageSentences(page, who(undefined, undefined));
+    reader.read(sentences, (si, ch) => wordAt(spans[si] ?? [], ch), recorded.length === sentences.length ? recorded : sentences);
     syncReadBtn();
   }
 

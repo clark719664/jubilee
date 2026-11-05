@@ -1,5 +1,5 @@
 /**
- * view.ts — the Color-in screen: the page on a taped-down sheet, the crayon box, the tools.
+ * view.ts — the Coloring screen: the page on a taped-down sheet, the crayon box, the tools.
  *
  * Layout: phones stack header / sheet / tools / crayon box; wide screens put the box beside the sheet.
  * DOM order is header → tools → crayons → page so a keyboard child picks a crayon first, then Tabs
@@ -19,7 +19,7 @@ import { mascot } from '../../ui/mascot';
 import { fridge, type Fridge, type FridgeItem } from '../fridge';
 import type { ActivityInstance, PlayEnv } from '../types';
 import { COPY, fill, regionName } from './copy';
-import { crayonBox, ERASER, solidFor } from './crayons';
+import { crayonBox, crayonDrawers, ERASER, solidFor } from './crayons';
 import { IDENTITY, MAX_ZOOM, readingOrder, reveal, zoomAt, type View } from './geometry';
 import { attachGestures } from './gesture';
 import { canRedo, canUndo, diffRegions, filledCount, newDoc, paint, redo, replaceAll, undo, type Doc, type Fills } from './history';
@@ -33,6 +33,8 @@ import { surpriseFills } from './surprise';
 export interface PageSource {
   has(id: string): boolean;
   load(id: string): Promise<string | null>;
+  /** Every page a holiday has; absent means one page named after the holiday. */
+  pages?(id: string): readonly string[];
 }
 
 export interface ColorOptions {
@@ -56,8 +58,10 @@ export function mountColor(env: PlayEnv, opts: ColorOptions): ActivityInstance {
   const box = crayonBox(theme, meta.name);
   const store = opts.storage ?? colorStorage(ctx.clock.pretending);
   const shelf = (): Fridge => opts.fridge ?? fridge(ctx.clock.pretending);
-  const crayonIds = [ERASER, ...box.map((c) => c.id)];
-  let selected = lastCrayon && crayonIds.includes(lastCrayon) ? lastCrayon : box[0]!.id;
+  const drawers = crayonDrawers(box);
+  let selected = lastCrayon && (lastCrayon === ERASER || box.some((c) => c.id === lastCrayon)) ? lastCrayon : box[0]!.id;
+  let drawer = drawers.find((d) => d.crayons.some((c) => c.id === selected)) ?? drawers[0]!;
+  let crayonIds = [ERASER, ...drawer.crayons.map((c) => c.id)];
   let seed = opts.seed ?? Math.floor(Math.random() * 0x7fffffff);
   const nameOf = (id: string | null): string => (id === null || id === ERASER ? COPY.eraser : box.find((c) => c.id === id)?.name ?? COPY.eraser);
   const timers = new Set<number>();
@@ -92,10 +96,25 @@ export function mountColor(env: PlayEnv, opts: ColorOptions): ActivityInstance {
     crayonEls.set(id, b);
     return b;
   };
-  const boxEl = h('div', { class: 'cp-box', role: 'radiogroup', 'aria-label': COPY.crayonBox },
-    crayonBtn(ERASER, COPY.eraserLabel, eraserArt(), 'cp-eraser'),
-    ...box.map((c) => crayonBtn(c.id, c.name, crayonArt(c, `cpc-${c.id}`), `cp-k-${c.kind}`)),
-  );
+  const boxEl = h('div', { class: 'cp-box', role: 'radiogroup', 'aria-label': COPY.crayonBox });
+  const drawerTabs = new Map<string, HTMLButtonElement>();
+  const openDrawer = (id: string): void => {
+    drawer = drawers.find((d) => d.id === id) ?? drawer;
+    crayonIds = [ERASER, ...drawer.crayons.map((c) => c.id)];
+    crayonEls.clear();
+    boxEl.replaceChildren(
+      crayonBtn(ERASER, COPY.eraserLabel, eraserArt(), 'cp-eraser'),
+      ...drawer.crayons.map((c) => crayonBtn(c.id, c.name, crayonArt(c, `cpc-${c.id}`), `cp-k-${c.kind}`)),
+    );
+    boxEl.scrollTop = 0;
+    for (const [tid, tab] of drawerTabs) tab.setAttribute('aria-pressed', String(tid === drawer.id));
+  };
+  const drawerRow = h('div', { class: 'cp-drawers', role: 'group', 'aria-label': COPY.crayonBox }, ...drawers.map((d) => {
+    const tab = h('button', { type: 'button', class: 'cp-drawer', 'aria-pressed': 'false', onclick: () => { openDrawer(d.id); pick(selected); } }, d.name);
+    drawerTabs.set(d.id, tab);
+    return tab;
+  }));
+  openDrawer(drawer.id);
   boxEl.addEventListener('keydown', (e) => {
     const i = crayonIds.indexOf(selected);
     const to = e.key === 'ArrowRight' || e.key === 'ArrowDown' ? i + 1 : e.key === 'ArrowLeft' || e.key === 'ArrowUp' ? i - 1
@@ -104,7 +123,7 @@ export function mountColor(env: PlayEnv, opts: ColorOptions): ActivityInstance {
     e.preventDefault();
     pick(crayonIds[(to + crayonIds.length) % crayonIds.length]!, true);
   });
-  const side = h('div', { class: 'cp-side' }, tools, boxEl, h('p', { class: 'cp-hint' }, COPY.crayonsHint));
+  const side = h('div', { class: 'cp-side' }, tools, drawerRow, boxEl, h('p', { class: 'cp-hint' }, COPY.crayonsHint));
 
   // ── the sheet ──
   const paper = h('div', { class: 'cp-paper' }, h('div', { class: 'cp-loading' }, mascot('curious', 96)));
@@ -152,6 +171,7 @@ export function mountColor(env: PlayEnv, opts: ColorOptions): ActivityInstance {
       el.setAttribute('aria-checked', String(on));
       el.tabIndex = on ? 0 : -1;
     }
+    if (crayonEls.size > 0 && !crayonEls.has(id)) crayonEls.get(ERASER)?.setAttribute('tabindex', '0');
     const el = crayonEls.get(id);
     if (focus) el?.focus({ preventScroll: true });
     el?.scrollIntoView?.({ block: 'nearest', inline: 'nearest' });

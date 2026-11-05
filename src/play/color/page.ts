@@ -12,6 +12,7 @@
  */
 import { svg } from '../../ui/dom';
 import { BLANK, gradientId, paintFor, type Crayon } from './crayons';
+import { paintDef } from './parts';
 import type { Box } from './geometry';
 import type { Fills } from './history';
 import type { CleanNode, CleanPage } from './sanitize';
@@ -31,13 +32,8 @@ let pageCount = 0;
 export function gradientDefs(box: readonly Crayon[], prefix: string): SVGDefsElement {
   const defs = svg('defs', {});
   for (const c of box) {
-    if (!c.gradient) continue;
-    const id = gradientId(prefix, c.id);
-    const g = c.gradient.type === 'radial'
-      ? svg('radialGradient', { id, cx: '50%', cy: '45%', r: '65%' })
-      : svg('linearGradient', { id, x1: '0', y1: '0', x2: '1', y2: '1' });
-    for (const s of c.gradient.stops) g.append(svg('stop', { offset: s.offset, 'stop-color': s.color }));
-    defs.append(g);
+    const def = paintDef(c, gradientId(prefix, c.id));
+    if (def) defs.append(def);
   }
   return defs;
 }
@@ -86,7 +82,9 @@ function build(page: CleanPage, box: readonly Crayon[], prefix: string): Built {
 
 /** A non-interactive copy of a page with fills applied (Fridge thumbnails, the printed sheet). */
 export function staticPage(page: CleanPage, fills: Fills, box: readonly Crayon[], prefix = `cps${++pageCount}`): SVGSVGElement {
-  const b = build(page, box, prefix);
+  // Pictures on the Fridge only carry the paints they use, not the whole box.
+  const used = new Set(Object.values(fills));
+  const b = build(page, box.filter((c) => used.has(c.id)), prefix);
   for (const [id, r] of b.regions) {
     const paint = fills[id] ? paintFor(fills[id], box, prefix) : null;
     for (const t of r.targets) t.setAttribute('fill', paint ?? b.blank.get(t) ?? BLANK);

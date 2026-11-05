@@ -75,7 +75,7 @@ export function pageTemplate(page: StoryPage, w: Who): string {
  */
 export function splitSentences(text: string): string[] {
   return text
-    .split(/(?<=[.!?…][’”'")]*)\s+(?=[‘“'"(]?[\p{Lu}{])/u)
+    .split(/(?<=[.!?…][’”'")]*)(?<!\b(?:Dr|Mr|Mrs|Ms|St|Mt)\.)\s+(?=[‘“'"(]?[\p{Lu}{])/u)
     .map((s) => s.trim())
     .filter((s) => s.length > 0);
 }

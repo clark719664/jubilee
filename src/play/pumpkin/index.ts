@@ -10,6 +10,7 @@
  * Keyboard: Tab to the tabs; arrows move along tabs and options; Enter/Space chooses; Esc goes back.
  * Motion: full → squish, chips, flicker; otherwise the pumpkin just changes and the glow holds still.
  */
+import { playClip } from '../../ui/voice';
 import './pumpkin.css';
 import { mulberry32 } from '../../effects/rng';
 import { h } from '../../ui/dom';
@@ -160,6 +161,7 @@ function mountPumpkin(env: PlayEnv): ActivityInstance {
   }
 
   function speak(text: string): void {
+    if (playClip(text)) return;
     say.textContent = text;
     say.classList.add('is-on');
     shell.cancel(sayTimer);

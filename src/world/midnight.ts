@@ -123,13 +123,13 @@ export function newYearTarget(today: CivilDate): CivilDate {
   return { y: today.m === 1 ? today.y : today.y + 1, m: 1, d: 1 };
 }
 
-/** The week the midnight-wave card is live: 26 December to 2 January. */
+/** The week the midnight-wave card is live: December 26 to January 2. */
 export function inNewYearWindow(today: CivilDate): boolean {
   return (today.m === 12 && today.d >= 26) || (today.m === 1 && today.d <= 2);
 }
 
 /**
- * The pretend instant for the "Watch the New Year arrive" show: 23:00 on 31 December in
+ * The pretend instant for the "Watch the New Year arrive" show: 23:00 on December 31 in
  * UTC+13, an hour before Auckland and Tonga, the moment Kiritimati reaches the new year.
  */
 export function newYearShowStart(target: CivilDate): number {

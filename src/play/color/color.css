@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════════════════
-   Color-in — a taped-down sheet on the holiday sky, a box of chunky crayons.
+   Coloring — a taped-down sheet on the holiday sky, a box of chunky crayons.
    .cp (root, .sky) .cp-head .cp-main .cp-stage .cp-frame .cp-tape .cp-viewport .cp-paper .cp-svg
    .cp-zoom .cp-stamp .cp-burst .cp-note .cp-side .cp-tools .cp-box .cp-crayon[aria-checked]
    .cp-panel (modal cards) .cp-thumbs .cp-print-sheet (print only)
@@ -106,7 +106,13 @@
 .cp-tool { min-height: 52px; }
 .cp-tool .icon, .cp-hbtn .icon { flex: none; }
 .cp .btn-icon.cp-tool { width: 52px; min-width: 52px; height: 52px; }
-.cp-surprise, .cp-done { flex: 1 1 0; min-width: 0; padding: 0 14px; font-size: 19px; white-space: nowrap; }
+.cp .cp-surprise, .cp .cp-done { flex: 1 0 auto; min-width: 0; gap: 6px; padding: 0 14px; font-size: 18px; white-space: nowrap; }
+@media (max-width: 420px) {
+  .cp-tools { gap: 6px; }
+  .cp .btn-icon.cp-tool { width: 44px; min-width: 44px; height: 44px; min-height: 44px; }
+  .cp .cp-surprise, .cp .cp-done { min-height: 48px; padding: 0 11px; font-size: 16px; }
+  .cp .cp-tool .icon { width: 20px; height: 20px; }
+}
 .cp .cp-done { background: var(--h-accent); color: var(--h-accent-ink); }
 .cp .cp-surprise { background: var(--cp-paper); color: var(--cp-ink); border-color: var(--cp-ink); box-shadow: 0 4px 0 var(--cp-ink); }
 .cp .cp-surprise .icon { color: #8a5cf5; }
@@ -117,7 +123,12 @@
 @media (min-width: 720px) and (min-aspect-ratio: 1/1) { .cp-hint { display: block; } }
 
 /* ── the crayon box ── */
+.cp-drawers { display: flex; gap: 6px; overflow-x: auto; padding: 2px 2px 4px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.cp-drawers::-webkit-scrollbar { display: none; }
+.cp-drawer { flex: none; min-height: 44px; padding: 0 14px; border: 3px solid var(--cp-ink); border-radius: 14px; background: var(--cp-paper); color: var(--cp-ink); font: 700 15px/1 var(--font-display); cursor: pointer; }
+.cp-drawer[aria-pressed="true"] { background: var(--cp-ink); color: var(--cp-paper); }
 .cp-box {
+  max-height: 190px; overflow-y: auto; overscroll-behavior: contain;
   display: grid; grid-template-columns: repeat(auto-fill, minmax(42px, 1fr)); gap: 2px 2px;
   padding: 16px 10px 8px; border-radius: 22px; border: 3px solid var(--cp-ink);
   background: radial-gradient(130% 90% at 50% 0%, #fff 0, var(--cp-paper) 55%, color-mix(in srgb, var(--h-accent) 14%, var(--cp-paper)) 100%);
@@ -138,7 +149,8 @@
 .cp-crayon.is-used { animation: cp-wiggle .45s var(--spring); }
 @keyframes cp-wiggle { 0%, 100% { transform: translateY(-8px) rotate(0); } 30% { transform: translateY(-13px) rotate(-7deg); } 65% { transform: translateY(-8px) rotate(5deg); } }
 @media (min-width: 720px) and (min-aspect-ratio: 1/1) {
-  .cp-box { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px 4px; padding: 20px 12px 12px; }
+  .cp-box { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px 4px; padding: 20px 12px 12px; max-height: 52vh; }
+  .cp-drawers { flex-wrap: wrap; overflow: visible; }
   .cp-crayon { --cr-h: 80px; }
 }
 @media (max-height: 700px) and (max-aspect-ratio: 1/1) { .cp-crayon { --cr-h: 50px; } .cp-tool, .cp .btn-icon.cp-tool { min-height: 48px; height: 48px; } }
@@ -186,3 +198,14 @@
   .cp-print-sheet .cp-static { display: block; width: 180mm; height: 180mm; max-width: 100%; margin: 0 auto; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   .cp-print-caption { margin-top: 6mm; font: 700 16pt var(--font-display); color: #000; }
 }
+
+/* ── the wall of pages ── */
+.cp-pages { display: contents; }
+.cp-pick { min-height: 100%; padding: 16px var(--gutter, 16px) 32px; }
+.cp-pick-top { display: flex; align-items: center; gap: 14px; max-width: 1000px; margin: 0 auto 18px; color: var(--h-ink); }
+.cp-pick-holiday { margin: 0; font-weight: 700; }
+.cp-pick-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; max-width: 1000px; margin: 0 auto; padding: 0; list-style: none; }
+.cp-pick-page { position: relative; display: block; width: 100%; aspect-ratio: 1; padding: 0; overflow: hidden; border: 3px solid var(--line); border-radius: 18px; background: #fff; box-shadow: 3px 4px 0 var(--line); cursor: pointer; }
+.cp-pick-img { display: block; width: 100%; height: 100%; }
+.cp-pick-started { position: absolute; left: 8px; top: 8px; padding: 4px 10px; border-radius: 999px; background: var(--sun); color: var(--sun-ink); font: 700 13px/1 var(--font-display); }
+.cp-pick h1:focus { outline: none; }

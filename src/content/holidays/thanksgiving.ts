@@ -222,7 +222,7 @@ const thanksgiving: HolidayContent = {
     'In the US, Thanksgiving is the fourth Thursday of November and a federal holiday; most schools also close the Friday. In Canada it is the second Monday of October, a statutory holiday in most provinces, and this app shows the Canadian date when your region is set to Canada. For many Native Americans the day carries a different meaning: since 1970, a National Day of Mourning has been held at Plymouth on Thanksgiving to remember the loss of land, lives and culture that followed the colonists’ arrival, and November is Native American Heritage Month. The pie cups are no-cook; the muffins need an oven and involve raw egg. The muffin serving idea mentions honey, and graham crackers usually contain it; honey is not safe for babies under 1.',
   sources: [
     'Encyclopaedia Britannica, "Thanksgiving Day"',
-    'National Archives (US), "Thanksgiving Proclamation" (Abraham Lincoln, 3 October 1863)',
+    'National Archives (US), "Thanksgiving Proclamation" (Abraham Lincoln, October 3, 1863)',
     'The Canadian Encyclopedia, "Thanksgiving in Canada"',
     'Plimoth Patuxet Museums, "Thanksgiving History"',
   ],

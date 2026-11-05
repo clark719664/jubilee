@@ -9,6 +9,7 @@
  * Keyboard: Tab to the tabs; arrows move along tabs and options; Enter/Space chooses; Esc goes back.
  * Motion: full → bounce and wiggle; otherwise the monster just changes.
  */
+import { playClip } from '../../ui/voice';
 import './monster.css';
 import { mulberry32 } from '../../effects/rng';
 import { h } from '../../ui/dom';
@@ -128,6 +129,7 @@ function mountMonster(env: PlayEnv): ActivityInstance {
   }
 
   function speak(text: string): void {
+    if (playClip(text)) return;
     say.textContent = text;
     say.classList.add('is-on');
     shell.cancel(sayTimer);

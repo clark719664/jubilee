@@ -11,6 +11,7 @@
  * Keyboard: Tab to a bottle, Enter/Space drops it in; Esc goes back.
  * Motion: full → drops fall, bubbles rise, the liquid ripples; otherwise the color simply changes.
  */
+import { playClip } from '../../ui/voice';
 import './potion.css';
 import { mulberry32 } from '../../effects/rng';
 import { build, type Spec } from '../spooky/draw';
@@ -142,6 +143,7 @@ function mountPotion(env: PlayEnv): ActivityInstance {
   }
 
   function speak(text: string): void {
+    if (playClip(text)) return;
     say.textContent = text;
     say.classList.add('is-on');
     shell.cancel(sayTimer);

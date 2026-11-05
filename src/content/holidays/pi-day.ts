@@ -2,10 +2,10 @@ import type { HolidayContent } from '../types';
 
 const piDay: HolidayContent = {
   story: [
-    'Pi Day is a math party on 14 March, because writing the date the American way, 3/14, gives the first three digits of pi: 3.14.',
+    'Pi Day is a math party on March 14, because writing the date the American way, 3/14, gives the first three digits of pi: 3.14.',
     'Pi is the number you get when you measure all the way around a circle and divide by the distance straight across it, and it is the same for every circle in the universe.',
     'Its digits go on for ever without repeating, so people celebrate by reciting as many as they can remember, by eating pie and by hunting for circles.',
-    "Many families bake a pie, draw circles with string and a pencil, or sing happy birthday to Albert Einstein, who was born on 14 March 1879.",
+    "Many families bake a pie, draw circles with string and a pencil, or sing happy birthday to Albert Einstein, who was born on March 14, 1879.",
   ],
 
   facts: [
@@ -18,7 +18,7 @@ const piDay: HolidayContent = {
       bigKids: true,
     },
     {
-      text: 'Albert Einstein was born on Pi Day, 14 March 1879, in Ulm, Germany, and the town of Princeton, where he lived later, throws a big Pi Day party every year.',
+      text: 'Albert Einstein was born on Pi Day, March 14, 1879, in Ulm, Germany, and the town of Princeton, where he lived later, throws a big Pi Day party every year.',
     },
     {
       text: 'The Greek letter π was first used to mean this number by a Welsh mathematician, William Jones, in 1706, and the famous Leonhard Euler helped make it popular.',
@@ -29,7 +29,7 @@ const piDay: HolidayContent = {
       wow: true,
     },
     {
-      text: 'In 2009 the United States House of Representatives passed a resolution supporting 14 March as National Pi Day.',
+      text: 'In 2009 the United States House of Representatives passed a resolution supporting March 14 as National Pi Day.',
     },
   ],
 
@@ -162,13 +162,13 @@ const piDay: HolidayContent = {
   ],
 
   parentNote:
-    'Pi Day only works when the date is written month first (3/14), so it is mostly celebrated in the United States, though many schools elsewhere join in. In countries that write 14/3, some math fans celebrate Pi Approximation Day on 22 July (22/7) instead.',
+    'Pi Day only works when the date is written month first (3/14), so it is mostly celebrated in the United States, though many schools elsewhere join in. In countries that write 14/3, some math fans celebrate Pi Approximation Day on July 22 (22/7) instead.',
 
   sources: [
     "Exploratorium, 'Pi Day: history of the celebration' (Larry Shaw and the first Pi Day, 1988)",
     "NASA Jet Propulsion Laboratory, 'How many decimals of pi do we really need?' (about 40 digits for the observable universe)",
     "Encyclopaedia Britannica, 'Pi' (William Jones 1706; Euler's use of the symbol)",
-    "Encyclopaedia Britannica, 'Albert Einstein' (born 14 March 1879, Ulm)",
+    "Encyclopaedia Britannica, 'Albert Einstein' (born March 14, 1879, Ulm)",
     "US House of Representatives, H.Res. 224, 111th Congress, 'Supporting the designation of Pi Day' (2009)",
     "Google Cloud blog, 'Calculating 100 trillion digits of pi on Google Cloud' (2022)",
   ],

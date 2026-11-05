@@ -6,7 +6,7 @@ import type { HolidayContent } from '../types';
  */
 const valentinesDay: HolidayContent = {
   story: [
-    "Valentine's Day, on 14 February, is a day for telling the people you love that you love them: family, friends, teachers and pets included.",
+    "Valentine's Day, on February 14, is a day for telling the people you love that you love them: family, friends, teachers and pets included.",
     'It is named after St Valentine, a Christian from Roman times, and over the centuries it grew into a day of cards, poems, flowers and sweets.',
     'Many families swap handmade cards and heart-shaped treats, and in lots of schools children give a little card to everyone in the class so no one is left out.',
     'Pink and red hearts are everywhere, but the real message is simple: you matter to me.',
@@ -22,7 +22,7 @@ const valentinesDay: HolidayContent = {
       wow: true,
     },
     {
-      text: "In Japan it is usually girls and women who give chocolate on Valentine's Day. One month later, on 14 March, called White Day, boys and men give a present back.",
+      text: "In Japan it is usually girls and women who give chocolate on Valentine's Day. One month later, on March 14, called White Day, boys and men give a present back.",
       wow: true,
     },
     {
@@ -190,7 +190,7 @@ const valentinesDay: HolidayContent = {
   ],
 
   doors: [
-    { sleeps: 12, kind: 'fact', text: "In Wales, many people celebrate St Dwynwen's Day on 25 January, the Welsh day of love. An old Welsh custom is to carve a wooden love spoon as a gift." },
+    { sleeps: 12, kind: 'fact', text: "In Wales, many people celebrate St Dwynwen's Day on January 25, the Welsh day of love. An old Welsh custom is to carve a wooden love spoon as a gift." },
     { sleeps: 11, kind: 'joke', text: "What did the stamp say to the envelope on Valentine's Day? I'm stuck on you!" },
     { sleeps: 10, kind: 'craft', text: 'Fold a piece of paper in half, draw half a heart against the fold and cut it out with safety scissors. Open it up: a perfect heart, every time!' },
     { sleeps: 9, kind: 'fact', text: 'In the 1840s, Esther Howland of Worcester, Massachusetts, began making valentines from paper lace and ribbon. She is often called the Mother of the American Valentine.' },
@@ -199,7 +199,7 @@ const valentinesDay: HolidayContent = {
     { sleeps: 6, kind: 'fact', text: 'The biggest heart on Earth belongs to the blue whale. It weighs about 180 kilograms, as much as two or three grown-ups put together.' },
     { sleeps: 5, kind: 'joke', text: "Why do skunks love Valentine's Day? Because they're very scent-imental!" },
     { sleeps: 4, kind: 'seek', text: "Some sneaky surprises are hiding in the Valentine's Day picture. Can you find every single one? Open Seek & Find!" },
-    { sleeps: 3, kind: 'fact', text: "In South Korea, 14 April is Black Day. Friends who didn't get a Valentine's present meet up and eat noodles in black bean sauce together." },
+    { sleeps: 3, kind: 'fact', text: "In South Korea, April 14 is Black Day. Friends who didn't get a Valentine's present meet up and eat noodles in black bean sauce together." },
     { sleeps: 2, kind: 'craft', text: "Write a kindness coupon on a strip of paper, like 'one free hug' or 'I'll set the table', and slip it under someone's pillow." },
     { sleeps: 1, kind: 'say', text: "Tomorrow is Valentine's Day! In Mexico it's the Day of Love and Friendship, so learn to wish it to everyone you care about, the Mexican way.", greeting: 2 },
   ],

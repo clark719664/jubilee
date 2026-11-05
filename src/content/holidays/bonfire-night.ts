@@ -2,7 +2,7 @@ import type { HolidayContent } from '../types';
 
 const content: HolidayContent = {
   story: [
-    'Bonfire Night, on 5 November, remembers the night in 1605 when a man named Guy Fawkes was caught guarding barrels of gunpowder under the Houses of Parliament in London.',
+    'Bonfire Night, on November 5, remembers the night in 1605 when a man named Guy Fawkes was caught guarding barrels of gunpowder under the Houses of Parliament in London.',
     'The plot to blow up Parliament failed, and people lit bonfires to celebrate that the king was safe.',
     'More than four hundred years later, people across Britain still wrap up warm, gather round big bonfires, watch fireworks, and eat toffee apples, jacket potatoes and sticky parkin cake.',
     'Always watch fireworks from a safe distance, keep sparklers at arm\'s length, and leave lighting them to the grown-ups.',

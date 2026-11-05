@@ -49,7 +49,7 @@ export const ALLOWED_ATTRS = [
 /** Guards against absurd files: the real pages have a few hundred elements. */
 export const MAX_NODES = 5000;
 export const MAX_DEPTH = 24;
-const MAX_VALUE = 40000;
+const MAX_VALUE = 300000;
 
 const NUM = /^[-+]?(\d+\.?\d*|\.\d+)(e[-+]?\d+)?$/i;
 const LENGTH = /^[-+]?(\d+\.?\d*|\.\d+)(e[-+]?\d+)?(px|%)?$/i;

@@ -4,7 +4,7 @@ const content: HolidayContent = {
   story: [
     'April Fools\' Day is the first day of April, when people play gentle tricks on friends and family.',
     'The best jokes are silly and kind, like a fake spider on the table, and they end with a big "April Fools!"',
-    'Nobody knows exactly how the day started, but people have been fooling each other on 1 April for hundreds of years.',
+    'Nobody knows exactly how the day started, but people have been fooling each other on April 1 for hundreds of years.',
   ],
   facts: [
     {

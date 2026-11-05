@@ -12,7 +12,7 @@ const content: HolidayContent = {
       wow: true,
     },
     {
-      text: 'The first big Decoration Day was held on 30 May 1868. In 1971 Congress made Memorial Day a national holiday and moved it to the last Monday in May.',
+      text: 'The first big Decoration Day was held on May 30, 1868. In 1971 Congress made Memorial Day a national holiday and moved it to the last Monday in May.',
       bigKids: true,
     },
     {

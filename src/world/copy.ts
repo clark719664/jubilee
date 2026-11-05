@@ -64,7 +64,7 @@ export const WORLD_COPY = {
   // ── Santa ──
   santaCountdown: 'Santa is at the North Pole. {sleeps} to go!',
   santaEve: 'Santa takes off from the North Pole in {time}!',
-  santaOffSeason: 'Santa is busy in the workshop. The tracker opens on 1 December.',
+  santaOffSeason: 'Santa is busy in the workshop. The tracker opens on December 1.',
   santaOver: 'Now over {place}',
   santaOverSea: 'Flying over the sea',
   santaLeaving: 'Leaving the North Pole',

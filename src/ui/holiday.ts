@@ -2,7 +2,7 @@
  * Holiday World (`#/h/:id`, `#/h/:id?s=make`): the holiday's own sky and hero, a sticky pill bar of anchor links,
  * then the sections — Play (the Countdown Doors teaser and round buttons into every activity), Story (with the
  * per-day panel and, for Lunar New Year, the zodiac animal), Make, Craft, Facts, Say it, Dates and Sticker — plus
- * the advent strip on the Christmas page from 1 to 24 December.
+ * the advent strip on the Christmas page from December 1 to 24.
  *
  * Content loads lazily (one chunk per holiday) behind a loading card and is cached for the session, so Back to a
  * page renders in one frame and the router's scroll restore lands. Visiting during the holiday's span earns its

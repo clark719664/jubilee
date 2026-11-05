@@ -2,17 +2,17 @@ import type { HolidayContent } from '../types';
 
 const content: HolidayContent = {
   story: [
-    'Canada Day on 1 July is Canada\'s birthday: on that day in 1867 three British colonies joined together to form one country with four provinces.',
+    'Canada Day on July 1 is Canada\'s birthday: on that day in 1867 three British colonies joined together to form one country with four provinces.',
     'Across Canada people wear red and white, wave maple leaf flags, and gather for concerts, parades and fireworks.',
     'The biggest party is in Ottawa, the capital, and in many towns new Canadians become citizens at special ceremonies that day.',
   ],
   facts: [
     {
-      text: 'On 1 July 1867 Nova Scotia, New Brunswick and the Province of Canada, which split into Ontario and Quebec, united as the Dominion of Canada. The holiday was called Dominion Day until 1982, when it was renamed Canada Day.',
+      text: 'On July 1, 1867 Nova Scotia, New Brunswick and the Province of Canada, which split into Ontario and Quebec, united as the Dominion of Canada. The holiday was called Dominion Day until 1982, when it was renamed Canada Day.',
       bigKids: true,
     },
     {
-      text: 'The red and white maple leaf flag is younger than many grandparents: it flew for the first time on 15 February 1965.',
+      text: 'The red and white maple leaf flag is younger than many grandparents: it flew for the first time on February 15, 1965.',
       wow: true,
     },
     {
@@ -65,7 +65,7 @@ const content: HolidayContent = {
     },
   ],
   parentNote:
-    'Canada Day is a statutory holiday. When 1 July falls on a Sunday, the day off is moved to Monday 2 July. In Newfoundland and Labrador, 1 July is also Memorial Day, and the morning is kept quiet to remember the soldiers who died at Beaumont-Hamel in 1916.',
+    'Canada Day is a statutory holiday. When July 1 falls on a Sunday, the day off is moved to Monday July 2. In Newfoundland and Labrador, July 1 is also Memorial Day, and the morning is kept quiet to remember the soldiers who died at Beaumont-Hamel in 1916.',
   sources: [
     'Government of Canada, Canadian Heritage, "Canada Day"',
     'Library and Archives Canada, "Confederation"',

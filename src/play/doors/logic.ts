@@ -2,7 +2,7 @@
  * doors/logic.ts — the pure rules behind Countdown Doors (no DOM, tested in Node).
  *
  * Every door carries `opensAt`: the number of sleeps before the main day at which it unlocks. A countdown
- * door for "3 sleeps" opens when 3 or fewer sleeps are left; Christmas advent door d opens on 1…24 December,
+ * door for "3 sleeps" opens when 3 or fewer sleeps are left; Christmas advent door d opens on 1…December 24,
  * i.e. at 25 − d sleeps before Christmas Day. So one comparison drives every holiday:
  *
  *   unlocked  ⇔  sleepsToMain ≤ opensAt
@@ -69,14 +69,24 @@ export function boardDoors(meta: HolidayMeta, content: HolidayContent): BoardDoo
     }
     return out.sort((a, b) => b.opensAt - a.opensAt);
   }
-  return meta.tier === 1 ? fallbackDoors(content) : [];
+  return fallbackDoors(content, meta.name);
 }
 
-/** Facts, greetings and crafts woven into up to 12 doors (fact, say, fact, craft, …). */
-export function fallbackDoors(content: HolidayContent): BoardDoor[] {
-  const facts = content.facts.map((f) => ({ kind: 'fact' as const, text: f.text }));
+/** Things any child can do, so a holiday with few facts still gets a full board. */
+const ANY_DAY = [
+  'Draw your favorite thing about {name}.', 'Tell someone one thing you know about {name}.', 'Make up a little song about {name}.',
+  'Make a card for someone and tell them about {name}.', 'Act out {name} without using any words.', 'Find something near you that reminds you of {name}.',
+];
+
+/** Facts, the holiday's story, greetings and crafts woven into up to 12 doors (fact, say, fact, craft, …). */
+export function fallbackDoors(content: HolidayContent, name = 'this holiday'): BoardDoor[] {
+  const told = content.facts.length < MIN_DOORS ? content.story : [];
+  const facts = [...content.facts.map((f) => f.text), ...told].map((text) => ({ kind: 'fact' as const, text }));
   const says = content.greetings.map((g, i) => ({ kind: 'say' as const, text: `Learn to say “${g.roman ?? g.text}” in ${g.langName}.`, greeting: i }));
-  const crafts = content.crafts.map((c) => ({ kind: 'craft' as const, text: `${c.title}: ${c.blurb}` }));
+  const crafts = [
+    ...content.crafts.map((c) => ({ kind: 'craft' as const, text: `${c.title}: ${c.blurb}` })),
+    ...(content.facts.length + content.crafts.length < MIN_DOORS ? ANY_DAY.map((t) => ({ kind: 'craft' as const, text: t.replace('{name}', name) })) : []),
+  ];
   const lanes = [facts, says, facts, crafts];
   const picked: { kind: DoorKind; text: string; greeting?: number }[] = [];
   const cursor = new Map<unknown, number>();

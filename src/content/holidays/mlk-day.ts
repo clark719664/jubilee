@@ -3,12 +3,12 @@ import type { HolidayContent } from '../types';
 const content: HolidayContent = {
   story: [
     'Martin Luther King Jr. Day honors Dr. Martin Luther King Jr., a minister who led the fight for equal rights for Black Americans using peaceful protest.',
-    'The holiday falls on the third Monday in January, close to his birthday on 15 January.',
+    'The holiday falls on the third Monday in January, close to his birthday on January 15.',
     'Many people spend the day volunteering, because it is the only US federal holiday officially named a national day of service.',
   ],
   facts: [
     {
-      text: 'On 28 August 1963, Dr. King gave his famous "I Have a Dream" speech on the steps of the Lincoln Memorial in Washington, DC, to a crowd of about 250,000 people.',
+      text: 'On August 28, 1963, Dr. King gave his famous "I Have a Dream" speech on the steps of the Lincoln Memorial in Washington, DC, to a crowd of about 250,000 people.',
       bigKids: true,
     },
     {
@@ -31,7 +31,7 @@ const content: HolidayContent = {
   recipes: [],
   crafts: [],
   parentNote:
-    'Dr. King was born on 15 January 1929. The holiday always lands on the third Monday in January, so it moves between 15 and 21 January. Schools, banks and federal offices close in the United States.',
+    'Dr. King was born on January 15, 1929. The holiday always lands on the third Monday in January, so it moves between January 15 and 21. Schools, banks and federal offices close in the United States.',
   sources: [
     'The King Center, \'About Dr. King\'',
     'National Archives, \'Dr. Martin Luther King Jr. Day\'',

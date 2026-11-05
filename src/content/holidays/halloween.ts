@@ -22,7 +22,7 @@ const halloween: HolidayContent = {
       wow: true,
     },
     {
-      text: "The word Halloween is short for All Hallows' Eve, the evening before All Saints' Day on 1 November.",
+      text: "The word Halloween is short for All Hallows' Eve, the evening before All Saints' Day on November 1.",
       bigKids: true,
     },
     {

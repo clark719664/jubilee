@@ -1,24 +1,67 @@
 /**
- * parts.ts — the drawn bits of Color-in: crayons, the eraser, a few tool icons the shared icon set
+ * parts.ts — the drawn bits of Coloring: crayons, the eraser, a few tool icons the shared icon set
  * does not have, the Done stamp and its burst. Everything is built with svg()/h(); every shape sits
  * on or inside its neighbor's outline so the art holds up at 3× zoom (no floating bits, no gaps).
  */
 import { h, svg } from '../../ui/dom';
-import { mix, type Crayon } from './crayons';
+import { mix, type Crayon, type Texture } from './crayons';
 
 const INK = '#1f1a3d';
+
+const STAR = (x: number, y: number, r: number): string =>
+  `M${x} ${y - r}L${x + r * 0.3} ${y - r * 0.3}L${x + r} ${y}L${x + r * 0.3} ${y + r * 0.3}L${x} ${y + r}L${x - r * 0.3} ${y + r * 0.3}L${x - r} ${y}L${x - r * 0.3} ${y - r * 0.3}Z`;
+
+/** The repeating tile of a texture. Glitter's flecks come from a fixed seed, so a saved picture never changes. */
+function tile(t: Texture, size: number): SVGElement[] {
+  const ink = t.flecks[0] ?? '#ffffff';
+  const shape = (d: string, fill = ink): SVGElement => svg('path', { d, fill });
+  const dot = (cx: number, cy: number, r: number, fill = ink): SVGElement => svg('circle', { cx, cy, r, fill });
+  const q = size / 4;
+  switch (t.type) {
+    case 'dots': return [dot(q, q, q * 0.62), dot(q * 3, q * 3, q * 0.62)];
+    case 'stripes': return [shape(`M0 0H${size}V${size / 2}H0Z`)];
+    case 'diagonal': return [shape(`M0 ${size}L${size} 0V${size / 2}L${size / 2} ${size}Z M0 ${size / 2}V0H${size / 2}Z`)];
+    case 'checks': return [shape(`M0 0H${size / 2}V${size / 2}H0Z M${size / 2} ${size / 2}H${size}V${size}H${size / 2}Z`)];
+    case 'stars': return [shape(STAR(q, q, q * 0.85)), shape(STAR(q * 3, q * 3, q * 0.85))];
+    case 'hearts': return [q, q * 3].map((c) => shape(`M${c} ${c + q * 0.7}C${c - q} ${c},${c - q * 0.6} ${c - q * 0.8},${c} ${c - q * 0.2}C${c + q * 0.6} ${c - q * 0.8},${c + q} ${c},${c} ${c + q * 0.7}Z`));
+    case 'zigzag': return [svg('path', { d: `M0 ${q * 3}L${q * 2} ${q}L${size} ${q * 3}`, fill: 'none', stroke: ink, 'stroke-width': q * 0.9 })];
+    default: {
+      const out: SVGElement[] = [];
+      let s = 12345;
+      const rnd = (): number => { s = (Math.imul(s, 1664525) + 1013904223) >>> 0; return s / 4294967296; };
+      for (let i = 0; i < 64; i++) {
+        const fill = i % 3 === 2 ? mix(t.base, '#000000', 0.22) : t.flecks[i % t.flecks.length] ?? '#ffffff';
+        const x = Math.round(rnd() * size * 10) / 10, y = Math.round(rnd() * size * 10) / 10;
+        out.push(i % 7 === 0 ? shape(STAR(x, y, 2.6 + rnd() * 3), t.flecks[0]) : dot(x, y, Math.round((0.7 + rnd() * 1.5) * 10) / 10, fill));
+      }
+      return out;
+    }
+  }
+}
+
+/** The <defs> entry behind a gradient or textured crayon; `scale` shrinks a texture's tile for the small crayon drawing. */
+export function paintDef(c: Crayon, id: string, scale = 1): SVGElement | null {
+  if (c.gradient) {
+    const g = c.gradient.type === 'radial'
+      ? svg('radialGradient', { id, cx: '50%', cy: '42%', r: '70%' })
+      : svg('linearGradient', { id, x1: '0', y1: '0', x2: '0.4', y2: '1' });
+    for (const s of c.gradient.stops) g.append(svg('stop', { offset: s.offset, 'stop-color': s.color }));
+    return g;
+  }
+  if (!c.texture) return null;
+  const size = c.texture.type === 'glitter' ? 90 : 40;
+  return svg('pattern', { id, width: size, height: size, patternUnits: 'userSpaceOnUse', patternTransform: `scale(${scale})` },
+    svg('rect', { width: size, height: size, fill: c.texture.base }), ...tile(c.texture, size));
+}
 
 /** A crayon standing up: sharpened tip, paper wrapper with a little label, a shine down one side. */
 export function crayonArt(c: Crayon, uid: string): SVGSVGElement {
   const el = svg('svg', { viewBox: '0 0 40 100', class: 'cp-crayon-art', 'aria-hidden': 'true', focusable: 'false' });
   let body = c.color;
-  if (c.gradient) {
-    const gid = `${uid}-g`;
-    const grad = c.gradient.type === 'radial'
-      ? svg('radialGradient', { id: gid, cx: '50%', cy: '42%', r: '70%' })
-      : svg('linearGradient', { id: gid, x1: '0', y1: '0', x2: '0.4', y2: '1' });
-    for (const s of c.gradient.stops) grad.append(svg('stop', { offset: s.offset, 'stop-color': s.color }));
-    el.append(svg('defs', {}, grad));
+  const gid = `${uid}-g`;
+  const def = paintDef(c, gid, 0.4);
+  if (def) {
+    el.append(svg('defs', {}, def));
     body = `url(#${gid})`;
   }
   const wrap = c.gradient ? mix(c.color, '#ffffff', 0.25) : mix(c.color, '#000000', 0.16);

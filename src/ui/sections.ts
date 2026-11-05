@@ -81,7 +81,7 @@ export const STORY_HOLIDAYS: readonly string[] = [
 export const PLAY_LINKS: readonly PlayLink[] = [
   { id: 'doors', label: 'Doors', emoji: '🚪' },
   { id: 'seek', label: 'Seek & Find', emoji: '🔍' },
-  { id: 'color', label: 'Color-in', emoji: '🖍️' },
+  { id: 'color', label: 'Coloring', emoji: '🖍️' },
   { id: 'card', label: 'Make a card', emoji: '💌' },
   { id: 'wish', label: 'Wish Post', emoji: '📮' },
   { id: 'memory', label: 'Memory', emoji: '🃏' },
@@ -356,7 +356,7 @@ export function stickerState(
 
 export type DoorState = 'opened' | 'ready' | 'locked';
 
-/** The Christmas advent strip lives on the page from 1 to 24 December. */
+/** The Christmas advent strip lives on the page from December 1 to 24. */
 export function adventVisible(today: CivilDate): boolean {
   return today.m === 12 && today.d >= 1 && today.d <= 24;
 }
@@ -479,7 +479,7 @@ function monthName(month: number, locale: string | undefined): string {
 }
 
 function weekdayName(weekday: number, locale: string | undefined): string {
-  // 7 January 2024 was a Sunday (weekday 0).
+  // January 7, 2024 was a Sunday (weekday 0).
   return new Intl.DateTimeFormat(locale, { weekday: 'long' }).format(new Date(2024, 0, 7 + weekday, 12));
 }
 
@@ -492,7 +492,7 @@ const days = (n: number): string => plural(Math.abs(n), 'day', 'days');
 export function ruleInWords(rule: DateRule, region: Region, nameOf: (id: HolidayId) => string | undefined, locale?: string): string {
   switch (rule.kind) {
     case 'fixed':
-      return rule.month === 2 && rule.day === 29 ? '29 February, which only exists in leap years' : `${monthDay(rule.month, rule.day, locale)} every year`;
+      return rule.month === 2 && rule.day === 29 ? 'February 29, which only exists in leap years' : `${monthDay(rule.month, rule.day, locale)} every year`;
     case 'nthWeekday':
       return `the ${NTH[rule.n - 1] ?? `${rule.n}th`} ${weekdayName(rule.weekday, locale)} of ${monthName(rule.month, locale)}`;
     case 'lastWeekday':

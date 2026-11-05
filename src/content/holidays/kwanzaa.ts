@@ -2,10 +2,10 @@ import type { HolidayContent } from '../types';
 
 const content: HolidayContent = {
   story: [
-    'Kwanzaa is a seven-day celebration of African American family, community and culture, from 26 December to 1 January.',
+    'Kwanzaa is a seven-day celebration of African American family, community and culture, from December 26 to January 1.',
     "It was created in 1966 by Dr. Maulana Karenga, a professor in California, and its name comes from the Swahili phrase 'matunda ya kwanza', which means 'first fruits'.",
     'Each evening, families light one more candle on a holder called a kinara and talk about one of seven principles, like unity, creativity and faith.',
-    'On 31 December many families share a big feast called the Karamu, with music, stories and dancing.',
+    'On December 31 many families share a big feast called the Karamu, with music, stories and dancing.',
     'Kwanzaa is not a religious holiday, so many families celebrate it alongside Christmas or other holidays.',
   ],
   facts: [
@@ -174,7 +174,7 @@ const content: HolidayContent = {
           timerMinutes: 15,
           kidSafeOverride: 'a butter knife around the edge of a cooled pie cup',
         },
-        { text: 'Taste test! Top with a swirl of whipped cream and save a few for the Karamu feast on 31 December.' },
+        { text: 'Taste test! Top with a swirl of whipped cream and save a few for the Karamu feast on December 31.' },
       ],
       tip: 'No microwave? A grown-up can bake the whole sweet potato in the oven at 400°F / 200°C for about 45 minutes instead.',
     },
@@ -218,7 +218,7 @@ const content: HolidayContent = {
           hazards: ['small-parts'],
         },
         {
-          text: 'On the first night, switch on the black light in the middle. Each night after that, switch on one more, starting with the ones next to the black candle: the nearest red one, then the nearest green one, then the next red, and so on outward, until all seven glow on 1 January.',
+          text: 'On the first night, switch on the black light in the middle. Each night after that, switch on one more, starting with the ones next to the black candle: the nearest red one, then the nearest green one, then the next red, and so on outward, until all seven glow on January 1.',
           kidSafeOverride: 'switching on battery tea lights, not real candles',
         },
       ],
@@ -236,16 +236,16 @@ const content: HolidayContent = {
     { sleeps: 5, kind: 'fact', text: 'Many families wear kente cloth at Kwanzaa. Kente comes from Ghana and is woven in narrow strips, only about 10 cm (4 inches) wide, which are sewn side by side to make one big cloth.' },
     { sleeps: 4, kind: 'craft', text: 'Fold a piece of paper into a card and write one kind thing you will do for your family during Kwanzaa. That is a homemade zawadi, a gift!' },
     { sleeps: 3, kind: 'seek', text: 'Some sneaky things are hiding in the Kwanzaa picture. Can you find every single one? Open Seek & Find!' },
-    { sleeps: 2, kind: 'fact', text: 'Kwanzaa gifts, called zawadi, are traditionally given on the last day, 1 January. The founder of Kwanzaa said they should include a book and a heritage symbol that celebrates African history and culture.' },
+    { sleeps: 2, kind: 'fact', text: 'Kwanzaa gifts, called zawadi, are traditionally given on the last day, January 1. The founder of Kwanzaa said they should include a book and a heritage symbol that celebrates African history and culture.' },
     { sleeps: 1, kind: 'say', text: "Tomorrow the first Kwanzaa candle is lit! Practise the question everyone asks each day, and get ready to answer 'Umoja!'", greeting: 0 },
   ],
   parentNote:
-    'Kwanzaa runs on fixed dates, 26 December to 1 January, and each day has its own principle (shown in the day names above). It is a cultural celebration, not a religious one, so families of any faith take part, often alongside Christmas. The Karamu feast is traditionally held on 31 December. The kinara craft here uses battery tea lights only; the app never suggests real candles for children.',
+    'Kwanzaa runs on fixed dates, December 26 to January 1, and each day has its own principle (shown in the day names above). It is a cultural celebration, not a religious one, so families of any faith take part, often alongside Christmas. The Karamu feast is traditionally held on December 31. The kinara craft here uses battery tea lights only; the app never suggests real candles for children.',
   sources: [
     'Maulana Karenga, Kwanzaa: A Celebration of Family, Community and Culture (University of Sankore Press, 1998), "The Seven Principles (Nguzo Saba)" and "The Symbols of Kwanzaa"',
     'Smithsonian National Museum of African American History and Culture, "The Seven Principles of Kwanzaa"',
     'Library of Congress Research Guides, "Kwanzaa"',
-    'United States Postal Service, "Kwanzaa" commemorative stamp, first issued 22 October 1997',
+    'United States Postal Service, "Kwanzaa" commemorative stamp, first issued October 22, 1997',
   ],
 };
 

@@ -40,8 +40,10 @@ export function usableFindables(list: readonly Findable[]): Findable[] {
 }
 
 export function resolveScene(holidayId: string): SeekScene | null {
-  const layers = override ? override.layers : sceneFor(holidayId);
-  const findables = usableFindables(override ? override.findables : sceneDataFor(holidayId).findables);
+  // Silly days have no scene of their own, so they all share the silliest one.
+  const id = sceneFor(holidayId) ? holidayId : 'april-fools-day';
+  const layers = override ? override.layers : sceneFor(id);
+  const findables = usableFindables(override ? override.findables : sceneDataFor(id).findables);
   if (!layers || !layers.some((l) => l.name === 'mid') || findables.length < MIN_FINDABLES) return null;
   return { layers, findables };
 }

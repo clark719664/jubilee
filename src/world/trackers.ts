@@ -192,7 +192,7 @@ export function midnightCard(now: Date, cities: readonly City[], deviceZone: str
 
 export interface SantaCard {
   readonly status: SantaStatus;
-  /** 1–26 December on the device. */
+  /** 1–December 26 on the device. */
   readonly season: boolean;
   readonly headline: string;
   readonly lines: readonly string[];

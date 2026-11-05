@@ -4,7 +4,7 @@
  * nodes are refreshed once a second from the plain data in trackers.ts.
  *
  * Visibility: day/night, moon and "right now" always show. The wave card is live from 26
- * December to 2 January and during its pretend show; Santa is live 1–26 December, while he
+ * December to January 2 and during its pretend show; Santa is live 1–December 26, while he
  * flies, and during the replay. Outside their seasons both shrink to a teaser with the show
  * button and move to the end of the grid. While a show (or a real flight or wave) is on, a
  * one-line summary is also offered for the heads-up panel on the globe (`hud()`).

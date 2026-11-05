@@ -1,6 +1,10 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
+import { colorPages } from '../src/art/index';
 import { HOLIDAYS } from '../src/content/registry';
+import { crayonBox, crayonDrawers, paintFor } from '../src/play/color/crayons';
+import { cleanFills } from '../src/play/color/store';
+import { THEMES } from '../src/theme/themes';
 import { countWords, inAppBrowser, platformOf } from '../src/landing/install';
 import { spanFill } from '../src/ui/year';
 
@@ -58,5 +62,24 @@ describe('calendar fill for several-day holidays', () => {
     expect(two).toMatch(/^linear-gradient\(135deg/);
     expect(two).toContain('0% 50%');
     expect(two).toContain('50% 100%');
+  });
+});
+
+describe('coloring pages for every holiday', () => {
+  it('gives every holiday pages, and popular holidays the most', () => {
+    for (const m of HOLIDAYS) expect(colorPages(m.id).length, m.id).toBeGreaterThanOrEqual(2);
+    const count = (id: string): number => colorPages(id).length;
+    expect(count('christmas')).toBeGreaterThanOrEqual(10);
+    expect(count('christmas')).toBeGreaterThan(count('earth-day'));
+    expect(count('earth-day')).toBeGreaterThanOrEqual(count('leap-day'));
+  });
+  it('keeps more crayons than a phone can show in sorted drawers', () => {
+    const box = crayonBox(THEMES.christmas, 'Christmas');
+    expect(box.length).toBeGreaterThanOrEqual(130);
+    expect(new Set(box.map((c) => c.id)).size).toBe(box.length);
+    const drawers = crayonDrawers(box);
+    expect(drawers.flatMap((d) => d.crayons).length).toBe(box.length);
+    expect(paintFor('g-gold', box, 'p')).toBe('url(#p-g-gold)');
+    expect(cleanFills({ a: 'g-rosegold', b: 'x-cottoncandyswirl', c: 'nope' })).toEqual({ a: 'g-rosegold', b: 'x-cottoncandyswirl' });
   });
 });

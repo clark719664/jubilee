@@ -67,14 +67,24 @@ export function sceneDataFor(id: string): SceneData {
 /** Coloring pages in `color/<id>.svg`: line art whose fillable regions carry `data-fill` ids. */
 const colorFiles = import.meta.glob('./color/*.svg', { query: '?raw', import: 'default', eager: false }) as Record<string, () => Promise<string>>;
 
-/** Raw SVG source of a holiday's coloring page (bundled, test-checked), or null. Loaded on demand. */
+/** Holidays that share another holiday's pages. */
+const SHARED_PAGES: Readonly<Record<string, string>> = { 'mothers-day-fr': 'mothers-day' };
+
+/** A holiday's page ids, `<id>--page<n>`, in page order. */
+export function colorPages(id: string): string[] {
+  const own = SHARED_PAGES[id] ?? id;
+  const ids = Object.keys(colorFiles).map((f) => f.replace('./color/', '').replace('.svg', ''));
+  return ids.filter((p) => p === own || p.startsWith(`${own}--`)).sort((a, b) => a.length - b.length || a.localeCompare(b, 'en'));
+}
+
+/** Raw SVG source of a coloring page (bundled, test-checked), or null. Loaded on demand. */
 export async function colorPageSource(id: string): Promise<string | null> {
   const load = colorFiles[`./color/${id}.svg`];
   return load ? load() : null;
 }
 
 export function hasColorPage(id: string): boolean {
-  return `./color/${id}.svg` in colorFiles;
+  return colorPages(id).length > 0;
 }
 
 const worldFiles = import.meta.glob('./world/*.svg', { query: '?url', import: 'default', eager: true }) as Record<string, string>;

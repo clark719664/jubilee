@@ -3,7 +3,7 @@ import type { HolidayContent } from '../types';
 const content: HolidayContent = {
   story: [
     'On New Year\'s Day the calendar flips to a brand-new year.',
-    'Many families stay up late the night before, then spend 1 January resting, eating special foods and making wishes for the months ahead.',
+    'Many families stay up late the night before, then spend January 1 resting, eating special foods and making wishes for the months ahead.',
     'Some people make resolutions: promises to try something new or kind.',
     'Others eat lucky foods, such as black-eyed peas in the southern United States, long noodles in Japan, or lentils in Italy.',
   ],
@@ -16,7 +16,7 @@ const content: HolidayContent = {
       wow: true,
     },
     {
-      text: 'The Romans started their year on 1 January more than 2,000 years ago, and when Julius Caesar introduced his new calendar in 46 BC he kept that date. Most of the world still uses a version of his calendar. Many older calendars had begun the year in March.',
+      text: 'The Romans started their year on January 1 more than 2,000 years ago, and when Julius Caesar introduced his new calendar in 46 BC he kept that date. Most of the world still uses a version of his calendar. Many older calendars had begun the year in March.',
       bigKids: true,
     },
   ],
@@ -29,7 +29,7 @@ const content: HolidayContent = {
   recipes: [],
   crafts: [],
   parentNote:
-    'In the United States, when 1 January falls on a weekend, federal offices and many schools take the nearest weekday off instead. The app shows that day-off date separately.',
+    'In the United States, when January 1 falls on a weekend, federal offices and many schools take the nearest weekday off instead. The app shows that day-off date separately.',
   sources: [
     'Encyclopaedia Britannica, \'New Year\'s Day\'',
     'Library of Congress, \'Today in History: January 1\'',

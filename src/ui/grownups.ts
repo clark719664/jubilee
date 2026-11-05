@@ -51,7 +51,7 @@ export type CustomCheck =
 
 const MONTH_EN = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-/** The next year with a 29 February, on or after `from`. */
+/** The next year with a February 29, on or after `from`. */
 export function nextLeapYear(from: number): number {
   let y = from;
   while (!isLeap(y)) y += 1;
@@ -59,9 +59,9 @@ export function nextLeapYear(from: number): number {
 }
 
 /**
- * Validates the custom-day form. Days are checked against a leap year so 29 February is
+ * Validates the custom-day form. Days are checked against a leap year so February 29 is
  * allowed (with a note: it only shows up in leap years); a birth year must be 1900…this
- * year, and a 29 February birthday needs a birth year that had one.
+ * year, and a February 29 birthday needs a birth year that had one.
  */
 export function validateCustom(input: CustomInput, thisYear: number): CustomCheck {
   const errors: Partial<Record<CustomField, string>> = {};
@@ -82,12 +82,12 @@ export function validateCustom(input: CustomInput, thisYear: number): CustomChec
   if (yearText !== '') {
     year = Number(yearText);
     if (!/^\d{4}$/.test(yearText) || year < 1900 || year > thisYear) errors.year = `Use a year between 1900 and ${thisYear}, or leave it empty.`;
-    else if (month === 2 && day === 29 && !isLeap(year)) errors.year = `29 February didn’t happen in ${year}. Check the year?`;
+    else if (month === 2 && day === 29 && !isLeap(year)) errors.year = `February 29 didn’t happen in ${year}. Check the year?`;
   }
   if (Object.keys(errors).length > 0) return { ok: false, errors };
   const value: Omit<CustomHoliday, 'id'> = { name, emoji, month, day, ...(year !== undefined ? { year } : {}) };
   if (month === 2 && day === 29) {
-    return { ok: true, value, note: `A 29 February day only shows up in leap years. The next one is ${nextLeapYear(thisYear)}.` };
+    return { ok: true, value, note: `A February 29 day only shows up in leap years. The next one is ${nextLeapYear(thisYear)}.` };
   }
   return { ok: true, value };
 }
@@ -142,7 +142,7 @@ const T = {
 const t = (s: string, vars: Record<string, string | number>): string => s.replace(/\{(\w+)\}/g, (m, k: string) => (k in vars ? String(vars[k]) : m));
 
 const COMPUTED_RULES: readonly string[] = [
-  'Fixed dates, like Halloween on 31 October.',
+  'Fixed dates, like Halloween on October 31.',
   'The nth weekday of a month, like the fourth Thursday of November for US Thanksgiving.',
   'The last weekday of a month, like Memorial Day.',
   'Easter by the Gregorian computus, and Orthodox Easter by the Julian one; Pancake Day is 47 days before Easter.',
@@ -260,13 +260,13 @@ function customSection(ctx: AppContext, list: HTMLElement): HTMLElement {
 
   const fillDays = (): void => {
     const keep = daySel.value || '1';
-    const n = daysInMonth(2024, Number(monthSel.value)); // a leap year, so 29 February is offered
+    const n = daysInMonth(2024, Number(monthSel.value)); // a leap year, so February 29 is offered
     daySel.replaceChildren(...Array.from({ length: n }, (_, i) => h('option', { value: i + 1 }, String(i + 1))));
     daySel.value = Number(keep) <= n ? keep : String(n);
   };
   const updateNote = (): void => {
     note.textContent = monthSel.value === '2' && daySel.value === '29'
-      ? `A 29 February day only shows up in leap years. The next one is ${nextLeapYear(thisYear)}.` : '';
+      ? `A February 29 day only shows up in leap years. The next one is ${nextLeapYear(thisYear)}.` : '';
   };
   monthSel.addEventListener('change', () => { fillDays(); updateNote(); });
   daySel.addEventListener('change', updateNote);

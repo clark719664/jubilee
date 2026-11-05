@@ -16,7 +16,7 @@ const content: HolidayContent = {
       wow: true,
     },
     {
-      text: 'Other countries pick their own dates: in Poland, Grandma\'s Day is 21 January and Grandpa\'s Day is the very next day.',
+      text: 'Other countries pick their own dates: in Poland, Grandma\'s Day is January 21 and Grandpa\'s Day is the very next day.',
     },
   ],
   greetings: [
@@ -31,7 +31,7 @@ const content: HolidayContent = {
   recipes: [],
   crafts: [],
   parentNote:
-    'In the United States the day is always the first Sunday after Labor Day, so it falls between 7 and 13 September. It is not a day off school or work. The United Kingdom marks it on the first Sunday in October.',
+    'In the United States the day is always the first Sunday after Labor Day, so it falls between September 7 and 13. It is not a day off school or work. The United Kingdom marks it on the first Sunday in October.',
   sources: [
     'Jimmy Carter, Proclamation 4580, "National Grandparents Day, 1978"',
     'Encyclopaedia Britannica, "Grandparents Day"',

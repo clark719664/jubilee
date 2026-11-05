@@ -11,6 +11,7 @@
  * out. Esc goes back. Made for the youngest players: big targets, no reading needed.
  * Motion: full → ghosts rise with a spring, float away when found; otherwise they appear and vanish.
  */
+import { playClip } from '../../ui/voice';
 import './peekaboo.css';
 import { mulberry32 } from '../../effects/rng';
 import { h } from '../../ui/dom';
@@ -70,6 +71,7 @@ function mountPeekaboo(env: PlayEnv): ActivityInstance {
   shell.body.append(h('div', { class: 'pb-layout' }, yard, tray), say);
 
   function speak(text: string, announce = true): void {
+    if (playClip(text)) return;
     say.textContent = text;
     say.classList.add('is-on');
     shell.cancel(sayTimer);

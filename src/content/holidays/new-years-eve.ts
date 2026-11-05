@@ -2,8 +2,8 @@ import type { HolidayContent } from '../types';
 
 const newYearsEve: HolidayContent = {
   story: [
-    "New Year's Eve is 31 December, the last night of the year, when people all over the world stay up late to count down to midnight.",
-    'Parties at the turn of the year are thousands of years old, and the date of 1 January comes from the Roman calendar, whose first month is named after Janus, a god with two faces who looks backwards and forwards at once.',
+    "New Year's Eve is December 31, the last night of the year, when people all over the world stay up late to count down to midnight.",
+    'Parties at the turn of the year are thousands of years old, and the date of January 1 comes from the Roman calendar, whose first month is named after Janus, a god with two faces who looks backwards and forwards at once.',
     'Every country has its own midnight tradition: in Spain people eat twelve grapes, in Scotland Hogmanay means first-footing, in Japan temple bells ring 108 times and in New York a giant crystal ball drops in Times Square.',
     'Many families bang pots and pans at midnight, let off party poppers, hug everyone in the room and shout Happy New Year!',
   ],
@@ -35,7 +35,7 @@ const newYearsEve: HolidayContent = {
 
   greetings: [
     { lang: 'es', langName: 'Spanish', text: '¡Feliz Año Nuevo!', sayIt: 'feh-LEES AH-nyoh NWEH-voh', meaning: 'Happy New Year!' },
-    { lang: 'zh-Hans', langName: 'Chinese (Mandarin)', text: '新年快乐', roman: 'Xīnnián kuàilè', sayIt: 'shin-NYEN KWHY-luh', meaning: 'Happy New Year! (said for 1 January and for Lunar New Year)' },
+    { lang: 'zh-Hans', langName: 'Chinese (Mandarin)', text: '新年快乐', roman: 'Xīnnián kuàilè', sayIt: 'shin-NYEN KWHY-luh', meaning: 'Happy New Year! (said for January 1 and for Lunar New Year)' },
     { lang: 'ja', langName: 'Japanese', text: 'あけましておめでとうございます', roman: 'Akemashite omedetō gozaimasu', sayIt: 'ah-keh-mah-SHTEH oh-meh-deh-TOH goh-zah-ee-MAHS', meaning: "Happy New Year! (said from midnight; before then people say 'yoi otoshi o', have a good year)" },
     { lang: 'de', langName: 'German', text: 'Guten Rutsch!', sayIt: 'GOO-ten ROOTSH', meaning: "Have a good start to the new year! (literally 'good slide', said before midnight)" },
     { lang: 'de', langName: 'German', text: 'Frohes neues Jahr!', sayIt: 'FROH-es NOY-es YAHR', meaning: 'Happy New Year!' },
@@ -160,7 +160,7 @@ const newYearsEve: HolidayContent = {
     "New Year's Eve runs late, so the countdown clock in the app shows hours, minutes and seconds to midnight in your own time zone. Popcorn is not for under-fours, and uninflated balloons and balloon pieces are a choking risk for children under eight, so supervise the poppers, bin the scraps and check for latex allergies.",
 
   sources: [
-    "Encyclopaedia Britannica, 'New Year festival' (Janus and 1 January; Hogmanay and first-footing; customs around the world)",
+    "Encyclopaedia Britannica, 'New Year festival' (Janus and January 1; Hogmanay and first-footing; customs around the world)",
     "Times Square Alliance, 'About the New Year's Eve ball' (since 1907; weight and crystal panels of the current ball)",
     "Japan National Tourism Organization, 'New Year in Japan' (joya no kane, the 108 bells)",
     "BBC Travel, 'Spain's twelve lucky grapes' (las doce uvas de la suerte)",

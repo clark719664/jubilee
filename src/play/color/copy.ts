@@ -5,6 +5,12 @@
  */
 export const COPY = {
   title: 'Coloring',
+  pickTitle: 'Pick one of {n} pages',
+  pickOne: 'Coloring page {n} of {total}',
+  pickStarted: 'Started',
+  holidayGlitter: '{holiday} glitter',
+  drawerHoliday: 'Holiday', drawerBasics: 'Basics', drawerMixed: 'Mixed', drawerBlends: 'Blends',
+  drawerGlitter: 'Glitter', drawerShiny: 'Shiny', drawerPatterns: 'Patterns',
   emoji: '🖍️',
   blurb: 'Tap a shape to fill it with your crayon',
   sub: 'My {holiday} picture',

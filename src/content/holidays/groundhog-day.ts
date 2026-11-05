@@ -2,7 +2,7 @@ import type { HolidayContent } from '../types';
 
 const content: HolidayContent = {
   story: [
-    'On 2 February, people in the United States and Canada watch a groundhog come out of its burrow.',
+    'On February 2, people in the United States and Canada watch a groundhog come out of its burrow.',
     'The legend says that if the groundhog sees its shadow, there will be six more weeks of winter, and if it does not, spring is coming early.',
     'The most famous groundhog, Punxsutawney Phil, has been making predictions in a small town in Pennsylvania since 1887.',
   ],
@@ -12,7 +12,7 @@ const content: HolidayContent = {
       wow: true,
     },
     {
-      text: 'The tradition grew out of an old European custom on Candlemas, 2 February, when people watched for a badger or hedgehog. German settlers in Pennsylvania swapped in the groundhog, and the first official Punxsutawney forecast was in 1887.',
+      text: 'The tradition grew out of an old European custom on Candlemas, February 2, when people watched for a badger or hedgehog. German settlers in Pennsylvania swapped in the groundhog, and the first official Punxsutawney forecast was in 1887.',
       bigKids: true,
     },
     {

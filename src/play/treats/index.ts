@@ -12,6 +12,7 @@
  * Motion: full → the door swings, the treat hops into the pail, the pail wobbles; otherwise the door is
  * simply open and the count changes.
  */
+import { playClip } from '../../ui/voice';
 import './treats.css';
 import { mulberry32 } from '../../effects/rng';
 import { h } from '../../ui/dom';
@@ -78,6 +79,7 @@ function mountTreats(env: PlayEnv): ActivityInstance {
 
   let sayTimer: number | null = null;
   function speak(text: string): void {
+    if (playClip(text)) return;
     say.textContent = text;
     say.classList.add('is-on');
     shell.cancel(sayTimer);

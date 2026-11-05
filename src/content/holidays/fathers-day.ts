@@ -11,7 +11,7 @@ const fathersDay: HolidayContent = {
 
   facts: [
     {
-      text: "The first Father's Day was celebrated on 19 June 1910 in Spokane, Washington, and President Richard Nixon signed the law that made it a permanent national holiday in 1972.",
+      text: "The first Father's Day was celebrated on June 19, 1910 in Spokane, Washington, and President Richard Nixon signed the law that made it a permanent national holiday in 1972.",
       bigKids: true,
     },
     {
@@ -22,7 +22,7 @@ const fathersDay: HolidayContent = {
       text: 'In Germany, Vatertag falls on Ascension Day, a Thursday in spring, and groups of dads often walk through the countryside pulling a little wagon loaded with picnic food.',
     },
     {
-      text: 'Thailand celebrates Father’s Day on 5 December, the birthday of the late King Bhumibol, and many people wear yellow because that is the color of Monday, the day he was born.',
+      text: 'Thailand celebrates Father’s Day on December 5, the birthday of the late King Bhumibol, and many people wear yellow because that is the color of Monday, the day he was born.',
       bigKids: true,
     },
     {
@@ -30,7 +30,7 @@ const fathersDay: HolidayContent = {
       wow: true,
     },
     {
-      text: 'In Brazil, Dia dos Pais is the second Sunday in August, while Spain, Italy and Portugal celebrate on 19 March, the feast day of Saint Joseph.',
+      text: 'In Brazil, Dia dos Pais is the second Sunday in August, while Spain, Italy and Portugal celebrate on March 19, the feast day of Saint Joseph.',
     },
   ],
 
@@ -149,13 +149,13 @@ const fathersDay: HolidayContent = {
   ],
 
   doors: [
-    { sleeps: 12, kind: 'fact', text: "Sonora Smart Dodd wanted the first Father's Day on 5 June, her dad's birthday, but the local churches needed more time to get ready, so it moved to 19 June 1910." },
+    { sleeps: 12, kind: 'fact', text: "Sonora Smart Dodd wanted the first Father's Day on June 5, her dad's birthday, but the local churches needed more time to get ready, so it moved to June 19, 1910." },
     { sleeps: 11, kind: 'joke', text: 'Time to practice your dad jokes! What do you call a fish wearing a bow tie? Sofishticated!' },
     { sleeps: 10, kind: 'craft', text: 'Cut a circle from an old cereal box with safety scissors, cover it in kitchen foil and tape on a ribbon: a Best Dad medal, ready to hang.' },
     { sleeps: 9, kind: 'fact', text: 'Emperor penguin dads keep their egg warm on their feet for about two months in the Antarctic winter, eating nothing at all until the chick hatches.' },
     { sleeps: 8, kind: 'say', text: "Learn to say Happy Father's Day in German, where lots of dads celebrate Vatertag with a long walk!", greeting: 2 },
     { sleeps: 7, kind: 'color', text: "Color in the Father's Day page. Give it bold stripes, wild spots or your dad's favorite color!" },
-    { sleeps: 6, kind: 'fact', text: "In Taiwan, Father's Day is on 8 August, because 8/8 in Mandarin is 'ba ba', which sounds a lot like baba, the word for Dad." },
+    { sleeps: 6, kind: 'fact', text: "In Taiwan, Father's Day is on August 8, because 8/8 in Mandarin is 'ba ba', which sounds a lot like baba, the word for Dad." },
     { sleeps: 5, kind: 'joke', text: "What did the baby corn say to the papa corn? Where's popcorn?" },
     { sleeps: 4, kind: 'seek', text: "Some sneaky surprises are hiding in the Father's Day picture. Can you spot every one? Open Seek & Find!" },
     { sleeps: 3, kind: 'fact', text: 'Seahorse dads carry the babies: the mom puts her eggs into a pouch on his tummy, and a few weeks later he gives birth to hundreds of tiny seahorses.' },
@@ -170,7 +170,7 @@ const fathersDay: HolidayContent = {
     "Encyclopaedia Britannica, 'Father's Day' (Sonora Smart Dodd, Spokane 1910; permanent national holiday 1972; dates around the world)",
     "Library of Congress, 'Today in History: June 19' (the first Father's Day, 1910)",
     "Deutsche Welle, 'Vatertag: how Germany celebrates Father's Day on Ascension Day'",
-    "Tourism Authority of Thailand, 'Father's Day in Thailand' (5 December, King Bhumibol's birthday, the color yellow)",
+    "Tourism Authority of Thailand, 'Father's Day in Thailand' (December 5, King Bhumibol's birthday, the color yellow)",
   ],
 };
 

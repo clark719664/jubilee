@@ -6,7 +6,7 @@ import type { HolidayContent } from '../types';
  */
 const dayOfTheDead: HolidayContent = {
   story: [
-    'Day of the Dead, or Día de Muertos, is a Mexican holiday on 1 and 2 November when families remember relatives who have died and welcome their memory home.',
+    'Day of the Dead, or Día de Muertos, is a Mexican holiday on November 1 and 2 when families remember relatives who have died and welcome their memory home.',
     'It blends the ancient traditions of Indigenous peoples such as the Mexica (Aztecs), who held festivals for the dead, with the Catholic days of All Saints and All Souls.',
     'Many families build an ofrenda, a table covered in photos, candles, orange marigolds, sugar skulls, paper banners and the favorite foods of the people they are remembering.',
     'It is not a sad or spooky day: there is music, laughter and story-telling, because the idea is that loved ones are never really gone while someone still says their name.',
@@ -18,7 +18,7 @@ const dayOfTheDead: HolidayContent = {
       wow: true,
     },
     {
-      text: 'The two days have different jobs: 1 November, Día de los Angelitos, remembers children who have died, and 2 November, Día de los Muertos, remembers grown-ups.',
+      text: 'The two days have different jobs: November 1, Día de los Angelitos, remembers children who have died, and November 2, Día de los Muertos, remembers grown-ups.',
       bigKids: true,
     },
     {
@@ -214,7 +214,7 @@ const dayOfTheDead: HolidayContent = {
   ],
 
   parentNote:
-    'Day of the Dead is about remembering, not fear: the skulls here are sweet and smiling. 1 November honors children who have died and 2 November adults, so the holiday can be tender for a family that has lost someone; children who want to make a small ofrenda of their own should be allowed to lead.',
+    'Day of the Dead is about remembering, not fear: the skulls here are sweet and smiling. November 1 honors children who have died and November 2 adults, so the holiday can be tender for a family that has lost someone; children who want to make a small ofrenda of their own should be allowed to lead.',
 
   sources: [
     "Smithsonian National Museum of the American Latino, 'Día de los Muertos' (Latino history and culture resources)",

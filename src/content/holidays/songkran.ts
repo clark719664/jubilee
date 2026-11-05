@@ -2,7 +2,7 @@ import type { HolidayContent } from '../types';
 
 const content: HolidayContent = {
   story: [
-    'Songkran is the traditional Thai New Year, celebrated from 13 to 15 April in the hottest part of the year.',
+    'Songkran is the traditional Thai New Year, celebrated from April 13 to 15 in the hottest part of the year.',
     'Many families visit temples, clean their homes and gently pour water over Buddha statues and the hands of grandparents as a blessing for the year ahead.',
     'Out in the streets the blessing turns into a giant water fight, with buckets, water guns and lots of laughing.',
   ],
@@ -40,7 +40,7 @@ const content: HolidayContent = {
   recipes: [],
   crafts: [],
   parentNote:
-    'The official public holiday runs 13 to 15 April, though some towns celebrate for longer. In 2023 Songkran in Thailand was added to the UNESCO list of intangible cultural heritage.',
+    'The official public holiday runs April 13 to 15, though some towns celebrate for longer. In 2023 Songkran in Thailand was added to the UNESCO list of intangible cultural heritage.',
   sources: [
     'UNESCO Intangible Cultural Heritage, "Songkran in Thailand, traditional Thai New Year festival" (2023)',
     'Tourism Authority of Thailand, "Songkran Festival"',

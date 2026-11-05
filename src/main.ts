@@ -20,6 +20,7 @@ import { COPY, fmt, VIEW_NAMES } from './ui/copy';
 import { clear, h } from './ui/dom';
 import { mountShell, type Shell } from './ui/shell';
 import { createView, preloadViews, tabFor } from './ui/views';
+import { loadVoice } from './ui/voice';
 
 function errorCard(err: unknown): HTMLElement {
   return h('section', { class: 'fatal' },
@@ -36,11 +37,12 @@ function fatal(root: HTMLElement, err: unknown): void {
 }
 
 function boot(root: HTMLElement): void {
+  void loadVoice();
   // ── flags, clock, settings ──
   const flags = parseQuery(location.search);
   const pretend = parseTodayFlag(new URLSearchParams(location.search).get('today'));
   const clock = pretend ? pretendClock(pretend) : localClock();
-  const locale = navigator.language || 'en';
+  const locale = 'en-US';
   const detectedRegion = detectRegion(navigator.language);
 
   // ── progress ──

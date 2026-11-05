@@ -2,7 +2,7 @@
  * Santa's Christmas Eve journey, worked out from the clock alone, so the sleigh is in the
  * same place for everyone in the same time zone (deterministic, no network).
  *
- *  - He visits each city at its own local midnight on 25 December (the arrival order of
+ *  - He visits each city at its own local midnight on December 25 (the arrival order of
  *    midnight.ts). Cities that share an instant (all of UTC+8, say) are visited inside the
  *    hour after their midnight, so the sleigh never has to be in two places and every visit
  *    is after bedtime. Each zone is swept as a "snake": north → south or south → north,
@@ -13,13 +13,13 @@
  *  - Within each hour the sleigh flies at a steady speed: stop times are spaced by distance,
  *    including the hop to the next zone's first stop, which lands exactly at that midnight.
  *  - He takes off from the North Pole half an hour before the first midnight (UTC+14 meets
- *    25 December at 10:00 UTC on the 24th) and lands back home when 25 December reaches
+ *    December 25 at 10:00 UTC on the 24th) and lands back home when December 25 reaches
  *    UTC−12, at 12:00 UTC on the 25th.
  *  - Between stops the sleigh follows the great circle (`slerp`) by time fraction.
  *  - Presents are a fun estimate: 2.6 per person (pop is in millions), growing smoothly
  *    on the way to each stop.
  *
- * Outside his flight the phase is 'workshop' (or 'done' on 24–25 December device-local
+ * Outside his flight the phase is 'workshop' (or 'done' on 24–December 25 device-local
  * time after he is home) and the sleigh sits on the pole.
  */
 import { addDays, type CivilDate } from '../dates/civil';
@@ -59,7 +59,7 @@ export interface SantaStatus {
   readonly visited: readonly City[];
   readonly next: City | null;
   readonly presents: number;
-  /** Until midnight on 25 December in the device's zone (≤ 0 once it has passed). */
+  /** Until midnight on December 25 in the device's zone (≤ 0 once it has passed). */
   readonly msUntilYourHouse: number;
   readonly msUntilNextStop: number;
   readonly route: SantaRoute;
@@ -78,7 +78,7 @@ const routes = new WeakMap<readonly City[], Map<string, SantaRoute>>();
 
 interface Zone { readonly at: number; readonly cities: City[] }
 
-/** Cities grouped by the instant 25 December reaches them, earliest first. */
+/** Cities grouped by the instant December 25 reaches them, earliest first. */
 function zonesFor(year: number, cities: readonly City[]): Zone[] {
   const day: CivilDate = { y: year, m: 12, d: 25 };
   const timed = cities.map((city) => ({ city, at: midnightIn(city.tz, day) }));
@@ -143,7 +143,7 @@ export function santaRoute(year: number, cities: readonly City[], homeId = ''): 
 
   const first = stops[0]?.at ?? Date.UTC(year, 11, 24, 10);
   const departs = first - TAKEOFF_LEAD;
-  // Home when 25 December reaches UTC−12, or a little after the last stop if that is later.
+  // Home when December 25 reaches UTC−12, or a little after the last stop if that is later.
   const last = stops[stops.length - 1]?.at ?? departs;
   const returns = Math.max(Date.UTC(year, 11, 25, 12), last + 20 * MIN);
   const route: SantaRoute = { year, stops: [POLE_STOP(departs), ...stops, POLE_STOP(returns)], departs, returns };
@@ -181,7 +181,7 @@ function presentsFor(pop: number): number {
 
 /**
  * Where Santa is at `now`. `deviceZone` only decides the "your house" countdown and whether
- * a finished flight shows as 'done' (24–25 December where the viewer is) or 'workshop'.
+ * a finished flight shows as 'done' (24–December 25 where the viewer is) or 'workshop'.
  */
 export function santaStatus(now: Date, cities: readonly City[], deviceZone: string = currentZone()): SantaStatus {
   const t = now.getTime();
@@ -276,7 +276,7 @@ export function sleepsToChristmasEve(today: CivilDate): number {
   return n;
 }
 
-/** The weeks the Santa card shows in full: 1–26 December. */
+/** The weeks the Santa card shows in full: 1–December 26. */
 export function inSantaSeason(today: CivilDate): boolean {
   return today.m === 12 && today.d <= 26;
 }

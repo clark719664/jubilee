@@ -1,5 +1,5 @@
 /**
- * The Christmas advent strip (1–24 December): today's and earlier doors open to a fact, a joke or a tiny craft
+ * The Christmas advent strip (1–December 24): today's and earlier doors open to a fact, a joke or a tiny craft
  * (remembered via `store.openAdvent`); later doors shake and say "Not yet! N more sleeps" — no shake when motion
  * is calm. A horizontal strip on phones, a grid on wider screens; the opened door's text shows underneath.
  */

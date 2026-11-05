@@ -1,13 +1,14 @@
 /**
- * reader.ts — "Read to me": the page read aloud by the device's own voice (SpeechSynthesis), only when the
- * child taps the button and only when a voice for the book's language exists (otherwise the button is not
- * shown at all). Sentences are spoken one utterance at a time so the page can light up the sentence being
+ * reader.ts — "Read to me": the page read aloud in Jubilee's recorded voice (ui/voice.ts), or by the device's
+ * own voice (SpeechSynthesis) for any line without a clip, only when the child taps the button. With neither
+ * available the button is not shown at all. Sentences are spoken one utterance at a time so the page can light up the sentence being
  * read, and word boundaries (where the voice reports them) light up the word. Nothing is recorded or sent.
  *
  * Some locked-down or embedded webviews throw from speechSynthesis (getVoices, speak). Every call is guarded:
  * a voice that throws counts as no voice, so the button hides and page turns never break.
  */
 import { speakableVoice } from '../../ui/greetings';
+import { hasClip, playClip, stopClip, voiceReady } from '../../ui/voice';
 
 export interface ReadState {
   readonly sentence: number;
@@ -48,23 +49,32 @@ export class ReadAloud {
 
   /** A matching voice exists right now (Chrome fills the list in late; see onVoicesChanged). */
   available(): boolean {
-    return voiceFor(this.lang) !== null;
+    return voiceReady() || voiceFor(this.lang) !== null;
   }
 
   get active(): boolean {
     return this.reading;
   }
 
-  read(sentences: readonly string[], wordIndex: (sentence: number, charIndex: number) => number): void {
+  /** `spoken` is what the recordings say, which differs from `sentences` once a child has typed a name. */
+  read(sentences: readonly string[], wordIndex: (sentence: number, charIndex: number) => number, spoken = sentences): void {
     const s = synth();
     const voice = voiceFor(this.lang);
     this.stop();
-    if (!s || !voice || sentences.length === 0) return;
+    if (sentences.length === 0) return;
     const run = ++this.run;
     this.reading = true;
     const say = (i: number): void => {
       if (run !== this.run) return;
       if (i >= sentences.length) { this.finish(run); return; }
+      const line = spoken[i] ?? sentences[i]!;
+      if (hasClip(line)) {
+        this.onState({ sentence: i, word: -1 });
+        playClip(line, (ok) => { if (run === this.run) { if (ok) say(i + 1); else device(i); } });
+      } else device(i);
+    };
+    const device = (i: number): void => {
+      if (!s || !voice) { say(i + 1); return; }
       try {
         const u = new SpeechSynthesisUtterance(sentences[i]!);
         u.voice = voice;
@@ -91,6 +101,7 @@ export class ReadAloud {
     const wasReading = this.reading;
     this.run++;
     this.reading = false;
+    stopClip();
     if (wasReading) {
       try { synth()?.cancel(); } catch { /* nothing to stop */ }
       this.onState(null);

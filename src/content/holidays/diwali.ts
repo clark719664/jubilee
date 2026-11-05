@@ -237,7 +237,7 @@ const content: HolidayContent = {
     { sleeps: 1, kind: 'say', text: 'The festival of lights is here! Practise the Hindi Diwali wish so you can say it to family, friends and neighbors.', greeting: 0 },
   ],
   parentNote:
-    'Diwali follows the Hindu lunisolar calendar: Lakshmi Puja, the main night, is the new-moon night of the month of Kartik, so it lands between mid-October and mid-November and the exact day can differ by one day between regional calendars (some say 1 November where others say 31 October). In Tamil Nadu and much of South India the main day is Naraka Chaturdashi, the day before Lakshmi Puja. Sikh families mark Bandi Chhor Divas, Jain families mark the nirvana of Mahavira, and Nepali families celebrate Tihar in the same week. Real diyas and sparklers mean open flames; the craft here uses none.',
+    'Diwali follows the Hindu lunisolar calendar: Lakshmi Puja, the main night, is the new-moon night of the month of Kartik, so it lands between mid-October and mid-November and the exact day can differ by one day between regional calendars (some say November 1 where others say October 31). In Tamil Nadu and much of South India the main day is Naraka Chaturdashi, the day before Lakshmi Puja. Sikh families mark Bandi Chhor Divas, Jain families mark the nirvana of Mahavira, and Nepali families celebrate Tihar in the same week. Real diyas and sparklers mean open flames; the craft here uses none.',
   sources: [
     'Encyclopaedia Britannica, "Diwali"',
     'BBC Bitesize, "What is Diwali?"',

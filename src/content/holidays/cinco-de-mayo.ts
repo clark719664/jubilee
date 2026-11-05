@@ -3,12 +3,12 @@ import type { HolidayContent } from '../types';
 const content: HolidayContent = {
   story: [
     'Cinco de Mayo means "the fifth of May" in Spanish, and it remembers the Battle of Puebla in 1862, when a smaller Mexican army surprised everyone by beating the French army, one of the strongest in the world at the time.',
-    'It is not Mexico\'s Independence Day, which is 16 September, but it is a proud day, especially in the city of Puebla where there are parades and battle re-enactments.',
+    'It is not Mexico\'s Independence Day, which is September 16, but it is a proud day, especially in the city of Puebla where there are parades and battle re-enactments.',
     'In the United States many Mexican-American families celebrate with music, dancing, food and lots of green, white and red.',
   ],
   facts: [
     {
-      text: 'On 5 May 1862 a Mexican army led by General Ignacio Zaragoza defeated a larger, better-equipped French army of about 6,000 soldiers at Puebla.',
+      text: 'On May 5, 1862 a Mexican army led by General Ignacio Zaragoza defeated a larger, better-equipped French army of about 6,000 soldiers at Puebla.',
       bigKids: true,
     },
     {
@@ -16,7 +16,7 @@ const content: HolidayContent = {
       wow: true,
     },
     {
-      text: 'Mexico\'s Independence Day is 16 September, and late on the night before, people all over the country shout "¡Viva México!" together.',
+      text: 'Mexico\'s Independence Day is September 16, and late on the night before, people all over the country shout "¡Viva México!" together.',
     },
   ],
   greetings: [

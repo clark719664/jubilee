@@ -73,7 +73,7 @@ export type CounterModel =
   | { readonly kind: 'clock'; readonly label: string; readonly speech: string }
   | { readonly kind: 'passed'; readonly label: string; readonly speech: string };
 
-/** New Year's Eve shows the hh:mm:ss clock all day on 31 December. */
+/** New Year's Eve shows the hh:mm:ss clock all day on December 31. */
 export function isNewYearsEveClock(meta: Pick<HolidayMeta, 'id'>, status: Status): boolean {
   return meta.id === NYE_ID && status.kind === 'ongoing';
 }

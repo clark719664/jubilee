@@ -4,7 +4,7 @@ const mothersDay: HolidayContent = {
   story: [
     "Mother's Day is a day to say thank you to moms, grandmas, step-moms and every grown-up who cares for you like a mother.",
     "In the United States it began with Anna Jarvis, who organized the first Mother's Day service in 1908 to honor her own mother, and it became a national holiday in 1914.",
-    'The date moves around the world: many countries keep the second Sunday in May, the United Kingdom has Mothering Sunday in spring, Mexico always celebrates on 10 May and France waits until late May.',
+    'The date moves around the world: many countries keep the second Sunday in May, the United Kingdom has Mothering Sunday in spring, Mexico always celebrates on May 10 and France waits until late May.',
     'Many families make breakfast in bed, pick a bunch of flowers or write a card that says exactly why their mom is wonderful.',
   ],
 
@@ -14,7 +14,7 @@ const mothersDay: HolidayContent = {
       wow: true,
     },
     {
-      text: "The first official Mother's Day service was held in Grafton, West Virginia on 10 May 1908, and President Woodrow Wilson made the second Sunday in May a national holiday in 1914.",
+      text: "The first official Mother's Day service was held in Grafton, West Virginia on May 10, 1908, and President Woodrow Wilson made the second Sunday in May a national holiday in 1914.",
       bigKids: true,
     },
     {
@@ -22,7 +22,7 @@ const mothersDay: HolidayContent = {
       bigKids: true,
     },
     {
-      text: "In Mexico, Mother's Day is always on 10 May whatever the day of the week, and many families wake their mom with a song called 'Las Mañanitas'.",
+      text: "In Mexico, Mother's Day is always on May 10 whatever the day of the week, and many families wake their mom with a song called 'Las Mañanitas'.",
     },
     {
       text: "The white carnation was the very first Mother's Day flower: Anna Jarvis chose it because it was her mother's favorite, and sent hundreds to the first service.",
@@ -150,7 +150,7 @@ const mothersDay: HolidayContent = {
   ],
 
   doors: [
-    { sleeps: 12, kind: 'fact', text: "In Thailand, Mother's Day is on 12 August, the birthday of Queen Sirikit, the King's mother, and white jasmine flowers are the symbol of a mother's love." },
+    { sleeps: 12, kind: 'fact', text: "In Thailand, Mother's Day is on August 12, the birthday of Queen Sirikit, the King's mother, and white jasmine flowers are the symbol of a mother's love." },
     { sleeps: 11, kind: 'joke', text: 'What did the mama tomato say to the baby tomato who was falling behind? Ketchup!' },
     { sleeps: 10, kind: 'craft', text: 'Draw around your hand on paper and cut it out with safety scissors. On each finger, write one reason you love your mom or grown-up.' },
     { sleeps: 9, kind: 'fact', text: "In lots of languages the word for mother starts with an m sound: mama, mom, mère, mā. Many linguists think it's because 'ma' is one of the easiest sounds a baby can make." },
@@ -165,7 +165,7 @@ const mothersDay: HolidayContent = {
   ],
 
   parentNote:
-    "The date depends on where you live: the app shows the second Sunday in May by default, Mothering Sunday (three weeks before Easter) in the UK, 10 May in Mexico and the last Sunday in May in France (or the first Sunday of June when that is Pentecost). Families come in all shapes; the recipes and craft work just as well for a gran, an aunt or any grown-up who does the mothering.",
+    "The date depends on where you live: the app shows the second Sunday in May by default, Mothering Sunday (three weeks before Easter) in the UK, May 10 in Mexico and the last Sunday in May in France (or the first Sunday of June when that is Pentecost). Families come in all shapes; the recipes and craft work just as well for a gran, an aunt or any grown-up who does the mothering.",
 
   sources: [
     "Library of Congress, 'Today in History: May 10' (Anna Jarvis and the first Mother's Day service, Grafton, 1908)",

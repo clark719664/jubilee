@@ -52,7 +52,7 @@ function weekInfo(locale: string): WeekInfo | null {
 /** Seven weekday headings starting at `firstDow`, from Intl in the child's locale ("S M T W T F S"). */
 export function weekdayHeaders(locale: string, firstDow: Weekday, style: 'narrow' | 'short' | 'long' = 'narrow'): string[] {
   const f = new Intl.DateTimeFormat(locale, { weekday: style });
-  // 1 January 2023 was a Sunday, so 1 + w January 2023 is weekday w.
+  // January 1, 2023 was a Sunday, so 1 + w January 2023 is weekday w.
   return Array.from({ length: 7 }, (_, i) => f.format(new Date(2023, 0, 1 + ((firstDow + i) % 7), 12)));
 }
 

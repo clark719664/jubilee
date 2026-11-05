@@ -2,8 +2,8 @@ import type { HolidayContent } from '../types';
 
 const content: HolidayContent = {
   story: [
-    'Bastille Day, which French people simply call "le quatorze juillet" or the Fête nationale, is France\'s national day on 14 July.',
-    'It remembers 14 July 1789, when a crowd in Paris stormed the Bastille, a fortress prison that stood for the king\'s power, at the start of the French Revolution.',
+    'Bastille Day, which French people simply call "le quatorze juillet" or the Fête nationale, is France\'s national day on July 14.',
+    'It remembers July 14, 1789, when a crowd in Paris stormed the Bastille, a fortress prison that stood for the king\'s power, at the start of the French Revolution.',
     'Today there is a huge military parade along the Champs-Élysées in Paris, fireworks over the Eiffel Tower, and dancing late into the night.',
   ],
   facts: [
@@ -12,11 +12,11 @@ const content: HolidayContent = {
       wow: true,
     },
     {
-      text: 'France made 14 July its national holiday in 1880, and the Paris parade has been held almost every year since then.',
+      text: 'France made July 14 its national holiday in 1880, and the Paris parade has been held almost every year since then.',
       bigKids: true,
     },
     {
-      text: 'On the night of 13 or 14 July many fire stations across France open their doors for the "bals des pompiers", dance parties hosted by firefighters.',
+      text: 'On the night of July 13 or 14 many fire stations across France open their doors for the "bals des pompiers", dance parties hosted by firefighters.',
     },
   ],
   greetings: [
@@ -31,7 +31,7 @@ const content: HolidayContent = {
   recipes: [],
   crafts: [],
   parentNote:
-    'The day also marks the Fête de la Fédération of 14 July 1790, a celebration of unity one year after the storming of the Bastille. The name "Bastille Day" is used in English-speaking countries, not in France.',
+    'The day also marks the Fête de la Fédération of July 14, 1790, a celebration of unity one year after the storming of the Bastille. The name "Bastille Day" is used in English-speaking countries, not in France.',
   sources: [
     'Élysée, Présidence de la République, "Le 14 juillet"',
     'Encyclopaedia Britannica, "Bastille Day"',

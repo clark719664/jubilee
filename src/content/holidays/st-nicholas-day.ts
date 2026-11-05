@@ -2,8 +2,8 @@ import type { HolidayContent } from '../types';
 
 const content: HolidayContent = {
   story: [
-    'St Nicholas Day on 6 December remembers Nicholas, a kind bishop who lived about 1,700 years ago in a town called Myra, in what is now Turkey, and who was famous for giving gifts in secret.',
-    'On the night of 5 December, children in Germany, Austria, Belgium, Poland and parts of France put a shoe or boot by the door or window, and Dutch children have been setting out their shoes for weeks already.',
+    'St Nicholas Day on December 6 remembers Nicholas, a kind bishop who lived about 1,700 years ago in a town called Myra, in what is now Turkey, and who was famous for giving gifts in secret.',
+    'On the night of December 5, children in Germany, Austria, Belgium, Poland and parts of France put a shoe or boot by the door or window, and Dutch children have been setting out their shoes for weeks already.',
     'In the morning the shoe is filled with oranges, nuts, chocolate coins and spiced cookies, and in some places a hand-written poem too.',
   ],
   facts: [
@@ -15,7 +15,7 @@ const content: HolidayContent = {
       wow: true,
     },
     {
-      text: 'In the Netherlands, Sinterklaas arrives by steamboat in the middle of November and is greeted by crowds in a different town each year. The big gift evening, pakjesavond, is 5 December.',
+      text: 'In the Netherlands, Sinterklaas arrives by steamboat in the middle of November and is greeted by crowds in a different town each year. The big gift evening, pakjesavond, is December 5.',
       bigKids: true,
     },
   ],
@@ -38,7 +38,7 @@ const content: HolidayContent = {
   recipes: [],
   crafts: [],
   parentNote:
-    'In the Netherlands the main celebration is the evening of 5 December, pakjesavond, with presents and funny poems. In Belgium, Germany, Austria, Poland and the French regions of Alsace and Lorraine, children find treats in their shoes on the morning of 6 December. It is a separate day from Christmas.',
+    'In the Netherlands the main celebration is the evening of December 5, pakjesavond, with presents and funny poems. In Belgium, Germany, Austria, Poland and the French regions of Alsace and Lorraine, children find treats in their shoes on the morning of December 6. It is a separate day from Christmas.',
   sources: [
     'Encyclopaedia Britannica, "Saint Nicholas"',
     'Encyclopaedia Britannica, "Santa Claus"',

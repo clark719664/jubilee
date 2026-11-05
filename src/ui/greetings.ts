@@ -8,6 +8,7 @@
  *   speak(text, lang) → boolean                           (true when an utterance was queued)
  *   matchVoice(voices, lang)                              (pure; tests run it on fake voice lists)
  */
+import { greetingLine, hasClip, playClip, speaksNatively } from './voice';
 import type { Greeting } from '../content/types';
 import { COPY } from './copy';
 import { h } from './dom';
@@ -62,9 +63,11 @@ export function speakableVoice(lang: string): SpeechSynthesisVoice | null {
 
 /** Says `text` once, slowly, in a matching voice. False when there is no such voice (nothing is played). */
 export function speak(text: string, lang: string): boolean {
+  const line = greetingLine(text, lang);
+  if (speaksNatively(lang) && (playClip(line) || (lang.startsWith('en') && playClip(text)))) return true;
   const s = synth();
   const voice = s ? matchVoice(s.getVoices(), lang) : null;
-  if (!s || !voice) return false;
+  if (!s || !voice) return playClip(line);
   s.cancel();
   const u = new SpeechSynthesisUtterance(text);
   u.voice = voice;
@@ -72,6 +75,11 @@ export function speak(text: string, lang: string): boolean {
   u.rate = 0.85;
   s.speak(u);
   return true;
+}
+
+/** Whether a "Hear it" button can do anything for this line: a recording or a device voice. */
+export function canHear(text: string, lang: string): boolean {
+  return hasClip(greetingLine(text, lang)) || speakableVoice(lang) !== null;
 }
 
 /** Calls `cb` when the browser's voice list changes (Chrome fills it in asynchronously). Returns a disposer. */
@@ -101,7 +109,7 @@ export function greetingCard(g: Greeting): GreetingCard {
     h('p', { class: 'greeting-meaning' }, `“${g.meaning}”`),
     hear,
   );
-  const refreshVoice = (): void => { hear.classList.toggle('hidden', speakableVoice(g.lang) === null); };
+  const refreshVoice = (): void => { hear.classList.toggle('hidden', !canHear(g.text, g.lang)); };
   refreshVoice();
   return { el, refreshVoice };
 }

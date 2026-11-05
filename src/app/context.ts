@@ -15,7 +15,7 @@
  *   customs      the child's birthdays/custom days                  — live getter
  *   everywhere   grown-ups "count down to holidays from everywhere"  — live getter
  *   prefersReduced  OS reduced-motion preference (live)
- *   locale       navigator.language for Intl formatting
+ *   locale       always en-US: the app speaks American English everywhere
  *   metas        every HolidayMeta from the registry (customs are NOT included; see metaOf/allMetas)
  *   metaOf(id)   registry meta or a synthesised meta for a custom holiday
  *   allMetas()   registry metas + custom metas (for parade/year/stickers)

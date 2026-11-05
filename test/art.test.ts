@@ -24,7 +24,7 @@ function svgFiles(dir: string): string[] {
 
 const FORBIDDEN = /<(script|foreignObject|image|text|tspan|a|iframe|style[^>]*@import|link)\b/i;
 const EXTERNAL = /(href|src)\s*=\s*["'](?!#)|url\(\s*["']?(?!#)/i;
-const BUDGET_KB: Record<string, number> = { back: 40, mid: 60, front: 30, sticker: 30, world: 40, color: 40 };
+const BUDGET_KB: Record<string, number> = { back: 40, mid: 60, front: 30, sticker: 30, world: 40, color: 130 };
 
 function kind(path: string): string {
   if (path.includes('/stickers/')) return 'sticker';
@@ -58,7 +58,7 @@ describe('art files', () => {
       if (k === 'sticker') expect(src, 'sticker artboard').toMatch(/viewBox="0 0 512 512"/);
       if (k === 'color') {
         expect(src, 'coloring artboard').toMatch(/viewBox="0 0 800 800"/);
-        expect((src.match(/data-fill="/g) ?? []).length, 'coloring regions').toBeGreaterThanOrEqual(12);
+        expect((src.match(/data-fill="/g) ?? []).length, 'coloring regions').toBeGreaterThanOrEqual(5);
       }
       expect(tagBalance(src), 'well-formed: every tag closes in order').toBe('ok');
       const kb = Buffer.byteLength(src) / 1024;

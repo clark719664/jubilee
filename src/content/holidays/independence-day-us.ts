@@ -7,18 +7,18 @@ import type { HolidayContent } from '../types';
 const independenceDayUs: HolidayContent = {
   story: [
     'Independence Day, or the Fourth of July, is the birthday of the United States.',
-    'On 4 July 1776, leaders of the thirteen American colonies approved the Declaration of Independence, which said they would no longer be ruled by the king of Great Britain.',
+    'On July 4, 1776, leaders of the thirteen American colonies approved the Declaration of Independence, which said they would no longer be ruled by the king of Great Britain.',
     'Many families celebrate with parades, flags, picnics and barbecues, and when it gets dark, fireworks light up the sky in red, white and blue.',
     'Fireworks are beautiful but dangerous, so children watch from a safe distance while grown-ups handle them, and even sparklers need a bucket of water close by.',
   ],
 
   facts: [
     {
-      text: 'Congress actually voted for independence on 2 July 1776 and approved the words of the Declaration two days later. John Adams was sure 2 July would be the big holiday, and he was wrong.',
+      text: 'Congress actually voted for independence on July 2, 1776 and approved the words of the Declaration two days later. John Adams was sure July 2 would be the big holiday, and he was wrong.',
       bigKids: true,
     },
     {
-      text: 'Most of the 56 signers did not sign the Declaration on 4 July at all. The famous signatures were added on 2 August 1776.',
+      text: 'Most of the 56 signers did not sign the Declaration on July 4 at all. The famous signatures were added on August 2, 1776.',
       bigKids: true,
     },
     {
@@ -33,7 +33,7 @@ const independenceDayUs: HolidayContent = {
       wow: true,
     },
     {
-      text: 'Every 4 July the Liberty Bell in Philadelphia is gently tapped 13 times, once for each original colony. It is never rung properly any more, because it has a big crack.',
+      text: 'Every July 4 the Liberty Bell in Philadelphia is gently tapped 13 times, once for each original colony. It is never rung properly any more, because it has a big crack.',
     },
   ],
 
@@ -165,11 +165,11 @@ const independenceDayUs: HolidayContent = {
   ],
 
   parentNote:
-    'Independence Day is a US holiday; when 4 July lands on a weekend, the day off moves to the nearest Friday or Monday. Fireworks, including sparklers, which burn hotter than 1,000 °C, are for adults only: keep children at a distance, keep a bucket of water handy, and consider a public display instead of a back-garden one.',
+    'Independence Day is a US holiday; when July 4 lands on a weekend, the day off moves to the nearest Friday or Monday. Fireworks, including sparklers, which burn hotter than 1,000 °C, are for adults only: keep children at a distance, keep a bucket of water handy, and consider a public display instead of a back-garden one.',
 
   sources: [
     "Library of Congress, 'Today in History: July 4' (Independence Day; Philadelphia fireworks, 1777)",
-    "National Archives, 'The Declaration of Independence: A History' (2 July vote; 2 August signing)",
+    "National Archives, 'The Declaration of Independence: A History' (July 2 vote; August 2 signing)",
     "National Park Service, 'The Liberty Bell' (tapped 13 times each Fourth of July)",
     "Smithsonian National Museum of American History, 'Facts about the United States flag' (50-star flag, 1960)",
     "National Hot Dog and Sausage Council, 'Hot dog consumption statistics' (150 million on the Fourth)",

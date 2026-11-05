@@ -1,20 +1,23 @@
 /**
- * Color-in (activity id 'color') — tap a shape on the holiday's own line-art page to fill it.
+ * Coloring (activity id 'color') — tap a shape on the holiday's own line-art page to fill it.
  *
- * Pages are bundled SVGs in src/art/color/<holidayId>.svg (viewBox 0 0 800 800, fillable regions
+ * Pages are bundled SVGs in src/art/color (viewBox 0 0 800 800, fillable regions
  * carry data-fill="<regionId>"), sanitised and rebuilt from an allow-list before they touch the DOM
- * (sanitize.ts). The crayon box is 12 kid colors + 4 holiday colors + 2 magic gradients (crayons.ts).
+ * (sanitize.ts). A holiday can have many pages, `<id>--page<n>.svg`, drawn with
+ * docs/tools/ai-pages and chosen on the wall in picker.ts. The crayon box comes in drawers (crayons.ts).
  * Undo/redo, Surprise!, two-finger zoom, keyboard play, a draft that survives closing, Done → Fridge,
  * and Print (with colors or blank). See view.ts for the screen and the keyboard map.
  */
-import { colorPageSource, hasColorPage } from '../../art/index';
+import { colorPages, colorPageSource, hasColorPage } from '../../art/index';
 import { THEMES } from '../../theme/themes';
+import { fridge } from '../fridge';
 import type { Activity } from '../types';
 import { COPY } from './copy';
 import { crayonBox } from './crayons';
 import { staticPage } from './page';
+import { mountPicker } from './picker';
 import { parseColorPage } from './sanitize';
-import { cleanFills, type ColorItemData } from './store';
+import { cleanFills, isColorData, type ColorItemData } from './store';
 import { mountColor, type ColorOptions, type PageSource } from './view';
 
 export { COPY } from './copy';
@@ -27,7 +30,7 @@ export { surpriseFills } from './surprise';
 export { mountColor, type ColorOptions, type PageSource } from './view';
 
 /** The bundled art (src/art/color). */
-export const ART_PAGES: PageSource = { has: hasColorPage, load: colorPageSource };
+export const ART_PAGES: PageSource = { has: hasColorPage, load: colorPageSource, pages: colorPages };
 
 /** An activity over any page source (the demo and tests use a fixture page). */
 export function createColorActivity(source: PageSource, extra: Omit<ColorOptions, 'source'> = {}): Activity {
@@ -37,7 +40,16 @@ export function createColorActivity(source: PageSource, extra: Omit<ColorOptions
     emoji: COPY.emoji,
     blurb: COPY.blurb,
     available: (meta) => source.has(meta.id),
-    mount: (env) => mountColor(env, { ...extra, source }),
+    mount: (env) => {
+      const options = { ...extra, source };
+      const pages = source.pages?.(env.meta.id) ?? [env.meta.id];
+      // A picture reopened from the Fridge goes straight to its own page.
+      const wanted = /[?&]item=([A-Za-z0-9_-]+)/.exec(location.hash)?.[1];
+      const item = wanted ? (extra.fridge ?? fridge(env.ctx.clock.pretending)).get(wanted) : undefined;
+      if (item && isColorData(item.data)) return mountColor(env, { ...options, pageId: item.data.pageId });
+      if (pages.length > 1) return mountPicker(env, pages, options);
+      return mountColor(env, { ...options, pageId: pages[0] ?? env.meta.id });
+    },
   };
 }
 

@@ -285,7 +285,7 @@ describe('dates helpers', () => {
     expect(ruleInWords(meta('memorial-day').rule, 'US', nameOf, 'en-US')).toBe('the last Monday of May');
     expect(ruleInWords(meta('halloween').rule, 'US', nameOf, 'en-US')).toBe('October 31 every year');
     expect(ruleInWords(meta('halloween').rule, 'GB', nameOf, 'en-GB')).toBe('31 October every year');
-    expect(ruleInWords(meta('leap-day').rule, 'US', nameOf, 'en-US')).toBe('29 February, which only exists in leap years');
+    expect(ruleInWords(meta('leap-day').rule, 'US', nameOf, 'en-US')).toBe('February 29, which only exists in leap years');
     expect(ruleInWords(meta('pancake-day').rule, 'GB', nameOf, 'en-GB')).toBe('47 days before Easter Sunday');
     expect(ruleInWords(meta('mothers-day').rule, 'GB', nameOf, 'en-GB')).toBe('21 days before Easter Sunday');
     expect(ruleInWords(meta('mothers-day').rule, 'FR', nameOf, 'fr')).toMatch(/^the last Sunday of May, or the first Sunday of June/i);

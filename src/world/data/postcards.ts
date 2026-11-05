@@ -125,7 +125,7 @@ export const POSTCARDS: readonly PostcardCity[] = [
     },
     newYear: {
       greeting: { lang: 'zh-Hans', langName: 'Mandarin Chinese', text: '新年快乐', roman: 'Xīnnián kuàilè', sayIt: 'shin-NYEN kwye-LUH', meaning: 'Happy new year' },
-      fact: 'Beijing has a holiday on 1 January, but its biggest New Year is the Spring Festival in January or February, with dumplings, red lanterns and firecrackers.',
+      fact: 'Beijing has a holiday on January 1, but its biggest New Year is the Spring Festival in January or February, with dumplings, red lanterns and firecrackers.',
     },
   },
   {
@@ -164,7 +164,7 @@ export const POSTCARDS: readonly PostcardCity[] = [
     },
     newYear: {
       greeting: { lang: 'th', langName: 'Thai', text: 'สวัสดีปีใหม่', roman: 'Sawatdi pi mai', sayIt: 'sah-waht-DEE pee MY', meaning: 'Hello, new year!' },
-      fact: 'Thailand gets three New Years: 1 January, Chinese New Year, and Songkran in April, when everyone splashes each other with water.',
+      fact: 'Thailand gets three New Years: January 1, Chinese New Year, and Songkran in April, when everyone splashes each other with water.',
     },
   },
   {
@@ -177,7 +177,7 @@ export const POSTCARDS: readonly PostcardCity[] = [
     },
     newYear: {
       greeting: { lang: 'bn', langName: 'Bengali', text: 'শুভ নববর্ষ', roman: 'Shubho Noboborsho', sayIt: 'SHOO-bho noh-boh-BOR-show', meaning: 'Happy new year' },
-      fact: '1 January is picnic day in Kolkata! Families head to parks, gardens and the zoo, which has some of its busiest days of the whole year.',
+      fact: 'January 1 is picnic day in Kolkata! Families head to parks, gardens and the zoo, which has some of its busiest days of the whole year.',
     },
   },
   {
@@ -212,7 +212,7 @@ export const POSTCARDS: readonly PostcardCity[] = [
     climate: 'snowy',
     christmas: {
       greeting: { lang: 'ru', langName: 'Russian', text: 'С Рождеством!', roman: 'S Rozhdestvom!', sayIt: 's rozh-dest-VOM', meaning: '(Greetings) on the Nativity' },
-      fact: 'Most families in Moscow celebrate Christmas on 7 January, not 25 December, because the Russian Orthodox Church follows the old Julian calendar.',
+      fact: 'Most families in Moscow celebrate Christmas on January 7, not December 25, because the Russian Orthodox Church follows the old Julian calendar.',
     },
     newYear: {
       greeting: { lang: 'ru', langName: 'Russian', text: 'С Новым годом!', roman: 'S Novym godom!', sayIt: 'SNO-vim GO-dum', meaning: '(Greetings) on the new year' },
@@ -238,11 +238,11 @@ export const POSTCARDS: readonly PostcardCity[] = [
     climate: 'mild',
     christmas: {
       greeting: { ...AR_XMAS, langName: 'Arabic (Egypt)' },
-      fact: 'Most Christians in Cairo are Copts. They celebrate Christmas on 7 January, after 43 days of fasting, with a midnight church service and a big feast.',
+      fact: 'Most Christians in Cairo are Copts. They celebrate Christmas on January 7, after 43 days of fasting, with a midnight church service and a big feast.',
     },
     newYear: {
       greeting: { lang: 'arz', langName: 'Egyptian Arabic', text: 'كل سنة وانت طيب', roman: 'Kull sana w enta tayyeb', sayIt: 'kull SAH-nah wen-tah TAY-yeb', meaning: 'May you be well every year' },
-      fact: 'Egypt has three New Years: 1 January, Nayrouz, the Coptic New Year in September, and the Islamic New Year, which moves with the moon.',
+      fact: 'Egypt has three New Years: January 1, Nayrouz, the Coptic New Year in September, and the Islamic New Year, which moves with the moon.',
     },
   },
   {
@@ -255,7 +255,7 @@ export const POSTCARDS: readonly PostcardCity[] = [
     },
     newYear: {
       greeting: { lang: 'el', langName: 'Greek', text: 'Καλή Χρονιά!', roman: 'Kalí Chroniá!', sayIt: 'kah-LEE hro-NYAH', meaning: 'Good year' },
-      fact: 'In Greece, presents come from Saint Basil on 1 January, and families cut a vasilopita cake with a coin hidden inside. Whoever finds it has luck all year.',
+      fact: 'In Greece, presents come from Saint Basil on January 1, and families cut a vasilopita cake with a coin hidden inside. Whoever finds it has luck all year.',
     },
   },
   {
@@ -342,7 +342,7 @@ export const POSTCARDS: readonly PostcardCity[] = [
     climate: 'mild',
     christmas: {
       greeting: ES_XMAS,
-      fact: 'From 16 to 24 December, Mexico City has nine nights of posadas: parties with candles, songs and a star-shaped piñata to break.',
+      fact: 'From December 16 to 24, Mexico City has nine nights of posadas: parties with candles, songs and a star-shaped piñata to break.',
     },
     newYear: {
       greeting: ES_NY,
@@ -385,7 +385,7 @@ export const POSTCARDS: readonly PostcardCity[] = [
     },
     newYear: {
       greeting: EN_NY,
-      fact: 'On 1 January the Rose Parade rolls through Pasadena, next door to LA. Every bit of each float must be covered in flowers, seeds or other plants.',
+      fact: 'On January 1 the Rose Parade rolls through Pasadena, next door to LA. Every bit of each float must be covered in flowers, seeds or other plants.',
     },
   },
   {

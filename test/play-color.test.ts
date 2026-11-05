@@ -136,11 +136,10 @@ describe('color sanitizer', () => {
 });
 
 describe('crayon box', () => {
-  it('has 12 kid crayons, 4 holiday crayons and 2 magic ones, all with unique ids', () => {
+  it('has 12 kid crayons, 4 holiday crayons, 2 magic ones and the big sets, all with unique ids', () => {
     expect(KID_CRAYONS).toHaveLength(12);
     const box = crayonBox(THEMES.christmas, 'Christmas');
-    expect(box).toHaveLength(18);
-    expect(new Set(box.map((c) => c.id)).size).toBe(18);
+    expect(new Set(box.map((c) => c.id)).size).toBe(box.length);
     expect(box.filter((c) => c.kind === 'theme').map((c) => c.name)).toContain('Christmas gold');
     expect(box.filter((c) => c.kind === 'magic')).toHaveLength(2);
   });

@@ -1,13 +1,13 @@
 import type { HolidayContent } from '../types';
 
 /**
- * Juneteenth — tier 1. A joyful holiday with a serious history: keep the facts accurate (19 June 1865, Galveston;
+ * Juneteenth — tier 1. A joyful holiday with a serious history: keep the facts accurate (June 19, 1865, Galveston;
  * federal holiday since 2021) and the tone celebratory. Shape follows ../_template.ts.
  */
 const juneteenth: HolidayContent = {
   story: [
     'Juneteenth is the day many Americans celebrate the end of slavery in the United States.',
-    'On 19 June 1865, Union soldiers led by General Gordon Granger arrived in Galveston, Texas, and announced that every enslaved person in the state was free.',
+    'On June 19, 1865, Union soldiers led by General Gordon Granger arrived in Galveston, Texas, and announced that every enslaved person in the state was free.',
     "The news came two and a half years after President Lincoln's Emancipation Proclamation, so Juneteenth is really about freedom finally reaching everyone.",
     'Today many families celebrate with parades, music, cook-outs and red foods such as strawberry soda and red velvet cake, and take time to learn the stories of the people who fought for freedom.',
     'Since 2021 it has been a federal holiday across the whole country.',
@@ -19,7 +19,7 @@ const juneteenth: HolidayContent = {
       wow: true,
     },
     {
-      text: "President Lincoln's Emancipation Proclamation took effect on 1 January 1863, but there were almost no Union soldiers in Texas to enforce it, so it was 19 June 1865 before freedom was announced there: about 900 days later.",
+      text: "President Lincoln's Emancipation Proclamation took effect on January 1, 1863, but there were almost no Union soldiers in Texas to enforce it, so it was June 19, 1865 before freedom was announced there: about 900 days later.",
       bigKids: true,
     },
     {
@@ -186,7 +186,7 @@ const juneteenth: HolidayContent = {
   ],
 
   parentNote:
-    'Juneteenth is a joyful holiday with a hard history. Younger children can hear "some people were forced to work for no pay and were not allowed to leave, and this is the day that ended"; older children may want to read General Order Number 3 together. When 19 June lands on a weekend, the federal day off moves to the nearest Friday or Monday.',
+    'Juneteenth is a joyful holiday with a hard history. Younger children can hear "some people were forced to work for no pay and were not allowed to leave, and this is the day that ended"; older children may want to read General Order Number 3 together. When June 19 lands on a weekend, the federal day off moves to the nearest Friday or Monday.',
 
   sources: [
     "Library of Congress, 'Today in History: June 19' (Juneteenth)",

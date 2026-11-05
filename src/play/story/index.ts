@@ -11,7 +11,8 @@
  */
 import './story.css';
 import type { Activity } from '../types';
-import { BOOKS, bookFor } from './books/index';
+import { autoBook } from './auto';
+import { bookFor } from './books/index';
 import { COPY } from './copy';
 import { mountStory } from './view';
 
@@ -24,9 +25,6 @@ export const storyActivity: Activity = {
   title: COPY.title,
   emoji: COPY.emoji,
   blurb: COPY.blurb,
-  available: (meta) => bookFor(meta.id) !== undefined,
-  mount: (env) => {
-    const book = bookFor(env.meta.id) ?? BOOKS[0]!;
-    return mountStory(env, book);
-  },
+  available: (meta, content) => bookFor(meta.id) !== undefined || autoBook(meta, content).pages.length > 0,
+  mount: (env) => mountStory(env, bookFor(env.meta.id) ?? autoBook(env.meta, env.content)),
 };

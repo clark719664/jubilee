@@ -1,4 +1,5 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
+import { autoBook } from '../src/play/story/auto';
 import diwaliContent from '../src/content/holidays/diwali';
 import hanukkahContent from '../src/content/holidays/hanukkah';
 import { byId } from '../src/content/registry';
@@ -281,12 +282,11 @@ describe('the Fridge and the activity', () => {
     expect(r2).toEqual({ ok: false, reason: 'pretending' });
   });
 
-  it('is available exactly for the holidays with a book', () => {
+  it('is available for every holiday, told from its own story when it has no book', () => {
     for (const id of TWELVE) expect(storyActivity.available(byId(id)!, {} as never)).toBe(true);
-    for (const id of ['easter', 'valentines-day']) {
-      const meta = byId(id);
-      if (meta) expect(storyActivity.available(meta, {} as never)).toBe(false);
-    }
+    const told = { story: ['Bunnies hop. Eggs roll.'], facts: [{ text: 'Eggs are round.' }] } as never;
+    expect(storyActivity.available(byId('easter')!, told)).toBe(true);
+    expect(autoBook(byId('easter')!, told).pages.map((p) => p.text)).toEqual(['Bunnies hop.', 'Eggs roll.', 'Eggs are round.']);
     expect(storyActivity.id).toBe('story');
   });
 });
@@ -351,7 +351,7 @@ describe('the fact-checked pages stay right', () => {
   });
 
   it('Halloween: a grown-up goes trick-or-treating too', () => {
-    for (const n of [4, 6]) expect(read('halloween', n)).toMatch(/\bMum\b|\bDad\b|grown-up/);
+    for (const n of [4, 6]) expect(read('halloween', n)).toMatch(/\bMom\b|\bDad\b|grown-up/);
   });
 
   it('Diwali: friends giggle together, the bell has no made-up count, and ladoo is spelt as on the holiday page', () => {

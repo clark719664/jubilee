@@ -2,7 +2,7 @@ import type { HolidayContent } from '../types';
 
 const content: HolidayContent = {
   story: [
-    'Christmas is on 25 December.',
+    'Christmas is on December 25.',
     'Christians remember the birth of Jesus, a baby laid in a manger in the town of Bethlehem about two thousand years ago.',
     'Many families who celebrate decorate a tree with lights, sing carols, share a big meal and give presents.',
     'Some children hang up stockings on Christmas Eve and hope to find them full in the morning.',
@@ -23,7 +23,7 @@ const content: HolidayContent = {
       bigKids: true,
     },
     {
-      text: 'Not everyone celebrates on 25 December. Many Orthodox Christians in Russia, Ethiopia, Serbia and Egypt celebrate Christmas on 7 January, because their churches follow an older calendar.',
+      text: 'Not everyone celebrates on December 25. Many Orthodox Christians in Russia, Ethiopia, Serbia and Egypt celebrate Christmas on January 7, because their churches follow an older calendar.',
     },
     {
       text: 'In Iceland a legend tells of thirteen Yule Lads who visit one at a time on the thirteen nights before Christmas, leaving small gifts in the shoes children put on the windowsill.',
@@ -295,7 +295,7 @@ const content: HolidayContent = {
     { day: 24, kind: 'craft', text: 'Draw your favorite moment from this whole year and leave it on the table tonight for everyone to find in the morning.' },
   ],
 
-  parentNote: 'Christmas is always 25 December. In the US, when the 25th falls on a weekend the federal day off moves to the nearest Friday or Monday. Many Orthodox Christian families celebrate on 7 January instead. The advent calendar in this app opens one door a day from 1 to 24 December.',
+  parentNote: 'Christmas is always December 25. In the US, when the 25th falls on a weekend the federal day off moves to the nearest Friday or Monday. Many Orthodox Christian families celebrate on January 7 instead. The advent calendar in this app opens one door a day from December 1 to 24.',
 
   sources: [
     "Library of Congress, 'Today in History: December 25'",
@@ -303,7 +303,7 @@ const content: HolidayContent = {
     "Victoria and Albert Museum, 'The first Christmas card', Henry Cole, 1843",
     "Westminster City Council, 'The Trafalgar Square Christmas tree', gift from Oslo since 1947",
     "Library of Congress, 'Jingle Bells' (Performing Arts Encyclopedia), James Lord Pierpont, 1857",
-    "Encyclopaedia Britannica, 'Christmas' (Orthodox observance on 7 January)",
+    "Encyclopaedia Britannica, 'Christmas' (Orthodox observance on January 7)",
     "National Museum of Iceland, 'The Yule Lads'",
     "Guinness World Records, 'Tallest cut Christmas tree', Seattle, 1950",
     "Encyclopaedia Britannica, 'The Nutcracker' (Mariinsky Theater, St Petersburg, 1892)",

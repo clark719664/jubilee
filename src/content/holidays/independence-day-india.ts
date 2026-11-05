@@ -2,7 +2,7 @@ import type { HolidayContent } from '../types';
 
 const content: HolidayContent = {
   story: [
-    'On 15 August 1947 India became an independent country after almost two hundred years of British rule.',
+    'On August 15, 1947 India became an independent country after almost two hundred years of British rule.',
     'Every year the Prime Minister raises the Indian flag at the Red Fort in Delhi and gives a speech to the whole nation.',
     'Schools hold flag ceremonies and sing the national anthem, and in many cities the sky fills with kites in saffron, white and green.',
   ],
@@ -40,7 +40,7 @@ const content: HolidayContent = {
   recipes: [],
   crafts: [],
   parentNote:
-    'Independence Day is a national holiday across India on 15 August every year. Pakistan celebrates its own independence the day before, on 14 August. Republic Day on 26 January is a different holiday that marks India\'s constitution.',
+    'Independence Day is a national holiday across India on August 15 every year. Pakistan celebrates its own independence the day before, on August 14. Republic Day on January 26 is a different holiday that marks India\'s constitution.',
   sources: [
     'Government of India, "Flag Code of India, 2002"',
     'Encyclopaedia Britannica, "Independence Day (Indian holiday)"',

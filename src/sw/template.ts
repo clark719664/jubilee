@@ -8,13 +8,14 @@
  * Strategy:
  * - install: precache every emitted file plus the landing page (./) and the app shell (./app/);
  * - activate: delete caches from older builds, take control of open pages;
+ * The extra coloring pages (`--` in the name) are too many to fetch up front: each is kept once opened.
  * - fetch (same-origin GET only): navigations try the network first (so a new deploy shows up), keep
  *   each page under its own address and fall back to the app shell; everything else is cache-first,
  *   falling back to the network.
  */
 export function precacheList(files: readonly string[]): string[] {
   const keep = files
-    .filter((f) => !f.endsWith('.map') && f !== 'sw.js' && !f.startsWith('.'))
+    .filter((f) => !f.endsWith('.map') && f !== 'sw.js' && !f.startsWith('.') && !f.includes('--'))
     .map((f) => `./${f.replace(/^\.?\//, '')}`);
   return [...new Set(['./', './index.html', './app/', './app/index.html', ...keep])].sort();
 }
@@ -42,7 +43,7 @@ self.addEventListener('fetch', (event) => {
   const req = event.request;
   if (req.method !== 'GET') return;
   const url = new URL(req.url);
-  if (url.origin !== self.location.origin) return;
+  if (url.origin !== self.location.origin || req.destination === 'audio') return;
   if (req.mode === 'navigate') {
     event.respondWith(
       fetch(req).then((res) => {
@@ -55,7 +56,13 @@ self.addEventListener('fetch', (event) => {
     );
     return;
   }
-  event.respondWith(caches.match(req, { ignoreSearch: true }).then((hit) => hit || fetch(req)));
+  event.respondWith(caches.match(req, { ignoreSearch: true }).then((hit) => hit || fetch(req).then((res) => {
+    if (res.status === 200) {
+      const copy = res.clone();
+      caches.open(CACHE).then((c) => c.put(req, copy));
+    }
+    return res;
+  })));
 });
 `;
 }

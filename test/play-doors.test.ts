@@ -94,13 +94,13 @@ describe('boardDoors', () => {
     expect(doors.length).toBeLessThanOrEqual(MAX_COUNTDOWN_DOORS);
     expect(doors[0]!.n).toBe(doors.length);
     expect(doors[doors.length - 1]!.n).toBe(1);
-    expect(fallbackDoors({ ...bare, facts: [], greetings: [], crafts: [] })).toEqual([]);
+    expect(fallbackDoors({ ...bare, facts: [], greetings: [], crafts: [] }, 'Diwali')[0]?.text).toContain('Diwali');
   });
 
-  it('has no board for a tier-2/3 holiday without doors', () => {
+  it('still fills a board for a holiday with almost no content', () => {
     const lower = HOLIDAYS.find((m) => m.tier !== 1)!;
-    const c = { summary: 's', facts: [{ text: 'a' }], recipes: [], crafts: [], greetings: [] } as unknown as HolidayContent;
-    expect(boardDoors(lower, c)).toEqual([]);
+    const c = { story: ['s'], facts: [{ text: 'a' }], recipes: [], crafts: [], greetings: [] } as unknown as HolidayContent;
+    expect(boardDoors(lower, c).length).toBeGreaterThanOrEqual(6);
   });
 });
 

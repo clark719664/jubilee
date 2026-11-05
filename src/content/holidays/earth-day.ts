@@ -2,7 +2,7 @@ import type { HolidayContent } from '../types';
 
 const earthDay: HolidayContent = {
   story: [
-    'Earth Day on 22 April is a day for looking after the planet we all share: its air, its water, its forests and every creature that lives in them.',
+    'Earth Day on April 22 is a day for looking after the planet we all share: its air, its water, its forests and every creature that lives in them.',
     'The first Earth Day was in 1970, when about 20 million people across the United States joined marches and clean-ups after a senator called Gaylord Nelson asked students to speak up for nature.',
     'Today people in more than 190 countries take part by planting trees, picking up litter and learning how small changes add up.',
     'Many families spend the day outside: a walk, a bug hunt, a bird count or a bag of trash collected from the park.',
@@ -10,7 +10,7 @@ const earthDay: HolidayContent = {
 
   facts: [
     {
-      text: 'The first Earth Day, on 22 April 1970, brought out roughly 20 million Americans, about one in ten people in the country at the time, and helped lead to new clean air and clean water laws.',
+      text: 'The first Earth Day, on April 22, 1970, brought out roughly 20 million Americans, about one in ten people in the country at the time, and helped lead to new clean air and clean water laws.',
       bigKids: true,
     },
     {
@@ -25,11 +25,11 @@ const earthDay: HolidayContent = {
       wow: true,
     },
     {
-      text: 'The famous Blue Marble photo of the whole Earth was taken by Apollo 17 astronauts on 7 December 1972, and it became one of the most widely shared photos ever taken.',
+      text: 'The famous Blue Marble photo of the whole Earth was taken by Apollo 17 astronauts on December 7, 1972, and it became one of the most widely shared photos ever taken.',
       bigKids: true,
     },
     {
-      text: 'Gaylord Nelson chose 22 April because it fell between spring break and final exams, when students would be free to join in.',
+      text: 'Gaylord Nelson chose April 22 because it fell between spring break and final exams, when students would be free to join in.',
     },
   ],
 
@@ -163,13 +163,13 @@ const earthDay: HolidayContent = {
   ],
 
   parentNote:
-    'Earth Day is 22 April everywhere. For the seed bombs, choose a wildflower mix native to your region and plant only where you have permission: spreading seeds into parks, nature reserves or farmland can harm local plants. Wash hands after handling compost.',
+    'Earth Day is April 22 everywhere. For the seed bombs, choose a wildflower mix native to your region and plant only where you have permission: spreading seeds into parks, nature reserves or farmland can harm local plants. Wash hands after handling compost.',
 
   sources: [
     "Encyclopaedia Britannica, 'Earth Day' (first Earth Day 1970, Gaylord Nelson, worldwide from 1990)",
     "US Environmental Protection Agency, 'The origins of EPA' (Earth Day 1970 and the clean air and water laws)",
     "NASA Science, 'Earth: facts' (71 percent ocean; the only known world with liquid surface water)",
-    "NASA, 'Apollo 17: the Blue Marble' (7 December 1972)",
+    "NASA, 'Apollo 17: the Blue Marble' (December 7, 1972)",
     "European Environment Agency, 'Trees help tackle climate change' (a mature tree absorbs about 22 kg of carbon dioxide a year)",
   ],
 };

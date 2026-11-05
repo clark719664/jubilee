@@ -1,6 +1,6 @@
 /**
- * crayons.ts — the crayon box: 12 kid colors, 4 crayons taken from the holiday's theme and 2 "magic"
- * gradient crayons built from the theme glow. Pure data + color maths (no DOM), so tests can check
+ * crayons.ts — the crayon box: 12 kid colors, 4 crayons taken from the holiday's theme, 2 "magic"
+ * gradient crayons built from the theme glow, and the big sets in crayon-sets.ts. Pure data + color maths (no DOM), so tests can check
  * that every theme gets four distinct holiday crayons and two working magic ones.
  *
  * A fill is stored as a crayon id ('k-red', 't-2', 'm-1'), never as a color, so a saved picture is a
@@ -8,11 +8,19 @@
  * color, or `url(#<prefix>-m-1)` for a magic crayon whose gradient lives in the page's <defs>.
  */
 import type { Theme } from '../../theme/themes';
+import { BLENDS, GLITTERS, PATTERNS, SHADES, SHINIES } from './crayon-sets';
 import { COPY, fill } from './copy';
 
-export type CrayonKind = 'kid' | 'theme' | 'magic';
+export type CrayonKind = 'kid' | 'theme' | 'magic' | 'shade' | 'blend' | 'glitter' | 'shiny' | 'pattern';
 
 export interface GradientStop { readonly offset: number; readonly color: string }
+
+/** A repeating fill: sparkles for glitter, or a printed pattern whose first fleck is its ink. */
+export interface Texture {
+  readonly type: 'glitter' | 'dots' | 'stripes' | 'diagonal' | 'checks' | 'stars' | 'hearts' | 'zigzag';
+  readonly base: string;
+  readonly flecks: readonly string[];
+}
 
 export interface Crayon {
   readonly id: string;
@@ -23,6 +31,7 @@ export interface Crayon {
   readonly color: string;
   /** Magic crayons only. */
   readonly gradient?: { readonly type: 'linear' | 'radial'; readonly stops: readonly GradientStop[] };
+  readonly texture?: Texture;
 }
 
 export const ERASER = 'eraser';
@@ -169,12 +178,32 @@ export function holidayCrayons(theme: Theme, holidayName: string): Crayon[] {
       gradient: { type: 'linear', stops: [{ offset: 0, color: g }, { offset: 0.5, color: a }, { offset: 1, color: b }] },
     },
   ];
-  return [...theme4, ...magic];
+  const sparkle: Crayon = {
+    id: 'g-holiday', kind: 'glitter', name: fill(COPY.holidayGlitter, { holiday: holidayName }), color: a,
+    texture: { type: 'glitter', base: a, flecks: [BLANK, mix(g, BLANK, 0.4), mix(a, BLANK, 0.6)] },
+  };
+  return [...theme4, ...magic, sparkle];
 }
 
 /** The whole box in display order: holiday crayons first (they are what makes the page feel festive). */
 export function crayonBox(theme: Theme, holidayName: string): Crayon[] {
-  return [...holidayCrayons(theme, holidayName), ...KID_CRAYONS];
+  return [...holidayCrayons(theme, holidayName), ...KID_CRAYONS, ...SHADES, ...BLENDS, ...GLITTERS, ...SHINIES, ...PATTERNS];
+}
+
+export interface Drawer { readonly id: string; readonly name: string; readonly crayons: readonly Crayon[] }
+
+/** The box sorted into drawers, so a phone never has to show 150 crayons at once. */
+export function crayonDrawers(box: readonly Crayon[]): Drawer[] {
+  const of = (...kinds: CrayonKind[]): Crayon[] => box.filter((c) => kinds.includes(c.kind));
+  return [
+    { id: 'holiday', name: COPY.drawerHoliday, crayons: [...of('theme', 'magic'), ...box.filter((c) => c.id === 'g-holiday')] },
+    { id: 'basics', name: COPY.drawerBasics, crayons: of('kid') },
+    { id: 'mixed', name: COPY.drawerMixed, crayons: of('shade') },
+    { id: 'blends', name: COPY.drawerBlends, crayons: of('blend') },
+    { id: 'glitter', name: COPY.drawerGlitter, crayons: of('glitter').filter((c) => c.id !== 'g-holiday') },
+    { id: 'shiny', name: COPY.drawerShiny, crayons: of('shiny') },
+    { id: 'patterns', name: COPY.drawerPatterns, crayons: of('pattern') },
+  ];
 }
 
 export function gradientId(prefix: string, crayonId: string): string {
@@ -186,7 +215,7 @@ export function paintFor(crayonId: string | null | undefined, box: readonly Cray
   if (!crayonId || crayonId === ERASER) return BLANK;
   const c = box.find((k) => k.id === crayonId);
   if (!c) return BLANK;
-  return c.gradient ? `url(#${gradientId(prefix, c.id)})` : c.color;
+  return c.gradient || c.texture ? `url(#${gradientId(prefix, c.id)})` : c.color;
 }
 
 /** Solid stand-in for a crayon (previews, contrast, the stamp burst). */

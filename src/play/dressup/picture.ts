@@ -25,7 +25,7 @@ export interface DressupPicture {
 
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-/** "22 October 2026" without touching Date (pretend days stay exact). */
+/** "October 22, 2026" without touching Date (pretend days stay exact). */
 export function captionDate(d: CivilDate): string {
   return `${d.d} ${MONTHS[d.m - 1] ?? ''} ${d.y}`;
 }

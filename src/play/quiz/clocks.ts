@@ -4,7 +4,7 @@
  *   "New Year travels around the world! Who says Happy New Year first: Tokyo or Paris?"
  *   "Right now it's night-time in one of these places. Which one: Sydney or London?"
  *
- * Offsets for the New Year question are read at noon UTC on 31 December of the current year, so
+ * Offsets for the New Year question are read at noon UTC on December 31 of the current year, so
  * summer time in the southern hemisphere is counted the way it really is that night. Only cities in
  * countries the globe can outline are used (a child must be able to tap them), only well-known ones
  * (rough metro population ≥ 1 million), and only whole or half-hour offsets, so the answer sentence
@@ -27,7 +27,7 @@ export interface NewYearPair {
   readonly minutes: number;
 }
 
-/** The instant the offsets are read at: noon UTC on 31 December of `year`. */
+/** The instant the offsets are read at: noon UTC on December 31 of `year`. */
 export function newYearReference(year: number): Date {
   return new Date(Date.UTC(year, 11, 31, 12));
 }

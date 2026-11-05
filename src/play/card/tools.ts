@@ -7,7 +7,7 @@ import { sceneFor } from '../../art/index';
 import type { Greeting, HolidayMeta } from '../../content/types';
 import type { Theme } from '../../theme/themes';
 import { h } from '../../ui/dom';
-import { speak, speakableVoice } from '../../ui/greetings';
+import { canHear, speak } from '../../ui/greetings';
 import { icon, type IconName } from '../../ui/icons';
 import { COPY, fill } from './copy';
 import type { DecorChoice } from './decor';
@@ -210,7 +210,7 @@ export class Tools {
         h('span', { class: 'cm-greet-lang' }, g?.langName ?? COPY.english));
       this.greetBtns.push({ b, g });
       const row = h('div', { class: 'cm-greet-row' }, b);
-      if (g && speakableVoice(g.lang)) {
+      if (g && canHear(g.text, g.lang)) {
         row.append(h('button', { type: 'button', class: 'btn btn-secondary btn-icon cm-hear', 'aria-label': fill(COPY.hearLabel, { text: g.text }), title: COPY.hear, onclick: () => speak(g.text, g.lang) }, icon('speaker', 22)));
       }
       list.append(row);

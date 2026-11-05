@@ -260,7 +260,7 @@ const content: HolidayContent = {
   ],
 
   parentNote:
-    'Lunar New Year follows the Chinese lunisolar calendar, so it falls on a different date each year between 21 January and 20 February. Tết in Vietnam and Seollal in Korea almost always land on the same day; very occasionally one of them is a day apart, because Vietnam and Korea each calculate the new moon in their own time zone. The app shows the 15-day Chinese festival, ending at the Lantern Festival; in Vietnam and Korea the main celebrations last about three days. Firecrackers are not for children and are restricted in many places.',
+    'Lunar New Year follows the Chinese lunisolar calendar, so it falls on a different date each year between January 21 and February 20. Tết in Vietnam and Seollal in Korea almost always land on the same day; very occasionally one of them is a day apart, because Vietnam and Korea each calculate the new moon in their own time zone. The app shows the 15-day Chinese festival, ending at the Lantern Festival; in Vietnam and Korea the main celebrations last about three days. Firecrackers are not for children and are restricted in many places.',
 
   sources: [
     "Encyclopaedia Britannica, 'Chinese New Year'",

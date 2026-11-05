@@ -1,7 +1,7 @@
 /**
  * doors/card.ts — what is behind a door: a fact, a joke (riddle first, "Tell me!" for the answer), a tiny
  * craft step, a greeting to say (native text, romanization, kid respelling, and "Hear it" only when the
- * device has a voice for that language), or a button into Seek & Find / Color-in.
+ * device has a voice for that language), or a button into Seek & Find / Coloring.
  */
 import type { HolidayMeta } from '../../content/types';
 import { h } from '../../ui/dom';

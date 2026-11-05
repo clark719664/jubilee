@@ -13,7 +13,7 @@ const content: HolidayContent = {
       wow: true,
     },
     {
-      text: 'Pancake Day moves with Easter: it is always 47 days before Easter Sunday, so it can land anywhere from 3 February to 9 March.',
+      text: 'Pancake Day moves with Easter: it is always 47 days before Easter Sunday, so it can land anywhere from February 3 to March 9.',
       bigKids: true,
     },
     {

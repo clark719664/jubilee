@@ -2,7 +2,7 @@ import type { HolidayContent } from '../types';
 
 const stPatricksDay: HolidayContent = {
   story: [
-    "St Patrick's Day, Lá Fhéile Pádraig in Irish, falls on 17 March and celebrates the patron saint of Ireland.",
+    "St Patrick's Day, Lá Fhéile Pádraig in Irish, falls on March 17 and celebrates the patron saint of Ireland.",
     'Patrick lived about 1,600 years ago, was carried off to Ireland as a teenager and made to work as a shepherd, escaped, and years later chose to come back as a bishop to teach people about Christianity.',
     'In Ireland the day is a public holiday with parades, music and dancing, and Irish families around the world, from Dublin to Chicago to Sydney, wear green and pin on a shamrock.',
     'The shamrock, a little three-leaf clover, is a famous symbol of Ireland: a story says Patrick held one up to explain how God could be three persons and still one.',
@@ -11,7 +11,7 @@ const stPatricksDay: HolidayContent = {
 
   facts: [
     {
-      text: 'Patrick was not Irish. He was born in Britain in the late 300s, was kidnapped by raiders at sixteen and spent six years minding sheep in Ireland before he escaped. 17 March is believed to be the day he died, around the year 461.',
+      text: 'Patrick was not Irish. He was born in Britain in the late 300s, was kidnapped by raiders at sixteen and spent six years minding sheep in Ireland before he escaped. March 17 is believed to be the day he died, around the year 461.',
       bigKids: true,
     },
     {
@@ -235,7 +235,7 @@ const stPatricksDay: HolidayContent = {
     { sleeps: 9, kind: 'say', text: "Learn to cheer 'Ireland forever' in Irish!", greeting: 2 },
     { sleeps: 8, kind: 'fact', text: "Ireland's official national emblem is not the shamrock but the harp. You can find it on Irish euro coins and on the cover of every Irish passport." },
     { sleeps: 7, kind: 'color', text: "Color in the St Patrick's Day page! See how many different greens you can use, from leafy green to bright emerald." },
-    { sleeps: 6, kind: 'fact', text: "On the Caribbean island of Montserrat, nicknamed the Emerald Isle of the Caribbean, St Patrick's Day is a public holiday too. It also honors enslaved people there who planned a brave rising for freedom on 17 March 1768." },
+    { sleeps: 6, kind: 'fact', text: "On the Caribbean island of Montserrat, nicknamed the Emerald Isle of the Caribbean, St Patrick's Day is a public holiday too. It also honors enslaved people there who planned a brave rising for freedom on March 17, 1768." },
     { sleeps: 5, kind: 'joke', text: 'What did the shamrock say to its friend? Come clover here!' },
     { sleeps: 4, kind: 'craft', text: 'Draw a rainbow in big arcs of color, then glue a fluffy cotton-wool cloud at each end.' },
     { sleeps: 3, kind: 'seek', text: "Some sneaky things are hiding in the St Patrick's Day picture. Can you find every single one? Open Seek & Find!" },
@@ -244,7 +244,7 @@ const stPatricksDay: HolidayContent = {
   ],
 
   parentNote:
-    "St Patrick's Day is always 17 March. It is a public holiday in Ireland and Northern Ireland (when it falls on a weekend, the Republic of Ireland takes the following Monday off), and a normal working day in the US, the rest of the UK and most other places, where parades often move to the nearest weekend. The cloud dip uses honey (none for babies under 1). The potato-stamp craft needs a grown-up with a sharp knife, and green paint stains clothes, so wear an apron.",
+    "St Patrick's Day is always March 17. It is a public holiday in Ireland and Northern Ireland (when it falls on a weekend, the Republic of Ireland takes the following Monday off), and a normal working day in the US, the rest of the UK and most other places, where parades often move to the nearest weekend. The cloud dip uses honey (none for babies under 1). The potato-stamp craft needs a grown-up with a sharp knife, and green paint stains clothes, so wear an apron.",
   sources: [
     'Encyclopaedia Britannica, "St. Patrick"',
     'Encyclopaedia Britannica, "St. Patrick\'s Day"',

@@ -2,7 +2,7 @@ import type { HolidayContent } from '../types';
 
 const content: HolidayContent = {
   story: [
-    'Children\'s Day, or Kodomo no Hi, is a national holiday in Japan on 5 May that celebrates children\'s health and happiness.',
+    'Children\'s Day, or Kodomo no Hi, is a national holiday in Japan on May 5 that celebrates children\'s health and happiness.',
     'Many families fly koinobori, big cloth carp streamers that fill with wind and look like fish swimming in the sky.',
     'Some families display a small samurai helmet, eat kashiwa-mochi rice cakes wrapped in oak leaves, and take a bath with iris leaves for good health.',
   ],
@@ -12,7 +12,7 @@ const content: HolidayContent = {
       wow: true,
     },
     {
-      text: 'The day used to be called Boys\' Day; in 1948 Japan made 5 May a national holiday for all children, and it is the last day of the spring holidays known as Golden Week.',
+      text: 'The day used to be called Boys\' Day; in 1948 Japan made May 5 a national holiday for all children, and it is the last day of the spring holidays known as Golden Week.',
       bigKids: true,
     },
     {
@@ -65,7 +65,7 @@ const content: HolidayContent = {
     },
   ],
   parentNote:
-    '5 May is a public holiday in Japan. Girls have their own traditional celebration, Hinamatsuri, on 3 March, but Children\'s Day is officially for all children.',
+    'May 5 is a public holiday in Japan. Girls have their own traditional celebration, Hinamatsuri, on March 3, but Children\'s Day is officially for all children.',
   sources: [
     'Japan National Tourism Organization, "Children\'s Day (Kodomo no Hi)"',
     'Web Japan, Ministry of Foreign Affairs of Japan, "Kids Web Japan: Children\'s Day"',

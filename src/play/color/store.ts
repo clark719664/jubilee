@@ -1,5 +1,5 @@
 /**
- * store.ts — what Color-in keeps, and nothing else.
+ * store.ts — what Coloring keeps, and nothing else.
  *
  * 1. Finished pictures go on the Fridge (src/play/fridge.ts) as kind 'color' with ColorItemData:
  *    `{ v: 1, pageId, theme, fills }` where fills maps region id → crayon id. A few hundred bytes,
@@ -36,7 +36,7 @@ export interface ColorSave {
 export const EMPTY_SAVE: ColorSave = { v: 1, drafts: {} };
 
 const ID = /^[a-z0-9][a-z0-9_-]{0,63}$/i;
-const CRAYON = /^(k|t|m)-[a-z0-9]{1,16}$/;
+const CRAYON = /^(k|t|m|c|x|g|s|p)-[a-z0-9]{1,24}$/;
 const MAX_REGIONS = 600;
 
 /** Keeps only well-formed region → crayon pairs. */

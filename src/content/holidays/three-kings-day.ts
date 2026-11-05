@@ -2,14 +2,14 @@ import type { HolidayContent } from '../types';
 
 const content: HolidayContent = {
   story: [
-    'Three Kings Day, also called Epiphany, comes twelve days after Christmas, on 6 January.',
+    'Three Kings Day, also called Epiphany, comes twelve days after Christmas, on January 6.',
     'Christians remember the story of the Magi, wise men who followed a star to bring gifts to the baby Jesus.',
     'In Spain, Mexico and many Latin American countries, children leave out shoes (and sometimes hay for the camels) and wake to find presents from the Three Kings.',
     'In France, families share a galette des rois, a flaky cake with a tiny charm hidden inside; whoever finds it wears a paper crown.',
   ],
   facts: [
     {
-      text: 'In Mexico, families share a ring-shaped sweet bread called rosca de reyes with a tiny baby figure hidden inside. Whoever finds it has to host a tamale party on 2 February!',
+      text: 'In Mexico, families share a ring-shaped sweet bread called rosca de reyes with a tiny baby figure hidden inside. Whoever finds it has to host a tamale party on February 2!',
       wow: true,
     },
     {
@@ -17,7 +17,7 @@ const content: HolidayContent = {
       bigKids: true,
     },
     {
-      text: 'On the evening of 5 January, towns across Spain hold a Cabalgata de Reyes, a parade where the Three Kings ride through the streets and toss sweets to the crowd.',
+      text: 'On the evening of January 5, towns across Spain hold a Cabalgata de Reyes, a parade where the Three Kings ride through the streets and toss sweets to the crowd.',
     },
   ],
   greetings: [
@@ -117,7 +117,7 @@ const content: HolidayContent = {
     },
   ],
   parentNote:
-    'Epiphany is a public holiday in Spain and several other European countries. In Mexico it is a big family celebration, though not an official day off. Some Orthodox Christians celebrate Christmas itself around this date, on 7 January, because their church follows the older Julian calendar.',
+    'Epiphany is a public holiday in Spain and several other European countries. In Mexico it is a big family celebration, though not an official day off. Some Orthodox Christians celebrate Christmas itself around this date, on January 7, because their church follows the older Julian calendar.',
   sources: [
     'Encyclopaedia Britannica, \'Epiphany\'',
     'Encyclopaedia Britannica, \'Magi\'',
