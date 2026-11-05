@@ -1,0 +1,104 @@
+{
+  "hotspots": [
+    {
+      "activity": "memory",
+      "x": 790,
+      "y": 670,
+      "r": 32,
+      "label": "Play haft-seen memory"
+    },
+    {
+      "activity": "doors",
+      "x": 790,
+      "y": 606,
+      "r": 30,
+      "label": "Open the coloured-glass window"
+    },
+    {
+      "activity": "colour",
+      "x": 702,
+      "y": 496,
+      "r": 30,
+      "label": "Colour the tile stars"
+    },
+    {
+      "activity": "wish",
+      "x": 800,
+      "y": 806,
+      "r": 40,
+      "label": "Make a wish at the fountain"
+    },
+    {
+      "activity": "seek",
+      "x": 522,
+      "y": 656,
+      "r": 34,
+      "label": "Peek in the arches: Seek & Find"
+    },
+    {
+      "activity": "card",
+      "x": 934,
+      "y": 603,
+      "r": 32,
+      "label": "Make a Nowruz card"
+    }
+  ],
+  "findables": [
+    {
+      "id": "hoopoe",
+      "label": "a hoopoe",
+      "x": 332,
+      "y": 586,
+      "r": 26
+    },
+    {
+      "id": "pigeon",
+      "label": "a dozing pigeon",
+      "x": 604,
+      "y": 604,
+      "r": 22
+    },
+    {
+      "id": "cat",
+      "label": "a cat",
+      "x": 1026,
+      "y": 658,
+      "r": 32
+    },
+    {
+      "id": "sparrow",
+      "label": "a sparrow",
+      "x": 870,
+      "y": 717,
+      "r": 18
+    },
+    {
+      "id": "nightingale",
+      "label": "a nightingale",
+      "x": 1440,
+      "y": 480,
+      "r": 22
+    },
+    {
+      "id": "tortoise",
+      "label": "a tortoise",
+      "x": 472,
+      "y": 840,
+      "r": 28
+    },
+    {
+      "id": "butterfly",
+      "label": "a yellow butterfly",
+      "x": 1092,
+      "y": 634,
+      "r": 18
+    },
+    {
+      "id": "samovar",
+      "label": "a samovar",
+      "x": 1246,
+      "y": 724,
+      "r": 30
+    }
+  ]
+}

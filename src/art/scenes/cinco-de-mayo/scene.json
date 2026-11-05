@@ -1,0 +1,83 @@
+{
+  "hotspots": [
+    {
+      "activity": "catch",
+      "x": 470,
+      "y": 560,
+      "r": 56,
+      "label": "Catch the piñata sweets"
+    },
+    {
+      "activity": "dressup",
+      "x": 800,
+      "y": 797,
+      "r": 56,
+      "label": "Dress up for the fiesta"
+    },
+    {
+      "activity": "colour",
+      "x": 920,
+      "y": 818,
+      "r": 44,
+      "label": "Colour the dancing skirt"
+    },
+    {
+      "activity": "memory",
+      "x": 1080,
+      "y": 802,
+      "r": 44,
+      "label": "Match the mariachi instruments"
+    }
+  ],
+  "findables": [
+    {
+      "id": "elote",
+      "label": "corn",
+      "x": 144,
+      "y": 670,
+      "r": 26
+    },
+    {
+      "id": "trumpet",
+      "label": "a golden trumpet",
+      "x": 1140,
+      "y": 770,
+      "r": 24
+    },
+    {
+      "id": "blindfold",
+      "label": "a red blindfold",
+      "x": 420,
+      "y": 760,
+      "r": 18
+    },
+    {
+      "id": "fountain",
+      "label": "the tiled fountain",
+      "x": 800,
+      "y": 720,
+      "r": 40
+    },
+    {
+      "id": "stick",
+      "label": "the piñata stick",
+      "x": 475,
+      "y": 736,
+      "r": 22
+    },
+    {
+      "id": "flower",
+      "label": "a hair flower",
+      "x": 812,
+      "y": 730,
+      "r": 16
+    },
+    {
+      "id": "towers",
+      "label": "the church towers",
+      "x": 1460,
+      "y": 330,
+      "r": 40
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 900">
+<!-- Eid al-Adha · back: the evening sky (the effect draws its moon and stars); sand-coloured houses with flat roofs and lit windows kept low; the mosque's green dome and slender minaret on the right, outside the copy zone -->
+<defs><linearGradient id="eid-al-adha-dome" x2="0" y2="1"><stop stop-color="#3ac89a"/><stop offset="1" stop-color="#1a8a6a"/></linearGradient></defs>
+<!-- the town -->
+<path d="M250 640v-147h145v147zm151 0v-157h95v157zm101 0v-140h97v140zm103 0v-121h85v121zm91 0v-132h124v132zm130 0v-145h133v145zm139 0v-125h132v125zm138 0v-130h117v130zm123 0v-140h109v140z" fill="#c8b090"/><path d="M293 513h12v16h-12zm136-10h12v16h-12zm102 17h12v16h-12zm99 19h12v16h-12zm103-11h12v16h-12zm133-13h12v16h-12zm139 20h12v16h-12zm133-5h12v16h-12zm120-10h12v16h-12z" fill="#ffd98a" opacity=".9"/>
+<!-- the mosque -->
+<path d="M1330 640v-120h230v120z" fill="#f4ead8"/><path d="M1350 520a95 90 0 0 1 190 0z" fill="url(#eid-al-adha-dome)"/><path d="M1441 432v-22h8v22zm-5-18q9-18 18 0q-9-8-18 0z" fill="#ffc83a"/><path d="M1570 640v-310h24v310z" fill="#f4ead8"/><path d="M1566 334l16-46l16 46z" fill="url(#eid-al-adha-dome)"/><path d="M1564 420h36v8h-36zm0 100h36v8h-36z" fill="#d8c8a8"/><path d="M1420 640v-50a25 25 0 0 1 50 0v50z" fill="#8a6a4a"/>
+</svg>

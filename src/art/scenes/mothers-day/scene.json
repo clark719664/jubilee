@@ -1,0 +1,97 @@
+{
+  "hotspots": [
+    {
+      "activity": "card",
+      "x": 760,
+      "y": 630,
+      "r": 44,
+      "label": "Make a card for Mum"
+    },
+    {
+      "activity": "colour",
+      "x": 840,
+      "y": 694,
+      "r": 34,
+      "label": "Colour Mum's quilt"
+    },
+    {
+      "activity": "doors",
+      "x": 908,
+      "y": 766,
+      "r": 44,
+      "label": "Open the front door"
+    },
+    {
+      "activity": "seek",
+      "x": 704,
+      "y": 762,
+      "r": 40,
+      "label": "Peek into the kitchen"
+    },
+    {
+      "activity": "wish",
+      "x": 1146,
+      "y": 740,
+      "r": 40,
+      "label": "Blow a dandelion wish"
+    }
+  ],
+  "findables": [
+    {
+      "id": "cat-on-step",
+      "label": "a cat",
+      "x": 932,
+      "y": 804,
+      "r": 24
+    },
+    {
+      "id": "pancakes-on-sill",
+      "label": "pancakes",
+      "x": 692,
+      "y": 780,
+      "r": 20
+    },
+    {
+      "id": "robin-bird-bath",
+      "label": "a robin",
+      "x": 1100,
+      "y": 684,
+      "r": 22
+    },
+    {
+      "id": "nest-in-tree",
+      "label": "a nesting bird",
+      "x": 192,
+      "y": 500,
+      "r": 26
+    },
+    {
+      "id": "snail-on-stone",
+      "label": "a snail",
+      "x": 900,
+      "y": 878,
+      "r": 20
+    },
+    {
+      "id": "watering-can",
+      "label": "a watering can",
+      "x": 572,
+      "y": 724,
+      "r": 28
+    },
+    {
+      "id": "drawing-on-wall",
+      "label": "a child's drawing",
+      "x": 747,
+      "y": 569,
+      "r": 20
+    },
+    {
+      "id": "butterfly-arch",
+      "label": "a butterfly",
+      "x": 1250,
+      "y": 498,
+      "r": 20
+    }
+  ]
+}

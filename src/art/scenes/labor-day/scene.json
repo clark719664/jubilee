@@ -1,0 +1,83 @@
+{
+  "hotspots": [
+    {
+      "activity": "card",
+      "x": 241,
+      "y": 801,
+      "r": 34,
+      "label": "Make a thank-you card"
+    },
+    {
+      "activity": "dressup",
+      "x": 1100,
+      "y": 812,
+      "r": 36,
+      "label": "Try on a work hat"
+    },
+    {
+      "activity": "memory",
+      "x": 570,
+      "y": 776,
+      "r": 50,
+      "label": "Match the picnic food"
+    },
+    {
+      "activity": "colour",
+      "x": 1360,
+      "y": 660,
+      "r": 70,
+      "label": "Colour the fire engine"
+    }
+  ],
+  "findables": [
+    {
+      "id": "lemonade",
+      "label": "a cup of lemonade",
+      "x": 757,
+      "y": 816,
+      "r": 16
+    },
+    {
+      "id": "mailbag",
+      "label": "the mail bag",
+      "x": 345,
+      "y": 824,
+      "r": 24
+    },
+    {
+      "id": "burgers",
+      "label": "burgers",
+      "x": 866,
+      "y": 750,
+      "r": 24
+    },
+    {
+      "id": "frisbee",
+      "label": "a pink frisbee",
+      "x": 1004,
+      "y": 846,
+      "r": 16
+    },
+    {
+      "id": "crane",
+      "label": "a crane",
+      "x": 1340,
+      "y": 400,
+      "r": 40
+    },
+    {
+      "id": "bell",
+      "label": "the fire engine bell",
+      "x": 1550,
+      "y": 650,
+      "r": 18
+    },
+    {
+      "id": "watermelon",
+      "label": "watermelon slices",
+      "x": 490,
+      "y": 772,
+      "r": 24
+    }
+  ]
+}

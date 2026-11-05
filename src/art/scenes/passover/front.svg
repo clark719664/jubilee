@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 900">
+<!-- Passover · front: pots of spring flowers in both bottom corners; the centre stays open -->
+<defs></defs>
+<!-- a pot of tulips bottom left -->
+<path d="M10 900l10-50h90l10 50z" fill="#c8643a"/><path d="M40 850q-6-40 4-70m20 70q2-50-4-80m30 80q8-40 0-66" fill="none" stroke="#3a8a3a" stroke-width="4"/><path d="M34 784q10-26 20 0q-10 10-20 0zm16-10q10-26 20 0q-10 10-20 0zm30 12q10-26 20 0q-10 10-20 0z" fill="#ff6a8a"/>
+<!-- a pot of daisies bottom right -->
+<path d="M1490 900l10-50h90l10 50z" fill="#5a8ad8"/><path d="M1506 830a14 14 0 1 0 28 0a14 14 0 1 0-28 0zm34-10a16 16 0 1 0 32 0a16 16 0 1 0-32 0zm32 12a14 14 0 1 0 28 0a14 14 0 1 0-28 0z" fill="#ffffff"/><path d="M1515 830a5 5 0 1 0 10 0a5 5 0 1 0-10 0zm35-10a6 6 0 1 0 12 0a6 6 0 1 0-12 0zm31 12a5 5 0 1 0 10 0a5 5 0 1 0-10 0z" fill="#ffd166"/>
+</svg>

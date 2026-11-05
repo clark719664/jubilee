@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 900">
+<!-- Ramadan · front: cushions and a brass lantern bottom left, a potted plant bottom right; the centre stays open -->
+<defs><radialGradient id="ramadan-fglow"><stop stop-color="#ffd98a" stop-opacity=".55"/><stop offset="1" stop-color="#ffd98a" stop-opacity="0"/></radialGradient></defs>
+<!-- floor cushions and a brass lantern -->
+<path d="M-20 900v-58q60-20 130-4q24 10 20 62z" fill="#2a6aa8"/><path d="M60 900v-44q50-14 100 0q14 10 10 44z" fill="#e8a020"/><circle cx="196" cy="856" r="60" fill="url(#ramadan-fglow)"/><path d="M180 900v-44h32v44zm-4-44h40l-8-12h-24z" fill="#c8901e"/><path d="M184 896v-36h24v36z" fill="#ffe08a"/>
+<!-- a potted plant -->
+<path d="M1520 900l8-52h84l8 52z" fill="#c8643a"/><path d="M1522 830a24 24 0 1 0 48 0a24 24 0 1 0-48 0zm34-10a28 28 0 1 0 56 0a28 28 0 1 0-56 0zm38 16a22 22 0 1 0 44 0a22 22 0 1 0-44 0z" fill="#2a7a4a"/>
+</svg>

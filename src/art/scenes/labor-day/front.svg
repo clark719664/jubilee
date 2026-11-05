@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 900">
+<!-- Labor Day · front: a red wagon bottom left and sunflowers bottom right; the centre stays open -->
+<defs></defs>
+<!-- a red wagon with a watermelon -->
+<path d="M-10 870h100v-26h-100z" fill="#d62828"/><circle cx="8" cy="876" r="12" fill="#2a2a32"/><circle cx="74" cy="876" r="12" fill="#2a2a32"/><path d="M90 860l30-16" fill="none" stroke="#3a3a42" stroke-width="5"/><ellipse cx="40" cy="840" rx="30" ry="20" fill="#3a9a3a"/><path d="M14 836q26-12 52 0" fill="none" stroke="#6ac86a" stroke-width="4"/>
+<!-- sunflowers -->
+<path d="M1530 900v-120m40 120v-150" fill="none" stroke="#3a8a3a" stroke-width="6"/><path d="M1504 780a26 26 0 1 0 52 0a26 26 0 1 0-52 0zm36-30a30 30 0 1 0 60 0a30 30 0 1 0-60 0z" fill="#ffc83a"/><path d="M1519 780a11 11 0 1 0 22 0a11 11 0 1 0-22 0zm38-30a13 13 0 1 0 26 0a13 13 0 1 0-26 0z" fill="#6a3a1a"/>
+</svg>

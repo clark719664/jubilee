@@ -1,0 +1,83 @@
+{
+  "hotspots": [
+    {
+      "activity": "wish",
+      "x": 1360,
+      "y": 742,
+      "r": 44,
+      "label": "Look for the new moon"
+    },
+    {
+      "activity": "colour",
+      "x": 840,
+      "y": 536,
+      "r": 50,
+      "label": "Colour a fanous lantern"
+    },
+    {
+      "activity": "card",
+      "x": 361,
+      "y": 575,
+      "r": 36,
+      "label": "Make a Ramadan card for the neighbours"
+    },
+    {
+      "activity": "memory",
+      "x": 790,
+      "y": 764,
+      "r": 56,
+      "label": "Match the iftar treats"
+    }
+  ],
+  "findables": [
+    {
+      "id": "cat",
+      "label": "a cat",
+      "x": 150,
+      "y": 604,
+      "r": 18
+    },
+    {
+      "id": "date",
+      "label": "a date for breaking the fast",
+      "x": 853,
+      "y": 736,
+      "r": 14
+    },
+    {
+      "id": "plate",
+      "label": "grandma's plate of dates",
+      "x": 617,
+      "y": 748,
+      "r": 20
+    },
+    {
+      "id": "lantern",
+      "label": "a little yellow lantern",
+      "x": 1406,
+      "y": 854,
+      "r": 20
+    },
+    {
+      "id": "jug",
+      "label": "a jug of water",
+      "x": 776,
+      "y": 750,
+      "r": 18
+    },
+    {
+      "id": "palm",
+      "label": "a potted palm",
+      "x": 222,
+      "y": 604,
+      "r": 24
+    },
+    {
+      "id": "samosas",
+      "label": "a plate of samosas",
+      "x": 900,
+      "y": 762,
+      "r": 20
+    }
+  ]
+}

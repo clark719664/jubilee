@@ -1,0 +1,83 @@
+{
+  "hotspots": [
+    {
+      "activity": "memory",
+      "x": 800,
+      "y": 776,
+      "r": 50,
+      "label": "Match the seder plate"
+    },
+    {
+      "activity": "seek",
+      "x": 272,
+      "y": 834,
+      "r": 40,
+      "label": "Hunt for the afikoman"
+    },
+    {
+      "activity": "card",
+      "x": 955,
+      "y": 752,
+      "r": 30,
+      "label": "Make a Passover card"
+    },
+    {
+      "activity": "colour",
+      "x": 885,
+      "y": 701,
+      "r": 46,
+      "label": "Colour the seder table"
+    }
+  ],
+  "findables": [
+    {
+      "id": "afikoman",
+      "label": "the hidden afikoman",
+      "x": 142,
+      "y": 796,
+      "r": 18
+    },
+    {
+      "id": "elijah-cup",
+      "label": "Elijah's cup",
+      "x": 955,
+      "y": 752,
+      "r": 20
+    },
+    {
+      "id": "egg",
+      "label": "the seder egg",
+      "x": 760,
+      "y": 772,
+      "r": 14
+    },
+    {
+      "id": "matzah",
+      "label": "the matzah",
+      "x": 555,
+      "y": 776,
+      "r": 26
+    },
+    {
+      "id": "cat",
+      "label": "a cat",
+      "x": 990,
+      "y": 870,
+      "r": 22
+    },
+    {
+      "id": "gate",
+      "label": "the open gate",
+      "x": 1440,
+      "y": 700,
+      "r": 40
+    },
+    {
+      "id": "moon",
+      "label": "the full moon",
+      "x": 1460,
+      "y": 130,
+      "r": 40
+    }
+  ]
+}

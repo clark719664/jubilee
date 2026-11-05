@@ -1,0 +1,83 @@
+{
+  "hotspots": [
+    {
+      "activity": "colour",
+      "x": 800,
+      "y": 600,
+      "r": 56,
+      "label": "Colour in the groundhog"
+    },
+    {
+      "activity": "wish",
+      "x": 1468,
+      "y": 150,
+      "r": 60,
+      "label": "Wish for an early spring"
+    },
+    {
+      "activity": "dressup",
+      "x": 1218,
+      "y": 757,
+      "r": 50,
+      "label": "Try on the top hat"
+    },
+    {
+      "activity": "card",
+      "x": 408,
+      "y": 713,
+      "r": 40,
+      "label": "Make a weather sign"
+    }
+  ],
+  "findables": [
+    {
+      "id": "shadow",
+      "label": "the groundhog's shadow",
+      "x": 550,
+      "y": 772,
+      "r": 30
+    },
+    {
+      "id": "cardinal",
+      "label": "a red cardinal",
+      "x": 168,
+      "y": 510,
+      "r": 16
+    },
+    {
+      "id": "rabbit",
+      "label": "a white rabbit",
+      "x": 1460,
+      "y": 766,
+      "r": 20
+    },
+    {
+      "id": "binoculars",
+      "label": "a pair of binoculars",
+      "x": 1327,
+      "y": 793,
+      "r": 16
+    },
+    {
+      "id": "sled",
+      "label": "a red sled",
+      "x": 180,
+      "y": 776,
+      "r": 26
+    },
+    {
+      "id": "snowflake-sign",
+      "label": "a snowflake sign",
+      "x": 1079,
+      "y": 718,
+      "r": 24
+    },
+    {
+      "id": "ears",
+      "label": "a hat with groundhog ears",
+      "x": 376,
+      "y": 772,
+      "r": 16
+    }
+  ]
+}

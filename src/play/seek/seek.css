@@ -1,0 +1,169 @@
+/* Seek & Find — full-screen scene search. Reuses the shell tokens (--card, --line, --ease…) and the
+   holiday's --h-* sky; every control is ≥ 48 px; motion is quietened by .app[data-motion] and by the
+   root's own data-motion (set live from ctx.motion). */
+
+.seek { position: fixed; inset: 0; z-index: 80; overflow: hidden; overscroll-behavior: none; color: var(--h-ink); -webkit-user-select: none; user-select: none; -webkit-tap-highlight-color: transparent; }
+.seek :focus-visible { outline-color: var(--focus); }
+
+/* ── picture ── */
+.seek > .seek-stage { position: absolute; inset: 0; z-index: 0; overflow: hidden; touch-action: none; cursor: grab; outline: none; }
+.seek > .seek-stage.is-grabbing { cursor: grabbing; }
+.seek > .seek-stage:focus-visible { box-shadow: inset 0 0 0 4px var(--h-glow), inset 0 0 0 7px var(--h-ink); }
+.seek-plane { position: absolute; left: 0; top: 0; width: 1600px; height: 900px; transform-origin: 0 0; pointer-events: none; }
+.seek-stage.is-grabbing .seek-plane, .seek-stage.is-moving .seek-plane { will-change: transform; }
+.seek-layer { position: absolute; inset: 0; width: 1600px; height: 900px; max-width: none; pointer-events: none; }
+.seek-fx { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; transition: opacity .35s var(--ease); }
+.seek-marks { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+
+/* stamp left where something was found */
+.seek-stamp { position: absolute; width: var(--d, 64px); height: var(--d, 64px); transform: translate(-50%, -50%); }
+.seek-stamp-ring { position: absolute; inset: 0; border-radius: 50%; border: 4px solid #fff; box-shadow: 0 0 0 3px var(--h-accent), 0 0 22px 4px color-mix(in srgb, var(--h-glow) 70%, transparent), inset 0 0 0 2px color-mix(in srgb, var(--h-accent) 60%, transparent); }
+.seek-stamp-badge { position: absolute; right: -6px; top: -6px; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--h-accent); color: var(--h-accent-ink); border: 3px solid #fff; box-shadow: 0 0 0 2px var(--line), 0 3px 0 2px rgba(0, 0, 0, .25); }
+.seek-stamp-badge .icon, .seek-stamp-badge svg { stroke-width: 3.2; }
+.seek-stamp.is-new { animation: seek-stamp .55s var(--ease) both; }
+.seek-stamp.is-wiggle { animation: wobble .5s var(--ease) 1; }
+@keyframes seek-stamp { 0% { transform: translate(-50%, -50%) scale(1.9) rotate(-18deg); opacity: 0; } 60% { transform: translate(-50%, -50%) scale(.92) rotate(4deg); opacity: 1; } 100% { transform: translate(-50%, -50%) scale(1) rotate(0); opacity: 1; } }
+
+/* the find jumps out of the picture, then settles back into it */
+.seek-pop { position: absolute; width: var(--d); height: var(--d); margin: calc(var(--d) / -2) 0 0 calc(var(--d) / -2); overflow: hidden; border-radius: 50%; box-shadow: 0 0 0 3px #fff, 0 10px 24px rgba(0, 0, 0, .35); animation: seek-pop 1s cubic-bezier(.2, .8, .2, 1) both; }
+.seek-pop-img { position: absolute; max-width: none; pointer-events: none; }
+@keyframes seek-pop { 0% { transform: scale(1); opacity: 0; } 12% { opacity: 1; } 35% { transform: scale(1.45) rotate(-6deg); } 55% { transform: scale(1.32) rotate(4deg); } 80% { transform: scale(1.04) rotate(0); opacity: 1; } 100% { transform: scale(1); opacity: 0; } }
+
+/* sparkle burst on a find */
+.seek-sparkle { position: absolute; width: 0; height: 0; }
+.seek-spark { position: absolute; left: -11px; top: -11px; max-width: none; filter: drop-shadow(0 0 4px rgba(255, 255, 255, .9)); animation: seek-spark .8s var(--ease) var(--d, 0ms) both; }
+@keyframes seek-spark { 0% { transform: translate(0, 0) scale(.2) rotate(0); opacity: 1; } 70% { opacity: 1; } 100% { transform: translate(var(--dx), var(--dy)) scale(1) rotate(var(--rot)); opacity: 0; } }
+
+/* miss: a soft ripple, nothing more */
+.seek-ripple { position: absolute; width: 64px; height: 64px; margin: -32px 0 0 -32px; border-radius: 50%; border: 3px solid rgba(255, 255, 255, .85); box-shadow: 0 0 0 2px color-mix(in srgb, var(--h-bg1) 35%, transparent); animation: seek-ripple .65s ease-out forwards; }
+@keyframes seek-ripple { from { transform: scale(.3); opacity: .9; } to { transform: scale(1.3); opacity: 0; } }
+
+/* cheer bubble */
+.seek-cheer { position: absolute; transform: translate(-50%, -100%); padding: 6px 16px; border-radius: 999px; background: var(--card); color: var(--ink); border: 3px solid var(--line); box-shadow: 0 4px 0 var(--line); font: 700 20px/1.2 var(--font-display); white-space: nowrap; animation: seek-cheer 1.45s var(--ease) both; }
+@keyframes seek-cheer { 0% { transform: translate(-50%, -60%) scale(.5); opacity: 0; } 18% { transform: translate(-50%, -100%) scale(1.06); opacity: 1; } 70% { transform: translate(-50%, -120%) scale(1); opacity: 1; } 100% { transform: translate(-50%, -150%) scale(.96); opacity: 0; } }
+
+/* keyboard aim: only while the stage has keyboard focus */
+.seek-aim { position: absolute; display: none; width: 56px; height: 56px; transform: translate(-50%, -50%); border-radius: 50%; border: 4px solid #fff; box-shadow: 0 0 0 3px var(--focus); }
+.seek-stage:focus-visible .seek-aim { display: block; }
+
+/* hint glow: a slow breathing pool of light somewhere around the thing, never centred on it */
+.seek-glow { position: absolute; width: var(--d, 160px); height: var(--d, 160px); transform: translate(-50%, -50%); border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--h-glow) 50%, transparent) 0%, color-mix(in srgb, var(--h-glow) 22%, transparent) 50%, transparent 70%); border: 3px dashed color-mix(in srgb, var(--h-accent) 80%, #fff); box-shadow: 0 0 0 3px color-mix(in srgb, #fff 70%, transparent), 0 0 30px 6px color-mix(in srgb, var(--h-glow) 45%, transparent); opacity: 0; }
+.seek-glow.is-on { animation: seek-breathe 1.3s ease-in-out 3 both; }
+@keyframes seek-breathe { 0% { opacity: 0; transform: translate(-50%, -50%) scale(.85); } 50% { opacity: 1; transform: translate(-50%, -50%) scale(1.08); } 100% { opacity: .55; transform: translate(-50%, -50%) scale(.95); } }
+
+
+/* ── top bar ── */
+.seek > .seek-top { position: absolute; top: 0; left: 0; right: 0; z-index: 3; display: flex; align-items: center; gap: 12px; padding: calc(12px + env(safe-area-inset-top, 0px)) calc(16px + env(safe-area-inset-right, 0px)) 22px calc(16px + env(safe-area-inset-left, 0px)); background: linear-gradient(180deg, color-mix(in srgb, var(--h-bg1) 78%, transparent) 0%, color-mix(in srgb, var(--h-bg1) 40%, transparent) 60%, transparent 100%); pointer-events: none; }
+.seek-top > * { pointer-events: auto; }
+.seek-heading { display: grid; line-height: 1.05; min-width: 0; text-shadow: 0 2px 0 color-mix(in srgb, var(--h-bg1) 70%, transparent); }
+.seek-kicker { font: 700 13px/1.2 var(--font-body); letter-spacing: .06em; text-transform: uppercase; opacity: .92; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.seek-title { font: 700 clamp(24px, 4.2vw, 34px)/1.05 var(--font-display); letter-spacing: -0.01em; white-space: nowrap; }
+.seek-spacer { flex: 1 1 auto; }
+.seek-zoom { display: flex; gap: 10px; }
+.seek .btn.seek-round { width: 52px; min-width: 52px; height: 52px; background: var(--card); color: var(--ink); border-color: var(--line); box-shadow: 0 4px 0 var(--line); }
+.seek .btn.seek-round:active { box-shadow: 0 2px 0 var(--line); }
+.seek .btn.seek-round:disabled { opacity: .45; }
+.seek .btn.seek-round svg { stroke-width: 2.8; }
+
+.seek > .seek-ribbon { position: absolute; z-index: 3; left: 50%; top: calc(84px + env(safe-area-inset-top, 0px)); transform: translateX(-50%); display: flex; align-items: center; gap: 8px; width: max-content; max-width: calc(100% - 32px); padding: 8px 18px; border-radius: 999px; background: var(--sun); color: var(--sun-ink); border: 3px solid var(--sun-ink); box-shadow: 0 4px 0 var(--sun-ink); font: 700 16px/1.25 var(--font-display); text-align: center; pointer-events: none; animation: rise .5s var(--ease) both; }
+.seek-ribbon-star { font-size: 22px; animation: bounce 1.4s var(--ease) infinite; }
+
+.seek > .seek-coach { position: absolute; z-index: 2; left: 50%; top: 44%; transform: translate(-50%, -50%); display: flex; align-items: center; gap: 10px; padding: 12px 22px; border-radius: 999px; background: var(--card); color: var(--ink); border: 3px solid var(--line); box-shadow: var(--shadow); font: 700 18px/1.2 var(--font-display); width: max-content; max-width: calc(100% - 32px); text-align: center; pointer-events: none; animation: rise .5s var(--ease) .3s both; transition: opacity .35s var(--ease), transform .35s var(--ease); }
+@media (max-width: 480px) { .seek > .seek-coach { gap: 8px; padding: 10px 16px; font-size: 16px; text-align: left; } }
+.seek > .seek-coach.is-leaving { opacity: 0; transform: translate(-50%, -30%); }
+.seek-coach-hand { display: inline-block; font-size: 26px; animation: seek-swipe 1.6s var(--ease) infinite; }
+@keyframes seek-swipe { 0%, 100% { transform: translateX(-6px) rotate(-8deg); } 50% { transform: translateX(8px) rotate(8deg); } }
+
+/* ── strip of things to find ── */
+.seek > .seek-strip { position: absolute; left: 0; right: 0; bottom: 0; z-index: 3; display: grid; gap: 4px; padding: 10px 0 calc(12px + env(safe-area-inset-bottom, 0px)); background: color-mix(in srgb, var(--h-glow) 7%, var(--card)); color: var(--ink); border-top: var(--line-w) solid var(--line); border-radius: 28px 28px 0 0; box-shadow: 0 -6px 24px rgba(0, 0, 0, .18); }
+.seek-strip-head { display: flex; align-items: center; gap: 12px; min-height: 48px; padding: 0 calc(16px + env(safe-area-inset-right, 0px)) 0 calc(18px + env(safe-area-inset-left, 0px)); }
+.seek-strip-title { font: 700 20px/1.1 var(--font-display); white-space: nowrap; }
+.seek-count { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: 15px; color: var(--muted); white-space: nowrap; }
+.seek-dots { display: inline-flex; gap: 4px; }
+.seek-dots i { width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--line); background: transparent; transition: background .3s var(--ease), transform .3s var(--ease); }
+.seek-dots i.is-on { background: var(--h-accent); border-color: var(--line); transform: scale(1.12); }
+.seek .btn.seek-hint { min-height: 48px; padding: 0 18px; background: var(--sun); color: var(--sun-ink); border-color: var(--sun-ink); box-shadow: 0 4px 0 var(--sun-ink); }
+.seek .btn.seek-hint[hidden] { display: none; }
+@keyframes seek-nudge { 0%, 80%, 100% { transform: rotate(0); } 85% { transform: rotate(-6deg); } 90% { transform: rotate(5deg); } 95% { transform: rotate(-3deg); } }
+
+.seek-cards { display: flex; gap: 12px; overflow-x: auto; padding: 6px calc(16px + env(safe-area-inset-right, 0px)) 8px calc(16px + env(safe-area-inset-left, 0px)); scroll-snap-type: x proximity; scrollbar-width: none; }
+.seek-cards::-webkit-scrollbar { display: none; }
+.seek-cards-item { flex: none; scroll-snap-align: start; padding-top: 4px; }
+.seek-card { position: relative; display: grid; justify-items: center; align-content: start; gap: 6px; width: 108px; min-height: 112px; padding: 8px 6px 8px; border-radius: 20px; border: 3px solid var(--line); background: var(--card); color: var(--ink); box-shadow: 3px 3px 0 var(--line); transform: rotate(var(--tilt, 0deg)); transition: transform .25s var(--ease), box-shadow .25s var(--ease), background .25s; touch-action: manipulation; }
+.seek-card:hover { transform: rotate(0) translateY(-2px); }
+.seek-card:active { transform: rotate(0) translateY(1px); box-shadow: 1px 1px 0 var(--line); }
+.seek-card.is-selected { transform: rotate(0) translateY(-6px); box-shadow: 4px 6px 0 var(--line); background: var(--card-tint); }
+.seek-card.is-bounce { animation: seek-bounce .5s var(--ease); }
+@keyframes seek-bounce { 0% { transform: translateY(0) scale(1); } 40% { transform: translateY(-10px) scale(1.06); } 100% { transform: translateY(-6px) scale(1); } }
+.seek-card-label { font: 700 14px/1.15 var(--font-display); text-align: center; }
+.seek-thumb { position: relative; display: block; width: 64px; height: 64px; overflow: hidden; border-radius: 50%; background: radial-gradient(circle at 50% 40%, var(--card-tint-2), var(--card-tint)); box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--line) 22%, transparent); }
+/* Not yet found: only a "?", because a crop of mid.svg always shows what the thing is sitting on. Found: the crop fades in. */
+.seek-thumb-img { position: absolute; max-width: none; pointer-events: none; opacity: 0; transition: opacity .5s var(--ease); }
+.seek-thumb-q { display: grid; place-items: center; height: 100%; font: 700 34px/1 var(--font-display); color: var(--muted); transition: opacity .3s var(--ease); }
+.seek-card.is-found .seek-thumb-q, .seek-recap .seek-thumb-q { opacity: 0; }
+.seek-tick { position: absolute; right: 6px; top: 6px; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--h-accent); color: var(--h-accent-ink); border: 2px solid var(--line); transform: scale(0); transition: transform .35s var(--ease); }
+.seek-tick svg { stroke-width: 3.4; }
+.seek-card.is-found { background: color-mix(in srgb, var(--h-glow) 22%, var(--card)); }
+.seek-card.is-found .seek-thumb-img { opacity: 1; }
+.seek-card.is-found .seek-thumb { box-shadow: inset 0 0 0 3px var(--h-accent); }
+.seek-card.is-found .seek-tick { transform: scale(1); }
+.seek-card.is-found.is-new .seek-tick { animation: slam .45s var(--ease) both; --r: 0deg; }
+.seek-card.is-found.is-new { animation: seek-bounce .5s var(--ease); }
+
+/* ── finish card ── */
+.seek > .seek-done { position: absolute; inset: 0; z-index: 6; display: grid; place-items: center; padding: 16px; background: color-mix(in srgb, var(--h-bg1) 50%, transparent); -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); animation: rise .35s var(--ease) both; }
+.seek-done-card { position: relative; z-index: 1; display: grid; justify-items: center; gap: 10px; width: min(100%, 440px); max-height: calc(100% - 16px); overflow: auto; padding: 26px 22px 20px; text-align: center; animation: pop .55s var(--ease) both; }
+.seek-done-art { position: relative; display: grid; place-items: center; width: 128px; height: 128px; border-radius: 50%; background: radial-gradient(circle at 40% 35%, var(--h-glow), var(--h-accent) 70%); border: 4px solid var(--line); box-shadow: var(--shadow); }
+.seek-done-sticker { width: 112px; height: 112px; }
+.seek-done-emoji { font-size: 64px; }
+.seek-done-stamp { position: absolute; right: -34px; bottom: -4px; padding: 4px 12px; border: 4px solid var(--berry); border-radius: 12px; background: color-mix(in srgb, #fff 85%, transparent); color: var(--berry); font: 700 22px/1.1 var(--font-display); letter-spacing: .04em; text-transform: uppercase; transform: rotate(-12deg); animation: slam .5s var(--ease) .35s both; }
+.seek-done-title { margin-top: 4px; }
+.seek-done-body { max-width: 34ch; }
+.seek-done-rounds { font-weight: 700; color: var(--muted); }
+.seek-recap { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 4px 0 6px; }
+.seek-recap { gap: 6px; }
+.seek-recap li { width: 44px; height: 44px; }
+.seek-recap .seek-thumb { transform: scale(.6875); transform-origin: 0 0; box-shadow: inset 0 0 0 4px var(--h-accent); }
+.seek-recap .seek-thumb-img { opacity: 1; }
+.seek-done-actions { display: grid; gap: 10px; width: 100%; }
+.seek-done-actions .btn { width: 100%; }
+.seek .seek-done-actions .btn:not(.btn-secondary):not(.btn-ghost) { background: var(--h-accent); color: var(--h-accent-ink); border-color: var(--line); box-shadow: 0 4px 0 var(--line); }
+.seek .seek-done-actions .btn-secondary { background: var(--card); color: var(--ink); border-color: var(--line); box-shadow: 0 4px 0 var(--line); }
+.seek .seek-done-actions .btn-ghost { background: transparent; color: var(--ink); border-color: transparent; box-shadow: none; }
+
+.seek-confetti { position: absolute; inset: 0; z-index: 2; overflow: hidden; pointer-events: none; }
+.seek-confetti i { position: absolute; top: -24px; left: var(--x); width: var(--w); height: var(--h); border-radius: 3px; background: var(--c); animation: seek-fall var(--dur) cubic-bezier(.3, .6, .5, 1) var(--delay) both; }
+@keyframes seek-fall { from { transform: translate(0, 0) rotate(0); } to { transform: translate(var(--drift), 110vh) rotate(var(--spin)); } }
+
+/* ── art-less fallback ── */
+.seek.seek-empty { display: grid; place-items: center; padding: 16px; }
+.seek-empty-card { display: grid; justify-items: center; gap: 12px; max-width: 420px; text-align: center; }
+
+/* ── wide screens ── */
+@media (min-width: 760px) {
+  .seek-strip-head, .seek-cards { justify-content: center; }
+  .seek-strip-head { max-width: 1080px; width: 100%; margin: 0 auto; justify-content: center; }
+  .seek-strip-head .seek-spacer { flex: 0 0 8px; }
+  .seek-cards { justify-content: safe center; }
+  .seek-card { width: 108px; }
+}
+@media (max-width: 420px) {
+  .seek-strip-title { font-size: 18px; }
+  .seek-count-text { display: none; }
+}
+
+/* ── reduced motion: no wiggles, no sparkles, still glows, instant pans (done in JS) ── */
+.seek:not([data-motion="full"]) .seek-stamp.is-new,
+.seek:not([data-motion="full"]) .seek-stamp.is-wiggle,
+.seek:not([data-motion="full"]) .seek-card.is-bounce,
+.seek:not([data-motion="full"]) .seek-card.is-found.is-new,
+.seek:not([data-motion="full"]) .seek-coach-hand,
+.seek:not([data-motion="full"]) .seek-ribbon-star,
+.seek:not([data-motion="full"]) .seek-ripple { animation: seek-fade .6s linear forwards; transform: none; }
+.seek:not([data-motion="full"]) .seek-glow.is-on { animation: none; opacity: .9; }
+.seek:not([data-motion="full"]) .seek-cheer { animation: seek-fade 1.45s linear forwards; transform: translate(-50%, -110%); }
+@keyframes seek-fade { 0%, 70% { opacity: .9; } 100% { opacity: 0; } }
+@media (prefers-contrast: more) {
+  .seek > .seek-strip { background: var(--card); }
+  .seek > .seek-top { background: var(--h-bg1); }
+}

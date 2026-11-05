@@ -1,0 +1,235 @@
+import type { HolidayContent } from '../types';
+
+const content: HolidayContent = {
+  story: [
+    'Holi is the Hindu festival of colours, welcoming spring in India, Nepal and wherever Hindu families live.',
+    'The evening before, many families gather around a bonfire called Holika Dahan and remember a story about a boy named Prahlad who was kept safe from a fire, a reminder that good wins over evil.',
+    'The next morning is Rangwali Holi, the colour day: people throw handfuls of bright powder called gulal, squirt water, drum, dance and laugh until everyone is a walking rainbow.',
+    'Afterwards comes a wash, clean clothes and sweets like gujiya, a crisp pastry with a sweet filling.',
+    "On Holi, people who are playing expect to get splashed, and the saying of the day is 'Bura na mano, Holi hai!', which means 'Don't be upset, it's Holi!'",
+  ],
+  facts: [
+    {
+      text: 'The Holi bonfire is lit on the night of the full moon of the Hindu month of Phalguna, and colour play comes the next morning. That is why Holi lands on a different day each year, usually in March.',
+      bigKids: true,
+    },
+    {
+      text: 'In Barsana, a town linked to the goddess Radha, Holi is called Lathmar Holi: women playfully chase men with long sticks while the men hold up shields, and everyone laughs.',
+      wow: true,
+    },
+    {
+      text: 'The first gulal colours came from plants: yellow from turmeric, orange and red from the flame-of-the-forest flower called tesu, and green from leaves. Today many families look for natural, skin-safe powders again.',
+    },
+    {
+      text: 'In Nepal, Holi is called Fagu Purnima. People in the hills, including the capital Kathmandu, play on the full-moon day, and people in the flat Terai region in the south play the day after.',
+    },
+    {
+      text: 'A legend says the god Krishna, whose skin was blue, worried that Radha would not like his colour, so his mother told him to paint her face too. That playful face-painting is one story of how colour play began.',
+    },
+    {
+      text: 'Around the towns of Mathura and Vrindavan, where Krishna is said to have grown up, Holi goes on for more than a week, and at one temple people throw flower petals instead of powder.',
+    },
+  ],
+  greetings: [
+    {
+      lang: 'hi',
+      langName: 'Hindi',
+      text: 'होली की शुभकामनाएं',
+      roman: 'Holi ki shubhkamnayein',
+      sayIt: 'HO-lee kee shoobh-KAHM-nah-ayn',
+      meaning: 'Best wishes for Holi',
+    },
+    {
+      lang: 'hi',
+      langName: 'Hindi',
+      text: 'बुरा न मानो, होली है!',
+      roman: 'Bura na mano, Holi hai!',
+      sayIt: 'BOO-rah nah MAH-no, HO-lee heh',
+      meaning: "Don't be upset, it's Holi! (what you say as you splash someone with colour)",
+    },
+    {
+      lang: 'gu',
+      langName: 'Gujarati',
+      text: 'હોળીની શુભેચ્છાઓ',
+      roman: 'Holi ni shubhechchhao',
+      sayIt: 'HO-lee nee shoob-ETCH-chah-oh',
+      meaning: 'Good wishes for Holi',
+    },
+    {
+      lang: 'ne',
+      langName: 'Nepali',
+      text: 'होलीको हार्दिक शुभकामना',
+      roman: 'Holi ko hardik shubhakamana',
+      sayIt: 'HO-lee-ko HAR-dik shoob-KAHM-nah',
+      meaning: 'Heartfelt good wishes for Holi',
+    },
+  ],
+  recipes: [
+    {
+      id: 'rainbow-fruit-skewers-with-natural-colour-powder',
+      title: 'Rainbow Fruit Skewers with Natural Colour Powder',
+      emoji: '🍓',
+      blurb: 'Fruit threaded in rainbow order, then dusted with your own pink, purple and yellow powders made from crushed freeze-dried fruit: a Holi colour-throw you can eat.',
+      minutes: 25,
+      serves: 4,
+      difficulty: 1,
+      adultHelp: 'some',
+      noHeat: true,
+      allergens: [],
+      equipment: ['8 wooden skewers or paper straws', '2 zip-seal bags', 'rolling pin', '3 small bowls', 'chopping board', 'teaspoon'],
+      ingredients: [
+        { item: 'strawberries', us: { qty: 8, unit: 'piece' }, metric: { qty: 8, unit: 'piece' } },
+        { item: 'clementines', us: { qty: 2, unit: 'piece' }, metric: { qty: 2, unit: 'piece' } },
+        { item: 'pineapple chunks', us: { qty: 1, unit: 'cup' }, metric: { qty: 150, unit: 'g' } },
+        { item: 'kiwi', us: { qty: 2, unit: 'piece' }, metric: { qty: 2, unit: 'piece' } },
+        { item: 'blueberries', us: { qty: 0.5, unit: 'cup' }, metric: { qty: 75, unit: 'g' } },
+        { item: 'freeze-dried strawberries', us: { qty: 0.25, unit: 'cup' }, metric: { qty: 10, unit: 'g' }, note: 'for pink powder' },
+        { item: 'freeze-dried blueberries', us: { qty: 0.25, unit: 'cup' }, metric: { qty: 10, unit: 'g' }, note: 'for purple powder' },
+        { item: 'icing (powdered) sugar', us: { qty: 3, unit: 'tbsp' }, metric: { qty: 25, unit: 'g' } },
+        { item: 'ground turmeric', us: { qty: 1, unit: 'pinch' }, metric: { qty: 1, unit: 'pinch' }, note: 'for yellow powder' },
+      ],
+      steps: [
+        {
+          text: 'A grown-up pulls the green tops off the strawberries and cuts the pineapple and kiwi into chunks on the board.',
+          adult: true,
+          hazards: ['sharp'],
+        },
+        {
+          text: 'A grown-up snips the pointed tips off the skewers with scissors, or hands you paper straws to use instead.',
+          adult: true,
+          hazards: ['sharp'],
+        },
+        {
+          text: 'Peel the clementines and pull them into segments.',
+          kidSafeOverride: 'peeling a clementine by hand',
+        },
+        {
+          text: 'Put the freeze-dried strawberries in a zip bag, seal it, and crush them with the rolling pin until you have pink dust. Do the same with the freeze-dried blueberries in the second bag for purple.',
+          tip: 'Bash gently: the bag should stay closed.',
+        },
+        {
+          text: 'Tip each dust into its own small bowl and stir in a tablespoon of icing sugar. In the third bowl, mix the last tablespoon of icing sugar with a tiny pinch of turmeric for yellow.',
+          tip: 'A tiny pinch is plenty: turmeric is strong, and it stains fingers and clothes.',
+        },
+        { text: 'Thread the fruit onto the skewers in rainbow order: strawberry, clementine, pineapple, kiwi, blueberry, and repeat.' },
+        {
+          text: 'Now the colour throw: dip the ends of each skewer into a powder, then shake a little more over the top from a teaspoon like a tiny gulal shower.',
+        },
+        { text: 'Taste test! Which colour tastes best? Line the skewers up as a rainbow before they disappear.' },
+      ],
+      tip: 'For children under 4, cut blueberries in half and use paper straws instead of pointed sticks.',
+    },
+    {
+      id: 'mango-lassi',
+      title: 'Mango Lassi',
+      emoji: '🥭',
+      blurb: 'A thick, cool mango and yogurt drink with a whisper of cardamom: the perfect thing after a morning of colour play.',
+      minutes: 10,
+      serves: 2,
+      difficulty: 1,
+      adultHelp: 'some',
+      noHeat: false,
+      allergens: ['milk'],
+      swaps: [{ avoid: 'milk', use: 'thick coconut yogurt and oat milk' }],
+      equipment: ['blender', 'measuring cups and spoons', 'chopping board', '2 tall glasses', 'straws'],
+      ingredients: [
+        { item: 'ripe mangoes', us: { qty: 2, unit: 'piece' }, metric: { qty: 2, unit: 'piece' }, note: 'or 2 cups / 300 g frozen or canned mango chunks' },
+        { item: 'plain yogurt', us: { qty: 1, unit: 'cup' }, metric: { qty: 240, unit: 'ml' }, allergens: ['milk'] },
+        { item: 'milk', us: { qty: 0.5, unit: 'cup' }, metric: { qty: 120, unit: 'ml' }, allergens: ['milk'] },
+        { item: 'sugar', us: { qty: 1, unit: 'tbsp' }, metric: { qty: 15, unit: 'g' }, note: 'or to taste; a very ripe mango may need none' },
+        { item: 'ground cardamom', us: { qty: 1, unit: 'pinch' }, metric: { qty: 1, unit: 'pinch' }, optional: true },
+        { item: 'ice cubes', us: { qty: 4, unit: 'piece' }, metric: { qty: 4, unit: 'piece' }, optional: true },
+      ],
+      steps: [
+        {
+          text: 'A grown-up peels the mangoes and cuts the flesh away from the big flat stone in the middle.',
+          adult: true,
+          hazards: ['sharp'],
+          tip: 'Frozen mango chunks skip this step and make the lassi extra cold.',
+        },
+        {
+          text: 'With the blender switched off and unplugged, put the mango, yogurt, milk, sugar, cardamom and ice into the jug.',
+          kidSafeOverride: 'loading the jug while the blender is unplugged',
+        },
+        {
+          text: 'A grown-up puts the lid on tight and blends until smooth and frothy.',
+          adult: true,
+          hazards: ['electric'],
+          timerMinutes: 1,
+        },
+        {
+          text: 'Too thick to pour? A grown-up adds a splash more milk and blends again. Too thin? Add more mango.',
+          adult: true,
+          hazards: ['electric'],
+        },
+        { text: 'Pour the lassi into two tall glasses and sprinkle a little cardamom on top.' },
+        { text: 'Taste test! Add a straw, slurp, and say it like they do on Holi morning: cool, creamy, and very, very mango.' },
+      ],
+      tip: 'Lassi is a yogurt drink from North India. Sweet mango lassi is the famous one, but a salty lassi with a pinch of salt and cumin is just as traditional.',
+    },
+  ],
+  crafts: [
+    {
+      id: 'diy-colour-powder',
+      title: 'DIY Colour Powder',
+      emoji: '🎨',
+      blurb: 'Make your own soft, washable Holi powder from cornstarch and food colouring, then take it outside for a gentle colour fight. About 45 minutes of work, but the paste needs a day or two to dry, so start early in the week.',
+      minutes: 45,
+      mess: 3,
+      adultHelp: 'some',
+      hazards: [],
+      materials: [
+        { item: 'cornstarch (cornflour)', qty: '1 cup per colour' },
+        { item: 'water', qty: '⅓ cup per colour' },
+        { item: 'food colouring', qty: 'liquid or gel, one bottle per colour' },
+        { item: 'mixing bowl and spoon', qty: 'one per colour' },
+        { item: 'tray lined with parchment' },
+        { item: 'sieve' },
+        { item: 'zip-seal bags or paper cups', qty: 'to hold the finished powder' },
+        { item: 'old clothes and an apron' },
+        { item: 'disposable gloves', optional: true },
+      ],
+      steps: [
+        { text: 'Put 1 cup (120 g) of cornstarch in the bowl and stir in ⅓ cup (80 ml) of water a little at a time until you have a thick, smooth paste.' },
+        {
+          text: 'Add 15 to 20 drops of food colouring and stir until the colour is even all the way through.',
+          tip: 'Gel colours give the brightest powder. Gloves keep your hands clean.',
+        },
+        { text: 'Spread the paste out on the lined tray as thinly as you can.' },
+        {
+          text: 'Leave the tray somewhere warm and dry for one to two days, until the paste is hard and crumbly.',
+          tip: 'A sunny windowsill speeds it up.',
+        },
+        { text: 'Break the dried sheet into chunks, crush them with the back of a spoon, then push the crumbs through the sieve into a cup. That is your gulal!' },
+        { text: 'Repeat with a fresh bowl for each colour: pink, yellow, green, blue, orange.' },
+        {
+          text: 'Play outside in old clothes. Throw small handfuls gently at shoulders, backs and arms, never at faces, and keep the powder out of eyes, noses and mouths. It washes off with soap and water, though bright colours can take a wash or two.',
+        },
+      ],
+      learn: 'Real gulal was once made from dried flowers and spices. Cornstarch powder is soft and washes away, which is why many families now choose natural colours over cheap ones that can sting.',
+    },
+  ],
+  doors: [
+    { sleeps: 12, kind: 'fact', text: 'Holi is also a thank-you for the spring harvest. On bonfire night, some families in north India hold up ears of new wheat or green chickpeas to roast in the flames, then share them.' },
+    { sleeps: 11, kind: 'joke', text: 'Why is Holi the friendliest festival? Because by lunchtime everyone is tickled pink!' },
+    { sleeps: 10, kind: 'craft', text: 'Glue strips of coloured paper in rainbow order around the rim of a paper plate to make a Holi colour wheel, then name every colour out loud.' },
+    { sleeps: 9, kind: 'say', text: 'Learn to say happy Holi in Gujarati, the language of Gujarat in western India!', greeting: 2 },
+    { sleeps: 8, kind: 'fact', text: 'In Guyana and in Trinidad and Tobago, Holi is called Phagwah. It is a national holiday in Guyana, and people sing folk songs called chowtal as they play with colour.' },
+    { sleeps: 7, kind: 'colour', text: 'Get out every colour you have and colour in the Holi page. On Holi nothing stays plain, so splash colour everywhere!' },
+    { sleeps: 6, kind: 'joke', text: "Knock knock! Who's there? Holi. Holi who? Holi-moly, you're pink from head to toe!" },
+    { sleeps: 5, kind: 'fact', text: 'In West Bengal, Holi is called Dol Jatra or Basanta Utsav, the spring festival. The poet Rabindranath Tagore began a famous Basanta Utsav at his school in Shantiniketan, where students dance in yellow.' },
+    { sleeps: 4, kind: 'craft', text: 'Fold a sheet of paper back and forth into a fan, then colour each fold a different bright colour so it flashes like a rainbow when you wave it.' },
+    { sleeps: 3, kind: 'seek', text: 'Some sneaky things are hiding in the Holi picture. Can you find every single one? Open Seek & Find!' },
+    { sleeps: 2, kind: 'fact', text: 'A favourite Holi drink is thandai, from the Hindi word for cool. It is cold milk blended with almonds, fennel seeds, cardamom, rose petals and a tiny pinch of pepper.' },
+    { sleeps: 1, kind: 'say', text: 'Tonight is Holika Dahan, the bonfire night, and tomorrow is the colour day! Practise the cheer you shout when you splash a friend.', greeting: 1 },
+  ],
+  parentNote:
+    'Holi follows the Hindu lunisolar calendar: Holika Dahan is the evening of the Phalguna full moon and Rangwali Holi is the next day, usually in March, so the exact day can differ by a day between regions and calendars (the hills of Nepal play a day before the Terai). Holika Dahan is a real bonfire, so keep little ones well back. For colour play, choose natural or skin-safe powders, protect eyes, wear old clothes, and rub a little coconut oil into hair and skin beforehand so the colours wash out easily.',
+  sources: [
+    'Encyclopaedia Britannica, "Holi"',
+    'BBC Bitesize, "What is Holi?"',
+    'Incredible India (Ministry of Tourism, Government of India), "Holi" and "Lathmar Holi, Barsana"',
+  ],
+};
+
+export default content;

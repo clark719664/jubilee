@@ -1,0 +1,83 @@
+{
+  "hotspots": [
+    {
+      "activity": "colour",
+      "x": 700,
+      "y": 640,
+      "r": 70,
+      "label": "Help paint the mural"
+    },
+    {
+      "activity": "wish",
+      "x": 820,
+      "y": 590,
+      "r": 50,
+      "label": "Share your dream"
+    },
+    {
+      "activity": "card",
+      "x": 66,
+      "y": 730,
+      "r": 44,
+      "label": "Write a kind note"
+    },
+    {
+      "activity": "memory",
+      "x": 742,
+      "y": 830,
+      "r": 40,
+      "label": "Match the paint colours"
+    }
+  ],
+  "findables": [
+    {
+      "id": "handprint",
+      "label": "a green painted hand",
+      "x": 650,
+      "y": 743,
+      "r": 16
+    },
+    {
+      "id": "scarf",
+      "label": "a purple scarf",
+      "x": 129,
+      "y": 817,
+      "r": 18
+    },
+    {
+      "id": "heart",
+      "label": "a paper heart",
+      "x": 74,
+      "y": 456,
+      "r": 16
+    },
+    {
+      "id": "pantry",
+      "label": "the little free pantry",
+      "x": 1464,
+      "y": 670,
+      "r": 30
+    },
+    {
+      "id": "roller",
+      "label": "a paint roller",
+      "x": 970,
+      "y": 694,
+      "r": 22
+    },
+    {
+      "id": "dog",
+      "label": "a dog in a red bandana",
+      "x": 1500,
+      "y": 814,
+      "r": 26
+    },
+    {
+      "id": "heart-mural",
+      "label": "a red heart",
+      "x": 1040,
+      "y": 572,
+      "r": 18
+    }
+  ]
+}

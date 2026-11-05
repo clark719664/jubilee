@@ -1,0 +1,83 @@
+{
+  "hotspots": [
+    {
+      "activity": "catch",
+      "x": 1420,
+      "y": 380,
+      "r": 50,
+      "label": "Catch the flying kites"
+    },
+    {
+      "activity": "colour",
+      "x": 880,
+      "y": 502,
+      "r": 50,
+      "label": "Colour the flag"
+    },
+    {
+      "activity": "memory",
+      "x": 577,
+      "y": 786,
+      "r": 36,
+      "label": "Match the sweets"
+    },
+    {
+      "activity": "card",
+      "x": 993,
+      "y": 824,
+      "r": 30,
+      "label": "Make an Independence Day card"
+    }
+  ],
+  "findables": [
+    {
+      "id": "pigeon",
+      "label": "a pigeon",
+      "x": 64,
+      "y": 444,
+      "r": 18
+    },
+    {
+      "id": "garland",
+      "label": "a marigold garland",
+      "x": 120,
+      "y": 600,
+      "r": 26
+    },
+    {
+      "id": "green-kite",
+      "label": "a green kite",
+      "x": 256,
+      "y": 284,
+      "r": 24
+    },
+    {
+      "id": "washing",
+      "label": "a line of washing",
+      "x": 1400,
+      "y": 570,
+      "r": 40
+    },
+    {
+      "id": "salute",
+      "label": "grandpa's salute",
+      "x": 700,
+      "y": 745,
+      "r": 22
+    },
+    {
+      "id": "chakra",
+      "label": "the flag's wheel",
+      "x": 879,
+      "y": 502,
+      "r": 16
+    },
+    {
+      "id": "sun",
+      "label": "the morning sun",
+      "x": 130,
+      "y": 120,
+      "r": 44
+    }
+  ]
+}

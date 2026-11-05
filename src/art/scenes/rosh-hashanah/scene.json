@@ -1,0 +1,90 @@
+{
+  "hotspots": [
+    {
+      "activity": "wish",
+      "x": 1461,
+      "y": 532,
+      "r": 56,
+      "label": "Blow the shofar and make a wish"
+    },
+    {
+      "activity": "card",
+      "x": 788,
+      "y": 782,
+      "r": 32,
+      "label": "Make a sweet new year card"
+    },
+    {
+      "activity": "catch",
+      "x": 170,
+      "y": 470,
+      "r": 70,
+      "label": "Catch apples and honey"
+    },
+    {
+      "activity": "colour",
+      "x": 1150,
+      "y": 799,
+      "r": 44,
+      "label": "Colour the honeycomb"
+    },
+    {
+      "activity": "memory",
+      "x": 850,
+      "y": 796,
+      "r": 40,
+      "label": "Sweet treats memory game"
+    }
+  ],
+  "findables": [
+    {
+      "id": "bee",
+      "label": "a hopeful bee",
+      "x": 796,
+      "y": 737,
+      "r": 18
+    },
+    {
+      "id": "hedgehog",
+      "label": "a hedgehog",
+      "x": 110,
+      "y": 790,
+      "r": 24
+    },
+    {
+      "id": "worm",
+      "label": "a worm",
+      "x": 60,
+      "y": 790,
+      "r": 16
+    },
+    {
+      "id": "bird",
+      "label": "a bluebird",
+      "x": 47,
+      "y": 523,
+      "r": 18
+    },
+    {
+      "id": "pomegranate",
+      "label": "a pomegranate",
+      "x": 930,
+      "y": 822,
+      "r": 20
+    },
+    {
+      "id": "ladybird",
+      "label": "a ladybird",
+      "x": 990,
+      "y": 836,
+      "r": 14
+    },
+    {
+      "id": "snail",
+      "label": "a snail",
+      "x": 1286,
+      "y": 846,
+      "r": 18
+    }
+  ]
+}

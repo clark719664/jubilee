@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 900">
+<!-- MLK Day · front: a planter with winter greens bottom left and a fire hydrant bottom right; the centre stays open -->
+<defs></defs>
+<!-- a planter with winter greens and red berries -->
+<path d="M-10 900v-60h120v60z" fill="#5a6a7a"/><path d="M-14 840h128v-10h-128z" fill="#7a8a9a"/><path d="M-12 818a22 22 0 1 0 44 0a22 22 0 1 0-44 0zm34-12a26 26 0 1 0 52 0a26 26 0 1 0-52 0zm42 14a22 22 0 1 0 44 0a22 22 0 1 0-44 0z" fill="#2a6a4a"/><path d="M16 808a4 4 0 1 0 8 0a4 4 0 1 0-8 0zm34-12a4 4 0 1 0 8 0a4 4 0 1 0-8 0zm26 14a4 4 0 1 0 8 0a4 4 0 1 0-8 0zm-40 8a4 4 0 1 0 8 0a4 4 0 1 0-8 0z" fill="#e8243a"/>
+<!-- a red fire hydrant -->
+<path d="M1566 900v-70q0-24 24-24t24 24v70z" fill="#d8343a"/><path d="M1558 840h64v10h-64zm24-34h16v-12h-16z" fill="#b8242a"/><circle cx="1590" cy="860" r="8" fill="#b8242a"/>
+</svg>

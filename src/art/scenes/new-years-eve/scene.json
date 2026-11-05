@@ -1,0 +1,97 @@
+{
+  "hotspots": [
+    {
+      "activity": "wish",
+      "x": 800,
+      "y": 588,
+      "r": 104,
+      "label": "Make a wish as the clock strikes twelve"
+    },
+    {
+      "activity": "dressup",
+      "x": 698,
+      "y": 720,
+      "r": 60,
+      "label": "Pick a party hat for the family"
+    },
+    {
+      "activity": "catch",
+      "x": 994,
+      "y": 524,
+      "r": 46,
+      "label": "Catch the balloons"
+    },
+    {
+      "activity": "seek",
+      "x": 520,
+      "y": 800,
+      "r": 50,
+      "label": "Peek into the party boat"
+    },
+    {
+      "activity": "memory",
+      "x": 1408,
+      "y": 750,
+      "r": 42,
+      "label": "Match the twelve grapes"
+    }
+  ],
+  "findables": [
+    {
+      "id": "pigeon",
+      "label": "a pigeon",
+      "x": 846,
+      "y": 488,
+      "r": 18
+    },
+    {
+      "id": "red-balloon",
+      "label": "a red balloon",
+      "x": 975,
+      "y": 512,
+      "r": 24
+    },
+    {
+      "id": "party-duck",
+      "label": "a duck in a party hat",
+      "x": 1018,
+      "y": 854,
+      "r": 28
+    },
+    {
+      "id": "cat-dormer",
+      "label": "a cat",
+      "x": 254,
+      "y": 500,
+      "r": 18
+    },
+    {
+      "id": "teddy-window",
+      "label": "a teddy in a party hat",
+      "x": 69,
+      "y": 538,
+      "r": 20
+    },
+    {
+      "id": "roof-dog",
+      "label": "a dog",
+      "x": 1556,
+      "y": 330,
+      "r": 26
+    },
+    {
+      "id": "balloon-window",
+      "label": "balloons",
+      "x": 1264,
+      "y": 664,
+      "r": 18
+    },
+    {
+      "id": "cocoa",
+      "label": "a mug of hot cocoa",
+      "x": 1432,
+      "y": 750,
+      "r": 18
+    }
+  ]
+}

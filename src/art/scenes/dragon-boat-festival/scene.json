@@ -1,0 +1,83 @@
+{
+  "hotspots": [
+    {
+      "activity": "colour",
+      "x": 760,
+      "y": 720,
+      "r": 70,
+      "label": "Colour the dragon boat"
+    },
+    {
+      "activity": "memory",
+      "x": 348,
+      "y": 811,
+      "r": 36,
+      "label": "Match the zongzi"
+    },
+    {
+      "activity": "catch",
+      "x": 860,
+      "y": 640,
+      "r": 56,
+      "label": "Catch the splashes"
+    },
+    {
+      "activity": "card",
+      "x": 602,
+      "y": 767,
+      "r": 30,
+      "label": "Make a dragon flag card"
+    }
+  ],
+  "findables": [
+    {
+      "id": "drum",
+      "label": "the drum",
+      "x": 529,
+      "y": 723,
+      "r": 20
+    },
+    {
+      "id": "dragon-head",
+      "label": "a dragon head",
+      "x": 372,
+      "y": 674,
+      "r": 24
+    },
+    {
+      "id": "duck",
+      "label": "a duck",
+      "x": 1286,
+      "y": 692,
+      "r": 20
+    },
+    {
+      "id": "basket",
+      "label": "a basket of zongzi",
+      "x": 424,
+      "y": 850,
+      "r": 26
+    },
+    {
+      "id": "bracelet",
+      "label": "a five-colour bracelet",
+      "x": 1093,
+      "y": 816,
+      "r": 14
+    },
+    {
+      "id": "camera",
+      "label": "a camera",
+      "x": 1188,
+      "y": 789,
+      "r": 18
+    },
+    {
+      "id": "pagoda",
+      "label": "the pagoda",
+      "x": 1440,
+      "y": 480,
+      "r": 40
+    }
+  ]
+}

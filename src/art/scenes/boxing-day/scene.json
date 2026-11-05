@@ -1,0 +1,90 @@
+{
+  "hotspots": [
+    {
+      "activity": "colour",
+      "x": 850,
+      "y": 629,
+      "r": 64,
+      "label": "Colour in the cardboard-box sledge"
+    },
+    {
+      "activity": "dressup",
+      "x": 352,
+      "y": 800,
+      "r": 44,
+      "label": "Dress up in a Christmas jumper"
+    },
+    {
+      "activity": "card",
+      "x": 478,
+      "y": 748,
+      "r": 30,
+      "label": "Post a thank-you card"
+    },
+    {
+      "activity": "catch",
+      "x": 548,
+      "y": 810,
+      "r": 40,
+      "label": "Play catch with the dog"
+    },
+    {
+      "activity": "wish",
+      "x": 1320,
+      "y": 476,
+      "r": 34,
+      "label": "Wish for more snow"
+    }
+  ],
+  "findables": [
+    {
+      "id": "robin",
+      "label": "a robin",
+      "x": 238,
+      "y": 702,
+      "r": 18
+    },
+    {
+      "id": "mitten",
+      "label": "a lost red mitten",
+      "x": 154,
+      "y": 676,
+      "r": 16
+    },
+    {
+      "id": "sheep",
+      "label": "a woolly sheep",
+      "x": 330,
+      "y": 700,
+      "r": 24
+    },
+    {
+      "id": "owl",
+      "label": "an owl",
+      "x": 76,
+      "y": 610,
+      "r": 20
+    },
+    {
+      "id": "fox",
+      "label": "a peeking fox",
+      "x": 1430,
+      "y": 486,
+      "r": 22
+    },
+    {
+      "id": "duck",
+      "label": "a skidding duck",
+      "x": 1314,
+      "y": 836,
+      "r": 22
+    },
+    {
+      "id": "snowman-crown",
+      "label": "a snowman in a paper crown",
+      "x": 1150,
+      "y": 740,
+      "r": 24
+    }
+  ]
+}

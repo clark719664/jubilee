@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 900">
+<!-- Cinco de Mayo · front: a talavera pot with an agave bottom left and a pot of marigolds bottom right; the centre stays open -->
+<defs></defs>
+<!-- a talavera pot with an agave -->
+<path d="M10 900l10-60h100l10 60z" fill="#ffffff"/><path d="M24 856h92m-88 20h84" fill="none" stroke="#2a5aa8" stroke-width="4"/><path d="M70 840l-50-60l60 50zm0 0l-10-90l20 90zm0 0l50-70l-40 70zm0 0l-70-20l70 10zm0 0l74-14l-70 22z" fill="#5aa87a"/>
+<!-- a pot of marigolds -->
+<path d="M1480 900l10-54h100l10 54z" fill="#c8643a"/><path d="M1488 830a16 16 0 1 0 32 0a16 16 0 1 0-32 0zm34-12a18 18 0 1 0 36 0a18 18 0 1 0-36 0zm38 14a16 16 0 1 0 32 0a16 16 0 1 0-32 0z" fill="#ff9a1a"/><path d="M1497 830a7 7 0 1 0 14 0a7 7 0 1 0-14 0zm35-12a8 8 0 1 0 16 0a8 8 0 1 0-16 0zm37 14a7 7 0 1 0 14 0a7 7 0 1 0-14 0z" fill="#ffd23a"/>
+</svg>

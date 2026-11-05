@@ -1,0 +1,104 @@
+{
+  "hotspots": [
+    {
+      "activity": "wish",
+      "x": 703,
+      "y": 594,
+      "r": 92,
+      "label": "Make a wish on the star lantern"
+    },
+    {
+      "activity": "doors",
+      "x": 860,
+      "y": 712,
+      "r": 56,
+      "label": "Open a countdown door"
+    },
+    {
+      "activity": "memory",
+      "x": 552,
+      "y": 724,
+      "r": 46,
+      "label": "Sweet-shop memory game"
+    },
+    {
+      "activity": "dressup",
+      "x": 1052,
+      "y": 726,
+      "r": 52,
+      "label": "Dress up in festive clothes"
+    },
+    {
+      "activity": "seek",
+      "x": 904,
+      "y": 552,
+      "r": 50,
+      "label": "Peek in the windows: Seek & Find"
+    },
+    {
+      "activity": "colour",
+      "x": 1030,
+      "y": 566,
+      "r": 36,
+      "label": "Colour a Diwali picture"
+    }
+  ],
+  "findables": [
+    {
+      "id": "cat",
+      "label": "a ginger cat",
+      "x": 392,
+      "y": 574,
+      "r": 24
+    },
+    {
+      "id": "parrot",
+      "label": "a green parrot",
+      "x": 1204,
+      "y": 566,
+      "r": 22
+    },
+    {
+      "id": "chappals",
+      "label": "a pair of sandals",
+      "x": 750,
+      "y": 806,
+      "r": 18
+    },
+    {
+      "id": "puppy",
+      "label": "a sleepy puppy",
+      "x": 1262,
+      "y": 798,
+      "r": 28
+    },
+    {
+      "id": "mithai",
+      "label": "a box of sweets",
+      "x": 573,
+      "y": 738,
+      "r": 18
+    },
+    {
+      "id": "lantern",
+      "label": "a little paper lantern",
+      "x": 18,
+      "y": 552,
+      "r": 22
+    },
+    {
+      "id": "bicycle",
+      "label": "a red bicycle",
+      "x": 1366,
+      "y": 772,
+      "r": 36
+    },
+    {
+      "id": "tulsi",
+      "label": "a tulsi plant",
+      "x": 266,
+      "y": 772,
+      "r": 24
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "hotspots": [
+    {
+      "activity": "card",
+      "x": 950,
+      "y": 703,
+      "r": 44,
+      "label": "Make a thank-you card"
+    },
+    {
+      "activity": "colour",
+      "x": 540,
+      "y": 796,
+      "r": 46,
+      "label": "Colour the Three Sisters"
+    },
+    {
+      "activity": "catch",
+      "x": 440,
+      "y": 542,
+      "r": 60,
+      "label": "Catch corn and leaves"
+    },
+    {
+      "activity": "memory",
+      "x": 1209,
+      "y": 817,
+      "r": 36,
+      "label": "Harvest memory game"
+    },
+    {
+      "activity": "wish",
+      "x": 1130,
+      "y": 650,
+      "r": 44,
+      "label": "Make a wish for the land"
+    }
+  ],
+  "findables": [
+    {
+      "id": "turtle",
+      "label": "a turtle",
+      "x": 1540,
+      "y": 690,
+      "r": 24
+    },
+    {
+      "id": "eagle",
+      "label": "an eagle",
+      "x": 150,
+      "y": 194,
+      "r": 40
+    },
+    {
+      "id": "heron",
+      "label": "a heron",
+      "x": 756,
+      "y": 650,
+      "r": 22
+    },
+    {
+      "id": "monarch",
+      "label": "a monarch butterfly",
+      "x": 700,
+      "y": 560,
+      "r": 18
+    },
+    {
+      "id": "deer",
+      "label": "a deer",
+      "x": 1276,
+      "y": 574,
+      "r": 26
+    },
+    {
+      "id": "chipmunk",
+      "label": "a chipmunk with an acorn",
+      "x": 1490,
+      "y": 852,
+      "r": 22
+    },
+    {
+      "id": "corn-braid",
+      "label": "drying corn",
+      "x": 1380,
+      "y": 680,
+      "r": 30
+    }
+  ]
+}

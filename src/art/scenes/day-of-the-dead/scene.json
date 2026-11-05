@@ -1,0 +1,97 @@
+{
+  "hotspots": [
+    {
+      "activity": "wish",
+      "x": 800,
+      "y": 466,
+      "r": 40,
+      "label": "Make a wish on the marigold arch"
+    },
+    {
+      "activity": "card",
+      "x": 800,
+      "y": 583,
+      "r": 44,
+      "label": "Make a card for someone you love"
+    },
+    {
+      "activity": "colour",
+      "x": 800,
+      "y": 664,
+      "r": 32,
+      "label": "Decorate a sugar skull"
+    },
+    {
+      "activity": "dressup",
+      "x": 718,
+      "y": 790,
+      "r": 36,
+      "label": "Make a marigold crown"
+    },
+    {
+      "activity": "memory",
+      "x": 1196,
+      "y": 640,
+      "r": 56,
+      "label": "Match the sweet breads"
+    }
+  ],
+  "findables": [
+    {
+      "id": "xolo-dog",
+      "label": "a xolo dog with a marigold collar",
+      "x": 1040,
+      "y": 784,
+      "r": 34
+    },
+    {
+      "id": "monarch",
+      "label": "a monarch butterfly",
+      "x": 788,
+      "y": 688,
+      "r": 18
+    },
+    {
+      "id": "balcony-cat",
+      "label": "a cat",
+      "x": 118,
+      "y": 499,
+      "r": 20
+    },
+    {
+      "id": "guitar",
+      "label": "a guitar",
+      "x": 262,
+      "y": 708,
+      "r": 30
+    },
+    {
+      "id": "pan-de-muerto",
+      "label": "pan de muerto",
+      "x": 1166,
+      "y": 646,
+      "r": 20
+    },
+    {
+      "id": "hot-chocolate",
+      "label": "a cup of hot chocolate",
+      "x": 894,
+      "y": 668,
+      "r": 18
+    },
+    {
+      "id": "tin-star",
+      "label": "a tin star lantern",
+      "x": 326,
+      "y": 632,
+      "r": 20
+    },
+    {
+      "id": "oranges",
+      "label": "oranges",
+      "x": 930,
+      "y": 668,
+      "r": 16
+    }
+  ]
+}

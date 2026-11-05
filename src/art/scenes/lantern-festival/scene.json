@@ -1,0 +1,90 @@
+{
+  "hotspots": [
+    {
+      "activity": "colour",
+      "x": 480,
+      "y": 808,
+      "r": 44,
+      "label": "Colour the rabbit lantern"
+    },
+    {
+      "activity": "card",
+      "x": 330,
+      "y": 685,
+      "r": 36,
+      "label": "Write a lantern riddle"
+    },
+    {
+      "activity": "memory",
+      "x": 1358,
+      "y": 750,
+      "r": 40,
+      "label": "Match the tangyuan"
+    },
+    {
+      "activity": "wish",
+      "x": 150,
+      "y": 150,
+      "r": 64,
+      "label": "Make a wish on the full moon"
+    },
+    {
+      "activity": "catch",
+      "x": 1055,
+      "y": 712,
+      "r": 44,
+      "label": "Catch the floating lanterns"
+    }
+  ],
+  "findables": [
+    {
+      "id": "dragon",
+      "label": "the golden dragon",
+      "x": 880,
+      "y": 610,
+      "r": 40
+    },
+    {
+      "id": "pearl",
+      "label": "the dragon's pearl",
+      "x": 720,
+      "y": 610,
+      "r": 20
+    },
+    {
+      "id": "cat",
+      "label": "a sleeping cat",
+      "x": 1280,
+      "y": 840,
+      "r": 20
+    },
+    {
+      "id": "kumquats",
+      "label": "a kumquat tree",
+      "x": 66,
+      "y": 796,
+      "r": 30
+    },
+    {
+      "id": "pagoda",
+      "label": "the pagoda",
+      "x": 1440,
+      "y": 420,
+      "r": 40
+    },
+    {
+      "id": "tail",
+      "label": "the dragon's tail",
+      "x": 1320,
+      "y": 500,
+      "r": 24
+    },
+    {
+      "id": "toddler-lantern",
+      "label": "a tiny lantern",
+      "x": 300,
+      "y": 790,
+      "r": 18
+    }
+  ]
+}

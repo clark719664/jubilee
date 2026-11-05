@@ -1,0 +1,104 @@
+{
+  "hotspots": [
+    {
+      "activity": "wish",
+      "x": 800,
+      "y": 646,
+      "r": 44,
+      "label": "Make a wish on the bandstand lantern"
+    },
+    {
+      "activity": "colour",
+      "x": 800,
+      "y": 548,
+      "r": 48,
+      "label": "Colour the striped bandstand roof"
+    },
+    {
+      "activity": "memory",
+      "x": 682,
+      "y": 690,
+      "r": 36,
+      "label": "Match the band's instruments"
+    },
+    {
+      "activity": "dressup",
+      "x": 896,
+      "y": 782,
+      "r": 46,
+      "label": "Dress up for the parade"
+    },
+    {
+      "activity": "card",
+      "x": 560,
+      "y": 736,
+      "r": 40,
+      "label": "Send a Fourth of July card"
+    },
+    {
+      "activity": "catch",
+      "x": 1072,
+      "y": 776,
+      "r": 32,
+      "label": "Catch the beach ball"
+    }
+  ],
+  "findables": [
+    {
+      "id": "cat-window",
+      "label": "a cat",
+      "x": 56,
+      "y": 506,
+      "r": 22
+    },
+    {
+      "id": "pie-sill",
+      "label": "a pie",
+      "x": 467,
+      "y": 638,
+      "r": 18
+    },
+    {
+      "id": "bandana-puppy",
+      "label": "a puppy in a red bandana",
+      "x": 812,
+      "y": 808,
+      "r": 28
+    },
+    {
+      "id": "sparkler-heart",
+      "label": "a heart drawn with a sparkler",
+      "x": 962,
+      "y": 704,
+      "r": 34
+    },
+    {
+      "id": "ducks",
+      "label": "a duck and her duckling",
+      "x": 1320,
+      "y": 806,
+      "r": 30
+    },
+    {
+      "id": "fishing-rod",
+      "label": "a fishing rod",
+      "x": 1380,
+      "y": 700,
+      "r": 32
+    },
+    {
+      "id": "owl",
+      "label": "an owl",
+      "x": 1550,
+      "y": 532,
+      "r": 20
+    },
+    {
+      "id": "mailbox",
+      "label": "a mailbox with its flag up",
+      "x": 304,
+      "y": 664,
+      "r": 22
+    }
+  ]
+}

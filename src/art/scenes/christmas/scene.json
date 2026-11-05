@@ -1,0 +1,104 @@
+{
+  "hotspots": [
+    {
+      "activity": "wish",
+      "x": 852,
+      "y": 478,
+      "r": 52,
+      "label": "Make a wish on the star"
+    },
+    {
+      "activity": "doors",
+      "x": 556,
+      "y": 725,
+      "r": 36,
+      "label": "Open a countdown door"
+    },
+    {
+      "activity": "card",
+      "x": 812,
+      "y": 820,
+      "r": 44,
+      "label": "Make a card from the presents"
+    },
+    {
+      "activity": "catch",
+      "x": 576,
+      "y": 818,
+      "r": 46,
+      "label": "Catch presents on the sled"
+    },
+    {
+      "activity": "seek",
+      "x": 1052,
+      "y": 721,
+      "r": 34,
+      "label": "Peek in the open door: Seek & Find"
+    },
+    {
+      "activity": "dressup",
+      "x": 106,
+      "y": 612,
+      "r": 64,
+      "label": "Dress up the snowman"
+    }
+  ],
+  "findables": [
+    {
+      "id": "cat-window",
+      "label": "a cat",
+      "x": 267,
+      "y": 608,
+      "r": 20
+    },
+    {
+      "id": "cat-window-2",
+      "label": "a second cat",
+      "x": 1135,
+      "y": 708,
+      "r": 18
+    },
+    {
+      "id": "tiny-tree",
+      "label": "a tiny tree",
+      "x": 343,
+      "y": 656,
+      "r": 18
+    },
+    {
+      "id": "candle",
+      "label": "a candle",
+      "x": 1212,
+      "y": 656,
+      "r": 18
+    },
+    {
+      "id": "wreath",
+      "label": "a wreath",
+      "x": 1412,
+      "y": 604,
+      "r": 20
+    },
+    {
+      "id": "lantern",
+      "label": "a lantern",
+      "x": 494,
+      "y": 752,
+      "r": 26
+    },
+    {
+      "id": "purple-present",
+      "label": "a little purple present",
+      "x": 788,
+      "y": 830,
+      "r": 16
+    },
+    {
+      "id": "paper-star",
+      "label": "a paper star",
+      "x": 555,
+      "y": 637,
+      "r": 18
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "hotspots": [
+    {
+      "activity": "wish",
+      "x": 800,
+      "y": 646,
+      "r": 42,
+      "label": "Make a wish on the lantern"
+    },
+    {
+      "activity": "dressup",
+      "x": 911,
+      "y": 680,
+      "r": 70,
+      "label": "Dress up the lion dancer"
+    },
+    {
+      "activity": "catch",
+      "x": 564,
+      "y": 788,
+      "r": 50,
+      "label": "Drum and catch the lucky coins"
+    },
+    {
+      "activity": "card",
+      "x": 1018,
+      "y": 660,
+      "r": 34,
+      "label": "Make a red-envelope card"
+    },
+    {
+      "activity": "doors",
+      "x": 1228,
+      "y": 728,
+      "r": 46,
+      "label": "Open a countdown door"
+    },
+    {
+      "activity": "memory",
+      "x": 396,
+      "y": 712,
+      "r": 46,
+      "label": "Shop counter memory game"
+    }
+  ],
+  "findables": [
+    {
+      "id": "cat-balcony",
+      "label": "a cat",
+      "x": 140,
+      "y": 598,
+      "r": 22
+    },
+    {
+      "id": "red-envelopes",
+      "label": "red envelopes",
+      "x": 196,
+      "y": 618,
+      "r": 22
+    },
+    {
+      "id": "firecrackers",
+      "label": "a string of firecrackers",
+      "x": 596,
+      "y": 640,
+      "r": 30
+    },
+    {
+      "id": "dumplings",
+      "label": "a basket of dumplings",
+      "x": 460,
+      "y": 728,
+      "r": 22
+    },
+    {
+      "id": "teapot",
+      "label": "a teapot",
+      "x": 1090,
+      "y": 686,
+      "r": 24
+    },
+    {
+      "id": "magpie",
+      "label": "a magpie",
+      "x": 1500,
+      "y": 414,
+      "r": 22
+    },
+    {
+      "id": "tangerines",
+      "label": "a basket of tangerines",
+      "x": 1318,
+      "y": 828,
+      "r": 30
+    },
+    {
+      "id": "plum-courtyard",
+      "label": "a plum tree",
+      "x": 734,
+      "y": 626,
+      "r": 22
+    }
+  ]
+}

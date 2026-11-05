@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 900">
+<!-- Chuseok · back: moonlight washing three layered ink-blue mountain ranges, kept low behind the copy; two far hanok hamlets with tiny lit windows; golden rice paddies in moonlight. The moon is the effect's. -->
+<defs><radialGradient id="chuseok-moonwash"><stop stop-color="#fff4c2" stop-opacity=".2"/><stop offset=".5" stop-color="#fff4c2" stop-opacity=".07"/><stop offset="1" stop-color="#fff4c2" stop-opacity="0"/></radialGradient><linearGradient id="chuseok-paddy" x2="0" y2="1"><stop stop-color="#8a7a3a"/><stop offset="1" stop-color="#6a5e2e"/></linearGradient></defs>
+<!-- moonlight washing the hills (the moon itself is the effect's) -->
+<ellipse cx="1120" cy="560" rx="720" ry="240" fill="url(#chuseok-moonwash)"/>
+<!-- three layered mountain ranges, palest furthest -->
+<path d="M-20 520c100-50 180-68 260-50c80 18 120 0 200 30c120 40 260 56 380 52c140-4 240-32 340-62c100-30 200-50 300-38c80 10 120 28 160 38v210h-1640z" fill="#3a5288"/><path d="M-20 560c120-30 220-40 320-20c120 20 220 40 340 44c140 4 260-8 380-24c120-16 240-40 360-38c100 2 180 18 240 26v152h-1640z" fill="#2e4476"/><path d="M-20 590c160-14 320-6 480 4c180 10 360 12 540 6c180-6 380-16 620-12v112h-1640z" fill="#243a66"/>
+<!-- far hamlets with lit windows -->
+<path d="M424 600q46-10 92 0l-6-10q-40-12-80 0zm68 0q38-10 76 0l-6-10q-32-12-64 0zm714 0q44-10 88 0l-6-10q-38-12-76 0zm68 0q36-10 72 0l-6-10q-30-12-60 0zm56 0q40-10 80 0l-6-10q-34-12-68 0z" fill="#1a2a4a"/><path d="M449 606a3 3 0 1 0 5 0a3 3 0 1 0-5 0zm68 1a3 3 0 1 0 5 0a3 3 0 1 0-5 0zm716-1a3 3 0 1 0 5 0a3 3 0 1 0-5 0zm64 1a3 3 0 1 0 5 0a3 3 0 1 0-5 0zm66-1a3 3 0 1 0 5 0a3 3 0 1 0-5 0z" fill="#ffd98a"/>
+<!-- golden rice paddies under the moon -->
+<path d="M-20 612q820-12 1640 0v88h-1640z" fill="url(#chuseok-paddy)"/><path d="M-20 622q820-6.9 1640 2m-1640 12q820-6.8 1640 2m-1640 12q820-6.4 1640 2m-1640 12q820-6.5 1640 2" fill="none" stroke="#a8944a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity=".6"/>
+</svg>

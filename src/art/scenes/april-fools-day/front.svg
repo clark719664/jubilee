@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 900">
+<!-- April Fools' Day · front: bushes in both bottom corners, one with googly eyes; the centre stays open -->
+<defs></defs>
+<!-- a bush bottom left -->
+<path d="M-40 880a50 50 0 1 0 100 0a50 50 0 1 0-100 0zm74-10a46 46 0 1 0 92 0a46 46 0 1 0-92 0zm60 20a36 36 0 1 0 72 0a36 36 0 1 0-72 0z" fill="#2a6a3a"/>
+<!-- a bush bottom right with googly eyes -->
+<path d="M1470 876a50 50 0 1 0 100 0a50 50 0 1 0-100 0zm68-12a52 52 0 1 0 104 0a52 52 0 1 0-104 0zm-114 32a36 36 0 1 0 72 0a36 36 0 1 0-72 0z" fill="#2a6a3a"/><circle cx="1540" cy="850" r="12" fill="#ffffff"/><circle cx="1568" cy="846" r="14" fill="#ffffff"/><circle cx="1544" cy="854" r="5" fill="#1a1a24"/><circle cx="1562" cy="842" r="6" fill="#1a1a24"/>
+</svg>

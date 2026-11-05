@@ -1,0 +1,97 @@
+{
+  "hotspots": [
+    {
+      "activity": "card",
+      "x": 800,
+      "y": 640,
+      "r": 100,
+      "label": "Make a valentine for the postbox"
+    },
+    {
+      "activity": "memory",
+      "x": 1074,
+      "y": 630,
+      "r": 62,
+      "label": "Match the heart cookies"
+    },
+    {
+      "activity": "seek",
+      "x": 388,
+      "y": 628,
+      "r": 58,
+      "label": "Peek into the café"
+    },
+    {
+      "activity": "colour",
+      "x": 906,
+      "y": 650,
+      "r": 40,
+      "label": "Colour a big heart card"
+    },
+    {
+      "activity": "doors",
+      "x": 542,
+      "y": 640,
+      "r": 40,
+      "label": "Open the café door"
+    }
+  ],
+  "findables": [
+    {
+      "id": "cat-on-balcony",
+      "label": "a cat",
+      "x": 150,
+      "y": 482,
+      "r": 30
+    },
+    {
+      "id": "lovebirds",
+      "label": "two lovebirds",
+      "x": 1478,
+      "y": 488,
+      "r": 34
+    },
+    {
+      "id": "teddy-bear",
+      "label": "a teddy bear",
+      "x": 1182,
+      "y": 624,
+      "r": 30
+    },
+    {
+      "id": "snail-on-wall",
+      "label": "a snail",
+      "x": 682,
+      "y": 640,
+      "r": 20
+    },
+    {
+      "id": "ladybird",
+      "label": "a ladybird",
+      "x": 1450,
+      "y": 730,
+      "r": 18
+    },
+    {
+      "id": "puppy-letter",
+      "label": "a puppy carrying a letter",
+      "x": 614,
+      "y": 792,
+      "r": 34
+    },
+    {
+      "id": "dropped-rose",
+      "label": "a dropped rose",
+      "x": 1100,
+      "y": 846,
+      "r": 26
+    },
+    {
+      "id": "heart-cake",
+      "label": "a heart cake",
+      "x": 430,
+      "y": 722,
+      "r": 26
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "hotspots": [
+    {
+      "activity": "wish",
+      "x": 650,
+      "y": 672,
+      "r": 42,
+      "label": "Make a wish on the lantern"
+    },
+    {
+      "activity": "doors",
+      "x": 800,
+      "y": 636,
+      "r": 72,
+      "label": "Open a countdown door"
+    },
+    {
+      "activity": "memory",
+      "x": 440,
+      "y": 736,
+      "r": 60,
+      "label": "Sweet-shop memory game"
+    },
+    {
+      "activity": "card",
+      "x": 709,
+      "y": 753,
+      "r": 40,
+      "label": "Make an Eid card from the gift"
+    },
+    {
+      "activity": "colour",
+      "x": 950,
+      "y": 672,
+      "r": 42,
+      "label": "Colour a lantern"
+    },
+    {
+      "activity": "seek",
+      "x": 1060,
+      "y": 700,
+      "r": 44,
+      "label": "Seek & Find in the lane"
+    }
+  ],
+  "findables": [
+    {
+      "id": "cat-roof",
+      "label": "a cat",
+      "x": 150,
+      "y": 312,
+      "r": 22
+    },
+    {
+      "id": "balloon",
+      "label": "a pink balloon",
+      "x": 1070,
+      "y": 676,
+      "r": 26
+    },
+    {
+      "id": "slippers",
+      "label": "slippers",
+      "x": 963,
+      "y": 794,
+      "r": 20
+    },
+    {
+      "id": "teapot-window",
+      "label": "a teapot",
+      "x": 943,
+      "y": 572,
+      "r": 18
+    },
+    {
+      "id": "lemon-tree",
+      "label": "a lemon tree",
+      "x": 848,
+      "y": 734,
+      "r": 22
+    },
+    {
+      "id": "date-palm",
+      "label": "dates",
+      "x": 612,
+      "y": 570,
+      "r": 24
+    },
+    {
+      "id": "fountain",
+      "label": "a little fountain",
+      "x": 750,
+      "y": 758,
+      "r": 22
+    },
+    {
+      "id": "baklava",
+      "label": "a tray of baklava",
+      "x": 540,
+      "y": 738,
+      "r": 26
+    }
+  ]
+}

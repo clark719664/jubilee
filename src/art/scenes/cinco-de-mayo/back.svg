@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 900">
+<!-- Cinco de Mayo · back: the plaza's far side of pink, yellow, turquoise and orange houses with lit windows, kept low, and a church with twin bell towers on the right, against the purple evening -->
+<defs><radialGradient id="cinco-de-mayo-winglow"><stop stop-color="#ffd98a" stop-opacity=".5"/><stop offset="1" stop-color="#ffd98a" stop-opacity="0"/></radialGradient></defs>
+<!-- the far side of the plaza -->
+<path d="M240 660v-167h151v167zm888 0v-190h150v190z" fill="#ba6392"/><path d="M395 660v-171h124v171zm887 0v-181h138v181z" fill="#ba9245"/><path d="M523 660v-172h115v172z" fill="#3a8ba2"/><path d="M642 660v-176h153v176z" fill="#ba6d5a"/><path d="M799 660v-183h164v183z" fill="#829b5a"/><path d="M967 660v-168h157v168z" fill="#9663c5"/><path d="M260 523h20v30h-20zm91 0h20v30h-20zm64-4h20v30h-20zm64 0h20v30h-20zm64-1h20v30h-20zm55 0h20v30h-20zm64-4h20v30h-20zm93 0h20v30h-20zm64-7h20v30h-20zm104 0h20v30h-20zm64 15h20v30h-20zm97 0h20v30h-20zm64-22h20v30h-20zm90 0h20v30h-20zm64 9h20v30h-20zm78 0h20v30h-20z" fill="#ffd98a" opacity=".85"/>
+<!-- the church with twin towers on the right -->
+<path d="M1330 660v-160h260v160zm0-160v-180h60v180zm200 0v-180h60v180z" fill="#b99f96"/><path d="M1326 320l34-60l34 60zm200 0l34-60l34 60zm-126 180q60-60 120 0z" fill="#b47853"/><path d="M1440 660v-80a20 20 0 0 1 40 0v80zm-90-300h20v30h-20zm200 0h20v30h-20z" fill="#543434"/>
+</svg>

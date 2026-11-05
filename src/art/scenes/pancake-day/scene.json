@@ -1,0 +1,83 @@
+{
+  "hotspots": [
+    {
+      "activity": "catch",
+      "x": 1040,
+      "y": 476,
+      "r": 44,
+      "label": "Catch the flipping pancakes"
+    },
+    {
+      "activity": "colour",
+      "x": 930,
+      "y": 816,
+      "r": 50,
+      "label": "Colour in the pancake race"
+    },
+    {
+      "activity": "memory",
+      "x": 232,
+      "y": 660,
+      "r": 44,
+      "label": "Match the pancake toppings"
+    },
+    {
+      "activity": "dressup",
+      "x": 387,
+      "y": 750,
+      "r": 34,
+      "label": "Make a carnival mask"
+    }
+  ],
+  "findables": [
+    {
+      "id": "dog",
+      "label": "a dog after a pancake",
+      "x": 1070,
+      "y": 776,
+      "r": 30
+    },
+    {
+      "id": "bell",
+      "label": "the pancake bell",
+      "x": 1452,
+      "y": 758,
+      "r": 20
+    },
+    {
+      "id": "lemons",
+      "label": "three lemons",
+      "x": 312,
+      "y": 700,
+      "r": 20
+    },
+    {
+      "id": "chef-hat",
+      "label": "a chef's hat",
+      "x": 600,
+      "y": 742,
+      "r": 20
+    },
+    {
+      "id": "clock",
+      "label": "the church clock",
+      "x": 1380,
+      "y": 310,
+      "r": 24
+    },
+    {
+      "id": "flag",
+      "label": "the chequered flag",
+      "x": 1082,
+      "y": 718,
+      "r": 24
+    },
+    {
+      "id": "cherry",
+      "label": "a cherry",
+      "x": 232,
+      "y": 616,
+      "r": 14
+    }
+  ]
+}

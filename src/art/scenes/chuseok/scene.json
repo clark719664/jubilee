@@ -1,0 +1,97 @@
+{
+  "hotspots": [
+    {
+      "activity": "wish",
+      "x": 800,
+      "y": 770,
+      "r": 70,
+      "label": "Make a wish on the harvest moon"
+    },
+    {
+      "activity": "dressup",
+      "x": 594,
+      "y": 692,
+      "r": 40,
+      "label": "Dress up in hanbok"
+    },
+    {
+      "activity": "colour",
+      "x": 214,
+      "y": 650,
+      "r": 36,
+      "label": "Colour the songpyeon"
+    },
+    {
+      "activity": "card",
+      "x": 86,
+      "y": 588,
+      "r": 40,
+      "label": "Make a Chuseok card"
+    },
+    {
+      "activity": "catch",
+      "x": 1420,
+      "y": 428,
+      "r": 44,
+      "label": "Catch persimmons"
+    },
+    {
+      "activity": "memory",
+      "x": 1240,
+      "y": 690,
+      "r": 40,
+      "label": "Harvest memory game"
+    }
+  ],
+  "findables": [
+    {
+      "id": "magpie",
+      "label": "a magpie",
+      "x": 1336,
+      "y": 520,
+      "r": 26
+    },
+    {
+      "id": "rabbit",
+      "label": "a white rabbit",
+      "x": 1096,
+      "y": 710,
+      "r": 22
+    },
+    {
+      "id": "jindo",
+      "label": "a white Jindo dog",
+      "x": 1060,
+      "y": 806,
+      "r": 30
+    },
+    {
+      "id": "shoes",
+      "label": "white rubber shoes",
+      "x": 84,
+      "y": 710,
+      "r": 22
+    },
+    {
+      "id": "chestnuts",
+      "label": "a basket of chestnuts",
+      "x": 488,
+      "y": 704,
+      "r": 22
+    },
+    {
+      "id": "lantern",
+      "label": "a silk lantern",
+      "x": 388,
+      "y": 578,
+      "r": 18
+    },
+    {
+      "id": "dragonfly",
+      "label": "a red dragonfly",
+      "x": 1534,
+      "y": 726,
+      "r": 18
+    }
+  ]
+}

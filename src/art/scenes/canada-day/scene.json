@@ -1,0 +1,83 @@
+{
+  "hotspots": [
+    {
+      "activity": "dressup",
+      "x": 428,
+      "y": 781,
+      "r": 40,
+      "label": "Paint a maple leaf on your cheek"
+    },
+    {
+      "activity": "colour",
+      "x": 740,
+      "y": 770,
+      "r": 50,
+      "label": "Colour the red canoe"
+    },
+    {
+      "activity": "card",
+      "x": 488,
+      "y": 730,
+      "r": 36,
+      "label": "Make a Canada Day card"
+    },
+    {
+      "activity": "memory",
+      "x": 751,
+      "y": 774,
+      "r": 34,
+      "label": "Match the Canada Day treats"
+    }
+  ],
+  "findables": [
+    {
+      "id": "loon",
+      "label": "a loon",
+      "x": 990,
+      "y": 684,
+      "r": 22
+    },
+    {
+      "id": "beaver",
+      "label": "a beaver",
+      "x": 1346,
+      "y": 690,
+      "r": 22
+    },
+    {
+      "id": "beavertail",
+      "label": "a beavertail pastry",
+      "x": 522,
+      "y": 761,
+      "r": 20
+    },
+    {
+      "id": "tower",
+      "label": "the clock tower",
+      "x": 1452,
+      "y": 470,
+      "r": 36
+    },
+    {
+      "id": "paddle",
+      "label": "a canoe paddle",
+      "x": 720,
+      "y": 752,
+      "r": 22
+    },
+    {
+      "id": "red-leaf",
+      "label": "a red maple leaf",
+      "x": 140,
+      "y": 420,
+      "r": 40
+    },
+    {
+      "id": "toddler",
+      "label": "a pointing toddler",
+      "x": 1070,
+      "y": 823,
+      "r": 22
+    }
+  ]
+}

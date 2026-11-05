@@ -1,0 +1,29 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   Monster Maker — .mm (root) .mm-layout .mm-stage .mm-halo .mm-monster .mm-art-host .mm-name .mm-panel
+   ═══════════════════════════════════════════════════════════════════════════ */
+.mm-layout { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; gap: 10px; }
+.mm-stage { position: relative; flex: 1 1 auto; min-height: 0; display: grid; place-items: center; align-content: center; gap: 4px; }
+.mm-halo { position: absolute; inset: 4% 8%; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--h-glow) 26%, transparent) 0, transparent 66%); }
+.mm-monster { position: relative; height: min(40vh, 62vw, 400px); aspect-ratio: 200 / 240; padding: 0; margin: 0; border: 0; background: none; cursor: pointer; border-radius: 40%; touch-action: manipulation; -webkit-tap-highlight-color: transparent; transform-origin: 50% 92%; }
+.mm-art-host, .mm-svg { display: block; width: 100%; height: 100%; }
+.mm-svg { overflow: visible; filter: drop-shadow(0 6px 0 rgba(0, 0, 0, .16)); }
+.mm-name { position: relative; z-index: 1; padding: 4px 18px; border-radius: 999px; background: var(--sp-paper); color: var(--sp-ink); border: 3px solid var(--sp-ink); box-shadow: 0 3px 0 var(--sp-ink); font: 700 clamp(20px, 3vw, 26px)/1.2 var(--font-display); }
+.mm-monster.is-bounce { animation: mm-bounce .5s var(--spring); }
+@keyframes mm-bounce { 0% { transform: scale(1); } 30% { transform: scale(1.1, .9); } 60% { transform: scale(.96, 1.06) translateY(-4px); } 100% { transform: scale(1); } }
+.mm-monster.is-wiggle { animation: mm-wiggle .7s ease-in-out; }
+@keyframes mm-wiggle { 0%, 100% { transform: rotate(0); } 20% { transform: rotate(-6deg); } 45% { transform: rotate(5deg); } 70% { transform: rotate(-2deg); } }
+.mm-say { top: 0; }
+@media (min-width: 880px) {
+  .mm-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(400px, 520px); align-items: center; gap: 28px; }
+  .mm-stage { height: 100%; }
+  .mm-monster { height: min(62vh, 44vw, 520px); }
+  .mm-panel { padding: 16px; max-height: 100%; }
+  .mm-panel .sp-opts { max-height: 40vh; }
+}
+@media (max-height: 520px) and (orientation: landscape) {
+  .mm-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, 420px); align-items: center; gap: 12px; }
+  .mm-monster { height: min(56vh, 40vw); }
+  .mm-panel .sp-opts { max-height: 30vh; }
+}
+
+@media (max-width: 879px) { .mm-monster { height: auto; width: auto; max-height: calc(100% - 44px); max-width: min(64vw, 400px); min-height: 0; } }

@@ -1,0 +1,104 @@
+{
+  "hotspots": [
+    {
+      "activity": "wish",
+      "x": 790,
+      "y": 616,
+      "r": 64,
+      "label": "Make a thankful wish on the horn of plenty"
+    },
+    {
+      "activity": "card",
+      "x": 1024,
+      "y": 668,
+      "r": 44,
+      "label": "Make a thank-you card for Grandma"
+    },
+    {
+      "activity": "memory",
+      "x": 660,
+      "y": 676,
+      "r": 34,
+      "label": "Match the harvest treats"
+    },
+    {
+      "activity": "seek",
+      "x": 972,
+      "y": 624,
+      "r": 34,
+      "label": "Seek & Find around the farm"
+    },
+    {
+      "activity": "catch",
+      "x": 340,
+      "y": 766,
+      "r": 44,
+      "label": "Catch pumpkins in the wheelbarrow"
+    },
+    {
+      "activity": "colour",
+      "x": 195,
+      "y": 650,
+      "r": 64,
+      "label": "Colour in the red barn"
+    }
+  ],
+  "findables": [
+    {
+      "id": "dog-under-table",
+      "label": "a hiding dog",
+      "x": 734,
+      "y": 760,
+      "r": 26
+    },
+    {
+      "id": "cranberry-sneak",
+      "label": "a cranberry thief",
+      "x": 950,
+      "y": 664,
+      "r": 20
+    },
+    {
+      "id": "hayloft-cat",
+      "label": "a cat",
+      "x": 203,
+      "y": 564,
+      "r": 22
+    },
+    {
+      "id": "rooster-vane",
+      "label": "a rooster",
+      "x": 195,
+      "y": 424,
+      "r": 22
+    },
+    {
+      "id": "squirrel",
+      "label": "a squirrel",
+      "x": 1134,
+      "y": 696,
+      "r": 24
+    },
+    {
+      "id": "cardinal",
+      "label": "a red bird",
+      "x": 1166,
+      "y": 694,
+      "r": 18
+    },
+    {
+      "id": "mouse",
+      "label": "a mouse",
+      "x": 462,
+      "y": 758,
+      "r": 16
+    },
+    {
+      "id": "window-pie",
+      "label": "a pie",
+      "x": 1232,
+      "y": 742,
+      "r": 22
+    }
+  ]
+}

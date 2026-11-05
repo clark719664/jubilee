@@ -1,0 +1,83 @@
+{
+  "hotspots": [
+    {
+      "activity": "card",
+      "x": 1141,
+      "y": 817,
+      "r": 40,
+      "label": "Send an Eid card to the neighbours"
+    },
+    {
+      "activity": "memory",
+      "x": 650,
+      "y": 790,
+      "r": 56,
+      "label": "Match the Eid feast"
+    },
+    {
+      "activity": "colour",
+      "x": 1330,
+      "y": 696,
+      "r": 36,
+      "label": "Colour the woolly lamb"
+    },
+    {
+      "activity": "dressup",
+      "x": 1430,
+      "y": 659,
+      "r": 46,
+      "label": "Dress up in Eid best clothes"
+    }
+  ],
+  "findables": [
+    {
+      "id": "coin",
+      "label": "a shiny coin of Eidi",
+      "x": 480,
+      "y": 765,
+      "r": 14
+    },
+    {
+      "id": "dates",
+      "label": "a bowl of dates",
+      "x": 650,
+      "y": 784,
+      "r": 20
+    },
+    {
+      "id": "figs",
+      "label": "figs",
+      "x": 140,
+      "y": 420,
+      "r": 40
+    },
+    {
+      "id": "jug",
+      "label": "a brass jug",
+      "x": 878,
+      "y": 784,
+      "r": 18
+    },
+    {
+      "id": "dome",
+      "label": "the green dome",
+      "x": 1445,
+      "y": 480,
+      "r": 40
+    },
+    {
+      "id": "lamb",
+      "label": "a little lamb",
+      "x": 1330,
+      "y": 696,
+      "r": 22
+    },
+    {
+      "id": "lantern",
+      "label": "a brass lantern",
+      "x": 70,
+      "y": 864,
+      "r": 26
+    }
+  ]
+}

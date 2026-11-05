@@ -1,0 +1,83 @@
+{
+  "hotspots": [
+    {
+      "activity": "dressup",
+      "x": 590,
+      "y": 803,
+      "r": 50,
+      "label": "Pick a Purim costume"
+    },
+    {
+      "activity": "card",
+      "x": 261,
+      "y": 638,
+      "r": 40,
+      "label": "Send a Purim gift card"
+    },
+    {
+      "activity": "memory",
+      "x": 1322,
+      "y": 734,
+      "r": 48,
+      "label": "Match the hamantaschen"
+    },
+    {
+      "activity": "colour",
+      "x": 730,
+      "y": 810,
+      "r": 46,
+      "label": "Colour the costume parade"
+    }
+  ],
+  "findables": [
+    {
+      "id": "grogger",
+      "label": "a spinning grogger",
+      "x": 893,
+      "y": 755,
+      "r": 22
+    },
+    {
+      "id": "bee",
+      "label": "a little bumblebee",
+      "x": 950,
+      "y": 809,
+      "r": 22
+    },
+    {
+      "id": "scroll",
+      "label": "the scroll of Esther",
+      "x": 634,
+      "y": 762,
+      "r": 20
+    },
+    {
+      "id": "crown",
+      "label": "the king's crown",
+      "x": 1060,
+      "y": 715,
+      "r": 20
+    },
+    {
+      "id": "orange",
+      "label": "an orange",
+      "x": 281,
+      "y": 632,
+      "r": 14
+    },
+    {
+      "id": "mezuzah",
+      "label": "the mezuzah",
+      "x": 240,
+      "y": 534,
+      "r": 14
+    },
+    {
+      "id": "balloons",
+      "label": "three balloons",
+      "x": 56,
+      "y": 640,
+      "r": 40
+    }
+  ]
+}

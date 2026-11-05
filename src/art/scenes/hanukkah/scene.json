@@ -1,0 +1,104 @@
+{
+  "hotspots": [
+    {
+      "activity": "wish",
+      "x": 800,
+      "y": 674,
+      "r": 72,
+      "label": "Make a wish by the menorah light"
+    },
+    {
+      "activity": "doors",
+      "x": 538,
+      "y": 745,
+      "r": 42,
+      "label": "Open a countdown door"
+    },
+    {
+      "activity": "dressup",
+      "x": 370,
+      "y": 748,
+      "r": 60,
+      "label": "Dress up the snowman"
+    },
+    {
+      "activity": "catch",
+      "x": 1100,
+      "y": 824,
+      "r": 60,
+      "label": "Catch gelt in the sled"
+    },
+    {
+      "activity": "seek",
+      "x": 1070,
+      "y": 708,
+      "r": 46,
+      "label": "Peek in the windows: Seek & Find"
+    },
+    {
+      "activity": "colour",
+      "x": 1466,
+      "y": 610,
+      "r": 50,
+      "label": "Colour the star window"
+    }
+  ],
+  "findables": [
+    {
+      "id": "window-menorah",
+      "label": "a little menorah",
+      "x": 173,
+      "y": 556,
+      "r": 24
+    },
+    {
+      "id": "cat-stoop",
+      "label": "a cat",
+      "x": 216,
+      "y": 790,
+      "r": 22
+    },
+    {
+      "id": "lost-mitten",
+      "label": "a lost blue mitten",
+      "x": 468,
+      "y": 780,
+      "r": 18
+    },
+    {
+      "id": "dreidel-sill",
+      "label": "a dreidel",
+      "x": 468,
+      "y": 724,
+      "r": 18
+    },
+    {
+      "id": "family-cat",
+      "label": "a second cat",
+      "x": 902,
+      "y": 724,
+      "r": 20
+    },
+    {
+      "id": "bird-lamp",
+      "label": "a little bird",
+      "x": 1004,
+      "y": 631,
+      "r": 20
+    },
+    {
+      "id": "window-cat",
+      "label": "a third cat",
+      "x": 1176,
+      "y": 726,
+      "r": 18
+    },
+    {
+      "id": "mezuzah",
+      "label": "a mezuzah",
+      "x": 575,
+      "y": 725,
+      "r": 16
+    }
+  ]
+}

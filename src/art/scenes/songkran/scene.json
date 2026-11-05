@@ -1,0 +1,83 @@
+{
+  "hotspots": [
+    {
+      "activity": "catch",
+      "x": 842,
+      "y": 510,
+      "r": 50,
+      "label": "Catch the water splashes"
+    },
+    {
+      "activity": "colour",
+      "x": 750,
+      "y": 696,
+      "r": 60,
+      "label": "Colour the baby elephant"
+    },
+    {
+      "activity": "card",
+      "x": 1357,
+      "y": 812,
+      "r": 36,
+      "label": "Send a Songkran blessing"
+    },
+    {
+      "activity": "dressup",
+      "x": 500,
+      "y": 600,
+      "r": 50,
+      "label": "Pick a flowery Songkran shirt"
+    }
+  ],
+  "findables": [
+    {
+      "id": "barrel",
+      "label": "a big blue water barrel",
+      "x": 400,
+      "y": 620,
+      "r": 30
+    },
+    {
+      "id": "water-gun",
+      "label": "an orange water gun",
+      "x": 966,
+      "y": 796,
+      "r": 18
+    },
+    {
+      "id": "garland",
+      "label": "jasmine garlands",
+      "x": 1558,
+      "y": 770,
+      "r": 24
+    },
+    {
+      "id": "temple",
+      "label": "the temple roof",
+      "x": 1460,
+      "y": 470,
+      "r": 40
+    },
+    {
+      "id": "powder",
+      "label": "white powder",
+      "x": 1030,
+      "y": 794,
+      "r": 14
+    },
+    {
+      "id": "palm",
+      "label": "a palm tree",
+      "x": 60,
+      "y": 300,
+      "r": 40
+    },
+    {
+      "id": "orchids",
+      "label": "purple orchids",
+      "x": 1556,
+      "y": 770,
+      "r": 24
+    }
+  ]
+}

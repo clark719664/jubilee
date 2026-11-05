@@ -1,0 +1,190 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   Dress up Jubi — Jubi on a podium in the holiday scene, slot tabs and item drawers.
+   .dz (root, .sky) .dz-backdrop .dz-head .dz-body .dz-left (.dz-stage .dz-chips)
+   .dz-right (.dz-rail .dz-tab .dz-panel .dz-items .dz-item .dz-disc .dz-actions)
+   .dz-dialog .dz-photo (instant photo, also used by the Fridge) .dz-calm (motion not 'full')
+   Paper and outlines use a fixed ink so the die-cut look holds on every sky, light or dark.
+   ═══════════════════════════════════════════════════════════════════════════ */
+.dz {
+  --dz-ink: #1f1a3d;
+  --dz-paper: #fffdf8;
+  --spring: cubic-bezier(.2, .8, .2, 1);
+  position: relative; display: flex; flex-direction: column;
+  min-height: 100vh; min-height: 100dvh; height: 100vh; height: 100dvh; overflow: hidden;
+  padding: max(10px, env(safe-area-inset-top)) var(--gutter) max(12px, env(safe-area-inset-bottom));
+  background-image:
+    radial-gradient(70% 50% at 50% 38%, color-mix(in srgb, var(--h-glow) 26%, transparent) 0, transparent 70%),
+    linear-gradient(170deg, var(--h-bg1) 0%, var(--h-bg2) 100%);
+  color: var(--h-ink);
+}
+.dz :focus-visible { outline: 4px solid var(--h-glow); outline-offset: 3px; box-shadow: 0 0 0 2px #fff; }
+
+/* ── the holiday scene behind everything (art when it exists; the sky otherwise) ── */
+.dz-backdrop { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.dz-layer { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 100%; user-select: none; }
+.dz-layer-back { opacity: .75; }
+.dz-layer-mid { opacity: .55; filter: blur(1.5px) saturate(.9); }
+.dz-backdrop.has-scene::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 30%, color-mix(in srgb, var(--h-bg1) 55%, transparent) 100%); }
+
+/* ── header ── */
+.dz-head { display: flex; align-items: center; gap: 12px; width: 100%; max-width: 1180px; margin: 0 auto; flex: none; }
+.dz-close { flex: none; }
+.dz-titles { min-width: 0; }
+.dz-h1 { font-family: var(--font-display); font-size: clamp(26px, 4.4vw, 40px); font-weight: 700; line-height: 1.05; letter-spacing: -.01em; text-shadow: 0 2px 0 color-mix(in srgb, var(--h-bg1) 60%, transparent); }
+.dz-sub { margin-top: 2px; font-weight: 700; font-size: 15px; opacity: .9; }
+
+/* ── body: stage above the drawer on phones, side by side on wide screens ── */
+.dz-body { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; gap: 10px; width: 100%; max-width: 1180px; margin: 0 auto; }
+.dz-left { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
+.dz-right {
+  flex: none; display: flex; flex-direction: column; gap: 10px; padding: 10px; border-radius: 26px;
+  background: color-mix(in srgb, var(--h-bg1) 70%, transparent); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border: 3px solid color-mix(in srgb, var(--h-ink) 22%, transparent);
+}
+@media (min-width: 880px) {
+  .dz-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(400px, 500px); align-items: center; gap: 28px; padding-bottom: 8px; }
+  .dz-left { height: 100%; }
+  .dz-right { max-height: 100%; min-height: 0; padding: 16px; }
+}
+
+/* ── stage ── */
+.dz-stage { position: relative; flex: 0 1 auto; width: min(80vw, 46vh, 460px); aspect-ratio: 1; min-height: 0; }
+@media (min-width: 880px) { .dz-stage { width: min(42vw, 64vh, 520px); } }
+.dz-spot { position: absolute; inset: 6% 8% 10%; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--h-glow) 38%, transparent) 0, transparent 68%); }
+.dz-podium {
+  position: absolute; left: 21%; right: 21%; top: 78.5%; height: 11%; border-radius: 50%;
+  background: radial-gradient(70% 60% at 50% 35%, color-mix(in srgb, var(--h-accent) 70%, #fff) 0, var(--h-accent) 70%);
+  border: 3px solid var(--dz-ink); box-shadow: 0 7px 0 var(--dz-ink), inset 0 -6px 0 color-mix(in srgb, var(--dz-ink) 18%, transparent);
+}
+.dz-podium::after { content: ''; position: absolute; inset: 22% 10%; border-radius: 50%; border: 2px dashed color-mix(in srgb, #fff 70%, transparent); }
+.dz-jubi { position: absolute; inset: 0; padding: 0; margin: 0; border: 0; background: none; border-radius: 50%; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+.dz-jubi-wrap { width: 100%; height: 100%; transform-origin: 50% 82%; }
+.dz-jubi-art { display: block; width: 100%; height: 100%; overflow: visible; filter: drop-shadow(0 5px 0 color-mix(in srgb, var(--dz-ink) 22%, transparent)); }
+.dz-look { transition: transform .35s var(--spring); }
+.dz-jubi-art .dz-spin { transform-box: fill-box; transform-origin: center; animation: spin 5s linear infinite; }
+.dz-jubi-art .dz-twinkle { transform-box: fill-box; transform-origin: center; animation: twinkle 1.8s ease-in-out infinite; }
+.dz-jubi-art .dz-puff { animation: twinkle 2.2s ease-in-out infinite; }
+.dz-glow > .jubi-glow { animation: dz-breathe 4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes dz-breathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.04); } }
+
+.dz-say {
+  position: absolute; z-index: 3; top: 0; left: 50%; max-width: min(64vw, 260px); padding: 10px 16px; border-radius: 22px;
+  background: var(--dz-paper); color: var(--dz-ink); border: 3px solid var(--dz-ink); box-shadow: 0 4px 0 var(--dz-ink);
+  font: 700 clamp(17px, 2.4vw, 22px)/1.15 var(--font-display); text-align: center; text-wrap: balance; width: max-content;
+  opacity: 0; transform: translate(-50%, -40%) scale(.6); transform-origin: 50% 100%; pointer-events: none;
+  transition: opacity .18s ease-out, transform .35s var(--spring);
+}
+.dz-say::after { content: ''; position: absolute; left: calc(50% - 9px); bottom: -12px; width: 18px; height: 18px; background: var(--dz-paper); border-right: 3px solid var(--dz-ink); border-bottom: 3px solid var(--dz-ink); transform: rotate(45deg) skew(8deg, 8deg); border-bottom-right-radius: 4px; }
+.dz-say.is-on { opacity: 1; transform: translate(-50%, -62%) scale(1); }
+.dz-fx { position: absolute; inset: 0; pointer-events: none; z-index: 4; }
+.dz-spark { position: absolute; overflow: visible; }
+
+/* ── "Dress for …" chips ── */
+.dz-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; flex: none; }
+.dz-chip { min-height: 48px; padding: 0 18px; font-size: 17px; }
+.dz-chip-emoji { font-size: 22px; line-height: 1; }
+
+/* ── slot tabs ── */
+.dz-rail { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 6px; }
+.dz-tab {
+  position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+  min-height: 64px; padding: 6px 2px 5px; border-radius: 18px; cursor: pointer;
+  background: var(--dz-paper); color: var(--dz-ink); border: 3px solid var(--dz-ink); box-shadow: 0 4px 0 var(--dz-ink);
+  font: 700 12.5px/1 var(--font-display); transition: transform .18s var(--spring), background .18s;
+  -webkit-tap-highlight-color: transparent; touch-action: manipulation;
+}
+.dz-tab:active { transform: translateY(2px); box-shadow: 0 2px 0 var(--dz-ink); }
+.dz-tab[aria-selected="true"] { background: var(--h-accent); color: var(--h-accent-ink); transform: translateY(-3px); box-shadow: 0 7px 0 var(--dz-ink); }
+.dz-tab-icon { display: grid; place-items: center; width: 36px; height: 34px; }
+.dz-tab-icon .dz-thumb { width: 34px; height: 34px; }
+.dz-tab:not(.is-worn) .dz-tab-icon { opacity: .55; filter: saturate(.6); }
+.dz-tab-dot { position: absolute; top: -6px; right: -4px; width: 16px; height: 16px; border-radius: 50%; background: #2ec4a6; border: 2.5px solid var(--dz-ink); transform: scale(0); transition: transform .3s var(--spring); }
+.dz-tab.is-worn .dz-tab-dot { transform: scale(1); }
+.dz-tab-name { white-space: nowrap; }
+
+/* ── the drawer: one swipeable row on phones, a grid on wide screens ── */
+.dz-panel { min-height: 0; display: flex; flex-direction: column; }
+.dz-items {
+  display: grid; grid-auto-flow: column; grid-auto-columns: 76px; gap: 6px; overflow-x: auto; overflow-y: hidden;
+  padding: 8px 6px 6px; margin: 0 -4px; scroll-snap-type: x proximity; scrollbar-width: thin; overscroll-behavior-x: contain;
+}
+@media (min-width: 880px) {
+  .dz-panel { flex: 1 1 auto; }
+  .dz-items { grid-auto-flow: row; grid-template-columns: repeat(auto-fill, minmax(84px, 1fr)); grid-auto-columns: auto; overflow-x: hidden; overflow-y: auto; max-height: 100%; scroll-snap-type: none; }
+}
+.dz-item {
+  position: relative; display: flex; flex-direction: column; align-items: center; gap: 4px; min-height: 92px; padding: 2px 0 0;
+  border: 0; background: none; color: inherit; cursor: pointer; scroll-snap-align: start; font: inherit;
+  -webkit-tap-highlight-color: transparent; touch-action: manipulation;
+}
+.dz-disc {
+  display: grid; place-items: center; width: 64px; height: 64px; border-radius: 50%;
+  background: var(--dz-paper); border: 3px solid var(--dz-ink); box-shadow: 0 4px 0 var(--dz-ink);
+  transition: transform .22s var(--spring), background .2s;
+}
+.dz-disc .dz-thumb { width: 50px; height: 50px; overflow: visible; }
+.dz-item:hover .dz-disc { transform: translateY(-3px) rotate(-3deg); }
+.dz-item:active .dz-disc { transform: scale(.92); }
+.dz-item[aria-pressed="true"] .dz-disc { background: color-mix(in srgb, var(--h-accent) 34%, var(--dz-paper)); box-shadow: 0 0 0 4px var(--h-accent), 0 4px 0 4px var(--dz-ink); }
+.dz-item[aria-pressed="true"]::after {
+  content: '✓'; position: absolute; top: -2px; left: 4px; display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%;
+  background: #2ec4a6; color: #fff; border: 2.5px solid var(--dz-ink); font: 900 13px/1 var(--font-display);
+}
+.dz-item:focus-visible { outline: none; box-shadow: none; }
+.dz-item:focus-visible .dz-disc { outline: 4px solid var(--h-glow); outline-offset: 4px; }
+.dz-season { position: absolute; top: -4px; right: 2px; width: 24px; height: 24px; }
+.dz-season-star { width: 100%; height: 100%; overflow: visible; animation: twinkle 1.8s ease-in-out infinite; }
+.dz-item:nth-child(2n) .dz-season-star { animation-delay: .6s; }
+.dz-item.is-season .dz-disc { background-image: radial-gradient(circle at 50% 40%, color-mix(in srgb, var(--h-glow) 30%, transparent), transparent 70%); }
+.dz-item-name { max-width: 76px; font: 700 12px/1.1 var(--font-display); text-align: center; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* ── actions ── */
+.dz-actions { display: flex; align-items: center; gap: 8px; }
+.dz-picture { flex: 1 1 auto; min-height: 58px; padding: 0 16px; font-size: 19px; white-space: nowrap; }
+.dz-cam { font-size: 24px; line-height: 1; }
+.dz-act { flex: 1 1 0; min-height: 52px; padding: 0 14px; white-space: nowrap; }
+.dz-act:disabled { opacity: .45; }
+@media (min-width: 880px) {
+  .dz-actions { flex-wrap: wrap; }
+  .dz-picture { order: -1; flex-basis: 100%; }
+}
+@media (max-width: 879px) {
+  .dz-act { flex: none; width: 56px; min-width: 56px; padding: 0; border-radius: 50%; }
+  .dz-act-text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+}
+
+/* ── picture dialog + the instant photo ── */
+.dz-flash { position: absolute; inset: 0; z-index: 20; background: #fff; pointer-events: none; opacity: 0; }
+.dz-dialog { position: absolute; inset: 0; z-index: 30; display: grid; place-items: center; padding: 16px; background: color-mix(in srgb, var(--dz-ink) 55%, transparent); animation: rise .3s var(--spring); }
+.dz-dialog-card { display: flex; flex-direction: column; align-items: center; gap: 12px; width: min(100%, 380px); max-height: 100%; overflow: auto; padding: 18px 16px 16px; border-radius: 28px; background: var(--dz-paper); color: var(--dz-ink); border: 3px solid var(--dz-ink); box-shadow: 0 8px 0 var(--dz-ink); text-align: center; }
+.dz-dialog-title { font: 700 30px/1 var(--font-display); }
+.dz-photo { margin: 0; padding: 12px 12px 6px; background: #fff; border: 3px solid var(--dz-ink); border-radius: 10px; box-shadow: 0 6px 0 color-mix(in srgb, var(--dz-ink) 80%, transparent); transform: rotate(var(--tilt, -3deg)); animation: dz-drop .6s var(--spring) both; }
+.dz-photo-sky { display: grid; place-items: center; width: 220px; max-width: 64vw; aspect-ratio: 1; border-radius: 4px; overflow: hidden; }
+.dz-photo-jubi { width: 92%; height: 92%; overflow: visible; animation: none; }
+.dz-photo-cap { padding: 8px 4px 4px; font: 700 17px/1.2 var(--font-display); color: var(--dz-ink); }
+@keyframes dz-drop { 0% { transform: translateY(-40px) rotate(-14deg) scale(.8); opacity: 0; } 60% { opacity: 1; } 100% { transform: rotate(var(--tilt, -3deg)); } }
+.dz-status { display: grid; gap: 10px; justify-items: center; }
+.dz-stamp { padding: 4px 14px; border-radius: 12px; border: 3px solid #2ec4a6; color: #137a66; font: 700 20px/1.2 var(--font-display); transform: rotate(-3deg); animation: slam .5s var(--spring) both; animation-delay: .35s; }
+.dz-stamp.is-soft { border-color: var(--h-accent); color: var(--dz-ink); }
+.dz-status-sub { font-size: 15px; font-weight: 600; max-width: 30ch; }
+.dz-takedowns { display: grid; gap: 8px; width: 100%; margin-top: 6px; }
+.dz-takedown { min-height: 48px; font-size: 16px; }
+.dz-dialog .btn-ghost { color: var(--dz-ink); }
+.dz-dialog-actions { display: flex; justify-content: center; width: 100%; }
+.dz-done-btn { width: 100%; }
+
+/* ── calm: no idle motion; items fade in (handled in JS) ── */
+.dz-calm .jubi, .dz-calm .jubi-eye, .dz-calm .jubi-sparkle, .dz-calm .jubi-zzz, .dz-calm .dz-spin, .dz-calm .dz-twinkle, .dz-calm .dz-puff,
+.dz-calm .dz-glow > .jubi-glow, .dz-calm .dz-season-star, .dz-calm .dz-photo, .dz-calm .dz-stamp, .dz-calm .dz-dialog { animation: none; }
+.dz-calm .dz-say { transition: opacity .15s; transform: translate(-50%, -62%); }
+.dz-calm .dz-look { transition: none; }
+
+@media (prefers-contrast: more) {
+  .dz-right { background: var(--h-bg1); backdrop-filter: none; }
+  .dz-layer { display: none; }
+}
+@media print {
+  .dz-head, .dz-right, .dz-chips, .dz-backdrop { display: none; }
+}
+/* Thumbnails show the thing, not Jubi's mitten. */
+.dz-thumb .dz-hand { display: none; }

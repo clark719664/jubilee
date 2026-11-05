@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 900">
+<!-- Grandparents Day · front: a rose bush bottom left and a garden gnome bottom right; the centre stays open -->
+<defs></defs>
+<!-- a rose bush bottom left -->
+<path d="M-20 860a40 40 0 1 0 80 0a40 40 0 1 0-80 0zm56-10a44 44 0 1 0 88 0a44 44 0 1 0-88 0zm60 22a34 34 0 1 0 68 0a34 34 0 1 0-68 0z" fill="#3a8a3a"/><path d="M10 840a10 10 0 1 0 20 0a10 10 0 1 0-20 0zm49-14a11 11 0 1 0 22 0a11 11 0 1 0-22 0zm47 22a10 10 0 1 0 20 0a10 10 0 1 0-20 0zm-65 18a9 9 0 1 0 18 0a9 9 0 1 0-18 0z" fill="#ff6a8a"/>
+<!-- a garden gnome -->
+<path d="M1530 900v-40h40v40z" fill="#2a6ad8"/><circle cx="1550" cy="846" r="14" fill="#f0c4a0"/><path d="M1534 840l16-40l16 40z" fill="#e8243a"/><path d="M1538 852q12 20 24 0q-4 18-12 22q-8-4-12-22z" fill="#ffffff"/>
+</svg>

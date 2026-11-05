@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 900">
+<!-- Canada Day · front: tall grass and cattails in both bottom corners; the centre stays open -->
+<defs></defs>
+<!-- grass and cattails bottom left -->
+<path d="M20 900q-4-70 6-120m18 120q4-90-4-150m30 150q8-60 18-100" fill="none" stroke="#2a5a2a" stroke-width="5"/><path d="M40 752h10v-34h-10zm-18 30h8v-28h-8z" fill="#6a3a1a"/>
+<!-- grass bottom right -->
+<path d="M1540 900q-6-70 4-120m22 120q2-90-6-140m30 140q8-60 16-100" fill="none" stroke="#2a5a2a" stroke-width="5"/><path d="M1556 762h10v-34h-10z" fill="#6a3a1a"/>
+</svg>

@@ -1,0 +1,129 @@
+{
+  "hotspots": [
+    {
+      "activity": "wish",
+      "x": 880,
+      "y": 688,
+      "r": 72,
+      "label": "Make a wish by the kinara"
+    },
+    {
+      "activity": "doors",
+      "x": 730,
+      "y": 632,
+      "r": 38,
+      "label": "Knock on the open door"
+    },
+    {
+      "activity": "card",
+      "x": 652,
+      "y": 766,
+      "r": 34,
+      "label": "Wrap a zawadi gift"
+    },
+    {
+      "activity": "seek",
+      "x": 1151,
+      "y": 536,
+      "r": 40,
+      "label": "Peek in the windows: Seek & Find"
+    },
+    {
+      "activity": "colour",
+      "x": 1098,
+      "y": 652,
+      "r": 40,
+      "label": "Colour in the kente banner"
+    }
+  ],
+  "findables": [
+    {
+      "id": "newel-cat",
+      "label": "a cat",
+      "x": 412,
+      "y": 630,
+      "r": 20
+    },
+    {
+      "id": "pigeon",
+      "label": "a pigeon",
+      "x": 374,
+      "y": 486,
+      "r": 18
+    },
+    {
+      "id": "djembe",
+      "label": "a djembe drum",
+      "x": 701,
+      "y": 700.2857142857143,
+      "r": 22
+    },
+    {
+      "id": "unity-cup",
+      "label": "the unity cup",
+      "x": 1006,
+      "y": 732,
+      "r": 18
+    },
+    {
+      "id": "corn",
+      "label": "an ear of corn",
+      "x": 1100,
+      "y": 784.6153846153845,
+      "r": 18
+    },
+    {
+      "id": "bike",
+      "label": "a bicycle",
+      "x": 1180,
+      "y": 772,
+      "r": 30
+    },
+    {
+      "id": "window-kinara",
+      "label": "a little kinara",
+      "x": 93.75,
+      "y": 642,
+      "r": 20
+    },
+    {
+      "id": "window-cat",
+      "label": "a second cat",
+      "x": 1250.3333333333333,
+      "y": 546,
+      "r": 18
+    }
+  ],
+  "stage": {
+    "wicks": [
+      [
+        796,
+        636
+      ],
+      [
+        824,
+        636
+      ],
+      [
+        852,
+        636
+      ],
+      [
+        880,
+        620
+      ],
+      [
+        908,
+        636
+      ],
+      [
+        936,
+        636
+      ],
+      [
+        964,
+        636
+      ]
+    ]
+  }
+}

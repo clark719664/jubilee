@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 900">
+<!-- Labor Day · back: a late-summer sun in the top-left corner and two clouds; a row of round park trees, kept low; a construction crane far off on the right, outside the copy zone -->
+<defs><radialGradient id="labor-day-sun"><stop stop-color="#fff8d0" stop-opacity=".95"/><stop offset=".4" stop-color="#ffe08a" stop-opacity=".4"/><stop offset="1" stop-color="#ffe08a" stop-opacity="0"/></radialGradient></defs>
+<!-- the sun and two clouds -->
+<circle cx="130" cy="120" r="130" fill="url(#labor-day-sun)"/><circle cx="130" cy="120" r="44" fill="#fffbe0"/><path d="M1380 140c-24 0-30-30-6-36c0-26 36-32 46-12c14-18 46-10 44 16c22-2 28 24 12 32z" fill="#ffffff" opacity=".9"/>
+<!-- a crane far off -->
+<path d="M1460 640v-260h12v260zm-20 0h52v-10h-52zm26-260h-150v10h190v-10zm-140 10v60h4v-60zm-8 60h20v14h-20z" fill="#e8a020"/>
+<!-- the park trees -->
+<path d="M-71 634a51 51 0 1 0 102 0a51 51 0 1 0-102 0zm71-13a73 73 0 1 0 146 0a73 73 0 1 0-146 0zm112 9a55 55 0 1 0 110 0a55 55 0 1 0-110 0zm82 1a56 56 0 1 0 112 0a56 56 0 1 0-112 0zm66 3a64 64 0 1 0 129 0a64 64 0 1 0-129 0zm114 4a60 60 0 1 0 119 0a60 60 0 1 0-119 0zm94-12a70 70 0 1 0 140 0a70 70 0 1 0-140 0zm101 11a66 66 0 1 0 132 0a66 66 0 1 0-132 0zm77 1a59 59 0 1 0 119 0a59 59 0 1 0-119 0zm114-3a63 63 0 1 0 125 0a63 63 0 1 0-125 0zm107-12a61 61 0 1 0 122 0a61 61 0 1 0-122 0zm117-3a50 50 0 1 0 101 0a50 50 0 1 0-101 0zm76 17a68 68 0 1 0 136 0a68 68 0 1 0-136 0zm105-1a68 68 0 1 0 135 0a68 68 0 1 0-135 0zm105-15a61 61 0 1 0 122 0a61 61 0 1 0-122 0zm95 16a62 62 0 1 0 125 0a62 62 0 1 0-125 0zm89-7a67 67 0 1 0 134 0a67 67 0 1 0-134 0zm106 7a70 70 0 1 0 140 0a70 70 0 1 0-140 0z" fill="#6aa84a"/>
+</svg>

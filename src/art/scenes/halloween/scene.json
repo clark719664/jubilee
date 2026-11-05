@@ -1,0 +1,104 @@
+{
+  "hotspots": [
+    {
+      "activity": "colour",
+      "x": 636,
+      "y": 804,
+      "r": 76,
+      "label": "Colour in the Great Pumpkin"
+    },
+    {
+      "activity": "doors",
+      "x": 800,
+      "y": 708,
+      "r": 36,
+      "label": "Knock on the open door"
+    },
+    {
+      "activity": "catch",
+      "x": 850,
+      "y": 806,
+      "r": 30,
+      "label": "Catch sweets in the pail"
+    },
+    {
+      "activity": "dressup",
+      "x": 912,
+      "y": 842,
+      "r": 36,
+      "label": "Dress up for trick-or-treat"
+    },
+    {
+      "activity": "memory",
+      "x": 928,
+      "y": 712,
+      "r": 34,
+      "label": "Match the jack-o'-lanterns"
+    },
+    {
+      "activity": "seek",
+      "x": 800,
+      "y": 513,
+      "r": 34,
+      "label": "Peek in the windows: Seek & Find"
+    }
+  ],
+  "findables": [
+    {
+      "id": "attic-cat",
+      "label": "a black cat",
+      "x": 798,
+      "y": 524,
+      "r": 18
+    },
+    {
+      "id": "fence-cat",
+      "label": "a second black cat",
+      "x": 1046,
+      "y": 734,
+      "r": 20
+    },
+    {
+      "id": "spider",
+      "label": "a spider",
+      "x": 310,
+      "y": 638,
+      "r": 14
+    },
+    {
+      "id": "owl",
+      "label": "an owl",
+      "x": 1527,
+      "y": 600,
+      "r": 22
+    },
+    {
+      "id": "crow",
+      "label": "a crow",
+      "x": 1472,
+      "y": 600,
+      "r": 18
+    },
+    {
+      "id": "bat-vane",
+      "label": "a bat",
+      "x": 238,
+      "y": 298,
+      "r": 20
+    },
+    {
+      "id": "paper-ghost",
+      "label": "a paper ghost",
+      "x": 438,
+      "y": 586,
+      "r": 18
+    },
+    {
+      "id": "window-bat",
+      "label": "a paper bat",
+      "x": 688,
+      "y": 595,
+      "r": 14
+    }
+  ]
+}

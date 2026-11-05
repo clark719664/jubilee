@@ -1,0 +1,104 @@
+{
+  "hotspots": [
+    {
+      "activity": "wish",
+      "x": 800,
+      "y": 584,
+      "r": 90,
+      "label": "Make a wish on the giant pie"
+    },
+    {
+      "activity": "card",
+      "x": 1110,
+      "y": 656,
+      "r": 32,
+      "label": "Make a price card"
+    },
+    {
+      "activity": "memory",
+      "x": 454,
+      "y": 660,
+      "r": 60,
+      "label": "Match the pies"
+    },
+    {
+      "activity": "seek",
+      "x": 1435,
+      "y": 570,
+      "r": 60,
+      "label": "Look out of the windows: Seek & Find"
+    },
+    {
+      "activity": "colour",
+      "x": 1400,
+      "y": 300,
+      "r": 74,
+      "label": "Colour in the chalk circle"
+    },
+    {
+      "activity": "catch",
+      "x": 190,
+      "y": 846,
+      "r": 60,
+      "label": "Catch pie slices on the plate"
+    }
+  ],
+  "findables": [
+    {
+      "id": "cat-under-table",
+      "label": "a cat",
+      "x": 430,
+      "y": 752,
+      "r": 24
+    },
+    {
+      "id": "school-bag",
+      "label": "a school bag",
+      "x": 1207,
+      "y": 740,
+      "r": 28
+    },
+    {
+      "id": "eraser",
+      "label": "a board eraser",
+      "x": 1070,
+      "y": 439,
+      "r": 22
+    },
+    {
+      "id": "pink-chalk",
+      "label": "a stick of pink chalk",
+      "x": 603,
+      "y": 444,
+      "r": 16
+    },
+    {
+      "id": "wall-clock",
+      "label": "a round wall clock",
+      "x": 140,
+      "y": 104,
+      "r": 36
+    },
+    {
+      "id": "meringue-pie",
+      "label": "a pie with meringue swirls",
+      "x": 540,
+      "y": 670,
+      "r": 34
+    },
+    {
+      "id": "window-tree",
+      "label": "a tree",
+      "x": 1549,
+      "y": 602,
+      "r": 22
+    },
+    {
+      "id": "tape-case",
+      "label": "a measuring tape case",
+      "x": 640,
+      "y": 718,
+      "r": 18
+    }
+  ]
+}

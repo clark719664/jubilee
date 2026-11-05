@@ -1,0 +1,104 @@
+{
+  "hotspots": [
+    {
+      "activity": "seek",
+      "x": 798,
+      "y": 544,
+      "r": 60,
+      "label": "Peek in the treehouse: Seek & Find"
+    },
+    {
+      "activity": "wish",
+      "x": 905,
+      "y": 764,
+      "r": 40,
+      "label": "Make a wish on the new tree"
+    },
+    {
+      "activity": "catch",
+      "x": 974,
+      "y": 648,
+      "r": 34,
+      "label": "Catch fireflies by the lantern"
+    },
+    {
+      "activity": "memory",
+      "x": 566,
+      "y": 808,
+      "r": 50,
+      "label": "Vegetable memory game"
+    },
+    {
+      "activity": "card",
+      "x": 1084,
+      "y": 716,
+      "r": 40,
+      "label": "Make a bee-friendly card"
+    },
+    {
+      "activity": "doors",
+      "x": 292,
+      "y": 752,
+      "r": 36,
+      "label": "Knock on the solar cottage"
+    }
+  ],
+  "findables": [
+    {
+      "id": "owl",
+      "label": "an owl",
+      "x": 794,
+      "y": 688,
+      "r": 24
+    },
+    {
+      "id": "dog",
+      "label": "a dog",
+      "x": 752,
+      "y": 840,
+      "r": 32
+    },
+    {
+      "id": "deer",
+      "label": "a deer",
+      "x": 1352,
+      "y": 744,
+      "r": 36
+    },
+    {
+      "id": "frog",
+      "label": "a frog",
+      "x": 1250,
+      "y": 798,
+      "r": 22
+    },
+    {
+      "id": "hedgehog",
+      "label": "a hedgehog",
+      "x": 1050,
+      "y": 862,
+      "r": 24
+    },
+    {
+      "id": "bicycle",
+      "label": "a red bicycle",
+      "x": 210,
+      "y": 758,
+      "r": 36
+    },
+    {
+      "id": "bluebird",
+      "label": "a bluebird",
+      "x": 668,
+      "y": 660,
+      "r": 20
+    },
+    {
+      "id": "bridge",
+      "label": "a little wooden bridge",
+      "x": 1272,
+      "y": 700,
+      "r": 34
+    }
+  ]
+}

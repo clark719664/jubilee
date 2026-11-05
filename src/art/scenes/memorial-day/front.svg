@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 900">
+<!-- Memorial Day · front: red poppies in the grass in both bottom corners; the centre stays open -->
+<defs></defs>
+<!-- poppies bottom left -->
+<path d="M20 900q-4-50 6-90m34 90q4-60-6-110m46 110q6-40 14-76" fill="none" stroke="#2a6a3a" stroke-width="4"/><path d="M8 806a18 18 0 1 0 36 0a18 18 0 1 0-36 0zm26-18a20 20 0 1 0 40 0a20 20 0 1 0-40 0zm64 32a16 16 0 1 0 32 0a16 16 0 1 0-32 0z" fill="#c8243a"/><path d="M21 806a5 5 0 1 0 10 0a5 5 0 1 0-10 0zm27-18a6 6 0 1 0 12 0a6 6 0 1 0-12 0zm61 32a5 5 0 1 0 10 0a5 5 0 1 0-10 0z" fill="#1a1a1a"/>
+<!-- poppies bottom right -->
+<path d="M1520 900q-6-50 4-86m36 86q4-60-4-104m34 104q8-40 12-70" fill="none" stroke="#2a6a3a" stroke-width="4"/><path d="M1506 810a18 18 0 1 0 36 0a18 18 0 1 0-36 0zm30-18a20 20 0 1 0 40 0a20 20 0 1 0-40 0zm48 34a16 16 0 1 0 32 0a16 16 0 1 0-32 0z" fill="#c8243a"/><path d="M1519 810a5 5 0 1 0 10 0a5 5 0 1 0-10 0zm31-18a6 6 0 1 0 12 0a6 6 0 1 0-12 0zm45 34a5 5 0 1 0 10 0a5 5 0 1 0-10 0z" fill="#1a1a1a"/>
+</svg>

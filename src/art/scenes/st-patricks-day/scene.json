@@ -1,0 +1,104 @@
+{
+  "hotspots": [
+    {
+      "activity": "doors",
+      "x": 800,
+      "y": 753.52,
+      "r": 36,
+      "label": "Knock on the red half-door"
+    },
+    {
+      "activity": "wish",
+      "x": 800,
+      "y": 672,
+      "r": 30,
+      "label": "Make a lucky wish on the horseshoe"
+    },
+    {
+      "activity": "colour",
+      "x": 800,
+      "y": 568,
+      "r": 66,
+      "label": "Colour in the thatched cottage"
+    },
+    {
+      "activity": "card",
+      "x": 874,
+      "y": 738,
+      "r": 36,
+      "label": "Make a card for the fiddler"
+    },
+    {
+      "activity": "dressup",
+      "x": 734,
+      "y": 820,
+      "r": 42,
+      "label": "Dress up the dancers"
+    },
+    {
+      "activity": "memory",
+      "x": 380,
+      "y": 820,
+      "r": 56,
+      "label": "Match the sheep"
+    }
+  ],
+  "findables": [
+    {
+      "id": "window-cat",
+      "label": "a cat",
+      "x": 944,
+      "y": 730,
+      "r": 18
+    },
+    {
+      "id": "collie",
+      "label": "a collie dog",
+      "x": 958,
+      "y": 836,
+      "r": 34
+    },
+    {
+      "id": "robin",
+      "label": "a robin",
+      "x": 470,
+      "y": 758,
+      "r": 18
+    },
+    {
+      "id": "donkey",
+      "label": "a donkey",
+      "x": 1290,
+      "y": 756,
+      "r": 36
+    },
+    {
+      "id": "hare",
+      "label": "a hare",
+      "x": 1478,
+      "y": 780,
+      "r": 22
+    },
+    {
+      "id": "socks",
+      "label": "socks",
+      "x": 316,
+      "y": 660,
+      "r": 22
+    },
+    {
+      "id": "bicycle",
+      "label": "a bicycle with a basket",
+      "x": 1162,
+      "y": 774,
+      "r": 34
+    },
+    {
+      "id": "music-notes",
+      "label": "music notes",
+      "x": 850,
+      "y": 690,
+      "r": 24
+    }
+  ]
+}

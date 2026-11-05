@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 900">
+<!-- Leap Day · front: reeds and cattails in the bottom corners; the centre stays open -->
+<defs></defs>
+<!-- reeds and cattails, bottom left -->
+<path d="M20 900q-4-80 6-140m22 140q4-60-8-110m36 110q2-50 14-86" fill="none" stroke="#4a8a3a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 760q6 0 6 8v30q0 6-6 6q-6 0-6-6v-30q0-8 6-8z" fill="#7a4a2a"/>
+<!-- reeds and cattails, bottom right -->
+<path d="M1580 900q4-80-6-140m-22 140q-4-60 8-110m-36 110q-2-50-14-86" fill="none" stroke="#4a8a3a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M1580 760q6 0 6 8v30q0 6-6 6q-6 0-6-6v-30q0-8 6-8z" fill="#7a4a2a"/>
+</svg>

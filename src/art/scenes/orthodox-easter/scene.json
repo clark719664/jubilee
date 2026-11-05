@@ -1,0 +1,83 @@
+{
+  "hotspots": [
+    {
+      "activity": "catch",
+      "x": 860,
+      "y": 792,
+      "r": 44,
+      "label": "Crack the red eggs"
+    },
+    {
+      "activity": "colour",
+      "x": 730,
+      "y": 792,
+      "r": 40,
+      "label": "Colour an Easter egg"
+    },
+    {
+      "activity": "card",
+      "x": 1112,
+      "y": 775,
+      "r": 36,
+      "label": "Make a Pascha card"
+    },
+    {
+      "activity": "memory",
+      "x": 500,
+      "y": 728,
+      "r": 40,
+      "label": "Match the Easter treats"
+    }
+  ],
+  "findables": [
+    {
+      "id": "bell",
+      "label": "the ringing bell",
+      "x": 1265,
+      "y": 380,
+      "r": 20
+    },
+    {
+      "id": "tsoureki",
+      "label": "the braided Easter bread",
+      "x": 390,
+      "y": 730,
+      "r": 24
+    },
+    {
+      "id": "cat",
+      "label": "a cat",
+      "x": 1520,
+      "y": 694,
+      "r": 18
+    },
+    {
+      "id": "dove",
+      "label": "a white dove",
+      "x": 210,
+      "y": 116,
+      "r": 24
+    },
+    {
+      "id": "dome",
+      "label": "the blue dome",
+      "x": 1460,
+      "y": 470,
+      "r": 40
+    },
+    {
+      "id": "olives",
+      "label": "olives",
+      "x": 150,
+      "y": 420,
+      "r": 40
+    },
+    {
+      "id": "cracked-egg",
+      "label": "a cracked egg",
+      "x": 840,
+      "y": 804,
+      "r": 16
+    }
+  ]
+}

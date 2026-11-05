@@ -1,0 +1,83 @@
+{
+  "hotspots": [
+    {
+      "activity": "dressup",
+      "x": 520,
+      "y": 782,
+      "r": 40,
+      "label": "Try on the silly glasses"
+    },
+    {
+      "activity": "card",
+      "x": 715,
+      "y": 726,
+      "r": 30,
+      "label": "Make an April fish"
+    },
+    {
+      "activity": "colour",
+      "x": 1020,
+      "y": 680,
+      "r": 50,
+      "label": "Colour the jack-in-the-box"
+    },
+    {
+      "activity": "memory",
+      "x": 790,
+      "y": 719,
+      "r": 50,
+      "label": "Match the silly tricks"
+    }
+  ],
+  "findables": [
+    {
+      "id": "cushion",
+      "label": "a whoopee cushion",
+      "x": 880,
+      "y": 734,
+      "r": 24
+    },
+    {
+      "id": "gnome",
+      "label": "an upside-down gnome",
+      "x": 1340,
+      "y": 740,
+      "r": 24
+    },
+    {
+      "id": "trousers",
+      "label": "upside-down trousers",
+      "x": 1100,
+      "y": 576,
+      "r": 30
+    },
+    {
+      "id": "spider",
+      "label": "a fake spider",
+      "x": 308,
+      "y": 754,
+      "r": 16
+    },
+    {
+      "id": "sponge",
+      "label": "a cake that is really a sponge",
+      "x": 260,
+      "y": 740,
+      "r": 22
+    },
+    {
+      "id": "tree-eyes",
+      "label": "a tree with googly eyes",
+      "x": 1462,
+      "y": 608,
+      "r": 20
+    },
+    {
+      "id": "dog-glasses",
+      "label": "a dog in silly glasses",
+      "x": 370,
+      "y": 812,
+      "r": 26
+    }
+  ]
+}

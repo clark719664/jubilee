@@ -1,0 +1,254 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   Sticker Memory — die-cut sticker cards on the holiday sky.
+   .mem (root, .sky) .mem-head .mem-tray .mem-stage .mem-setup .mem-board .mem-grid
+   .mem-card[aria-pressed] .mem-inner .mem-face .mem-back .mem-front .mem-art .mem-disc
+   .mem-calm (any motion but 'full': cross-fade, no 3D, no travel) .mem-done (finish panel)
+   Card outlines use a fixed ink so the sticker look holds on every sky, light or dark.
+   ═══════════════════════════════════════════════════════════════════════════ */
+.mem {
+  --mem-ink: #1f1a3d;
+  --mem-paper: #fffdf8;
+  --spring: cubic-bezier(.2, .8, .2, 1);
+  position: relative; display: flex; flex-direction: column; align-items: stretch;
+  min-height: 100vh; min-height: 100dvh; overflow: hidden;
+  padding: max(12px, env(safe-area-inset-top)) var(--gutter) max(14px, env(safe-area-inset-bottom));
+  background-image:
+    radial-gradient(120% 70% at 50% 18%, color-mix(in srgb, var(--h-glow) 20%, transparent) 0, transparent 60%),
+    linear-gradient(170deg, var(--h-bg1) 0%, var(--h-bg2) 100%);
+  color: var(--h-ink);
+}
+.mem.is-playing { height: 100vh; height: 100dvh; }
+.mem[data-pattern="none"]::before { opacity: .16; background-image: radial-gradient(circle, var(--h-glow) 1.6px, transparent 2.4px); background-size: 26px 26px; }
+
+/* ── header ── */
+.mem-head { display: flex; align-items: center; gap: 12px; width: 100%; max-width: 1120px; margin: 0 auto; }
+.mem-close { flex: none; }
+.mem-titles { flex: 1 1 auto; min-width: 0; }
+.mem-h1 { font-family: var(--font-display); font-size: clamp(26px, 4.6vw, 42px); font-weight: 700; line-height: 1.05; letter-spacing: -.01em; text-shadow: 0 2px 0 color-mix(in srgb, var(--h-bg1) 60%, transparent); }
+.mem-sub { margin-top: 2px; font-weight: 700; font-size: 15px; opacity: .88; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mem-tools { display: flex; align-items: center; gap: 8px; flex: none; }
+.mem-tools[hidden] { display: none; }
+.mem-tool { min-height: 48px; padding: 0 16px; }
+.mem-flips { display: inline-flex; align-items: center; min-height: 34px; padding: 0 12px; border-radius: 999px; font: 700 17px var(--font-display); background: color-mix(in srgb, var(--h-ink) 14%, transparent); white-space: nowrap; }
+.mem-flips[hidden] { display: none; }
+
+/* ── tray: one slot per pair, filled as pairs are found ── */
+.mem-tray { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px 10px; margin: 10px auto 4px; max-width: 100%; }
+.mem-tray[hidden] { display: none; }
+.mem-slots { display: flex; gap: 6px; }
+.mem-slot { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; border: 2.5px dashed color-mix(in srgb, var(--h-ink) 45%, transparent); }
+.mem-slot.is-filled { border-color: transparent; animation: pop .5s var(--spring); }
+.mem-slot .mem-art { width: 100%; height: 100%; }
+.mem-slot .mem-disc { border-width: 3px; }
+.mem-slot .mem-emoji { font-size: 16px; }
+.mem-tray-count { font: 700 18px var(--font-display); padding: 2px 12px; border-radius: 999px; background: color-mix(in srgb, var(--h-ink) 14%, transparent); }
+
+/* ── stage + board ── */
+.mem-stage { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; width: 100%; max-width: 1120px; margin: 0 auto; }
+.mem.is-playing .mem-stage { overflow: visible; }
+.mem-board { flex: 1 1 auto; min-height: 0; display: grid; place-items: center; }
+.mem-grid { display: grid; grid-template-columns: repeat(var(--cols, 4), var(--card-w, 96px)); grid-auto-rows: var(--card-h, 118px); gap: var(--gap, 10px); justify-content: center; align-content: center; }
+
+/* ── a card ── */
+.mem-card {
+  position: relative; width: var(--card-w, 96px); height: var(--card-h, 118px); padding: 0; margin: 0; border: 0;
+  background: none; color: var(--mem-ink); border-radius: 18px; perspective: 900px; cursor: pointer;
+  container-type: size; touch-action: manipulation; -webkit-tap-highlight-color: transparent; font: inherit;
+}
+.mem-inner { position: absolute; inset: 0; border-radius: inherit; transform-style: preserve-3d; transition: transform .62s var(--spring); }
+.mem-card:not(.is-up):hover .mem-inner, .mem-card:not(.is-up):focus-visible .mem-inner { transform: translateY(-4px) rotate(-1.5deg); }
+.mem-card:not(.is-up):active .mem-inner { transform: scale(.95); transition-duration: .12s; }
+.mem-card.is-up .mem-inner { transform: rotateY(180deg); }
+.mem-card.is-matched .mem-inner { transform: rotateY(180deg) scale(.95); }
+.mem-card.is-matched { cursor: default; }
+.mem-card:focus-visible { outline: 4px solid var(--h-glow); outline-offset: 5px; box-shadow: none; border-radius: 20px; }
+
+.mem-face {
+  position: absolute; inset: 0; display: grid; place-items: center; overflow: hidden; border-radius: inherit;
+  backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  border: 4px solid #fff;
+  box-shadow: 0 0 0 2.5px var(--mem-ink), 0 6px 0 2.5px color-mix(in srgb, var(--mem-ink) 70%, transparent);
+}
+/* Back: the holiday sky + its pattern, a stitched inner edge and the holiday emblem. */
+.mem-back { background-image: radial-gradient(90% 70% at 50% 40%, color-mix(in srgb, var(--h-glow) 30%, transparent), transparent 70%), linear-gradient(160deg, var(--h-bg2) 0%, var(--h-bg1) 100%); }
+.mem[data-pattern="none"] .mem-back::before { opacity: .3; background-image: radial-gradient(circle, var(--h-glow) 1.5px, transparent 2.3px); background-size: 14px 14px; }
+.mem[data-mood="day"] .mem-back, .mem[data-mood="day"] .mem-fan-back, .mem[data-mood="day"] .mem-mini-card:not(.is-up) {
+  /* Pale day skies would look like the paper front: day backs wear the theme accent instead. */
+  background-image: radial-gradient(90% 70% at 50% 40%, color-mix(in srgb, #fff 26%, transparent), transparent 70%), linear-gradient(160deg, color-mix(in srgb, var(--h-accent) 72%, #fff) 0%, var(--h-accent) 100%);
+}
+.mem[data-mood="day"] .mem-back::after { border-color: color-mix(in srgb, #fff 70%, transparent); }
+.mem-back::after { content: ''; position: absolute; inset: 5px; border-radius: 11px; border: 2px dashed color-mix(in srgb, var(--h-glow) 60%, transparent); pointer-events: none; }
+.mem-emblem {
+  display: grid; place-items: center; width: 54cqw; aspect-ratio: 1; border-radius: 50%;
+  background: radial-gradient(circle at 38% 32%, #fff 0, var(--h-glow) 38%, var(--h-accent) 100%);
+  border: max(3px, 3cqw) solid #fff; box-shadow: 0 0 0 2px var(--mem-ink), 0 0 18px 4px color-mix(in srgb, var(--h-glow) 55%, transparent);
+}
+.mem-emblem .emoji { font-size: 27cqw; }
+
+/* Front: paper, the die-cut sticker, its label. */
+.mem-front {
+  transform: rotateY(180deg); grid-template-rows: 1fr auto; align-content: center; padding: 6cqw 5cqw 7cqw;
+  background: radial-gradient(90% 60% at 50% 38%, color-mix(in srgb, var(--h-glow) 22%, var(--mem-paper)) 0, var(--mem-paper) 75%);
+}
+.mem-art { display: grid; place-items: center; width: 74cqw; aspect-ratio: 1; }
+.mem-front .mem-art { align-self: center; }
+.mem-img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 3px 0 rgba(0, 0, 0, .14)); }
+.mem-disc {
+  display: grid; place-items: center; width: 100%; height: 100%; border-radius: 50%;
+  background: radial-gradient(circle at 34% 28%, color-mix(in srgb, var(--s-glow) 70%, #fff) 0, var(--s-bg2) 46%, var(--s-bg1) 100%);
+  border: max(3px, 5cqw) solid #fff; box-shadow: 0 0 0 2px color-mix(in srgb, var(--mem-ink) 80%, transparent), 0 4px 0 2px rgba(0, 0, 0, .14);
+}
+.mem-emoji { font-size: 34cqw; line-height: 1; }
+.mem-label { max-width: 100%; margin-top: 4cqw; font: 700 clamp(11px, 11cqw, 18px)/1.1 var(--font-display); text-align: center; color: var(--mem-ink); overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+@container (max-height: 124px) {
+  .mem-label { display: none; }
+  .mem-front { grid-template-rows: 1fr; }
+  .mem-front .mem-art { width: 78cqw; }
+}
+.mem-mine { position: absolute; top: 4cqw; left: 6cqw; font-size: max(14px, 13cqw); color: #ffb703; text-shadow: 0 0 0 var(--mem-ink), 1px 1px 0 var(--mem-ink), -1px -1px 0 var(--mem-ink), 1px -1px 0 var(--mem-ink), -1px 1px 0 var(--mem-ink); line-height: 1; }
+.mem-check { position: absolute; top: 4cqw; right: 4cqw; display: none; place-items: center; width: max(24px, 20cqw); height: max(24px, 20cqw); border-radius: 50%; background: var(--h-accent); color: var(--h-accent-ink); border: 2px solid #fff; box-shadow: 0 0 0 1.5px var(--mem-ink); }
+.mem-check .icon { width: 70%; height: 70%; stroke-width: 3.2; }
+.mem-card.is-matched .mem-check { display: grid; animation: pop .45s var(--spring) .2s both; }
+.mem-card.is-matched .mem-front { box-shadow: 0 0 0 2.5px var(--mem-ink), 0 0 0 7px var(--h-glow), 0 0 26px 8px color-mix(in srgb, var(--h-glow) 55%, transparent); }
+.mem-card.is-matched .mem-art { animation: mem-joy .75s var(--spring) .12s both; }
+
+/* Hint: the two partner cards wiggle (≈ 2 Hz, three times). */
+.mem-card.is-hint { animation: mem-wiggle .5s ease-in-out 3; }
+@keyframes mem-wiggle { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(-5deg) scale(1.03); } 75% { transform: rotate(5deg) scale(1.03); } }
+@keyframes mem-joy { 0% { transform: scale(1); } 35% { transform: scale(1.2) rotate(-9deg); } 65% { transform: scale(.94) rotate(5deg); } 100% { transform: none; } }
+@keyframes mem-float { 0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); } 50% { transform: translateY(-7px) rotate(var(--r, 0deg)); } }
+@keyframes mem-rise { from { transform: translateY(40px) scale(.94); opacity: 0; } }
+@keyframes mem-fade { from { opacity: 0; } }
+
+/* ── overlays: burst canvas, cheer bubble, flying sticker ── */
+.mem > .mem-burst { position: absolute; inset: 0; z-index: 9; width: 100%; height: 100%; pointer-events: none; }
+.mem > .mem-cheer {
+  position: absolute; z-index: 11; transform: translate(-50%, -50%); pointer-events: none; white-space: nowrap;
+  padding: 6px 18px; border-radius: 999px; font: 700 clamp(22px, 4vw, 34px)/1.1 var(--font-display);
+  background: var(--h-accent); color: var(--h-accent-ink); border: 3px solid #fff;
+  box-shadow: 0 0 0 2.5px var(--mem-ink, #1f1a3d), 0 5px 0 2px rgba(0, 0, 0, .2);
+}
+.mem-ghost { position: fixed; z-index: 1000; pointer-events: none; display: grid; place-items: center; container-type: inline-size; }
+.mem-ghost .mem-disc { border-width: max(3px, 5cqw); }
+.mem-ghost .mem-emoji { font-size: 50cqw; }
+
+/* ── setup ── */
+.mem-setup { display: grid; justify-items: center; gap: 16px; padding: 6px 0 28px; }
+.mem-setup-hero { display: grid; justify-items: center; gap: 8px; }
+.mem-fan-host { display: grid; place-items: center; }
+.mem-fan { position: relative; width: 300px; height: 176px; }
+.mem-fan-card {
+  position: absolute; left: 50%; top: 18px; width: 108px; height: 134px; margin-left: -54px; border-radius: 16px;
+  display: grid; place-items: center; container-type: size;
+  background: radial-gradient(90% 60% at 50% 40%, color-mix(in srgb, var(--h-glow) 22%, var(--mem-paper)) 0, var(--mem-paper) 75%);
+  border: 4px solid #fff; box-shadow: 0 0 0 2.5px var(--mem-ink), 0 6px 0 2.5px color-mix(in srgb, var(--mem-ink) 70%, transparent);
+  animation: mem-float 3.4s ease-in-out infinite;
+}
+.mem-fan-card .mem-art { width: 76cqw; }
+.mem-fan-card .mem-emoji { font-size: 36cqw; }
+.mem-fan-back { --r: -4deg; top: 4px; transform: rotate(-4deg); background-image: radial-gradient(90% 70% at 50% 40%, color-mix(in srgb, var(--h-glow) 30%, transparent), transparent 70%), linear-gradient(160deg, var(--h-bg2), var(--h-bg1)); position: absolute; }
+.mem-fan-0 { --r: -16deg; left: calc(50% - 82px); top: 30px; animation-delay: -.6s; }
+.mem-fan-1 { --r: 2deg; top: 14px; animation-delay: -1.4s; z-index: 2; }
+.mem-fan-2 { --r: 15deg; left: calc(50% + 82px); top: 30px; animation-delay: -2.2s; }
+@media (min-width: 900px) { .mem-fan-host { padding: 28px 0 22px; } .mem-fan { transform: scale(1.3); } }
+.mem-tagline { font: 700 clamp(20px, 3.4vw, 26px)/1.2 var(--font-display); text-align: center; }
+.mem-options { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px; }
+.mem-choices { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.mem-choice, .mem-switch {
+  display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 18px 0 14px; border-radius: 999px;
+  border: 3px solid var(--mem-ink); background: color-mix(in srgb, #fff 86%, transparent); color: var(--mem-ink);
+  font: 700 17px/1.1 var(--font-display); box-shadow: 0 4px 0 var(--mem-ink); transition: transform .18s var(--spring), box-shadow .18s var(--spring), background .18s;
+}
+.mem-choice:active, .mem-switch:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--mem-ink); }
+.mem-choice[aria-pressed="true"] { background: var(--h-accent); color: var(--h-accent-ink); }
+.mem-choice .emoji { font-size: 22px; }
+.mem-switch-track { position: relative; width: 44px; height: 26px; border-radius: 999px; background: #d9d4ea; border: 2px solid var(--mem-ink); transition: background .2s; }
+.mem-switch-knob { position: absolute; top: 2px; left: 2px; width: 18px; height: 18px; border-radius: 50%; background: #fff; border: 2px solid var(--mem-ink); transition: transform .25s var(--spring); }
+.mem-switch[aria-checked="true"] .mem-switch-track { background: var(--h-accent); }
+.mem-switch[aria-checked="true"] .mem-switch-knob { transform: translateX(18px); }
+.mem-pick { display: flex; align-items: center; gap: 8px; margin-top: 4px; font-family: var(--font-display); }
+.mem-boards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; width: 100%; max-width: 760px; }
+.mem-board-btn {
+  display: grid; justify-items: center; align-content: start; gap: 6px; min-height: 176px; padding: 16px 8px 14px;
+  border-radius: 26px; border: 3px solid var(--mem-ink); background: var(--mem-paper); color: var(--mem-ink);
+  box-shadow: 0 6px 0 var(--mem-ink); font: inherit; transition: transform .22s var(--spring), box-shadow .22s var(--spring);
+}
+.mem-board-btn:hover { transform: translateY(-4px) rotate(-1deg); box-shadow: 0 10px 0 var(--mem-ink); }
+.mem-board-btn:active { transform: translateY(4px); box-shadow: 0 2px 0 var(--mem-ink); }
+.mem-board-btn:focus-visible { outline: 4px solid var(--h-glow); outline-offset: 4px; }
+.mem-mini { display: grid; grid-template-columns: repeat(var(--cols), 16px); grid-auto-rows: 20px; gap: 3px; margin: 2px 0 6px; }
+.mem-mini-card { position: relative; display: grid; place-items: center; border-radius: 4px; border: 1.5px solid #fff; box-shadow: 0 0 0 1px var(--mem-ink); background-image: linear-gradient(160deg, var(--h-bg2), var(--h-bg1)); overflow: hidden; }
+.mem-mini-card.sky::before { --pattern-size: 10px 10px; }
+.mem-mini-card.is-up { background: #fff; }
+.mem-mini-card .emoji { font-size: 11px; filter: none; }
+.mem-mini-emblem { font-size: 9px !important; }
+.mem-board-name { font: 700 24px/1 var(--font-display); }
+.mem-board-pairs { padding: 3px 12px; border-radius: 999px; background: var(--h-accent); color: var(--h-accent-ink); font-weight: 700; font-size: 15px; border: 2px solid var(--mem-ink); }
+.mem-board-note { font-size: 14px; line-height: 1.2; color: #5a5577; text-align: center; }
+
+/* ── finish ── */
+.mem > .mem-done { position: absolute; inset: 0; z-index: 10; display: grid; place-items: center; padding: 70px 16px 16px; background: color-mix(in srgb, var(--h-bg1) 38%, transparent); animation: mem-fade .35s ease-out both; }
+.mem-done-card {
+  position: relative; width: 100%; max-width: 460px; padding: 58px 22px 22px; text-align: center;
+  background: var(--mem-paper); color: var(--mem-ink); border: 3px solid var(--mem-ink); border-radius: 30px;
+  box-shadow: 0 8px 0 var(--mem-ink); animation: mem-rise .65s var(--spring) both;
+}
+.mem-done-jubi { position: absolute; top: -56px; left: 50%; transform: translateX(-50%); }
+.mem-done-title { font-family: var(--font-display); }
+.mem-done-sub { margin-top: 6px; font-size: 18px; }
+.mem-done-stickers { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin: 16px auto 4px; max-width: 360px; }
+.mem-done-stickers li { width: 50px; height: 50px; container-type: inline-size; animation: pop .5s var(--spring) both; animation-delay: calc(.35s + var(--k) * 70ms); }
+.mem-done-stickers .mem-art { width: 100%; height: 100%; }
+.mem-done-stickers .mem-disc { border-width: 3px; }
+.mem-done-stickers .mem-emoji { font-size: 24px; }
+.mem-done-flips { margin-top: 10px; display: inline-block; padding: 4px 14px; border-radius: 999px; background: #fff3c4; font-weight: 700; }
+.mem-done-actions { display: grid; gap: 10px; margin-top: 18px; }
+.mem-done-actions .btn { width: 100%; }
+.mem-done-actions .btn-lg { background: var(--h-accent); color: var(--h-accent-ink); border-color: var(--mem-ink); box-shadow: 0 4px 0 var(--mem-ink); }
+.mem-done-actions .btn-secondary { background: #fff; color: var(--mem-ink); border-color: var(--mem-ink); box-shadow: 0 4px 0 var(--mem-ink); }
+.mem-done-actions .btn-ghost { color: var(--mem-ink); }
+.mem.is-done .mem-slot.is-filled { animation: wave .9s var(--spring) both; }
+.mem.is-done .mem-slot:nth-child(2) { animation-delay: .07s; } .mem.is-done .mem-slot:nth-child(3) { animation-delay: .14s; }
+.mem.is-done .mem-slot:nth-child(4) { animation-delay: .21s; } .mem.is-done .mem-slot:nth-child(5) { animation-delay: .28s; }
+.mem.is-done .mem-slot:nth-child(6) { animation-delay: .35s; } .mem.is-done .mem-slot:nth-child(7) { animation-delay: .42s; }
+.mem.is-done .mem-slot:nth-child(8) { animation-delay: .49s; } .mem.is-done .mem-slot:nth-child(9) { animation-delay: .56s; }
+.mem.is-done .mem-slot:nth-child(10) { animation-delay: .63s; }
+
+/* ── calm: reduced or no motion → faces cross-fade in place, nothing travels or wiggles ── */
+.mem-calm .mem-inner, .mem-calm .mem-card .mem-inner { transform: none !important; transition: none; }
+.mem-calm .mem-front { transform: none; opacity: 0; visibility: hidden; }
+.mem-calm .mem-card.is-up .mem-front { opacity: 1; visibility: visible; }
+.mem-calm .mem-card.is-up .mem-back { visibility: hidden; }
+.mem-calm .mem-card.is-hint { animation: none; outline: 4px dashed var(--h-glow); outline-offset: 5px; border-radius: 20px; }
+.mem-calm .mem-art, .mem-calm .mem-fan-card, .mem-calm .mem-slot, .mem-calm .mem-check, .mem-calm .mem-done-card, .mem-calm .mem-done-stickers li { animation: none !important; }
+.mem-calm .mem-fan-card { transform: rotate(var(--r, 0deg)); }
+.mem-calm .mem-board-btn, .mem-calm .mem-choice, .mem-calm .mem-switch-knob { transition: none; }
+.mem-calm .mem-board-btn:hover { transform: none; }
+
+/* ── phones ── */
+@media (max-width: 719px) {
+  .mem-tool-text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .mem-tool { width: 48px; padding: 0; }
+  .mem.is-playing .mem-h1 { font-size: 24px; }
+  .mem-flips { min-height: 30px; padding: 0 9px; font-size: 14px; }
+  .mem-tray { gap: 6px; }
+  .mem-slots { gap: 4px; }
+  .mem-slot { width: 26px; height: 26px; }
+  .mem-tray[data-pairs="10"] .mem-slot { width: 24px; height: 24px; }
+  .mem-slot .mem-emoji { font-size: 13px; }
+  .mem-tray-count { font-size: 16px; }
+  .mem-boards { gap: 8px; }
+  .mem-board-btn { min-height: 168px; padding: 14px 4px 12px; border-radius: 22px; }
+  .mem-mini { grid-template-columns: repeat(var(--cols), 13px); grid-auto-rows: 16px; gap: 2.5px; }
+  .mem-board-name { font-size: 20px; }
+  .mem-board-note { font-size: 13px; }
+  .mem-fan { width: 270px; height: 164px; }
+  .mem-fan-card { width: 96px; height: 120px; margin-left: -48px; }
+  .mem-fan-0 { left: calc(50% - 72px); }
+  .mem-fan-2 { left: calc(50% + 72px); }
+}
+@media (prefers-contrast: more) {
+  .mem-back::before, .mem::before { display: none; }
+  .mem-back::after { border-style: solid; }
+}
+@media print { .mem-burst, .mem-tools { display: none !important; } }

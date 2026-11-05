@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 900">
+<!-- Children's Day (Japan) · front: a stone lantern bottom left and irises bottom right; the centre stays open -->
+<defs></defs>
+<!-- a stone lantern -->
+<path d="M40 900v-30h80v30zm16-30v-50h48v50zm-26-50l50-30l50 30z" fill="#a8a098"/><path d="M62 862v-34h36v34z" fill="#fff4c8"/>
+<!-- irises -->
+<path d="M1520 900q-4-60-14-100m44 100q4-70 0-120m30 120q10-60 16-96" fill="none" stroke="#3a8a4a" stroke-width="5"/><path d="M1502 798q-16-6-14 10q12 4 14-10zm0 0q16-6 14 10q-12 4-14-10zm48-20q-16-6-14 10q12 4 14-10zm0 0q16-6 14 10q-12 4-14-10zm46 24q-16-6-14 10q12 4 14-10zm0 0q16-6 14 10q-12 4-14-10z" fill="#7a4ad8"/>
+</svg>

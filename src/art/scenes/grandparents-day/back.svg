@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 900">
+<!-- Grandparents Day · back: a warm golden afternoon sun in the top-right corner; soft rolling fields and a hedge, kept low -->
+<defs><radialGradient id="grandparents-day-sun"><stop stop-color="#fff4d0" stop-opacity=".95"/><stop offset=".4" stop-color="#ffd8a0" stop-opacity=".4"/><stop offset="1" stop-color="#ffd8a0" stop-opacity="0"/></radialGradient></defs>
+<!-- the afternoon sun, top right -->
+<circle cx="1470" cy="130" r="130" fill="url(#grandparents-day-sun)"/><circle cx="1470" cy="130" r="44" fill="#fffaf0"/>
+<!-- fields and a hedge -->
+<path d="M-20 660v-70q320-30 660-6t660-14t320 10v80z" fill="#c8d890"/><path d="M-64 646a44 44 0 1 0 88 0a44 44 0 1 0-88 0zm76-4a55 55 0 1 0 110 0a55 55 0 1 0-110 0zm55-2a62 62 0 1 0 125 0a62 62 0 1 0-125 0zm98 3a63 63 0 1 0 125 0a63 63 0 1 0-125 0zm93-3a45 45 0 1 0 90 0a45 45 0 1 0-90 0zm67 9a57 57 0 1 0 113 0a57 57 0 1 0-113 0zm88-4a48 48 0 1 0 96 0a48 48 0 1 0-96 0zm98 6a49 49 0 1 0 99 0a49 49 0 1 0-99 0zm83-1a64 64 0 1 0 127 0a64 64 0 1 0-127 0zm89 1a63 63 0 1 0 126 0a63 63 0 1 0-126 0zm106-8a55 55 0 1 0 110 0a55 55 0 1 0-110 0zm75 1a48 48 0 1 0 97 0a48 48 0 1 0-97 0zm86 1a56 56 0 1 0 111 0a56 56 0 1 0-111 0zm83 6a55 55 0 1 0 111 0a55 55 0 1 0-111 0zm95-2a55 55 0 1 0 111 0a55 55 0 1 0-111 0zm66 1a60 60 0 1 0 120 0a60 60 0 1 0-120 0zm77-5a51 51 0 1 0 102 0a51 51 0 1 0-102 0zm87-5a51 51 0 1 0 101 0a51 51 0 1 0-101 0zm73 3a50 50 0 1 0 100 0a50 50 0 1 0-100 0zm74 1a46 46 0 1 0 92 0a46 46 0 1 0-92 0zm58-3a63 63 0 1 0 125 0a63 63 0 1 0-125 0z" fill="#7aa860"/>
+</svg>

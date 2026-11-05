@@ -1,0 +1,83 @@
+{
+  "hotspots": [
+    {
+      "activity": "colour",
+      "x": 1200,
+      "y": 478,
+      "r": 60,
+      "label": "Colour a carp streamer"
+    },
+    {
+      "activity": "dressup",
+      "x": 140,
+      "y": 648,
+      "r": 44,
+      "label": "Fold a samurai helmet"
+    },
+    {
+      "activity": "catch",
+      "x": 1230,
+      "y": 749,
+      "r": 44,
+      "label": "Catch the flying carp"
+    },
+    {
+      "activity": "memory",
+      "x": 273,
+      "y": 627,
+      "r": 36,
+      "label": "Match the Children's Day treats"
+    }
+  ],
+  "findables": [
+    {
+      "id": "kabuto",
+      "label": "the little samurai helmet",
+      "x": 366,
+      "y": 660,
+      "r": 24
+    },
+    {
+      "id": "pond-carp",
+      "label": "carp",
+      "x": 820,
+      "y": 828,
+      "r": 40
+    },
+    {
+      "id": "iris",
+      "label": "purple irises",
+      "x": 1090,
+      "y": 760,
+      "r": 30
+    },
+    {
+      "id": "fuji",
+      "label": "Mount Fuji",
+      "x": 300,
+      "y": 540,
+      "r": 40
+    },
+    {
+      "id": "wheel",
+      "label": "the spinning wheel",
+      "x": 1400,
+      "y": 132,
+      "r": 24
+    },
+    {
+      "id": "blue-carp",
+      "label": "the little blue carp",
+      "x": 1260,
+      "y": 652,
+      "r": 36
+    },
+    {
+      "id": "bridge",
+      "label": "the red bridge",
+      "x": 820,
+      "y": 730,
+      "r": 40
+    }
+  ]
+}

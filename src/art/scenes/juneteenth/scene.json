@@ -1,0 +1,97 @@
+{
+  "hotspots": [
+    {
+      "activity": "wish",
+      "x": 805,
+      "y": 516,
+      "r": 48,
+      "label": "Make a wish on the freedom star"
+    },
+    {
+      "activity": "card",
+      "x": 1046,
+      "y": 656,
+      "r": 44,
+      "label": "Make a Juneteenth card"
+    },
+    {
+      "activity": "colour",
+      "x": 886,
+      "y": 666,
+      "r": 38,
+      "label": "Colour the strawberry soda"
+    },
+    {
+      "activity": "memory",
+      "x": 1100,
+      "y": 694,
+      "r": 30,
+      "label": "Match the picnic treats"
+    },
+    {
+      "activity": "catch",
+      "x": 837,
+      "y": 726,
+      "r": 32,
+      "label": "Catch the watermelon"
+    },
+    {
+      "activity": "seek",
+      "x": 1161,
+      "y": 640,
+      "r": 50,
+      "label": "Peek under the old oak"
+    }
+  ],
+  "findables": [
+    {
+      "id": "squirrel",
+      "label": "a squirrel",
+      "x": 1252,
+      "y": 490,
+      "r": 20
+    },
+    {
+      "id": "kite-in-tree",
+      "label": "a kite",
+      "x": 1352,
+      "y": 500,
+      "r": 30
+    },
+    {
+      "id": "gull",
+      "label": "a seagull",
+      "x": 1046,
+      "y": 598,
+      "r": 18
+    },
+    {
+      "id": "sleepy-cat",
+      "label": "a sleeping cat",
+      "x": 1068,
+      "y": 798,
+      "r": 22
+    },
+    {
+      "id": "jump-rope",
+      "label": "a double-dutch jump rope",
+      "x": 235,
+      "y": 740,
+      "r": 34
+    },
+    {
+      "id": "grill",
+      "label": "burgers",
+      "x": 492,
+      "y": 738,
+      "r": 30
+    },
+    {
+      "id": "firefly",
+      "label": "a firefly",
+      "x": 600,
+      "y": 690,
+      "r": 18
+    }
+  ]
+}

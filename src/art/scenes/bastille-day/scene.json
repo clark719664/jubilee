@@ -1,0 +1,83 @@
+{
+  "hotspots": [
+    {
+      "activity": "memory",
+      "x": 410,
+      "y": 808,
+      "r": 44,
+      "label": "Match the picnic treats"
+    },
+    {
+      "activity": "card",
+      "x": 584,
+      "y": 733,
+      "r": 36,
+      "label": "Make a tricolour card"
+    },
+    {
+      "activity": "colour",
+      "x": 945,
+      "y": 837,
+      "r": 50,
+      "label": "Colour the dancers"
+    },
+    {
+      "activity": "wish",
+      "x": 1460,
+      "y": 300,
+      "r": 60,
+      "label": "Wish on the sparkling tower"
+    }
+  ],
+  "findables": [
+    {
+      "id": "poodle",
+      "label": "a poodle with a bow",
+      "x": 1374,
+      "y": 812,
+      "r": 24
+    },
+    {
+      "id": "bike-baguette",
+      "label": "a baguette",
+      "x": 1260,
+      "y": 732,
+      "r": 22
+    },
+    {
+      "id": "beret",
+      "label": "a beret",
+      "x": 790,
+      "y": 720,
+      "r": 18
+    },
+    {
+      "id": "houseboat",
+      "label": "a houseboat",
+      "x": 1080,
+      "y": 670,
+      "r": 40
+    },
+    {
+      "id": "strawberries",
+      "label": "strawberries",
+      "x": 560,
+      "y": 820,
+      "r": 18
+    },
+    {
+      "id": "cafe",
+      "label": "the café awning",
+      "x": 120,
+      "y": 528,
+      "r": 40
+    },
+    {
+      "id": "notes",
+      "label": "music notes",
+      "x": 868,
+      "y": 594,
+      "r": 20
+    }
+  ]
+}

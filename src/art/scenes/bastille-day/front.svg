@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 900">
+<!-- Bastille Day · front: a pot of red geraniums bottom left and a bench end bottom right; the centre stays open -->
+<defs></defs>
+<!-- geraniums bottom left -->
+<path d="M10 900l10-56h100l10 56z" fill="#c8643a"/><path d="M14 822a22 22 0 1 0 44 0a22 22 0 1 0-44 0zm36-10a26 26 0 1 0 52 0a26 26 0 1 0-52 0zm40 14a20 20 0 1 0 40 0a20 20 0 1 0-40 0z" fill="#2a6a3a"/><path d="M25 810a9 9 0 1 0 18 0a9 9 0 1 0-18 0zm39-12a10 10 0 1 0 20 0a10 10 0 1 0-20 0zm36 16a8 8 0 1 0 16 0a8 8 0 1 0-16 0z" fill="#e63946"/>
+<!-- the end of a park bench bottom right -->
+<path d="M1500 900v-70h12v70zm0-70h120v12h-120zm0-30h120v12h-120zm0-30h120v12h-120z" fill="#2a5a3a"/>
+</svg>

@@ -1,0 +1,90 @@
+{
+  "hotspots": [
+    {
+      "activity": "dressup",
+      "x": 822,
+      "y": 651,
+      "r": 56,
+      "label": "Dress up as one of the Kings"
+    },
+    {
+      "activity": "catch",
+      "x": 468,
+      "y": 779,
+      "r": 44,
+      "label": "Catch the sweets in the umbrella"
+    },
+    {
+      "activity": "colour",
+      "x": 385,
+      "y": 693,
+      "r": 56,
+      "label": "Colour in the camel"
+    },
+    {
+      "activity": "card",
+      "x": 104,
+      "y": 548,
+      "r": 40,
+      "label": "Leave a note in the shoes"
+    },
+    {
+      "activity": "wish",
+      "x": 1470,
+      "y": 126,
+      "r": 56,
+      "label": "Make a wish on the star"
+    }
+  ],
+  "findables": [
+    {
+      "id": "hay",
+      "label": "hay for the camels",
+      "x": 222,
+      "y": 548,
+      "r": 22
+    },
+    {
+      "id": "cat",
+      "label": "a cat",
+      "x": 250,
+      "y": 498,
+      "r": 18
+    },
+    {
+      "id": "charm",
+      "label": "the tiny charm",
+      "x": 1227,
+      "y": 781,
+      "r": 16
+    },
+    {
+      "id": "rosca",
+      "label": "the rosca de reyes",
+      "x": 1290,
+      "y": 786,
+      "r": 26
+    },
+    {
+      "id": "float-star",
+      "label": "the star",
+      "x": 610,
+      "y": 518,
+      "r": 24
+    },
+    {
+      "id": "feather",
+      "label": "a white feather",
+      "x": 956,
+      "y": 591,
+      "r": 18
+    },
+    {
+      "id": "page",
+      "label": "the page leading the camel",
+      "x": 268,
+      "y": 744,
+      "r": 22
+    }
+  ]
+}

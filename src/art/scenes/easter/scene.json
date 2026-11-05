@@ -1,0 +1,104 @@
+{
+  "hotspots": [
+    {
+      "activity": "colour",
+      "x": 706,
+      "y": 666,
+      "r": 34,
+      "label": "Paint an egg for the egg tree"
+    },
+    {
+      "activity": "catch",
+      "x": 904,
+      "y": 786,
+      "r": 32,
+      "label": "Catch the hopping eggs in the basket"
+    },
+    {
+      "activity": "seek",
+      "x": 842,
+      "y": 734,
+      "r": 34,
+      "label": "Help the bunny: Seek & Find"
+    },
+    {
+      "activity": "wish",
+      "x": 588,
+      "y": 712,
+      "r": 32,
+      "label": "Blow a dandelion wish"
+    },
+    {
+      "activity": "card",
+      "x": 1008,
+      "y": 679.6368952654441,
+      "r": 30,
+      "label": "Make an Easter card"
+    },
+    {
+      "activity": "doors",
+      "x": 1297,
+      "y": 736,
+      "r": 50,
+      "label": "Knock on the cottage door"
+    }
+  ],
+  "findables": [
+    {
+      "id": "nest",
+      "label": "a nest of blue eggs",
+      "x": 140,
+      "y": 646,
+      "r": 26
+    },
+    {
+      "id": "robin",
+      "label": "a robin",
+      "x": 462,
+      "y": 650,
+      "r": 20
+    },
+    {
+      "id": "chick",
+      "label": "a hatching chick",
+      "x": 1092,
+      "y": 810,
+      "r": 24
+    },
+    {
+      "id": "cat",
+      "label": "a cat",
+      "x": 1230,
+      "y": 656,
+      "r": 20
+    },
+    {
+      "id": "bluebird",
+      "label": "a bluebird",
+      "x": 1262.36,
+      "y": 459.28,
+      "r": 20
+    },
+    {
+      "id": "blue-egg",
+      "label": "a blue egg",
+      "x": 1372,
+      "y": 790,
+      "r": 18
+    },
+    {
+      "id": "snail",
+      "label": "a snail",
+      "x": 1478,
+      "y": 664,
+      "r": 18
+    },
+    {
+      "id": "butterfly",
+      "label": "a butterfly",
+      "x": 540,
+      "y": 560,
+      "r": 20
+    }
+  ]
+}

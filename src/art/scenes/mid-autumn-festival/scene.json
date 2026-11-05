@@ -1,0 +1,97 @@
+{
+  "hotspots": [
+    {
+      "activity": "wish",
+      "x": 962,
+      "y": 780,
+      "r": 68,
+      "label": "Make a wish on the rabbit lantern"
+    },
+    {
+      "activity": "memory",
+      "x": 716,
+      "y": 790,
+      "r": 36,
+      "label": "Mooncake memory game"
+    },
+    {
+      "activity": "card",
+      "x": 630,
+      "y": 770,
+      "r": 30,
+      "label": "Make a mooncake gift card"
+    },
+    {
+      "activity": "colour",
+      "x": 716,
+      "y": 620,
+      "r": 40,
+      "label": "Colour a carp lantern"
+    },
+    {
+      "activity": "dressup",
+      "x": 830,
+      "y": 720,
+      "r": 44,
+      "label": "Dress up for the moon festival"
+    },
+    {
+      "activity": "catch",
+      "x": 1306,
+      "y": 720,
+      "r": 50,
+      "label": "Catch lanterns in the boat"
+    }
+  ],
+  "findables": [
+    {
+      "id": "jade-rabbit",
+      "label": "the jade rabbit",
+      "x": 330,
+      "y": 744,
+      "r": 30
+    },
+    {
+      "id": "owl-willow",
+      "label": "a little owl",
+      "x": 118,
+      "y": 428,
+      "r": 26
+    },
+    {
+      "id": "star-lantern",
+      "label": "a star lantern",
+      "x": 804,
+      "y": 624,
+      "r": 30
+    },
+    {
+      "id": "leaping-fish",
+      "label": "a leaping fish",
+      "x": 1296,
+      "y": 802,
+      "r": 26
+    },
+    {
+      "id": "heron",
+      "label": "a heron",
+      "x": 1554,
+      "y": 714,
+      "r": 26
+    },
+    {
+      "id": "osmanthus",
+      "label": "golden osmanthus flowers",
+      "x": 1500,
+      "y": 618,
+      "r": 34
+    },
+    {
+      "id": "lotus-lantern",
+      "label": "a floating lotus lantern",
+      "x": 1180,
+      "y": 834,
+      "r": 26
+    }
+  ]
+}

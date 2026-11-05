@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 900">
+<!-- Children's Day (Japan) · back: a clear May sky with the sun in the top-left corner and a few soft clouds; Mount Fuji rising far away on the left, snow-capped, kept below the copy zone; green hills -->
+<defs><linearGradient id="childrens-day-japan-fuji" x2="0" y2="1"><stop stop-color="#ffffff"/><stop offset=".3" stop-color="#e8eef8"/><stop offset=".32" stop-color="#8aa8d0"/><stop offset="1" stop-color="#6a88b8"/></linearGradient><radialGradient id="childrens-day-japan-sun"><stop stop-color="#fff8d8" stop-opacity=".95"/><stop offset=".4" stop-color="#fff0b0" stop-opacity=".4"/><stop offset="1" stop-color="#fff0b0" stop-opacity="0"/></radialGradient></defs>
+<!-- the sun and two clouds, in the corners -->
+<circle cx="140" cy="120" r="120" fill="url(#childrens-day-japan-sun)"/><circle cx="140" cy="120" r="46" fill="#fffbe8"/><path d="M1380 140c-24 0-30-30-6-36c0-26 36-32 46-12c14-18 46-10 44 16c22-2 28 24 12 32z" fill="#ffffff" opacity=".9"/>
+<!-- Mount Fuji, far away -->
+<path d="M60 640l240-184l240 184z" fill="url(#childrens-day-japan-fuji)"/><path d="M220 518l20 14l14-12l18 16l16-14l18 12l22-20l-28-58z" fill="#ffffff"/>
+<!-- green hills -->
+<path d="M-20 700v-90q320-30 660 0t660-14t320 8v96z" fill="#8ac87a"/><path d="M-20 700v-60q420-16 820 6t820-14v68z" fill="#6ab86a"/>
+</svg>

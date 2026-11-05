@@ -1,0 +1,282 @@
+import type { HolidayContent } from '../types';
+
+const content: HolidayContent = {
+  story: [
+    'Eid al-Fitr means "the festival of breaking the fast", and it is the celebration that ends Ramadan, the month when Muslims fast from dawn to sunset.',
+    'Eid begins when the new crescent moon is spotted in the sky, and in many countries the celebrations last three days.',
+    'On Eid morning families wake up early, wash, put on their best or brand-new clothes and go together to a special prayer, often held outdoors or in a big hall.',
+    'Before the prayer, families give food or money to people in need, so that nobody is left out of the feast.',
+    'Then the visiting begins: grandparents, cousins and neighbours, tables full of sweets, and gifts of money for children, which is why some people call it Sweet Eid.',
+  ],
+
+  facts: [
+    {
+      text: 'The Eid prayer happens after sunrise, and it is a tradition to eat something sweet before going, usually dates, and an odd number of them: one, three or five.',
+    },
+    {
+      text: 'Eid al-Fitr has different nicknames around the world. In Turkey it is Şeker Bayramı, the Sugar Feast. In Malaysia it is Hari Raya Aidilfitri, and in Indonesia Idul Fitri or Lebaran. In India and Pakistan many people call it Meethi Eid, Sweet Eid.',
+    },
+    {
+      text: 'In Indonesia so many people travel home for Lebaran that the journey has its own name, mudik. Tens of millions of people are on the move in the same week, on trains, buses, ferries and motorbikes.',
+      wow: true,
+    },
+    {
+      text: 'The Islamic calendar follows the moon, so its year is about 11 days shorter than the everyday calendar and Eid arrives earlier every year. In 2033 it is expected to happen twice in one calendar year: once at the very start of January and again just before Christmas.',
+      bigKids: true,
+    },
+    {
+      text: 'The gift families give before the prayer is called Zakat al-Fitr. Traditionally it is a measure of food, about a bag of flour, rice or dates for each person in the family, or the same amount in money, so that poorer families can celebrate Eid too.',
+      bigKids: true,
+    },
+    {
+      text: 'The night before Eid in South Asia is called Chaand Raat, "moon night". Markets stay open late, and many girls and women have their hands painted with swirling henna patterns that last for days.',
+    },
+  ],
+
+  greetings: [
+    {
+      lang: 'ar',
+      langName: 'Arabic',
+      text: 'عيد مبارك',
+      roman: 'Eid Mubarak',
+      sayIt: 'EED moo-BAH-rak',
+      meaning: 'Blessed festival',
+    },
+    {
+      lang: 'ar',
+      langName: 'Arabic',
+      text: 'كل عام وأنتم بخير',
+      roman: 'Kull aam wa antum bikhayr',
+      sayIt: 'kool AHM wah AN-toom bee-KHAYR',
+      meaning: 'May you be well every year',
+    },
+    {
+      lang: 'ur',
+      langName: 'Urdu',
+      text: 'عید مبارک',
+      roman: 'Eid Mubarak',
+      sayIt: 'EED moo-BAH-rak',
+      meaning: 'Blessed Eid',
+    },
+    {
+      lang: 'tr',
+      langName: 'Turkish',
+      text: 'Bayramınız mübarek olsun',
+      sayIt: 'bye-rah-muh-NUHZ mew-bah-REK ol-SOON',
+      meaning: 'May your festival be blessed',
+    },
+    {
+      lang: 'tr',
+      langName: 'Turkish',
+      text: 'İyi bayramlar',
+      sayIt: 'ee-YEE bye-rahm-LAR',
+      meaning: 'Happy holidays',
+    },
+    {
+      lang: 'ms',
+      langName: 'Malay',
+      text: 'Selamat Hari Raya Aidilfitri',
+      sayIt: 'suh-LAH-mat HAH-ree RAH-yah eye-dil-FIT-ree',
+      meaning: 'Happy Eid al-Fitr (happy great day)',
+    },
+    {
+      lang: 'ms',
+      langName: 'Malay',
+      text: 'Maaf zahir dan batin',
+      sayIt: 'MAH-af ZAH-hir dahn BAH-tin',
+      meaning: 'Forgive me, outside and inside (said when visiting on Eid)',
+    },
+  ],
+
+  recipes: [
+    {
+      id: 'date-and-seed-energy-balls',
+      title: 'Date & Seed Energy Balls',
+      emoji: '🌙',
+      blurb: 'Dates are the first thing many Muslims eat at the end of each fast, and the first sweet bite on Eid morning. Mash them into chewy little balls with seeds and oats, no stove and no blender. Makes about 16.',
+      minutes: 45,
+      serves: 6,
+      difficulty: 1,
+      adultHelp: 'none',
+      noHeat: true,
+      allergens: ['sesame', 'tree-nut'],
+      mayContain: ['gluten'],
+      swaps: [
+        { avoid: 'sesame', use: 'sunflower-seed butter instead of tahini, and desiccated coconut for rolling' },
+        { avoid: 'tree-nut', use: 'leave out the pistachios and roll the balls in sesame seeds or coconut' },
+        { avoid: 'gluten', use: 'oats labelled gluten-free' },
+      ],
+      chokingNote: 'Nuts and seeds are choking hazards for children under 4: for little ones, leave out the pistachios and roll the balls in coconut instead.',
+      equipment: ['Large bowl', 'Fork', 'Tablespoon', '3 small plates or saucers', 'Tray or plate lined with baking paper', 'Fridge'],
+      ingredients: [
+        { item: 'Soft pitted dates', us: { qty: 1, unit: 'cup' }, metric: { qty: 200, unit: 'g' }, note: 'about 12 Medjool dates; if they are dry, soak in warm tap water for 10 minutes and drain' },
+        { item: 'Rolled oats', us: { qty: 1, unit: 'cup' }, metric: { qty: 90, unit: 'g' }, allergens: ['gluten'] },
+        { item: 'Sunflower seeds', us: { qty: 0.5, unit: 'cup' }, metric: { qty: 70, unit: 'g' } },
+        { item: 'Tahini (sesame paste)', us: { qty: 2, unit: 'tbsp' }, metric: { qty: 30, unit: 'ml' }, allergens: ['sesame'] },
+        { item: 'Ground cinnamon', us: { qty: 0.5, unit: 'tsp' }, metric: { qty: 2, unit: 'ml' } },
+        { item: 'Ground cardamom', us: { qty: 0.25, unit: 'tsp' }, metric: { qty: 1, unit: 'ml' }, optional: true },
+        { item: 'Sesame seeds', us: { qty: 3, unit: 'tbsp' }, metric: { qty: 30, unit: 'g' }, note: 'for rolling', allergens: ['sesame'] },
+        { item: 'Desiccated coconut', us: { qty: 3, unit: 'tbsp' }, metric: { qty: 20, unit: 'g' }, note: 'for rolling' },
+        { item: 'Finely chopped pistachios', us: { qty: 3, unit: 'tbsp' }, metric: { qty: 25, unit: 'g' }, note: 'for rolling', optional: true, allergens: ['tree-nut'] },
+      ],
+      steps: [
+        {
+          text: 'Check every date for a stone, then tear the dates into small pieces with your fingers and drop them in the big bowl.',
+          tip: 'Sticky fingers? Dip them in a little cold water.',
+        },
+        { text: 'Mash the dates with the fork, pressing and scraping, until they turn into a thick, sticky paste. This takes a few minutes and strong arms.' },
+        { text: 'Add the tahini, cinnamon and cardamom and mash again until everything is one colour.' },
+        { text: 'Tip in the oats and sunflower seeds and squish it all together with your hands until no dry oats are left. If it will not stick, add a teaspoon of water.' },
+        { text: 'Scoop up a heaped tablespoon of the mix and squeeze it hard in your fist, then roll it between your palms into a ball about the size of a walnut. Keep going until the bowl is empty.' },
+        { text: 'Put the sesame seeds, coconut and pistachios on three separate saucers. Roll each ball around on one saucer so it gets a coat, then set it on the tray.' },
+        { text: 'Chill the tray in the fridge for 30 minutes so the balls firm up, then pile them on a pretty plate for Eid visitors.', timerMinutes: 30 },
+        { text: 'Taste test! Try one of each coating and pick your favourite.' },
+      ],
+      tip: 'These keep in a box in the fridge for a week, so you can make them the day before Eid while the Ramadan fast is still on.',
+    },
+    {
+      id: 'sheer-khurma',
+      title: 'Sheer Khurma',
+      emoji: '🥛',
+      blurb: 'A warm, sweet milk pudding with toasted vermicelli, dates, cardamom and nuts. In many South Asian families it is the very first dish eaten on Eid morning, before the visiting starts. A grown-up runs the stove; kids tear the dates, measure and stir.',
+      minutes: 35,
+      serves: 6,
+      difficulty: 2,
+      adultHelp: 'needed',
+      noHeat: false,
+      allergens: ['milk', 'wheat', 'gluten', 'tree-nut'],
+      swaps: [
+        { avoid: 'milk', use: 'oat milk and coconut oil instead of whole milk and ghee' },
+        { avoid: 'wheat', use: 'thin rice vermicelli, added for the last 3 minutes instead of toasted' },
+        { avoid: 'gluten', use: 'thin rice vermicelli, added for the last 3 minutes instead of toasted' },
+        { avoid: 'tree-nut', use: 'leave out the almonds and pistachios; add pumpkin seeds or extra dates' },
+      ],
+      chokingNote: 'Whole nuts are choking hazards for children under 4: use finely chopped nuts, or leave them out of the bowls for little ones.',
+      equipment: ['Medium heavy saucepan', 'Wooden spoon', 'Measuring jug', 'Small bowl', 'Ladle', '6 small bowls'],
+      ingredients: [
+        { item: 'Ghee or butter', us: { qty: 2, unit: 'tbsp' }, metric: { qty: 30, unit: 'g' }, allergens: ['milk'] },
+        { item: 'Fine wheat vermicelli (seviyan)', us: { qty: 1, unit: 'cup' }, metric: { qty: 100, unit: 'g' }, note: 'broken into short pieces; from a South Asian grocer or the pasta aisle', allergens: ['wheat', 'gluten'] },
+        { item: 'Whole milk', us: { qty: 4, unit: 'cup' }, metric: { qty: 1000, unit: 'ml' }, allergens: ['milk'] },
+        { item: 'Sugar', us: { qty: 0.25, unit: 'cup' }, metric: { qty: 50, unit: 'g' }, note: 'add more at the end if you like it sweeter' },
+        { item: 'Soft pitted dates', us: { qty: 8, unit: 'piece' }, metric: { qty: 8, unit: 'piece' } },
+        { item: 'Ground cardamom', us: { qty: 0.5, unit: 'tsp' }, metric: { qty: 2, unit: 'ml' } },
+        { item: 'Slivered almonds and chopped pistachios', us: { qty: 3, unit: 'tbsp' }, metric: { qty: 25, unit: 'g' }, optional: true, allergens: ['tree-nut'] },
+        { item: 'Saffron threads', us: { qty: 1, unit: 'pinch' }, metric: { qty: 1, unit: 'pinch' }, optional: true },
+        { item: 'Rose water', us: { qty: 1, unit: 'tsp' }, metric: { qty: 5, unit: 'ml' }, optional: true },
+      ],
+      steps: [
+        { text: 'Tear the dates into small pieces with your fingers and put them in the small bowl. Measure the milk into the jug and the sugar and cardamom into little piles, ready to go.' },
+        {
+          text: 'A grown-up melts the ghee in the saucepan over medium heat and adds the vermicelli, stirring all the time for 2 to 3 minutes until it turns golden brown and smells toasty.',
+          adult: true,
+          hazards: ['heat'],
+          timerMinutes: 3,
+          tip: 'Vermicelli burns fast. Golden, not dark.',
+        },
+        {
+          text: 'A grown-up pours in the milk (it will hiss), brings it to a gentle bubble, then turns the heat down and simmers for 10 minutes, stirring often so nothing sticks to the bottom.',
+          adult: true,
+          hazards: ['heat', 'hot-liquid'],
+          timerMinutes: 10,
+        },
+        {
+          text: 'Stand back from the stove and hand the grown-up the sugar, dates, cardamom, nuts and saffron to stir in. Simmer for 5 more minutes until the pudding is a little thicker than cream.',
+          adult: true,
+          hazards: ['heat', 'hot-liquid'],
+          timerMinutes: 5,
+        },
+        {
+          text: 'A grown-up takes the pan off the heat and stirs in the rose water.',
+          adult: true,
+          hazards: ['heat'],
+        },
+        {
+          text: 'A grown-up ladles the sheer khurma into the small bowls. Let them cool for 5 minutes; it thickens as it sits.',
+          adult: true,
+          hazards: ['hot-liquid'],
+          timerMinutes: 5,
+        },
+        { text: 'Sprinkle a few extra pistachio pieces on top of each bowl for the Eid look.' },
+        { text: 'Taste test! Sheer khurma is lovely warm, and just as lovely cold from the fridge the next day. Which do you like best?' },
+      ],
+      tip: 'The name is Persian: sheer means milk and khurma means dates. Families all have their own version; some add coconut, raisins or a spoon of condensed milk.',
+    },
+  ],
+
+  crafts: [
+    {
+      id: 'paper-fanous-lantern',
+      title: 'Paper Fanous Lantern',
+      emoji: '🏮',
+      blurb: 'Fanous lanterns light up streets and windows during Ramadan and Eid, especially in Egypt. Fold, snip and roll a sheet of paper into one of your own, and glow it with a battery tea light (never a real flame).',
+      minutes: 25,
+      mess: 1,
+      adultHelp: 'some',
+      hazards: ['sharp'],
+      materials: [
+        { item: 'Coloured card or thick paper', qty: '1 sheet, letter or A4', substitute: 'a page from a magazine, glued to plain paper' },
+        { item: 'Strip of card for the handle', qty: '1 inch by 8 inches (2.5 by 20 cm)' },
+        { item: 'Scissors' },
+        { item: 'Ruler' },
+        { item: 'Pencil' },
+        { item: 'Tape or a stapler' },
+        { item: 'Metallic markers, foil stickers or scraps of shiny paper', optional: true },
+        { item: 'Battery tea light', qty: '1', optional: true },
+      ],
+      steps: [
+        {
+          text: 'Lay the card flat and decorate one side with crescents, stars and swirly patterns in gold and silver. This side will be the outside.',
+          tip: 'Real fanous lanterns are covered in tiny coloured glass windows. Foil stickers make great windows.',
+        },
+        { text: 'Fold the card in half the long way, so you have a long, skinny rectangle with the decorations on the outside.' },
+        {
+          text: 'With the ruler and pencil, draw straight lines from the folded edge towards the open edge, about 1 inch (2.5 cm) apart. Stop each line a thumb-width from the open edge.',
+        },
+        {
+          text: 'Cut along each pencil line, starting at the fold and stopping where the line stops. Do not cut all the way through.',
+          hazards: ['sharp'],
+          kidSafeOverride: 'safety scissors on card; a grown-up helps younger children',
+        },
+        { text: 'Unfold the card and smooth the fold flat. You now have a sheet with a row of slits down the middle.' },
+        { text: 'Curl the card round so the two short edges meet, decorations on the outside, and tape or staple them together top and bottom. It is a tube now.' },
+        {
+          text: 'Push the top and bottom of the tube gently towards each other. The strips bow outwards and the tube turns into a round lantern.',
+        },
+        { text: 'Tape the ends of the handle strip to the top of the lantern, one on each side, so you can carry it.' },
+        { text: 'Switch on a battery tea light, set the lantern over it on a table, and turn off the big light to see the glow.' },
+      ],
+      learn: 'A story says the fanous tradition began in Cairo more than a thousand years ago, when people came out at night carrying lanterns to welcome a new ruler arriving during Ramadan. Today in Egypt children are given fanous lanterns to swing and sing with in the evenings.',
+    },
+  ],
+
+  doors: [
+    { sleeps: 12, kind: 'fact', text: 'Ramadan lasts 29 or 30 days. In many places nobody knows which until the evening of the 29th day, when people look for the new crescent moon.' },
+    { sleeps: 11, kind: 'joke', text: 'Why did the cousin bring a ladder to Eid lunch? He heard the sweets were piled sky-high!' },
+    { sleeps: 10, kind: 'colour', text: 'Time to colour! The Eid page is full of lanterns, moons and stars waiting for your brightest crayons. Open the colouring page!' },
+    { sleeps: 9, kind: 'fact', text: 'In Malaysia and Indonesia a favourite Hari Raya food is ketupat: rice cooked inside a little pouch woven from young palm leaves.' },
+    { sleeps: 8, kind: 'craft', text: 'Draw a crescent moon and stars on a paper plate, colour them in, tape a ribbon to the top and hang your Eid moon by the window.' },
+    { sleeps: 7, kind: 'say', text: 'Learn to say happy Eid in Turkish!', greeting: 4 },
+    { sleeps: 6, kind: 'fact', text: "In Lebanon, Syria and Palestine many families bake ma'amoul for Eid: buttery cookies filled with dates or nuts and pressed into patterned wooden moulds." },
+    { sleeps: 5, kind: 'joke', text: "What did the new moon say to the children waiting to spot it? 'Hang on, I'm still getting into shape!'" },
+    { sleeps: 4, kind: 'seek', text: 'The Eid picture is hiding some surprises. Can you find them all? Open Seek & Find!' },
+    { sleeps: 3, kind: 'fact', text: 'In Malaysia many families light rows of little oil lamps called pelita in the last nights of Ramadan, so homes and villages glow as Eid gets closer.' },
+    { sleeps: 2, kind: 'craft', text: 'Make an Eid card: fold a sheet of paper in half, draw a lantern on the front and write Eid Mubarak inside for someone you will visit.' },
+    { sleeps: 1, kind: 'say', text: 'After sunset tonight many families look for the thin new moon. If it is spotted, Eid starts tomorrow! Practise the greeting you will hear all day.', greeting: 0 },
+  ],
+
+  parentNote:
+    'Eid al-Fitr begins after the new crescent moon is sighted at the end of Ramadan, so the date shown is expected and may differ by a day between countries, and sometimes between communities in the same city. Some Muslims go by a local sighting with the naked eye; others follow calculations or announcements from Saudi Arabia or their own country. The app shows three days because many countries mark three; the first day is the main one. Children are not expected to fast during Ramadan, and this is a joyful family festival they are fully part of.',
+
+  sources: [
+    "Encyclopaedia Britannica, 'Eid al-Fitr'",
+    "Sahih al-Bukhari, Book of the Two Festivals (eating dates before the Eid prayer; Zakat al-Fitr)",
+    "BBC Bitesize, 'What is Eid al-Fitr?'",
+    "Quran, chapter 2 verse 185 (completing the fast of Ramadan)",
+    "Encyclopaedia Britannica, 'Islamic calendar'",
+    "Reuters, 'Indonesia's annual exodus starts ahead of Eid al-Fitr festivities' (mudik), April 2024",
+    "Arab News Pakistan, 'On the night before Eid, markets in Karachi become henna havens' (Chaand Raat)",
+    "Dhaka Tribune, 'Chand Raat: The night before Eid'",
+  ],
+};
+
+export default content;

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 900">
+<!-- Groundhog Day · front: snowbanks in both bottom corners with dry grass poking through; the centre stays open -->
+<defs></defs>
+<!-- a snowbank on the left -->
+<path d="M-20 900v-54q90-22 190-8t130 42l16 20z" fill="#ffffff"/><path d="M-20 900v-34q110-14 220 6t116 28z" fill="#dce8f2"/><path d="M40 846q-4-30-16-44m30 40q4-34 18-50m-6 54q8-24 26-34" fill="none" stroke="#b8a070" stroke-width="3" stroke-linecap="round"/>
+<!-- a snowbank on the right -->
+<path d="M1620 900v-60q-100-20-200-2t-130 62z" fill="#ffffff"/><path d="M1620 900v-36q-120-12-240 10t-90 26z" fill="#dce8f2"/>
+</svg>

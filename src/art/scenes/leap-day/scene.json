@@ -1,0 +1,90 @@
+{
+  "hotspots": [
+    {
+      "activity": "wish",
+      "x": 1255,
+      "y": 605,
+      "r": 70,
+      "label": "Make a leap day wish"
+    },
+    {
+      "activity": "catch",
+      "x": 760,
+      "y": 770,
+      "r": 70,
+      "label": "Catch the hopping frogs"
+    },
+    {
+      "activity": "colour",
+      "x": 700,
+      "y": 730,
+      "r": 36,
+      "label": "Colour the party frog"
+    },
+    {
+      "activity": "card",
+      "x": 196,
+      "y": 690,
+      "r": 50,
+      "label": "Make a leap day card"
+    },
+    {
+      "activity": "memory",
+      "x": 440,
+      "y": 784,
+      "r": 36,
+      "label": "Spring memory game"
+    }
+  ],
+  "findables": [
+    {
+      "id": "tadpoles",
+      "label": "tadpoles",
+      "x": 612,
+      "y": 780,
+      "r": 18
+    },
+    {
+      "id": "robin",
+      "label": "a singing robin",
+      "x": 1495,
+      "y": 463,
+      "r": 18
+    },
+    {
+      "id": "snail",
+      "label": "a snail",
+      "x": 996,
+      "y": 850,
+      "r": 18
+    },
+    {
+      "id": "hare",
+      "label": "a leaping hare",
+      "x": 560,
+      "y": 590,
+      "r": 22
+    },
+    {
+      "id": "frog-coat",
+      "label": "a frog raincoat",
+      "x": 1420,
+      "y": 740,
+      "r": 30
+    },
+    {
+      "id": "pond-frog",
+      "label": "a frog",
+      "x": 880,
+      "y": 730,
+      "r": 22
+    },
+    {
+      "id": "snowdrop",
+      "label": "snowdrops",
+      "x": 1100,
+      "y": 800,
+      "r": 18
+    }
+  ]
+}

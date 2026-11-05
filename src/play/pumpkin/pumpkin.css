@@ -1,0 +1,40 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   Pumpkin Carver — .pk (root) .pk-layout .pk-stage .pk-halo .pk-pumpkin .pk-art-host .pk-chips .pk-panel
+   .is-lit (stage + art when the candle is in) .is-squish .is-wiggle
+   ═══════════════════════════════════════════════════════════════════════════ */
+.pk-layout { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; gap: 10px; }
+.pk-stage { position: relative; flex: 1 1 auto; min-height: 0; display: grid; place-items: center; }
+.pk-halo { position: absolute; inset: 4% 8%; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--h-glow) 20%, transparent) 0, transparent 66%); transition: background .5s; }
+.pk-stage.is-lit .pk-halo { background: radial-gradient(circle, rgba(255, 178, 46, .7) 0, rgba(255, 140, 26, .28) 44%, transparent 70%); }
+.pk-pumpkin { position: relative; width: min(72vw, 40vh, 420px); aspect-ratio: 200 / 240; padding: 0; margin: 0; border: 0; background: none; cursor: pointer; border-radius: 40%; touch-action: manipulation; -webkit-tap-highlight-color: transparent; transform-origin: 50% 88%; }
+.pk-art-host, .pk-svg { display: block; width: 100%; height: 100%; }
+.pk-svg { overflow: visible; filter: drop-shadow(0 6px 0 rgba(0, 0, 0, .18)); }
+.pk-cut, .pk-cutline { fill: var(--cut); stroke: var(--cut); stroke-width: 3; stroke-linejoin: round; transition: fill .4s, stroke .4s; }
+.pk-cutline { fill: none; stroke-linecap: round; }
+.pk-art.is-lit .pk-cut, .pk-art.is-lit .pk-cutline { filter: drop-shadow(0 0 4px #ff9a1a); }
+.pk-tooth { stroke: none; }
+.pk-art.is-lit .pk-glow { animation: pk-flicker 1.1s ease-in-out infinite; }
+@keyframes pk-flicker { 0%, 100% { opacity: 1; } 40% { opacity: .78; } 70% { opacity: .92; } }
+.pk-pumpkin.is-squish { animation: pk-squish .45s var(--spring); }
+@keyframes pk-squish { 0% { transform: scale(1); } 30% { transform: scale(1.08, .93); } 65% { transform: scale(.97, 1.04); } 100% { transform: scale(1); } }
+.pk-pumpkin.is-wiggle { animation: pk-wiggle .65s ease-in-out; }
+@keyframes pk-wiggle { 0%, 100% { transform: rotate(0); } 20% { transform: rotate(-5deg); } 45% { transform: rotate(4deg); } 70% { transform: rotate(-2deg); } }
+.pk-chips { position: absolute; left: 50%; top: 56%; width: 0; height: 0; pointer-events: none; }
+.pk-chip { position: absolute; width: 10px; height: 7px; margin: -4px 0 0 -5px; border-radius: 3px; background: #ff9a1a; animation: pk-chip .65s ease-out forwards; }
+@keyframes pk-chip { from { transform: translate(0, 0) rotate(0); opacity: 1; } to { transform: translate(var(--dx), calc(var(--dy) + 40px)) rotate(var(--r)); opacity: 0; } }
+.pk-say { top: 2%; }
+.pk-panel .sp-opts { grid-template-columns: repeat(auto-fill, minmax(72px, 1fr)); }
+.pk-light[aria-pressed="true"] { background: #ffd45a; }
+@media (min-width: 880px) {
+  .pk-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(400px, 520px); align-items: center; gap: 28px; }
+  .pk-stage { height: 100%; }
+  .pk-pumpkin { width: min(40vw, 62vh, 500px); }
+  .pk-panel { padding: 16px; max-height: 100%; }
+  .pk-panel .sp-opts { max-height: 40vh; }
+}
+@media (max-height: 520px) and (orientation: landscape) {
+  .pk-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, 420px); align-items: center; gap: 12px; }
+  .pk-pumpkin { width: min(34vw, 62vh); }
+  .pk-panel .sp-opts { max-height: 30vh; }
+}
+@media (max-width: 879px) { .pk-stage { overflow: hidden; } .pk-pumpkin { position: absolute; inset: 3% 0; margin: auto; height: 94%; width: auto; max-height: 420px; max-width: min(72vw, 420px); } }

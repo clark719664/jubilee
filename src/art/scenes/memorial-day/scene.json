@@ -1,0 +1,83 @@
+{
+  "hotspots": [
+    {
+      "activity": "card",
+      "x": 743,
+      "y": 734,
+      "r": 36,
+      "label": "Make a thank-you card"
+    },
+    {
+      "activity": "colour",
+      "x": 800,
+      "y": 650,
+      "r": 40,
+      "label": "Colour the poppy wreath"
+    },
+    {
+      "activity": "wish",
+      "x": 1140,
+      "y": 512,
+      "r": 50,
+      "label": "A moment to remember"
+    },
+    {
+      "activity": "memory",
+      "x": 330,
+      "y": 820,
+      "r": 44,
+      "label": "Match the picnic treats"
+    }
+  ],
+  "findables": [
+    {
+      "id": "drum",
+      "label": "a red drum",
+      "x": 960,
+      "y": 837.36,
+      "r": 26
+    },
+    {
+      "id": "dog",
+      "label": "a dog in a bandana",
+      "x": 1050,
+      "y": 820,
+      "r": 24
+    },
+    {
+      "id": "cap",
+      "label": "grandpa's cap",
+      "x": 590,
+      "y": 641,
+      "r": 18
+    },
+    {
+      "id": "basket",
+      "label": "a picnic basket",
+      "x": 262,
+      "y": 818,
+      "r": 22
+    },
+    {
+      "id": "lamp",
+      "label": "the street lamp",
+      "x": 1244,
+      "y": 624,
+      "r": 24
+    },
+    {
+      "id": "little-flag",
+      "label": "a little flag",
+      "x": 744,
+      "y": 740,
+      "r": 18
+    },
+    {
+      "id": "firefly",
+      "label": "a firefly",
+      "x": 1380,
+      "y": 760,
+      "r": 30
+    }
+  ]
+}

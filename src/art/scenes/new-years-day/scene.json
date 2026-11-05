@@ -1,0 +1,90 @@
+{
+  "hotspots": [
+    {
+      "activity": "wish",
+      "x": 800,
+      "y": 548,
+      "r": 52,
+      "label": "Make a wish on the first sunrise"
+    },
+    {
+      "activity": "dressup",
+      "x": 620,
+      "y": 670,
+      "r": 52,
+      "label": "Pick a silly hat for the dip"
+    },
+    {
+      "activity": "colour",
+      "x": 1398,
+      "y": 718,
+      "r": 70,
+      "label": "Colour in the beach huts"
+    },
+    {
+      "activity": "card",
+      "x": 688,
+      "y": 832,
+      "r": 34,
+      "label": "Write a message for the bottle"
+    },
+    {
+      "activity": "catch",
+      "x": 420,
+      "y": 802,
+      "r": 46,
+      "label": "Catch the splashes in the towel"
+    }
+  ],
+  "findables": [
+    {
+      "id": "gull",
+      "label": "a seagull",
+      "x": 279,
+      "y": 684,
+      "r": 18
+    },
+    {
+      "id": "duck-ring",
+      "label": "a duck rubber ring",
+      "x": 888,
+      "y": 702,
+      "r": 18
+    },
+    {
+      "id": "dog",
+      "label": "a barking dog",
+      "x": 1080,
+      "y": 756,
+      "r": 30
+    },
+    {
+      "id": "crab",
+      "label": "a crab",
+      "x": 924,
+      "y": 850,
+      "r": 20
+    },
+    {
+      "id": "party-hat",
+      "label": "a dropped party hat",
+      "x": 1024,
+      "y": 846,
+      "r": 18
+    },
+    {
+      "id": "shell",
+      "label": "a pink scallop shell",
+      "x": 1290,
+      "y": 850,
+      "r": 16
+    },
+    {
+      "id": "dino-hood",
+      "label": "a dinosaur hood",
+      "x": 512,
+      "y": 783,
+      "r": 20
+    }
+  ]
+}

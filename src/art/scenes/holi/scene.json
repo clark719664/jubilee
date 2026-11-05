@@ -1,0 +1,104 @@
+{
+  "hotspots": [
+    {
+      "activity": "colour",
+      "x": 800,
+      "y": 690,
+      "r": 64,
+      "label": "Colour the gulal tower"
+    },
+    {
+      "activity": "catch",
+      "x": 1100,
+      "y": 810,
+      "r": 44,
+      "label": "Catch the water balloons"
+    },
+    {
+      "activity": "wish",
+      "x": 568,
+      "y": 468,
+      "r": 32,
+      "label": "Make a wish on the kite"
+    },
+    {
+      "activity": "seek",
+      "x": 614,
+      "y": 584,
+      "r": 34,
+      "label": "Peek in the windows: Seek & Find"
+    },
+    {
+      "activity": "card",
+      "x": 1138,
+      "y": 748,
+      "r": 40,
+      "label": "Make a card with the gujiya"
+    },
+    {
+      "activity": "dressup",
+      "x": 606,
+      "y": 782,
+      "r": 44,
+      "label": "Splash colour on the kurtas"
+    }
+  ],
+  "findables": [
+    {
+      "id": "monkey",
+      "label": "a monkey",
+      "x": 218,
+      "y": 286,
+      "r": 32
+    },
+    {
+      "id": "grandma",
+      "label": "grandmother with a plate of gujiya",
+      "x": 216,
+      "y": 718,
+      "r": 30
+    },
+    {
+      "id": "parrot",
+      "label": "a green parrot",
+      "x": 388,
+      "y": 518,
+      "r": 22
+    },
+    {
+      "id": "pigeons",
+      "label": "two pigeons",
+      "x": 962,
+      "y": 460,
+      "r": 30
+    },
+    {
+      "id": "cat",
+      "label": "a white cat",
+      "x": 1406,
+      "y": 488,
+      "r": 22
+    },
+    {
+      "id": "puppy",
+      "label": "a puppy with a pink patch",
+      "x": 1230,
+      "y": 850,
+      "r": 30
+    },
+    {
+      "id": "dholak",
+      "label": "a dholak drum",
+      "x": 1326,
+      "y": 804,
+      "r": 34
+    },
+    {
+      "id": "swing",
+      "label": "a swing",
+      "x": 544,
+      "y": 722,
+      "r": 26
+    }
+  ]
+}

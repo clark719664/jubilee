@@ -1,0 +1,90 @@
+{
+  "hotspots": [
+    {
+      "activity": "doors",
+      "x": 800,
+      "y": 714,
+      "r": 36,
+      "label": "Open a countdown door"
+    },
+    {
+      "activity": "card",
+      "x": 802,
+      "y": 758,
+      "r": 32,
+      "label": "Leave a card in a boot"
+    },
+    {
+      "activity": "wish",
+      "x": 800,
+      "y": 589,
+      "r": 44,
+      "label": "Wave to the children at the window"
+    },
+    {
+      "activity": "dressup",
+      "x": 990,
+      "y": 798,
+      "r": 46,
+      "label": "Dress up for St Nicholas Day"
+    },
+    {
+      "activity": "colour",
+      "x": 1206,
+      "y": 736,
+      "r": 64,
+      "label": "Colour in the white horse"
+    }
+  ],
+  "findables": [
+    {
+      "id": "carrot",
+      "label": "a carrot",
+      "x": 806,
+      "y": 706,
+      "r": 16
+    },
+    {
+      "id": "mouse",
+      "label": "a mouse",
+      "x": 904,
+      "y": 780,
+      "r": 18
+    },
+    {
+      "id": "robin",
+      "label": "a robin",
+      "x": 590,
+      "y": 654,
+      "r": 18
+    },
+    {
+      "id": "snowman",
+      "label": "a little snowman",
+      "x": 420,
+      "y": 780,
+      "r": 32
+    },
+    {
+      "id": "sled",
+      "label": "a sled",
+      "x": 222,
+      "y": 740,
+      "r": 30
+    },
+    {
+      "id": "window-cat",
+      "label": "a cat",
+      "x": 500,
+      "y": 618,
+      "r": 20
+    },
+    {
+      "id": "coin",
+      "label": "a chocolate coin",
+      "x": 1046,
+      "y": 864,
+      "r": 16
+    }
+  ]
+}

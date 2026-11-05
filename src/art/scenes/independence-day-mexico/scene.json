@@ -1,0 +1,83 @@
+{
+  "hotspots": [
+    {
+      "activity": "wish",
+      "x": 800,
+      "y": 530,
+      "r": 44,
+      "label": "Ring the bell and shout ¡Viva!"
+    },
+    {
+      "activity": "colour",
+      "x": 996,
+      "y": 486,
+      "r": 50,
+      "label": "Colour the flag"
+    },
+    {
+      "activity": "dressup",
+      "x": 683,
+      "y": 830,
+      "r": 50,
+      "label": "Dress up for the fiesta"
+    },
+    {
+      "activity": "memory",
+      "x": 120,
+      "y": 700,
+      "r": 44,
+      "label": "Match the fiesta treats"
+    }
+  ],
+  "findables": [
+    {
+      "id": "matraca",
+      "label": "a matraca rattle",
+      "x": 831,
+      "y": 785,
+      "r": 20
+    },
+    {
+      "id": "esquites",
+      "label": "a cup of esquites",
+      "x": 940,
+      "y": 768,
+      "r": 16
+    },
+    {
+      "id": "balloons",
+      "label": "tricolour balloons",
+      "x": 327,
+      "y": 639,
+      "r": 40
+    },
+    {
+      "id": "dog",
+      "label": "a dog in a bandana",
+      "x": 1132,
+      "y": 864,
+      "r": 22
+    },
+    {
+      "id": "mayor",
+      "label": "the mayor ringing the bell",
+      "x": 852,
+      "y": 516,
+      "r": 24
+    },
+    {
+      "id": "cactus",
+      "label": "a cactus",
+      "x": 1554,
+      "y": 790,
+      "r": 30
+    },
+    {
+      "id": "churros",
+      "label": "churros",
+      "x": 120,
+      "y": 700,
+      "r": 24
+    }
+  ]
+}

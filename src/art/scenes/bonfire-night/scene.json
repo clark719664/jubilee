@@ -1,0 +1,90 @@
+{
+  "hotspots": [
+    {
+      "activity": "wish",
+      "x": 705,
+      "y": 747,
+      "r": 40,
+      "label": "Make a wish on a sparkler"
+    },
+    {
+      "activity": "colour",
+      "x": 800,
+      "y": 642,
+      "r": 74,
+      "label": "Colour in the bonfire"
+    },
+    {
+      "activity": "dressup",
+      "x": 972,
+      "y": 842,
+      "r": 42,
+      "label": "Dress up for Bonfire Night"
+    },
+    {
+      "activity": "card",
+      "x": 1042,
+      "y": 800,
+      "r": 32,
+      "label": "Make a cosy hot-chocolate card"
+    },
+    {
+      "activity": "memory",
+      "x": 342,
+      "y": 678,
+      "r": 60,
+      "label": "Toffee apple memory game"
+    }
+  ],
+  "findables": [
+    {
+      "id": "hedgehog",
+      "label": "a hedgehog",
+      "x": 462,
+      "y": 840,
+      "r": 22
+    },
+    {
+      "id": "owl",
+      "label": "an owl",
+      "x": 186,
+      "y": 448,
+      "r": 24
+    },
+    {
+      "id": "fox",
+      "label": "a peeking fox",
+      "x": 1412,
+      "y": 728,
+      "r": 26
+    },
+    {
+      "id": "mitten",
+      "label": "a lost red mitten",
+      "x": 996,
+      "y": 732,
+      "r": 18
+    },
+    {
+      "id": "stall-cat",
+      "label": "a sleeping cat",
+      "x": 304,
+      "y": 524,
+      "r": 24
+    },
+    {
+      "id": "sand-bucket",
+      "label": "a bucket of sand",
+      "x": 700,
+      "y": 830,
+      "r": 24
+    },
+    {
+      "id": "dog-coat",
+      "label": "a dog in a tartan coat",
+      "x": 1112,
+      "y": 820,
+      "r": 28
+    }
+  ]
+}
