@@ -1,6 +1,6 @@
 /**
  * Year view (§3.1 `#/year`, `#/year/:year`): twelve little month calendars with a
- * holiday emoji on each main day, coloured bars under the several-day holidays,
+ * holiday emoji on each main day, soft colour behind the days of several-day holidays,
  * today's square, weekend tint, a ◀ ▶ switcher clamped to 2024–2035,
  * the optional Year Wheel, and "All holidays in 2027" — the same information as an
  * ordinary list for screen readers and keyboard users (the grid itself is aria-hidden).
@@ -218,25 +218,25 @@ interface MonthBuild {
   readonly headers: readonly string[];
   readonly monthNames: readonly string[];
   readonly today: DayNumber;
-  readonly bars: ReadonlyMap<DayNumber, { color: string; lane: number; capS: boolean; capE: boolean }[]>;
+  readonly bars: ReadonlyMap<DayNumber, string[]>;
   readonly openDay: (day: DayNumber, entries: readonly YearEntry[]) => void;
 }
 
-/** Day → bar pieces for every run of every bar. */
-function barPieces(model: YearModel): Map<DayNumber, { color: string; lane: number; capS: boolean; capE: boolean }[]> {
-  const out = new Map<DayNumber, { color: string; lane: number; capS: boolean; capE: boolean }[]>();
-  for (const { entry, lane } of model.bars) {
-    const color = holidayColor(THEMES[entry.meta.theme]);
-    for (const run of barRuns(entry.occ.start, entry.occ.end, model.year)) {
-      for (let d = run.from; d <= run.to; d++) {
-        const day = toDayNumber({ y: model.year, m: run.month, d });
-        const list = out.get(day) ?? [];
-        list.push({ color, lane, capS: run.capStart && d === run.from, capE: run.capEnd && d === run.to });
-        out.set(day, list);
-      }
-    }
+/** Day → the colours of every several-day holiday on it, lowest lane first. */
+function barPieces(model: YearModel): Map<DayNumber, string[]> {
+  const out = new Map<DayNumber, string[]>();
+  for (const { entry } of [...model.bars].sort((a, b) => a.lane - b.lane)) {
+    for (let day = entry.occ.start; day <= entry.occ.end; day++) out.set(day, [...(out.get(day) ?? []), holidayColor(THEMES[entry.meta.theme])]);
   }
   return out;
+}
+
+/** The soft fill behind a day: one holiday's tint, or a diagonal split when holidays overlap. */
+export function spanFill(colors: readonly string[]): string {
+  const tints = colors.map((c) => `color-mix(in oklch, ${c} 30%, var(--card))`);
+  if (tints.length === 1) return tints[0]!;
+  const step = 100 / tints.length;
+  return `linear-gradient(135deg, ${tints.map((t, i) => `${t} ${i * step}% ${(i + 1) * step}%`).join(', ')})`;
 }
 
 function monthCard(b: MonthBuild, month: number): HTMLElement {
@@ -260,11 +260,10 @@ function monthCard(b: MonthBuild, month: number): HTMLElement {
     } else {
       cell.append(String(c.d));
     }
-    for (const p of b.bars.get(c.day) ?? []) {
-      const pc = ['bar', 'ybar'];
-      if (p.capS) pc.push('cap-s');
-      if (p.capE) pc.push('cap-e');
-      cell.append(h('i', { class: pc.join(' '), style: `--bar:${p.color};--lane:${p.lane}` }));
+    const spans = b.bars.get(c.day);
+    if (spans) {
+      cell.classList.add('in-span');
+      cell.style.setProperty('--span-fill', spanFill(spans));
     }
     cells.push(cell);
   }

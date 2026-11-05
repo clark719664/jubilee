@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="color-scheme" content="light dark" />
+    <meta name="color-scheme" content="light" />
     <meta name="theme-color" content="#5b3df5" />
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'" />
-    <meta name="description" content="Jubilee — a holiday tracker for kids. Count the sleeps until the next holiday, watch it come alive with snow, fireworks and confetti, then cook, craft and learn something new for every celebration around the world." />
+    <meta name="description" content="Jubilee is a free holiday app for kids. Count the sleeps to celebrations from around the world, then play, cook, craft and learn. No ads, no accounts and no tracking." />
     <title>Jubilee · Holiday Tracker for Kids</title>
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Jubilee" />
@@ -18,15 +18,102 @@
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23ff7ad9'/%3E%3Cstop offset='1' stop-color='%235b3df5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3Cpath d='M9 24 L16 6 L23 24 Z' fill='%23ffd166'/%3E%3Ccircle cx='16' cy='5' r='2.5' fill='%23fff'/%3E%3Ccircle cx='7' cy='9' r='1.6' fill='%2334d399'/%3E%3Ccircle cx='26' cy='11' r='1.6' fill='%237cc4ff'/%3E%3Ccircle cx='24' cy='27' r='1.4' fill='%23ff7ad9'/%3E%3Ccircle cx='8' cy='27' r='1.4' fill='%237cc4ff'/%3E%3C/svg%3E" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Jubilee" />
   </head>
   <body>
-    <div id="app"></div>
-    <noscript>
-      <main style="font: 18px/1.5 system-ui, sans-serif; max-width: 40rem; margin: 3rem auto; padding: 0 1rem">
-        <h1>Jubilee needs JavaScript</h1>
-        <p>Jubilee counts the sleeps until the next holiday and works entirely on your device, but it needs JavaScript turned on to do it.</p>
-      </main>
-    </noscript>
-    <script type="module" src="/src/main.ts"></script>
+    <header class="hero" id="hero">
+      <div class="hero-top">
+        <div class="hero-copy">
+          <p class="brand">Jubilee</p>
+          <h1>Count the sleeps to every holiday.</h1>
+          <p class="hero-lead">Jubilee is a free holiday app for kids. It counts down to 76 celebrations from around the world, with games, stories, recipes and crafts to enjoy along the way.</p>
+          <div class="hero-actions">
+            <a class="btn btn-play" href="app/">Play now</a>
+            <a class="btn btn-install" href="#install">Install the app</a>
+          </div>
+        </div>
+        <p class="count" id="count" hidden></p>
+      </div>
+      <div class="hero-art" id="hero-art" aria-hidden="true"></div>
+    </header>
+
+    <main>
+      <section class="inside" aria-labelledby="inside-title">
+        <h2 id="inside-title">What kids do in Jubilee</h2>
+        <ul class="shots">
+          <li><figure><img src="/shots/seek.jpg" alt="Seek and Find: a Halloween street with a row of mystery cards to find" width="390" height="844" loading="lazy" /><figcaption><b>Seek &amp; Find</b>Spot the hidden things in holiday pictures.</figcaption></figure></li>
+          <li><figure><img src="/shots/colour.jpg" alt="A holiday colouring page with a box of crayons" width="390" height="844" loading="lazy" /><figcaption><b>Colouring</b>Colour in holiday pages right on the screen.</figcaption></figure></li>
+          <li><figure><img src="/shots/recipe.jpg" alt="A holiday recipe with its ingredients" width="390" height="844" loading="lazy" /><figcaption><b>Recipes</b>Cook together, one step at a time.</figcaption></figure></li>
+          <li><figure><img src="/shots/story.jpg" alt="A holiday story page" width="390" height="844" loading="lazy" /><figcaption><b>Stories</b>Read a short holiday story together.</figcaption></figure></li>
+          <li><figure><img src="/shots/world.jpg" alt="A globe showing holidays around the world" width="390" height="844" loading="lazy" /><figcaption><b>The world</b>Spin the globe to see where holidays happen.</figcaption></figure></li>
+        </ul>
+      </section>
+
+      <section class="wall" aria-labelledby="wall-title">
+        <h2 id="wall-title">76 holidays, from Diwali to Groundhog Day</h2>
+        <ul class="stickers" id="stickers"></ul>
+        <button class="btn btn-more" id="more" type="button" hidden>Show all 76 holidays</button>
+      </section>
+
+      <section class="grownups" aria-labelledby="grownups-title">
+        <h2 id="grownups-title">Safe to hand over</h2>
+        <ul class="promises">
+          <li><b>No ads</b>Nothing is advertised to your child.</li>
+          <li><b>Nothing to buy</b>Every holiday and game is free.</li>
+          <li><b>No accounts</b>There is no sign-up and no password.</li>
+          <li><b>No tracking</b>Nothing your child does leaves the device.</li>
+          <li><b>No links out</b>Kids can't tap their way out of the app.</li>
+          <li><b>Works offline</b>After the first visit it runs without Wi-Fi.</li>
+        </ul>
+        <p class="grownups-more">Recipes list their allergens and show where a grown-up should help. <a href="app/#/grownups">See the grown-ups page</a></p>
+      </section>
+
+      <section class="install" id="install" aria-labelledby="install-title">
+        <h2 id="install-title">Put Jubilee on your home screen</h2>
+        <p class="install-lead">It opens full screen with its own icon, like any other app. You don't need an app store.</p>
+        <div class="fb-note" id="fb-note" hidden>
+          <p><b>You're in Facebook's browser, which can't install apps.</b> Tap the menu at the top of the screen and choose Open in browser, then come back to this section.</p>
+          <button class="btn btn-copy" id="copy" type="button">Copy the link</button>
+        </div>
+        <button class="btn btn-play btn-now" id="install-now" type="button" hidden>Install Jubilee</button>
+        <p class="installed" id="installed" hidden>Jubilee is installed. Look for its icon on your home screen.</p>
+        <div class="how">
+          <section data-platform="ios">
+            <h3>iPhone or iPad</h3>
+            <ol>
+              <li>Open this page in Safari.</li>
+              <li>Tap the Share button.</li>
+              <li>Tap Add to Home Screen, then Add.</li>
+            </ol>
+          </section>
+          <section data-platform="android">
+            <h3>Android</h3>
+            <ol>
+              <li>Open this page in Chrome.</li>
+              <li>Tap the menu in the top corner.</li>
+              <li>Tap Install app or Add to Home screen.</li>
+            </ol>
+          </section>
+          <section data-platform="desktop">
+            <h3>Computer</h3>
+            <ol>
+              <li>Open this page in Chrome or Edge.</li>
+              <li>Click the install icon in the address bar.</li>
+              <li>Click Install.</li>
+            </ol>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <a class="btn btn-play" href="app/">Play now</a>
+      <p>Jubilee is free and open source. <a href="https://github.com/clark719664/jubilee">See the code on GitHub</a></p>
+    </footer>
+    <script type="module" src="/src/landing/landing.ts"></script>
   </body>
 </html>

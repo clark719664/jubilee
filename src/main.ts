@@ -128,4 +128,4 @@ function main(): void {
 }
 
 main();
-registerOffline(import.meta.env.PROD);
+registerOffline(import.meta.env.PROD, '../');

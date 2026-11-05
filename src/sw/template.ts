@@ -6,16 +6,17 @@
  * and drops old caches when a new build activates.
  *
  * Strategy:
- * - install: precache every emitted file plus the app shell (./ and ./index.html);
+ * - install: precache every emitted file plus the landing page (./) and the app shell (./app/);
  * - activate: delete caches from older builds, take control of open pages;
- * - fetch (same-origin GET only): navigations try the network first (so a new deploy shows up) and fall
- *   back to the cached shell; everything else is cache-first, falling back to the network.
+ * - fetch (same-origin GET only): navigations try the network first (so a new deploy shows up), keep
+ *   each page under its own address and fall back to the app shell; everything else is cache-first,
+ *   falling back to the network.
  */
 export function precacheList(files: readonly string[]): string[] {
   const keep = files
     .filter((f) => !f.endsWith('.map') && f !== 'sw.js' && !f.startsWith('.'))
     .map((f) => `./${f.replace(/^\.?\//, '')}`);
-  return [...new Set(['./', './index.html', ...keep])].sort();
+  return [...new Set(['./', './index.html', './app/', './app/index.html', ...keep])].sort();
 }
 
 export function buildServiceWorker(files: readonly string[], version: string): string {
@@ -45,10 +46,12 @@ self.addEventListener('fetch', (event) => {
   if (req.mode === 'navigate') {
     event.respondWith(
       fetch(req).then((res) => {
-        const copy = res.clone();
-        caches.open(CACHE).then((c) => c.put('./index.html', copy));
+        if (res.ok) {
+          const copy = res.clone();
+          caches.open(CACHE).then((c) => c.put(req, copy));
+        }
         return res;
-      }).catch(() => caches.match('./index.html').then((r) => r || caches.match('./'))),
+      }).catch(() => caches.match(req, { ignoreSearch: true }).then((r) => r || caches.match('./app/index.html'))),
     );
     return;
   }
@@ -58,10 +61,10 @@ self.addEventListener('fetch', (event) => {
 }
 
 /** Register the generated worker in production builds only (dev and tests never install it). */
-export function registerOffline(prod: boolean): void {
+export function registerOffline(prod: boolean, root = './'): void {
   if (!prod || typeof navigator === 'undefined' || !('serviceWorker' in navigator)) return;
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js', { scope: './' }).catch(() => {
+    navigator.serviceWorker.register(`${root}sw.js`, { scope: root }).catch(() => {
       // Offline support is a bonus: private browsing or file:// simply runs online-only.
     });
   });
