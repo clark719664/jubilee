@@ -6,7 +6,7 @@ A holiday tracker for kids. Count the sleeps until the next holiday, watch it co
 
 - Free, with no ads, accounts, tracking or analytics
 - Everything stays on your device and works offline once loaded
-- Countdowns, games, read-aloud stories, 373 coloring pages, recipes and crafts
+- Countdowns, games, read-aloud stories, 345 coloring pages, recipes and crafts
 - Installs to a phone or computer from the website, with no app store
 
 ## Run it locally
