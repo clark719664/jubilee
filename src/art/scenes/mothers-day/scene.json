@@ -5,14 +5,14 @@
       "x": 760,
       "y": 630,
       "r": 44,
-      "label": "Make a card for Mum"
+      "label": "Make a card for Mom"
     },
     {
-      "activity": "colour",
+      "activity": "color",
       "x": 840,
       "y": 694,
       "r": 34,
-      "label": "Colour Mum's quilt"
+      "label": "Color Mom's quilt"
     },
     {
       "activity": "doors",

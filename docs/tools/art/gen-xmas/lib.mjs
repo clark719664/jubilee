@@ -1,11 +1,11 @@
-// lib.mjs — tiny SVG authoring kit for Jubilee art (numbers, colours, paths, elements).
+// lib.mjs — tiny SVG authoring kit for Jubilee art (numbers, colors, paths, elements).
 let PREC = 10;
 /** Coordinate precision: 1 → whole numbers, 10 → one decimal. */
 export const setPrecision = (p) => { PREC = p; };
 export const f = (n) => { let v = Math.round(n * PREC) / PREC; if (Object.is(v, -0)) v = 0; return String(v); };
 export const P = (x, y) => `${f(x)} ${f(y)}`;
 
-// ---------- colour ----------
+// ---------- color ----------
 export function rgb(c) { const n = parseInt(c.slice(1), 16); return [(n >> 16) & 255, (n >> 8) & 255, n & 255]; }
 export function hex(a) { return '#' + a.map((v) => Math.max(0, Math.min(255, Math.round(v))).toString(16).padStart(2, '0')).join(''); }
 export function mix(a, b, t) { const A = rgb(a), B = rgb(b); return hex(A.map((v, i) => v + (B[i] - v) * t)); }
@@ -235,7 +235,7 @@ export function treeGarlands(cx, tiers, swags, step = 18, margin = 14) {
  * must clear every bulb, every garland wire and every other bauble, and stay inside its band.
  * Returns [x, y, r, kind, hangY] — hangY is the bough tip a thread runs up to, or null for a loop.
  */
-export function placeBaubles({ cx, tiers, tipsOf, notchY, garland, per, seed, r = 14, colours = ['r', 'g', 's'], edge = 18, gap = 18, wire = 3 }) {
+export function placeBaubles({ cx, tiers, tipsOf, notchY, garland, per, seed, r = 14, colors = ['r', 'g', 's'], edge = 18, gap = 18, wire = 3 }) {
   const R = rng(seed); const out = [];
   const near = (x, y, k) => out.filter(([ox, oy, , ok]) => ok === k && Math.hypot(x - ox, y - oy) < 110).length;
   const wirePts = garland.lines.flat();
@@ -255,9 +255,9 @@ export function placeBaubles({ cx, tiers, tipsOf, notchY, garland, per, seed, r 
     let n = 0;
     for (const [x, y, hang] of order) {
       if (n >= per[i]) break;
-      // the colour least used nearby, so neighbours differ
+      // the color least used nearby, so neighbors differ
       const nearest = out.reduce((m, o) => (Math.hypot(x - o[0], y - o[1]) < (m ? Math.hypot(x - m[0], y - m[1]) : 1e9) ? o : m), null);
-      const kind = [...colours].sort((a, b) => (nearest && a === nearest[3]) - (nearest && b === nearest[3]) || near(x, y, a) - near(x, y, b) || colours.indexOf(a) - colours.indexOf(b))[0]; const rr = kind === 's' ? r * 0.8 : r;
+      const kind = [...colors].sort((a, b) => (nearest && a === nearest[3]) - (nearest && b === nearest[3]) || near(x, y, a) - near(x, y, b) || colors.indexOf(a) - colors.indexOf(b))[0]; const rr = kind === 's' ? r * 0.8 : r;
       const yy = hang === null ? y : y - (r - rr);
       if (!ok(x, yy, rr)) continue;
       out.push([x, yy, rr, kind, hang]); n++;

@@ -5,12 +5,12 @@
  *   (the sprite squashes as it tips). Now and then a nearer plane shows off: a full loop-the-loop or a
  *   barrel roll (the sprite flips over and back). Near planes leave a dotted pencil trail. Soft clouds
  *   drift in two layers — some behind the planes, a few in front — under a warm sun glow.
- * Behaviours: sine glide + heading (planes), parametric loop, roll flip, ease to cruise speed after a throw,
+ * Behaviors: sine glide + heading (planes), parametric loop, roll flip, ease to cruise speed after a throw,
  *   drift with wrap (clouds), envelope (trail dots, whoosh puffs).
  * Tap: a plane is thrown from the finger toward the open side of the sky with a little whoosh, climbing
  *   fast and settling to a glide.
  * Still: planes mid-flight with their trails, clouds at rest.
- * Params: palette (paper colours), density.
+ * Params: palette (paper colors), density.
  */
 import type { Theme } from '../../theme/themes';
 import { mixColor } from '../painters';

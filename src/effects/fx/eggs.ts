@@ -4,13 +4,13 @@
  *   pastel eggs with bands, dots, zigzags or stripes waddle along it, nestled between the rows, and hop
  *   now and then with a squash on landing, wrapping round the edges. Blossom petals flutter down from
  *   the top. Every ~9 s a pair of bunny ears peeks up from behind the grass, wiggles, and ducks again.
- * Behaviours: gravity + hop timer + squash (eggs); gravity + flutter + spin (petals, confetti, shells).
+ * Behaviors: gravity + hop timer + squash (eggs); gravity + flutter + spin (petals, confetti, shells).
  * Tap an egg: it cracks — the top of the shell pops off and spins away, a burst of pastel confetti flies
  *   up, and a chick (🐥 glyph sprite) jumps out, hops about and fades; a new egg hops in from the edge a
  *   few seconds later. Tapping the meadow elsewhere throws a ring of petals and makes nearby eggs hop.
  *   `cracked` counts cracks so the UI may show a fun-fact toast.
  * Still: eggs resting in the grass, petals frozen mid-air, the bunny ears up.
- * Params: palette (egg colours; Orthodox Easter passes red and gold), density.
+ * Params: palette (egg colors; Orthodox Easter passes red and gold), density.
  */
 import type { Theme } from '../../theme/themes';
 import { bunnyEars, eggHalf, grassTuft } from '../painters/extra-day';
@@ -73,7 +73,7 @@ export class EggsEffect extends PooledEffect {
     const depth = rand();
     pool.kind[i] = PETAL;
     pool.depth[i] = depth;
-    // About one in eight is a whole blossom (colour index + 50), the rest single petals.
+    // About one in eight is a whole blossom (color index + 50), the rest single petals.
     pool.size[i] = 11 + 15 * depth;
     pool.vy[i] = 16 + 26 * depth;
     pool.aux[i] = 16 + 26 * depth;

@@ -18,7 +18,7 @@ function combD(x0, y0, x1, y1, s) {
   return d;
 }
 
-/** An apple centred at (cx, cy), radius r, with the dimple at the top. */
+/** An apple centered at (cx, cy), radius r, with the dimple at the top. */
 const appleD = (cx, cy, r) => `M${P(cx, cy - r * 0.74)}C${P(cx - r * 0.28, cy - r * 1.02)} ${P(cx - r * 1.02, cy - r * 0.98)} ${P(cx - r * 1.02, cy - r * 0.12)}C${P(cx - r * 1.02, cy + r * 0.7)} ${P(cx - r * 0.46, cy + r * 1.02)} ${P(cx - r * 0.12, cy + r * 0.94)}Q${P(cx, cy + r * 0.9)} ${P(cx + r * 0.12, cy + r * 0.94)}C${P(cx + r * 0.46, cy + r * 1.02)} ${P(cx + r * 1.02, cy + r * 0.7)} ${P(cx + r * 1.02, cy - r * 0.12)}C${P(cx + r * 1.02, cy - r * 0.98)} ${P(cx + r * 0.28, cy - r * 1.02)} ${P(cx, cy - r * 0.74)}Z`;
 
 export function sticker() {

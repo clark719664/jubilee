@@ -1,10 +1,10 @@
 /**
- * sprites.ts — the sprite cache: each (name, size, colour) is painted once into an offscreen canvas
+ * sprites.ts — the sprite cache: each (name, size, color) is painted once into an offscreen canvas
  * and then drawn with a single `drawImage` per particle (plus `globalAlpha`). It replaces every use of
  * `shadowBlur`, `ctx.filter` and per-frame path/text drawing.
  *
  *   const sprites = createSpriteCache({ scale: dpr });
- *   sprites.draw(ctx, 'heart', 24, '#ff4d9d', x, y);                 // centred at (x, y)
+ *   sprites.draw(ctx, 'heart', 24, '#ff4d9d', x, y);                 // centered at (x, y)
  *   sprites.draw(ctx, 'confettiRect', 10, c, x, y, rot, |cos φ|, 1);  // rotated + squashed (flip fake)
  *   sprites.draw(ctx, 'diyas:ring2', 60, c, x, y, rot, 2, 2, 0.3);    // turning, then laid flat (perspective)
  *   sprites.draw(ctx, 'glyph:🎃', 28, '#fff', x, y);                  // emoji/text with a white outline

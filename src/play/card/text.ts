@@ -15,7 +15,7 @@ export type LineRole = 'name' | 'greet' | 'roman' | 'to' | 'msg' | 'from' | 'inf
 export interface TextLine {
   readonly role: LineRole;
   readonly text: string;
-  /** Centre of the line, in panel units. */
+  /** Center of the line, in panel units. */
   readonly x: number;
   readonly y: number;
   readonly size: number;
@@ -95,7 +95,7 @@ export function greetingText(card: CardSpec, holidayName: string, happyTpl: stri
   return card.greeting?.text ?? happyTpl.replace('{holiday}', holidayName);
 }
 
-/** Front words: a name pill, the greeting in its own script (big) and its romanisation (small). */
+/** Front words: a name pill, the greeting in its own script (big) and its romanization (small). */
 export function layoutFront(card: CardSpec, holidayName: string, happyTpl: string, measure: Measure): FrontLayout {
   const text = greetingText(card, holidayName, happyTpl);
   const g = card.greeting;

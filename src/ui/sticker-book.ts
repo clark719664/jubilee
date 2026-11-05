@@ -12,15 +12,15 @@ import type { Region } from '../dates/rules';
 import { BADGES, SEASON_LABELS, type BadgeCopy } from './copy';
 
 export type Season = keyof typeof SEASON_LABELS;
-export const SEASONS: readonly Season[] = ['winter', 'spring', 'summer', 'autumn'];
-export const SEASON_EMOJI: Record<Season, string> = { winter: '❄️', spring: '🌷', summer: '☀️', autumn: '🍂' };
+export const SEASONS: readonly Season[] = ['winter', 'spring', 'summer', 'fall'];
+export const SEASON_EMOJI: Record<Season, string> = { winter: '❄️', spring: '🌷', summer: '☀️', fall: '🍂' };
 
 /** Season of a month (1–12), northern-hemisphere shelves as the spec names them. */
 export function seasonOfMonth(month: number): Season {
   if (month === 12 || month <= 2) return 'winter';
   if (month <= 5) return 'spring';
   if (month <= 8) return 'summer';
-  return 'autumn';
+  return 'fall';
 }
 
 export type StickerState = 'earned' | 'ongoing' | 'upcoming' | 'missed';
@@ -42,9 +42,9 @@ export interface StickerBook {
   readonly shelves: Readonly<Record<Season, readonly StickerEntry[]>>;
   /** Birthday Stars for custom days. */
   readonly birthdays: readonly StickerEntry[];
-  /** Earned tier 1–2 catalogue stickers this year. */
+  /** Earned tier 1–2 catalog stickers this year. */
   readonly have: number;
-  /** Tier 1–2 catalogue holidays that happen this year (Leap Day only in leap years). */
+  /** Tier 1–2 catalog holidays that happen this year (Leap Day only in leap years). */
   readonly total: number;
 }
 
@@ -67,7 +67,7 @@ export function stickerBook(
     // Keep the first occurrence still to come; otherwise the latest one.
     if (!prev || prev.end < t) chosen.set(occ.holidayId, occ);
   }
-  const shelves: Record<Season, StickerEntry[]> = { winter: [], spring: [], summer: [], autumn: [] };
+  const shelves: Record<Season, StickerEntry[]> = { winter: [], spring: [], summer: [], fall: [] };
   const birthdays: StickerEntry[] = [];
   let have = 0;
   let total = 0;

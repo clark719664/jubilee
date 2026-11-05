@@ -1,7 +1,7 @@
 /**
  * Pumpkin Carver (activity id 'pumpkin') — carve a friendly jack-o'-lantern, then light it.
  *
- * A big pumpkin on the porch; five tabs (eyes, nose, mouth, hat, colour) open rows of little pumpkins
+ * A big pumpkin on the porch; five tabs (eyes, nose, mouth, hat, color) open rows of little pumpkins
  * showing each choice; tapping one carves it (a spray of soft chips and a squish). "Light it" puts the
  * candle in and the carving glows. "Surprise me" deals a random pumpkin. "Keep it" puts it on the
  * Fridge as data ({ kind: 'pumpkin', data: PumpkinSpec }), redrawn anywhere with `drawPumpkin`.
@@ -17,11 +17,11 @@ import { icon } from '../../ui/icons';
 import { KIT_COPY, createShell, keepOnFridge, pick, wireGroup, type Shell } from '../spooky/kit';
 import type { Activity, ActivityInstance, PlayEnv } from '../types';
 import {
-  COLOURS, DEFAULT_PUMPKIN, EYES, HATS, MOUTHS, NOSES, describePumpkin, drawPumpkin, partPreview, pumpkinTitle, randomPumpkin, withPart,
+  COLORS, DEFAULT_PUMPKIN, EYES, HATS, MOUTHS, NOSES, describePumpkin, drawPumpkin, partPreview, pumpkinTitle, randomPumpkin, withPart,
   type Part, type PumpkinSpec, type Slot,
 } from './parts';
 
-export { COLOURS, DEFAULT_PUMPKIN, EYES, HATS, MOUTHS, NOSES, describePumpkin, drawPumpkin, pumpkinTitle, randomPumpkin, sanitizePumpkin, withPart } from './parts';
+export { COLORS, DEFAULT_PUMPKIN, EYES, HATS, MOUTHS, NOSES, describePumpkin, drawPumpkin, pumpkinTitle, randomPumpkin, sanitizePumpkin, withPart } from './parts';
 export type { PumpkinSpec } from './parts';
 
 export const COPY = {
@@ -29,7 +29,7 @@ export const COPY = {
   emoji: '🎃',
   blurb: 'Carve a friendly jack-o’-lantern',
   sub: 'Pick a face, then light it up!',
-  tabs: { eyes: 'Eyes', nose: 'Nose', mouth: 'Mouth', hat: 'Hat', colour: 'Colour' } as Readonly<Record<Slot, string>>,
+  tabs: { eyes: 'Eyes', nose: 'Nose', mouth: 'Mouth', hat: 'Hat', color: 'Color' } as Readonly<Record<Slot, string>>,
   light: 'Light it',
   blowOut: 'Blow it out',
   surprise: 'Surprise me',
@@ -39,7 +39,7 @@ export const COPY = {
   lit: 'Your pumpkin is glowing!',
   dark: 'Your pumpkin is resting in the dark.',
   giggles: ['Hee hee, that tickles!', 'Boo! …just kidding.', 'I feel so handsome!', 'Happy Halloween!', 'Ooh, spooky and sweet!', 'Giggle, giggle!'],
-  lights: ['Ooh, it glows!', 'So warm and cosy!', 'Look at me shine!'],
+  lights: ['Ooh, it glows!', 'So warm and cozy!', 'Look at me shine!'],
 } as const;
 
 export const pumpkinActivity: Activity = {
@@ -52,8 +52,8 @@ export const pumpkinActivity: Activity = {
   mount: (env) => mountPumpkin(env),
 };
 
-const LISTS: Readonly<Record<Slot, readonly Part[]>> = { eyes: EYES, nose: NOSES, mouth: MOUTHS, hat: HATS, colour: COLOURS };
-const SLOTS: readonly Slot[] = ['eyes', 'nose', 'mouth', 'hat', 'colour'];
+const LISTS: Readonly<Record<Slot, readonly Part[]>> = { eyes: EYES, nose: NOSES, mouth: MOUTHS, hat: HATS, color: COLORS };
+const SLOTS: readonly Slot[] = ['eyes', 'nose', 'mouth', 'hat', 'color'];
 
 function mountPumpkin(env: PlayEnv): ActivityInstance {
   const { ctx } = env;
@@ -98,7 +98,7 @@ function mountPumpkin(env: PlayEnv): ActivityInstance {
 
   shell.body.append(h('div', { class: 'pk-layout' }, stage, panel), description);
 
-  // ── behaviour ──
+  // ── behavior ──
   function redraw(): void {
     art.replaceChildren(drawPumpkin(spec));
     description.textContent = describePumpkin(spec);
@@ -141,7 +141,7 @@ function mountPumpkin(env: PlayEnv): ActivityInstance {
     renderOptions(true);
     carveFx();
     const msg = `${p.name}: carved!`;
-    ctx.announce(slot === 'colour' || slot === 'hat' ? `${p.name} chosen` : msg);
+    ctx.announce(slot === 'color' || slot === 'hat' ? `${p.name} chosen` : msg);
   }
 
   function carveFx(): void {

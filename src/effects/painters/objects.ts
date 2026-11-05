@@ -1,6 +1,6 @@
 /**
  * objects.ts — festive object painters: leaves, lanterns, eggs, balloon, dreidel, red envelope,
- * paper plane and pie. Each draws centred on the origin within about ±size/2.
+ * paper plane and pie. Each draws centered on the origin within about ±size/2.
  */
 import type { SpritePainter } from '../types';
 import { shade, withAlpha } from './color';

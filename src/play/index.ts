@@ -9,7 +9,7 @@ import type { Activity, ActivityId } from './types';
 const LOADERS: Partial<Record<ActivityId, () => Promise<Activity>>> = {
   doors: () => import('./doors').then((m) => m.doorsActivity),
   seek: () => import('./seek').then((m) => m.seekActivity),
-  colour: () => import('./colour').then((m) => m.colourActivity),
+  color: () => import('./color').then((m) => m.colorActivity),
   memory: () => import('./memory').then((m) => m.memoryActivity),
   dressup: () => import('./dressup').then((m) => m.dressupActivity),
   card: () => import('./card').then((m) => m.cardActivity),

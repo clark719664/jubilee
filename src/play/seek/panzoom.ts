@@ -2,7 +2,7 @@
  * panzoom.ts — one-finger drag, two-finger pinch, inertia, wheel zoom and animated fly-to for the
  * Seek & Find picture. All the math lives in geometry.ts; this file only turns pointer events into views.
  *
- * Taps are recognised here (press + lift within TAP_MS, moved less than TAP_MOVE_PX, never part of a
+ * Taps are recognized here (press + lift within TAP_MS, moved less than TAP_MOVE_PX, never part of a
  * pinch) and handed to `onTap` in stage px, so a drag that ends on a findable never counts as a find.
  */
 import {
@@ -187,7 +187,7 @@ export class PanZoom {
     this.emit();
   }
 
-  private up(e: PointerEvent, cancelled: boolean): void {
+  private up(e: PointerEvent, canceled: boolean): void {
     if (!this.pts.has(e.pointerId)) return;
     const p = this.local(e);
     this.pts.delete(e.pointerId);
@@ -199,9 +199,9 @@ export class PanZoom {
       this.drag = rest ? { id: rest[0], start: rest[1], view: this.v, t: now(), moved: true, samples: [] } : null;
     } else if (d && d.id === e.pointerId) {
       this.drag = null;
-      if (!cancelled && !d.moved && !this.wasPinch && now() - d.t <= TAP_MS) {
+      if (!canceled && !d.moved && !this.wasPinch && now() - d.t <= TAP_MS) {
         this.o.onTap(p);
-      } else if (!cancelled && d.moved && !this.o.reduced()) {
+      } else if (!canceled && d.moved && !this.o.reduced()) {
         d.samples.push({ t: now(), x: p.x, y: p.y });
         this.glide(releaseVelocity(d.samples));
       }

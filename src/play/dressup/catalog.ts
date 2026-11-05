@@ -1,9 +1,9 @@
 /**
- * catalog.ts — everything Jubi can wear, as data (no DOM, so the respect rules and the season maths are
+ * catalog.ts — everything Jubi can wear, as data (no DOM, so the respect rules and the season math are
  * tested in Node). The drawings live in art-*.ts, keyed by the same ids.
  *
  * Six slots: a hat (or a hair clip), glasses, something round the neck, something held in Jubi's
- * right hand, a glow colour and a body pattern. Every item is always available: holidays only decide
+ * right hand, a glow color and a body pattern. Every item is always available: holidays only decide
  * which items sparkle and come first ("in season"), never which ones a child may use.
  *
  * Respect (ART_BRIEF, competitive plan do_not_copy): no religious garments or sacred symbols as
@@ -36,8 +36,8 @@ export interface Item {
   readonly coversTop?: boolean;
   /** Why a wearable tagged with a faith holiday is a festive, not a religious, thing. */
   readonly respect?: string;
-  /** Glow and pattern swatches: the colours that draw them. */
-  readonly colours?: readonly string[];
+  /** Glow and pattern swatches: the colors that draw them. */
+  readonly colors?: readonly string[];
 }
 
 const hat = (id: string, name: string, holidays: HolidayId[], more: Partial<Item> = {}): Item =>
@@ -58,7 +58,7 @@ export const ITEMS: readonly Item[] = [
   hat('flower-crown', 'Flower crown', ['mothers-day', 'nowruz', 'earth-day'], { tags: ['spring'], says: 'I smell like spring!' }),
   hat('top-hat', 'Tiny top hat', ['new-years-eve', 'groundhog-day', 'fathers-day', 'grandparents-day', 'purim', 'leap-day'], { says: 'How do you do?', respect: 'A party top hat, the Purim costume fun kind.' }),
   hat('leprechaun-hat', 'Leprechaun hat', ['st-patricks-day'], { says: 'Top o’ the morning!', respect: 'Leprechauns are Irish folklore.' }),
-  hat('beanie', 'Bobble beanie', ['new-years-day', 'groundhog-day', 'christmas', 'mlk-day'], { says: 'Cosy toes!', respect: 'A chunky winter bobble hat, ordinary winter clothes.' }),
+  hat('beanie', 'Bobble beanie', ['new-years-day', 'groundhog-day', 'christmas', 'mlk-day'], { says: 'Cozy toes!', respect: 'A chunky winter bobble hat, ordinary winter clothes.' }),
   hat('sun-hat', 'Sun hat', ['independence-day-us', 'juneteenth', 'canada-day', 'memorial-day', 'labor-day', 'songkran', 'oceans-day'], { says: 'Sunshine!', respect: 'Sun clothes for a hot day of water fights.' }),
   hat('bunny-ears', 'Bunny ears', ['easter'], { tags: ['spring'], says: 'Hop hop!', respect: 'The Easter bunny is folklore.' }),
   hat('lion-headband', 'Lion-dance headband', ['lunar-new-year', 'lantern-festival'], { says: 'Rawr! Happy New Year!', respect: 'Lion dancing is a festive folk performance; this is a party headband.' }),
@@ -75,7 +75,7 @@ export const ITEMS: readonly Item[] = [
   item('glasses', 'star-glasses', 'Star glasses', ['new-years-eve', 'independence-day-us', 'happiness-day', 'star-wars-day'], { tags: ['new-year'], says: 'Superstar!' }),
   item('glasses', 'round-glasses', 'Round glasses', ['book-day', 'pi-day', 'puzzle-day', 'grandparents-day'], { says: 'Very clever!' }),
   item('glasses', 'sunglasses', 'Sunglasses', ['juneteenth', 'canada-day', 'songkran', 'ice-cream-day', 'memorial-day', 'labor-day', 'oceans-day', 'emoji-day'], { says: 'Too cool!', respect: 'Sun clothes for a hot day of water fights.' }),
-  item('glasses', 'rainbow-glasses', 'Rainbow glasses', ['holi', 'happiness-day', 'dot-day'], { tags: ['silly'], says: 'So many colours!', respect: 'Party glasses for the festival of colours.' }),
+  item('glasses', 'rainbow-glasses', 'Rainbow glasses', ['holi', 'happiness-day', 'dot-day'], { tags: ['silly'], says: 'So many colors!', respect: 'Party glasses for the festival of colors.' }),
 
   // ── round the neck ──
   item('neck', 'scarf', 'Stripy scarf', ['christmas', 'hanukkah', 'new-years-day', 'groundhog-day', 'thanksgiving', 'bonfire-night'], { says: 'Snug as a bug!', respect: 'A winter scarf, ordinary winter clothes.' }),
@@ -100,31 +100,31 @@ export const ITEMS: readonly Item[] = [
   item('held', 'mooncake', 'Mooncake', ['mid-autumn-festival'], { says: 'Nom nom!' }),
   item('held', 'red-envelope', 'Red envelope', ['lunar-new-year'], { says: 'Lucky red!' }),
   item('held', 'paintbrush', 'Paintbrush', ['dot-day', 'book-day', 'emoji-day'], { says: 'Let’s make art!' }),
-  item('held', 'colour-bowl', 'Bowl of colours', ['holi'], { says: 'Splash of colour!' }),
+  item('held', 'color-bowl', 'Bowl of colors', ['holi'], { says: 'Splash of color!' }),
   item('held', 'umbrella', 'Umbrella', ['songkran', 'dragon-boat-festival'], { says: 'Splish splash!' }),
   item('held', 'magic-wand', 'Magic wand', ['tooth-fairy-day', 'purim', 'halloween', 'april-fools-day'], { says: 'Ta-da!' }),
   item('held', 'egg-basket', 'Egg basket', ['easter', 'orthodox-easter', 'nowruz'], { tags: ['spring'], says: 'I found eggs!' }),
   item('held', 'flower-bunch', 'Bunch of flowers', ['mothers-day', 'valentines-day', 'grandparents-day'], { tags: ['spring'], says: 'These are for you!' }),
   item('held', 'heart-lolly', 'Heart lollipop', ['valentines-day'], { says: 'Sweet!' }),
   item('held', 'ice-cream', 'Ice cream', ['ice-cream-day', 'independence-day-us', 'juneteenth'], { says: 'Brain freeze!' }),
-  item('held', 'autumn-leaf', 'Autumn leaf', ['thanksgiving', 'indigenous-peoples-day', 'chuseok'], { tags: ['harvest'], says: 'Crunch crunch!' }),
+  item('held', 'fall-leaf', 'Autumn leaf', ['thanksgiving', 'indigenous-peoples-day', 'chuseok'], { tags: ['harvest'], says: 'Crunch crunch!' }),
   item('held', 'fruit-basket', 'Fruit basket', ['kwanzaa', 'thanksgiving', 'chuseok'], { tags: ['harvest'], says: 'Fresh fruit for everyone!' }),
 
-  // ── glow colours (the halo behind Jubi) ──
-  item('glow', 'glow-sunny', 'Sunny glow', ['diwali', 'hanukkah', 'mid-autumn-festival'], { colours: ['#ffd166', '#ffb703'] }),
-  item('glow', 'glow-rose', 'Rose glow', ['valentines-day', 'mothers-day'], { colours: ['#ff8fb8', '#ff4d9d'] }),
-  item('glow', 'glow-mint', 'Mint glow', ['st-patricks-day', 'eid-al-fitr', 'earth-day'], { colours: ['#9be7d3', '#2ec4a6'] }),
-  item('glow', 'glow-ocean', 'Ocean glow', ['hanukkah', 'songkran', 'oceans-day'], { colours: ['#8fd3ff', '#3a86ff'] }),
-  item('glow', 'glow-grape', 'Grape glow', ['halloween', 'purim'], { colours: ['#c3a6ff', '#7b4dff'] }),
-  item('glow', 'glow-ember', 'Ember glow', ['bonfire-night', 'thanksgiving', 'day-of-the-dead'], { colours: ['#ffb37a', '#ff6b1a'] }),
-  item('glow', 'glow-rainbow', 'Rainbow glow', ['holi', 'happiness-day'], { tags: ['silly'], colours: ['#ff5e7e', '#ffb703', '#ffe066', '#5ed27a', '#4cc9f0', '#9b6bff'] }),
+  // ── glow colors (the halo behind Jubi) ──
+  item('glow', 'glow-sunny', 'Sunny glow', ['diwali', 'hanukkah', 'mid-autumn-festival'], { colors: ['#ffd166', '#ffb703'] }),
+  item('glow', 'glow-rose', 'Rose glow', ['valentines-day', 'mothers-day'], { colors: ['#ff8fb8', '#ff4d9d'] }),
+  item('glow', 'glow-mint', 'Mint glow', ['st-patricks-day', 'eid-al-fitr', 'earth-day'], { colors: ['#9be7d3', '#2ec4a6'] }),
+  item('glow', 'glow-ocean', 'Ocean glow', ['hanukkah', 'songkran', 'oceans-day'], { colors: ['#8fd3ff', '#3a86ff'] }),
+  item('glow', 'glow-grape', 'Grape glow', ['halloween', 'purim'], { colors: ['#c3a6ff', '#7b4dff'] }),
+  item('glow', 'glow-ember', 'Ember glow', ['bonfire-night', 'thanksgiving', 'day-of-the-dead'], { colors: ['#ffb37a', '#ff6b1a'] }),
+  item('glow', 'glow-rainbow', 'Rainbow glow', ['holi', 'happiness-day'], { tags: ['silly'], colors: ['#ff5e7e', '#ffb703', '#ffe066', '#5ed27a', '#4cc9f0', '#9b6bff'] }),
 
   // ── patterns on Jubi's body ──
-  item('pattern', 'stripes', 'Stripes', ['christmas'], { colours: ['#ffffff', '#ff5e7e'] }),
-  item('pattern', 'dots', 'Polka dots', ['dot-day', 'childrens-day'], { tags: ['silly'], colours: ['#ff8fb8', '#ffffff'] }),
-  item('pattern', 'stars', 'Little stars', ['new-years-eve', 'independence-day-us'], { colours: ['#ffffff', '#fff3c4'] }),
-  item('pattern', 'rainbow', 'Rainbow', ['holi', 'happiness-day'], { colours: ['#ff5e7e', '#ffb703', '#ffe066', '#5ed27a', '#4cc9f0', '#9b6bff'] }),
-  item('pattern', 'hearts', 'Hearts', ['valentines-day', 'kindness-day'], { colours: ['#ff4d6d', '#ffffff'] }),
+  item('pattern', 'stripes', 'Stripes', ['christmas'], { colors: ['#ffffff', '#ff5e7e'] }),
+  item('pattern', 'dots', 'Polka dots', ['dot-day', 'childrens-day'], { tags: ['silly'], colors: ['#ff8fb8', '#ffffff'] }),
+  item('pattern', 'stars', 'Little stars', ['new-years-eve', 'independence-day-us'], { colors: ['#ffffff', '#fff3c4'] }),
+  item('pattern', 'rainbow', 'Rainbow', ['holi', 'happiness-day'], { colors: ['#ff5e7e', '#ffb703', '#ffe066', '#5ed27a', '#4cc9f0', '#9b6bff'] }),
+  item('pattern', 'hearts', 'Hearts', ['valentines-day', 'kindness-day'], { colors: ['#ff4d6d', '#ffffff'] }),
 ];
 
 /** Words that must never name a dress-up item (religious garments, sacred objects and figures). */

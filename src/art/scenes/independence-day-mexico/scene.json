@@ -8,11 +8,11 @@
       "label": "Ring the bell and shout ¡Viva!"
     },
     {
-      "activity": "colour",
+      "activity": "color",
       "x": 996,
       "y": 486,
       "r": 50,
-      "label": "Colour the flag"
+      "label": "Color the flag"
     },
     {
       "activity": "dressup",
@@ -46,7 +46,7 @@
     },
     {
       "id": "balloons",
-      "label": "tricolour balloons",
+      "label": "tricolor balloons",
       "x": 327,
       "y": 639,
       "r": 40

@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 900">
-<!-- Purim · front: a bunch of balloons tied to a post bottom left and a gift basket bottom right; the centre stays open -->
+<!-- Purim · front: a bunch of balloons tied to a post bottom left and a gift basket bottom right; the center stays open -->
 <defs></defs>
 <!-- balloons on a post -->
 <path d="M40 900v-140h10v140z" fill="#5a4a6a"/><path d="M45 760q-20-40-30-90m30 90q0-50 10-110m-10 110q20-40 40-80" fill="none" stroke="#ffffff" stroke-width="2" opacity=".8"/><path d="M-12 650a26 26 0 1 0 52 0a26 26 0 1 0-52 0zm40-30a28 28 0 1 0 56 0a28 28 0 1 0-56 0zm36 44a24 24 0 1 0 48 0a24 24 0 1 0-48 0z" fill="#ff4d6d"/><circle cx="56" cy="620" r="28" fill="#ffd23a"/><circle cx="88" cy="664" r="24" fill="#5ab8e8"/>

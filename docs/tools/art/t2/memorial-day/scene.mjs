@@ -164,7 +164,7 @@ export function mid() {
 // ============================== front ==============================
 export function front() {
   setPrecision(1);
-  return compactSvg(doc(`Memorial Day · front: red poppies in the grass in both bottom corners; the centre stays open`, [], [
+  return compactSvg(doc(`Memorial Day · front: red poppies in the grass in both bottom corners; the center stays open`, [], [
     C('poppies bottom left'),
     path('M20 900q-4 -50 6 -90M60 900q4 -60 -6 -110M100 900q6 -40 14 -76', { fill: 'none', stroke: '#2a6a3a', 'stroke-width': 4 }),
     path(circD(26, 806, 18) + circD(54, 788, 20) + circD(114, 820, 16), { fill: RED }), path(circD(26, 806, 5) + circD(54, 788, 6) + circD(114, 820, 5), { fill: '#1a1a1a' }),
@@ -180,7 +180,7 @@ export function sceneData(ppl) {
   return {
     hotspots: [
       { activity: 'card', x: r(ppl.flowers[0]), y: r(ppl.flowers[1]), r: 36, label: 'Make a thank-you card' },
-      { activity: 'colour', x: ppl.wreath[0], y: ppl.wreath[1], r: 40, label: 'Colour the poppy wreath' },
+      { activity: 'color', x: ppl.wreath[0], y: ppl.wreath[1], r: 40, label: 'Color the poppy wreath' },
       { activity: 'wish', x: ppl.flag[0], y: ppl.flag[1], r: 50, label: 'A moment to remember' },
       { activity: 'memory', x: ppl.picnic[0], y: ppl.picnic[1], r: 44, label: 'Match the picnic treats' },
     ],

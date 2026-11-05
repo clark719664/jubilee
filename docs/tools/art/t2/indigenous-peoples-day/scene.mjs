@@ -1,8 +1,8 @@
-// Indigenous Peoples' Day — "The Three Sisters": a golden October afternoon by a lake, honouring the first peoples of
+// Indigenous Peoples' Day — "The Three Sisters": a golden October afternoon by a lake, honoring the first peoples of
 // this land and what they have always grown. In a Three Sisters garden, tall corn holds up the climbing beans while
 // broad squash leaves shade the soil; a girl hoists the biggest squash. Beside a log by the lakeshore a grandmother in a
-// ribbon skirt, her grey braid over her shoulder, tells two children the story of the Three Sisters; a boy carries a
-// basket of many-coloured flint corn, and more corn hangs in braids to dry on a wooden rack. A canoe glides on the
+// ribbon skirt, her gray braid over her shoulder, tells two children the story of the Three Sisters; a boy carries a
+// basket of many-colored flint corn, and more corn hangs in braids to dry on a wooden rack. A canoe glides on the
 // lake, an eagle circles, a turtle suns on a rock and a deer watches from the trees. The falling leaves are the effect's.
 import { f, P, mix, lighten, darken, rng, E, G, C, path, circle, ellipse, lin, rad, doc, compactSvg, setPrecision } from '../../gen-xmas/lib.mjs';
 import { figure } from '../../gen-kw/people.mjs';
@@ -18,7 +18,7 @@ const GROUND = 690;
 const FALL = ['#c8102e', '#e8641a', '#ffb703', '#d84a1a', '#f0a020'];
 const CORN = ['#ffd166', '#c8102e', '#5a3a8a', '#f4f0e0', '#e8641a', '#3a2a5a'];
 
-/** An ear of flint corn pointing along angle `deg`: husk leaves and rows of many-coloured kernels. */
+/** An ear of flint corn pointing along angle `deg`: husk leaves and rows of many-colored kernels. */
 function ear(x, y, len, deg, seed) {
   const R = rng(seed);
   const w = len * 0.26;
@@ -84,7 +84,7 @@ export function mid() {
   ppl.eagle = [150, 194];
 
   // ---- the maple on the far left
-  out.push(C('a maple in full autumn colour on the left'));
+  out.push(C('a maple in full autumn color on the left'));
   {
     const t = bareTree(90, GROUND + 30, 300, 8, { lean: 0.06, depth: 5, spread: 0.6, trunk: 0.12 });
     out.push(path(t.d, { fill: '#5a3a24' }));
@@ -144,7 +144,7 @@ export function mid() {
   }
 
   // ---- grandmother on the log telling the story of the Three Sisters
-  out.push(C('the focal point: beside a log by the shore a grandmother in a ribbon skirt, her grey braid over her shoulder, tells two children the story of the Three Sisters'));
+  out.push(C('the focal point: beside a log by the shore a grandmother in a ribbon skirt, her gray braid over her shoulder, tells two children the story of the Three Sisters'));
   {
     out.push(path('M820 790q0 -26 26 -26h196q26 0 26 26t-26 26h-196q-26 0 -26 -26z', { fill: url('log') }), ellipse(1060, 790, 14, 24, { fill: '#c8a070' }), path('M1060 790m-8 0a8 14 0 1 0 16 0a8 14 0 1 0 -16 0', { fill: 'none', stroke: '#9a7048', 'stroke-width': 2 }));
     const tell = [{ sx: -1, elbow: [-0.9, 0.7], hand: [-1.6, 0.5] }, { sx: 1, elbow: [1.0, -0.1], hand: [1.3, -1.3] }];
@@ -171,7 +171,7 @@ export function mid() {
   }
 
   // ---- the boy with the basket of flint corn, the drying rack
-  out.push(C('a boy carries a basket of many-coloured flint corn; braids of corn hang to dry on a wooden rack'));
+  out.push(C('a boy carries a basket of many-colored flint corn; braids of corn hang to dry on a wooden rack'));
   {
     out.push(line('M1300 820V600M1480 820V600M1290 604H1490', '#7a4e2e', 8));
     [1330, 1380, 1430].forEach((x, i) => {
@@ -203,14 +203,14 @@ export function mid() {
   out.push(G({ transform: 'translate(700 560) rotate(14)' }, ellipse(-9, -6, 10, 8, { fill: '#f08a1a' }), ellipse(9, -6, 10, 8, { fill: '#f08a1a' }), ellipse(-6, 6, 7, 6, { fill: '#e8641a' }), ellipse(6, 6, 7, 6, { fill: '#e8641a' }), path('M-17 -6h16M1 -6h16M-9 -13v14M9 -13v14', { fill: 'none', stroke: '#2a1a0a', 'stroke-width': 1.2, opacity: 0.6 }), line('M0 -10v20', '#1a1a1a', 2.4)));
   ppl.monarch = [700, 560];
 
-  return { svg: compactSvg(doc(`Indigenous Peoples' Day · mid. Concept: "the Three Sisters" on a golden October afternoon by a lake, honouring the first peoples of this land and what they have always grown. Focal point: beside a log by the shore a grandmother in a ribbon skirt, her grey braid over her shoulder, tells two children the story of the Three Sisters (x 780–1140, y 600–860). In the Three Sisters garden tall corn holds up the climbing beans and broad squash leaves shade the soil, and a girl hoists the biggest squash; a boy carries a basket of many-coloured flint corn and corn hangs in braids to dry on a wooden rack. A canoe on the lake, an eagle circling, a turtle on a rock, a heron, a monarch butterfly, a deer at the woods' edge. Light story: low golden sun from the left. The falling leaves are the effect's.`, defs, out)), ppl };
+  return { svg: compactSvg(doc(`Indigenous Peoples' Day · mid. Concept: "the Three Sisters" on a golden October afternoon by a lake, honoring the first peoples of this land and what they have always grown. Focal point: beside a log by the shore a grandmother in a ribbon skirt, her gray braid over her shoulder, tells two children the story of the Three Sisters (x 780–1140, y 600–860). In the Three Sisters garden tall corn holds up the climbing beans and broad squash leaves shade the soil, and a girl hoists the biggest squash; a boy carries a basket of many-colored flint corn and corn hangs in braids to dry on a wooden rack. A canoe on the lake, an eagle circling, a turtle on a rock, a heron, a monarch butterfly, a deer at the woods' edge. Light story: low golden sun from the left. The falling leaves are the effect's.`, defs, out)), ppl };
 }
 
 // ============================== front ==============================
 export function front() {
   setPrecision(1);
   const leaf = (x, y, r, deg, c) => path(`M${f(-r)} 0Q0 ${f(-r * 0.8)} ${f(r)} 0Q0 ${f(r * 0.8)} ${f(-r)} 0Z`, { fill: c, transform: `translate(${f(x)} ${f(y)}) rotate(${deg})` });
-  return compactSvg(doc(`Indigenous Peoples' Day · front: tall grass and fallen leaves in the bottom corners, a chipmunk with an acorn bottom right; the centre stays open`, [], [
+  return compactSvg(doc(`Indigenous Peoples' Day · front: tall grass and fallen leaves in the bottom corners, a chipmunk with an acorn bottom right; the center stays open`, [], [
     C('tall grass and fallen leaves, bottom left'),
     line('M14 900q6 -70 -8 -120M40 900q-2 -60 14 -104M66 900q4 -44 -10 -80', '#8a8a3a', 5),
     leaf(60, 880, 16, 20, '#c8102e'), leaf(110, 890, 14, -30, '#ffb703'), leaf(20, 860, 12, 60, '#e8641a'),
@@ -226,7 +226,7 @@ export function sceneData(ppl) {
   return {
     hotspots: [
       { activity: 'card', x: ppl.grandma[0], y: r(ppl.grandma[1]), r: 44, label: 'Make a thank-you card' },
-      { activity: 'colour', x: r(ppl.squash[0]), y: r(ppl.squash[1]), r: 46, label: 'Colour the Three Sisters' },
+      { activity: 'color', x: r(ppl.squash[0]), y: r(ppl.squash[1]), r: 46, label: 'Color the Three Sisters' },
       { activity: 'catch', x: ppl.stalk2[0], y: ppl.stalk2[1] + 60, r: 60, label: 'Catch corn and leaves' },
       { activity: 'memory', x: r(ppl.basket[0]), y: r(ppl.basket[1]), r: 36, label: 'Harvest memory game' },
       { activity: 'wish', x: ppl.canoe[0], y: ppl.canoe[1], r: 44, label: 'Make a wish for the land' },

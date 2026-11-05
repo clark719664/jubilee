@@ -3,7 +3,7 @@
  * Ambient: a gentle rain of rectangles, dots and streamers in the theme palette (or `params.glyphs` as
  *   outlined emoji); every piece tumbles on its own flutter frequency, so it rocks sideways, slows while
  *   flat and flips (drawn as width = size·|cos phase|, no save/rotate/restore), and spins slowly.
- * Behaviours: gravity to a per-piece terminal speed, horizontal drag (cannon shots slow into a drift),
+ * Behaviors: gravity to a per-piece terminal speed, horizontal drag (cannon shots slow into a drift),
  *   flutter, spin.
  * Tap: two cannons fire from the bottom corners toward the finger and cross there.
  * Still: confetti scattered on the ground, lying at every angle, with a few pieces frozen mid-air.
@@ -28,7 +28,7 @@ export const GLYPH = 3;
 const GRAVITY = 260;
 const FOOLS_SECONDS = 2.2;
 
-/** Confetti colours that read on this sky: accent, accent2, then white/glow at night or ink by day. */
+/** Confetti colors that read on this sky: accent, accent2, then white/glow at night or ink by day. */
 export function confettiPalette(theme: Theme): readonly string[] {
   return theme.mood === 'night'
     ? [theme.accent, theme.accent2, theme.glow, '#ffffff']

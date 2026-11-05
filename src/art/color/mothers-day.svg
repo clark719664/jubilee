@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" fill="#ffffff" stroke="#2a2340" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+<!-- Mother's Day coloring page: a cottage with a big round window where a child and Dad bring Mum breakfast in bed, a rose climbing round the window, tulips, the sun and a butterfly -->
+<path data-fill="sun" fill="#ffffff" d="M48 92a44 44 0 1 0 88 0a44 44 0 1 0-88 0z"/>
+<path fill="none" stroke-width="5" d="M150 92l20 0m-31 34l16.1 11.8m-45 9.4l6 19m-42-19l-6.2 19m-23-40l-16 11.6m5.1-46l-20 .2m31-34l-16.1-11.8m45-9.4l-6-19m42 19l6.2-19m23 40l16-11.6"/>
+<path data-fill="cloud-left" fill="#ffffff" d="M240 230a18.3 18.3 0 0 1-20 21a31 31 0 0 1-50 9a31 31 0 0 1-49-8.8a18.3 18.3 0 0 1-21-21a18.3 18.3 0 0 1 21-21a31 31 0 0 1 49-9.2a31 31 0 0 1 50 8.8a18.3 18.3 0 0 1 20 21z"/>
+<path data-fill="cloud-right" fill="#ffffff" d="M740 120a21 21 0 0 1-23 24a36 36 0 0 1-57 10a36 36 0 0 1-57-10a21 21 0 0 1-23-24a21 21 0 0 1 23-24a36 36 0 0 1 57-10a36 36 0 0 1 57 10a21 21 0 0 1 23 24z"/>
+<g transform="translate(676 250) rotate(-12)">
+<path data-fill="butterfly-left" fill="#ffffff" d="M0 0c-12-34-60-42-62-16c-1 20 32 28 62 20z"/>
+<path data-fill="butterfly-right" fill="#ffffff" d="M0 0c12-34 60-42 62-16c1 20-32 28-62 20z"/>
+<path fill="none" stroke-width="5" d="M0-20v40m0-36q-8-16-16-20m16 20q8-16 16-20"/>
+</g>
+<path data-fill="lawn" fill="#ffffff" d="M-10 690c210-14 610-14 820 0v120h-820z"/>
+<path data-fill="stone-1" fill="#ffffff" d="M476 730a44 14 0 1 0 88 0a44 14 0 1 0-88 0z"/>
+<path data-fill="stone-2" fill="#ffffff" d="M448 770a52 16 0 1 0 104 0a52 16 0 1 0-104 0z"/>
+<path data-fill="wall" fill="#ffffff" d="M214 702v-360l186-192l186 192v360z"/>
+<path data-fill="roof" fill="#ffffff" d="M172 350l228-240l228 240l-30 10l-198-208l-198 208z"/>
+<path data-fill="bedroom-wall" fill="#ffffff" d="M272 380a128 128 0 1 0 256 0a128 128 0 1 0-256 0z"/>
+<path data-fill="dad-shirt" fill="#ffffff" d="M439 384q1-12 13-12l36 0q12 0 12.9 12l4.2 54q.9 12-11.1 12l-46 0q-12 0-11.4-12z"/>
+<path data-fill="dad-face" fill="#ffffff" d="M442 332a30 30 0 1 0 60 0a30 30 0 1 0-60 0z"/>
+<path data-fill="dad-hair" fill="#ffffff" d="M442 330c-2-34 22-38 34-36c18 2 28 16 26 36c-8-12-20-16-32-14c-12 2-22 6-28 14z"/>
+<path data-fill="dad-beard" fill="#ffffff" d="M446 342c2 32 50 32 52 0c-10 12-42 12-52 0z"/>
+<path fill="#2a2340" d="M458 332a4.5 4.5 0 1 0 9 0a4.5 4.5 0 1 0-9 0zm22 0a4.5 4.5 0 1 0 9 0a4.5 4.5 0 1 0-9 0z"/>
+<path data-fill="mum-hair" fill="#ffffff" d="M366 312c-2-32 16-40 34-40c18 0 36 8 34 40l6 68h-80z"/>
+<path data-fill="mum-top" fill="#ffffff" d="M362 376q2-14 16-14l44 0q14 0 15.6 13.9l4.8 40q1.6 14.1-12.4 14.1l-60 0q-14 0-12.4-13.9z"/>
+<path data-fill="mum-face" fill="#ffffff" d="M370 320a30 30 0 1 0 60 0a30 30 0 1 0-60 0z"/>
+<path fill="#2a2340" d="M386 318a4.5 4.5 0 1 0 9 0a4.5 4.5 0 1 0-9 0zm19.5 0a4.5 4.5 0 1 0 9 0a4.5 4.5 0 1 0-9 0z"/>
+<path fill="none" stroke-width="4" d="M390 334q10 10 20 0"/>
+<path data-fill="child-top" fill="#ffffff" d="M295 400q1-12 13-12l28 0q12 0 13.5 11.9l5 38q1.5 12.1-10.5 12.1l-42 0q-12 0-10.8-11.9z"/>
+<path data-fill="child-hair" fill="#ffffff" d="M290 352c-4-36 16-46 32-46c18 0 38 10 34 46l4 20h-74z"/>
+<path data-fill="child-face" fill="#ffffff" d="M294 352a28 28 0 1 0 56 0a28 28 0 1 0-56 0z"/>
+<path fill="#2a2340" d="M310 350a4.5 4.5 0 1 0 9 0a4.5 4.5 0 1 0-9 0zm17.5 0a4.5 4.5 0 1 0 9 0a4.5 4.5 0 1 0-9 0z"/>
+<path fill="none" stroke-width="4" d="M314 364q8 8 16 0"/>
+<g transform="rotate(-10 370 376)">
+<path data-fill="card" fill="#ffffff" d="M346 354q0-6 6-6l36 0q6 0 6 6l0 44q0 6-6 6l-36 0q-6 0-6-6z"/>
+<path data-fill="card-heart" fill="#ffffff" d="M370 372c.6-7.2 15-7.8 15 2.4c0 7.2-9 12.6-15 17.1c-6-4.5-15-9.9-15-17.1c0-10.2 14.4-9.6 15-2.4z"/>
+</g>
+<path data-fill="quilt" fill="#ffffff" d="M287 440c53-28 173-28 226 0a128 128 0 0 1-226 0z"/>
+<path fill="none" stroke-width="5" d="M352 444v20m96-20v20"/>
+<path data-fill="tray" fill="#ffffff" d="M344 437q0-5 5-5l102 0q5 0 5 5l0 4q0 5-5 5l-102 0q-5 0-5-5z"/>
+<path data-fill="pancakes" fill="#ffffff" d="M362 432c-2-20 50-20 48 0z"/>
+<path data-fill="juice" fill="#ffffff" d="M420 405q0-5 5-5l16 0q5 0 5 5l0 22q0 5-5 5l-16 0q-5 0-5-5z"/>
+<path data-fill="window-frame" fill="#ffffff" d="M250 380a150 150 0 1 0 300 0a150 150 0 1 0-300 0zm22 0a128 128 0 1 0 256 0a128 128 0 1 0-256 0z" fill-rule="evenodd"/>
+<path fill="none" stroke-width="5" d="M228 700c-4-50 12-100 22-140c2-40-16-80-18-120c-2-40 4-80 16-116"/>
+<path data-fill="rose-1" fill="#ffffff" d="M243 641a8 8 0 1 1 3.5 12.4a8 8 0 1 1-10.5 7.6a8 8 0 1 1-10.5-7.6a8 8 0 1 1 4-12.3a8 8 0 1 1 13 0z"/>
+<path data-fill="rose-1-middle" fill="#ffffff" d="M227 650a9 9 0 1 0 18 0a9 9 0 1 0-18 0z"/>
+<path data-fill="rose-2" fill="#ffffff" d="M257 539a8 8 0 1 1 3.5 12.4a8 8 0 1 1-10.5 7.6a8 8 0 1 1-10.5-7.6a8 8 0 1 1 4-12.3a8 8 0 1 1 13 0z"/>
+<path data-fill="rose-2-middle" fill="#ffffff" d="M241 548a9 9 0 1 0 18 0a9 9 0 1 0-18 0z"/>
+<path data-fill="rose-3" fill="#ffffff" d="M239 437a8 8 0 1 1 3.5 12.4a8 8 0 1 1-10.5 7.6a8 8 0 1 1-10.5-7.6a8 8 0 1 1 4-12.3a8 8 0 1 1 13 0z"/>
+<path data-fill="rose-3-middle" fill="#ffffff" d="M223 446a9 9 0 1 0 18 0a9 9 0 1 0-18 0z"/>
+<path data-fill="rose-4" fill="#ffffff" d="M251 331a8 8 0 1 1 3.5 12.4a8 8 0 1 1-10.5 7.6a8 8 0 1 1-10.5-7.6a8 8 0 1 1 4-12.3a8 8 0 1 1 13 0z"/>
+<path data-fill="rose-4-middle" fill="#ffffff" d="M235 340a9 9 0 1 0 18 0a9 9 0 1 0-18 0z"/>
+<path data-fill="kitchen-window" fill="#ffffff" d="M262 572q0-6 6-6l72 0q6 0 6 6l0 58q0 6-6 6l-72 0q-6 0-6-6z"/>
+<path fill="none" stroke-width="4" d="M304 566v70m-42-36h84"/>
+<path data-fill="window-sill" fill="#ffffff" d="M254 641q0-5 5-5l90 0q5 0 5 5l0 4q0 5-5 5l-90 0q-5 0-5-5z"/>
+<path data-fill="door" fill="#ffffff" d="M472 702l0-102a40 40 0 0 1 80 0l0 102z"/>
+<path data-fill="door-heart" fill="#ffffff" d="M512 598c.6-8.1 16-8.7 16 2.2c0 7.6-9.6 13.4-16 18.2c-6.4-4.8-16-10.6-16-18.2c0-10.9 15.4-10.3 16-2.6z"/>
+<path fill="#2a2340" d="M533 640a5 5 0 1 0 10 0a5 5 0 1 0-10 0z"/>
+<path data-fill="tulip-left-leaves" fill="#ffffff" d="M68 800c0-75-2-127-26-150c28 30 54 83 54 150zm16 0c0-70 30-119 54-140c-11.6 28-26 77-26 140z"/>
+<path data-fill="tulip-left-stem" fill="#ffffff" d="M83 800v-200h14v200z"/>
+<path data-fill="tulip-left-flower" fill="#ffffff" d="M54 600c-4-36 2-66 9-72l14 26l13-36l13 36l14-26c7 6 13 36 9 72c-6 26-66 26-72 0z"/>
+<path data-fill="tulip-right-leaves" fill="#ffffff" d="M690 800c0-75-2-127-26-150c28 30 54 83 54 150zm16 0c0-70 30-119 54-140c-11.6 28-26 77-26 140z"/>
+<path data-fill="tulip-right-stem" fill="#ffffff" d="M705 800v-200h14v200z"/>
+<path data-fill="tulip-right-flower" fill="#ffffff" d="M676 600c-4-36 2-66 9-72l14 26l13-36l13 36l14-26c7 6 13 36 9 72c-6 26-66 26-72 0z"/>
+</svg>

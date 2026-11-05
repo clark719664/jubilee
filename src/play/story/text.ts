@@ -2,7 +2,7 @@
  * text.ts — turning a page template into the sentences the child reads (pure; tested in Node).
  *
  * The child's name comes from Progress (optional); without one the book says "our hero", which reads
- * naturally mid-sentence and is capitalised at the start of one ("Our hero sweeps the step"). A friend's
+ * naturally mid-sentence and is capitalized at the start of one ("Our hero sweeps the step"). A friend's
  * name is typed on the cover, kept only while the book is open (and on the Fridge if the child saves the
  * story), and cleaned to a single first name of letters.
  */
@@ -80,7 +80,7 @@ export function splitSentences(text: string): string[] {
     .filter((s) => s.length > 0);
 }
 
-function capitalise(s: string): string {
+function capitalize(s: string): string {
   const m = /^([‘“'"(]*)(\p{Ll})/u.exec(s);
   return m ? `${m[1]}${m[2]!.toUpperCase()}${s.slice(m[0].length)}` : s;
 }
@@ -88,7 +88,7 @@ function capitalise(s: string): string {
 /** Fills one sentence template. A friend token with no friend falls back to "a friend" (books avoid this). */
 export function fillSentence(tpl: string, w: Who): string {
   const out = tpl.replace(TOKEN, (_m, k: string) => (k === 'name' ? w.name ?? NAME_FALLBACK : w.friend ?? 'a friend'));
-  return capitalise(out);
+  return capitalize(out);
 }
 
 /** The sentences of a page, ready to show and to read aloud. */

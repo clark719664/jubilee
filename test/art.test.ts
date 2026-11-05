@@ -24,12 +24,12 @@ function svgFiles(dir: string): string[] {
 
 const FORBIDDEN = /<(script|foreignObject|image|text|tspan|a|iframe|style[^>]*@import|link)\b/i;
 const EXTERNAL = /(href|src)\s*=\s*["'](?!#)|url\(\s*["']?(?!#)/i;
-const BUDGET_KB: Record<string, number> = { back: 40, mid: 60, front: 30, sticker: 30, world: 40, colour: 40 };
+const BUDGET_KB: Record<string, number> = { back: 40, mid: 60, front: 30, sticker: 30, world: 40, color: 40 };
 
 function kind(path: string): string {
   if (path.includes('/stickers/')) return 'sticker';
   if (path.includes('/world/')) return 'world';
-  if (path.includes('/colour/')) return 'colour';
+  if (path.includes('/color/')) return 'color';
   const m = /\/(back|mid|front)\.svg$/.exec(path);
   return m ? m[1]! : 'other';
 }
@@ -40,7 +40,7 @@ describe('art files', () => {
   it('lives where the loader expects it', () => {
     for (const f of files) {
       const rel = f.slice(ART.length + 1);
-      expect(rel, rel).toMatch(/^(scenes\/[a-z0-9-]+\/(back|mid|front)|stickers\/[a-z0-9-]+|world\/[a-z0-9-]+|colour\/[a-z0-9-]+)\.svg$/);
+      expect(rel, rel).toMatch(/^(scenes\/[a-z0-9-]+\/(back|mid|front)|stickers\/[a-z0-9-]+|world\/[a-z0-9-]+|color\/[a-z0-9-]+)\.svg$/);
     }
   });
 
@@ -56,9 +56,9 @@ describe('art files', () => {
       const k = kind(f);
       if (k === 'back' || k === 'mid' || k === 'front') expect(src, 'scene artboard').toMatch(/viewBox="0 0 1600 900"/);
       if (k === 'sticker') expect(src, 'sticker artboard').toMatch(/viewBox="0 0 512 512"/);
-      if (k === 'colour') {
-        expect(src, 'colouring artboard').toMatch(/viewBox="0 0 800 800"/);
-        expect((src.match(/data-fill="/g) ?? []).length, 'colouring regions').toBeGreaterThanOrEqual(12);
+      if (k === 'color') {
+        expect(src, 'coloring artboard').toMatch(/viewBox="0 0 800 800"/);
+        expect((src.match(/data-fill="/g) ?? []).length, 'coloring regions').toBeGreaterThanOrEqual(12);
       }
       expect(tagBalance(src), 'well-formed: every tag closes in order').toBe('ok');
       const kb = Buffer.byteLength(src) / 1024;

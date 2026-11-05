@@ -8,7 +8,7 @@ const content: HolidayContent = {
   ],
   facts: [
     {
-      text: 'India\'s flag is nicknamed the Tiranga, which means "tricolour". The navy-blue wheel in the middle is the Ashoka Chakra, copied from a 2,000-year-old stone pillar at Sarnath, and it has exactly 24 spokes. Many people say the spokes stand for the 24 hours of the day.',
+      text: 'India\'s flag is nicknamed the Tiranga, which means "tricolor". The navy-blue wheel in the middle is the Ashoka Chakra, copied from a 2,000-year-old stone pillar at Sarnath, and it has exactly 24 spokes. Many people say the spokes stand for the 24 hours of the day.',
       bigKids: true,
     },
     {

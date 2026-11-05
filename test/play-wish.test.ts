@@ -197,7 +197,7 @@ describe('Santa\'s reply', () => {
   });
 
   it('quotes the kindness line as a whole sentence', () => {
-    expect(kindQuote('helping my mum')).toBe("I've been kind by helping my mum.");
+    expect(kindQuote('helping my mom')).toBe("I've been kind by helping my mom.");
     expect(kindQuote('Sharing my toys!')).toBe("I've been kind by sharing my toys!");
     expect(kindQuote('i fed the cat')).toBe('I fed the cat.');
     expect(kindQuote('   ')).toBe('');

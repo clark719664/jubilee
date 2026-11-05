@@ -1,15 +1,15 @@
 /**
- * Cauldron Colours (activity id 'potion') — brew colours in a bubbling cauldron.
+ * Cauldron Colors (activity id 'potion') — brew colors in a bubbling cauldron.
  *
  * Tap the bottles to drop red, yellow, blue, white or night ink into the cauldron and watch the potion
  * change: red + yellow = orange, yellow + blue = green, red + blue = purple, all three = brown, white
- * makes it lighter, ink darker. A friend at the window asks for a colour ("a pink potion, like candy
+ * makes it lighter, ink darker. A friend at the window asks for a color ("a pink potion, like candy
  * floss"); when the cauldron matches they cheer and "Bottle it!" puts the potion on the shelf. Free
- * mixing always works: any colour can be bottled and gets its name. A hint says what to try. Nothing is
+ * mixing always works: any color can be bottled and gets its name. A hint says what to try. Nothing is
  * timed or wrong; "Pour it out" starts over, and nothing is saved.
  *
  * Keyboard: Tab to a bottle, Enter/Space drops it in; Esc goes back.
- * Motion: full → drops fall, bubbles rise, the liquid ripples; otherwise the colour simply changes.
+ * Motion: full → drops fall, bubbles rise, the liquid ripples; otherwise the color simply changes.
  */
 import './potion.css';
 import { mulberry32 } from '../../effects/rng';
@@ -20,12 +20,12 @@ import { createShell, pick } from '../spooky/kit';
 import { drawVisitor } from '../treats/art';
 import { VISITORS } from '../treats/logic';
 import type { Activity, ActivityInstance, PlayEnv } from '../types';
-import { DROPS, EMPTY, MAX_DROPS, addDrop, hex, hintFor, mixColour, mixFrom, nameOf, nextOrder, totalDrops, type Drop, type Mix, type Order } from './logic';
+import { DROPS, EMPTY, MAX_DROPS, addDrop, hex, hintFor, mixColor, mixFrom, nameOf, nextOrder, totalDrops, type Drop, type Mix, type Order } from './logic';
 
-export { DROPS, ORDERS, addDrop, colourName, hex, hintFor, mixColour, mixFrom, nameOf, nextOrder, totalDrops } from './logic';
+export { DROPS, ORDERS, addDrop, colorName, hex, hintFor, mixColor, mixFrom, nameOf, nextOrder, totalDrops } from './logic';
 
 export const COPY = {
-  title: 'Cauldron Colours',
+  title: 'Cauldron Colors',
   emoji: '🧪',
   blurb: 'Mix bubbling potions',
   sub: 'Drop, mix and brew!',
@@ -44,7 +44,7 @@ export const COPY = {
   } as Readonly<Record<Drop, { name: string; label: string }>>,
 } as const;
 
-const BOTTLE_COLOUR: Readonly<Record<Drop, string>> = { red: '#ed1f33', yellow: '#ffdb1f', blue: '#295ed9', white: '#ffffff', ink: '#1f0f38' };
+const BOTTLE_COLOR: Readonly<Record<Drop, string>> = { red: '#ed1f33', yellow: '#ffdb1f', blue: '#295ed9', white: '#ffffff', ink: '#1f0f38' };
 
 export const potionActivity: Activity = {
   id: 'potion',
@@ -56,7 +56,7 @@ export const potionActivity: Activity = {
 };
 
 function bottleSvg(d: Drop): SVGSVGElement {
-  const c = BOTTLE_COLOUR[d];
+  const c = BOTTLE_COLOR[d];
   const spec: Spec = ['svg', { viewBox: '0 0 56 84', class: 'pc-bottle-svg', 'aria-hidden': 'true', focusable: 'false' },
     ['rect', { x: 20, y: 2, width: 16, height: 12, rx: 3, fill: '#a8703a' }],
     ['path', { d: 'M20 12H36V26Q52 36 52 56V70Q52 80 42 80H14Q4 80 4 70V56Q4 36 20 26z', fill: '#f3ecff' }],
@@ -75,7 +75,7 @@ function mountPotion(env: PlayEnv): ActivityInstance {
   let order: Order = nextOrder(rand, null);
   let visitorId = pick(VISITORS, rand).id;
   let sayTimer: number | null = null;
-  const shelfItems: { readonly name: string; readonly colour: string }[] = [];
+  const shelfItems: { readonly name: string; readonly color: string }[] = [];
 
   // ── the friend at the window ──
   const swatch = h('span', { class: 'pc-swatch', 'aria-hidden': 'true' });
@@ -114,17 +114,17 @@ function mountPotion(env: PlayEnv): ActivityInstance {
   const panel = h('div', { class: 'sp-panel pc-panel' }, bottles, actions, h('div', { class: 'pc-shelf-wrap' }, shelf));
   shell.body.append(h('div', { class: 'pc-layout' }, orderCard, stage, panel));
 
-  // ── behaviour ──
+  // ── behavior ──
   const liquidEl = liquid as SVGElement;
-  function setColour(): void {
-    const c = hex(mixColour(mix));
+  function setColor(): void {
+    const c = hex(mixColor(mix));
     liquidEl.setAttribute('fill', c);
     potWrap.style.setProperty('--liquid', c);
     const n = totalDrops(mix);
     const name = nameOf(mix);
     nameTag.textContent = n === 0 ? COPY.water : `${name} potion`;
     pips.replaceChildren(...Array.from({ length: MAX_DROPS }, (_, i) => h('i', { class: i < n ? 'is-on' : '' })));
-    const matched = n > 0 && name === order.colour;
+    const matched = n > 0 && name === order.color;
     bottleBtn.classList.toggle('is-ready', matched);
     bottleBtn.disabled = n === 0;
     pourBtn.disabled = n === 0;
@@ -134,8 +134,8 @@ function mountPotion(env: PlayEnv): ActivityInstance {
 
   function renderOrder(): void {
     ask.textContent = `Can I have ${order.ask}, please?`;
-    swatch.style.background = hex(mixColour(mixFrom(order.recipe)));
-    swatch.textContent = order.colour;
+    swatch.style.background = hex(mixColor(mixFrom(order.recipe)));
+    swatch.textContent = order.color;
     friend.replaceChildren(drawVisitor(visitorId));
     hintLine.hidden = true;
     ctx.announce(`A friend asks for ${order.ask}.`);
@@ -153,44 +153,44 @@ function mountPotion(env: PlayEnv): ActivityInstance {
     if (totalDrops(mix) >= MAX_DROPS) { speak(COPY.full); return; }
     mix = addDrop(mix, d);
     if (shell.full()) {
-      const el = h('i', { class: 'pc-drop', style: `background:${BOTTLE_COLOUR[d]}` });
+      const el = h('i', { class: 'pc-drop', style: `background:${BOTTLE_COLOR[d]}` });
       potWrap.append(el);
       shell.later(() => el.remove(), 700);
       potWrap.classList.remove('is-splash');
       void potWrap.offsetWidth;
       potWrap.classList.add('is-splash');
     }
-    setColour();
+    setColor();
     const n = totalDrops(mix);
     const name = nameOf(mix);
-    if (name === order.colour) speak(COPY.match);
+    if (name === order.color) speak(COPY.match);
     ctx.announce(`${COPY.bottles[d].label} added. ${n} ${n === 1 ? 'drop' : 'drops'}. The potion is ${name.toLowerCase()}.`);
   }
 
   function bottleIt(): void {
     if (totalDrops(mix) === 0) return;
     const name = nameOf(mix);
-    const colour = hex(mixColour(mix));
-    const wasOrder = name === order.colour;
-    shelfItems.push({ name: `${name} potion`, colour });
-    shelf.replaceChildren(...shelfItems.slice(-8).map((p) => h('li', { class: 'pc-shelf-item' }, h('i', { style: `background:${p.colour}`, 'aria-hidden': 'true' }), h('span', {}, p.name))));
+    const color = hex(mixColor(mix));
+    const wasOrder = name === order.color;
+    shelfItems.push({ name: `${name} potion`, color });
+    shelf.replaceChildren(...shelfItems.slice(-8).map((p) => h('li', { class: 'pc-shelf-item' }, h('i', { style: `background:${p.color}`, 'aria-hidden': 'true' }), h('span', {}, p.name))));
     mix = EMPTY;
-    setColour();
+    setColor();
     if (wasOrder) {
       speak(COPY.thanks);
-      const next = nextOrder(rand, order.colour);
+      const next = nextOrder(rand, order.color);
       shell.later(() => { order = next; visitorId = pick(VISITORS.filter((v) => v.id !== visitorId), rand).id; renderOrder(); }, shell.full() ? 1500 : 800);
     } else speak(`A ${name.toLowerCase()} potion! On the shelf it goes.`);
   }
 
   function pourOut(): void {
     mix = EMPTY;
-    setColour();
+    setColor();
     speak('Whoosh! All poured out.');
   }
 
   renderOrder();
-  setColour();
+  setColor();
   shelf.append(h('li', { class: 'pc-shelf-empty' }, COPY.shelfEmpty));
   return { el: shell.root, destroy: () => shell.destroy() };
 }

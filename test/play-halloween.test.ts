@@ -1,6 +1,6 @@
 /**
  * play-halloween.test.ts — the five Halloween games' rules and data (no DOM): Pumpkin Carver and Monster
- * Maker records, Trick-or-Treat's doors and pail, Cauldron Colours' colour mixing, Peekaboo's round, and
+ * Maker records, Trick-or-Treat's doors and pail, Cauldron Colors' color mixing, Peekaboo's round, and
  * the way they are registered and linked.
  */
 import { describe, expect, it } from 'vitest';
@@ -8,14 +8,14 @@ import { mulberry32 } from '../src/effects/rng';
 import { byId } from '../src/content/registry';
 import { hasActivity, loadActivity } from '../src/play';
 import {
-  BODIES, COLOURS as MCOLOURS, EYES as MEYES, MOUTHS as MMOUTHS, PATTERNS, TOPS, describeMonster, monsterName, monsterTitle, randomMonster, sanitizeMonster,
+  BODIES, COLORS as MCOLORS, EYES as MEYES, MOUTHS as MMOUTHS, PATTERNS, TOPS, describeMonster, monsterName, monsterTitle, randomMonster, sanitizeMonster,
 } from '../src/play/monster/parts';
 import { GHOSTS, GHOST_COUNT, PLACES, hide, isDone, newRound, nextPlace, tap } from '../src/play/peekaboo/logic';
 import {
-  DROPS, MAX_DROPS, ORDERS, addDrop, colourName, hex, hintFor, mixColour, mixFrom, nameOf, nextOrder, totalDrops,
+  DROPS, MAX_DROPS, ORDERS, addDrop, colorName, hex, hintFor, mixColor, mixFrom, nameOf, nextOrder, totalDrops,
 } from '../src/play/potion/logic';
 import {
-  COLOURS, DEFAULT_PUMPKIN, EYES, HATS, MOUTHS, NOSES, describePumpkin, pumpkinTitle, randomPumpkin, sanitizePumpkin, withPart,
+  COLORS, DEFAULT_PUMPKIN, EYES, HATS, MOUTHS, NOSES, describePumpkin, pumpkinTitle, randomPumpkin, sanitizePumpkin, withPart,
 } from '../src/play/pumpkin/parts';
 import { shuffled } from '../src/play/spooky/kit';
 import {
@@ -30,8 +30,8 @@ describe('Pumpkin Carver', () => {
   it('reads any data back as a valid pumpkin', () => {
     expect(sanitizePumpkin(undefined)).toEqual(DEFAULT_PUMPKIN);
     expect(sanitizePumpkin('nope')).toEqual(DEFAULT_PUMPKIN);
-    const p = sanitizePumpkin({ eyes: 'star', nose: 'bogus', mouth: 'teeth', hat: 'crown', colour: 'pink', lit: true });
-    expect(p).toEqual({ v: 1, eyes: 'star', nose: DEFAULT_PUMPKIN.nose, mouth: 'teeth', hat: 'crown', colour: 'pink', lit: true });
+    const p = sanitizePumpkin({ eyes: 'star', nose: 'bogus', mouth: 'teeth', hat: 'crown', color: 'pink', lit: true });
+    expect(p).toEqual({ v: 1, eyes: 'star', nose: DEFAULT_PUMPKIN.nose, mouth: 'teeth', hat: 'crown', color: 'pink', lit: true });
   });
 
   it('random pumpkins are valid, seeded and varied', () => {
@@ -45,7 +45,7 @@ describe('Pumpkin Carver', () => {
   });
 
   it('has plenty to choose from, with unique ids, and names things for the Fridge', () => {
-    for (const list of [EYES, NOSES, MOUTHS, HATS, COLOURS]) expect(new Set(ids(list)).size).toBe(list.length);
+    for (const list of [EYES, NOSES, MOUTHS, HATS, COLORS]) expect(new Set(ids(list)).size).toBe(list.length);
     expect(EYES.length).toBeGreaterThanOrEqual(6);
     expect(MOUTHS.length).toBeGreaterThanOrEqual(6);
     expect(pumpkinTitle(DEFAULT_PUMPKIN)).toBe('Grinning orange pumpkin');
@@ -57,8 +57,8 @@ describe('Pumpkin Carver', () => {
 
 describe('Monster Maker', () => {
   it('reads any data back as a valid monster', () => {
-    const m = sanitizeMonster({ body: 'cube', colour: 'nope', eyes: '3', mouth: 'tongue', top: 'ears', pattern: 'spots', name: '  Zibby  ' });
-    expect(m).toMatchObject({ body: 'cube', colour: 'purple', eyes: '3', mouth: 'tongue', top: 'ears', pattern: 'spots', name: 'Zibby' });
+    const m = sanitizeMonster({ body: 'cube', color: 'nope', eyes: '3', mouth: 'tongue', top: 'ears', pattern: 'spots', name: '  Zibby  ' });
+    expect(m).toMatchObject({ body: 'cube', color: 'purple', eyes: '3', mouth: 'tongue', top: 'ears', pattern: 'spots', name: 'Zibby' });
     expect(sanitizeMonster(null).name.length).toBeGreaterThan(0);
     expect(sanitizeMonster({ name: 'x'.repeat(100) }).name.length).toBeLessThanOrEqual(24);
   });
@@ -69,7 +69,7 @@ describe('Monster Maker', () => {
     expect(sanitizeMonster(m)).toEqual(m);
     expect(monsterTitle(m)).toBe(`${m.name} the monster`);
     expect(describeMonster(m)).toContain(m.name);
-    for (const list of [BODIES, MEYES, MMOUTHS, TOPS, PATTERNS, MCOLOURS]) expect(new Set(ids(list)).size).toBe(list.length);
+    for (const list of [BODIES, MEYES, MMOUTHS, TOPS, PATTERNS, MCOLORS]) expect(new Set(ids(list)).size).toBe(list.length);
   });
 });
 
@@ -104,7 +104,7 @@ describe('Trick-or-Treat Street', () => {
   });
 });
 
-describe('Cauldron Colours', () => {
+describe('Cauldron Colors', () => {
   it('mixes like paint', () => {
     expect(nameOf(mixFrom([]))).toBe('Water');
     expect(nameOf(mixFrom(['red', 'yellow']))).toBe('Orange');
@@ -119,7 +119,7 @@ describe('Cauldron Colours', () => {
 
   it('every order can be made, and the hint says how', () => {
     for (const o of ORDERS) {
-      expect(nameOf(mixFrom(o.recipe)), o.colour).toBe(o.colour);
+      expect(nameOf(mixFrom(o.recipe)), o.color).toBe(o.color);
       expect(hintFor(o).startsWith('Try ')).toBe(true);
     }
     expect(hintFor(ORDERS[0]!)).toBe('Try 1 red and 1 yellow.');
@@ -127,18 +127,18 @@ describe('Cauldron Colours', () => {
     let last: string | null = null;
     for (let i = 0; i < 40; i++) {
       const o = nextOrder(rand, last);
-      expect(o.colour).not.toBe(last);
-      last = o.colour;
+      expect(o.color).not.toBe(last);
+      last = o.color;
     }
   });
 
-  it('holds a dozen drops, then stays full; colours are valid hex', () => {
+  it('holds a dozen drops, then stays full; colors are valid hex', () => {
     let m = mixFrom([]);
     for (let i = 0; i < 30; i++) m = addDrop(m, DROPS[i % DROPS.length]!);
     expect(totalDrops(m)).toBe(MAX_DROPS);
     expect(addDrop(m, 'red')).toBe(m);
-    for (const d of DROPS) expect(hex(mixColour(mixFrom([d])))).toMatch(/^#[0-9a-f]{6}$/);
-    expect(colourName([0.5, 0.5, 0.5])).toBe('Grey');
+    for (const d of DROPS) expect(hex(mixColor(mixFrom([d])))).toMatch(/^#[0-9a-f]{6}$/);
+    expect(colorName([0.5, 0.5, 0.5])).toBe('Gray');
   });
 });
 

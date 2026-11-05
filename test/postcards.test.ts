@@ -20,7 +20,7 @@ const city = (id: string): City => {
   return c;
 };
 
-/** Latin script (with accents, ʻokina and the like) needs no romanisation. */
+/** Latin script (with accents, ʻokina and the like) needs no romanization. */
 const LATIN = /^[\p{Script=Latin}\p{Script=Common}\p{Mn}ʻʼ’]*$/u;
 
 describe('postcard data lint', () => {
@@ -34,7 +34,7 @@ describe('postcard data lint', () => {
     for (const id of ids) expect(CITIES.some((c) => c.id === id), id).toBe(true);
   });
 
-  it('every greeting is complete, and non-Latin scripts have a romanisation', () => {
+  it('every greeting is complete, and non-Latin scripts have a romanization', () => {
     for (const p of POSTCARDS) {
       for (const side of [p.christmas, p.newYear]) {
         const g = side.greeting;

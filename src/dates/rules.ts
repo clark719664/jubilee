@@ -121,7 +121,7 @@ function resolve(rule: DateRule, year: number, region: Region, ctx: RuleContext,
       const target = ctx.ruleOf(rule.to);
       if (!target) return [];
       const next = [...stack, rule.to];
-      // The anchor may sit in a neighbouring year once the offset is added (Christmas + 10 → January).
+      // The anchor may sit in a neighboring year once the offset is added (Christmas + 10 → January).
       const out: Resolved[] = [];
       const seen = new Set<DayNumber>();
       for (const y of [year - 1, year, year + 1]) {

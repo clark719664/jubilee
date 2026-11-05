@@ -97,7 +97,7 @@ const content: HolidayContent = {
           tip: 'Keep the crusts for breadcrumbs or a snack.',
         },
         { text: 'Flatten each circle a little with the palm of your hand, so it will hold the jam without tearing.' },
-        { text: 'Spoon one teaspoon of jam into the centre of 8 of the circles.' },
+        { text: 'Spoon one teaspoon of jam into the center of 8 of the circles.' },
         { text: 'Put a plain circle on top of each jammy one and press the edges together all the way round with a fork, to seal the jam inside.' },
         { text: 'Hold a small sieve over the sandwiches and tap it to shower them with powdered sugar.' },
         { text: 'Arrange them on a plate: eight little doughnuts, one for each night.' },
@@ -121,7 +121,7 @@ const content: HolidayContent = {
         { avoid: 'gluten', use: '2 tbsp potato starch instead of the flour' },
         { avoid: 'egg', use: '2 tbsp potato starch mixed with 3 tbsp water instead of the eggs' },
       ],
-      equipment: ['box grater', 'large bowl', 'clean tea towel', 'wide frying pan', 'spatula', 'plate lined with paper towel'],
+      equipment: ['box grater', 'large bowl', 'clean dish towel', 'wide frying pan', 'spatula', 'plate lined with paper towel'],
       ingredients: [
         { item: 'potatoes', us: { qty: 2, unit: 'lb' }, metric: { qty: 900, unit: 'g' }, note: 'about 4 medium; floury kinds like russet work best' },
         { item: 'onion', us: { qty: 1, unit: 'piece' }, metric: { qty: 1, unit: 'piece' }, note: 'small' },
@@ -139,7 +139,7 @@ const content: HolidayContent = {
           hazards: ['sharp'],
         },
         {
-          text: 'Pile the grated potato and onion into a clean tea towel and squeeze it hard over the sink to wring out as much liquid as you can.',
+          text: 'Pile the grated potato and onion into a clean dish towel and squeeze it hard over the sink to wring out as much liquid as you can.',
           kidSafeOverride: 'the grating is finished; this step only squeezes the towel',
           tip: 'Dry potato is the secret to crispy latkes. Squeeze, then squeeze again.',
         },
@@ -203,7 +203,7 @@ const content: HolidayContent = {
         },
         { text: 'Fold firmly along every line between the squares, so the shape wants to curl up into a box.' },
         {
-          text: 'Write one Hebrew letter on each of the four squares in the tall column: nun (נ), gimel (ג), hei (ה) and shin (ש). The two side squares will be the top and bottom. Decorate with stars and colours.',
+          text: 'Write one Hebrew letter on each of the four squares in the tall column: nun (נ), gimel (ג), hei (ה) and shin (ש). The two side squares will be the top and bottom. Decorate with stars and colors.',
           tip: 'The letters stand for "A great miracle happened there."',
         },
         { text: 'Fold the shape up into a cube and tape the edges shut.' },
@@ -221,14 +221,14 @@ const content: HolidayContent = {
   doors: [
     { sleeps: 12, kind: 'fact', text: "Hanukkah is a Hebrew word that means 'dedication'. The holiday remembers the day the Temple in Jerusalem was dedicated, or made ready, all over again." },
     { sleeps: 11, kind: 'joke', text: 'Why did the jelly doughnut go to the dentist? It needed a filling!' },
-    { sleeps: 10, kind: 'colour', text: 'Crayons ready? The Hanukkah colouring page is waiting for blue and white, and lots of glowing candle gold. Open the colouring page!' },
+    { sleeps: 10, kind: 'color', text: 'Crayons ready? The Hanukkah coloring page is waiting for blue and white, and lots of glowing candle gold. Open the coloring page!' },
     { sleeps: 9, kind: 'fact', text: "The heroes of the Hanukkah story are called the Maccabees, after their leader Judah Maccabee. Many people say his nickname comes from an old word for 'hammer', because he was so strong." },
     { sleeps: 8, kind: 'craft', text: 'Make a giant gelt coin: wrap a cardboard circle in kitchen foil, then press a pattern into it with the blunt end of a pencil.' },
     { sleeps: 7, kind: 'say', text: 'Learn to say happy Hanukkah in Yiddish, the language many Jewish grandparents and great-grandparents spoke!', greeting: 2 },
     { sleeps: 6, kind: 'fact', text: 'Gelt is the Yiddish word for money. Long ago children were given real coins at Hanukkah; chocolate coins wrapped in gold foil came much later.' },
     { sleeps: 5, kind: 'joke', text: "What did the dreidel say after the game? 'I need to lie down. Everything is spinning!'" },
     { sleeps: 4, kind: 'seek', text: 'The Hanukkah picture is full of hidden surprises. How many can you find? Open Seek & Find!' },
-    { sleeps: 3, kind: 'fact', text: 'In Israel the favourite Hanukkah treat is the sufganiyah, a round jelly doughnut fried in oil. Bakeries there make millions of them every Hanukkah.' },
+    { sleeps: 3, kind: 'fact', text: 'In Israel the favorite Hanukkah treat is the sufganiyah, a round jelly doughnut fried in oil. Bakeries there make millions of them every Hanukkah.' },
     { sleeps: 2, kind: 'say', text: 'Learn the Hebrew greeting for Hanukkah, so you can say it on every one of the eight nights!', greeting: 1 },
     { sleeps: 1, kind: 'craft', text: 'Make a welcome garland: draw nine little flames on yellow paper, tear them out and tape them along a string. Hang it by the window for when Hanukkah begins at sundown!' },
   ],
@@ -239,7 +239,7 @@ const content: HolidayContent = {
     "1 Maccabees 4:36–59 (the rededication of the Temple)",
     "Babylonian Talmud, Shabbat 21b (the story of the oil and the rules for lighting)",
     "Encyclopaedia Britannica, 'Hanukkah'",
-    "YIVO Institute for Jewish Research, standard Yiddish orthography and romanisation",
+    "YIVO Institute for Jewish Research, standard Yiddish orthography and romanization",
   ],
 };
 

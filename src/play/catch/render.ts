@@ -337,7 +337,7 @@ export class Renderer {
     return r ? { img: r.img, w: r.w, h: r.h } : null;
   }
 
-  /** Draws a piece whose bottom-centre is at (x, y) screen, rotated by rot. */
+  /** Draws a piece whose bottom-center is at (x, y) screen, rotated by rot. */
   private drawPiece(x: number, y: number, w: number, h: number, color: number, rot: number, sy = 1): void {
     const p = this.piece(w, h, color);
     if (!p) return;
@@ -375,7 +375,7 @@ export class Renderer {
       }
     }
 
-    // Base: a cake stand / table in the basket colour.
+    // Base: a cake stand / table in the basket color.
     if (floor < game.h + 40) {
       const bc = this.skin.basketColor;
       g.fillStyle = blend(bc, '#000000', 0.25);

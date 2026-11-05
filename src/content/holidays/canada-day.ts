@@ -47,7 +47,7 @@ const content: HolidayContent = {
       adultHelp: 'some',
       hazards: ['sharp'],
       materials: [
-        { item: 'red paper', qty: '2 sheets', substitute: 'white paper coloured red with crayons' },
+        { item: 'red paper', qty: '2 sheets', substitute: 'white paper colored red with crayons' },
         { item: 'white paper', qty: '2 sheets' },
         { item: 'glue stick or tape', qty: '1' },
         { item: 'safety scissors', qty: '1 pair' },
@@ -61,7 +61,7 @@ const content: HolidayContent = {
         { text: 'Keep adding rings, red then white, until the chain is as long as you like.' },
         { text: 'Hang your chain across a window, a doorway or the party table.' },
       ],
-      learn: 'Red and white have been Canada\'s official colours since 1921, long before the maple leaf flag.',
+      learn: 'Red and white have been Canada\'s official colors since 1921, long before the maple leaf flag.',
     },
   ],
   parentNote:

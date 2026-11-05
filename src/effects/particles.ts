@@ -1,5 +1,5 @@
 /**
- * particles.ts — particle storage and behaviours for Jubilee effects.
+ * particles.ts — particle storage and behaviors for Jubilee effects.
  *
  * Storage: `new ParticlePool(capacity)` is a struct-of-arrays pool. Nothing is allocated per frame:
  *   const i = pool.alloc();        // index, or -1 when the pool is full; every field reset to defaults
@@ -14,9 +14,9 @@
  *   phase       oscillator angle used by sway/flutter/flame, or a per-particle offset for twinkle
  *   depth       0..1 parallax hint (far → near)          alpha   0..1 draw opacity
  *   aux         spare scalar for the preset's own use (ground target, flutter frequency, burst type…)
- *   kind, color Uint8Array: what the particle is / index into the preset's colour table
+ *   kind, color Uint8Array: what the particle is / index into the preset's color table
  *
- * Behaviours are plain functions `(pool, i, dt, …)` called per particle inside the preset's step loop:
+ * Behaviors are plain functions `(pool, i, dt, …)` called per particle inside the preset's step loop:
  *   forces (change velocity)   gravity(g, terminal)   drag(k)   wander(jitter, rand)
  *   drift  (change position)   wind(wx)   sway(amp, freq)   flutter(amp, freq)   rise(speed)
  *   state                      spin(speed)   flame(flicker, rand)   twinkle(freq, depth, base)   settle(groundY)
@@ -133,7 +133,7 @@ export class ParticlePool {
   }
 }
 
-// ------------------------------------------------------------------ behaviours (forces)
+// ------------------------------------------------------------------ behaviors (forces)
 
 /** Accelerates downwards by `g` px/s², never faster than `terminal`. */
 export function gravity(pool: ParticlePool, i: number, dt: number, g: number, terminal = Infinity): void {
@@ -154,7 +154,7 @@ export function wander(pool: ParticlePool, i: number, dt: number, jitter: number
   pool.vy[i]! += (rand() * 2 - 1) * jitter * dt;
 }
 
-// ------------------------------------------------------------------ behaviours (drift)
+// ------------------------------------------------------------------ behaviors (drift)
 
 /** Constant sideways drift of `wx` px/s, independent of the particle's own velocity. */
 export function wind(pool: ParticlePool, i: number, dt: number, wx: number): void {
@@ -187,7 +187,7 @@ export function rise(pool: ParticlePool, i: number, dt: number, speed: number): 
   pool.y[i]! -= speed * dt;
 }
 
-// ------------------------------------------------------------------ behaviours (state)
+// ------------------------------------------------------------------ behaviors (state)
 
 /** Rotates by the particle's own `rotV`, scaled by `speed`. */
 export function spin(pool: ParticlePool, i: number, dt: number, speed = 1): void {
@@ -263,7 +263,7 @@ export function envelope(pool: ParticlePool, i: number, fadeIn: number, fadeOut:
 
 export type Edge = 'top' | 'bottom' | 'left' | 'right' | 'area' | 'point';
 
-/** Initialises a freshly allocated particle: set size, velocity, kind, colour, lifetime… */
+/** Initialises a freshly allocated particle: set size, velocity, kind, color, lifetime… */
 export type ParticleInit = (pool: ParticlePool, i: number, rand: () => number) => void;
 
 /**

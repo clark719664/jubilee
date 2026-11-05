@@ -8,13 +8,13 @@ const dayOfTheDead: HolidayContent = {
   story: [
     'Day of the Dead, or Día de Muertos, is a Mexican holiday on 1 and 2 November when families remember relatives who have died and welcome their memory home.',
     'It blends the ancient traditions of Indigenous peoples such as the Mexica (Aztecs), who held festivals for the dead, with the Catholic days of All Saints and All Souls.',
-    'Many families build an ofrenda, a table covered in photos, candles, orange marigolds, sugar skulls, paper banners and the favourite foods of the people they are remembering.',
+    'Many families build an ofrenda, a table covered in photos, candles, orange marigolds, sugar skulls, paper banners and the favorite foods of the people they are remembering.',
     'It is not a sad or spooky day: there is music, laughter and story-telling, because the idea is that loved ones are never really gone while someone still says their name.',
   ],
 
   facts: [
     {
-      text: 'Bright orange marigolds, called cempasúchil, cover ofrendas and graves because many families believe their colour and strong smell help the spirits find their way home.',
+      text: 'Bright orange marigolds, called cempasúchil, cover ofrendas and graves because many families believe their color and strong smell help the spirits find their way home.',
       wow: true,
     },
     {
@@ -22,10 +22,10 @@ const dayOfTheDead: HolidayContent = {
       bigKids: true,
     },
     {
-      text: 'Sugar skulls are made of sugar, water and a little lemon, decorated with swirls of coloured icing and foil. A name is often written on the forehead, and it is a friendly gift, not a scary one.',
+      text: 'Sugar skulls are made of sugar, water and a little lemon, decorated with swirls of colored icing and foil. A name is often written on the forehead, and it is a friendly gift, not a scary one.',
     },
     {
-      text: 'In 2008 UNESCO added the Indigenous festivity dedicated to the dead to its list of the Intangible Cultural Heritage of Humanity, alongside the Carnival of Oruro in Bolivia and Kabuki theatre from Japan.',
+      text: 'In 2008 UNESCO added the Indigenous festivity dedicated to the dead to its list of the Intangible Cultural Heritage of Humanity, alongside the Carnival of Oruro in Bolivia and Kabuki theater from Japan.',
       bigKids: true,
     },
     {
@@ -60,7 +60,7 @@ const dayOfTheDead: HolidayContent = {
       id: 'marigold-orange-agua-fresca',
       title: 'Marigold Orange Agua Fresca',
       emoji: '🍊',
-      blurb: 'A jug of fresh orange and lime water the colour of marigold petals, just like the ones on an ofrenda.',
+      blurb: 'A jug of fresh orange and lime water the color of marigold petals, just like the ones on an ofrenda.',
       minutes: 15,
       serves: 4,
       difficulty: 1,
@@ -90,7 +90,7 @@ const dayOfTheDead: HolidayContent = {
         { text: 'Add the ice cubes and float the orange wheels on top so it looks like a jug of marigolds.' },
         { text: 'Taste test! Too sharp? Stir in a spoon more sugar. Too sweet? Add a splash more water. Then pour one for someone you love.' },
       ],
-      tip: 'Agua fresca just means fresh water: in Mexico it comes in every fruit colour you can think of.',
+      tip: 'Agua fresca just means fresh water: in Mexico it comes in every fruit color you can think of.',
     },
     {
       id: 'pan-de-muerto-mini-rolls',
@@ -107,13 +107,13 @@ const dayOfTheDead: HolidayContent = {
         { avoid: 'milk', use: 'oat or soy milk and a dairy-free spread' },
         { avoid: 'wheat', use: 'a gluten-free bread flour blend (the buns will be a little denser)' },
       ],
-      equipment: ['Big mixing bowl', 'Microwave-safe measuring jug', 'Fine grater or zester (grown-up)', 'Wooden spoon', 'Baking tray lined with parchment paper', 'Clean tea towel', 'Pastry brush', 'Oven gloves'],
+      equipment: ['Big mixing bowl', 'Microwave-safe measuring jug', 'Fine grater or zester (grown-up)', 'Wooden spoon', 'Baking sheet lined with parchment paper', 'Clean dish towel', 'Pastry brush', 'Oven gloves'],
       ingredients: [
         { item: 'Bread flour', us: { qty: 3, unit: 'cup' }, metric: { qty: 375, unit: 'g' }, allergens: ['wheat', 'gluten'] },
         { item: 'Sugar', us: { qty: 0.25, unit: 'cup' }, metric: { qty: 50, unit: 'g' } },
         { item: 'Instant yeast', us: { qty: 2, unit: 'tsp' }, metric: { qty: 7, unit: 'g' }, note: 'one small packet' },
         { item: 'Salt', us: { qty: 0.5, unit: 'tsp' }, metric: { qty: 2.5, unit: 'ml' } },
-        { item: 'Anise seeds', us: { qty: 1, unit: 'tsp' }, metric: { qty: 2, unit: 'g' }, optional: true, note: 'the traditional liquorice-y flavour' },
+        { item: 'Anise seeds', us: { qty: 1, unit: 'tsp' }, metric: { qty: 2, unit: 'g' }, optional: true, note: 'the traditional liquorice-y flavor' },
         { item: 'Milk', us: { qty: 0.5, unit: 'cup' }, metric: { qty: 120, unit: 'ml' }, allergens: ['milk'] },
         { item: 'Eggs', us: { qty: 2, unit: 'piece' }, metric: { qty: 2, unit: 'piece' }, allergens: ['egg'] },
         { item: 'Butter', us: { qty: 4, unit: 'tbsp' }, metric: { qty: 60, unit: 'g' }, note: 'softened', allergens: ['milk'] },
@@ -139,7 +139,7 @@ const dayOfTheDead: HolidayContent = {
           timerMinutes: 8,
           tip: 'It is ready when it feels smooth and springs back a little when you poke it.',
         },
-        { text: 'Put the dough back in the bowl, cover it with the tea towel and leave it somewhere warm for 60 minutes until it has grown to twice the size.', timerMinutes: 60 },
+        { text: 'Put the dough back in the bowl, cover it with the dish towel and leave it somewhere warm for 60 minutes until it has grown to twice the size.', timerMinutes: 60 },
         { text: 'Punch the air out, keep back a piece the size of your fist, then divide the rest into 8 balls and space them out on the lined tray.' },
         {
           text: 'Roll the saved piece into thin ropes, pinch each rope into a knobbly bone shape, lay two bones across each bun in a cross and press a tiny ball of dough on top.',
@@ -152,7 +152,7 @@ const dayOfTheDead: HolidayContent = {
           timerMinutes: 30,
         },
         {
-          text: 'A grown-up bakes the buns for 15 minutes until they are golden brown, then lifts the tray out with oven gloves.',
+          text: 'A grown-up bakes the buns for 15 minutes until they are golden brown, then lifts the tray out with oven mitts.',
           adult: true,
           hazards: ['heat'],
           timerMinutes: 15,
@@ -176,7 +176,7 @@ const dayOfTheDead: HolidayContent = {
       adultHelp: 'some',
       hazards: ['sharp'],
       materials: [
-        { item: 'Tissue paper', qty: '6 sheets in bright colours', substitute: 'thin wrapping paper or paper napkins' },
+        { item: 'Tissue paper', qty: '6 sheets in bright colors', substitute: 'thin wrapping paper or paper napkins' },
         { item: 'Scissors', substitute: 'ask a grown-up to make the first cuts and tear the rest' },
         { item: 'String or wool', qty: 'about 2 m' },
         { item: 'Glue stick', substitute: 'sticky tape' },
@@ -199,22 +199,22 @@ const dayOfTheDead: HolidayContent = {
   ],
 
   doors: [
-    { sleeps: 12, kind: 'fact', text: 'Millions of monarch butterflies reach the mountain forests of central Mexico around the start of November, after flying thousands of kilometres from Canada and the US. Some families see them as visitors coming home.' },
+    { sleeps: 12, kind: 'fact', text: 'Millions of monarch butterflies reach the mountain forests of central Mexico around the start of November, after flying thousands of kilometers from Canada and the US. Some families see them as visitors coming home.' },
     { sleeps: 11, kind: 'joke', text: 'Why are papel picado banners so good at parties? Because they love to hang out together!' },
     { sleeps: 10, kind: 'craft', text: 'Scrunch squares of orange and yellow tissue paper into little balls and glue them onto a paper circle to make a marigold that never wilts.' },
     { sleeps: 9, kind: 'say', text: 'Learn what children in Mexico say when they knock on doors for a sweet or a coin at Día de Muertos!', greeting: 1 },
     { sleeps: 8, kind: 'fact', text: 'Papel picado is often cut with tiny chisels and a hammer, through stacks of up to 50 sheets of tissue paper at once. The town of San Salvador Huixcolotla, in Puebla, is famous for it.' },
-    { sleeps: 7, kind: 'colour', text: 'Colour in the Day of the Dead page with the brightest colours you have: marigold orange, sugar-skull pink and papel picado purple!' },
+    { sleeps: 7, kind: 'color', text: 'Color in the Day of the Dead page with the brightest colors you have: marigold orange, sugar-skull pink and papel picado purple!' },
     { sleeps: 6, kind: 'joke', text: "What did the marigold say to the sunflower? Orange you glad we're the brightest flowers around?" },
     { sleeps: 5, kind: 'fact', text: 'The smiling skeleton lady in a big flowery hat is La Catrina. José Guadalupe Posada first drew her more than 100 years ago, the painter Diego Rivera later named her Catrina, and today many people paint their faces like hers.' },
     { sleeps: 4, kind: 'craft', text: 'Draw a family member or a pet you want to remember, and stand the picture on a little table beside a flower, like a tiny ofrenda.' },
     { sleeps: 3, kind: 'seek', text: 'Some sneaky things are hiding in the Day of the Dead picture. Can you find every single one? Open Seek & Find!' },
     { sleeps: 2, kind: 'fact', text: 'A Mexica legend says a dog called a xoloitzcuintle helps spirits on their long journey. Xolos are real, mostly hairless dogs, and one of the oldest dog breeds in the Americas.' },
-    { sleeps: 1, kind: 'say', text: 'Tomorrow is Día de los Muertos! Tell someone your favourite story about a person you love, then learn the happy greeting for the big day.', greeting: 0 },
+    { sleeps: 1, kind: 'say', text: 'Tomorrow is Día de los Muertos! Tell someone your favorite story about a person you love, then learn the happy greeting for the big day.', greeting: 0 },
   ],
 
   parentNote:
-    'Day of the Dead is about remembering, not fear: the skulls here are sweet and smiling. 1 November honours children who have died and 2 November adults, so the holiday can be tender for a family that has lost someone; children who want to make a small ofrenda of their own should be allowed to lead.',
+    'Day of the Dead is about remembering, not fear: the skulls here are sweet and smiling. 1 November honors children who have died and 2 November adults, so the holiday can be tender for a family that has lost someone; children who want to make a small ofrenda of their own should be allowed to lead.',
 
   sources: [
     "Smithsonian National Museum of the American Latino, 'Día de los Muertos' (Latino history and culture resources)",

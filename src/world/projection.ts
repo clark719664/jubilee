@@ -3,14 +3,14 @@
  * map behind one small interface, plus the hemisphere clipper the globe needs.
  *
  * Why clip in 3D: a country ring that disappears round the limb must stay a closed,
- * filled shape. We run Sutherland–Hodgman against the plane through the globe's centre
+ * filled shape. We run Sutherland–Hodgman against the plane through the globe's center
  * perpendicular to the view vector, and wherever the ring leaves the hemisphere we walk
  * the horizon arc from the exit to the matching re-entry. Which re-entry? The next
  * crossing along the rim in the ring's winding direction (d3-geo's "rejoin" rule): the
  * crossings alternate exit/entry along the rim for any simple polygon, so this links
  * nested lobes correctly where "the ring's own re-entry" would not. Rings must be
  * counter-clockwise (interior on the left when seen from outside); `shapes.ts`
- * normalises the data once.
+ * normalizes the data once.
  *
  * Output goes into a reusable `PolyBuffer` so a frame allocates nothing after warm-up.
  */
@@ -33,7 +33,7 @@ export interface Projection {
 
 function fresh(): Projected { return { x: 0, y: 0, visible: false }; }
 
-/** Orthographic globe. `scale` is the globe radius in CSS pixels; the disc sits at the canvas centre. */
+/** Orthographic globe. `scale` is the globe radius in CSS pixels; the disc sits at the canvas center. */
 export class Orthographic implements Projection {
   readonly kind = 'globe' as const;
   w = 1;
@@ -41,7 +41,7 @@ export class Orthographic implements Projection {
   scale = 1;
   private lon0 = 0;
   private lat0 = 0;
-  /** View vector (towards the viewer), screen-right and screen-up unit vectors. */
+  /** View vector (toward the viewer), screen-right and screen-up unit vectors. */
   readonly c: MVec3 = [1, 0, 0];
   readonly u: MVec3 = [0, 1, 0];
   readonly v: MVec3 = [0, 0, 1];
@@ -49,7 +49,7 @@ export class Orthographic implements Projection {
   constructor(lon = 0, lat = 0) { this.setCenter(lon, lat); }
 
   get center(): LonLat { return { lon: this.lon0, lat: this.lat0 }; }
-  /** The centre without allocating (per-frame callers). */
+  /** The center without allocating (per-frame callers). */
   get centerLon(): number { return this.lon0; }
   get centerLat(): number { return this.lat0; }
 
@@ -104,8 +104,8 @@ export class Orthographic implements Projection {
 }
 
 /**
- * Equirectangular flat map. `scale` is pixels per degree; the map is centred on
- * `center` and may pan. `project` wraps longitudes to the copy nearest the centre;
+ * Equirectangular flat map. `scale` is pixels per degree; the map is centered on
+ * `center` and may pan. `project` wraps longitudes to the copy nearest the center;
  * ring drawing uses `projectRaw` plus `wrapWidth()` offsets instead so no ring is torn.
  */
 export class Equirectangular implements Projection {
@@ -231,7 +231,7 @@ function crossing(ring: Float32Array, ia: number, ib: number, da: number, db: nu
 
 /**
  * Signed turning of a ring about the axis `c` (radians): +2π when the CCW ring winds round
- * `c` (its interior holds the view centre), −2π when it winds round −c, 0 when neither.
+ * `c` (its interior holds the view center), −2π when it winds round −c, 0 when neither.
  */
 function windingAbout(ring: Float32Array, c: Readonly<MVec3>): number {
   const n = ring.length / 3;
@@ -251,7 +251,7 @@ function windingAbout(ring: Float32Array, c: Readonly<MVec3>): number {
   return total;
 }
 
-/** The whole visible disc as one polygon (a ring that is all behind us but surrounds the view centre). */
+/** The whole visible disc as one polygon (a ring that is all behind us but surrounds the view center). */
 function pushDisc(proj: Orthographic, out: PolyBuffer): void {
   const steps = Math.max(48, Math.min(256, Math.round(proj.scale / 3)));
   out.begin();
@@ -325,7 +325,7 @@ export function clipRingInto(
   }
   if (runs === 0) return;
 
-  // Link each exit to the next entry anticlockwise along the rim.
+  // Link each exit to the next entry counterclockwise along the rim.
   for (let r = 0; r < runs; r++) {
     let best = r;
     let bestDelta = TWO_PI + 1;

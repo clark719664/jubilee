@@ -63,7 +63,7 @@ function mountDressup(env: PlayEnv): ActivityInstance {
   const stage = createStage({
     label: COPY.jubiLabel,
     motion: () => ctx.motion,
-    sparkleColours: [theme.glow, theme.accent, '#ffffff', theme.accent2],
+    sparkleColors: [theme.glow, theme.accent, '#ffffff', theme.accent2],
     onTap: () => {
       const line = COPY.giggles[Math.floor(Math.random() * COPY.giggles.length)]!;
       stage.mood('excited', 1300);
@@ -107,7 +107,7 @@ function mountDressup(env: PlayEnv): ActivityInstance {
   );
   const left = h('div', { class: 'dz-left' }, stage.el, chips);
   const right = h('div', { class: 'dz-right' }, drawer.rail, drawer.panel, actions);
-  const root = h('section', { class: 'dz sky', 'aria-labelledby': 'dz-h1', 'data-mood': theme.mood }, backdrop, header, h('div', { class: 'dz-body' }, left, right));
+  const root = h('section', { class: 'dz sky', 'aria-labeledby': 'dz-h1', 'data-mood': theme.mood }, backdrop, header, h('div', { class: 'dz-body' }, left, right));
   applyTheme(root, theme);
   const syncMotion = (): void => { root.classList.toggle('dz-calm', !full()); };
   syncMotion();
@@ -117,7 +117,7 @@ function mountDressup(env: PlayEnv): ActivityInstance {
   root.addEventListener('pointermove', onMove);
   root.addEventListener('pointerdown', onMove);
 
-  // ── behaviour ──
+  // ── behavior ──
   function apply(next: Outfit, changed: Slot | null, quietSave = false): void {
     outfit = next;
     if (changed || !quietSave) saveOutfit(outfit, { pretending });
@@ -217,7 +217,7 @@ function mountDressup(env: PlayEnv): ActivityInstance {
     const title = describeOutfit(outfit, meta.name);
     const status = h('div', { class: 'dz-status' });
     const done = h('button', { type: 'button', class: 'btn btn-lg dz-done-btn', onclick: () => closeDialog() }, COPY.keepDressing);
-    const panel = h('div', { class: 'dz-dialog', role: 'dialog', 'aria-modal': 'true', 'aria-labelledby': 'dz-dialog-title' },
+    const panel = h('div', { class: 'dz-dialog', role: 'dialog', 'aria-modal': 'true', 'aria-labeledby': 'dz-dialog-title' },
       h('div', { class: 'dz-dialog-card' },
         h('h2', { class: 'dz-dialog-title', id: 'dz-dialog-title' }, COPY.pictureTitle),
         card, status, h('div', { class: 'dz-dialog-actions' }, done)));

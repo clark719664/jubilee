@@ -32,7 +32,7 @@ export interface QueryFlags {
  *   #/holidays?tag=x&sort=y    parade
  *   #/h/:id?s=section          holiday world
  *   #/h/:id/make/:recipeId     recipe step mode
- *   #/h/:id/play/:activity     an activity (doors, seek, colour, card, wish, memory, catch…) for that holiday
+ *   #/h/:id/play/:activity     an activity (doors, seek, color, card, wish, memory, catch…) for that holiday
  *   #/year  #/year/:year       year view
  *   #/stickers  #/grownups
  *   #/world  #/world/:id       the globe (optionally focused on one holiday)
@@ -217,7 +217,7 @@ export class Router {
   /** Reads the current hash, emits it as the initial route and starts listening. */
   start(): void {
     if (this.stop) return;
-    this.hash = this.normalise(this.host.getHash());
+    this.hash = this.normalize(this.host.getHash());
     this.route = parseHash(this.hash);
     this.stack.push(this.hash);
     this.emit({ back: false, initial: true });
@@ -243,7 +243,7 @@ export class Router {
   }
 
   private handleChange(): void {
-    const next = this.normalise(this.host.getHash());
+    const next = this.normalize(this.host.getHash());
     if (next === this.hash) return;
     const prev = this.stack.length >= 2 ? this.stack[this.stack.length - 2] : undefined;
     const back = prev === next;
@@ -266,7 +266,7 @@ export class Router {
   }
 
   /** Unknown hashes are rewritten to `#/` so the address bar matches the view. */
-  private normalise(hash: string): string {
+  private normalize(hash: string): string {
     const route = parseHash(hash);
     if (route.view === 'home' && hash !== '#/' && hash !== '' && hash !== '#') {
       this.host.replace('#/');

@@ -8,11 +8,11 @@
       "label": "Paint a maple leaf on your cheek"
     },
     {
-      "activity": "colour",
+      "activity": "color",
       "x": 740,
       "y": 770,
       "r": 50,
-      "label": "Colour the red canoe"
+      "label": "Color the red canoe"
     },
     {
       "activity": "card",

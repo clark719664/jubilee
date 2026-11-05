@@ -1,7 +1,7 @@
 // Dragon Boat Festival — "The race on the river": a sunny June day on a wide river. Two long dragon boats race neck
 // and neck — a red dragon and a green one — paddlers digging in, a drummer at the bow of each beating the rhythm and
 // a steerer at the stern; spray flies from the paddles. On the near bank a family cheers from a stone embankment:
-// a girl waves a little dragon flag, grandma unwraps a zongzi from its bamboo leaf, a boy wears a colourful
+// a girl waves a little dragon flag, grandma unwraps a zongzi from its bamboo leaf, a boy wears a colorful
 // five-thread bracelet; a basket of zongzi tied with string sits by them. A stone arch bridge and a pagoda on the
 // far bank, willows trailing in the water, a duck paddling. The bubbles, splashes and ripples are the effect's.
 import { f, P, mix, lighten, darken, rng, E, G, C, path, circle, ellipse, lin, rad, doc, compactSvg, setPrecision } from '../../gen-xmas/lib.mjs';
@@ -16,7 +16,7 @@ const SKIN = { light: '#f0c4a0', fair: '#e8b48a', tan: '#c98a5a', brown: '#9a644
 const GOLD = '#ffc83a';
 const FAR = 600, BANK = 790;
 
-/** A dragon boat centred at x, waterline y, heading left; `col` the dragon's colour; `s` scale. */
+/** A dragon boat centered at x, waterline y, heading left; `col` the dragon's color; `s` scale. */
 function boat(x, y, s, col, trim, seed) {
   const L = 560 * s, hgt = 34 * s;
   const R = rng(seed);
@@ -166,7 +166,7 @@ export function mid() {
 // ============================== front ==============================
 export function front() {
   setPrecision(1);
-  return compactSvg(doc(`Dragon Boat Festival · front: tall reeds in both bottom corners; the centre stays open`, [], [
+  return compactSvg(doc(`Dragon Boat Festival · front: tall reeds in both bottom corners; the center stays open`, [], [
     C('reeds bottom left'),
     path('M20 900q-6 -80 4 -140M44 900q2 -100 -8 -170M70 900q8 -70 20 -120', { fill: 'none', stroke: '#5a8a3a', 'stroke-width': 5 }),
     path('M20 760l-6 -30h12zM36 730l-6 -34h12z', { fill: '#8a5a2a' }),
@@ -181,7 +181,7 @@ export function sceneData(ppl) {
   const r = (v) => Math.round(v);
   return {
     hotspots: [
-      { activity: 'colour', x: r(ppl.redBoat[0]), y: r(ppl.redBoat[1]), r: 70, label: 'Colour the dragon boat' },
+      { activity: 'color', x: r(ppl.redBoat[0]), y: r(ppl.redBoat[1]), r: 70, label: 'Color the dragon boat' },
       { activity: 'memory', x: r(ppl.zongzi[0]), y: r(ppl.zongzi[1]), r: 36, label: 'Match the zongzi' },
       { activity: 'catch', x: r(ppl.greenBoat[0]), y: r(ppl.greenBoat[1]), r: 56, label: 'Catch the splashes' },
       { activity: 'card', x: r(ppl.flag[0]), y: r(ppl.flag[1]), r: 30, label: 'Make a dragon flag card' },
@@ -191,7 +191,7 @@ export function sceneData(ppl) {
       { id: 'dragon-head', label: 'a dragon head', x: r(ppl.redHead[0]), y: r(ppl.redHead[1]), r: 24 },
       { id: 'duck', label: 'a duck getting out of the way', x: ppl.duck[0], y: ppl.duck[1], r: 20 },
       { id: 'basket', label: 'a basket of zongzi', x: ppl.basket[0], y: ppl.basket[1], r: 26 },
-      { id: 'bracelet', label: 'a five-colour bracelet', x: r(ppl.bracelet[0]), y: r(ppl.bracelet[1]), r: 14 },
+      { id: 'bracelet', label: 'a five-color bracelet', x: r(ppl.bracelet[0]), y: r(ppl.bracelet[1]), r: 14 },
       { id: 'camera', label: 'a camera', x: r(ppl.camera[0]), y: r(ppl.camera[1]), r: 18 },
       { id: 'pagoda', label: 'the pagoda', x: 1440, y: 480, r: 40 },
     ],

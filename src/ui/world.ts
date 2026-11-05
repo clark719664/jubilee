@@ -202,7 +202,7 @@ export function mountWorld(host: HTMLElement, deps: WorldDeps): WorldInstance {
       const hs = todayHolidays();
       const first = hs[0];
       if (!first) return null;
-      // A whole-planet holiday (New Year's Eve) would swallow the rest: colour the specific ones.
+      // A whole-planet holiday (New Year's Eve) would swallow the rest: color the specific ones.
       const lists = hs.map((x) => CELEBRATED[x.id]?.countries ?? []);
       const specific = lists.filter((l) => !isEverywhere(l));
       const countries = new Set<string>();
@@ -476,7 +476,7 @@ export function mountWorld(host: HTMLElement, deps: WorldDeps): WorldInstance {
 
 /**
  * The registry entry for #/world and #/world/:id: builds WorldDeps from the app context
- * (clock, catalogue, region, locale, motion) and mounts the view; `route.id` preselects a holiday.
+ * (clock, catalog, region, locale, motion) and mounts the view; `route.id` preselects a holiday.
  */
 export const worldView: ViewFactory<'world'> = (ctx, route) => {
   ctx.setTheme(null);

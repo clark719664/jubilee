@@ -197,7 +197,7 @@ describe('holi', () => {
 });
 
 describe('leaves', () => {
-  it('builds a pile, and a tap kicks resting leaves back into the air and recolours one', () => {
+  it('builds a pile, and a tap kicks resting leaves back into the air and recolors one', () => {
     const c = CASES[4]!;
     const fx = c.factory(stubSprites) as LeavesEffect;
     const input = makeInput(4, c, 300);
@@ -211,7 +211,7 @@ describe('leaves', () => {
     let kicked = 0;
     for (let i = 0; i < pool.count; i++) if (isFalling(pool.kind[i]!) && pool.vy[i]! < -50) kicked++;
     expect(kicked).toBeGreaterThan(5);
-    expect(fx.recoloured).toBe(1);
+    expect(fx.recolored).toBe(1);
     expect(fx.gust).not.toBe(0);
   });
 

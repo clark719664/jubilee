@@ -156,7 +156,7 @@ export interface Skin {
   /** Big line after the flight. */
   readonly flewTitle: string;
   readonly flewSub: string;
-  /** Collection screen ("Postbox", "My lanterns"…). */
+  /** Collection screen ("Mailbox", "My lanterns"…). */
   readonly keepTitle: string;
   readonly keepEmpty: string;
   readonly another: string;
@@ -174,8 +174,8 @@ const SKINS: Readonly<Record<SkinId, Skin>> = {
     listEmpty: 'Tap pictures to add wishes to your letter', listLead: 'This year I wish for…',
     textLabel: 'Anything else to tell Santa?', textPlaceholder: 'Hello Santa! I want to tell you…',
     kindLabel: "I've been kind by…", signoff: 'Love from', send: 'Fold & send',
-    flewTitle: 'Whoosh! Off it flies!', flewSub: 'Your letter is flying to the North Pole. Peek in the postbox tomorrow morning!',
-    keepTitle: 'My postbox', keepEmpty: 'No letters yet. Write one to Santa!', another: 'Write another letter',
+    flewTitle: 'Whoosh! Off it flies!', flewSub: 'Your letter is flying to the North Pole. Peek in the mailbox tomorrow morning!',
+    keepTitle: 'My mailbox', keepEmpty: 'No letters yet. Write one to Santa!', another: 'Write another letter',
     itemTitle: 'Letter to Santa', chips: SANTA_CHIPS, maxChips: 8,
   },
   lantern: {
@@ -232,8 +232,8 @@ const SKINS: Readonly<Record<SkinId, Skin>> = {
 /** Who a love note is for: quick picks only, chosen per holiday. */
 const TO_PICKS: Readonly<Record<string, readonly string[]>> = {
   'valentines-day': ['My family', 'My friend', 'My teacher', 'Mom', 'Dad'],
-  'mothers-day': ['Mom', 'Mum', 'Mama', 'Grandma'],
-  'mothers-day-fr': ['Maman', 'Mum', 'Mamie'],
+  'mothers-day': ['Mom', 'Mom', 'Mama', 'Grandma'],
+  'mothers-day-fr': ['Maman', 'Mom', 'Mamie'],
   'fathers-day': ['Dad', 'Papa', 'Grandpa'],
   'grandparents-day': ['Grandma', 'Grandpa', 'Nana', 'Grandad'],
 };

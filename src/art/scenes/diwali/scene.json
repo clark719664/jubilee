@@ -36,11 +36,11 @@
       "label": "Peek in the windows: Seek & Find"
     },
     {
-      "activity": "colour",
+      "activity": "color",
       "x": 1030,
       "y": 566,
       "r": 36,
-      "label": "Colour a Diwali picture"
+      "label": "Color a Diwali picture"
     }
   ],
   "findables": [

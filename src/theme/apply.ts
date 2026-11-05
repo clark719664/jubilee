@@ -1,7 +1,7 @@
 /**
  * Applies a holiday theme to the app root as `--h-*` custom properties via the
  * CSSOM (`style.setProperty`, so no inline-style CSP exception is needed) and
- * keeps `<meta name="theme-color">` and the shell colour scheme in step.
+ * keeps `<meta name="theme-color">` and the shell color scheme in step.
  *
  * `:root` already defines every `--h-*` token as the shell sky, so removing the
  * inline overrides (theme = null) fades the page back to the shell gradient.
@@ -13,7 +13,7 @@ export const THEME_VARS = [
   ['--h-accent-ink', 'accentInk'], ['--h-accent2', 'accent2'], ['--h-glow', 'glow'],
 ] as const satisfies readonly (readonly [string, keyof Theme])[];
 
-/** Shell sky colours (mirrors `--sky-1` in styles.css) for the meta tag when no holiday theme is active. */
+/** Shell sky colors (mirrors `--sky-1` in styles.css) for the meta tag when no holiday theme is active. */
 export const SHELL_SKY = { light: '#fff8ec', dark: '#1c1b4b' } as const;
 
 export function applyTheme(el: HTMLElement, theme: Theme | null): void {
@@ -41,7 +41,7 @@ export function setMetaThemeColor(hex: string): void {
   meta.content = hex;
 }
 
-/** Grown-ups override of the OS colour scheme: `data-theme` on <html>; undefined follows the OS. */
+/** Grown-ups override of the OS color scheme: `data-theme` on <html>; undefined follows the OS. */
 export function applyScheme(scheme: 'light' | 'dark' | undefined): void {
   if (typeof document === 'undefined') return;
   const html = document.documentElement;

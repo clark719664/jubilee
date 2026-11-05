@@ -11,7 +11,7 @@ const book: StoryBook = {
       camera: { x: 400, y: 640, zoom: 1.8 }, prop: '🧹',
     },
     {
-      text: 'Next come the decorations: red paper cuts on the windows and red lanterns by the door. Red is the colour of good luck.',
+      text: 'Next come the decorations: red paper cuts on the windows and red lanterns by the door. Red is the color of good luck.',
       camera: { x: 1230, y: 640, zoom: 2.2 }, prop: '🏮',
     },
     {

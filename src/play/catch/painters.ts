@@ -1,10 +1,10 @@
 /**
  * painters.ts — the catch game's own sprite painters (presents, sweets, mooncakes, the sleepy cloud…)
  * plus `stickerize`, which gives any painter Jubilee's die-cut look: a soft drop shadow, a thin ink rim
- * and a white paper border. Everything here runs once per (name, size, colour) inside the shared sprite
+ * and a white paper border. Everything here runs once per (name, size, color) inside the shared sprite
  * cache, so the gradients and the 12-tap outline cost nothing per frame.
  *
- * Painters draw centred on the origin within about ±size/2, like every effects painter.
+ * Painters draw centered on the origin within about ±size/2, like every effects painter.
  */
 import { PAINTERS, shade, withAlpha } from '../../effects/painters';
 import { circlePath, heartPath, roundRectPath, starPath } from '../../effects/painters/shapes';
@@ -34,7 +34,7 @@ function blank(px: number): { c: AnyCanvas; g: Ctx2D } | null {
   return null;
 }
 
-/** A silhouette of `src` filled with one colour. */
+/** A silhouette of `src` filled with one color. */
 function silhouette(src: AnyCanvas, px: number, color: string): AnyCanvas | null {
   const s = blank(px);
   if (!s) return null;
@@ -395,8 +395,8 @@ export const apple: SpritePainter = (ctx, size, color) => {
   gloss(ctx, -s * 0.18, -s * 0.06, s * 0.05, s * 0.1, 0.3, 0.4);
 };
 
-/** Holi gulal ball: a powdery colour puff with a dusty halo. */
-export const colourBall: SpritePainter = (ctx, size, color) => {
+/** Holi gulal ball: a powdery color puff with a dusty halo. */
+export const colorBall: SpritePainter = (ctx, size, color) => {
   const s = size;
   const halo = ctx.createRadialGradient(0, 0, s * 0.25, 0, 0, s * 0.5);
   halo.addColorStop(0, withAlpha(color, 0.5));
@@ -428,7 +428,7 @@ export const drop: SpritePainter = (ctx, size, color) => {
   gloss(ctx, -s * 0.12, s * 0.08, s * 0.05, s * 0.11, 0.2, 0.6);
 };
 
-/** Hamantasch: a three-cornered cookie with a jammy centre. */
+/** Hamantasch: a three-cornered cookie with a jammy center. */
 export const hamantasch: SpritePainter = (ctx, size, color) => {
   const s = size;
   ctx.fillStyle = '#e8b56a';
@@ -515,7 +515,7 @@ export const sleepyCloud: SpritePainter = (ctx, size, color) => {
   ctx.fillText('z', s * 0.3, -s * 0.28);
 };
 
-/** A smooth grey pebble with a tiny dozing face. */
+/** A smooth gray pebble with a tiny dozing face. */
 export const pebble: SpritePainter = (ctx, size, color) => {
   const s = size;
   const g = ctx.createRadialGradient(-s * 0.12, -s * 0.14, s * 0.04, 0, 0, s * 0.42);
@@ -544,7 +544,7 @@ export const pebble: SpritePainter = (ctx, size, color) => {
 /** Item painters owned by this activity (all get the sticker treatment on registration). */
 export const ITEM_PAINTERS: Readonly<Record<string, SpritePainter>> = {
   present, candy, candyCane, lollipop, candyCorn, laddoo, barfi, sufganiyah, mooncake, date, maamoul,
-  tangerine, apple, colourBall, drop, hamantasch, shinyHeart, goldStar, sleepyCloud, pebble,
+  tangerine, apple, colorBall, drop, hamantasch, shinyHeart, goldStar, sleepyCloud, pebble,
   pumpkin, corn, clover4, tulip, daisy, poppy,
 };
 

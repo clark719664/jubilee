@@ -41,7 +41,7 @@ function hex(c: string): [number, number, number] {
   return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
 }
 
-/** Per-channel blend of two #rrggbb colours. */
+/** Per-channel blend of two #rrggbb colors. */
 export function mix(a: string, b: string, t: number): string {
   const x = hex(a);
   const y = hex(b);
@@ -164,7 +164,7 @@ export function radial(a: Art, name: string, stops: readonly [number, string, nu
   return `url(#${id})`;
 }
 
-/** A landmark's own colour as it looks at this hour: slightly sunk into the night and warmed by floodlights. */
+/** A landmark's own color as it looks at this hour: slightly sunk into the night and warmed by floodlights. */
 export function lm(a: Art, c: string): string {
   const k = a.pal.night;
   return mix(mix(c, '#1b1f4a', 0.22 * k), '#ffd59a', 0.1 * k);

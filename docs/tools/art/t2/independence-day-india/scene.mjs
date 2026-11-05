@@ -1,7 +1,7 @@
 // Independence Day (India) — "Kites over the rooftops": a bright 15 August morning on a city rooftop. The family
 // flag flies from a pole on the parapet; a boy in a white kurta flies a saffron kite high on the right while his
 // sister holds the big wooden spool (charkhi) and laughs; grandpa salutes the flag; mum brings a plate of orange
-// jalebis and laddoos. Neighbours fly kites from the next rooftops, washing flaps on a line, a pigeon sits on the
+// jalebis and laddoos. Neighbors fly kites from the next rooftops, washing flaps on a line, a pigeon sits on the
 // water tank, and a marigold garland hangs on the door. The fireworks and floating kites are the effect's.
 import { f, P, mix, lighten, darken, rng, E, G, C, path, circle, ellipse, lin, rad, doc, compactSvg, setPrecision } from '../../gen-xmas/lib.mjs';
 import { figure } from '../../gen-kw/people.mjs';
@@ -29,7 +29,7 @@ export function indiaFlag(x, y, w) {
   ].join('');
 }
 
-/** A diamond patang kite at (x, y), size s, tilted a, colours c1/c2. */
+/** A diamond patang kite at (x, y), size s, tilted a, colors c1/c2. */
 const kite = (x, y, s, a, c1, c2) => G({ transform: `translate(${f(x)} ${f(y)}) rotate(${f(a)})` },
   path(`M0 ${f(-s)}L${f(s * 0.8)} 0L0 ${f(s)}L${f(-s * 0.8)} 0Z`, { fill: c1 }),
   path(`M0 ${f(-s)}L${f(s * 0.8)} 0L0 0Z`, { fill: c2 }),
@@ -146,8 +146,8 @@ export function mid() {
     ppl.sweets = [ph[0] + 16, ph[1] - 10];
   }
 
-  // ---- a neighbour flying a green kite from the next rooftop, left
-  out.push(C('a neighbour boy on the stairwell roof flies a green kite, up in the corner'));
+  // ---- a neighbor flying a green kite from the next rooftop, left
+  out.push(C('a neighbor boy on the stairwell roof flies a green kite, up in the corner'));
   {
     const fly = { sx: 1, elbow: [0.9, -0.9], hand: [1.3, -2.1] };
     const n = figure({ x: 176, foot: 528, H: 70, heads: 2.6, skin: SKIN.deep, hair: '#1a1210', style: 'curls', top: '#2a6ad8', bottom: '#2a2a3a', shoe: WHITE, gaze: 0.2, mouth: 'open', arms: [{ sx: -1, elbow: [-0.6, 0.8], hand: [-0.4, 1.6] }, fly] });
@@ -157,13 +157,13 @@ export function mid() {
     ppl.greenKite = [256, 284];
   }
 
-  return { svg: compactSvg(doc(`Independence Day (India) · mid. Concept: "kites over the rooftops" on a bright 15 August morning. Focal point: the family on their rooftop terrace (x 480–1460, y 380–860) — a boy in a white kurta flies a saffron kite high on the right while his sister holds the big wooden charkhi spool and laughs; grandpa in a white kurta and cap salutes the flag flying from a pole on the parapet; mum in a green sari with a saffron border brings a plate of jalebis and laddoos. A neighbour boy flies a green kite from the stairwell roof; a marigold garland on the blue door, a pigeon on the water tank, washing in saffron, white and green flapping on a line. Light story: bright morning sun. The fireworks and floating kites are the effect's.`, defs, out)), ppl };
+  return { svg: compactSvg(doc(`Independence Day (India) · mid. Concept: "kites over the rooftops" on a bright 15 August morning. Focal point: the family on their rooftop terrace (x 480–1460, y 380–860) — a boy in a white kurta flies a saffron kite high on the right while his sister holds the big wooden charkhi spool and laughs; grandpa in a white kurta and cap salutes the flag flying from a pole on the parapet; mum in a green sari with a saffron border brings a plate of jalebis and laddoos. A neighbor boy flies a green kite from the stairwell roof; a marigold garland on the blue door, a pigeon on the water tank, washing in saffron, white and green flapping on a line. Light story: bright morning sun. The fireworks and floating kites are the effect's.`, defs, out)), ppl };
 }
 
 // ============================== front ==============================
 export function front() {
   setPrecision(1);
-  return compactSvg(doc(`Independence Day (India) · front: a pot of marigolds bottom left and a tulsi planter bottom right; the centre stays open`, [], [
+  return compactSvg(doc(`Independence Day (India) · front: a pot of marigolds bottom left and a tulsi planter bottom right; the center stays open`, [], [
     C('marigolds bottom left'),
     path('M10 900l10 -56h100l10 56z', { fill: '#c8643a' }),
     path(circD(36, 822, 20) + circD(74, 812, 24) + circD(110, 826, 20), { fill: '#2a6a3a' }), path(circD(34, 812, 11) + circD(72, 800, 12) + circD(108, 816, 10) + circD(56, 826, 9), { fill: SAFFRON }),
@@ -179,7 +179,7 @@ export function sceneData(ppl) {
   return {
     hotspots: [
       { activity: 'catch', x: ppl.kite[0], y: ppl.kite[1], r: 50, label: 'Catch the flying kites' },
-      { activity: 'colour', x: ppl.flag[0], y: ppl.flag[1], r: 50, label: 'Colour the flag' },
+      { activity: 'color', x: ppl.flag[0], y: ppl.flag[1], r: 50, label: 'Color the flag' },
       { activity: 'memory', x: r(ppl.sweets[0]), y: r(ppl.sweets[1]), r: 36, label: 'Match the sweets' },
       { activity: 'card', x: r(ppl.spool[0]), y: r(ppl.spool[1]), r: 30, label: 'Make an Independence Day card' },
     ],

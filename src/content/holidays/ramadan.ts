@@ -27,7 +27,7 @@ const content: HolidayContent = {
   recipes: [],
   crafts: [],
   parentNote:
-    'The start of Ramadan depends on the sighting of the new crescent moon, so the dates shown are expected and may shift by a day where you live. The month lasts 29 or 30 days. Children, people who are ill, travelling, pregnant or elderly are not expected to fast.',
+    'The start of Ramadan depends on the sighting of the new crescent moon, so the dates shown are expected and may shift by a day where you live. The month lasts 29 or 30 days. Children, people who are ill, traveling, pregnant or elderly are not expected to fast.',
   sources: [
     'Encyclopaedia Britannica, \'Ramadan\'',
     'BBC Bitesize, \'What is Ramadan?\'',

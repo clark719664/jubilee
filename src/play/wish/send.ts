@@ -3,7 +3,7 @@
  * skin's token and goes on its way.
  *
  *   santa  the letter folds in thirds (CSS 3D), slides into an envelope, the flap closes, a star seal
- *          pops on, Jubi swoops in and they fly off towards the North Pole in a trail of snowflakes
+ *          pops on, Jubi swoops in and they fly off toward the North Pole in a trail of snowflakes
  *   love   the same fold with a heart seal; the envelope hops twice and tucks itself into "My love notes"
  *   lantern the lantern glows and drifts up and away, swaying
  *   diya   the lamp glows and a little light floats up to become a star
@@ -19,7 +19,7 @@ import type { MotionMode } from '../../effects/types';
 import { h } from '../../ui/dom';
 import { mascot } from '../../ui/mascot';
 import {
-  diyaArt, envelopeBack, envelopeFlap, envelopePocket, jarArt, lanternArt, leafArt, leafColour, sealArt, slipColour, starArt, TREE_SPOTS, treeArt,
+  diyaArt, envelopeBack, envelopeFlap, envelopePocket, jarArt, lanternArt, leafArt, leafColor, sealArt, slipColor, starArt, TREE_SPOTS, treeArt,
 } from './art';
 import { chipIcon } from './chip-icons';
 import type { WishLetter } from './letter';
@@ -94,7 +94,7 @@ export function fly(opts: FlightOptions): Flight {
     for (const [t, res] of waiters) { window.clearTimeout(t); res(); }
     waiters.clear();
   };
-  const centre = (el: Element): { x: number; y: number } => {
+  const center = (el: Element): { x: number; y: number } => {
     const r = el.getBoundingClientRect();
     const o = overlay.getBoundingClientRect();
     return { x: r.left - o.left + r.width / 2, y: r.top - o.top + r.height / 2 };
@@ -106,7 +106,7 @@ export function fly(opts: FlightOptions): Flight {
     let n = 0;
     const tick = (): void => {
       if (!on) return;
-      if (++n % 3 === 0) { const c = centre(el); sparkle.trail(c.x, c.y + 10); }
+      if (++n % 3 === 0) { const c = center(el); sparkle.trail(c.x, c.y + 10); }
       raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
@@ -189,7 +189,7 @@ export function fly(opts: FlightOptions): Flight {
       { transform: `translate(${vw * 0.62}px,${-vh * 0.72}px) rotate(-18deg) scale(.18)`, opacity: 0 },
     ], { duration: 2000, easing: 'cubic-bezier(.45,0,.4,1)' });
     stop();
-    const end = centre(stage);
+    const end = center(stage);
     sparkle.pop(end.x + vw * 0.42, Math.max(40, end.y - vh * 0.62), 18);
   }
 
@@ -205,7 +205,7 @@ export function fly(opts: FlightOptions): Flight {
   }
 
   function sparkleAt(el: Element, n = 22): void {
-    const c = centre(el);
+    const c = center(el);
     sparkle.pop(c.x, c.y, n);
   }
 
@@ -253,13 +253,13 @@ export function fly(opts: FlightOptions): Flight {
 
   // ── jar: roll up, plink in ──
   async function jarFlight(): Promise<void> {
-    const before = Array.from({ length: opts.previous }, (_, i) => slipColour(i));
+    const before = Array.from({ length: opts.previous }, (_, i) => slipColor(i));
     const jarBox = h('div', { class: 'wish-token is-jar' }, jarArt(before));
-    const slip = h('div', { class: 'wish-slip', style: `--slip:${slipColour(opts.previous)}` },
+    const slip = h('div', { class: 'wish-slip', style: `--slip:${slipColor(opts.previous)}` },
       icons.length > 0 ? h('div', { class: 'wish-slip-icons' }, ...icons.slice(0, 3).map((i) => chipIcon(i, 30))) : null);
     stage.append(jarBox, slip);
     const land = (): void => {
-      jarBox.replaceChildren(jarArt([...before, slipColour(opts.previous)]));
+      jarBox.replaceChildren(jarArt([...before, slipColor(opts.previous)]));
       slip.remove();
     };
     if (!full) { land(); sparkleAt(jarBox, 12); return; }
@@ -285,7 +285,7 @@ export function fly(opts: FlightOptions): Flight {
     const tree = h('div', { class: 'wish-token is-tree' }, treeArt());
     for (let i = 0; i < Math.min(opts.previous, TREE_SPOTS.length); i++) tree.append(treeLeaf(i));
     const n = opts.previous % TREE_SPOTS.length;
-    const leaf = h('div', { class: 'wish-flyleaf' }, leafArt(leafColour(opts.previous), icons));
+    const leaf = h('div', { class: 'wish-flyleaf' }, leafArt(leafColor(opts.previous), icons));
     stage.append(tree, leaf);
     const target = treeLeaf(n);
     if (!full) { leaf.remove(); tree.append(target); sparkleAt(target, 10); return; }
@@ -316,7 +316,7 @@ export function fly(opts: FlightOptions): Flight {
 
   function treeLeaf(i: number): HTMLElement {
     const [x, y, rot] = TREE_SPOTS[i % TREE_SPOTS.length]!;
-    return h('div', { class: 'wish-treeleaf', style: `left:${(x / 320) * 100}%;top:${(y / 260) * 100}%;transform:rotate(${rot}deg)` }, leafArt(leafColour(i)));
+    return h('div', { class: 'wish-treeleaf', style: `left:${(x / 320) * 100}%;top:${(y / 260) * 100}%;transform:rotate(${rot}deg)` }, leafArt(leafColor(i)));
   }
 
   // ── star: float up and twinkle ──

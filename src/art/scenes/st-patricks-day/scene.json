@@ -15,11 +15,11 @@
       "label": "Make a lucky wish on the horseshoe"
     },
     {
-      "activity": "colour",
+      "activity": "color",
       "x": 800,
       "y": 568,
       "r": 66,
-      "label": "Colour in the thatched cottage"
+      "label": "Color in the thatched cottage"
     },
     {
       "activity": "card",

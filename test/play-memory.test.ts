@@ -38,7 +38,7 @@ describe('season-mates', () => {
 
   it('a season deck starts with the holiday and fills every board with distinct stickers', () => {
     for (const meta of HOLIDAYS.filter((m) => m.tier === 1)) {
-      const deck = seasonDeck({ centre: meta, metas: HOLIDAYS, today, region: 'US', urlFor: noArt });
+      const deck = seasonDeck({ center: meta, metas: HOLIDAYS, today, region: 'US', urlFor: noArt });
       expect(deck[0]!.holidayId).toBe(meta.id);
       expect(deck.length).toBe(MAX_PAIRS);
       expect(new Set(deck.map((s) => s.holidayId)).size).toBe(deck.length);
@@ -63,7 +63,7 @@ describe('my stickers', () => {
 
   it('puts earned stickers first, marked as mine, and tops up the board', () => {
     const earned = [{ id: 'diwali', year: 2025 }, { id: 'easter', year: 2026 }, { id: 'nope', year: 2026 }];
-    const deck = myDeck({ centre: christmas, metas: HOLIDAYS, today, region: 'US', urlFor: noArt }, earned, byId);
+    const deck = myDeck({ center: christmas, metas: HOLIDAYS, today, region: 'US', urlFor: noArt }, earned, byId);
     expect(deck.slice(0, 2).map((s) => [s.holidayId, s.mine])).toEqual([['diwali', true], ['easter', true]]);
     expect(deck.length).toBe(MAX_PAIRS);
     expect(deck[2]!.mine).toBeUndefined();
@@ -78,7 +78,7 @@ describe('my stickers', () => {
 });
 
 describe('deal', () => {
-  const deck = seasonDeck({ centre: christmas, metas: HOLIDAYS, today, region: 'US', urlFor: noArt });
+  const deck = seasonDeck({ center: christmas, metas: HOLIDAYS, today, region: 'US', urlFor: noArt });
   it('deals two of each sticker for every board size, reproducibly per seed', () => {
     for (const b of BOARDS) {
       expect(b.cols * b.rows).toBe(b.pairs * 2);

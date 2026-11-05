@@ -15,11 +15,11 @@
       "label": "Make an April fish"
     },
     {
-      "activity": "colour",
+      "activity": "color",
       "x": 1020,
       "y": 680,
       "r": 50,
-      "label": "Colour the jack-in-the-box"
+      "label": "Color the jack-in-the-box"
     },
     {
       "activity": "memory",
@@ -45,8 +45,8 @@
       "r": 24
     },
     {
-      "id": "trousers",
-      "label": "upside-down trousers",
+      "id": "pants",
+      "label": "upside-down pants",
       "x": 1100,
       "y": 576,
       "r": 30

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" fill="#ffffff" stroke="#2a2340" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+<!-- Valentine's Day coloring page: a child on a crate posts one more card into a big postbox overflowing with valentines, a dog brings a letter, hearts float above the hedges -->
+<path data-fill="sky-heart-1" fill="#ffffff" d="M110 102c1.8-22 45-23 45 7.2c0 22-27 38-45 51c-18-13.2-45-29-45-51c0-31 43-29 45-7.2z"/>
+<path data-fill="sky-heart-2" fill="#ffffff" d="M690 85c1.5-18.4 38-20 38 5.9c0 18.2-23 32-38 43c-15.2-11.1-38-25-38-43c0-26 37-24 38-6.1z"/>
+<path data-fill="sky-heart-3" fill="#ffffff" d="M200 259c1.1-13.6 28-14.8 28 4.3c0 13.4-16.8 24-28 32c-11.2-8.5-28-18.6-28-32c0-19.1 27-17.9 28-4.5z"/>
+<path data-fill="sky-heart-4" fill="#ffffff" d="M640 238c1.2-14.4 30-15.6 30 4.8c0 14.4-18 25-30 34c-12-8.8-30-19.6-30-34c0-20 29-19.2 30-4.8z"/>
+<path data-fill="pavement" fill="#ffffff" d="M-10 690h820v120h-820z"/>
+<path fill="none" stroke-width="4" d="M-10 750h820m-690-60v60m210 0v60m230-120v60m140 0v60"/>
+<path data-fill="hedge-left" fill="#ffffff" d="M-20 692a72 72 0 0 1 54-103a42 42 0 0 1 54-42a34 34 0 0 1 54 .2a42 42 0 0 1 54 41a72 72 0 0 1 54 104z"/>
+<path data-fill="hedge-right" fill="#ffffff" d="M540 692a69 69 0 0 1 56-96a42 42 0 0 1 56-39a35 35 0 0 1 56-.2a42 42 0 0 1 56 39a69 69 0 0 1 56 96z"/>
+<path data-fill="flower-1" fill="#ffffff" d="M59 588a10.9 10.9 0 1 1 5.3 16.6a10.9 10.9 0 1 1-14.3 10.4a10.9 10.9 0 1 1-14.3-10.4a10.9 10.9 0 1 1 5.5-16.7a10.9 10.9 0 1 1 17.6 0z"/>
+<path data-fill="flower-1-middle" fill="#ffffff" d="M39 600a11 11 0 1 0 22 0a11 11 0 1 0-22 0z"/>
+<path data-fill="flower-2" fill="#ffffff" d="M159 558a10.9 10.9 0 1 1 5.3 16.6a10.9 10.9 0 1 1-14.3 10.4a10.9 10.9 0 1 1-14.3-10.4a10.9 10.9 0 1 1 5.5-16.7a10.9 10.9 0 1 1 17.6 0z"/>
+<path data-fill="flower-2-middle" fill="#ffffff" d="M139 570a11 11 0 1 0 22 0a11 11 0 1 0-22 0z"/>
+<path data-fill="flower-3" fill="#ffffff" d="M729 578a10.9 10.9 0 1 1 5.3 16.6a10.9 10.9 0 1 1-14.3 10.4a10.9 10.9 0 1 1-14.3-10.4a10.9 10.9 0 1 1 5.5-16.7a10.9 10.9 0 1 1 17.6 0z"/>
+<path data-fill="flower-3-middle" fill="#ffffff" d="M709 590a11 11 0 1 0 22 0a11 11 0 1 0-22 0z"/>
+<path data-fill="postbox-plinth" fill="#ffffff" d="M272 658q0-10 10-10l236 0q10 0 10 10l0 20q0 10-10 10l-236 0q-10 0-10-10z"/>
+<path data-fill="postbox-body" fill="#ffffff" d="M292 260q0-10 10-10l196 0q10 0 10 10l0 390q0 10-10 10l-196 0q-10 0-10-10z"/>
+<path data-fill="postbox-dome" fill="#ffffff" d="M290 240c0-90 220-90 220 0z"/>
+<g transform="translate(360 166) rotate(-16)"><path data-fill="top-card-1" fill="#ffffff" d="M-41-23q0-5 5-5l72 0q5 0 5 5l0 46q0 5-5 5l-72 0q-5 0-5-5z"/><path fill="none" stroke-width="4" d="M-36-23l36 29l36-29"/><path data-fill="top-card-1-seal" fill="#ffffff" d="M0 3c.5-6.6 13-7.1 13 1.7c0 6.3-7.8 10.9-13 14.8c-5.2-3.9-13-8.5-13-14.8c0-8.8 12.5-8.3 13-2.1z"/></g>
+<g transform="translate(446 170) rotate(18)"><path data-fill="top-card-2" fill="#ffffff" d="M-41-23q0-5 5-5l72 0q5 0 5 5l0 46q0 5-5 5l-72 0q-5 0-5-5z"/><path fill="none" stroke-width="4" d="M-36-23l36 29l36-29"/><path data-fill="top-card-2-seal" fill="#ffffff" d="M0 3c.5-6.6 13-7.1 13 1.7c0 6.3-7.8 10.9-13 14.8c-5.2-3.9-13-8.5-13-14.8c0-8.8 12.5-8.3 13-2.1z"/></g>
+<path data-fill="postbox-band" fill="#ffffff" d="M276 240q0-14 14-14l220 0q14 0 14 14l0 10q0 14-14 14l-220 0q-14 0-14-14z"/>
+<g transform="translate(372 290) rotate(-20)"><path data-fill="slot-card-1" fill="#ffffff" d="M-35-20q0-5 5-5l60 0q5 0 5 5l0 40q0 5-5 5l-60 0q-5 0-5-5z"/><path fill="none" stroke-width="4" d="M-30-20l30 25l30-25"/></g>
+<g transform="translate(432 288) rotate(16)"><path data-fill="slot-card-2" fill="#ffffff" d="M-35-20q0-5 5-5l60 0q5 0 5 5l0 40q0 5-5 5l-60 0q-5 0-5-5z"/><path fill="none" stroke-width="4" d="M-30-20l30 25l30-25"/></g>
+<path data-fill="postbox-slot" fill="#ffffff" d="M334 312q0-12 12-12l108 0q12 0 12 12l0 2q0 12-12 12l-108 0q-12 0-12-12z"/>
+<path data-fill="postbox-heart" fill="#ffffff" d="M410 446c2.4-29 60-31 60 9.6c0 29-36 50-60 68c-24-17.6-60-39-60-68c0-41 58-38 60-9.6z"/>
+<g transform="translate(540 676) rotate(14)"><path data-fill="floor-card-1" fill="#ffffff" d="M-42-23q0-5 5-5l74 0q5 0 5 5l0 46q0 5-5 5l-74 0q-5 0-5-5z"/><path fill="none" stroke-width="4" d="M-37-23l37 29l37-29"/><path data-fill="floor-card-1-seal" fill="#ffffff" d="M0 3c.5-6.6 13-7.1 13 1.7c0 6.3-7.8 10.9-13 14.8c-5.2-3.9-13-8.5-13-14.8c0-8.8 12.5-8.3 13-2.1z"/></g>
+<path data-fill="crate" fill="#ffffff" d="M160 608q0-8 8-8l124 0q8 0 8 8l0 72q0 8-8 8l-124 0q-8 0-8-8z"/>
+<path fill="none" stroke-width="4" d="M166 630h128m-128 30h128"/>
+<path data-fill="crate-heart" fill="#ffffff" d="M230 638c.8-9.6 20-10.4 20 3.2c0 9.6-12 16.8-20 23c-8-6.2-20-13.4-20-23c0-13.6 19.2-12.8 20-3.2z"/>
+<path data-fill="shoe-left" fill="#ffffff" d="M196 600c0-16 12-20 26-18l4 18z"/>
+<path data-fill="shoe-right" fill="#ffffff" d="M240 600c0-16 12-20 26-18l4 18z"/>
+<path data-fill="pants" fill="#ffffff" d="M196 584l4-72h72l2 72h-28l-10-44l-10 44z"/>
+<path data-fill="shirt" fill="#ffffff" d="M202 442q2-18 20-18l28 0q18 0 20 17.9l7.8 60q2.2 18.1-15.8 18.1l-52 0q-18 0-15.8-17.9z"/>
+<path data-fill="head" fill="#ffffff" d="M190 372a46 46 0 1 0 92 0a46 46 0 1 0-92 0z"/>
+<path data-fill="hair" fill="#ffffff" d="M190 372c-4-54 40-60 58-54c24 4 42 22 36 52c-14-18-32-24-52-20c-18 2-32 10-42 22z"/>
+<path fill="#2a2340" d="M227 382a5.5 5.5 0 1 0 11 0a5.5 5.5 0 1 0-11 0zm30 0a5.5 5.5 0 1 0 11 0a5.5 5.5 0 1 0-11 0z"/>
+<path fill="none" stroke-width="4" d="M232 402q14 12 28 0"/>
+<g transform="translate(352 336) rotate(-10)"><path data-fill="posting-card" fill="#ffffff" d="M-32-33q0-5 5-5l54 0q5 0 5 5l0 66q0 5-5 5l-54 0q-5 0-5-5z"/><path fill="none" stroke-width="4" d="M-27-33l27 41l27-41"/></g>
+<path data-fill="posting-card-heart" fill="#ffffff" d="M350 337c.7-8.8 18-9.6 18 2.7c0 8.6-10.8 15.1-18 21c-7.2-5.9-18-12.4-18-21c0-12.3 17.3-11.5 18-2.9z"/>
+<path data-fill="arm-front" fill="#ffffff" d="M241 460l98-76a15 15 0 0 0-18.2-24l-98 76a15 15 0 0 0 18.4 24z"/>
+<path data-fill="hand" fill="#ffffff" d="M318 368a16 16 0 1 0 32 0a16 16 0 1 0-32 0z"/>
+<path data-fill="dog-tail" fill="#ffffff" d="M676 664c40-14 46-64 28-80c-8 16-14 46-40 60z"/>
+<path data-fill="dog-body" fill="#ffffff" d="M590 690c-10-50 10-90 50-92c40 2 60 42 50 92z"/>
+<path data-fill="dog-head" fill="#ffffff" d="M594 560a46 46 0 1 0 92 0a46 46 0 1 0-92 0z"/>
+<path data-fill="dog-ear-left" fill="#ffffff" d="M600 530c-26 6-28 62-10 70c14-10 20-40 16-68z"/>
+<path data-fill="dog-ear-right" fill="#ffffff" d="M680 530c26 6 28 62 10 70c-14-10-20-40-16-68z"/>
+<path fill="#2a2340" d="M619 552a5.5 5.5 0 1 0 11 0a5.5 5.5 0 1 0-11 0zm32 0a5.5 5.5 0 1 0 11 0a5.5 5.5 0 1 0-11 0zm-20 18a9 6 0 1 0 18 0a9 6 0 1 0-18 0z"/>
+<g transform="translate(646 598) rotate(-8)"><path data-fill="dog-letter" fill="#ffffff" d="M-38-19q0-5 5-5l66 0q5 0 5 5l0 38q0 5-5 5l-66 0q-5 0-5-5z"/><path fill="none" stroke-width="4" d="M-33-19l33 24l33-24"/><path data-fill="dog-letter-seal" fill="#ffffff" d="M0 2c.5-6.7 13-7.2 13 1.6c0 6.2-7.8 10.9-13 14.8c-5.2-3.9-13-8.6-13-14.8c0-8.8 12.5-8.3 13-2.1z"/></g>
+</svg>

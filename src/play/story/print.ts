@@ -33,7 +33,7 @@ let active: (() => void) | null = null;
 /**
  * Builds the booklet and opens the print dialog once its pictures and fonts are ready. Returns a cancel
  * function (the activity calls it on close): before the dialog opens it stops the print altogether,
- * afterwards it just takes the sheet down. While a booklet is up, further taps build nothing and hand back
+ * afterward it just takes the sheet down. While a booklet is up, further taps build nothing and hand back
  * that booklet's own cancel, so a quick triple tap never queues three dialogs or stacks three copies, and
  * the caller always holds a cancel that really stops the print that is under way.
  */

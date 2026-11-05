@@ -7,16 +7,16 @@
  * Variant 'koinobori' (Children's Day): instead of balloons, a pole topped by a spinning arrow-wheel flies
  *   a family of carp streamers that ripple in a sine wind (each streamer is drawn in slices, so the cloth
  *   really undulates from mouth to tail), while smaller carp swim free across the sky.
- * Behaviours: rise + sway (balloons), flame (candles), travelling-wave undulation (carp), flutter +
+ * Behaviors: rise + sway (balloons), flame (candles), traveling-wave undulation (carp), flutter +
  *   gravity + spin + envelope (confetti).
- * Tap: the nearest balloon pops into confetti in its colour (or, with none close, a new balloon floats up
+ * Tap: the nearest balloon pops into confetti in its color (or, with none close, a new balloon floats up
  *   from the finger). Koinobori: a gust ripples the streamers harder and a little carp swims off from the
  *   finger.
  * Still: balloons at rest at every height with strings hanging, the cake's candles lit; the streamers
  *   frozen mid-ripple.
  * Scene mode (`params.stage`, koinobori): the scene draws its own pole and streamers, so only the little carp
  *   swim free across the sky, and a tap still sends one off from the finger.
- * Params: candles (age), palette (balloon colours), variant ('koinobori'), stage, density.
+ * Params: candles (age), palette (balloon colors), variant ('koinobori'), stage, density.
  */
 import { mixColor } from '../painters';
 import { arrowWheel, cake, frameScenery, quant, softCloud, stripedCandle } from '../painters/extra-whimsy';
@@ -475,7 +475,7 @@ export class BalloonsEffect extends PooledEffect {
   }
 
   /**
-   * A carp streamer as SLICES vertical strips of its cached sprite, each shifted by a travelling sine
+   * A carp streamer as SLICES vertical strips of its cached sprite, each shifted by a traveling sine
    * wave whose amplitude grows from the mouth (fixed) to the tail: the cloth ripples in the wind.
    */
   private drawCarp(ctx: CanvasRenderingContext2D, size: number, color: string, x: number, y: number, phase: number, amp: number): void {

@@ -15,11 +15,11 @@
       "label": "Pick a silly hat for the dip"
     },
     {
-      "activity": "colour",
+      "activity": "color",
       "x": 1398,
       "y": 718,
       "r": 70,
-      "label": "Colour in the beach huts"
+      "label": "Color in the beach huts"
     },
     {
       "activity": "card",

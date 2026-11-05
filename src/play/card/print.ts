@@ -7,7 +7,7 @@
  *
  * Turning a landscape sheet over on its short edge puts the back of the FRONT panel on the left of page
  * 2, so the info page ("what the greeting means") is the inside of the cover and the child's message is
- * the right-hand page, as in a shop-bought card. Panels are rasterised locally at ~300 dpi for an A6 /
+ * the right-hand page, as in a shop-bought card. Panels are rasterized locally at ~300 dpi for an A6 /
  * half-Letter card; the dedicated @media print layout (card.css) hides everything else.
  */
 import { h } from '../../ui/dom';

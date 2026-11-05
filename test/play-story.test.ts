@@ -119,7 +119,7 @@ describe('templates', () => {
     expect(pageSentences(page, { friend: 'Sam' })).toEqual(['Our hero and Sam fold dumplings.', 'Sam wins.']);
   });
 
-  it('capitalises the fallback only at the start of a sentence', () => {
+  it('capitalizes the fallback only at the start of a sentence', () => {
     expect(fillSentence('Then {name} sweeps.', {})).toBe('Then our hero sweeps.');
     expect(fillSentence('‘Hi,’ says {name}.', {})).toBe('‘Hi,’ says our hero.');
     expect(fillSentence('{name}’s cake.', {})).toBe('Our hero’s cake.');
@@ -176,7 +176,7 @@ describe('cameras', () => {
   const cams: Camera[] = [{ x: 800, y: 450, zoom: 1 }, { x: 370, y: 640, zoom: 2.2 }, { x: 1290, y: 700, zoom: 2.6 }, { x: 120, y: 860, zoom: 2.2 }, { x: 1600, y: 0, zoom: 3 }];
   const aspects = [0.5, 0.75, 1, 1.33, 16 / 9, 2.4];
 
-  it('the camera window is 16:9 and centred on the camera', () => {
+  it('the camera window is 16:9 and centered on the camera', () => {
     const w = cameraWindow({ x: 800, y: 600, zoom: 2 });
     expect(w).toEqual({ x0: 400, y0: 375, vw: 800, vh: 450 });
     expect(insideArtboard({ x: 1300, y: 600, zoom: 2 })).toBe(true);
@@ -371,7 +371,7 @@ describe('the fact-checked pages stay right', () => {
     expect(read('mid-autumn-festival', 6)).toContain('pounding medicine');
   });
 
-  it('Holi: somebody says ‘Bura na mano, Holi hai!’, and the pink ears are left over from the colours', () => {
+  it('Holi: somebody says ‘Bura na mano, Holi hai!’, and the pink ears are left over from the colors', () => {
     expect(read('holi', 4)).toContain('Sam sneaks up, pats pink powder on Maya’s cheeks and laughs, ‘Bura na mano, Holi hai!’');
     expect(solo('holi', 4)).toContain('laughs, ‘Bura na mano, Holi hai!’');
     expect(read('holi', 7)).toContain('still pink');
@@ -462,7 +462,7 @@ describe('the fallback picture (no scene yet)', () => {
 describe('a full Fridge', () => {
   const today = { y: 2026, m: 11, d: 8 } as never;
   const fill = (f: Fridge): void => {
-    for (let i = 0; i < FRIDGE_CAP; i++) f.add({ id: `x${i}`, kind: i % 2 ? 'card' : 'colour', holidayId: 'diwali', made: '2026-10-01', title: `Thing ${i}`, data: {} });
+    for (let i = 0; i < FRIDGE_CAP; i++) f.add({ id: `x${i}`, kind: i % 2 ? 'card' : 'color', holidayId: 'diwali', made: '2026-10-01', title: `Thing ${i}`, data: {} });
   };
 
   it('takes a thing down only on a second tap on the same row', () => {

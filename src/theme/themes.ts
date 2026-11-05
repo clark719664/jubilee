@@ -18,7 +18,7 @@ export interface Theme {
   /** Pills/buttons on the sky (accent ≥ 3:1 vs bg1/bg2; accentInk ≥ 4.5:1 vs accent). */
   readonly accent: string;
   readonly accentInk: string;
-  /** Effect colours. */
+  /** Effect colors. */
   readonly accent2: string;
   readonly glow: string;
   readonly pattern: Pattern;

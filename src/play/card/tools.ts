@@ -1,5 +1,5 @@
 /**
- * tools.ts — the tool dock under (phone) or beside (wide screens) the card: five tabs with big, labelled
+ * tools.ts — the tool dock under (phone) or beside (wide screens) the card: five tabs with big, labeled
  * buttons. Stickers · Words · Draw · Background · Finish. Tabs follow the WAI tabs pattern (arrows move
  * between tabs); every control is a real button or input at least 48 px tall.
  */
@@ -51,7 +51,7 @@ export interface StickerSet {
   readonly holidays: readonly { readonly meta: HolidayMeta; readonly earned: boolean }[];
 }
 
-export const penColours = (t: Theme): string[] => {
+export const penColors = (t: Theme): string[] => {
   const out: string[] = [];
   for (const c of [t.accent2, t.accent, t.glow, '#1f1a3d', '#ffffff', '#2bb673', '#5b8def', '#ff8fb8']) {
     const k = c.toLowerCase();
@@ -112,7 +112,7 @@ export class Tools {
     for (const [id, p] of this.panels) {
       p.id = `cm-panel-${id}`;
       p.setAttribute('role', 'tabpanel');
-      p.setAttribute('aria-labelledby', `cm-tab-${id}`);
+      p.setAttribute('aria-labeledby', `cm-tab-${id}`);
       p.classList.add('cm-panel');
       p.hidden = true;
       body.append(p);
@@ -235,10 +235,10 @@ export class Tools {
   // ─────────────────────────────────────────── draw
 
   private drawPanel(): HTMLElement {
-    const cols = penColours(this.theme);
-    const sw = h('div', { class: 'cm-swatches', role: 'group', 'aria-label': COPY.penColour });
+    const cols = penColors(this.theme);
+    const sw = h('div', { class: 'cm-swatches', role: 'group', 'aria-label': COPY.penColor });
     cols.forEach((c, i) => {
-      const b = h('button', { type: 'button', class: 'cm-swatch', style: `--c:${c}`, 'aria-pressed': 'false', 'aria-label': fill(COPY.colourN, { n: i + 1 }), onclick: () => this.ctl.setPen({ color: c, on: true }) });
+      const b = h('button', { type: 'button', class: 'cm-swatch', style: `--c:${c}`, 'aria-pressed': 'false', 'aria-label': fill(COPY.colorN, { n: i + 1 }), onclick: () => this.ctl.setPen({ color: c, on: true }) });
       this.swatches.push({ b, c });
       sw.append(b);
     });

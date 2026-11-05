@@ -68,7 +68,7 @@ export const WISHES_ONE: readonly string[] = [
 export const WISHES_WORDS: readonly string[] = [
   'I read all {words} of your letter by the fire. Thank you for telling me what is in your heart.',
   'You wrote me such interesting things! I read all {words} of your letter, then read the best bits aloud to the reindeer.',
-  'Thank you for writing to me in your own words. Letters written from the heart are my very favourite kind.',
+  'Thank you for writing to me in your own words. Letters written from the heart are my very favorite kind.',
 ];
 
 /** Kindness in the child's own words, quoted as a whole sentence: {kind}. */
@@ -95,9 +95,9 @@ export const NEWS: readonly string[] = [
   'Our youngest elf, Pip, tried to wrap a present and wrapped himself up by mistake. We laughed until our tummies hurt (Pip laughed too).',
   'A family of snowy hares has moved in next to the stables. They like to race the reindeer, and they usually win.',
   'The elves held a snowball contest yesterday. Nobody kept score, so everybody won, which is the North Pole way.',
-  'I have been practising my "ho ho ho" every morning. Mrs. Claus says it is getting so jolly that it shakes the icicles.',
-  'Blitzen has a new favourite snack: carrot slices with a sprinkle of snow. He says it is crunchy and refreshing.',
-  'The elves painted every door in the workshop a different colour this year, so now it looks like a rainbow made of gingerbread.',
+  'I have been practicing my "ho ho ho" every morning. Mrs. Claus says it is getting so jolly that it shakes the icicles.',
+  'Blitzen has a new favorite snack: carrot slices with a sprinkle of snow. He says it is crunchy and refreshing.',
+  'The elves painted every door in the workshop a different color this year, so now it looks like a rainbow made of gingerbread.',
 ];
 
 export const CLOSINGS: readonly string[] = [
@@ -130,7 +130,7 @@ export const ASIDES: Readonly<Record<string, string>> = {
   family: 'A happy family is a beautiful wish. Hugs, kind words and silly jokes help it come true every day.',
   friend: 'New friends often start with a smile and a "Do you want to play?" I have a feeling you would be a wonderful friend.',
   planet: 'The elves love our planet too. They turn off the workshop lights when they leave and feed the birds every morning.',
-  hugs: 'Hugs are my favourite thing to give and to get. Here is a big one, coming all the way from the North Pole!',
+  hugs: 'Hugs are my favorite thing to give and to get. Here is a big one, coming all the way from the North Pole!',
 };
 
 /** Picks one element; `rand` is the seeded stream. */
@@ -146,7 +146,7 @@ const upperFirst = (s: string): string => (s ? s[0]!.toUpperCase() + s.slice(1) 
 
 /**
  * The "I've been kind by…" line as a whole sentence in the child's voice, for quoting:
- * "helping my mum" → "I've been kind by helping my mum." and "I shared my toys" stays as written.
+ * "helping my mom" → "I've been kind by helping my mom." and "I shared my toys" stays as written.
  */
 export function kindQuote(kind: string): string {
   let s = kind.replace(/\s+/g, ' ').trim().slice(0, 120);

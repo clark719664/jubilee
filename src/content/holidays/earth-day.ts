@@ -5,7 +5,7 @@ const earthDay: HolidayContent = {
     'Earth Day on 22 April is a day for looking after the planet we all share: its air, its water, its forests and every creature that lives in them.',
     'The first Earth Day was in 1970, when about 20 million people across the United States joined marches and clean-ups after a senator called Gaylord Nelson asked students to speak up for nature.',
     'Today people in more than 190 countries take part by planting trees, picking up litter and learning how small changes add up.',
-    'Many families spend the day outside: a walk, a bug hunt, a bird count or a bag of rubbish collected from the park.',
+    'Many families spend the day outside: a walk, a bug hunt, a bird count or a bag of trash collected from the park.',
   ],
 
   facts: [
@@ -14,7 +14,7 @@ const earthDay: HolidayContent = {
       bigKids: true,
     },
     {
-      text: 'Earth Day went worldwide in 1990, and organisers say around a billion people now take part each year, which makes it one of the biggest shared days on the planet.',
+      text: 'Earth Day went worldwide in 1990, and organizers say around a billion people now take part each year, which makes it one of the biggest shared days on the planet.',
       wow: true,
     },
     {
@@ -111,7 +111,7 @@ const earthDay: HolidayContent = {
         { text: 'Lay the vegetables in rainbow stripes across the middle: red, orange, yellow, green, purple.', tip: 'Keep the stripes thin so the wrap can close.' },
         { text: 'Fold the bottom edge up over the filling, then roll the tortilla up tightly like a sleeping bag.' },
         { text: 'A grown-up cuts each wrap in half so you can see the rainbow inside.', adult: true, hazards: ['sharp'] },
-        { text: 'Taste test! Which colour crunches the loudest?' },
+        { text: 'Taste test! Which color crunches the loudest?' },
       ],
     },
   ],
@@ -152,7 +152,7 @@ const earthDay: HolidayContent = {
     { sleeps: 11, kind: 'joke', text: 'What did the tree say when spring finally arrived? What a re-leaf!' },
     { sleeps: 10, kind: 'craft', text: 'Put a leaf under a sheet of paper and rub over it with the side of a crayon: its veins appear like magic. Try leaves from three different trees!' },
     { sleeps: 9, kind: 'fact', text: 'A single teaspoon of healthy soil holds more tiny living things than there are people on Earth.' },
-    { sleeps: 8, kind: 'colour', text: 'Colour in the Earth Day page. How many different greens and blues can you use for the land and the sea?' },
+    { sleeps: 8, kind: 'color', text: 'Color in the Earth Day page. How many different greens and blues can you use for the land and the sea?' },
     { sleeps: 7, kind: 'fact', text: 'Wangari Maathai from Kenya started the Green Belt Movement, which has planted more than 51 million trees. In 2004 she became the first African woman to win the Nobel Peace Prize.' },
     { sleeps: 6, kind: 'say', text: 'Many people in Kenya, where Wangari Maathai grew up, speak Swahili. Learn to say Happy Earth Day in Swahili!', greeting: 2 },
     { sleeps: 5, kind: 'joke', text: 'What did the big flower say to the little flower? Hi, bud!' },

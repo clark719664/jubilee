@@ -61,7 +61,7 @@ describe('Hebrew tables agree with the oracle on every row', () => {
     }
   });
 
-  it('passover = 15 Nisan (of the Hebrew year that began the previous autumn)', () => {
+  it('passover = 15 Nisan (of the Hebrew year that began the previous fall)', () => {
     for (const row of TABLES.passover.rows) {
       const hy = hebrewYearStartingIn(yearOf(row.date) - 1);
       expect(formatIso(hebrewToCivil(hy, NISAN, 15)), `${hy}`).toBe(row.date);

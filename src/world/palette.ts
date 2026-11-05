@@ -1,7 +1,7 @@
 /**
- * The globe's colours for a holiday theme. A globe always floats in deep space, so the
+ * The globe's colors for a holiday theme. A globe always floats in deep space, so the
  * backdrop is a dark indigo that takes the theme's sky as soft nebula clouds; the countries
- * that celebrate are painted in the theme colour that stands out best against blue sea and
+ * that celebrate are painted in the theme color that stands out best against blue sea and
  * pastel land; and the land, the night side, the atmosphere and Santa's trail take a gentle
  * tint of the theme, so the planet and the page read as one picture. Pure: tested in Node.
  */
@@ -12,10 +12,10 @@ export interface GlobeColors {
   /** Backdrop gradient, top-left to bottom-right. */
   readonly space1: string;
   readonly space2: string;
-  /** Soft colour clouds in the backdrop. */
+  /** Soft color clouds in the backdrop. */
   readonly nebula1: string;
   readonly nebula2: string;
-  /** Sunlit water at the centre of the disc, deep water at the limb. */
+  /** Sunlit water at the center of the disc, deep water at the limb. */
   readonly ocean1: string;
   readonly ocean2: string;
   /** The pale glow of shallow water hugging every coast. */
@@ -29,7 +29,7 @@ export interface GlobeColors {
   readonly coastLine: string;
   readonly highlight: string;
   readonly highlightLine: string;
-  /** Multiply tint for the night side (light enough to keep colours, dark enough to read as night). */
+  /** Multiply tint for the night side (light enough to keep colors, dark enough to read as night). */
   readonly night: string;
   readonly twilight: string;
   readonly lights: string;
@@ -76,7 +76,7 @@ function far(p: readonly [number, number, number], q: readonly [number, number, 
   return Math.hypot(p[0] - q[0], p[1] - q[1], p[2] - q[2]) >= min;
 }
 
-/** The theme colour that stands out best on blue sea and green land (never white: outlines are white). */
+/** The theme color that stands out best on blue sea and green land (never white: outlines are white). */
 export function highlightFor(theme: Theme): string {
   for (const c of [theme.accent, theme.accent2, theme.glow]) {
     const p = rgb(c);

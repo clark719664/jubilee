@@ -125,7 +125,7 @@ export function recipeCard(recipe: Recipe, opts: RecipeCardOptions): RecipeCard 
     actions = h('div', { class: 'btn-group' }, start, more.button);
   }
 
-  const el = h('article', { class: 'recipe', id: `recipe-${recipe.id}`, 'aria-labelledby': `recipe-${recipe.id}-title` },
+  const el = h('article', { class: 'recipe', id: `recipe-${recipe.id}`, 'aria-labeledby': `recipe-${recipe.id}-title` },
     h('div', { class: 'recipe-head rh-grid' },
       h('span', { class: 'recipe-emoji', 'aria-hidden': 'true' }, recipe.emoji),
       h('h3', { class: 'h3', id: `recipe-${recipe.id}-title` }, recipe.title),
@@ -199,7 +199,7 @@ function stepMode(ctx: AppContext, meta: HolidayMeta, recipe: Recipe, close: () 
   const nextLabel = h('span', {});
   const next = h('button', { class: 'btn btn-lg sm-next', type: 'button', onclick: () => complete() }, nextLabel, icon('check', 22));
   const nav = h('div', { class: 'stepmode-nav' }, back, next);
-  const el = h('div', { class: 'stepmode', role: 'dialog', 'aria-modal': 'true', 'aria-labelledby': titleId }, head, body, nav);
+  const el = h('div', { class: 'stepmode', role: 'dialog', 'aria-modal': 'true', 'aria-labeledby': titleId }, head, body, nav);
 
   const calm = (): boolean => ctx.motion !== 'full';
 
@@ -361,7 +361,7 @@ function stepMode(ctx: AppContext, meta: HolidayMeta, recipe: Recipe, close: () 
     paintProgress();
     count.textContent = COPY.iMadeIt;
     ctx.announce(`You made it! ${recipe.title}.`);
-    // The confetti finish: a burst on top of the holiday's own colours (one still frame when motion is calm).
+    // The confetti finish: a burst on top of the holiday's own colors (one still frame when motion is calm).
     confetti = new EffectLayer(canvas, body, { seed: 7 });
     confetti.setMotion(ctx.motion);
     confetti.setEffect('confetti', { density: 1.5 }, THEMES[meta.theme]);
@@ -423,7 +423,7 @@ function missingRecipe(meta: HolidayMeta): HTMLElement {
 }
 
 function loadingOverlay(meta: HolidayMeta): HTMLElement {
-  return h('div', { class: 'stepmode', role: 'dialog', 'aria-modal': 'true', 'aria-labelledby': 'sm-loading-title' },
+  return h('div', { class: 'stepmode', role: 'dialog', 'aria-modal': 'true', 'aria-labeledby': 'sm-loading-title' },
     h('div', { class: 'stepmode-head sm-head sky' }, h('p', { class: 'sm-kicker grow' }, meta.name)),
     h('div', { class: 'stepmode-body' }, mascot('curious', 110), h('h1', { class: 'stepmode-title', id: 'sm-loading-title', tabindex: -1 }, 'Getting the kitchen ready…')),
     h('div', { class: 'stepmode-nav' }),

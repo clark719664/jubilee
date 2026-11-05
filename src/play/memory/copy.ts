@@ -35,7 +35,7 @@ export const COPY = {
   sayMiss: 'Not a pair this time. They will turn back over. Remember where they are!',
   sayHint: 'Look at the two wiggling cards. They match!',
   sayStart: '{pairs} pairs to find. Use the arrow keys to move and Enter to flip.',
-  cheers: ['Pair!', 'Snap!', 'Got it!', 'Yes!', 'Match!', 'Brilliant!', 'Woohoo!'],
+  cheers: ['Pair!', 'Snap!', 'Got it!', 'Yes!', 'Match!', 'Awesome!', 'Woohoo!'],
   streak: { 2: 'Two in a row!', 3: 'Three in a row!', 4: 'On a roll!', 5: 'Super memory!' } as Record<number, string>,
   doneTitle: 'You found them all!',
   doneName: 'You found them all, {name}!',

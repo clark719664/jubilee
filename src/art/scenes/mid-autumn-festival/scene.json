@@ -22,11 +22,11 @@
       "label": "Make a mooncake gift card"
     },
     {
-      "activity": "colour",
+      "activity": "color",
       "x": 716,
       "y": 620,
       "r": 40,
-      "label": "Colour a carp lantern"
+      "label": "Color a carp lantern"
     },
     {
       "activity": "dressup",

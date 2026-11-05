@@ -1,6 +1,6 @@
 /**
  * art.ts — the bigger drawings Wish Post animates: the sky lantern, the diya, the hopes jar, the
- * thank-you leaf, the wish star, the envelope (built from parts so CSS 3D can fold it), the postbox
+ * thank-you leaf, the wish star, the envelope (built from parts so CSS 3D can fold it), the mailbox
  * and the gratitude tree. Same sticker style as the chips: closed shapes, 3-unit ink outline, every
  * part overlapping the part it hangs from. Respect rules: no face on the diya or any lamp.
  *
@@ -26,7 +26,7 @@ function frame(viewBox: string, cls: string, label?: string): SVGSVGElement {
   return svg('svg', { viewBox, class: cls, ...(label ? { role: 'img', 'aria-label': label } : { 'aria-hidden': 'true' }), focusable: 'false' });
 }
 
-/** Up to `n` chip pictures in a row, centred on (cx, cy), each `s` wide. */
+/** Up to `n` chip pictures in a row, centered on (cx, cy), each `s` wide. */
 function iconRow(icons: readonly IconId[], cx: number, cy: number, s: number, n: number): SVGElement {
   const g = svg('g', {});
   const list = icons.slice(0, n);
@@ -82,7 +82,7 @@ export function diyaArt(): SVGSVGElement {
   return el;
 }
 
-/** Glass hopes jar with a lid and rolled slips inside (`slips` colours, newest on top). 160×200. */
+/** Glass hopes jar with a lid and rolled slips inside (`slips` colors, newest on top). 160×200. */
 export function jarArt(slips: readonly string[] = []): SVGSVGElement {
   const el = frame('0 0 160 200', 'wish-art wish-jar');
   const glass = uid('jg');
@@ -111,14 +111,14 @@ export function jarArt(slips: readonly string[] = []): SVGSVGElement {
   return el;
 }
 
-const SLIP_COLOURS = ['#ffd6e0', '#fff1a8', '#c8f0d8', '#d6e8ff', '#ffe0c2', '#e6d6ff'];
-export function slipColour(i: number): string {
-  return SLIP_COLOURS[((i % SLIP_COLOURS.length) + SLIP_COLOURS.length) % SLIP_COLOURS.length]!;
+const SLIP_COLORS = ['#ffd6e0', '#fff1a8', '#c8f0d8', '#d6e8ff', '#ffe0c2', '#e6d6ff'];
+export function slipColor(i: number): string {
+  return SLIP_COLORS[((i % SLIP_COLORS.length) + SLIP_COLORS.length) % SLIP_COLORS.length]!;
 }
 
-const LEAF_COLOURS = ['#e8742c', '#d9442b', '#f2b134', '#b8541f', '#c9a227'];
-export function leafColour(i: number): string {
-  return LEAF_COLOURS[((i % LEAF_COLOURS.length) + LEAF_COLOURS.length) % LEAF_COLOURS.length]!;
+const LEAF_COLORS = ['#e8742c', '#d9442b', '#f2b134', '#b8541f', '#c9a227'];
+export function leafColor(i: number): string {
+  return LEAF_COLORS[((i % LEAF_COLORS.length) + LEAF_COLORS.length) % LEAF_COLORS.length]!;
 }
 
 /** A thank-you leaf (rounded maple) with a stem and veins; chips painted on it. 120×120. */
@@ -182,15 +182,15 @@ export function envelopeFlap(color: string): SVGSVGElement {
   return el;
 }
 
-/** The Christmas postbox: rounded red box on a post, slot, and a flag that is up when a reply waits. 160×190. */
-export function postboxArt(flagUp: boolean): SVGSVGElement {
-  const el = frame('0 0 184 190', `wish-art wish-postbox${flagUp ? ' is-flag-up' : ''}`);
+/** The Christmas mailbox: rounded red box on a post, slot, and a flag that is up when a reply waits. 160×190. */
+export function mailboxArt(flagUp: boolean): SVGSVGElement {
+  const el = frame('0 0 184 190', `wish-art wish-mailbox${flagUp ? ' is-flag-up' : ''}`);
   const red = uid('pr');
   el.append(svg('defs', {}, grad(red, [[0, '#ff6b6b'], [1, '#c81d3c']], null, { x1: 0, y1: 0, x2: 1, y2: 0 })));
   el.append(svg('rect', { x: 68, y: 112, width: 24, height: 74, rx: 4, fill: '#7a4b2a', ...base() }));
   el.append(P('M54 184 H106', 'none', 5));
   // Flag arm pivots at its base (rotated down when there is no mail).
-  const flag = svg('g', { class: 'wish-postbox-flag', transform: flagUp ? '' : 'rotate(90 148 86)' });
+  const flag = svg('g', { class: 'wish-mailbox-flag', transform: flagUp ? '' : 'rotate(90 148 86)' });
   flag.append(svg('rect', { x: 136, y: 32, width: 9, height: 58, rx: 3.5, fill: '#ffd23f', ...base() }));
   flag.append(P('M143 34 H176 Q179 34 179 37 V53 Q179 56 176 56 H143 Z', '#ff4d5e'));
   el.append(flag);
@@ -204,7 +204,7 @@ export function postboxArt(flagUp: boolean): SVGSVGElement {
   return el;
 }
 
-/** A tiny envelope icon for postbox rows (letters and replies). 64×44. */
+/** A tiny envelope icon for mailbox rows (letters and replies). 64×44. */
 export function miniEnvelope(color: string, seal: 'star' | 'heart' | null): SVGSVGElement {
   const el = frame('0 0 64 44', 'wish-mini-env');
   el.append(svg('rect', { x: 2, y: 2, width: 60, height: 40, rx: 6, fill: color, ...base(2.4) }));

@@ -1,7 +1,7 @@
 /**
  * effects-night.test.ts — the night presets (bats, lanterns, diyas, menorah, kinara, crescent) in Node:
  * deterministic from a seed, within budget while tapping, finite non-empty still frames, params that
- * really change the scene, and each preset's own tap/press behaviour.
+ * really change the scene, and each preset's own tap/press behavior.
  */
 import { describe, expect, it } from 'vitest';
 import { BAT, BatsEffect, bats } from '../src/effects/fx/bats';
@@ -221,7 +221,7 @@ describe('night presets: params change the still frame', () => {
     expect(count(stillOf({ ...CASES[5]!, params: {} }), CANDLE)).toBe(9);
   });
 
-  it('kinara: black centre first, then red and green alternating outward', () => {
+  it('kinara: black center first, then red and green alternating outward', () => {
     expect(LIGHTING_ORDER).toEqual([3, 2, 4, 1, 5, 0, 6]);
     expect(kinaraLit(3, 1)).toBe(true);
     expect(kinaraLit(2, 1)).toBe(false);

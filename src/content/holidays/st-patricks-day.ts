@@ -15,7 +15,7 @@ const stPatricksDay: HolidayContent = {
       bigKids: true,
     },
     {
-      text: 'Almost every year since 1962 the city of Chicago has dyed its river bright green for the day. A boat crew sprinkles in about 40 pounds (18 kg) of orange powder that turns emerald when it hits the water, and the colour lasts for about five hours.',
+      text: 'Almost every year since 1962 the city of Chicago has dyed its river bright green for the day. A boat crew sprinkles in about 40 pounds (18 kg) of orange powder that turns emerald when it hits the water, and the color lasts for about five hours.',
       wow: true,
     },
     {
@@ -109,9 +109,9 @@ const stPatricksDay: HolidayContent = {
         { text: 'Put the cloud bowl at one end of the platter.' },
         {
           text: 'Starting at the cloud, lay the fruit in curved stripes like a rainbow: strawberries on the outside, then mandarin, pineapple, kiwi, blueberries and blackberries on the inside.',
-          tip: 'Say the colours as you go: red, orange, yellow, green, blue, purple.',
+          tip: 'Say the colors as you go: red, orange, yellow, green, blue, purple.',
         },
-        { text: 'Taste test! Dip a strawberry in the cloud, then eat your way along the rainbow in colour order.' },
+        { text: 'Taste test! Dip a strawberry in the cloud, then eat your way along the rainbow in color order.' },
       ],
       tip: 'No fresh pineapple? Yellow melon or chunks of mango make a good yellow stripe. Build the rainbow just before serving so the kiwi stays bright.',
     },
@@ -131,10 +131,10 @@ const stPatricksDay: HolidayContent = {
         { avoid: 'gluten', use: 'a gluten-free flour blend made for bread' },
         { avoid: 'milk', use: 'oat or soy milk with 1 tablespoon of lemon juice stirred in, left for 5 minutes' },
       ],
-      equipment: ['Baking tray', 'Baking parchment', 'Large mixing bowl', 'Measuring jug', 'Fork', 'Small sharp knife (grown-up)', 'Wire rack'],
+      equipment: ['Baking sheet', 'Baking parchment', 'Large mixing bowl', 'Measuring jug', 'Fork', 'Small sharp knife (grown-up)', 'Wire rack'],
       ingredients: [
         { item: 'All-purpose (plain) flour', us: { qty: 4, unit: 'cup' }, metric: { qty: 500, unit: 'g' }, note: 'plus a little extra for your hands', allergens: ['wheat', 'gluten'] },
-        { item: 'Baking soda', us: { qty: 1, unit: 'tsp' }, metric: { qty: 1, unit: 'tsp' }, note: 'also called bicarbonate of soda' },
+        { item: 'Baking soda', us: { qty: 1, unit: 'tsp' }, metric: { qty: 1, unit: 'tsp' }, note: 'also called baking soda' },
         { item: 'Salt', us: { qty: 1, unit: 'tsp' }, metric: { qty: 1, unit: 'tsp' } },
         { item: 'Sugar', us: { qty: 1, unit: 'tbsp' }, metric: { qty: 15, unit: 'g' }, optional: true },
         { item: 'Buttermilk', us: { qty: 1.75, unit: 'cup' }, metric: { qty: 420, unit: 'ml' }, allergens: ['milk'] },
@@ -143,7 +143,7 @@ const stPatricksDay: HolidayContent = {
       ],
       steps: [
         {
-          text: 'A grown-up heats the oven to 425°F / 220°C. Line the baking tray with parchment.',
+          text: 'A grown-up heats the oven to 425°F / 220°C. Line the baking sheet with parchment.',
           adult: true,
           hazards: ['heat'],
         },
@@ -229,15 +229,15 @@ const stPatricksDay: HolidayContent = {
   ],
 
   doors: [
-    { sleeps: 12, kind: 'fact', text: "St Patrick's colour was once blue, not green. A sky-blue shade is still called St Patrick's blue, and the flag of the President of Ireland is blue with a golden harp." },
+    { sleeps: 12, kind: 'fact', text: "St Patrick's color was once blue, not green. A sky-blue shade is still called St Patrick's blue, and the flag of the President of Ireland is blue with a golden harp." },
     { sleeps: 11, kind: 'joke', text: "Knock knock! Who's there? Irish. Irish who? Irish you a happy St Patrick's Day!" },
     { sleeps: 10, kind: 'craft', text: 'Dip your thumb in green paint and press three prints in a little triangle to make a shamrock, then draw on a stalk.' },
     { sleeps: 9, kind: 'say', text: "Learn to cheer 'Ireland forever' in Irish!", greeting: 2 },
     { sleeps: 8, kind: 'fact', text: "Ireland's official national emblem is not the shamrock but the harp. You can find it on Irish euro coins and on the cover of every Irish passport." },
-    { sleeps: 7, kind: 'colour', text: "Colour in the St Patrick's Day page! See how many different greens you can use, from leafy green to bright emerald." },
-    { sleeps: 6, kind: 'fact', text: "On the Caribbean island of Montserrat, nicknamed the Emerald Isle of the Caribbean, St Patrick's Day is a public holiday too. It also honours enslaved people there who planned a brave rising for freedom on 17 March 1768." },
+    { sleeps: 7, kind: 'color', text: "Color in the St Patrick's Day page! See how many different greens you can use, from leafy green to bright emerald." },
+    { sleeps: 6, kind: 'fact', text: "On the Caribbean island of Montserrat, nicknamed the Emerald Isle of the Caribbean, St Patrick's Day is a public holiday too. It also honors enslaved people there who planned a brave rising for freedom on 17 March 1768." },
     { sleeps: 5, kind: 'joke', text: 'What did the shamrock say to its friend? Come clover here!' },
-    { sleeps: 4, kind: 'craft', text: 'Draw a rainbow in big arcs of colour, then glue a fluffy cotton-wool cloud at each end.' },
+    { sleeps: 4, kind: 'craft', text: 'Draw a rainbow in big arcs of color, then glue a fluffy cotton-wool cloud at each end.' },
     { sleeps: 3, kind: 'seek', text: "Some sneaky things are hiding in the St Patrick's Day picture. Can you find every single one? Open Seek & Find!" },
     { sleeps: 2, kind: 'fact', text: 'In Irish step dancing, dancers keep their arms straight and still by their sides while their feet tap and leap super fast. Can you try it?' },
     { sleeps: 1, kind: 'say', text: "Tomorrow is St Patrick's Day! Find something green to wear and learn to say happy St Patrick's Day in Irish.", greeting: 0 },

@@ -168,7 +168,7 @@ export function mid() {
 // ============================== front ==============================
 export function front() {
   setPrecision(1);
-  return compactSvg(doc(`Passover · front: pots of spring flowers in both bottom corners; the centre stays open`, [], [
+  return compactSvg(doc(`Passover · front: pots of spring flowers in both bottom corners; the center stays open`, [], [
     C('a pot of tulips bottom left'),
     path('M10 900l10 -50h90l10 50z', { fill: '#c8643a' }),
     path('M40 850q-6 -40 4 -70M64 850q2 -50 -4 -80M90 850q8 -40 0 -66', { fill: 'none', stroke: '#3a8a3a', 'stroke-width': 4 }),
@@ -187,7 +187,7 @@ export function sceneData(ppl) {
       { activity: 'memory', x: ppl.plate[0], y: ppl.plate[1], r: 50, label: 'Match the seder plate' },
       { activity: 'seek', x: r(ppl.torch[0]), y: r(ppl.torch[1]), r: 40, label: 'Hunt for the afikoman' },
       { activity: 'card', x: ppl.elijah[0], y: ppl.elijah[1], r: 30, label: 'Make a Passover card' },
-      { activity: 'colour', x: r(ppl.questions[0]), y: r(ppl.questions[1] + 30), r: 46, label: 'Colour the seder table' },
+      { activity: 'color', x: r(ppl.questions[0]), y: r(ppl.questions[1] + 30), r: 46, label: 'Color the seder table' },
     ],
     findables: [
       { id: 'afikoman', label: 'the hidden afikoman', x: ppl.afikoman[0], y: ppl.afikoman[1], r: 18 },

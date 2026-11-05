@@ -9,7 +9,7 @@ const MOUTH = '#6b2b3a';
 
 const smile = (x: number, y: number, w = 7): Spec => ['path', { d: `M${x - w} ${y}Q${x} ${y + w * 0.9} ${x + w} ${y}`, fill: 'none', stroke: MOUTH, 'stroke-width': 2.4, 'stroke-linecap': 'round' }];
 
-/** A round face (centre x, y; radius r) with eyes, cheeks and a smile. */
+/** A round face (center x, y; radius r) with eyes, cheeks and a smile. */
 function face(x: number, y: number, r: number, skin: string): Spec[] {
   return [
     ['circle', { cx: x, cy: y, r, fill: skin }],

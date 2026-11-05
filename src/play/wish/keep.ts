@@ -1,5 +1,5 @@
 /**
- * keep.ts — where this holiday's wishes are kept on the device: Santa's postbox (letters and the
+ * keep.ts — where this holiday's wishes are kept on the device: Santa's mailbox (letters and the
  * replies that arrive the next morning), the lantern sky, the wish lights, the hopes jar, the
  * gratitude tree, the love notes, the wish sky. The picture shows every wish; the list under it is
  * the keyboard and screen-reader way to open each one.
@@ -10,7 +10,7 @@ import { h } from '../../ui/dom';
 import { icon } from '../../ui/icons';
 import { mascot } from '../../ui/mascot';
 import {
-  diyaArt, jarArt, lanternArt, leafArt, leafColour, miniEnvelope, postboxArt, slipColour, starArt, TREE_SPOTS, treeArt,
+  diyaArt, jarArt, lanternArt, leafArt, leafColor, miniEnvelope, mailboxArt, slipColor, starArt, TREE_SPOTS, treeArt,
 } from './art';
 import { chipIcon } from './chip-icons';
 import { COPY, fill } from './copy';
@@ -53,14 +53,14 @@ export function keepView(o: KeepOptions): HTMLElement {
   const tokenBtn = (l: KeptLetter, art: Element, style = ''): HTMLElement =>
     h('button', { type: 'button', class: 'wish-keep-token', tabindex: '-1', 'aria-hidden': 'true', style, onclick: () => o.onRead(l) }, art);
   if (santa) {
-    pic.append(h('div', { class: 'wish-keep-postbox' }, postboxArt(anyReady)));
+    pic.append(h('div', { class: 'wish-keep-mailbox' }, mailboxArt(anyReady)));
   } else if (skin.id === 'jar') {
-    pic.append(h('div', { class: 'wish-keep-jar' }, jarArt(letters.map((_, i) => slipColour(i)))));
+    pic.append(h('div', { class: 'wish-keep-jar' }, jarArt(letters.map((_, i) => slipColor(i)))));
   } else if (skin.id === 'leaf') {
     const tree = h('div', { class: 'wish-keep-tree' }, treeArt());
     letters.slice(0, TREE_SPOTS.length).forEach((l, i) => {
       const [x, y, rot] = TREE_SPOTS[i]!;
-      tree.append(tokenBtn(l, leafArt(leafColour(i)), `left:${(x / 320) * 100}%;top:${(y / 260) * 100}%;--rot:${rot}deg`));
+      tree.append(tokenBtn(l, leafArt(leafColor(i)), `left:${(x / 320) * 100}%;top:${(y / 260) * 100}%;--rot:${rot}deg`));
     });
     pic.append(tree);
   } else {
@@ -100,7 +100,7 @@ export function keepView(o: KeepOptions): HTMLElement {
     return h('li', { class: 'wish-row-pair' }, read, reply);
   });
 
-  return h('section', { class: 'wish-keep', 'aria-labelledby': 'wish-keep-title' },
+  return h('section', { class: 'wish-keep', 'aria-labeledby': 'wish-keep-title' },
     h('h2', { class: 'wish-keep-title', id: 'wish-keep-title' }, skin.keepTitle),
     anyReady ? h('p', { class: 'wish-keep-ready' }, COPY.replyWaiting) : null,
     pic,

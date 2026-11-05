@@ -85,7 +85,7 @@ describe('sections & pills', () => {
 describe('Play links', () => {
 
   it('links every activity in a fixed order, all real activity ids', () => {
-    expect(PLAY_LINKS.map((p) => p.id)).toEqual(['doors', 'seek', 'colour', 'card', 'wish', 'memory', 'catch', 'dressup', 'quiz', 'path', 'story']);
+    expect(PLAY_LINKS.map((p) => p.id)).toEqual(['doors', 'seek', 'color', 'card', 'wish', 'memory', 'catch', 'dressup', 'quiz', 'path', 'story']);
     for (const p of PLAY_LINKS) {
       expect(ACTIVITY_IDS).toContain(p.id);
       expect(p.label.length).toBeGreaterThan(0);

@@ -1,11 +1,11 @@
 {
   "hotspots": [
     {
-      "activity": "colour",
+      "activity": "color",
       "x": 800,
       "y": 690,
       "r": 64,
-      "label": "Colour the gulal tower"
+      "label": "Color the gulal tower"
     },
     {
       "activity": "catch",
@@ -40,7 +40,7 @@
       "x": 606,
       "y": 782,
       "r": 44,
-      "label": "Splash colour on the kurtas"
+      "label": "Splash color on the kurtas"
     }
   ],
   "findables": [

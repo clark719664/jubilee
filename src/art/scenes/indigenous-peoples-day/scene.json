@@ -8,11 +8,11 @@
       "label": "Make a thank-you card"
     },
     {
-      "activity": "colour",
+      "activity": "color",
       "x": 540,
       "y": 796,
       "r": 46,
-      "label": "Colour the Three Sisters"
+      "label": "Color the Three Sisters"
     },
     {
       "activity": "catch",

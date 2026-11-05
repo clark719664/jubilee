@@ -1,6 +1,6 @@
 // Bastille Day — "Le quatorze juillet by the river": a warm summer night in Paris. Along the riverside quay a
 // family picnics on the stone wall with a baguette, cheese and strawberries; an accordionist plays by a lamp post
-// while a couple of children dance; a girl waves a tricolour flag; a boy rides past on a bike with a baguette in its
+// while a couple of children dance; a girl waves a tricolor flag; a boy rides past on a bike with a baguette in its
 // basket; a little white poodle in a bow sits up to beg. A café with a striped awning glows on the left, a houseboat
 // is moored on the river, and the Eiffel Tower sparkles across the water on the right. The fireworks are the
 // effect's.
@@ -69,13 +69,13 @@ export function mid() {
   out.push(path(`M-20 ${QUAY}H1620V920H-20Z`, { fill: url('quay') }));
   { let c = ''; for (let y = QUAY + 16; y < 920; y += 20 + (y - QUAY) * 0.06) for (let x = -10 + ((y / 20) % 2) * 20; x < 1620; x += 40) c += `M${P(x, y)}h30`; out.push(line(c, '#786a58', 2, { opacity: 0.5 })); }
 
-  // ---- the café on the left with a striped awning, tricolour bunting
+  // ---- the café on the left with a striped awning, tricolor bunting
   out.push(C('a café on the left with a striped awning, lit windows and little round tables'));
   out.push(path('M-20 760V380H250V760Z', { fill: '#e8dcc8' }), path('M-20 380H250v-20H-20Z', { fill: '#4a5a7a' }));
   out.push(path('M10 560h220v200h-220z', { fill: url('win') }), path('M120 560v200M10 640h220', { fill: 'none', stroke: '#3a3a4a', 'stroke-width': 5 }));
   { let a = '', b = ''; for (let k = 0; k < 9; k++) { const x = -20 + k * 32; const d = `M${x} 510h32v40q-16 14 -32 0z`; if (k % 2) b += d; else a += d; } out.push(path(a, { fill: RED }), path(b, { fill: WHITE }), path('M-20 506h290v8h-290z', { fill: '#a81a2a' })); }
   for (const x of [60, 190]) out.push(ellipse(x, 800, 30, 7, { fill: '#2a2a3a' }), path(`M${x - 3} 800v50h6v-50zM${x - 20} 850h40v4h-40z`, { fill: '#2a2a3a' }), path(`M${x - 6} 794v-14h12v14z`, { fill: '#ffffff', opacity: 0.8 }));
-  // tricolour bunting across the quay, below the copy zone
+  // tricolor bunting across the quay, below the copy zone
   {
     const cols = [BLUE, WHITE, RED];
     const flags = ['', '', ''];
@@ -118,7 +118,7 @@ export function mid() {
   }
 
   // ---- the picnic family on the quay wall
-  out.push(C('a family picnicking on the quay: a baguette, cheese and strawberries on a checked cloth; a girl waves a tricolour flag'));
+  out.push(C('a family picnicking on the quay: a baguette, cheese and strawberries on a checked cloth; a girl waves a tricolor flag'));
   {
     out.push(path('M300 860L330 800H580L610 860Z', { fill: WHITE }), path('M330 800L320 820H590L580 800ZM315 840L305 860H605L595 840Z', { fill: BLUE, opacity: 0.85 }));
     out.push(path('M360 814l90 -14l4 10l-90 14z', { fill: '#e8a050' }), path('M372 812l10 -2M392 808l10 -2M412 806l10 -2M432 802l10 -2', { fill: 'none', stroke: '#f8d098', 'stroke-width': 3 }));
@@ -154,13 +154,13 @@ export function mid() {
     ppl.poodle = [px - 6, pf - 50];
   }
 
-  return { svg: compactSvg(doc(`Bastille Day · mid. Concept: "le quatorze juillet by the river" on a warm summer night in Paris. Focal point: the riverside quay (x 300–1100, y 560–870) where an accordionist in a striped shirt and beret plays by a lamp post while two children dance, and a family picnics with a baguette, cheese and strawberries, a girl waving a tricolour flag. A café with a red-and-white awning glows on the left; a boy rides past with a baguette in his bike basket; a little white poodle with a bow sits up to beg; a houseboat is moored on the river; tricolour bunting crosses the quay. The Eiffel Tower sparkles across the water on the right. Light story: lamplight and lit windows on a blue night. The fireworks are the effect's.`, defs, out)), ppl };
+  return { svg: compactSvg(doc(`Bastille Day · mid. Concept: "le quatorze juillet by the river" on a warm summer night in Paris. Focal point: the riverside quay (x 300–1100, y 560–870) where an accordionist in a striped shirt and beret plays by a lamp post while two children dance, and a family picnics with a baguette, cheese and strawberries, a girl waving a tricolor flag. A café with a red-and-white awning glows on the left; a boy rides past with a baguette in his bike basket; a little white poodle with a bow sits up to beg; a houseboat is moored on the river; tricolor bunting crosses the quay. The Eiffel Tower sparkles across the water on the right. Light story: lamplight and lit windows on a blue night. The fireworks are the effect's.`, defs, out)), ppl };
 }
 
 // ============================== front ==============================
 export function front() {
   setPrecision(1);
-  return compactSvg(doc(`Bastille Day · front: a pot of red geraniums bottom left and a bench end bottom right; the centre stays open`, [], [
+  return compactSvg(doc(`Bastille Day · front: a pot of red geraniums bottom left and a bench end bottom right; the center stays open`, [], [
     C('geraniums bottom left'),
     path('M10 900l10 -56h100l10 56z', { fill: '#c8643a' }),
     path(circD(36, 822, 22) + circD(76, 812, 26) + circD(110, 826, 20), { fill: '#2a6a3a' }), path(circD(34, 810, 9) + circD(74, 798, 10) + circD(108, 814, 8), { fill: '#e63946' }),
@@ -175,8 +175,8 @@ export function sceneData(ppl) {
   return {
     hotspots: [
       { activity: 'memory', x: ppl.baguette[0], y: ppl.baguette[1], r: 44, label: 'Match the picnic treats' },
-      { activity: 'card', x: r(ppl.flag[0]), y: r(ppl.flag[1]), r: 36, label: 'Make a tricolour card' },
-      { activity: 'colour', x: r(ppl.dancers[0]), y: r(ppl.dancers[1] + 40), r: 50, label: 'Colour the dancers' },
+      { activity: 'card', x: r(ppl.flag[0]), y: r(ppl.flag[1]), r: 36, label: 'Make a tricolor card' },
+      { activity: 'color', x: r(ppl.dancers[0]), y: r(ppl.dancers[1] + 40), r: 50, label: 'Color the dancers' },
       { activity: 'wish', x: 1460, y: 300, r: 60, label: 'Wish on the sparkling tower' },
     ],
     findables: [

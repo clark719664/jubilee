@@ -1,4 +1,4 @@
-// Ramadan sticker ("Crescent Spotter"): a glowing fanous lantern with a cheeky face, its coloured glass panels lit
+// Ramadan sticker ("Crescent Spotter"): a glowing fanous lantern with a cheeky face, its colored glass panels lit
 // from inside, hangs beside a golden crescent moon, on an eight-pointed star badge (the star of Islamic art) in
 // deep night teal with tiny gold stars. The moon and the lantern's ring break out of the star.
 import { f, P, E, G, path, circle, ellipse, lin, rad, setPrecision } from '../../gen-xmas/lib.mjs';
@@ -63,5 +63,5 @@ export function sticker() {
     path(drop, { fill: '#ff5a7a' }),
     circle(X - 48, 210, 6, { fill: '#ffffff', opacity: 0.7 }),
   );
-  return stickerDoc(ID, 'Ramadan sticker: a glowing fanous lantern with a cheeky face and coloured glass panels hangs beside a golden crescent moon, on an eight-pointed star badge in deep night teal with tiny gold stars', defs, sil, art);
+  return stickerDoc(ID, 'Ramadan sticker: a glowing fanous lantern with a cheeky face and colored glass panels hangs beside a golden crescent moon, on an eight-pointed star badge in deep night teal with tiny gold stars', defs, sil, art);
 }

@@ -265,7 +265,7 @@ export function albumCount(save: AlbumSave, kind?: PostcardKind): number {
 export function albumDialog(host: HTMLElement, save: AlbumSave, kind: PostcardKind | undefined, pretending: boolean, onClose: () => void = () => {}): { close(): void } {
   const id = `pc-album-${Math.random().toString(36).slice(2, 8)}`;
   const closeBtn = h('button', { type: 'button', class: 'btn btn-secondary btn-icon', 'aria-label': POSTCARD_COPY.close, onclick: () => close() }, icon('close', 22));
-  const card = h('div', { class: 'postcard-dlg-card', role: 'dialog', 'aria-modal': 'true', 'aria-labelledby': id },
+  const card = h('div', { class: 'postcard-dlg-card', role: 'dialog', 'aria-modal': 'true', 'aria-labeledby': id },
     h('div', { class: 'postcard-dlg-head' }, h('h2', { class: 'h3', id }, POSTCARD_COPY.albumTitle), closeBtn),
     albumBody(save, { ...(kind ? { kind } : {}), pretending }));
   const el = h('div', { class: 'postcard-dlg' }, card);

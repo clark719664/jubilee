@@ -40,7 +40,7 @@ export function parseTodayFlag(s: string | null): CivilDate | null {
 }
 
 /**
- * Milliseconds from `now` to the next local midnight. `Date` normalises the day overflow and the
+ * Milliseconds from `now` to the next local midnight. `Date` normalizes the day overflow and the
  * DST change, so a 23-hour or 25-hour day gives its true length.
  */
 export function msUntilLocalMidnight(now: Date): number {

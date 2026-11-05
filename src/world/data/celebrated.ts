@@ -1,7 +1,7 @@
 /**
  * Where each holiday is a public holiday or widely celebrated, as ISO2 codes that have an
  * outline in `countries.ts` (the test enforces this). Lists are generous but honest: the
- * first code is the "home" the globe centres on, and `focus` overrides that for holidays
+ * first code is the "home" the globe centers on, and `focus` overrides that for holidays
  * that belong to the whole planet. Places too small to draw (Singapore, Hong Kong,
  * Mauritius…) get a mention in the kid-level `note` instead.
  */
@@ -11,7 +11,7 @@ export interface Celebrated {
   readonly countries: readonly string[];
   /** One kid-level sentence. */
   readonly note: string;
-  /** [lon, lat] to centre the globe on instead of the first country. */
+  /** [lon, lat] to center the globe on instead of the first country. */
   readonly focus?: readonly [number, number];
 }
 
@@ -51,10 +51,10 @@ export const CELEBRATED: Readonly<Record<string, Celebrated>> = {
     'Families in nearly every country hang lights, share food and give presents on Christmas; some, like Russia and Ethiopia, celebrate on 7 January.',
     [-25, 30],
   ),
-  hanukkah: entry(JEWISH, 'Jewish families light the menorah in Israel and in cities everywhere — we coloured in the countries with the biggest Jewish communities.'),
+  hanukkah: entry(JEWISH, 'Jewish families light the menorah in Israel and in cities everywhere — we colored in the countries with the biggest Jewish communities.'),
   diwali: entry(HINDU, 'Celebrated by Hindu, Sikh and Jain families in India, Nepal and all over the world — it is a holiday in Singapore and Mauritius too!'),
   'eid-al-fitr': entry(MUSLIM, 'Muslim families in more than 50 countries — from Morocco to Indonesia — and in cities everywhere share sweets to end the month of Ramadan.', [45, 25]),
-  'lunar-new-year': entry(LUNAR, 'The biggest holiday of the year in China, Vietnam, Korea and across East and South-East Asia, plus Chinatowns around the world (and Singapore and Hong Kong, too small to colour in).'),
+  'lunar-new-year': entry(LUNAR, 'The biggest holiday of the year in China, Vietnam, Korea and across East and South-East Asia, plus Chinatowns around the world (and Singapore and Hong Kong, too small to color in).'),
   halloween: entry(
     ['US', 'CA', 'GB', 'IE', 'AU', 'NZ', 'JP', 'DE', 'FR', 'ES', 'IT', 'SE', 'NO', 'DK', 'FI', 'NL', 'BE', 'PT', 'RO', 'KR', 'PH', 'BR', 'AR', 'CL', 'MX'],
     'Trick-or-treating started in Ireland and Scotland and is now big in the Americas, Britain, Japan and more places every year.',
@@ -66,24 +66,24 @@ export const CELEBRATED: Readonly<Record<string, Celebrated>> = {
     'Christian families on every continent hunt eggs on Easter Sunday; Orthodox countries usually celebrate on a different Sunday.',
     [-20, 25],
   ),
-  holi: entry(['IN', 'NP', 'FJ', 'GY', 'SR', 'TT', 'BD'], 'The festival of colours is celebrated in India, Nepal and wherever Hindu families live — it is a holiday in Guyana and Trinidad too.'),
+  holi: entry(['IN', 'NP', 'FJ', 'GY', 'SR', 'TT', 'BD'], 'The festival of colors is celebrated in India, Nepal and wherever Hindu families live — it is a holiday in Guyana and Trinidad too.'),
   'day-of-the-dead': entry(['MX', 'GT', 'SV', 'HN', 'NI', 'EC', 'BO', 'PE', 'BR', 'US', 'PH', 'HT'], "Mexico's Día de los Muertos has cousins across Latin America, Brazil, the Philippines (Undas) and Haiti."),
   kwanzaa: entry(['US', 'CA'], 'Kwanzaa began in the USA in 1966 and is celebrated by African-American families there and in Canada.'),
   juneteenth: entry(['US'], 'Juneteenth remembers 19 June 1865, when the last enslaved people in Texas learned they were free — it is a national holiday in the USA.'),
   nowruz: entry(['IR', 'AF', 'AZ', 'KZ', 'KG', 'TJ', 'TM', 'UZ', 'IQ', 'TR', 'AL'], 'The Persian New Year is celebrated from Iran and Afghanistan across Central Asia, and by Kurdish and Albanian families.'),
-  'mid-autumn-festival': entry(['CN', 'TW', 'VN', 'KR', 'KP', 'MY', 'JP'], 'On the brightest full moon of autumn, families in China, Vietnam, Korea, Japan and across East Asia share mooncakes (Singapore and Hong Kong too).'),
+  'mid-autumn-festival': entry(['CN', 'TW', 'VN', 'KR', 'KP', 'MY', 'JP'], 'On the brightest full moon of fall, families in China, Vietnam, Korea, Japan and across East Asia share mooncakes (Singapore and Hong Kong too).'),
   'st-patricks-day': entry(['IE', 'GB', 'US', 'CA', 'AU', 'NZ'], "Ireland's big day, with parades in Britain, the USA, Canada, Australia and New Zealand turning rivers and fountains green."),
   'valentines-day': entry(VALENTINE, 'Cards and hearts fly around most of the world on 14 February.', [0, 30]),
   'mothers-day': entry(MOTHERS, 'Almost every country has a Mother\'s Day — just not always on the same Sunday!', [0, 20]),
   'fathers-day': entry(FATHERS, 'Dads get breakfast in bed across the world, though the date hops around the calendar.', [0, 20]),
   'independence-day-us': entry(['US', 'PR'], "The USA's birthday party, with fireworks in all 50 states and Puerto Rico."),
   'earth-day': entry(WORLD, 'Everyone on Earth is invited — that is the whole point.', [0, 10]),
-  'pi-day': entry(WORLD, 'Maths fans everywhere eat pie on 3/14, the American way of writing 14 March.', [-60, 30]),
+  'pi-day': entry(WORLD, 'Math fans everywhere eat pie on 3/14, the American way of writing 14 March.', [-60, 30]),
   'new-years-eve': entry(WORLD, 'The world counts down one time zone at a time, starting in Kiritimati and ending in American Samoa 26 hours later.', [170, 0]),
   // ── Tier 2
   'new-years-day': entry(WORLD, '1 January is a holiday in nearly every country on Earth.', [170, 0]),
   'three-kings-day': entry(['ES', 'MX', 'FR', 'IT', 'DE', 'AT', 'CH', 'PL', 'HR', 'SK', 'SI', 'SE', 'FI', 'GR', 'CY', 'CO', 'VE', 'DO', 'PR', 'CU', 'AR', 'UY', 'PY', 'PE', 'EC', 'BO', 'GT', 'PT', 'BR', 'PH'], 'Children in Spain, Mexico, Latin America, France and Italy get gifts (and a special cake) when the Three Kings arrive.'),
-  'mlk-day': entry(['US'], 'The USA honours Dr Martin Luther King Jr. on the third Monday of January.'),
+  'mlk-day': entry(['US'], 'The USA honors Dr Martin Luther King Jr. on the third Monday of January.'),
   'groundhog-day': entry(['US', 'CA'], 'Only in the USA and Canada does a groundhog get to forecast the weather.'),
   'lantern-festival': entry(['CN', 'TW', 'VN', 'MY'], 'The last night of Lunar New Year lights up China, Taiwan, Vietnam and Malaysia with lanterns and riddles.'),
   'pancake-day': entry(['GB', 'IE', 'AU', 'NZ', 'CA', 'US', 'FR', 'BR', 'TT', 'IT', 'DE', 'BE', 'ES', 'PT'], 'Pancakes in Britain and Ireland, Mardi Gras in New Orleans, Carnival in Brazil, Trinidad and Venice — all on the same Tuesday!'),
@@ -107,7 +107,7 @@ export const CELEBRATED: Readonly<Record<string, Celebrated>> = {
   'independence-day-mexico': entry(['MX', 'US'], "Mexico shouts '¡Viva México!' on the night of 15 September, with parties in Mexican-American communities too."),
   chuseok: entry(['KR', 'KP'], "Korea's harvest moon festival, celebrated in both South and North Korea."),
   'rosh-hashanah': entry(JEWISH, 'The Jewish New Year, with apples dipped in honey in Israel and around the world.'),
-  'indigenous-peoples-day': entry(['US'], 'A growing number of US states and cities honour Native American peoples on the second Monday of October.'),
+  'indigenous-peoples-day': entry(['US'], 'A growing number of US states and cities honor Native American peoples on the second Monday of October.'),
   'bonfire-night': entry(['GB', 'NZ'], 'Britain (and New Zealand) light bonfires and fireworks on 5 November.'),
   'st-nicholas-day': entry(['DE', 'NL', 'BE', 'AT', 'CH', 'FR', 'LU', 'CZ', 'SK', 'PL', 'HU', 'HR', 'SI', 'RO', 'UA', 'IT'], 'Children in Germany, the Netherlands, Belgium, France and central Europe leave out shoes for St Nicholas on 6 December.'),
   'boxing-day': entry(['GB', 'IE', 'CA', 'AU', 'NZ', 'ZA', 'NG', 'GH', 'KE', 'TZ', 'UG', 'ZM', 'ZW', 'MW', 'BW', 'NA', 'FJ', 'TT', 'JM', 'BS', 'BZ', 'GY', 'PG', 'SB', 'VU'], 'The day after Christmas is a holiday across the Commonwealth, from Britain and Canada to Kenya and Fiji.'),
@@ -148,7 +148,7 @@ export function holidaysCelebratedIn(iso: string, includeWorld = false): string[
   return out;
 }
 
-/** True when the holiday is coloured on (nearly) the whole map. */
+/** True when the holiday is colored on (nearly) the whole map. */
 export function isWorldwide(id: string): boolean {
   const c = CELEBRATED[id];
   return c !== undefined && c.countries.length >= WORLD.length - 5;

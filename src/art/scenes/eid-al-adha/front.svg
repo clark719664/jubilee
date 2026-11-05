@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 900">
-<!-- Eid al-Adha · front: a brass lantern on the tiles bottom left and a pot of jasmine bottom right; the centre stays open -->
+<!-- Eid al-Adha · front: a brass lantern on the tiles bottom left and a pot of jasmine bottom right; the center stays open -->
 <defs><radialGradient id="eid-al-adha-fglow"><stop stop-color="#ffd98a" stop-opacity=".5"/><stop offset="1" stop-color="#ffd98a" stop-opacity="0"/></radialGradient></defs>
 <!-- a brass lantern -->
 <circle cx="70" cy="850" r="60" fill="url(#eid-al-adha-fglow)"/><path d="M50 900v-60h40v60zm-6-60h52l-10-16h-32z" fill="#c8901e"/><path d="M56 894v-48h28v48z" fill="#ffe08a"/>

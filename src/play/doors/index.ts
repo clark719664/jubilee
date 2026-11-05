@@ -9,7 +9,7 @@
  * holiday page.
  */
 import type { AppContext } from '../../app/context';
-import { hasColourPage, sceneDataFor } from '../../art/index';
+import { hasColorPage, sceneDataFor } from '../../art/index';
 import type { HolidayContent, HolidayMeta } from '../../content/types';
 import { toDayNumber } from '../../dates/civil';
 import { nextOccurrence, previousOccurrence } from '../../dates/occurrences';
@@ -101,7 +101,7 @@ function jubiMood(phase: Phase): MascotState {
 
 // ───────── keyboard: move between doors by where they sit ─────────
 
-function neighbour(doors: readonly HTMLElement[], from: HTMLElement, key: string): HTMLElement | null {
+function neighbor(doors: readonly HTMLElement[], from: HTMLElement, key: string): HTMLElement | null {
   const i = doors.indexOf(from);
   if (key === 'Home') return doors[0] ?? null;
   if (key === 'End') return doors[doors.length - 1] ?? null;
@@ -127,7 +127,7 @@ function neighbour(doors: readonly HTMLElement[], from: HTMLElement, key: string
 
 function mount(env: PlayEnv): ActivityInstance {
   const { ctx, meta, content } = env;
-  const root = h('section', { class: 'dr-root sky', 'aria-labelledby': 'dr-h1' });
+  const root = h('section', { class: 'dr-root sky', 'aria-labeledby': 'dr-h1' });
   const disposers: (() => void)[] = [];
   // Esc anywhere on the board goes back to the holiday page (an open door's card handles its own Esc first).
   root.addEventListener('keydown', (e) => {
@@ -245,7 +245,7 @@ function mount(env: PlayEnv): ActivityInstance {
     const showCard = (door: BoardDoor, btn: HTMLButtonElement): void => {
       const card = doorCard(door, meta, {
         canSeek: sceneDataFor(meta.id).findables.length > 0,
-        canColour: hasColourPage(meta.id),
+        canColor: hasColorPage(meta.id),
         go: (activity) => { close(); env.close(); location.hash = playHash(meta.id, activity); },
         close: () => close(),
         announce: (t) => ctx.announce(t),
@@ -312,7 +312,7 @@ function mount(env: PlayEnv): ActivityInstance {
       if (m.view(door).state === 'opened') btn.classList.add('is-ajar');
       btn.addEventListener('click', () => open(door, btn));
       btn.addEventListener('keydown', (e) => {
-        const to = neighbour(ordered, btn, e.key);
+        const to = neighbor(ordered, btn, e.key);
         if (!to || !['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End'].includes(e.key)) return;
         e.preventDefault();
         btn.tabIndex = -1;

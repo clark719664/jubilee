@@ -64,8 +64,8 @@ export const COPY = {
   // draw
   drawOn: 'Draw on the card',
   drawOff: 'Stop drawing',
-  penColour: 'Pen colour',
-  colourN: 'Colour {n}',
+  penColor: 'Pen color',
+  colorN: 'Color {n}',
   thin: 'Thin pen',
   thick: 'Thick pen',
   clearDrawing: 'Clear drawing',

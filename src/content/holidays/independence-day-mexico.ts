@@ -38,7 +38,7 @@ const content: HolidayContent = {
   recipes: [],
   crafts: [],
   parentNote:
-    'The celebrations begin on the evening of 15 September with the Grito, and 16 September is the public holiday. A favourite dish of the season is chiles en nogada, served in the green, white and red of the flag.',
+    'The celebrations begin on the evening of 15 September with the Grito, and 16 September is the public holiday. A favorite dish of the season is chiles en nogada, served in the green, white and red of the flag.',
   sources: [
     'Gobierno de México, "Ceremonia del Grito de Independencia"',
     'Encyclopaedia Britannica, "Grito de Dolores"',

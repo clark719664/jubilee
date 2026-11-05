@@ -187,7 +187,7 @@ export const COUNTRIES: readonly CountryShape[] = [
   { iso: 'SS', name: 'S. Sudan', rings: [[308,35,297,46,280,44,251,78,239,86,245,89,251,103,258,104,268,95,290,94,300,103,314,98,324,111,321,120,332,122,332,107,337,103,340,87,330,78,341,72,353,55,334,38,308,35]] },
 ];
 
-/** Large lakes, drawn in the ocean colour over the land. */
+/** Large lakes, drawn in the ocean color over the land. */
 export const LAKES: readonly (readonly number[])[] = [
   [1066,528,1080,539,1092,555,1099,557,1092,536,1090,538,1082,528,1052,515,1036,517,1051,520,1066,528],
   [-990,539,-980,543,-962,507,-967,504,-972,515,-992,532,-990,539],

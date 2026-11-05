@@ -1,5 +1,5 @@
 /**
- * art-face.ts — glasses (lenses centred on Jubi's eyes at (42, 52) and (58, 52), tinted so the eyes
+ * art-face.ts — glasses (lenses centered on Jubi's eyes at (42, 52) and (58, 52), tinted so the eyes
  * still show through) and neck things (just under the mouth, y ≥ 66, wrapping the body edge to edge).
  */
 import { c, flat, flower, g, heartD, INK, line, p, starD, stick } from './art-kit';
@@ -8,8 +8,8 @@ const L = { x: 42, y: 52 };
 const R = { x: 58, y: 52 };
 
 /** Short temple arms from each lens back onto the body. */
-function temples(xl: number, xr: number, colour: string): SVGGElement {
-  return g({}, stick(`M${xl} 50.4L29.5 49.2`, colour, 1.6), stick(`M${xr} 50.4L70.5 49.2`, colour, 1.6));
+function temples(xl: number, xr: number, color: string): SVGGElement {
+  return g({}, stick(`M${xl} 50.4L29.5 49.2`, color, 1.6), stick(`M${xr} 50.4L70.5 49.2`, color, 1.6));
 }
 
 function heartGlasses(): SVGGElement {

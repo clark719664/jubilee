@@ -3,7 +3,7 @@
  * Ambient: three depth layers of round flakes (far: tiny, slow, faint · mid: crisp · near: big, soft,
  *   out-of-focus bokeh) plus the odd crystalline flake that spins as it falls. All layers share one slow
  *   wind that gusts, and sway on their own; near flakes feel the wind most (parallax).
- * Behaviours: gravity to a per-flake terminal speed, sway, wind, spin (crystals), horizontal wrap.
+ * Behaviors: gravity to a per-flake terminal speed, sway, wind, spin (crystals), horizontal wrap.
  * Tap: a puff of powder snow thrown from the finger that drifts, slows and settles back into the fall.
  * Still: flakes frozen mid-air in every layer and a band of flakes settled along the ground.
  * Params: density; variant 'shadow' (Groundhog Day): a groundhog peeks from a snow mound; a tap toggles

@@ -48,13 +48,13 @@ Spec §6 recipe/craft titles and allergen minimums per tier-1 holiday:
 |---|---|---|---|---|
 | christmas | Snowman Marshmallow Pops [wheat, gluten, milk, soy] | Gingerbread Cookies (oven) [wheat, gluten, egg, milk] | Paper Snowflakes (scissors); Salt-Dough Ornaments (oven) | es, fr, de, tl, it |
 | hanukkah | Jelly Doughnut Sandwiches [wheat, gluten] | Easy Latkes (stove, grater) [egg, wheat, gluten] | Paper Dreidel (scissors) | he, yi |
-| diwali | Rainbow Fruit Chaat [] | Coconut Ladoo (stove) [milk] | Rice Rangoli (food-colour rice) | hi, gu, ta, pa |
+| diwali | Rainbow Fruit Chaat [] | Coconut Ladoo (stove) [milk] | Rice Rangoli (food-color rice) | hi, gu, ta, pa |
 | eid-al-fitr | Date & Seed Energy Balls [sesame; swap tree-nut] | Sheer Khurma (stove) [milk, wheat, gluten, tree-nut optional] | Paper Fanous Lantern (scissors) | ar, ur, tr, ms |
 | lunar-new-year | Mandarin "Lantern" Fruit Cups [] | Lucky Dumplings (stove/boil) [wheat, gluten, soy] | Red Envelope Lanterns (scissors) | zh-Hans, yue, vi, ko |
 | halloween | Banana Ghosts & Clementine Pumpkins [milk, soy] | Monster Mouth Apple Bites (knife) [peanut; swap sunflower butter] | Paper-Bag Puppet Monster | es, fr, de |
 | thanksgiving | No-Bake Pumpkin Pie Cups [milk, wheat, gluten] | Cornbread Muffins (oven) [wheat, gluten, egg, milk] | Hand-Turkey Thank-You Cards | en, es, fr |
 | easter | Bunny Fruit Pizza [wheat, gluten, milk] | Chocolate Cornflake Nests (microwave) [milk, soy, gluten] | Natural-Dye Eggs (stove, adult) | el, es, pl, de |
-| holi | Rainbow Fruit Skewers with Natural Colour Powder [] | Mango Lassi (blender) [milk] | DIY Colour Powder | hi, gu, ne |
+| holi | Rainbow Fruit Skewers with Natural Color Powder [] | Mango Lassi (blender) [milk] | DIY Color Powder | hi, gu, ne |
 | day-of-the-dead | Marigold Orange Agua Fresca [] | Pan de Muerto Mini Rolls (oven) [wheat, gluten, egg, milk] | Papel Picado (scissors) | es, nah (optional) |
 | kwanzaa | Fruit Kinara Plate [] | Sweet Potato Pie Cups (oven) [milk, egg, wheat, gluten] | Cardboard Kinara (battery tea lights) | sw |
 | juneteenth | Strawberry Soda Floats [milk] | Red Velvet Cupcakes (oven) [wheat, gluten, egg, milk] | Freedom Star Banner | en, es |
@@ -97,12 +97,12 @@ Safety rules (spec §10.3), all enforced:
 
 - **`allergens` is required**; `[]` is a positive statement and renders "No major allergens — always check your own
   labels". Declare the *minimum* set from spec §6 and add anything your ingredients bring in.
-- **Every ingredient keyword the lexicon recognises must be in `allergens` or `mayContain`.** The lexicon
+- **Every ingredient keyword the lexicon recognizes must be in `allergens` or `mayContain`.** The lexicon
   (`src/content/allergens.ts`) maps: milk/butter/cheese/yogurt/cream/ghee/paneer/chocolate → milk; egg/mayonnaise/
-  meringue/custard → egg; flour/wheat/bread/pasta/cracker/graham/cookie/biscuit/flour tortilla/couscous/semolina/
+  meringue/custard → egg; flour/wheat/bread/pasta/cracker/graham/cookie/cookie/flour tortilla/couscous/semolina/
   breadcrumb/pretzel/noodles → wheat **and** gluten; barley/rye/oats/granola/cornflakes/malt → gluten; peanut → peanut;
   almond/walnut/cashew/pistachio/pecan/hazelnut/macadamia/pine nut → tree-nut; soy/tofu/edamame/miso/chocolate → soy;
-  sesame/tahini → sesame; fish/salmon/tuna/anchovy → fish; shrimp/prawn/crab/lobster → shellfish. Plant milks, nut
+  sesame/tahini → sesame; fish/salmon/tuna/anchovy → fish; shrimp/shrimp/crab/lobster → shellfish. Plant milks, nut
   butters and "cream of tartar" are excluded by lookbehinds; "oat milk" still flags gluten (put it in `mayContain`).
   Soy sauce usually contains wheat: declare wheat and gluten too.
 - `mayContain` is for cross-contact you cannot rule out (nut lines, oats). `swaps` is one line per allergen you can
@@ -113,7 +113,7 @@ Safety rules (spec §10.3), all enforced:
   "not for children under one".
 - **`noHeat: true` recipes** have no step with `heat`, `hot-liquid` or `electric` hazards and `adultHelp` is not
   `'needed'`. A knife step (`sharp`) is allowed in a no-heat recipe when it is marked `adult: true`.
-- **Hazard words.** A step whose text matches `oven|stove|hob|boil|simmer|fry|bake|microwave|blender|knife|chop|slice|
+- **Hazard words.** A step whose text matches `oven|stove|stovetop|boil|simmer|fry|bake|microwave|blender|knife|chop|slice|
   grate|peel|hot glue|scissors|candle|match|lighter` must have `adult: true`, a non-empty `hazards` list, or a
   `kidSafeOverride` explaining why it is safe ("peeling a banana by hand"). Prefer rewording over overriding:
   "snap the celery" instead of "slice the celery".
@@ -135,7 +135,7 @@ formats them. Quantities are for the stated `serves`.
 - `hazards` is required (`[]` when none). **Scissors in materials ⇒ `'sharp'`; hot glue ⇒ `'hot-glue'`.** Googly eyes,
   beads and balloons are `'small-parts'`; say the age in a tip. Candle crafts (kinara, menorah) use battery tea
   lights, never flames — `'candle'` is only for a real one, which we do not do.
-- `mess` 1 = paper and glue stick, 2 = paint or flour, 3 = dye, glitter, food colouring on hands.
+- `mess` 1 = paper and glue stick, 2 = paint or flour, 3 = dye, glitter, food coloring on hands.
 - `adultHelp` is `'some'` whenever any step has a hazard; `'needed'` for ovens, irons, craft knives.
 - Steps follow the recipe rules above (hazard words need `hazards`, `adult` or an override). `materials` list
   `substitute`s for anything a family may not have; mark `optional` items.

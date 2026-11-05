@@ -1,7 +1,7 @@
 /**
  * Monster Maker (activity id 'monster') — build a cuddly monster and give it a name.
  *
- * Six tabs (body, colour, eyes, mouth, top, pattern) open rows of choices; tapping one changes the
+ * Six tabs (body, color, eyes, mouth, top, pattern) open rows of choices; tapping one changes the
  * monster with a bounce. "Surprise me" deals a whole new monster, "New name" rolls a silly name, and
  * "Keep it" puts it on the Fridge as data ({ kind: 'monster', data: MonsterSpec }), redrawn anywhere
  * with `drawMonster`. Tapping the monster makes it say hello. Every monster is friendly.
@@ -16,11 +16,11 @@ import { icon } from '../../ui/icons';
 import { createShell, keepOnFridge, pick, wireGroup } from '../spooky/kit';
 import type { Activity, ActivityInstance, PlayEnv } from '../types';
 import {
-  BODIES, COLOURS, DEFAULT_MONSTER, EYES, MOUTHS, PATTERNS, TOPS, describeMonster, drawMonster, monsterName, monsterTitle, partPreview, randomMonster, withPart,
+  BODIES, COLORS, DEFAULT_MONSTER, EYES, MOUTHS, PATTERNS, TOPS, describeMonster, drawMonster, monsterName, monsterTitle, partPreview, randomMonster, withPart,
   type MonsterSpec, type Part, type Slot,
 } from './parts';
 
-export { BODIES, COLOURS, DEFAULT_MONSTER, EYES, MOUTHS, PATTERNS, TOPS, describeMonster, drawMonster, monsterName, monsterTitle, randomMonster, sanitizeMonster, withPart } from './parts';
+export { BODIES, COLORS, DEFAULT_MONSTER, EYES, MOUTHS, PATTERNS, TOPS, describeMonster, drawMonster, monsterName, monsterTitle, randomMonster, sanitizeMonster, withPart } from './parts';
 export type { MonsterSpec } from './parts';
 
 export const COPY = {
@@ -28,7 +28,7 @@ export const COPY = {
   emoji: '👾',
   blurb: 'Build a cuddly monster',
   sub: 'Pick, mix and name your very own!',
-  tabs: { body: 'Body', colour: 'Colour', eyes: 'Eyes', mouth: 'Mouth', top: 'On top', pattern: 'Pattern' } as Readonly<Record<Slot, string>>,
+  tabs: { body: 'Body', color: 'Color', eyes: 'Eyes', mouth: 'Mouth', top: 'On top', pattern: 'Pattern' } as Readonly<Record<Slot, string>>,
   surprise: 'Surprise me',
   rename: 'New name',
   keep: 'Keep it',
@@ -45,8 +45,8 @@ export const monsterActivity: Activity = {
   mount: (env) => mountMonster(env),
 };
 
-const LISTS: Readonly<Record<Slot, readonly Part[]>> = { body: BODIES, colour: COLOURS, eyes: EYES, mouth: MOUTHS, top: TOPS, pattern: PATTERNS };
-const SLOTS: readonly Slot[] = ['body', 'colour', 'eyes', 'mouth', 'top', 'pattern'];
+const LISTS: Readonly<Record<Slot, readonly Part[]>> = { body: BODIES, color: COLORS, eyes: EYES, mouth: MOUTHS, top: TOPS, pattern: PATTERNS };
+const SLOTS: readonly Slot[] = ['body', 'color', 'eyes', 'mouth', 'top', 'pattern'];
 
 function mountMonster(env: PlayEnv): ActivityInstance {
   const { ctx } = env;

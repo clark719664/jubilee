@@ -12,7 +12,7 @@ const content: HolidayContent = {
       wow: true,
     },
     {
-      text: 'In 1957 a British TV news programme showed Swiss farmers "harvesting" spaghetti from trees, and many viewers phoned in asking how to grow their own.',
+      text: 'In 1957 a British TV news program showed Swiss farmers "harvesting" spaghetti from trees, and many viewers phoned in asking how to grow their own.',
       bigKids: true,
     },
     {

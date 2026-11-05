@@ -24,7 +24,7 @@ import { COPY, fill, goalLine, hintFor } from './copy';
 import { ProgramEditor } from './editor';
 import { boardOf, CHAPTERS, freshCards, levelLabel, levelsFor, type Level } from './levels';
 import { cardCount, cardsOf, run, type Board, type Card, type Dir, type Pos } from './model';
-import { focusColour, skinFor, type Skin } from './skins';
+import { focusColor, skinFor, type Skin } from './skins';
 import { pathStars } from './stars';
 
 export { BONUS, boardOf, CHAPTERS, freshCards, levelLabel, LEVELS, levelsFor, type Level } from './levels';
@@ -96,9 +96,9 @@ function mountPath(env: PlayEnv): ActivityInstance {
     h('div', { class: 'pth-controls' }, editor.tools, goBtn),
   );
   const main = h('div', { class: 'pth-main' }, stage, side);
-  const root = h('section', { class: 'pth sky', 'aria-labelledby': 'pth-h1', 'data-mood': theme.mood }, header, main);
+  const root = h('section', { class: 'pth sky', 'aria-labeledby': 'pth-h1', 'data-mood': theme.mood }, header, main);
   applyTheme(root, theme);
-  root.style.setProperty('--pth-focus', focusColour(theme));
+  root.style.setProperty('--pth-focus', focusColor(theme));
   const burst = new Burst(root, { effect: meta.effect, ...(meta.effectParams ? { params: meta.effectParams } : {}), theme, motion: () => ctx.motion, seed: 11 });
   root.append(burst.canvas);
   const syncMotion = (): void => { root.classList.toggle('pth-calm', !full()); };
@@ -231,7 +231,7 @@ function mountPath(env: PlayEnv): ActivityInstance {
   }
 
   function popAt(i: number): void {
-    const c = board.centreOf(i);
+    const c = board.centerOf(i);
     if (!c) return;
     const o = root.getBoundingClientRect();
     burst.pop(c.x - o.left, c.y - o.top, 12, 0.7);
@@ -281,7 +281,7 @@ function mountPath(env: PlayEnv): ActivityInstance {
   function showWin(cheer: string, sub: string, fresh: boolean, used: number): void {
     closePanel();
     const nextB = h('button', { type: 'button', class: 'btn btn-lg pth-next', onclick: () => go(index + 1, true) }, COPY.next, icon('arrowRight', 22));
-    const p = h('div', { class: 'pth-dialog pth-win', role: 'dialog', 'aria-modal': 'true', 'aria-labelledby': 'pth-win-title' },
+    const p = h('div', { class: 'pth-dialog pth-win', role: 'dialog', 'aria-modal': 'true', 'aria-labeledby': 'pth-win-title' },
       h('div', { class: 'pth-dialog-card' },
         h('div', { class: 'pth-win-jubi' }, mascot('party', 96)),
         h('h2', { class: 'pth-dialog-title', id: 'pth-win-title' }, cheer),
@@ -330,7 +330,7 @@ function mountPath(env: PlayEnv): ActivityInstance {
         h('div', { class: 'pth-lv-grid' }, ...levels.slice(bonusStart).map((l, j) => button(l, bonusStart + j)))));
     }
     const closeB = h('button', { type: 'button', class: 'btn btn-secondary btn-icon pth-dialog-close', 'aria-label': COPY.closeDialog, onclick: () => closePanel(true) }, icon('close', 22));
-    const p = h('div', { class: 'pth-dialog pth-picker', role: 'dialog', 'aria-modal': 'true', 'aria-labelledby': 'pth-pick-title' },
+    const p = h('div', { class: 'pth-dialog pth-picker', role: 'dialog', 'aria-modal': 'true', 'aria-labeledby': 'pth-pick-title' },
       h('div', { class: 'pth-dialog-card' },
         h('div', { class: 'pth-picker-head' },
           h('div', {}, h('h2', { class: 'pth-dialog-title', id: 'pth-pick-title' }, COPY.pickTitle), h('p', { class: 'pth-dialog-sub' }, COPY.pickSub)),

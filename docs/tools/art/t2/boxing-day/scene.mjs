@@ -327,7 +327,7 @@ export function mid() {
 // ============================== front ==============================
 export function front() {
   setPrecision(1);
-  return compactSvg(doc(`Boxing Day · front: snowbanks in both bottom corners, a bramble with berries on the left; the centre stays open`, [], [
+  return compactSvg(doc(`Boxing Day · front: snowbanks in both bottom corners, a bramble with berries on the left; the center stays open`, [], [
     C('a snowbank on the left with a bare bramble'),
     path('M-20 900V846Q70 824 170 838T300 880L316 900Z', { fill: '#ffffff' }),
     path('M-20 900V866Q90 852 200 872T316 900Z', { fill: '#d8e6ee' }),
@@ -344,7 +344,7 @@ export function sceneData(ppl) {
   const r = (v) => Math.round(v);
   return {
     hotspots: [
-      { activity: 'colour', x: r(ppl.box[0]), y: r(ppl.box[1]), r: 64, label: 'Colour in the cardboard-box sledge' },
+      { activity: 'color', x: r(ppl.box[0]), y: r(ppl.box[1]), r: 64, label: 'Color in the cardboard-box sledge' },
       { activity: 'dressup', x: r(ppl.mum[0]), y: r(ppl.mum[1]), r: 44, label: 'Dress up in a Christmas jumper' },
       { activity: 'card', x: ppl.post[0], y: ppl.post[1], r: 30, label: 'Post a thank-you card' },
       { activity: 'catch', x: r(ppl.dog[0]), y: r(ppl.dog[1]), r: 40, label: 'Play catch with the dog' },

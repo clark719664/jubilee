@@ -1,5 +1,5 @@
 /**
- * color.ts — tiny colour helpers for sprite painters: parse `#rgb/#rrggbb/#rrggbbaa/rgb()/rgba()`,
+ * color.ts — tiny color helpers for sprite painters: parse `#rgb/#rrggbb/#rrggbbaa/rgb()/rgba()`,
  * lighten or darken, and apply alpha. Unparsable strings pass through unchanged so a painter never throws.
  */
 
@@ -31,7 +31,7 @@ export function rgba(r: number, g: number, b: number, a: number): string {
   return `rgba(${q(r)},${q(g)},${q(b)},${Math.max(0, Math.min(1, a))})`;
 }
 
-/** The colour with its alpha multiplied by `a`. */
+/** The color with its alpha multiplied by `a`. */
 export function withAlpha(c: string, a: number): string {
   const p = parseColor(c);
   return p ? rgba(p[0], p[1], p[2], p[3] * a) : c;
@@ -46,7 +46,7 @@ export function shade(c: string, k: number): string {
   return rgba(p[0] + (target - p[0]) * m, p[1] + (target - p[1]) * m, p[2] + (target - p[2]) * m, p[3]);
 }
 
-/** Blends two colours; k = 0 → a, 1 → b. */
+/** Blends two colors; k = 0 → a, 1 → b. */
 export function mixColor(a: string, b: string, k: number): string {
   const pa = parseColor(a);
   const pb = parseColor(b);

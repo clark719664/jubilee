@@ -108,7 +108,7 @@ export const COPY = {
   'grownups.motion': 'Moving skies',
   'grownups.units': 'Recipe measurements',
   'grownups.everywhere': 'Count down to holidays from everywhere',
-  'grownups.scheme': 'Colours',
+  'grownups.scheme': 'Colors',
   'grownups.custom': 'Birthdays and our own days',
   'grownups.store': 'What we store on this device',
   'grownups.storeNone': 'Nothing yet.',
@@ -179,7 +179,7 @@ export const SECTION_LABELS = {
 
 export const SORT_LABELS = { soon: 'Soonest', az: 'A–Z', month: 'By month' } as const;
 
-export const SEASON_LABELS = { winter: 'Winter', spring: 'Spring', summer: 'Summer', autumn: 'Autumn' } as const;
+export const SEASON_LABELS = { winter: 'Winter', spring: 'Spring', summer: 'Summer', fall: 'Autumn' } as const;
 
 // ───────────────────────────────────────────────────────── badges
 

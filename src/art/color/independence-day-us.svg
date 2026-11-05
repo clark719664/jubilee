@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
+<!-- Independence Day coloring page: a bandstand with swags, fans and a drum under fireworks and stars, and a girl drawing a heart in the air with her sparkler -->
+<g stroke="#2a2340" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+<rect data-fill="background" fill="#ffffff" x="0" y="0" width="800" height="800" stroke="none"/>
+<path data-fill="firework-left" fill="#ffffff" d="M129 60q1-4 2.2-.2l9.6 32q1.2 3.6 4.1.8l24-23q3.1-2.3 2.2 1.5l-7.5 32q-.9 4.2 3 3.3l32-7.5q4.1-.9 1.4 2l-23 24q-2.4 3.1 1.5 4.3l32 9.6q3.5 1.2-.3 2.4l-32 9.6q-3.6 1.2-.8 4.1l23 24q2.3 3.1-1.5 2.2l-32-7.5q-4.2-.9-3.3 3l7.5 32q.9 4.1-2 1.4l-24-23q-3.1-2.4-4.3 1.5l-9.6 32q-1.2 3.5-2.4-.3l-9.6-32q-1.2-3.6-4.1-.8l-24 23q-3.1 2.3-2.2-1.5l7.5-32q.9-4.2-3-3.3l-32 7.5q-4.1.9-1.4-2l23-24q2.4-3.1-1.5-4.3l-32-9.6q-3.5-1.2.3-2.4l32-9.6q3.6-1.2.8-4.1l-23-24q-2.3-3.1 1.5-2.2l32 7.5q4.2.9 3.3-3l-7.5-32q-.9-4.1 2-1.4l24 23q3.1 2.4 4.3-1.5z"/>
+<path data-fill="firework-left-middle" fill="#ffffff" d="M105 140a25 25 0 1 0 50 0a25 25 0 1 0-50 0z"/>
+<path data-fill="firework-right" fill="#ffffff" d="M671 40q1-4 2.2-.2l10.7 36q1.2 3.3 4.1.6l27-25q3-3.1 2.1.8l-8.4 36q-.9 4 3 3.1l36-8.4q4-.9 1.2 2l-25 27q-3 3 .8 4.2l35 10.7q4.3 1.2.5 2.4l-36 10.7q-3.3 1.2-.6 4.1l25 27q3.1 3-.8 2.1l-36-8.4q-4-.9-3.1 3l8.4 36q.9 4-2 1.2l-27-25q-3-3-4.2.8l-10.7 36q-1.2 3.3-2.4-.5l-10.7-35q-1.2-4.3-4.1-1.6l-27 25q-3 3.1-2.1-.8l8.4-36q.9-4-3-3.1l-36 8.4q-4 .9-1.2-2l25-27q3-3-.8-4.2l-35-10.7q-4.3-1.2-.5-2.4l36-10.7q3.3-1.2.6-4.1l-25-27q-3.1-3 .8-2.1l36 8.4q4 .9 3.1-3l-8.4-36q-.9-4 2-1.2l27 25q3 3 4.2-.8z"/>
+<path data-fill="firework-right-middle" fill="#ffffff" d="M644 128a28 28 0 1 0 56 0a28 28 0 1 0-56 0z"/>
+<path data-fill="star-1" fill="#ffffff" d="M299 50q1-2 1.8 0l4.2 10q.8 2 3 2.2l10.7.8q2.2.2.6 1.6l-8.2 7q-1.7 1.5-1.2 3.6l2.5 10.5q.5 2.1-1.3 1l-9.2-5.7q-1.9-1.1-3.8 0l-9.2 5.7q-1.8 1.1-1.3-1l2.5-10.5q.5-2.1-1.2-3.6l-8.2-7q-1.6-1.4.6-1.6l10.7-.8q2.2-.2 3-2.2z"/>
+<path data-fill="star-2" fill="#ffffff" d="M469 44q1-2 1.7-.3l3.4 8.1q.7 1.6 2.5 1.8l8.7.7q1.8.1.5 1.3l-6.7 5.7q-1.4 1.2-1 3l2.1 8.5q.4 1.8-1.2.8l-7.5-4.6q-1.5-.9-3 0l-7.5 4.6q-1.6 1-1.2-.8l2.1-8.5q.4-1.8-1-3l-6.7-5.7q-1.3-1.2.5-1.3l8.7-.7q1.8-.2 2.5-1.8z"/>
+<path data-fill="grass" fill="#ffffff" d="M0 640c200-20 600-20 800 0v160h-800z"/>
+<path data-fill="melon-rind" fill="#ffffff" d="M40 760l140 0q-70 40-140 0z"/>
+<path data-fill="melon-flesh" fill="#ffffff" d="M110 640l62 116q-62 30-124 0z"/>
+<path data-fill="sparkler-spark" fill="#ffffff" d="M761 490q1-2 1.8-.2l3.7 9.1q.8 1.8 2.8 2l9.7.8q2 .1.5 1.4l-7.4 6.4q-1.5 1.3-1.1 3.2l2.3 9.5q.5 2-1.3.9l-8.3-5.1q-1.7-1-3.4 0l-8.3 5.1q-1.8 1.1-1.3-.9l2.3-9.5q.4-1.9-1.1-3.2l-7.4-6.4q-1.5-1.3.5-1.4l9.7-.8q2-.2 2.8-2z"/>
+<path data-fill="girl-braid-left" fill="#ffffff" d="M655 571l-7.9 56a9 9 0 0 0 17.8 2.3l8-56a9 9 0 0 0-17.8-2.6z"/>
+<path data-fill="girl-braid-right" fill="#ffffff" d="M707 573l8.1 56a9 9 0 0 0 17.8-2.3l-8-56a9 9 0 0 0-17.8 2.6z"/>
+<path data-fill="girl-leg-left" fill="#ffffff" d="M667 716l-2 44a11 11 0 0 0 22 .5l2-44a11 11 0 0 0-22-1z"/>
+<path data-fill="girl-leg-right" fill="#ffffff" d="M691 717l2 44a11 11 0 0 0 22-1.5l-2-44a11 11 0 0 0-22 1z"/>
+<path data-fill="girl-shoe-left" fill="#ffffff" d="M650 774q0-18 26-18q14 0 14 18z"/>
+<path data-fill="girl-shoe-right" fill="#ffffff" d="M690 774q0-18 14-18q26 0 26 18z"/>
+<path data-fill="girl-arm-left" fill="#ffffff" d="M648 621l-18.5 58a11 11 0 0 0 21 6.3l18-58a11 11 0 0 0-21-6.6z"/>
+<path data-fill="girl-dress" fill="#ffffff" d="M660 620q2-10 12-10l36 0q10 0 12.4 9.7l6.6 26q1 4.3 2.4 8.1l23 63q3.6 9.2-6.4 9.2l-112 0q-10 0-6.5-9.4l23-63q1.5-3.6 2.5-7.5z"/>
+<path data-fill="girl-arm-right" fill="#ffffff" d="M728 628l20-58a11 11 0 0 0-20-7.6l-20 58a11 11 0 0 0 20 7.2z"/>
+<path data-fill="girl-hand-right" fill="#ffffff" d="M727 558a13 13 0 1 0 26 0a13 13 0 1 0-26 0z"/>
+<path data-fill="girl-face" fill="#ffffff" d="M658 572a32 32 0 1 0 64 0a32 32 0 1 0-64 0z"/>
+<path data-fill="girl-hair" fill="#ffffff" d="M658 572c-2-38 66-38 64 0q-22-20-32-18q-14-2-32 18z"/>
+<path data-fill="inside" fill="#ffffff" d="M204 352h392v208h-392z"/>
+<path data-fill="drum" fill="#ffffff" d="M354 508a46 46 0 1 0 92 0a46 46 0 1 0-92 0z"/>
+<path data-fill="drum-head" fill="#ffffff" d="M368 508a32 32 0 1 0 64 0a32 32 0 1 0-64 0z"/>
+<path data-fill="drum-star" fill="#ffffff" d="M399 492q1-2 1.8-.2l3.7 9.1q.8 1.8 2.8 2l9.7.8q2 .1.5 1.4l-7.4 6.4q-1.5 1.3-1.1 3.2l2.3 9.5q.5 2-1.3.9l-8.3-5.1q-1.7-1-3.4 0l-8.3 5.1q-1.8 1.1-1.3-.9l2.3-9.5q.4-1.9-1.1-3.2l-7.4-6.4q-1.5-1.3.5-1.4l9.7-.8q2-.2 2.8-2z"/>
+<path data-fill="rail-left" fill="#ffffff" d="M226 466h93v74h-93z"/>
+<path data-fill="rail-right" fill="#ffffff" d="M481 466h93v74h-93z"/>
+<path data-fill="fan-left" fill="#ffffff" d="M236 466a36 36 0 0 0 72 0z"/>
+<path data-fill="fan-right" fill="#ffffff" d="M492 466a36 36 0 0 0 72 0z"/>
+<path data-fill="post-1" fill="#ffffff" d="M204 350q0-4 4-4l14 0q4 0 4 4l0 206q0 4-4 4l-14 0q-4 0-4-4z"/>
+<path data-fill="post-2" fill="#ffffff" d="M319 350q0-4 4-4l14 0q4 0 4 4l0 206q0 4-4 4l-14 0q-4 0-4-4z"/>
+<path data-fill="post-3" fill="#ffffff" d="M459 350q0-4 4-4l14 0q4 0 4 4l0 206q0 4-4 4l-14 0q-4 0-4-4z"/>
+<path data-fill="post-4" fill="#ffffff" d="M574 350q0-4 4-4l14 0q4 0 4 4l0 206q0 4-4 4l-14 0q-4 0-4-4z"/>
+<path data-fill="beam" fill="#ffffff" d="M184 334q0-6 6-6l420 0q6 0 6 6l0 12q0 6-6 6l-420 0q-6 0-6-6z"/>
+<path data-fill="swag-1" fill="#ffffff" d="M215 352h115q-57 96-115 0z"/>
+<path data-fill="swag-1-stripe" fill="#ffffff" d="M215 352h115q-57 48-115 0z"/>
+<path data-fill="swag-2" fill="#ffffff" d="M330 352h140q-70 96-140 0z"/>
+<path data-fill="swag-2-stripe" fill="#ffffff" d="M330 352h140q-70 48-140 0z"/>
+<path data-fill="swag-3" fill="#ffffff" d="M470 352h115q-57 96-115 0z"/>
+<path data-fill="swag-3-stripe" fill="#ffffff" d="M470 352h115q-57 48-115 0z"/>
+<path data-fill="rosette-1" fill="#ffffff" d="M200 356a15 15 0 1 0 30 0a15 15 0 1 0-30 0z"/>
+<path data-fill="rosette-2" fill="#ffffff" d="M315 356a15 15 0 1 0 30 0a15 15 0 1 0-30 0z"/>
+<path data-fill="rosette-3" fill="#ffffff" d="M455 356a15 15 0 1 0 30 0a15 15 0 1 0-30 0z"/>
+<path data-fill="rosette-4" fill="#ffffff" d="M570 356a15 15 0 1 0 30 0a15 15 0 1 0-30 0z"/>
+<path data-fill="roof-left" fill="#ffffff" d="M188 330c74-4 130-30 158-82c10-18 16-32 24-44l-70 126z"/>
+<path data-fill="roof-middle" fill="#ffffff" d="M370 204h60l70 126h-200z"/>
+<path data-fill="roof-right" fill="#ffffff" d="M612 330c-74-4-130-30-158-82c-10-18-16-32-24-44l70 126z"/>
+<path data-fill="cupola" fill="#ffffff" d="M362 164q0-4 4-4l68 0q4 0 4 4l0 38q0 4-4 4l-68 0q-4 0-4-4z"/>
+<path data-fill="cupola-window" fill="#ffffff" d="M378 173q0-3 3-3l38 0q3 0 3 3l0 20q0 3-3 3l-38 0q-3 0-3-3z"/>
+<path data-fill="cupola-roof" fill="#ffffff" d="M350 164q30-14 50-34q20 20 50 34z"/>
+<path data-fill="star-top" fill="#ffffff" d="M399 94q1-2 1.7-.3l3.4 8.1q.7 1.6 2.5 1.8l8.7.7q1.8.1.5 1.3l-6.7 5.7q-1.4 1.2-1 3l2.1 8.5q.4 1.8-1.2.8l-7.5-4.6q-1.5-.9-3 0l-7.5 4.6q-1.6 1-1.2-.8l2.1-8.5q.4-1.8-1-3l-6.7-5.7q-1.3-1.2.5-1.3l8.7-.7q1.8-.2 2.5-1.8z"/>
+<path data-fill="deck" fill="#ffffff" d="M178 562q0-6 6-6l432 0q6 0 6 6l0 14q0 6-6 6l-432 0q-6 0-6-6z"/>
+<path data-fill="base-left" fill="#ffffff" d="M196 582h124v70h-124z"/>
+<path data-fill="base-right" fill="#ffffff" d="M480 582h124v70h-124z"/>
+<path data-fill="step-1" fill="#ffffff" d="M320 582h160v24h-160z"/>
+<path data-fill="step-2" fill="#ffffff" d="M320 606h160v24h-160z"/>
+<path data-fill="step-3" fill="#ffffff" d="M312 630h176v28h-176z"/>
+<path fill="none" d="M96 700v8"/>
+<path fill="none" d="M124 700v8"/>
+<path fill="none" d="M110 726v8"/>
+<path fill="none" d="M84 734v8"/>
+<path fill="none" d="M136 734v8"/>
+<path fill="none" d="M762 512l-22 44"/>
+<path fill="none" d="M762 512c-46-30-36-82 0-60c36-22 46 30 0 60"/>
+<path fill="none" d="M679 576h.5m22 0h.5"/>
+<path fill="none" d="M678 588q12 12 24 0"/>
+<path fill="none" d="M238 506v22"/>
+<path fill="none" d="M252 506v22"/>
+<path fill="none" d="M266 506v22"/>
+<path fill="none" d="M280 506v22"/>
+<path fill="none" d="M294 506v22"/>
+<path fill="none" d="M308 506v22"/>
+<path fill="none" d="M492 506v22"/>
+<path fill="none" d="M506 506v22"/>
+<path fill="none" d="M520 506v22"/>
+<path fill="none" d="M534 506v22"/>
+<path fill="none" d="M548 506v22"/>
+<path fill="none" d="M562 506v22"/>
+<path fill="none" d="M196 622l30 30"/>
+<path fill="none" d="M226 582l-30 30"/>
+<path fill="none" d="M196 592l60 60"/>
+<path fill="none" d="M256 582l-60 60"/>
+<path fill="none" d="M216 582l70 70"/>
+<path fill="none" d="M286 582l-70 70"/>
+<path fill="none" d="M246 582l64 64"/>
+<path fill="none" d="M310 588l-64 64"/>
+<path fill="none" d="M276 582l34 34"/>
+<path fill="none" d="M310 618l-34 34"/>
+<path fill="none" d="M490 616l36 36"/>
+<path fill="none" d="M526 582l-36 36"/>
+<path fill="none" d="M490 586l66 66"/>
+<path fill="none" d="M556 582l-66 66"/>
+<path fill="none" d="M516 582l70 70"/>
+<path fill="none" d="M586 582l-70 70"/>
+<path fill="none" d="M546 582l58 58"/>
+<path fill="none" d="M604 594l-58 58"/>
+<path fill="none" d="M576 582l28 28"/>
+<path fill="none" d="M604 624l-28 28"/>
+</g>
+</svg>

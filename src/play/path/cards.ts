@@ -1,6 +1,6 @@
 /**
- * cards.ts — the instruction cards as chunky, colour-coded buttons (the same look in the palette and in
- * the program strip). Each card kind has its own colour and a bold white pictogram, so a pre-reader can
+ * cards.ts — the instruction cards as chunky, color-coded buttons (the same look in the palette and in
+ * the program strip). Each card kind has its own color and a bold white pictogram, so a pre-reader can
  * tell "step" from "turn" from "repeat" at a glance; the short word under it is for early readers and
  * the button's accessible name says the whole thing ("Turn left", "Repeat 3 times").
  */
@@ -54,7 +54,7 @@ export function cardFace(card: Card): HTMLElement[] {
   ];
 }
 
-/** Colour family for CSS (`data-kind`). */
+/** Color family for CSS (`data-kind`). */
 export function cardKind(card: Card): string {
   if (card === 'rep2' || card === 'rep3') return 'repeat';
   if (card === 'left' || card === 'right') return 'turn';

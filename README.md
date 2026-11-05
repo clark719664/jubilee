@@ -6,7 +6,7 @@ A holiday tracker for kids. Count the sleeps until the next holiday, watch it co
 
 - Free, with no ads, accounts, tracking or analytics
 - Everything stays on your device and works offline once loaded
-- Countdowns, games, stories, colouring pages, recipes and crafts
+- Countdowns, games, stories, coloring pages, recipes and crafts
 - Installs to a phone or computer from the website, with no app store
 
 ## Run it locally
@@ -18,6 +18,6 @@ npm run dev
 
 The landing page is `index.html` and the app is `app/index.html`. `npm test` runs the test suite, `npm run lint` checks the code and `npm run build` makes the site in `dist/`. Pushing to `main` tests and publishes it to GitHub Pages.
 
-## Licence
+## License
 
 MIT. The Fredoka font is under the SIL Open Font License (`public/fonts/OFL.txt`).

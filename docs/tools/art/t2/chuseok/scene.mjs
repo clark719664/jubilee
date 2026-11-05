@@ -49,10 +49,10 @@ export function back() {
 
 /** A girl's or woman's hanbok over a figure: a high-waisted bell chima, the jeogori's white collar and goreum bow,
  *  and (saekdong) rainbow-striped sleeves on the given arms. */
-function hanbok(fig, x, foot, { chima, jeogori, goreum, arms = [], saek = false, trousers = false }) {
+function hanbok(fig, x, foot, { chima, jeogori, goreum, arms = [], saek = false, pants = false }) {
   const r = fig.r, tw = fig.tw;
   const out = [];
-  if (!trousers) {
+  if (!pants) {
     const top = fig.torsoTop + r * 0.8;
     out.push(path(`M${P(x - tw * 0.48, top)}C${P(x - tw * 0.62, top + r)} ${P(x - tw * 0.95, foot - r * 0.8)} ${P(x - tw * 0.98, foot - 2)}Q${P(x, foot + r * 0.22)} ${P(x + tw * 0.98, foot - 2)}C${P(x + tw * 0.95, foot - r * 0.8)} ${P(x + tw * 0.62, top + r)} ${P(x + tw * 0.48, top)}Z`, { fill: chima }));
     out.push(path(`M${P(x - tw * 0.2, top + r * 0.5)}Q${P(x - tw * 0.3, foot - r)} ${P(x - tw * 0.4, foot - 4)}M${P(x + tw * 0.25, top + r * 0.6)}Q${P(x + tw * 0.4, foot - r)} ${P(x + tw * 0.55, foot - 6)}`, { fill: 'none', stroke: darken(chima, 0.18), 'stroke-width': r * 0.08, 'stroke-linecap': 'round' }));
@@ -212,7 +212,7 @@ export function mid() {
     const cx = 800, cy = 800, step = 112;
     const ring = [
       { k: -2, H: 158, skin: SKIN.fair, style: 'bun', chima: '#2a6ad8', jeogori: '#ffd0e0', goreum: '#c8245a', mouth: 'smile', gaze: 0.3 },
-      { k: -1, H: 112, skin: SKIN.warm, style: 'short', jeogori: '#3aa85a', bottom: '#f0e8d0', trousers: true, mouth: 'open', gaze: 0.2 },
+      { k: -1, H: 112, skin: SKIN.warm, style: 'short', jeogori: '#3aa85a', bottom: '#f0e8d0', pants: true, mouth: 'open', gaze: 0.2 },
       { k: 0, H: 120, skin: SKIN.light, style: 'puffs', chima: '#ff6a9a', jeogori: '#ffffff', goreum: '#e8243a', saek: true, mouth: 'open', gaze: 0 },
       { k: 1, H: 150, skin: SKIN.light, style: 'side', chima: '#7a3a9a', jeogori: '#a8e0c8', goreum: '#7a3a9a', mouth: 'smile', gaze: -0.3 },
       { k: 2, H: 118, skin: SKIN.fair, style: 'bob', chima: '#ffc83a', jeogori: '#ff8ac8', goreum: '#2a6ad8', saek: true, mouth: 'open', gaze: -0.2 },
@@ -223,7 +223,7 @@ export function mid() {
       const r = d.H / (2.8 * 2);
       d.r = r; d.sy = d.foot - d.H + r + r * 1.35 + r * 0.45; d.tw = r * 1.9; d.arms = [];
     }
-    // each pair of neighbours holds hands at a point between their shoulders, arms swung low in a V
+    // each pair of neighbors holds hands at a point between their shoulders, arms swung low in a V
     for (let k = 0; k + 1 < ring.length; k++) {
       const A = ring[k], B = ring[k + 1];
       const m = [(A.x + A.tw * 0.46 + B.x - B.tw * 0.46) / 2, Math.max(A.sy, B.sy) + Math.min(A.r, B.r) * 1.1];
@@ -238,9 +238,9 @@ export function mid() {
     ring[4].arms.push({ sx: 1, elbow: [0.8, -0.3], hand: [1.1, -1.4] });
     const order = [...ring].sort((p, q) => p.foot - q.foot);
     for (const d of order) {
-      const fig = figure({ x: d.x, foot: d.foot, H: d.H, heads: 2.8, skin: d.skin, hair: HAIR, style: d.style, top: d.jeogori, bottom: d.trousers ? d.bottom : d.chima, shoe: d.trousers ? '#2a3248' : '#ffffff', gaze: d.gaze, mouth: d.mouth, arms: d.arms });
+      const fig = figure({ x: d.x, foot: d.foot, H: d.H, heads: 2.8, skin: d.skin, hair: HAIR, style: d.style, top: d.jeogori, bottom: d.pants ? d.bottom : d.chima, shoe: d.pants ? '#2a3248' : '#ffffff', gaze: d.gaze, mouth: d.mouth, arms: d.arms });
       out.push(fig.svg, hanbok(fig, d.x, d.foot, { ...d, arms: d.arms.map((a) => ({ ...a, skin: d.skin })) }));
-      if (d.trousers) out.push(path(`M${P(d.x - d.tw * 0.5, fig.torsoTop + d.r * 1.4)}h${f(d.tw)}v${f(d.r * 0.9)}h${f(-d.tw)}z`, { fill: '#2a4ab8' }), circle(d.x + d.r * 0.2, fig.torsoTop + d.r * 1.7, d.r * 0.14, { fill: '#ffc83a' }));
+      if (d.pants) out.push(path(`M${P(d.x - d.tw * 0.5, fig.torsoTop + d.r * 1.4)}h${f(d.tw)}v${f(d.r * 0.9)}h${f(-d.tw)}z`, { fill: '#2a4ab8' }), circle(d.x + d.r * 0.2, fig.torsoTop + d.r * 1.7, d.r * 0.14, { fill: '#ffc83a' }));
       d.headY = fig.headY;
     }
     ppl.ring = [cx, cy - 30];
@@ -264,7 +264,7 @@ export function front() {
     for (let k = 0; k < 8; k++) { const a = (k / 8) * Math.PI * 2; d += `M${P(x, y)}l${f(Math.cos(a - 0.22) * r)} ${f(Math.sin(a - 0.22) * r)}l${f(Math.cos(a + 0.22) * r * 0.5 - Math.cos(a - 0.22) * r * 0.5)} ${f(Math.sin(a + 0.22) * r * 0.5 - Math.sin(a - 0.22) * r * 0.5)}z`; }
     return path(d, { fill: c, stroke: c, 'stroke-width': r * 0.3, 'stroke-linejoin': 'round' }) + circle(x, y, r * 0.22, { fill: '#ffc83a' });
   };
-  return compactSvg(doc(`Chuseok · front: autumn cosmos in pink, white and magenta in the bottom corners, a red dragonfly; the centre stays open`, [], [
+  return compactSvg(doc(`Chuseok · front: autumn cosmos in pink, white and magenta in the bottom corners, a red dragonfly; the center stays open`, [], [
     C('cosmos stems and flowers, bottom left'),
     line('M30 900q10 -60 0 -110M70 900q-6 -50 14 -90M120 900q6 -40 -6 -70', '#3a6a3a', 3.4),
     cosmos(30, 790, 22, '#ff8ac8'), cosmos(84, 810, 18, '#ffffff'), cosmos(114, 830, 16, '#d0408a'),
@@ -283,7 +283,7 @@ export function sceneData(ppl) {
     hotspots: [
       { activity: 'wish', x: r(ppl.ring[0]), y: r(ppl.ring[1]), r: 70, label: 'Make a wish on the harvest moon' },
       { activity: 'dressup', x: r(ppl.mom[0]), y: r(ppl.mom[1]), r: 40, label: 'Dress up in hanbok' },
-      { activity: 'colour', x: r(ppl.songpyeon[0]), y: r(ppl.songpyeon[1]), r: 36, label: 'Colour the songpyeon' },
+      { activity: 'color', x: r(ppl.songpyeon[0]), y: r(ppl.songpyeon[1]), r: 36, label: 'Color the songpyeon' },
       { activity: 'card', x: 86, y: 588, r: 40, label: 'Make a Chuseok card' },
       { activity: 'catch', x: r(ppl.persimmon[0]), y: r(ppl.persimmon[1]), r: 44, label: 'Catch persimmons' },
       { activity: 'memory', x: ppl.crocks[0], y: ppl.crocks[1], r: 40, label: 'Harvest memory game' },

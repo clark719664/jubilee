@@ -8,11 +8,11 @@
       "label": "Catch the water splashes"
     },
     {
-      "activity": "colour",
+      "activity": "color",
       "x": 750,
       "y": 696,
       "r": 60,
-      "label": "Colour the baby elephant"
+      "label": "Color the baby elephant"
     },
     {
       "activity": "card",

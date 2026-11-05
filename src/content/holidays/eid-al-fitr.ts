@@ -6,7 +6,7 @@ const content: HolidayContent = {
     'Eid begins when the new crescent moon is spotted in the sky, and in many countries the celebrations last three days.',
     'On Eid morning families wake up early, wash, put on their best or brand-new clothes and go together to a special prayer, often held outdoors or in a big hall.',
     'Before the prayer, families give food or money to people in need, so that nobody is left out of the feast.',
-    'Then the visiting begins: grandparents, cousins and neighbours, tables full of sweets, and gifts of money for children, which is why some people call it Sweet Eid.',
+    'Then the visiting begins: grandparents, cousins and neighbors, tables full of sweets, and gifts of money for children, which is why some people call it Sweet Eid.',
   ],
 
   facts: [
@@ -104,10 +104,10 @@ const content: HolidayContent = {
       swaps: [
         { avoid: 'sesame', use: 'sunflower-seed butter instead of tahini, and desiccated coconut for rolling' },
         { avoid: 'tree-nut', use: 'leave out the pistachios and roll the balls in sesame seeds or coconut' },
-        { avoid: 'gluten', use: 'oats labelled gluten-free' },
+        { avoid: 'gluten', use: 'oats labeled gluten-free' },
       ],
       chokingNote: 'Nuts and seeds are choking hazards for children under 4: for little ones, leave out the pistachios and roll the balls in coconut instead.',
-      equipment: ['Large bowl', 'Fork', 'Tablespoon', '3 small plates or saucers', 'Tray or plate lined with baking paper', 'Fridge'],
+      equipment: ['Large bowl', 'Fork', 'Tablespoon', '3 small plates or saucers', 'Tray or plate lined with parchment paper', 'Fridge'],
       ingredients: [
         { item: 'Soft pitted dates', us: { qty: 1, unit: 'cup' }, metric: { qty: 200, unit: 'g' }, note: 'about 12 Medjool dates; if they are dry, soak in warm tap water for 10 minutes and drain' },
         { item: 'Rolled oats', us: { qty: 1, unit: 'cup' }, metric: { qty: 90, unit: 'g' }, allergens: ['gluten'] },
@@ -125,12 +125,12 @@ const content: HolidayContent = {
           tip: 'Sticky fingers? Dip them in a little cold water.',
         },
         { text: 'Mash the dates with the fork, pressing and scraping, until they turn into a thick, sticky paste. This takes a few minutes and strong arms.' },
-        { text: 'Add the tahini, cinnamon and cardamom and mash again until everything is one colour.' },
+        { text: 'Add the tahini, cinnamon and cardamom and mash again until everything is one color.' },
         { text: 'Tip in the oats and sunflower seeds and squish it all together with your hands until no dry oats are left. If it will not stick, add a teaspoon of water.' },
         { text: 'Scoop up a heaped tablespoon of the mix and squeeze it hard in your fist, then roll it between your palms into a ball about the size of a walnut. Keep going until the bowl is empty.' },
         { text: 'Put the sesame seeds, coconut and pistachios on three separate saucers. Roll each ball around on one saucer so it gets a coat, then set it on the tray.' },
         { text: 'Chill the tray in the fridge for 30 minutes so the balls firm up, then pile them on a pretty plate for Eid visitors.', timerMinutes: 30 },
-        { text: 'Taste test! Try one of each coating and pick your favourite.' },
+        { text: 'Taste test! Try one of each coating and pick your favorite.' },
       ],
       tip: 'These keep in a box in the fridge for a week, so you can make them the day before Eid while the Ramadan fast is still on.',
     },
@@ -214,7 +214,7 @@ const content: HolidayContent = {
       adultHelp: 'some',
       hazards: ['sharp'],
       materials: [
-        { item: 'Coloured card or thick paper', qty: '1 sheet, letter or A4', substitute: 'a page from a magazine, glued to plain paper' },
+        { item: 'Colored card or thick paper', qty: '1 sheet, letter or A4', substitute: 'a page from a magazine, glued to plain paper' },
         { item: 'Strip of card for the handle', qty: '1 inch by 8 inches (2.5 by 20 cm)' },
         { item: 'Scissors' },
         { item: 'Ruler' },
@@ -226,11 +226,11 @@ const content: HolidayContent = {
       steps: [
         {
           text: 'Lay the card flat and decorate one side with crescents, stars and swirly patterns in gold and silver. This side will be the outside.',
-          tip: 'Real fanous lanterns are covered in tiny coloured glass windows. Foil stickers make great windows.',
+          tip: 'Real fanous lanterns are covered in tiny colored glass windows. Foil stickers make great windows.',
         },
         { text: 'Fold the card in half the long way, so you have a long, skinny rectangle with the decorations on the outside.' },
         {
-          text: 'With the ruler and pencil, draw straight lines from the folded edge towards the open edge, about 1 inch (2.5 cm) apart. Stop each line a thumb-width from the open edge.',
+          text: 'With the ruler and pencil, draw straight lines from the folded edge toward the open edge, about 1 inch (2.5 cm) apart. Stop each line a thumb-width from the open edge.',
         },
         {
           text: 'Cut along each pencil line, starting at the fold and stopping where the line stops. Do not cut all the way through.',
@@ -240,7 +240,7 @@ const content: HolidayContent = {
         { text: 'Unfold the card and smooth the fold flat. You now have a sheet with a row of slits down the middle.' },
         { text: 'Curl the card round so the two short edges meet, decorations on the outside, and tape or staple them together top and bottom. It is a tube now.' },
         {
-          text: 'Push the top and bottom of the tube gently towards each other. The strips bow outwards and the tube turns into a round lantern.',
+          text: 'Push the top and bottom of the tube gently toward each other. The strips bow outwards and the tube turns into a round lantern.',
         },
         { text: 'Tape the ends of the handle strip to the top of the lantern, one on each side, so you can carry it.' },
         { text: 'Switch on a battery tea light, set the lantern over it on a table, and turn off the big light to see the glow.' },
@@ -252,11 +252,11 @@ const content: HolidayContent = {
   doors: [
     { sleeps: 12, kind: 'fact', text: 'Ramadan lasts 29 or 30 days. In many places nobody knows which until the evening of the 29th day, when people look for the new crescent moon.' },
     { sleeps: 11, kind: 'joke', text: 'Why did the cousin bring a ladder to Eid lunch? He heard the sweets were piled sky-high!' },
-    { sleeps: 10, kind: 'colour', text: 'Time to colour! The Eid page is full of lanterns, moons and stars waiting for your brightest crayons. Open the colouring page!' },
-    { sleeps: 9, kind: 'fact', text: 'In Malaysia and Indonesia a favourite Hari Raya food is ketupat: rice cooked inside a little pouch woven from young palm leaves.' },
-    { sleeps: 8, kind: 'craft', text: 'Draw a crescent moon and stars on a paper plate, colour them in, tape a ribbon to the top and hang your Eid moon by the window.' },
+    { sleeps: 10, kind: 'color', text: 'Time to color! The Eid page is full of lanterns, moons and stars waiting for your brightest crayons. Open the coloring page!' },
+    { sleeps: 9, kind: 'fact', text: 'In Malaysia and Indonesia a favorite Hari Raya food is ketupat: rice cooked inside a little pouch woven from young palm leaves.' },
+    { sleeps: 8, kind: 'craft', text: 'Draw a crescent moon and stars on a paper plate, color them in, tape a ribbon to the top and hang your Eid moon by the window.' },
     { sleeps: 7, kind: 'say', text: 'Learn to say happy Eid in Turkish!', greeting: 4 },
-    { sleeps: 6, kind: 'fact', text: "In Lebanon, Syria and Palestine many families bake ma'amoul for Eid: buttery cookies filled with dates or nuts and pressed into patterned wooden moulds." },
+    { sleeps: 6, kind: 'fact', text: "In Lebanon, Syria and Palestine many families bake ma'amoul for Eid: buttery cookies filled with dates or nuts and pressed into patterned wooden molds." },
     { sleeps: 5, kind: 'joke', text: "What did the new moon say to the children waiting to spot it? 'Hang on, I'm still getting into shape!'" },
     { sleeps: 4, kind: 'seek', text: 'The Eid picture is hiding some surprises. Can you find them all? Open Seek & Find!' },
     { sleeps: 3, kind: 'fact', text: 'In Malaysia many families light rows of little oil lamps called pelita in the last nights of Ramadan, so homes and villages glow as Eid gets closer.' },

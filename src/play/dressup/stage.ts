@@ -31,7 +31,7 @@ export interface Stage {
 export interface StageOptions {
   readonly label: string;
   readonly motion: () => MotionMode;
-  readonly sparkleColours: readonly string[];
+  readonly sparkleColors: readonly string[];
   readonly onTap: () => void;
 }
 
@@ -116,7 +116,7 @@ export function createStage(opts: StageOptions): Stage {
       const a = (i / n) * Math.PI * 2 + Math.random() * 0.4;
       const dist = spread * 0.7 + 26 + Math.random() * 22;
       const s = 7 + Math.random() * 7;
-      const col = opts.sparkleColours[i % opts.sparkleColours.length] ?? '#fff';
+      const col = opts.sparkleColors[i % opts.sparkleColors.length] ?? '#fff';
       const star = svg('svg', { viewBox: '-10 -10 20 20', width: s * 2, height: s * 2, class: 'dz-spark' });
       star.append(svg('path', { d: twinkleD(0, 0, 9), fill: col, stroke: INK, 'stroke-width': 1.4 }));
       star.style.left = `${x - s}px`;

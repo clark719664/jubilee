@@ -1,15 +1,15 @@
 /**
  * sabzeh — Nowruz: spring sprouts, goldfish and blossom.
  * Ambient: a lawn of sabzeh grows up from the bottom edge (two rows of clumps, a few blades each) to a
- *   height set by `growth`, tied at the front with a red ribbon bow, and ripples in a slow travelling
+ *   height set by `growth`, tied at the front with a red ribbon bow, and ripples in a slow traveling
  *   breeze; goldfish swim across the sky on gentle sine paths (tilting with their path, trailing the odd
  *   bubble); pink and white blossom petals flutter down; a soft spring sun warms the top-left corner.
- * Behaviours: grow-in (clumps ease to their height over ~2.5 s), sine swim (fish), flutter + gravity +
+ * Behaviors: grow-in (clumps ease to their height over ~2.5 s), sine swim (fish), flutter + gravity +
  *   spin (petals), rise + sway + envelope (bubbles), envelope (ripples).
  * Tap: the nearest goldfish darts to the finger, wiggles there and swims on; a ripple ring and a few
  *   bubbles mark the spot.
  * Still: the sabzeh fully grown to `growth`, fish mid-swim, petals caught mid-air.
- * Params: growth (0..1 closeness to Nowruz; default 1), palette (fish colours), density.
+ * Params: growth (0..1 closeness to Nowruz; default 1), palette (fish colors), density.
  */
 import { mixColor } from '../painters';
 import { frameScenery, quant, ribbonBow, rippleRing } from '../painters/extra-whimsy';
@@ -37,7 +37,7 @@ const BLADES = 6;
 const GROW_SECONDS = 2.5;
 const DART_SECONDS = 0.7;
 
-/** Full sabzeh height in px for this sky and closeness (0 → a few millimetres of sprouts). */
+/** Full sabzeh height in px for this sky and closeness (0 → a few millimeters of sprouts). */
 export function grassHeight(h: number, growth: number | undefined): number {
   return h * (0.06 + 0.4 * clamp(growth ?? 1, 0, 1));
 }
@@ -383,7 +383,7 @@ export class SabzehEffect extends PooledEffect {
       const cx = pool.x[i]!;
       const tall = base * pool.size[i]! * grow;
       if (tall < 1) continue;
-      // A breeze travelling left to right, plus each clump's own sway.
+      // A breeze traveling left to right, plus each clump's own sway.
       const breeze = Math.sin(t * 1.1 - cx * 0.008) * 0.6 + Math.sin(t * 2.3 + pool.phase[i]!) * 0.25;
       for (let b = 0; b < BLADES; b++) {
         const u = (b + 0.5) / BLADES - 0.5;

@@ -7,9 +7,9 @@
  *   const hero = mountHero(ctx, { meta, occ, status, mode: 'home', showPeek: true, today });
  *   view.append(hero.el);   …   hero.destroy();      // in the view's destroy()
  *
- * The sky colours are the --h-* variables the VIEW sets with ctx.setTheme; the hero never sets a theme.
+ * The sky colors are the --h-* variables the VIEW sets with ctx.setTheme; the hero never sets a theme.
  *
- *   section.hero.hero-bleed.sky.is-pokeable[.has-scene][.has-lights][.is-celebrating]   aria-labelledby → h1
+ *   section.hero.hero-bleed.sky.is-pokeable[.has-scene][.has-lights][.is-celebrating]   aria-labeledby → h1
  *     div.hero-sky[role=button][tabindex=0]   EffectLayer host: tap/click or Space/Enter → burst
  *       div.hero-layers.is-behind              scene back.svg + mid.svg (decorative <img>s)
  *       canvas.hero-canvas                     role=img, aria-label = the effect's description
@@ -23,8 +23,8 @@
  *     div.hero-mascot                          Jubi (tap the holiday emoji five times and Jubi spins)
  *
  * Without a scene the copy sits bottom-left over the sky, as it always has. With one (src/art: layers
- * share a 1600×900 artboard whose upper centre is kept clear for words), the copy moves to the upper
- * centre over a soft top-down scrim and the picture keeps its bottom; the layers drift a few pixels with
+ * share a 1600×900 artboard whose upper center is kept clear for words), the copy moves to the upper
+ * center over a soft top-down scrim and the picture keeps its bottom; the layers drift a few pixels with
  * the pointer (nearer layers more), never under reduced motion.
  *
  * The effect starts once the hero is in the page and has a size (so the sky is prewarmed at its real size).
@@ -86,7 +86,7 @@ const SECRET_TAPS = 5;
 const TAP_WINDOW_MS = 2500;
 const FLIP_DELAY_MS = 700;
 const FLIP_MS = 2200;
-const LIGHT_COLOURS = ['#ff4d5e', '#ffd166', '#34d399', '#7cc4ff', '#ff7ad9'] as const;
+const LIGHT_COLORS = ['#ff4d5e', '#ffd166', '#34d399', '#7cc4ff', '#ff7ad9'] as const;
 const LIGHT_COUNT = 15;
 /** A scene with no `stage` in its scene.json (one shared object, so the effect sees no change between updates). */
 const NO_STAGE: Stage = Object.freeze({});
@@ -237,7 +237,7 @@ function stringLights(): HTMLElement {
   for (let i = 0; i < LIGHT_COUNT; i++) {
     const bulb = h('i');
     bulb.style.setProperty('--i', String(i));
-    bulb.style.setProperty('--c', LIGHT_COLOURS[i % LIGHT_COLOURS.length]!);
+    bulb.style.setProperty('--c', LIGHT_COLORS[i % LIGHT_COLORS.length]!);
     el.append(bulb);
   }
   return el;
@@ -286,11 +286,11 @@ export function mountHero(ctx: AppContext, initial: HeroProps): HeroInstance {
   const actions = h('div', { class: 'hero-actions' });
   let peek: HTMLElement | null = null;
 
-  // The words travel together (bottom-left over a bare sky, upper centre over a scene); the buttons follow.
+  // The words travel together (bottom-left over a bare sky, upper center over a scene); the buttons follow.
   const copy = h('div', { class: 'hero-copy' }, head, counter.el, info, extras);
   const body = h('div', { class: 'hero-body' }, copy, actions);
   const mascotHost = h('div', { class: 'hero-mascot' });
-  const el = h('section', { class: 'hero hero-bleed sky is-pokeable', 'aria-labelledby': titleId }, sky, scrim, body, mascotHost);
+  const el = h('section', { class: 'hero hero-bleed sky is-pokeable', 'aria-labeledby': titleId }, sky, scrim, body, mascotHost);
   let lights: HTMLElement | null = null;
   let jubi: SVGSVGElement | null = null;
   let jubiState: MascotState | null = null;

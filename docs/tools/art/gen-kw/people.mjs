@@ -11,7 +11,7 @@ class Head {
   L(v) { return f(v * this.r); }
 }
 
-/** The crown circle (centre (0, -d), radius R) sitting `pad` above the head, meeting the face at y_end. */
+/** The crown circle (center (0, -d), radius R) sitting `pad` above the head, meeting the face at y_end. */
 function crown(pad, yEnd) {
   const d = (pad * (2 + pad)) / (2 * (1 + pad) + 2 * yEnd);
   const R = 1 + pad - d;
@@ -81,7 +81,7 @@ const STYLES = {
   },
   /** Close coils: a cap of small circles plus a curly hairline. */
   coils: (h, c) => [PUFFS.map(([deg, rr, s]) => { const [x, y] = onCircle(rr * 0.96, deg); return circle(h.cx + x * h.r, h.cy + y * h.r, s * 0.8 * h.r, { fill: c }); }).join(''), cap(h, c, lineCurly(), 0.08, 0.14)],
-  /** Grey/white hair pulled up: bun style with white. */
+  /** Gray/white hair pulled up: bun style with white. */
   elder: (h, c) => STYLES.bun(h, c, '#d62828'),
 };
 
@@ -107,7 +107,7 @@ export function headwrap(cx, cy, r, color, knot = color) {
 
 /**
  * A standing figure: torso, arms as tapered tubes with round hands, legs with shoes, a contact shadow.
- * `x` is the centre, `foot` the ground y, `H` the height to the top of the head; the head is r = H/(heads*2).
+ * `x` is the center, `foot` the ground y, `H` the height to the top of the head; the head is r = H/(heads*2).
  * arms: [{ sx, elbow: [dx, dy], hand: [dx, dy] }] in units relative to the shoulder.
  */
 export function figure({ x, foot, H, heads = 2.7, skin, hair, style, top, bottom, shoe = '#2a1a14', gaze = 0, mouth = 'smile', arms = [], hat = '', wrap = null, sleeves = true }) {

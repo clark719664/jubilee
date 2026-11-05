@@ -1,8 +1,8 @@
 // April Fools' Day — "The giggliest garden": a back garden on the evening of 1 April, full of gentle tricks. Dad
 // sits down on the bench with his tea and lands on a whoopee cushion (puff!) while a giggling girl sticks a paper
-// fish on his back ("poisson d'avril!"). A boy and the dog both wear fake glasses with big noses and moustaches,
+// fish on his back ("poisson d'avril!"). A boy and the dog both wear fake glasses with big noses and mustaches,
 // a jack-in-the-box springs up in front of a startled toddler, the garden gnome stands on his head, the washing
-// line has a pair of trousers pegged upside down, and on the table a fake spider sits beside a "cake" that is
+// line has a pair of pants pegged upside down, and on the table a fake spider sits beside a "cake" that is
 // really a sponge. The confetti (which falls up at first) is the effect's.
 import { f, P, mix, lighten, darken, rng, E, G, C, path, circle, ellipse, lin, rad, doc, compactSvg, setPrecision } from '../../gen-xmas/lib.mjs';
 import { figure } from '../../gen-kw/people.mjs';
@@ -18,7 +18,7 @@ const LAMP = '#ffd98a';
 const SKIN = { light: '#f0c4a0', fair: '#e8b48a', tan: '#c98a5a', brown: '#9a6440', deep: '#6b4028' };
 const LAWN = 700;
 
-/** Fake glasses with a big nose and a moustache, on a head at (cx, cy) radius r. */
+/** Fake glasses with a big nose and a mustache, on a head at (cx, cy) radius r. */
 const groucho = (cx, cy, r) => [
   path(`M${P(cx - r * 0.72, cy - r * 0.12)}a${f(r * 0.28)} ${f(r * 0.28)} 0 1 0 ${f(r * 0.56)} 0a${f(r * 0.28)} ${f(r * 0.28)} 0 1 0 ${f(-r * 0.56)} 0ZM${P(cx + r * 0.16, cy - r * 0.12)}a${f(r * 0.28)} ${f(r * 0.28)} 0 1 0 ${f(r * 0.56)} 0a${f(r * 0.28)} ${f(r * 0.28)} 0 1 0 ${f(-r * 0.56)} 0Z`, { fill: 'none', stroke: '#1a1a24', 'stroke-width': f(r * 0.1) }),
   path(`M${P(cx - r * 0.16, cy - r * 0.12)}h${f(r * 0.32)}`, { fill: 'none', stroke: '#1a1a24', 'stroke-width': f(r * 0.08) }),
@@ -32,8 +32,8 @@ export function back() {
   setPrecision(1);
   const town = terrace(-30, 1640, 600, 41, { hMin: 70, hMax: 110, wMin: 110, wMax: 170 });
   const defs = [rad(id('winglow'), 0.5, 0.5, 0.5, [[0, LAMP, 0.5], [1, LAMP, 0]])];
-  return compactSvg(doc(`April Fools' Day · back: the backs of the neighbouring houses with lit windows over the garden fence, against the purple evening sky`, defs, [
-    C('the neighbours\' houses'),
+  return compactSvg(doc(`April Fools' Day · back: the backs of the neighboring houses with lit windows over the garden fence, against the purple evening sky`, defs, [
+    C('the neighbors\' houses'),
     path(town.d, { fill: night('#5a3a7a', 0.25) }),
     town.windows.map(([x, y, w, h]) => ellipse(x + w / 2, y + h / 2, w * 1.3, h * 1.1, { fill: url('winglow') })).join(''),
     path(town.windows.map(([x, y, w, h]) => `M${P(x, y)}h${f(w)}v${f(h)}h${f(-w)}Z`).join(''), { fill: LAMP, opacity: 0.85 }),
@@ -65,7 +65,7 @@ export function mid() {
   out.push(ellipse(800, 800, 520, 80, { fill: url('pool') }));
 
   // ---- the tree with googly eyes on the trunk and the washing line
-  out.push(C('a tree with googly eyes stuck on its trunk; the washing line with socks and a pair of trousers pegged upside down'));
+  out.push(C('a tree with googly eyes stuck on its trunk; the washing line with socks and a pair of pants pegged upside down'));
   {
     const t = bareTree(1460, 720, 380, 11, { lean: -0.03, depth: 5, spread: 0.5 });
     out.push(path(t.d, { fill: '#5a3a2a' }));
@@ -81,7 +81,7 @@ export function mid() {
     const tx = 1100, ty = along(tx);
     out.push(path(`M${tx - 40} ${ty}h80l-6 26h-68z`, { fill: '#2a5aa8' }), path(`M${tx - 34} ${ty + 26}l-4 -0h30l4 70h-28zM${tx + 34} ${ty + 26}h-30l-4 70h28z`, { fill: '#2a5aa8' }), path(`M${tx - 38} ${ty + 90}l2 -84M${tx + 38} ${ty + 90}l-2 -84`, { fill: 'none', stroke: '#1a4a8a', 'stroke-width': 2 }));
     out.push(path(`M${tx - 30} ${ty + 96}h22v-6h-22zM${tx + 8} ${ty + 96}h22v-6h-22z`, { fill: '#1a4a8a' }), peg(tx - 30, ty + 92), peg(tx + 30, ty + 92));
-    ppl.trousers = [tx, ty + 50];
+    ppl.pants = [tx, ty + 50];
   }
 
   // ---- the bench, dad on the whoopee cushion, the girl with the paper fish
@@ -120,7 +120,7 @@ export function mid() {
   }
 
   // ---- the boy and the dog in fake glasses
-  out.push(C('a boy and the dog both wearing fake glasses with big noses and moustaches'));
+  out.push(C('a boy and the dog both wearing fake glasses with big noses and mustaches'));
   {
     const bx = 520, bf = 852;
     const b = figure({ x: bx, foot: bf, H: 86, heads: 2.7, skin: SKIN.tan, hair: '#1a1210', style: 'curls', top: '#ffb800', bottom: '#2a3a6a', shoe: '#e8343a', gaze: 0, mouth: 'smile', arms: [{ sx: -1, elbow: [-1.0, 0.0], hand: [-0.6, -0.8] }, { sx: 1, elbow: [0.6, 1.0], hand: [0.4, 1.9] }] });
@@ -128,7 +128,7 @@ export function mid() {
     ppl.glasses = [bx, b.headY];
     out.push(dog(390, 856, 0.95, '#c8894a', { flip: 1 }));
     // the dog's glasses, on its head (dog faces right: head at x + 16·s)
-    // its fake glasses: one lens round its eye, one just in front, a big pink nose over its own and a moustache
+    // its fake glasses: one lens round its eye, one just in front, a big pink nose over its own and a mustache
     out.push(path('M365 799a7 7 0 1 0 14 0a7 7 0 1 0 -14 0zM349 800a7 7 0 1 0 14 0a7 7 0 1 0 -14 0z', { fill: 'none', stroke: '#1a1a24', 'stroke-width': 2.4 }), path('M363 800h2', { fill: 'none', stroke: '#1a1a24', 'stroke-width': 2 }));
     out.push(ellipse(352, 808, 6, 7, { fill: '#f0a090' }), path('M342 816q6 -5 12 -1q6 -4 12 1q-6 4 -12 1q-6 3 -12 -1z', { fill: '#1a1a24' }));
     ppl.dog = [370, 812];
@@ -183,13 +183,13 @@ export function mid() {
   // ---- a garden lamp
   out.push(path('M580 852V660h6V852Z', { fill: '#2a2a3a' }), path('M570 660h26l-4 -26h-18z', { fill: '#fff3c4' }), circle(583, 648, 50, { fill: url('lamp') }));
 
-  return { svg: compactSvg(doc(`April Fools' Day · mid. Concept: "the giggliest garden" on the evening of 1 April. Focal point: the bench (x 600–960, y 640–840) where dad sits down with his tea on a whoopee cushion — puff! — while a giggling girl sticks a paper fish on his back ("poisson d'avril!"). A boy and the dog both wear fake glasses with big noses and moustaches; a jack-in-the-box springs up in front of a startled toddler; the garden gnome stands on his head in the flower bed; the washing line has socks and a pair of trousers pegged upside down; a tree has googly eyes; on a little table a "cake" is really a sponge and a fake spider waits beside it. Light story: a garden lamp and lit windows against a purple evening. The confetti, which falls up at first, is the effect's.`, defs, out)), ppl };
+  return { svg: compactSvg(doc(`April Fools' Day · mid. Concept: "the giggliest garden" on the evening of 1 April. Focal point: the bench (x 600–960, y 640–840) where dad sits down with his tea on a whoopee cushion — puff! — while a giggling girl sticks a paper fish on his back ("poisson d'avril!"). A boy and the dog both wear fake glasses with big noses and mustaches; a jack-in-the-box springs up in front of a startled toddler; the garden gnome stands on his head in the flower bed; the washing line has socks and a pair of pants pegged upside down; a tree has googly eyes; on a little table a "cake" is really a sponge and a fake spider waits beside it. Light story: a garden lamp and lit windows against a purple evening. The confetti, which falls up at first, is the effect's.`, defs, out)), ppl };
 }
 
 // ============================== front ==============================
 export function front() {
   setPrecision(1);
-  return compactSvg(doc(`April Fools' Day · front: bushes in both bottom corners, one with googly eyes; the centre stays open`, [], [
+  return compactSvg(doc(`April Fools' Day · front: bushes in both bottom corners, one with googly eyes; the center stays open`, [], [
     C('a bush bottom left'),
     path(circD(10, 880, 50) + circD(80, 870, 46) + circD(130, 890, 36), { fill: '#2a6a3a' }),
     C('a bush bottom right with googly eyes'),
@@ -205,13 +205,13 @@ export function sceneData(ppl) {
     hotspots: [
       { activity: 'dressup', x: r(ppl.glasses[0]), y: r(ppl.glasses[1]), r: 40, label: 'Try on the silly glasses' },
       { activity: 'card', x: r(ppl.fish[0]), y: r(ppl.fish[1]), r: 30, label: 'Make an April fish' },
-      { activity: 'colour', x: r(ppl.jack[0]), y: r(ppl.jack[1] + 60), r: 50, label: 'Colour the jack-in-the-box' },
+      { activity: 'color', x: r(ppl.jack[0]), y: r(ppl.jack[1] + 60), r: 50, label: 'Color the jack-in-the-box' },
       { activity: 'memory', x: r(ppl.dad[0]), y: r(ppl.dad[1] + 40), r: 50, label: 'Match the silly tricks' },
     ],
     findables: [
       { id: 'cushion', label: 'a whoopee cushion', x: r(ppl.cushion[0]), y: r(ppl.cushion[1]), r: 24 },
       { id: 'gnome', label: 'a gnome on his head', x: ppl.gnome[0], y: ppl.gnome[1], r: 24 },
-      { id: 'trousers', label: 'trousers upside down', x: r(ppl.trousers[0]), y: r(ppl.trousers[1]), r: 30 },
+      { id: 'pants', label: 'pants upside down', x: r(ppl.pants[0]), y: r(ppl.pants[1]), r: 30 },
       { id: 'spider', label: 'a fake spider', x: r(ppl.spider[0]), y: r(ppl.spider[1]), r: 16 },
       { id: 'sponge', label: 'a cake that is really a sponge', x: ppl.sponge[0], y: ppl.sponge[1], r: 22 },
       { id: 'tree-eyes', label: 'a tree with googly eyes', x: ppl.eyes[0], y: ppl.eyes[1], r: 20 },

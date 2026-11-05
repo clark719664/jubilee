@@ -44,7 +44,7 @@ export function sticker() {
     ...cones.map((d, k) => E('clipPath', { id: `${ID}-c${k}` }, path(d))),
   ];
 
-  // each cone striped in two rainbow colours, like crêpe-paper bands
+  // each cone striped in two rainbow colors, like crêpe-paper bands
   const coneArt = cones.map((d, k) => {
     const a = (k / 7) * Math.PI * 2 - Math.PI / 2, c = Math.cos(a), s = Math.sin(a);
     let bands = '';

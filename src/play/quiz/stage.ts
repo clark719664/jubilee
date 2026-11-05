@@ -121,12 +121,12 @@ export class QuizStage {
       return { lon: mid, lat: (a.lat + b.lat) / 2, zoom };
     }
     const focus = CELEBRATED[q.holiday]?.focus;
-    const centre = countryCenter(q.primary);
+    const center = countryCenter(q.primary);
     if (q.place === 'doing' || q.any) {
       if (focus) return { lon: focus[0], lat: focus[1], zoom: 1 };
-      return centre ? { lon: centre.lon, lat: centre.lat, zoom: 1 } : { lon: 0, lat: 20, zoom: 1 };
+      return center ? { lon: center.lon, lat: center.lat, zoom: 1 } : { lon: 0, lat: 20, zoom: 1 };
     }
-    const lon = normLon((centre?.lon ?? 0) + q.startOffset);
+    const lon = normLon((center?.lon ?? 0) + q.startOffset);
     return { lon, lat: 18, zoom: 1 };
   }
 
@@ -138,7 +138,7 @@ export class QuizStage {
     const p = this.palette;
     this.globe.setHighlight(lit.includes(iso) ? lit : [...lit, iso], p?.highlight);
     this.globe.setSelected(iso);
-    const c = this.centreOf(iso);
+    const c = this.centerOf(iso);
     const markers: GlobeMarker[] = [...this.pinMarkers()];
     if (c && this.q?.view === 'globe') markers.push({ lon: c.lon, lat: c.lat, emoji, label: countryLabel(iso), size: 36, pulse: true });
     this.globe.setMarkers(markers);
@@ -154,8 +154,8 @@ export class QuizStage {
     this.globe.setHighlight(lit, this.palette?.highlight);
     this.globe.setSelected(q.primary);
     const markers: GlobeMarker[] = [...this.pinMarkers()];
-    const c = this.centreOf(q.primary);
-    const t = this.centreOf(tapped);
+    const c = this.centerOf(q.primary);
+    const t = this.centerOf(tapped);
     if (q.view === 'globe') {
       if (t && tapped !== q.primary) markers.push({ lon: t.lon, lat: t.lat, dot: '#ffffff', label: countryLabel(tapped), size: 12 });
       if (c) markers.push({ lon: c.lon, lat: c.lat, emoji, label: countryLabel(q.primary), size: 36, pulse: true });
@@ -174,7 +174,7 @@ export class QuizStage {
 
   /** Turns to a country picked from the list, then reports where it is on screen (the middle). */
   focusCountry(iso: string): void {
-    const c = this.centreOf(iso);
+    const c = this.centerOf(iso);
     if (c && this.q?.view === 'globe') this.globe.spinTo(c.lon, c.lat, 600);
   }
 
@@ -201,7 +201,7 @@ export class QuizStage {
     return q.pins.map((p) => ({ id: p.iso, lon: p.lon, lat: p.lat, emoji: q.place === 'new-year' ? '🎆' : '📍', label: p.label, size: 34 }));
   }
 
-  private centreOf(iso: string): { lon: number; lat: number } | null {
+  private centerOf(iso: string): { lon: number; lat: number } | null {
     const pin = this.q?.pins.find((p) => p.iso === iso);
     if (pin) return { lon: pin.lon, lat: pin.lat };
     return countryCenter(iso);

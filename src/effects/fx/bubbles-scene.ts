@@ -9,7 +9,7 @@ import { TAU, clamp, type ParticlePool } from '../particles';
 import type { SpriteCache, SpritePainter } from '../types';
 
 const LAND_COLORS = ['#3fae4f', '#6cc35a', '#e9c46a'] as const;
-/** Continents on the globe: longitude, latitude (rad), size (share of the diameter), shape seed, colour. */
+/** Continents on the globe: longitude, latitude (rad), size (share of the diameter), shape seed, color. */
 const LANDS: readonly (readonly [number, number, number, number, number])[] = [
   [0, 0.45, 0.42, 0, 0], [0.5, -0.35, 0.36, 1, 1], [1.5, 0.55, 0.5, 2, 0], [2.0, -0.15, 0.3, 3, 2],
   [2.9, 0.25, 0.44, 1, 1], [3.8, -0.5, 0.34, 0, 0], [4.6, 0.1, 0.4, 3, 1], [5.4, -0.2, 0.28, 2, 2],

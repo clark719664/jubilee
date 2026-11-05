@@ -29,11 +29,11 @@
       "label": "Make an Eid card from the gift"
     },
     {
-      "activity": "colour",
+      "activity": "color",
       "x": 950,
       "y": 672,
       "r": 42,
-      "label": "Colour a lantern"
+      "label": "Color a lantern"
     },
     {
       "activity": "seek",

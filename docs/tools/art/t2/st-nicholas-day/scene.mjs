@@ -18,7 +18,7 @@ const SKIN = { light: '#f0c4a0', fair: '#e8b48a', tan: '#c98a5a', brown: '#9a644
 // ---- layout
 const BASE = 800;                      // where the house fronts meet the pavement
 const KERB = 822;                      // pavement edge; the snowy street below
-/** Stepped-gable houses: x0, x1, wall top (eave), step count, step height, wall colour, trim, door x or null. */
+/** Stepped-gable houses: x0, x1, wall top (eave), step count, step height, wall color, trim, door x or null. */
 const HOUSES = [
   { x0: -24, x1: 252, top: 392, steps: 4, sh: 34, wall: '#9a3a2a', trim: '#f0e6d2', door: 120 },
   { x0: 252, x1: 604, top: 520, steps: 3, sh: 28, wall: '#d8c49a', trim: '#ffffff', door: 330 },
@@ -101,7 +101,7 @@ export function mid() {
     lin(id('gold'), 0, 0, 0, 1, [[0, '#ffe08a'], [1, '#d8a020']]),
     lin(id('horse'), 0, 0, 0, 1, [[0, '#ffffff'], [1, '#d8dde6']]),
   ];
-  // shared window symbols: lit glass, a cross bar, a stone frame, shutters; recoloured by currentColor (the trim)
+  // shared window symbols: lit glass, a cross bar, a stone frame, shutters; recolored by currentColor (the trim)
   const SYM = new Map();
   const win = (x, y, w, h, trim, shutter) => {
     const key = `w${w}x${h}${shutter ? 's' : ''}`;
@@ -266,7 +266,7 @@ export function mid() {
   // ---- St Nicholas, waving up at the children
   out.push(C('St Nicholas: a red cloak over a white robe, a tall mitre, a long white beard, a golden crook in one hand, waving with the other'));
   const N = NICK;
-  const H = 136, r = 14, hy = N.foot - H + r + 22;             // head centre (the mitre adds height above)
+  const H = 136, r = 14, hy = N.foot - H + r + 22;             // head center (the mitre adds height above)
   out.push(ellipse(N.x, N.foot + 2, 50, 8, { fill: '#000', opacity: 0.25 }));
   // the crook: drawn first, held in his right hand (gripped: the staff shows above and below the fist)
   const crookX = N.x + 44;
@@ -334,7 +334,7 @@ export function front() {
   const R = rng(14);
   // snowbanks in both bottom corners with a little fence and a lantern
   const bank = (pts) => blanket(pts, 0, 60, R, 20, 0.2, 0.0);
-  return compactSvg(doc(`St Nicholas Day · front: snowbanks with a few fence posts in both bottom corners; the centre stays open`, [], [
+  return compactSvg(doc(`St Nicholas Day · front: snowbanks with a few fence posts in both bottom corners; the center stays open`, [], [
     C('a snowbank on the left with fence posts'),
     path('M-20 900V842Q60 818 150 832T300 870L320 900Z', { fill: '#ffffff' }),
     path('M-20 900V860Q90 846 200 868T320 900Z', { fill: '#d8e6ee' }),
@@ -354,7 +354,7 @@ export function sceneData(ppl) {
       { activity: 'card', x: BOOTS[1].x, y: DOOR.step - 28, r: 32, label: 'Leave a card in a boot' },
       { activity: 'wish', x: ppl.window[0], y: ppl.window[1], r: 44, label: 'Wave to the children at the window' },
       { activity: 'dressup', x: Math.round(ppl.nick[0]), y: Math.round(ppl.nick[1] + 30), r: 46, label: 'Dress up for St Nicholas Day' },
-      { activity: 'colour', x: Math.round(ppl.horse[0]), y: Math.round(ppl.horse[1]), r: 64, label: 'Colour in the white horse' },
+      { activity: 'color', x: Math.round(ppl.horse[0]), y: Math.round(ppl.horse[1]), r: 64, label: 'Color in the white horse' },
     ],
     findables: [
       { id: 'carrot', label: 'a carrot for the horse in a boot', x: Math.round(ppl.carrot[0]), y: Math.round(ppl.carrot[1]), r: 16 },

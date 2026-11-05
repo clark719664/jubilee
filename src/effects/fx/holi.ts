@@ -1,17 +1,17 @@
 /**
  * holi — a cream sky that a child paints by throwing gulal.
- * Ambient: tiny motes of colour powder hang and wander in the air, twinkling softly; every few seconds
- *   a faint wisp of colour drifts up from somewhere low, as if someone just off-screen threw a handful.
- * Behaviours: wander + slow sink + twinkle (motes); radial burst + drag + a gentle settle + scale-up and
+ * Ambient: tiny motes of color powder hang and wander in the air, twinkling softly; every few seconds
+ *   a faint wisp of color drifts up from somewhere low, as if someone just off-screen threw a handful.
+ * Behaviors: wander + slow sink + twinkle (motes); radial burst + drag + a gentle settle + scale-up and
  *   fade (puffs and wisps); gravity + drag (flung specks).
- * Tap: throws a gulal puff at the finger — two dozen soft discs of one bright colour (with a second
- *   colour mixed in) bloom outward and grow as they slow, plus a spray of specks. The throw also stamps a
+ * Tap: throws a gulal puff at the finger — two dozen soft discs of one bright color (with a second
+ *   color mixed in) bloom outward and grow as they slow, plus a spray of specks. The throw also stamps a
  *   low-alpha splash into a persistent offscreen stain layer, and every disc stamps a faint print where it
- *   fades, so the sky keeps every colour thrown for the whole session (the stain canvas outlives the
+ *   fades, so the sky keeps every color thrown for the whole session (the stain canvas outlives the
  *   effect instance, so leaving the page and coming back keeps the painting).
  * Still: a few static splashes on the stain layer and motes frozen in the air.
- * Params: palette (gulal colours; default magenta, saffron, green, blue, orange, violet, pink), density.
- *   Draws in plain source-over: on a pale sky 'lighter' would bleach colour to white.
+ * Params: palette (gulal colors; default magenta, saffron, green, blue, orange, violet, pink), density.
+ *   Draws in plain source-over: on a pale sky 'lighter' would bleach color to white.
  */
 import { holiSplash0, holiSplash1, holiSplash2 } from '../painters/extra-day';
 import {
@@ -53,7 +53,7 @@ function stampSize(px: number): number {
 }
 
 export class HoliEffect extends PooledEffect {
-  readonly describe = 'Puffs of bright colour powder in the air';
+  readonly describe = 'Puffs of bright color powder in the air';
   /** Throws so far (tests). */
   throws = 0;
   /** Stamps queued so far (tests). */
@@ -63,7 +63,7 @@ export class HoliEffect extends PooledEffect {
   private readonly motes = new Emitter();
   private started = false;
   private nextWisp = 0;
-  // Pending stamps: x, y, size, colour index, splash shape (0–2) or 3 = soft disc, alpha.
+  // Pending stamps: x, y, size, color index, splash shape (0–2) or 3 = soft disc, alpha.
   private readonly ring = new Float32Array(STAMP_RING * 6);
   private ringHead = 0;
   private ringCount = 0;

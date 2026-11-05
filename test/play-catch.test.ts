@@ -337,7 +337,7 @@ describe('skins', () => {
       expect(PIECE_ASPECT[skin.piece], meta.id).toBeGreaterThan(0);
       for (const s of skinSprites(skin)) expect(knownSprite(s), `${meta.id}: ${s}`).toBe(true);
       for (const c of [skin.basketColor, skin.ground, ...skin.pieceColors, ...skin.items.map((d) => d.color)]) {
-        expect(c, `${meta.id} colour`).toMatch(/^#[0-9a-f]{6}$/i);
+        expect(c, `${meta.id} color`).toMatch(/^#[0-9a-f]{6}$/i);
       }
       expect(skin.catchNoun.length).toBeGreaterThan(0);
       expect(skin.stackNoun.length).toBeGreaterThan(0);

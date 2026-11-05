@@ -30,7 +30,7 @@ export const COPY = {
   pinsOnly: 'Tap one of the two pins: {a} or {b}.',
   spinTo: 'Spinning to {name}',
   // answers
-  cheers: ['Yes!', 'You found it!', 'Brilliant!', 'Spot on!', 'Hooray!', 'Great spotting!'],
+  cheers: ['Yes!', 'You found it!', 'Awesome!', 'Spot on!', 'Hooray!', 'Great spotting!'],
   rightPlace: '{cheer} {Country}!',
   anyPlace: '{cheer} {Country} joins in too!',
   otherPlace: "That's {Country}. Here's {answer}!",

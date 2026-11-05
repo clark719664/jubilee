@@ -1,5 +1,5 @@
 // Indigenous Peoples' Day sticker ("The Three Sisters"): the three plants that many Indigenous peoples have grown
-// together for thousands of years, as three friends: a tall ear of many-coloured flint corn, beaming, with its husks
+// together for thousands of years, as three friends: a tall ear of many-colored flint corn, beaming, with its husks
 // open like arms; a round orange squash at its feet; and a bean pod whose vine curls up the corn. The badge is a
 // sunrise over green hills and a lake. The corn's tassel breaks out of the top, the squash and bean out of the bottom.
 import { f, P, E, G, path, circle, ellipse, lin, rad, rng, setPrecision } from '../../gen-xmas/lib.mjs';
@@ -34,7 +34,7 @@ export function sticker() {
   const heroSil = [cob, tassel, huskL, huskR, squash, sqStem, bean].map((d) => path(d)).join('');
   const sil = [bg.sil, heroSil].join('');
 
-  // kernels: offset rows of round kernels in many colours, clipped to the cob
+  // kernels: offset rows of round kernels in many colors, clipped to the cob
   const R = rng(7);
   const byCol = {};
   for (let row = 0, y = 88; y < 372; row++, y += 17) for (let x = 186 + (row % 2) * 9; x < 330; x += 18) (byCol[CORN[Math.floor(R() * CORN.length)]] ??= []).push(`M${f(x - 8)} ${f(y)}a8 8 0 1 0 16 0a8 8 0 1 0 -16 0`);
@@ -73,5 +73,5 @@ export function sticker() {
     path(bean, { fill: u('bean') }), path('M322 430q8 -12 20 -14M378 384q8 -12 20 -14', { fill: 'none', stroke: '#e0ffc0', 'stroke-width': 4, 'stroke-linecap': 'round', opacity: 0.7 }),
     face(364, 416, 28, 11, 'wink', { ink: INK, cheek: '#ff9a7a' }),
   );
-  return stickerDoc(ID, "Indigenous Peoples' Day sticker: the Three Sisters as friends, a beaming ear of many-coloured flint corn with its husks open like arms, a round orange squash and a bean pod whose vine curls up the corn, in front of a sunrise over green hills and a lake", defs, sil, art);
+  return stickerDoc(ID, "Indigenous Peoples' Day sticker: the Three Sisters as friends, a beaming ear of many-colored flint corn with its husks open like arms, a round orange squash and a bean pod whose vine curls up the corn, in front of a sunrise over green hills and a lake", defs, sil, art);
 }

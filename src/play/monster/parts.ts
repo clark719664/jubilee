@@ -8,7 +8,7 @@ import { build, cheek, uid, type Spec } from '../spooky/draw';
 export interface MonsterSpec {
   readonly v: 1;
   readonly body: string;
-  readonly colour: string;
+  readonly color: string;
   readonly eyes: string;
   readonly mouth: string;
   readonly top: string;
@@ -40,12 +40,12 @@ export const PATTERNS: readonly Part[] = [
   { id: 'none', name: 'Plain' }, { id: 'spots', name: 'Spots' }, { id: 'stripes', name: 'Stripes' }, { id: 'belly', name: 'Tummy patch' },
 ];
 
-export interface Colour extends Part {
+export interface Color extends Part {
   readonly base: string;
   readonly dark: string;
   readonly light: string;
 }
-export const COLOURS: readonly Colour[] = [
+export const COLORS: readonly Color[] = [
   { id: 'purple', name: 'Purple', base: '#9a62e0', dark: '#7a44bf', light: '#c4a0f5' },
   { id: 'lime', name: 'Lime', base: '#7cc94d', dark: '#5da535', light: '#b0e68a' },
   { id: 'teal', name: 'Teal', base: '#2fb8b0', dark: '#1f948d', light: '#7de0d8' },
@@ -64,7 +64,7 @@ export function monsterName(rand: () => number): string {
   return FIRST[Math.floor(rand() * FIRST.length) % FIRST.length]! + LAST[Math.floor(rand() * LAST.length) % LAST.length]!;
 }
 
-export const DEFAULT_MONSTER: MonsterSpec = { v: 1, body: 'blob', colour: 'purple', eyes: '2', mouth: 'smile', top: 'horns', pattern: 'belly', name: 'Gloobo' };
+export const DEFAULT_MONSTER: MonsterSpec = { v: 1, body: 'blob', color: 'purple', eyes: '2', mouth: 'smile', top: 'horns', pattern: 'belly', name: 'Gloobo' };
 
 const oneOf = (v: unknown, list: readonly Part[], fallback: string): string => (typeof v === 'string' && list.some((p) => p.id === v) ? v : fallback);
 
@@ -73,17 +73,17 @@ export function sanitizeMonster(data: unknown): MonsterSpec {
   const o = (data && typeof data === 'object' ? data : {}) as Record<string, unknown>;
   const name = typeof o.name === 'string' && o.name.trim() ? o.name.trim().slice(0, 24) : DEFAULT_MONSTER.name;
   return {
-    v: 1, body: oneOf(o.body, BODIES, 'blob'), colour: oneOf(o.colour, COLOURS, 'purple'), eyes: oneOf(o.eyes, EYES, '2'),
+    v: 1, body: oneOf(o.body, BODIES, 'blob'), color: oneOf(o.color, COLORS, 'purple'), eyes: oneOf(o.eyes, EYES, '2'),
     mouth: oneOf(o.mouth, MOUTHS, 'smile'), top: oneOf(o.top, TOPS, 'none'), pattern: oneOf(o.pattern, PATTERNS, 'none'), name,
   };
 }
 
-export type Slot = 'body' | 'colour' | 'eyes' | 'mouth' | 'top' | 'pattern';
+export type Slot = 'body' | 'color' | 'eyes' | 'mouth' | 'top' | 'pattern';
 export const withPart = (spec: MonsterSpec, slot: Slot, id: string): MonsterSpec => ({ ...spec, [slot]: id });
 
 export function randomMonster(rand: () => number): MonsterSpec {
   const p = <T extends Part>(l: readonly T[]): string => l[Math.floor(rand() * l.length) % l.length]!.id;
-  return { v: 1, body: p(BODIES), colour: p(COLOURS), eyes: p(EYES), mouth: p(MOUTHS), top: p(TOPS), pattern: p(PATTERNS), name: monsterName(rand) };
+  return { v: 1, body: p(BODIES), color: p(COLORS), eyes: p(EYES), mouth: p(MOUTHS), top: p(TOPS), pattern: p(PATTERNS), name: monsterName(rand) };
 }
 
 export function monsterTitle(spec: MonsterSpec): string {
@@ -94,7 +94,7 @@ export function describeMonster(spec: MonsterSpec): string {
   const name = (list: readonly Part[], id: string): string => (list.find((p) => p.id === id)?.name ?? id).toLowerCase();
   const top = spec.top === 'none' ? '' : `, with ${name(TOPS, spec.top)}`;
   const pat = spec.pattern === 'none' ? '' : ` and ${name(PATTERNS, spec.pattern)}`;
-  return `${spec.name}, a ${name(COLOURS, spec.colour)} monster with a ${name(BODIES, spec.body)}, ${name(EYES, spec.eyes)} and a ${name(MOUTHS, spec.mouth)}${top}${pat}`;
+  return `${spec.name}, a ${name(COLORS, spec.color)} monster with a ${name(BODIES, spec.body)}, ${name(EYES, spec.eyes)} and a ${name(MOUTHS, spec.mouth)}${top}${pat}`;
 }
 
 // ── drawing (a 200 × 240 board; feet at y ≈ 212) ──
@@ -161,7 +161,7 @@ function mouthSpec(id: string): Spec[] {
   }
 }
 
-function topSpec(id: string, s: Shape, c: Colour): Spec[] {
+function topSpec(id: string, s: Shape, c: Color): Spec[] {
   const x0 = 100 - s.topHalf;
   const x1 = 100 + s.topHalf;
   const y = s.topY;
@@ -188,7 +188,7 @@ function topSpec(id: string, s: Shape, c: Colour): Spec[] {
   }
 }
 
-function patternSpec(id: string, clip: string, c: Colour): Spec[] {
+function patternSpec(id: string, clip: string, c: Color): Spec[] {
   switch (id) {
     case 'spots': return [['g', { 'clip-path': `url(#${clip})`, fill: c.dark, opacity: 0.55 },
       ['circle', { cx: 56, cy: 150, r: 9 }], ['circle', { cx: 150, cy: 132, r: 7 }], ['circle', { cx: 140, cy: 184, r: 11 }], ['circle', { cx: 62, cy: 192, r: 6 }], ['circle', { cx: 100, cy: 84, r: 6 }], ['circle', { cx: 112, cy: 200, r: 5 }]]];
@@ -200,7 +200,7 @@ function patternSpec(id: string, clip: string, c: Colour): Spec[] {
 }
 
 export function monsterSpec(spec: MonsterSpec): Spec {
-  const c = COLOURS.find((x) => x.id === spec.colour) ?? COLOURS[0]!;
+  const c = COLORS.find((x) => x.id === spec.color) ?? COLORS[0]!;
   const s = SHAPES[spec.body] ?? SHAPES.blob!;
   const clip = uid('mmclip');
   const arm = (side: 1 | -1): Spec => ['g', {},

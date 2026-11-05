@@ -235,7 +235,7 @@
 [data-skin="lanterns"] .dr-door[data-state="ready"] .dr-badge { top: 24%; right: 12%; }
 [data-skin="lanterns"] .dr-door[data-state="today"] .dr-badge { top: 13%; }
 
-/* Halloween: a friendly haunted house; every window glows a different colour. */
+/* Halloween: a friendly haunted house; every window glows a different color. */
 [data-skin="haunted"] .dr-board-top { --deco-h: 120px; margin: 0 -10px -4px; }
 [data-skin="haunted"] .dr-board-body { padding: 18px 16px; border: 4px solid #22103a; border-radius: 6px; box-shadow: 0 8px 0 #12081f;
   background: repeating-linear-gradient(90deg, #3d2160 0 26px, #331a52 26px 29px); }
@@ -288,7 +288,7 @@
 @keyframes dr-rock { 0%, 55%, 100% { transform: none; } 68% { transform: translateY(-6%) rotate(-6deg); } 82% { transform: translateY(-2%) rotate(3deg); } }
 [data-skin="eggs"] .dr-door:hover .dr-leaf { transform: translateY(-3%) rotate(-3deg); }
 
-/* Every other holiday: rounded doors in the holiday's own colours under bunting. */
+/* Every other holiday: rounded doors in the holiday's own colors under bunting. */
 [data-skin="doors"] .dr-board-top { --deco-h: 60px; margin-bottom: -16px; z-index: 2; color: var(--h-ink); }
 [data-skin="doors"] .dr-board-body { padding: 26px 16px 18px; border-radius: 24px; border: 4px solid var(--h-ink);
   background: color-mix(in srgb, var(--h-bg2) 78%, var(--h-ink) 10%); box-shadow: 0 8px 0 color-mix(in srgb, var(--h-ink) 60%, transparent); }

@@ -1,11 +1,11 @@
 {
   "hotspots": [
     {
-      "activity": "colour",
+      "activity": "color",
       "x": 1200,
       "y": 478,
       "r": 60,
-      "label": "Colour a carp streamer"
+      "label": "Color a carp streamer"
     },
     {
       "activity": "dressup",

@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 900">
-<!-- Pancake Day · front: a crate of eggs and lemons bottom left, a milk churn bottom right; the centre stays open -->
+<!-- Pancake Day · front: a crate of eggs and lemons bottom left, a milk churn bottom right; the center stays open -->
 <defs></defs>
 <!-- a crate of eggs and lemons -->
 <path d="M-10 900v-60h150v60z" fill="#a8743e"/><path d="M-10 860h150m-150 20h150" fill="none" stroke="#7a4a22" stroke-width="3"/><path d="M6 834a14 14 0 1 0 28 0a14 14 0 1 0-28 0zm28-4a14 14 0 1 0 28 0a14 14 0 1 0-28 0zm28 4a14 14 0 1 0 28 0a14 14 0 1 0-28 0z" fill="#fff4e0"/><path d="M89 832a15 15 0 1 0 30 0a15 15 0 1 0-30 0zm22 6a13 13 0 1 0 26 0a13 13 0 1 0-26 0z" fill="#ffe03a"/>

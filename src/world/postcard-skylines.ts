@@ -723,7 +723,7 @@ const SKYLINES: Record<string, Skyline> = {
     lattice(a, tx - 8, tx + 8, 92, tx - 3, tx + 3, 40, 5, dark, 1.2);
     L(a, `M${tx} 34V20`, iron, 2.5);
     glowAt(a, 'beacon', tx, 22, 18, 18, '#fff1c9', 0.6);
-    // Rooftops: pale stone fronts, grey slate mansards, chimney pots.
+    // Rooftops: pale stone fronts, gray slate mansards, chimney pots.
     let x = -6;
     while (x < 566) {
       const w = 54 + a.rnd() * 30;
@@ -811,9 +811,9 @@ const SKYLINES: Record<string, Skyline> = {
     R(a, cx - 36, 236, 72, 28, concrete, 2);
     P(a, `M${cx - 9} 264V246Q${cx} 236 ${cx + 9} 246V264Z`, mix(p.near, '#000000', 0.2));
     glowAt(a, 'door', cx, 256, 22, 12, p.win, 0.5);
-    // Colourful little houses with snowy roofs.
+    // Colorful little houses with snowy roofs.
     ground(a, 262);
-    const colours = ['#d8402e', '#2f6ad8', '#e8a53a', '#3a9a6a', '#f2e6c8', '#8a4aa8'];
+    const colors = ['#d8402e', '#2f6ad8', '#e8a53a', '#3a9a6a', '#f2e6c8', '#8a4aa8'];
     let x = -6;
     let i = 0;
     while (x < 566) {
@@ -821,7 +821,7 @@ const SKYLINES: Record<string, Skyline> = {
       const w = 30 + a.rnd() * 14;
       const h = 22 + a.rnd() * 10;
       const base = 290 + a.rnd() * 8;
-      const c = lm(a, colours[i++ % colours.length]!);
+      const c = lm(a, colors[i++ % colors.length]!);
       R(a, x, base - h, w, h + 2, c, 1.5);
       R(a, x + w * 0.3, base - h + 6, 7, 9, p.win, 1.5);
       P(a, `M${x - 3} ${base - h + 1}L${x + w / 2} ${base - h - 16}L${x + w + 3} ${base - h + 1}Z`, lm(a, '#3a3a50'));
@@ -854,7 +854,7 @@ const SKYLINES: Record<string, Skyline> = {
     P(a, `M-4 236Q60 222 116 178Q138 148 150 140Q160 138 168 150Q196 190 244 220Q290 238 340 240V262H-4Z`, p.far);
     // A row of lit beachfront flats along the bay.
     blocks(a, -4, 250, 252, 14, 30, p.mid2, { wMin: 14, wMax: 24 });
-    // The rounded granite mountain and its smaller neighbour, linked by a cable car.
+    // The rounded granite mountain and its smaller neighbor, linked by a cable car.
     const rock = mix(p.mid, '#6a6a7a', 0.25);
     P(a, `M232 262Q244 230 270 218Q292 210 310 226Q324 240 332 262Z`, mix(rock, p.near, 0.2));
     P(a, `M326 262Q328 206 352 172Q372 150 392 154Q412 160 424 196Q434 230 440 262Z`, rock);
@@ -899,19 +899,19 @@ const SKYLINES: Record<string, Skyline> = {
     P(a, `M${ox} 44L${ox + 8} 62L${ox + 13} 262H${ox + 3}Z`, mix(white, '#9aa0b8', 0.3));
     R(a, ox - 3, 70, 6, 8, p.win, 1.5);
     glowAt(a, 'obelisk', ox, 252, 40, 14, p.win, 0.5);
-    // The wide plaza, and the avenue running towards us.
+    // The wide plaza, and the avenue running toward us.
     ground(a, 262, p.near);
     lamps(a, [196, 384], 266, 28);
     P(a, `M240 262H340L564 324H-4Z`, mix(p.near, p.mid, 0.25));
     for (const t of [0.15, 0.5, 0.85]) L(a, `M${r1(240 + 100 * t)} 266L${r1(-4 + 568 * t)} 324`, '#f2f0ea', 2.5, { 'stroke-dasharray': '10 10', opacity: 0.5 });
     // Brightly painted houses by the old port.
-    const colours = ['#e8a53a', '#2f6ad8', '#d8402e', '#3a9a6a', '#f2c230'];
+    const colors = ['#e8a53a', '#2f6ad8', '#d8402e', '#3a9a6a', '#f2c230'];
     let x = 420;
     let i = 0;
     while (x < 566) {
       const w = 34;
       const h = 36 + (i % 2) * 10;
-      R(a, x, 300 - h, w, h + 30, lm(a, colours[i % colours.length]!), 1.5);
+      R(a, x, 300 - h, w, h + 30, lm(a, colors[i % colors.length]!), 1.5);
       R(a, x + 6, 300 - h + 8, 8, 10, p.win, 1.5);
       R(a, x + 20, 300 - h + 8, 8, 10, p.win, 1.5);
       R(a, x - 2, 300 - h - 4, w + 4, 5, lm(a, '#5a5a6a'), 1.5);
@@ -945,15 +945,15 @@ const SKYLINES: Record<string, Skyline> = {
     R(a, cx - 12, 86, 24, 8, stone, 2);
     glowAt(a, 'angel', cx, 70, 30, 30, '#ffcf5a', 0.55);
     P(a, `M${cx - 9} 87Q${cx - 16} 72 ${cx - 6} 60Q${cx - 4} 70 ${cx} 70Q${cx - 2} 58 ${cx + 4} 50Q${cx + 16} 66 ${cx + 9} 87Z`, lm(a, '#f2c230'));
-    // Colourful low houses in front.
+    // Colorful low houses in front.
     ground(a, 262, p.near);
-    const colours = ['#d6336c', '#2f9ac8', '#e8a53a', '#3a9a6a', '#8a4aa8'];
+    const colors = ['#d6336c', '#2f9ac8', '#e8a53a', '#3a9a6a', '#8a4aa8'];
     let x = -4;
     let i = 0;
     while (x < 566) {
       const w = 40 + a.rnd() * 20;
       const h = 24 + a.rnd() * 14;
-      R(a, x, 300 - h, w, h + 26, lm(a, colours[i++ % colours.length]!), 2);
+      R(a, x, 300 - h, w, h + 26, lm(a, colors[i++ % colors.length]!), 2);
       R(a, x + 8, 300 - h + 7, 8, 10, p.win, 1.5);
       R(a, x + w - 16, 300 - h + 7, 8, 10, p.win, 1.5);
       x += w + 2;
@@ -1136,7 +1136,7 @@ const SKYLINES: Record<string, Skyline> = {
     P(a, `M350 206Q400 178 440 170Q462 168 476 184Q452 182 420 196Q390 206 350 206Z`, mix(p.far, '#ffffff', 0.12));
     blocks(a, 100, 192, 250, 26, 56, p.mid2, { wMin: 14, wMax: 24 });
     blocks(a, 238, 320, 250, 30, 70, p.mid2, { wMin: 14, wMax: 24 });
-    // The harbour clock tower with its pyramid roof.
+    // The harbor clock tower with its pyramid roof.
     const tx = 215;
     const stone = lm(a, '#ece4d4');
     R(a, tx - 16, 140, 32, 112, stone, 2);

@@ -2,12 +2,12 @@
  * Card Maker (activity id 'card') — a folded card the child designs and keeps.
  *
  * FRONT: the holiday's illustrated scene (or a sky, confetti, stripes, stars, dots or paper), a hello in
- * one of the holiday's own languages (native script big, romanisation small) under a name pill, and
+ * one of the holiday's own languages (native script big, romanization small) under a name pill, and
  * stickers: the holiday's vector decorations from the effects painters and every holiday's die-cut
  * sticker (earned ones wear a gold edge; nothing is locked). INSIDE: "Dear …", a message and "Love from
  * …" (pre-filled with the child's name), more stickers, and a pen on both faces.
  *
- * Out: Print (two-sided, folded; print.ts), Save picture (rasterised on the device; raster.ts) and the
+ * Out: Print (two-sided, folded; print.ts), Save picture (rasterized on the device; raster.ts) and the
  * Fridge (the card's JSON, reopenable and editable; shelf.ts). Undo/redo for every change. Every action
  * has a keyboard path (see stage.ts for sticker and pen keys); Ctrl+Z / Ctrl+Y undo and redo anywhere
  * outside a text field; Escape lets go of a sticker, stops the pen, then goes back.
@@ -35,7 +35,7 @@ import { loadAssets, savePicture, type CardEnv } from './raster';
 import { fridgeFullDialog, myCardsDialog, type Dialog } from './shelf';
 import { burst } from './sparkle';
 import { Stage, type StageCtl } from './stage';
-import { penColours, Tools, type ToolsCtl } from './tools';
+import { penColors, Tools, type ToolsCtl } from './tools';
 import { canvasMeasure, estimateMeasure } from './text';
 
 export { BG_IDS, PANEL_H, PANEL_W, sanitizeCard, simplify, type CardSpec } from './model';
@@ -111,7 +111,7 @@ function mountCard(env: PlayEnv): ActivityInstance {
   let fridgeId: string | null = draft?.fridgeId ?? null;
   let face: FaceId = 'front';
   let selected: string | null = null;
-  const pens = penColours(theme);
+  const pens = penColors(theme);
   const pen = { on: false, color: pens[0] ?? '#1f1a3d', width: 7 };
   let textEditing = false;
   let dlg: Dialog | null = null;
@@ -187,7 +187,7 @@ function mountCard(env: PlayEnv): ActivityInstance {
   const allHolidays = holidayStickerOrder(ctx.allMetas(), meta.id, earned).map((m) => ({ meta: m, earned: earned.has(m.id) }));
   const tools = new Tools(meta, theme, content.greetings, { decor, holidays: allHolidays }, cardEnv, toolsCtl);
 
-  const root = h('section', { class: 'cm sky', 'aria-labelledby': 'cm-h1' }, header, h('div', { class: 'cm-main' }, stage.el, tools.el));
+  const root = h('section', { class: 'cm sky', 'aria-labeledby': 'cm-h1' }, header, h('div', { class: 'cm-main' }, stage.el, tools.el));
   applyTheme(root, theme);
   const syncMotion = (): void => { root.classList.toggle('cm-calm', !full()); };
   syncMotion();

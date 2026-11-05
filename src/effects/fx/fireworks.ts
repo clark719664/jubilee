@@ -5,11 +5,11 @@
  *   bright rim), a ring, a willow (slow gold sparks that droop) or, in the 'star' variant, a five-pointed
  *   star. Every bloom has a soft flash disc at its heart; sparks and flashes ramp up over 300 ms (never a
  *   pop) and fade out slowly, so nothing on screen flashes. At most 3 blooms per second.
- * Behaviours: gravity + drag per pattern, twinkle (≤ 2.4 Hz per spark), alpha envelopes.
+ * Behaviors: gravity + drag per pattern, twinkle (≤ 2.4 Hz per spark), alpha envelopes.
  * Draw: cores in source-over, then one 'lighter' pass of glow sprites so overlapping sparks bloom white.
  * Tap: launches a rocket that bursts exactly where the finger is.
  * Still: three frozen blooms at different heights over the star field.
- * Params: palette (burst colours; default glow/accent/accent2/white), density; variant 'star'
+ * Params: palette (burst colors; default glow/accent/accent2/white), density; variant 'star'
  *   (Juneteenth): star-shaped bursts and, now and then, a big gold star that rises and bursts.
  */
 import { Emitter, TAU, clamp, drag, envelope, expired, gravity, integrate, range, spawnEdge, twinkle, type ParticleInit } from '../particles';

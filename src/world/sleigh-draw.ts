@@ -38,7 +38,7 @@ function stroke(c: CanvasRenderingContext2D, width: number, color: string, pts: 
   c.stroke();
 }
 
-/** One flying reindeer centred on its body at (x, y), facing left, legs stretched in a leap. */
+/** One flying reindeer centered on its body at (x, y), facing left, legs stretched in a leap. */
 function reindeer(c: CanvasRenderingContext2D, x: number, y: number, rudolph: boolean): void {
   c.lineCap = 'round';
   c.lineJoin = 'round';
@@ -284,7 +284,7 @@ export class SleighSprite {
     return stickerize(raw, Math.max(1.5, 2.2 * dpr * (width / 120)), Math.max(1, 2 * dpr));
   }
 
-  /** Draws it centred at (x, y), `width` CSS px wide, rotated by `angle`, mirrored when `flip`. */
+  /** Draws it centered at (x, y), `width` CSS px wide, rotated by `angle`, mirrored when `flip`. */
   draw(ctx: CanvasRenderingContext2D, x: number, y: number, width: number, angle: number, flip: boolean, dpr: number): void {
     const w = Math.round(width);
     const key = `${w}|${dpr}|${this.artReady ? 'art' : 'vector'}`;

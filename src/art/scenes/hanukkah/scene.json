@@ -36,11 +36,11 @@
       "label": "Peek in the windows: Seek & Find"
     },
     {
-      "activity": "colour",
+      "activity": "color",
       "x": 1466,
       "y": 610,
       "r": 50,
-      "label": "Colour the star window"
+      "label": "Color the star window"
     }
   ],
   "findables": [

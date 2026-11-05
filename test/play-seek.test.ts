@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
-  ART_H, ART_W, MAX_ZOOM, MIN_SLOP, bandCentre, clampView, coverScale, coverView, cropFor, decay, easeOut, focusView,
+  ART_H, ART_W, MAX_ZOOM, MIN_SLOP, bandCenter, clampView, coverScale, coverView, cropFor, decay, easeOut, focusView,
   HINT_RADIUS, fxOpacity, hintCircle, hintDisc, hitTest, isVisible, lerpView, panBy, pinchView, refit, releaseVelocity, scaleLimits,
   screenToArt, artToScreen, tapSlop, wheelFactor, zoomAt, type Viewport,
 } from '../src/play/seek/geometry';
@@ -13,7 +13,7 @@ const DESK: Viewport = { w: 1280, h: 800, top: 80, bottom: 170 };
 const close = (a: number, b: number, eps = 1e-6): void => { expect(Math.abs(a - b)).toBeLessThan(eps); };
 
 describe('cover layout (object-fit: cover; object-position: 50% 100%)', () => {
-  it('phone: height-limited, centred, shows the x 520–1080 safe zone', () => {
+  it('phone: height-limited, centered, shows the x 520–1080 safe zone', () => {
     const v = coverView(PHONE);
     close(v.s, 844 / 900);
     close(v.oy, 0);
@@ -59,7 +59,7 @@ describe('clamping and zoom', () => {
     const up = panBy(coverView(PHONE), PHONE, 0, 1000);
     close(up.oy, PHONE.top);
   });
-  it('centres the picture when zoomed out smaller than the room', () => {
+  it('centers the picture when zoomed out smaller than the room', () => {
     const v = clampView({ s: 0.01, ox: 0, oy: 0 }, PHONE);
     const lim = scaleLimits(PHONE);
     close(v.s, lim.min);
@@ -98,11 +98,11 @@ describe('clamping and zoom', () => {
     close(wheelFactor(10000, false), wheelFactor(240, false));
     expect(wheelFactor(-10, true)).toBeGreaterThan(wheelFactor(-10, false));
   });
-  it('focusView centres a spot in the band (when the clamp allows)', () => {
+  it('focusView centers a spot in the band (when the clamp allows)', () => {
     const p = { x: 800, y: 500 };
     const v = focusView(DESK, p, coverScale(DESK) * 2);
     const s = artToScreen(v, p);
-    const c = bandCentre(DESK);
+    const c = bandCenter(DESK);
     close(s.x, c.x, 1e-6);
     close(s.y, c.y, 1e-6);
     expect(isVisible(v, DESK, p)).toBe(true);
@@ -117,7 +117,7 @@ describe('clamping and zoom', () => {
     const to: Viewport = { w: 1024, h: 700, top: 80, bottom: 170 };
     const r = refit(v, DESK, to);
     close(r.s / coverScale(to), 2, 1e-9);
-    const mid = screenToArt(r, bandCentre(to));
+    const mid = screenToArt(r, bandCenter(to));
     close(mid.x, 900, 1e-6);
     close(mid.y, 600, 1e-6);
   });
@@ -196,7 +196,7 @@ describe('motion helpers', () => {
 });
 
 describe('cards and hints', () => {
-  it('the card crop centres the findable in the thumbnail', () => {
+  it('the card crop centers the findable in the thumbnail', () => {
     const f = { x: 720, y: 600, r: 34 };
     const c = cropFor(f, 64);
     const k = c.width / ART_W;
@@ -220,7 +220,7 @@ describe('cards and hints', () => {
 describe('hint disc on screen', () => {
   const f = { x: 800, y: 600, r: 24 };
   const c = hintCircle(f, 3);
-  it('at the opening framing on a big screen it is the hint circle, off-centre from the thing', () => {
+  it('at the opening framing on a big screen it is the hint circle, off-center from the thing', () => {
     const v = coverView(DESK);
     const g = hintDisc(v, DESK, c, f);
     close(g.d, c.r * 2 * v.s);
@@ -228,7 +228,7 @@ describe('hint disc on screen', () => {
     close(g.x, p.x);
     close(g.y, p.y);
   });
-  it('zoomed right in it is capped to the band but still never centred on the thing', () => {
+  it('zoomed right in it is capped to the band but still never centered on the thing', () => {
     const lim = scaleLimits(PHONE);
     const v = focusView(PHONE, f, lim.max);
     const g = hintDisc(v, PHONE, c, f);

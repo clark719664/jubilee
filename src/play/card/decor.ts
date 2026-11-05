@@ -4,9 +4,9 @@
  * Two kinds, both drawn in the house style rather than as clip-art:
  *  - DECORATIONS: the effects engine's vector sprites (snowflakes, lanterns, marigolds, dreidels,
  *    pumpkins…), the same art that falls across the holiday's sky. Each holiday gets a hand-picked set
- *    chosen from its effect (plus a few per-holiday extras), coloured from its theme.
+ *    chosen from its effect (plus a few per-holiday extras), colored from its theme.
  *  - HOLIDAY STICKERS: every holiday's die-cut sticker (the illustrated one when it exists, else its emoji
- *    on a disc in that holiday's own colours). Ones the child has earned wear a gold edge; nothing is locked.
+ *    on a disc in that holiday's own colors). Ones the child has earned wear a gold edge; nothing is locked.
  *
  * Respect (ART_BRIEF): sacred objects (menorah, kinara, diya, crescent) appear only as themselves on their
  * own holiday's card, never with faces and never as jokes.
@@ -40,7 +40,7 @@ export function painterFor(name: string): SpritePainter | null {
 export const isDecorName = (name: string): boolean => painterFor(name) !== null;
 
 /**
- * How much of the sticker box a painter fills. Painters draw within about ±size/2 of the centre and a few
+ * How much of the sticker box a painter fills. Painters draw within about ±size/2 of the center and a few
  * overhang a little (rims, steam, ribbons), so they are painted at ~74% of the box to keep every edge in.
  */
 export const PAINT_FILL = 0.74;

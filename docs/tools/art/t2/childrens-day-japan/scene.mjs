@@ -1,6 +1,6 @@
 // Children's Day (Japan) — "Carp in the sky": a bright May morning in a family garden. A tall koinobori pole flies
 // a family of carp streamers that swell and ripple in the wind — the black father, the red mother and the blue
-// child — under a five-coloured fukinagashi and a spinning arrow-wheel. On the engawa of the house a little boy wears
+// child — under a five-colored fukinagashi and a spinning arrow-wheel. On the engawa of the house a little boy wears
 // a folded-paper samurai helmet, his sister holds up kashiwa-mochi wrapped in oak leaves, grandpa sets the small
 // kabuto helmet on its stand; purple irises bloom by the pond where real carp swim under a red arched bridge, and
 // Mount Fuji rises far away. The little carp swimming free across the sky are the effect's.
@@ -127,7 +127,7 @@ export function mid() {
   }
 
   // ---- the koinobori pole (the focal point)
-  out.push(C('the focal point: the tall koinobori pole with its spinning arrow-wheel, the five-coloured fukinagashi and a family of carp streamers rippling in the wind: the black father, the red mother and the blue child'));
+  out.push(C('the focal point: the tall koinobori pole with its spinning arrow-wheel, the five-colored fukinagashi and a family of carp streamers rippling in the wind: the black father, the red mother and the blue child'));
   {
     const { x, top, base } = POLE;
     out.push(ellipse(x, base + 2, 40, 6, { fill: '#000', opacity: 0.2 }));
@@ -161,13 +161,13 @@ export function mid() {
     ppl.littleCarp = [h[0] - 30, h[1] - 50];
   }
 
-  return { svg: compactSvg(doc(`Children's Day (Japan) · mid. Concept: "carp in the sky" on a bright May morning in a family garden. Focal point: the tall koinobori pole (x 700–1220, y 80–760) with its spinning arrow-wheel, the five-coloured fukinagashi and a family of carp streamers rippling in the wind — the black father, the red mother and the blue child. On the engawa of the house on the left a little boy in a folded-paper samurai helmet holds a toy sword, his sister holds up kashiwa-mochi wrapped in an oak leaf, grandpa in a yukata sits by the small kabuto helmet on its stand. Real carp swim in the pond under a red arched bridge with purple irises; a girl runs with a little orange carp on a stick. Mount Fuji rises far away. Light story: clear spring sunshine. The little carp swimming free are the effect's.`, defs, out)), ppl };
+  return { svg: compactSvg(doc(`Children's Day (Japan) · mid. Concept: "carp in the sky" on a bright May morning in a family garden. Focal point: the tall koinobori pole (x 700–1220, y 80–760) with its spinning arrow-wheel, the five-colored fukinagashi and a family of carp streamers rippling in the wind — the black father, the red mother and the blue child. On the engawa of the house on the left a little boy in a folded-paper samurai helmet holds a toy sword, his sister holds up kashiwa-mochi wrapped in an oak leaf, grandpa in a yukata sits by the small kabuto helmet on its stand. Real carp swim in the pond under a red arched bridge with purple irises; a girl runs with a little orange carp on a stick. Mount Fuji rises far away. Light story: clear spring sunshine. The little carp swimming free are the effect's.`, defs, out)), ppl };
 }
 
 // ============================== front ==============================
 export function front() {
   setPrecision(1);
-  return compactSvg(doc(`Children's Day (Japan) · front: a stone lantern bottom left and irises bottom right; the centre stays open`, [], [
+  return compactSvg(doc(`Children's Day (Japan) · front: a stone lantern bottom left and irises bottom right; the center stays open`, [], [
     C('a stone lantern'),
     path('M40 900v-30h80v30zM56 870v-50h48v50zM30 820l50 -30l50 30z', { fill: '#a8a098' }), path('M62 862v-34h36v34z', { fill: '#fff4c8' }),
     C('irises'),
@@ -181,7 +181,7 @@ export function sceneData(ppl) {
   const r = (v) => Math.round(v);
   return {
     hotspots: [
-      { activity: 'colour', x: r(ppl.blackCarp[0]), y: r(ppl.blackCarp[1]), r: 60, label: 'Colour a carp streamer' },
+      { activity: 'color', x: r(ppl.blackCarp[0]), y: r(ppl.blackCarp[1]), r: 60, label: 'Color a carp streamer' },
       { activity: 'dressup', x: r(ppl.helmet[0]), y: r(ppl.helmet[1] + 30), r: 44, label: 'Fold a samurai helmet' },
       { activity: 'catch', x: r(ppl.littleCarp[0]), y: r(ppl.littleCarp[1]), r: 44, label: 'Catch the flying carp' },
       { activity: 'memory', x: r(ppl.mochi[0]), y: r(ppl.mochi[1]), r: 36, label: 'Match the Children\'s Day treats' },

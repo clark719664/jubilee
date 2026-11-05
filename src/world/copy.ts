@@ -14,7 +14,7 @@ export const WORLD_COPY = {
   zoomOut: 'Zoom out',
   canvasHelp: 'Arrow keys spin it, plus and minus zoom, and Enter tells you what is in the middle.',
   hostLabel: 'Interactive globe',
-  globeAria: 'Globe centred on {place}',
+  globeAria: 'Globe centered on {place}',
   mapAria: 'Flat map of the world',
   ariaHighlight: 'showing the {n} countries where {name} is celebrated',
   ariaToday: 'showing the countries celebrating something today',

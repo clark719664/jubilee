@@ -2,7 +2,7 @@ import type { HolidayContent } from '../types';
 
 const midAutumnFestival: HolidayContent = {
   story: [
-    'The Mid-Autumn Festival, also called the Moon Festival or Zhongqiu, falls on the night of the brightest full moon of autumn, the fifteenth day of the eighth month of the Chinese lunar calendar.',
+    'The Mid-Autumn Festival, also called the Moon Festival or Zhongqiu, falls on the night of the brightest full moon of fall, the fifteenth day of the eighth month of the Chinese lunar calendar.',
     'Many families in China, and Chinese families all over the world, eat dinner together, then go outside to look up at the moon and share round pastries called mooncakes.',
     'In Vietnam the same night is Tết Trung Thu, a festival made for children, with star-shaped lanterns and lion dances in the streets; in Korea the harvest festival Chuseok falls on the same full moon.',
     "A legend tells of Chang'e, a woman who drank a magic potion and floated all the way up to the moon, where she still lives with a jade rabbit; some people say they can see them when they look up.",
@@ -28,7 +28,7 @@ const midAutumnFestival: HolidayContent = {
       text: 'In Korea the same full moon is Chuseok. Families visit the graves of their grandparents and great-grandparents, and make songpyeon, little half-moon rice cakes steamed on a bed of pine needles.',
     },
     {
-      text: 'In the Tai Hang neighbourhood of Hong Kong, a dragon made of straw and rope, 67 metres (220 feet) long and stuck all over with thousands of glowing incense sticks, is danced through the streets for three nights around the festival. The tradition began in 1880.',
+      text: 'In the Tai Hang neighborhood of Hong Kong, a dragon made of straw and rope, 67 meters (220 feet) long and stuck all over with thousands of glowing incense sticks, is danced through the streets for three nights around the festival. The tradition began in 1880.',
     },
   ],
 
@@ -91,14 +91,14 @@ const midAutumnFestival: HolidayContent = {
         { item: 'Round butter cookies', us: { qty: 16, unit: 'piece' }, metric: { qty: 16, unit: 'piece' }, note: 'about 2 inches / 5 cm across; check the label for nuts and soy', allergens: ['wheat', 'gluten', 'milk'] },
         { item: 'Cream cheese', us: { qty: 4, unit: 'oz' }, metric: { qty: 110, unit: 'g' }, note: 'softened', allergens: ['milk'] },
         { item: 'Powdered sugar', us: { qty: 2, unit: 'tbsp' }, metric: { qty: 15, unit: 'g' } },
-        { item: 'Sweet red bean paste', us: { qty: 0.33, unit: 'cup' }, metric: { qty: 100, unit: 'g' }, note: 'sold in tubs or cans at East Asian grocers, sometimes labelled anko' },
+        { item: 'Sweet red bean paste', us: { qty: 0.33, unit: 'cup' }, metric: { qty: 100, unit: 'g' }, note: 'sold in tubs or cans at East Asian grocers, sometimes labeled anko' },
         { item: 'Chocolate spread', us: { qty: 0.33, unit: 'cup' }, metric: { qty: 100, unit: 'g' }, note: 'instead of the red bean paste, if you prefer; choose a nut-free one', optional: true, allergens: ['milk', 'soy'] },
         { item: 'Cocoa powder', us: { qty: 1, unit: 'tbsp' }, metric: { qty: 5, unit: 'g' }, note: 'or extra powdered sugar, for dusting the pattern' },
       ],
       steps: [
         { text: 'Put the cream cheese and powdered sugar in the bowl and mash them with a fork until smooth and creamy.' },
         {
-          text: 'Add the red bean paste and stir until the filling is all one colour.',
+          text: 'Add the red bean paste and stir until the filling is all one color.',
           tip: 'Red bean paste is the classic mooncake filling. No red bean paste? Use the chocolate spread instead.',
         },
         { text: 'Lay 8 cookies on the plate, flat side up. Spoon a heaped tablespoon of filling onto each one and spread it almost to the edge.' },
@@ -117,7 +117,7 @@ const midAutumnFestival: HolidayContent = {
           kidSafeOverride: 'A butter knife on a soft cookie sandwich.',
         },
       ],
-      tip: 'The pattern on a real mooncake is pressed in with a wooden or plastic mould. If you have a cookie stamp, press it gently into a thin layer of filling on the top cookie instead of using the stencil.',
+      tip: 'The pattern on a real mooncake is pressed in with a wooden or plastic mold. If you have a cookie stamp, press it gently into a thin layer of filling on the top cookie instead of using the stencil.',
     },
     {
       id: 'sweet-tangyuan',
@@ -135,7 +135,7 @@ const midAutumnFestival: HolidayContent = {
       ingredients: [
         { item: 'Glutinous rice flour', us: { qty: 1, unit: 'cup' }, metric: { qty: 130, unit: 'g' }, note: 'also called sweet rice flour; despite the name it has no gluten' },
         { item: 'Warm water', us: { qty: 0.5, unit: 'cup' }, metric: { qty: 120, unit: 'ml' }, note: 'you may not need it all' },
-        { item: 'Food colouring', us: { qty: 3, unit: 'piece' }, metric: { qty: 3, unit: 'piece' }, note: 'a drop each of pink, yellow and green', optional: true },
+        { item: 'Food coloring', us: { qty: 3, unit: 'piece' }, metric: { qty: 3, unit: 'piece' }, note: 'a drop each of pink, yellow and green', optional: true },
         { item: 'Water, for the syrup', us: { qty: 3, unit: 'cup' }, metric: { qty: 720, unit: 'ml' } },
         { item: 'Brown sugar', us: { qty: 0.33, unit: 'cup' }, metric: { qty: 65, unit: 'g' } },
         { item: 'Fresh ginger', us: { qty: 1, unit: 'piece' }, metric: { qty: 1, unit: 'piece' }, note: 'a thumb-sized piece' },
@@ -149,7 +149,7 @@ const midAutumnFestival: HolidayContent = {
           text: 'Knead the dough with your hands until it is smooth and feels like play dough: not sticky, not cracking.',
           tip: 'Too dry and crumbly? Add a teaspoon of water. Too sticky? Dust in a spoonful of flour.',
         },
-        { text: 'If you want coloured balls, split the dough into three lumps, add one drop of food colouring to each and knead it in until the colour is even.' },
+        { text: 'If you want colored balls, split the dough into three lumps, add one drop of food coloring to each and knead it in until the color is even.' },
         {
           text: 'Pinch off small pieces and roll them between your palms into balls the size of a marble, about the width of your thumbnail. Line them up on the floured tray.',
           tip: 'Small balls cook through better and are safer to eat than big ones.',
@@ -196,7 +196,7 @@ const midAutumnFestival: HolidayContent = {
       adultHelp: 'some',
       hazards: ['sharp'],
       materials: [
-        { item: 'Coloured paper or thin card', qty: '1 sheet, letter or A4 size', substitute: 'white paper you colour yourself' },
+        { item: 'Colored paper or thin card', qty: '1 sheet, letter or A4 size', substitute: 'white paper you color yourself' },
         { item: 'Safety scissors' },
         { item: 'Ruler' },
         { item: 'Pencil' },
@@ -217,7 +217,7 @@ const midAutumnFestival: HolidayContent = {
           tip: 'Count your slits as you go. About 10 is perfect.',
         },
         { text: 'Unfold the sheet. Bring the two short edges together to make a tube, decorated side out, and tape them.' },
-        { text: 'Gently push the top and bottom of the tube towards each other so the slits bow outwards into a round lantern belly.' },
+        { text: 'Gently push the top and bottom of the tube toward each other so the slits bow outwards into a round lantern belly.' },
         {
           text: 'Cut the extra strip for a handle and tape it across the top.',
           hazards: ['sharp'],
@@ -238,7 +238,7 @@ const midAutumnFestival: HolidayContent = {
     { sleeps: 10, kind: 'craft', text: 'Press patterns into a ball of play dough with a fork or a bottle cap to make your own pretend mooncake.' },
     { sleeps: 9, kind: 'say', text: 'Learn to say happy Mid-Autumn Festival in Vietnamese, for Tết Trung Thu!', greeting: 2 },
     { sleeps: 8, kind: 'fact', text: 'Sweet-smelling osmanthus flowers bloom around the festival. A legend says a man named Wu Gang lives on the moon, chopping an osmanthus tree that grows back every time he cuts it.' },
-    { sleeps: 7, kind: 'colour', text: 'Colour in the Mid-Autumn page! Make the night sky deep and dark so everything bright really glows.' },
+    { sleeps: 7, kind: 'color', text: 'Color in the Mid-Autumn page! Make the night sky deep and dark so everything bright really glows.' },
     { sleeps: 6, kind: 'joke', text: 'Why do lanterns make the best friends? Because they always light up when they see you!' },
     { sleeps: 5, kind: 'fact', text: 'In Taiwan, many families share pomelos, big sweet citrus fruits, at Mid-Autumn. Children sometimes wear the peel on their heads as a funny hat for good luck.' },
     { sleeps: 4, kind: 'craft', text: 'Draw the jade rabbit on a paper plate and hang it in your window to be your very own full moon.' },

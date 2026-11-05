@@ -16,7 +16,7 @@ const content: HolidayContent = {
       bigKids: true,
     },
     {
-      text: 'Zongzi come in many flavours: sweet ones with red beans or dates, and savoury ones with pork, salted egg yolk or mushrooms.',
+      text: 'Zongzi come in many flavors: sweet ones with red beans or dates, and savoury ones with pork, salted egg yolk or mushrooms.',
     },
   ],
   greetings: [
@@ -42,7 +42,7 @@ const content: HolidayContent = {
       id: 'zongzi-style-rice-cups',
       title: 'Zongzi-Style Rice Cups',
       emoji: '🍙',
-      blurb: 'Sticky rice pressed into little leaf-lined cups: all the flavour of zongzi, no wrapping or tying needed.',
+      blurb: 'Sticky rice pressed into little leaf-lined cups: all the flavor of zongzi, no wrapping or tying needed.',
       minutes: 80,
       serves: 6,
       difficulty: 2,
@@ -54,9 +54,9 @@ const content: HolidayContent = {
         { avoid: 'soy', use: 'coconut aminos instead of soy sauce' },
         { avoid: 'sesame', use: 'a little vegetable oil instead of sesame oil' },
       ],
-      equipment: ['small saucepan with a lid', 'sieve', 'mixing bowl', 'muffin tin or 6 small cups', 'spoon'],
+      equipment: ['small saucepan with a lid', 'sieve', 'mixing bowl', 'muffin pan or 6 small cups', 'spoon'],
       ingredients: [
-        { item: 'glutinous (sticky) rice', us: { qty: 1, unit: 'cup' }, metric: { qty: 200, unit: 'g' }, note: 'sometimes labelled sweet rice' },
+        { item: 'glutinous (sticky) rice', us: { qty: 1, unit: 'cup' }, metric: { qty: 200, unit: 'g' }, note: 'sometimes labeled sweet rice' },
         { item: 'water', us: { qty: 1.25, unit: 'cup' }, metric: { qty: 300, unit: 'ml' } },
         { item: 'soy sauce', us: { qty: 2, unit: 'tbsp' }, metric: { qty: 30, unit: 'ml' }, allergens: ['soy', 'wheat', 'gluten'] },
         { item: 'sesame oil', us: { qty: 1, unit: 'tsp' }, metric: { qty: 5, unit: 'ml' }, allergens: ['sesame'] },

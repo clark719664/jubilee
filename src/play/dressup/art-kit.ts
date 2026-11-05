@@ -1,7 +1,7 @@
 /**
  * art-kit.ts — tiny SVG helpers and the coordinates of Jubi's artboard that every item is drawn on.
  *
- * Jubi (src/ui/mascot.ts) lives in a 100×100 viewBox: a five-point star centred at (50, 54), outer
+ * Jubi (src/ui/mascot.ts) lives in a 100×100 viewBox: a five-point star centered at (50, 54), outer
  * radius 40, inner 17, so the top point is (50, 14), the arms end at (12, 41.6) and (88, 41.6), the
  * feet at (26.5, 86.4) and (73.5, 86.4). The eyes sit at (42, 52) and (58, 52), the mouth ends by
  * y 67. Hats sit on the top point (brim around y 29), glasses on the eyes, neck things just under the
@@ -37,9 +37,9 @@ export function line(d: string, stroke: string, width = LINE, more: Attrs = {}):
   return svg('path', { d, fill: 'none', stroke, 'stroke-width': width, 'stroke-linecap': 'round', 'stroke-linejoin': 'round', ...more });
 }
 
-/** A thick stick: an ink line with a coloured core, so it keeps its outline at any zoom. */
-export function stick(d: string, colour: string, width = 2.6): SVGGElement {
-  return g({}, line(d, INK, width + 2.4), line(d, colour, width));
+/** A thick stick: an ink line with a colored core, so it keeps its outline at any zoom. */
+export function stick(d: string, color: string, width = 2.6): SVGGElement {
+  return g({}, line(d, INK, width + 2.4), line(d, color, width));
 }
 
 export function c(cx: number, cy: number, r: number, fill: string, more: Attrs = {}): SVGCircleElement {
@@ -60,7 +60,7 @@ export function hand(): SVGCircleElement {
   return c(GRIP.x, GRIP.y, GRIP.r, BODY, { 'stroke-width': 2.4, class: 'dz-hand' });
 }
 
-/** A five-point star path centred at (cx, cy). */
+/** A five-point star path centered at (cx, cy). */
 export function starD(cx: number, cy: number, outer: number, inner: number, rot = 0): string {
   const pts: string[] = [];
   for (let i = 0; i < 10; i++) {
@@ -71,21 +71,21 @@ export function starD(cx: number, cy: number, outer: number, inner: number, rot 
   return `M${pts.join('L')}Z`;
 }
 
-/** A heart centred at (cx, cy), about 2s wide. */
+/** A heart centered at (cx, cy), about 2s wide. */
 export function heartD(cx: number, cy: number, s: number): string {
   const k = (n: number): string => n.toFixed(2);
   return `M${k(cx)} ${k(cy + s * 0.9)}C${k(cx - s * 1.5)} ${k(cy - s * 0.1)} ${k(cx - s * 0.75)} ${k(cy - s * 1.25)} ${k(cx)} ${k(cy - s * 0.45)}`
     + `C${k(cx + s * 0.75)} ${k(cy - s * 1.25)} ${k(cx + s * 1.5)} ${k(cy - s * 0.1)} ${k(cx)} ${k(cy + s * 0.9)}Z`;
 }
 
-/** A five-petal flower (petals, then a centre) at (cx, cy). */
-export function flower(cx: number, cy: number, r: number, petal: string, centre: string, rot = 0): SVGGElement {
+/** A five-petal flower (petals, then a center) at (cx, cy). */
+export function flower(cx: number, cy: number, r: number, petal: string, center: string, rot = 0): SVGGElement {
   const out = g({});
   for (let i = 0; i < 5; i++) {
     const a = ((rot + i * 72 - 90) * Math.PI) / 180;
     out.append(c(cx + Math.cos(a) * r * 0.62, cy + Math.sin(a) * r * 0.62, r * 0.5, petal, { 'stroke-width': 1.6 }));
   }
-  out.append(c(cx, cy, r * 0.36, centre, { 'stroke-width': 1.6 }));
+  out.append(c(cx, cy, r * 0.36, center, { 'stroke-width': 1.6 }));
   return out;
 }
 

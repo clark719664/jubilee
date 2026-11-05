@@ -15,7 +15,7 @@ const RED = '#d62828', WHITE = '#ffffff';
 const SKIN = { light: '#f0c4a0', fair: '#e8b48a', tan: '#c98a5a', brown: '#9a6440', deep: '#6b4028' };
 const SHORE = 640, BANK = 760;
 
-/** An 11-point maple leaf centred at (x, y), size s. */
+/** An 11-point maple leaf centered at (x, y), size s. */
 export function mapleD(x, y, s) {
   const pts = [[0, -1], [0.18, -0.62], [0.42, -0.74], [0.36, -0.36], [0.82, -0.52], [0.7, -0.2], [0.92, -0.1], [0.5, 0.2], [0.58, 0.42], [0.08, 0.34], [0.06, 0.78], [-0.06, 0.78], [-0.08, 0.34], [-0.58, 0.42], [-0.5, 0.2], [-0.92, -0.1], [-0.7, -0.2], [-0.82, -0.52], [-0.36, -0.36], [-0.42, -0.74], [-0.18, -0.62]];
   return pts.map(([u, v], i) => `${i ? 'L' : 'M'}${P(x + u * s, y + v * s)}`).join('') + 'Z';
@@ -138,7 +138,7 @@ export function mid() {
 // ============================== front ==============================
 export function front() {
   setPrecision(1);
-  return compactSvg(doc(`Canada Day · front: tall grass and cattails in both bottom corners; the centre stays open`, [], [
+  return compactSvg(doc(`Canada Day · front: tall grass and cattails in both bottom corners; the center stays open`, [], [
     C('grass and cattails bottom left'),
     path('M20 900q-4 -70 6 -120M44 900q4 -90 -4 -150M70 900q8 -60 18 -100', { fill: 'none', stroke: '#2a5a2a', 'stroke-width': 5 }),
     path('M40 752h10v-34h-10zM22 782h8v-28h-8z', { fill: '#6a3a1a' }),
@@ -154,7 +154,7 @@ export function sceneData(ppl) {
   return {
     hotspots: [
       { activity: 'dressup', x: r(ppl.facepaint[0]), y: r(ppl.facepaint[1]), r: 40, label: 'Paint a maple leaf on your cheek' },
-      { activity: 'colour', x: ppl.canoe[0], y: ppl.canoe[1], r: 50, label: 'Colour the red canoe' },
+      { activity: 'color', x: ppl.canoe[0], y: ppl.canoe[1], r: 50, label: 'Color the red canoe' },
       { activity: 'card', x: r(ppl.flag[0]), y: r(ppl.flag[1]), r: 36, label: 'Make a Canada Day card' },
       { activity: 'memory', x: r(ppl.cookie[0]), y: r(ppl.cookie[1]), r: 34, label: 'Match the Canada Day treats' },
     ],

@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 900">
-<!-- Holi · back: a hill town on colour day — a warm sun up-left, a low hill, flat-roofed houses in faded pink, turquoise, saffron and lavender stacked up the slope, a temple spire and little domes; low contrast, tinted toward the cream sky -->
+<!-- Holi · back: a hill town on color day — a warm sun up-left, a low hill, flat-roofed houses in faded pink, turquoise, saffron and lavender stacked up the slope, a temple spire and little domes; low contrast, tinted toward the cream sky -->
 <defs><radialGradient id="holi-sun" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#fff8d6" stop-opacity="0.9"/><stop offset="0.2" stop-color="#ffe9a8" stop-opacity="0.55"/><stop offset="0.5" stop-color="#ffe2a0" stop-opacity="0.18"/><stop offset="1" stop-color="#ffe2a0" stop-opacity="0"/></radialGradient><linearGradient id="holi-hill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#deccac"/><stop offset="1" stop-color="#e5c8a9"/></linearGradient></defs>
 <!-- a warm spring sun, upper left (outside the copy zone) -->
 <circle cx="170" cy="260" r="220" fill="url(#holi-sun)"/><circle cx="170" cy="260" r="42" fill="#fff8e0"/>

@@ -291,7 +291,7 @@ export function front() {
     lv[k] += `M${P(x - Math.cos(a) * 12, y - Math.sin(a) * 6)}Q${P(x, y - 10)} ${P(x + Math.cos(a) * 12, y + Math.sin(a) * 6)}Q${P(x, y + 10)} ${P(x - Math.cos(a) * 12, y - Math.sin(a) * 6)}Z`; }
   // a pair of wellies, bottom right
   const welly = (x) => `M${P(x, 900)}V${f(846)}q0-6 6-6h18q6 0 6 6v34h14q8 0 8 8v12z`;
-  return compactSvg(doc(`Bonfire Night · front: dark grass tufts and fallen leaves in both bottom corners; the centre stays open`, [], [
+  return compactSvg(doc(`Bonfire Night · front: dark grass tufts and fallen leaves in both bottom corners; the center stays open`, [], [
     C('dark grass in both corners and a few low tufts along the bottom'),
     path(grass, { fill: '#141410' }),
     C('fallen leaves'),
@@ -305,9 +305,9 @@ export function sceneData(ppl) {
   return {
     hotspots: [
       { activity: 'wish', x: Math.round(ppl.tip[0] + 20), y: Math.round(ppl.tip[1] + 6), r: 40, label: 'Make a wish on a sparkler' },
-      { activity: 'colour', x: B.x, y: B.base - 130, r: 74, label: 'Colour in the bonfire' },
+      { activity: 'color', x: B.x, y: B.base - 130, r: 74, label: 'Color in the bonfire' },
       { activity: 'dressup', x: Math.round(ppl.boy[0]), y: Math.round(ppl.boy[1] + 34), r: 42, label: 'Dress up for Bonfire Night' },
-      { activity: 'card', x: Math.round(ppl.mug[0]), y: Math.round(ppl.mug[1] - 4), r: 32, label: 'Make a cosy hot-chocolate card' },
+      { activity: 'card', x: Math.round(ppl.mug[0]), y: Math.round(ppl.mug[1] - 4), r: 32, label: 'Make a cozy hot-chocolate card' },
       { activity: 'memory', x: Math.round(ppl.marks.apples[0]), y: Math.round(ppl.marks.apples[1]), r: 60, label: 'Toffee apple memory game' },
     ],
     findables: [

@@ -19,7 +19,7 @@ export interface Dialog {
 function dialog(host: HTMLElement, titleText: string, body: HTMLElement[], onClose: () => void): Dialog {
   const id = `cm-dlg-${Math.random().toString(36).slice(2, 8)}`;
   const closeBtn = h('button', { type: 'button', class: 'btn btn-secondary btn-icon cm-dlg-x', 'aria-label': COPY.cancel, onclick: () => close() }, icon('close', 22));
-  const card = h('div', { class: 'cm-dlg-card', role: 'dialog', 'aria-modal': 'true', 'aria-labelledby': id },
+  const card = h('div', { class: 'cm-dlg-card', role: 'dialog', 'aria-modal': 'true', 'aria-labeledby': id },
     h('div', { class: 'cm-dlg-head' }, h('h2', { class: 'h3', id }, titleText), closeBtn), ...body);
   const el = h('div', { class: 'cm-dlg' }, card);
   el.addEventListener('pointerdown', (e) => { if (e.target === el) close(); });
@@ -60,7 +60,7 @@ export function myCardsDialog(host: HTMLElement, items: readonly FridgeItem[], e
   return d;
 }
 
-const KIND_EMOJI: Readonly<Record<string, string>> = { card: '💌', colour: '🎨', wish: '✉️', path: '🧭', story: '📖', dressup: '👗' };
+const KIND_EMOJI: Readonly<Record<string, string>> = { card: '💌', color: '🎨', wish: '✉️', path: '🧭', story: '📖', dressup: '👗' };
 
 /** The Fridge is full: list what is on it (oldest first) with a "Take down" button for each. */
 export function fridgeFullDialog(host: HTMLElement, items: readonly FridgeItem[], onTakeDown: (item: FridgeItem) => void, onClose: () => void): Dialog {

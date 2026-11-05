@@ -39,7 +39,7 @@ export type StickerArt =
 export interface Placed {
   readonly id: string;
   readonly art: StickerArt;
-  /** Centre, in panel units. */
+  /** Center, in panel units. */
   readonly x: number;
   readonly y: number;
   /** Box side, in panel units. */
@@ -212,7 +212,7 @@ export function applyNudge(p: Placed, n: Nudge): Placed {
 
 /**
  * One-finger corner handle: the sticker's new size and angle from where the handle is dragged to,
- * relative to the sticker's centre. The handle sits on the box corner (at 45°), so the box side is the
+ * relative to the sticker's center. The handle sits on the box corner (at 45°), so the box side is the
  * pointer distance × √2 and the angle is the pointer's angle minus 45°.
  */
 export function fromHandle(cx: number, cy: number, px: number, py: number): { s: number; r: number } {
@@ -392,7 +392,7 @@ function sanitizeGreeting(v: unknown): CardGreeting | null {
   return g;
 }
 
-/** A valid CardSpec from anything, or null when it is not recognisably a card. */
+/** A valid CardSpec from anything, or null when it is not recognizably a card. */
 export function sanitizeCard(v: unknown, decorOk: (p: string) => boolean = () => true): CardSpec | null {
   if (!isObj(v) || v.v !== 1 || typeof v.holidayId !== 'string' || !SLUG.test(v.holidayId)) return null;
   return {

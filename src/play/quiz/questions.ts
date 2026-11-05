@@ -83,7 +83,7 @@ export interface GreetQuestion {
   readonly key: string;
   readonly holiday: string;
   readonly greeting: Greeting;
-  /** What to show big: the romanisation when the text is not Latin script. */
+  /** What to show big: the romanization when the text is not Latin script. */
   readonly display: string;
   readonly options: readonly GreetOption[];
 }
@@ -259,7 +259,7 @@ export const SILLY: readonly { readonly text: string; readonly back: string }[] 
   { text: 'The Earth is flat, like a pancake.', back: 'The Earth is round, like a ball. That is why we use a globe!' },
   { text: 'There are only three countries in the whole world.', back: 'There are about 200 countries in the world!' },
   { text: 'Rainbows are made of jelly.', back: 'Rainbows are sunlight shining through tiny drops of rain.' },
-  { text: 'Clouds are made of cotton wool.', back: 'Clouds are made of tiny drops of water or little bits of ice.' },
+  { text: 'Clouds are made of cotton balls.', back: 'Clouds are made of tiny drops of water or little bits of ice.' },
   { text: 'Wild kangaroos hop around in Iceland.', back: 'Wild kangaroos live in Australia, where it is much warmer than Iceland!' },
   { text: 'The Sun goes to sleep under the sea every night.', back: 'The Sun stays put. The Earth spins, so your side of it turns away from the Sun at night.' },
   { text: 'Elephants can fly if they flap their ears.', back: 'Elephants flap their big ears to keep cool, but they cannot fly.' },

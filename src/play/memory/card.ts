@@ -5,7 +5,7 @@
  *
  * Face down, a card wears the holiday's sky and pattern with the holiday emoji as an emblem. Face up it
  * shows the die-cut sticker: the illustrated art when it exists, otherwise the sticker's emoji on a
- * disc in that sticker's own holiday colours (a Diwali sticker in a Christmas deck is still Diwali-pink).
+ * disc in that sticker's own holiday colors (a Diwali sticker in a Christmas deck is still Diwali-pink).
  */
 import { h } from '../../ui/dom';
 import { icon } from '../../ui/icons';

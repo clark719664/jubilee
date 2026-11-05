@@ -3,7 +3,7 @@ import type { HolidayContent } from '../types';
 const fathersDay: HolidayContent = {
   story: [
     "Father's Day is a day to say thank you to dads, grandads, step-dads and all the grown-ups who show up for you.",
-    "In the United States, Sonora Smart Dodd planned the first Father's Day in Spokane, Washington in 1910 to honour her father, who had raised six children on his own.",
+    "In the United States, Sonora Smart Dodd planned the first Father's Day in Spokane, Washington in 1910 to honor her father, who had raised six children on his own.",
     "It took a long time to catch on: Father's Day only became an official national holiday in the United States in 1972.",
     'Many countries celebrate on the third Sunday in June, Australia and New Zealand wait until the first Sunday in September, and in Germany many dads spend Vatertag on a long walk with friends.',
     'Many families make a card, cook breakfast, build something together or simply spend the day doing whatever Dad likes best.',
@@ -22,7 +22,7 @@ const fathersDay: HolidayContent = {
       text: 'In Germany, Vatertag falls on Ascension Day, a Thursday in spring, and groups of dads often walk through the countryside pulling a little wagon loaded with picnic food.',
     },
     {
-      text: 'Thailand celebrates Father’s Day on 5 December, the birthday of the late King Bhumibol, and many people wear yellow because that is the colour of Monday, the day he was born.',
+      text: 'Thailand celebrates Father’s Day on 5 December, the birthday of the late King Bhumibol, and many people wear yellow because that is the color of Monday, the day he was born.',
       bigKids: true,
     },
     {
@@ -142,7 +142,7 @@ const fathersDay: HolidayContent = {
         { text: 'Fold the whole plane in half along the first crease, with all the folds on the outside.' },
         { text: 'Fold each side down to make a wing, lining its top edge up with the bottom of the plane.' },
         { text: 'Decorate your plane with stripes, a name and a number, then fold three more to complete the fleet.' },
-        { text: 'Hold the plane under the wings, point the nose a little upwards and throw it gently, never towards anyone\'s face.' },
+        { text: 'Hold the plane under the wings, point the nose a little upwards and throw it gently, never toward anyone\'s face.' },
       ],
       learn: 'A paper plane is a flying experiment: change one fold at a time and see whether it glides further.',
     },
@@ -150,16 +150,16 @@ const fathersDay: HolidayContent = {
 
   doors: [
     { sleeps: 12, kind: 'fact', text: "Sonora Smart Dodd wanted the first Father's Day on 5 June, her dad's birthday, but the local churches needed more time to get ready, so it moved to 19 June 1910." },
-    { sleeps: 11, kind: 'joke', text: 'Time to practise your dad jokes! What do you call a fish wearing a bow tie? Sofishticated!' },
+    { sleeps: 11, kind: 'joke', text: 'Time to practice your dad jokes! What do you call a fish wearing a bow tie? Sofishticated!' },
     { sleeps: 10, kind: 'craft', text: 'Cut a circle from an old cereal box with safety scissors, cover it in kitchen foil and tape on a ribbon: a Best Dad medal, ready to hang.' },
     { sleeps: 9, kind: 'fact', text: 'Emperor penguin dads keep their egg warm on their feet for about two months in the Antarctic winter, eating nothing at all until the chick hatches.' },
     { sleeps: 8, kind: 'say', text: "Learn to say Happy Father's Day in German, where lots of dads celebrate Vatertag with a long walk!", greeting: 2 },
-    { sleeps: 7, kind: 'colour', text: "Colour in the Father's Day page. Give it bold stripes, wild spots or your dad's favourite colour!" },
+    { sleeps: 7, kind: 'color', text: "Color in the Father's Day page. Give it bold stripes, wild spots or your dad's favorite color!" },
     { sleeps: 6, kind: 'fact', text: "In Taiwan, Father's Day is on 8 August, because 8/8 in Mandarin is 'ba ba', which sounds a lot like baba, the word for Dad." },
     { sleeps: 5, kind: 'joke', text: "What did the baby corn say to the papa corn? Where's popcorn?" },
     { sleeps: 4, kind: 'seek', text: "Some sneaky surprises are hiding in the Father's Day picture. Can you spot every one? Open Seek & Find!" },
-    { sleeps: 3, kind: 'fact', text: 'Seahorse dads carry the babies: the mum puts her eggs into a pouch on his tummy, and a few weeks later he gives birth to hundreds of tiny seahorses.' },
-    { sleeps: 2, kind: 'craft', text: 'Draw you and your dad doing your favourite thing together, then roll it up and tie it with string or ribbon, like a secret scroll.' },
+    { sleeps: 3, kind: 'fact', text: 'Seahorse dads carry the babies: the mom puts her eggs into a pouch on his tummy, and a few weeks later he gives birth to hundreds of tiny seahorses.' },
+    { sleeps: 2, kind: 'craft', text: 'Draw you and your dad doing your favorite thing together, then roll it up and tie it with string or ribbon, like a secret scroll.' },
     { sleeps: 1, kind: 'say', text: "Tomorrow is Father's Day! Practise saying it in Spanish tonight so you can be the very first to say it in the morning.", greeting: 0 },
   ],
 
@@ -170,7 +170,7 @@ const fathersDay: HolidayContent = {
     "Encyclopaedia Britannica, 'Father's Day' (Sonora Smart Dodd, Spokane 1910; permanent national holiday 1972; dates around the world)",
     "Library of Congress, 'Today in History: June 19' (the first Father's Day, 1910)",
     "Deutsche Welle, 'Vatertag: how Germany celebrates Father's Day on Ascension Day'",
-    "Tourism Authority of Thailand, 'Father's Day in Thailand' (5 December, King Bhumibol's birthday, the colour yellow)",
+    "Tourism Authority of Thailand, 'Father's Day in Thailand' (5 December, King Bhumibol's birthday, the color yellow)",
   ],
 };
 

@@ -60,7 +60,7 @@ function cssCover(w: number, h: number): { s: number; left: number; top: number 
 }
 
 describe('stage mapping', () => {
-  it('draws the artboard where the scene layers are: centred across, bottom-anchored, covering', () => {
+  it('draws the artboard where the scene layers are: centered across, bottom-anchored, covering', () => {
     for (const [w, h] of [[1048, 716], [390, 639], [320, 584], [812, 641], [736, 640], [10, 10]] as const) {
       const m = stageMap(w, h);
       const css = cssCover(w, h);

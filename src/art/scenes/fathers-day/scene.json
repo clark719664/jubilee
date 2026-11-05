@@ -29,7 +29,7 @@
       "label": "Catch acorns in the basket"
     },
     {
-      "activity": "colour",
+      "activity": "color",
       "x": 522,
       "y": 794,
       "r": 50,
@@ -66,8 +66,8 @@
       "r": 18
     },
     {
-      "id": "spanner-grass",
-      "label": "a spanner",
+      "id": "wrench-grass",
+      "label": "a wrench",
       "x": 440,
       "y": 840,
       "r": 24

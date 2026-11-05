@@ -1,11 +1,11 @@
 {
   "hotspots": [
     {
-      "activity": "colour",
+      "activity": "color",
       "x": 800,
       "y": 600,
       "r": 56,
-      "label": "Colour in the groundhog"
+      "label": "Color in the groundhog"
     },
     {
       "activity": "wish",

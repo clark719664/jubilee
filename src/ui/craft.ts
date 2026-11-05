@@ -25,7 +25,7 @@ export function hazardChips(hazards: readonly Hazard[] | undefined, adult: boole
   );
 }
 
-/** Numbered steps; grown-up steps get the sun-coloured number, the hand chip and their hazard names. */
+/** Numbered steps; grown-up steps get the sun-colored number, the hand chip and their hazard names. */
 export function stepList(steps: readonly Step[]): HTMLOListElement {
   return h('ol', { class: 'steps' }, ...steps.map((s, i) => h('li', { class: s.adult ? 'step is-adult' : 'step' },
     h('span', { class: 'step-num', 'aria-hidden': 'true' }, String(i + 1)),
@@ -147,7 +147,7 @@ export function craftCard(craft: Craft, opts: CraftCardOptions): HTMLElement {
     stepList(craft.steps),
   );
   const more = disclosure(key, 'Show me how', 'Hide the steps', body);
-  return h('article', { class: 'craft', id: `craft-${craft.id}`, 'aria-labelledby': `craft-${craft.id}-title` },
+  return h('article', { class: 'craft', id: `craft-${craft.id}`, 'aria-labeledby': `craft-${craft.id}-title` },
     h('div', { class: 'recipe-head rh-grid' },
       h('span', { class: 'recipe-emoji', 'aria-hidden': 'true' }, craft.emoji),
       h('h3', { class: 'h3', id: `craft-${craft.id}-title` }, craft.title),

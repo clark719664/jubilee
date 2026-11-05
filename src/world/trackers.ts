@@ -93,7 +93,7 @@ export interface LunarHint {
   readonly kind: LunarKind;
 }
 
-/** The nearest moon-timed holiday within `withinDays`, from the catalogue and a next-date lookup. */
+/** The nearest moon-timed holiday within `withinDays`, from the catalog and a next-date lookup. */
 export function lunarHintFor(
   metas: readonly { readonly id: string; readonly name: string; readonly emoji: string }[],
   nextMain: (id: string) => CivilDate | null,

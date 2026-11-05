@@ -1,11 +1,11 @@
 {
   "hotspots": [
     {
-      "activity": "colour",
+      "activity": "color",
       "x": 480,
       "y": 808,
       "r": 44,
-      "label": "Colour the rabbit lantern"
+      "label": "Color the rabbit lantern"
     },
     {
       "activity": "card",

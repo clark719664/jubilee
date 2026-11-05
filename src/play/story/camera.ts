@@ -2,10 +2,10 @@
  * camera.ts — page cameras over the 1600×900 scene artboard (pure; tested in Node).
  *
  * A camera names the point a page is about and a zoom. A picture box of any shape shows the largest
- * window of its own shape that fits in the camera's 16:9 window (1600/zoom wide), centred on the point
+ * window of its own shape that fits in the camera's 16:9 window (1600/zoom wide), centered on the point
  * and then slid back inside the artboard, so a subject near the edge (the Christmas snowman at x≈105)
  * stays in view and no box ever reveals an edge, a gap or the empty margin past x 1600. Layers are placed with
- * percentages of the box (left/top/width/height), so the browser rasterises each SVG at its real size
+ * percentages of the box (left/top/width/height), so the browser rasterizes each SVG at its real size
  * (crisp at any zoom) and nothing needs re-measuring until the box changes shape.
  */
 import { ARTBOARD, ZOOM_MAX, ZOOM_MIN, type Camera } from './types';

@@ -63,7 +63,7 @@ function mountMemory(env: PlayEnv): ActivityInstance {
   const cancel = (id: number | null): void => { if (id !== null) { window.clearTimeout(id); timers.delete(id); } };
 
   // ── decks (computed once; the dates engine is not free) ──
-  const input = { centre: meta, metas: ctx.allMetas(), today: ctx.clock.today(), region: ctx.region, urlFor: stickerUrl };
+  const input = { center: meta, metas: ctx.allMetas(), today: ctx.clock.today(), region: ctx.region, urlFor: stickerUrl };
   const season = seasonDeck(input);
   const earned = earnedHolidays(ctx.store.progress.stickers);
   const mineAvailable = earned.length >= MY_DECK_MIN;
@@ -90,7 +90,7 @@ function mountMemory(env: PlayEnv): ActivityInstance {
   // The flips counter lives in the tray so the phone header never has to squeeze the title.
   const tray = h('div', { class: 'mem-tray', hidden: true }, slots, trayCount, flipsChip);
   const stage = h('div', { class: 'mem-stage' });
-  const root = h('section', { class: 'mem sky', 'aria-labelledby': 'mem-h1' }, header, tray, stage);
+  const root = h('section', { class: 'mem sky', 'aria-labeledby': 'mem-h1' }, header, tray, stage);
   applyTheme(root, theme);
   const burst = new Burst(root, { effect: meta.effect, ...(meta.effectParams ? { params: meta.effectParams } : {}), theme, motion: () => ctx.motion });
   root.append(burst.canvas);
@@ -174,7 +174,7 @@ function mountMemory(env: PlayEnv): ActivityInstance {
     const w = stage.clientWidth - 12;
     const hgt = stage.clientHeight - 18;
     if (w <= 0 || hgt <= 0) return;
-    // Orientation is picked once per deal; afterwards only the card size follows the screen.
+    // Orientation is picked once per deal; afterward only the card size follows the screen.
     fit = fresh || !fit ? fitBoard(board.cols, board.rows, w, hgt) : sizeBoard(fit.cols, fit.rows, w, hgt);
     grid.style.setProperty('--cols', String(fit.cols));
     grid.style.setProperty('--card-w', `${fit.cardW}px`);
@@ -246,15 +246,15 @@ function mountMemory(env: PlayEnv): ActivityInstance {
     flipsChip.textContent = game.flips === 1 ? COPY.flip1 : fill(COPY.flips, { n: game.flips });
   }
 
-  function centreOf(i: number): { x: number; y: number } {
+  function centerOf(i: number): { x: number; y: number } {
     const r = els[i]!.button.getBoundingClientRect();
     const o = root.getBoundingClientRect();
     return { x: r.left - o.left + r.width / 2, y: r.top - o.top + r.height / 2 };
   }
 
   function celebratePair(a: number, b: number, s: MemorySticker): void {
-    const pa = centreOf(a);
-    const pb = centreOf(b);
+    const pa = centerOf(a);
+    const pb = centerOf(b);
     burst.pop(pa.x, pa.y, 16);
     later(() => burst.pop(pb.x, pb.y, 16), 120);
     const text = COPY.streak[streak] ?? COPY.cheers[(game.pairsFound + dealCount) % COPY.cheers.length]!;
@@ -321,7 +321,7 @@ function mountMemory(env: PlayEnv): ActivityInstance {
     const name = ctx.store.progress.name;
     const perfect = game.flips === game.pairs * 2;
     const playAgain = h('button', { type: 'button', class: 'btn btn-lg mem-again', onclick: () => { if (board) start(board); } }, icon('shuffle', 22), COPY.playAgain);
-    const panel = h('div', { class: 'mem-done', role: 'dialog', 'aria-modal': 'true', 'aria-labelledby': 'mem-done-title' },
+    const panel = h('div', { class: 'mem-done', role: 'dialog', 'aria-modal': 'true', 'aria-labeledby': 'mem-done-title' },
       h('div', { class: 'mem-done-card' },
         h('div', { class: 'mem-done-jubi' }, mascot('party', 96)),
         h('h2', { class: 'h2 mem-done-title', id: 'mem-done-title' }, name ? fill(COPY.doneName, { name }) : COPY.doneTitle),

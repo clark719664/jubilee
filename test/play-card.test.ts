@@ -63,7 +63,7 @@ describe('card model', () => {
   });
 
   it('turns and resizes from the corner handle and from a pinch', () => {
-    // Handle straight down-right of centre at distance d: size d·√2, angle 0.
+    // Handle straight down-right of center at distance d: size d·√2, angle 0.
     const h = fromHandle(100, 100, 150, 150);
     expect(h.s).toBeCloseTo(100, 0);
     expect(h.r).toBeCloseTo(0, 5);
@@ -198,7 +198,7 @@ describe('card decorations and stickers', () => {
   });
 });
 
-describe('card colours', () => {
+describe('card colors', () => {
   it('finds a readable ink for the inside of every theme', () => {
     for (const t of Object.values(THEMES)) expect(contrastRatio(deepInk(t).slice(0, 7), '#fffaf0'), t.id).toBeGreaterThanOrEqual(4.5);
     expect(mixHex('#000000', '#ffffff', 0.5)).toBe('#808080');

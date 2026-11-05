@@ -117,7 +117,7 @@ function nameCard(ctx: AppContext, done: (name: string | null) => void): HTMLEle
   const input = h('input', {
     class: 'input', id: inputId, type: 'text', maxlength: NAME_MAX, autocomplete: 'given-name', placeholder: 'Your name',
   });
-  const form = h('form', { class: 'name-card', 'aria-labelledby': titleId },
+  const form = h('form', { class: 'name-card', 'aria-labeledby': titleId },
     h('div', { class: 'name-card-head' },
       h('span', { class: 'name-card-emoji emoji', 'aria-hidden': 'true' }, '🌟'),
       h('h2', { class: 'h3', id: titleId }, COPY.whatShouldWeCallYou),

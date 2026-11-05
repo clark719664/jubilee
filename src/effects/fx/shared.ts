@@ -3,19 +3,19 @@
  *
  *   class HeartsEffect extends PooledEffect {
  *     readonly describe = 'Hearts floating up through the sky';
- *     step(input)  { this.budget.frame(input.budget); …spawn with this.budget.take(n)…; loop behaviours }
+ *     step(input)  { this.budget.frame(input.budget); …spawn with this.budget.take(n)…; loop behaviors }
  *     draw(ctx, input) { …this.sprites.draw(…) per particle, globalAlpha from pool.alpha… }
  *     still(input) { this.pool.clear(); this.budget.frame(input.budget); …arrange one settled frame… }
  *   }
  *   export const hearts: EffectFactory = (sprites) => new HeartsEffect(sprites);
  *
- * `Palette` resolves `params.palette` (or a theme fallback) into a colour table once, so `pool.color[i]`
+ * `Palette` resolves `params.palette` (or a theme fallback) into a color table once, so `pool.color[i]`
  * is an index and `draw` never builds strings. `GlyphSet` does the same for `params.glyphs` → sprite names.
  *
  * Scene mode (`params.stage` present: the hero shows an illustrated scene): `this.scene.sync(input)` in a
  * preset's own sync tells it so, maps artboard points onto the canvas and gives the sky line. Presets then
  * keep their ambient, sky-friendly particles and taps, drop the set pieces drawn to fill a bare sky
- * (moons, skylines, meadows, centrepieces), and draw what belongs on the art at its stage points.
+ * (moons, skylines, meadows, centerpieces), and draw what belongs on the art at its stage points.
  */
 import type { Theme } from '../../theme/themes';
 import { Budgeter, ParticlePool, clamp } from '../particles';
@@ -45,7 +45,7 @@ export abstract class PooledEffect implements Effect {
   }
 }
 
-/** Colour table from `params.palette` or a theme fallback; rebuilt only when either identity changes. */
+/** Color table from `params.palette` or a theme fallback; rebuilt only when either identity changes. */
 export class Palette {
   colors: readonly string[] = [];
   private lastPalette: readonly string[] | undefined;
@@ -60,7 +60,7 @@ export class Palette {
     return this.colors;
   }
 
-  /** Random colour index for a new particle (store it in `pool.color[i]`). */
+  /** Random color index for a new particle (store it in `pool.color[i]`). */
   pick(rand: () => number): number {
     return this.colors.length === 0 ? 0 : Math.floor(rand() * this.colors.length) % 256;
   }
@@ -97,7 +97,7 @@ export class GlyphSet {
   }
 }
 
-/** Accent, accent2, glow, plus white on night skies or the ink colour on day skies. */
+/** Accent, accent2, glow, plus white on night skies or the ink color on day skies. */
 export function festivePalette(theme: Theme): readonly string[] {
   return [theme.accent, theme.accent2, theme.glow, theme.mood === 'night' ? '#ffffff' : theme.ink];
 }

@@ -10,14 +10,14 @@
  *     pink petals drift.
  *   'poppies' (Memorial Day): a calm field of red poppies at the bottom and slow, sparse red petals.
  *   'spring' (Passover): green leaves and white blossoms drift; white blossoms and daisies grow below.
- *   default: petals in the palette (or the theme's colours).
- * Behaviours: gravity + flutter + drag + breeze + spin (petals); spring-damped sway (flowers);
+ *   default: petals in the palette (or the theme's colors).
+ * Behaviors: gravity + flutter + drag + breeze + spin (petals); spring-damped sway (flowers);
  *   flame flicker (candles, ≤ 2 Hz); rise + twinkle (glow dots).
  * Tap: a petal burst — a ring of petals springs from the finger and drifts down; flowers nearby bow away.
  * Still: blooms fully open (and candles lit, banner hung), petals frozen mid-air.
  * Scene mode (`params.stage`): the scene draws its own garden and ofrenda, so the flower border and the candle
  *   row give way to the art; falling petals, the banner and taps stay.
- * Params: variant ('marigold' | 'bloom' | 'poppies' | 'spring'), palette (petal colours; for 'spring' the
+ * Params: variant ('marigold' | 'bloom' | 'poppies' | 'spring'), palette (petal colors; for 'spring' the
  *   leaf greens, white entries become blossoms), stage, density.
  */
 import type { Theme } from '../../theme/themes';
@@ -74,7 +74,7 @@ function isWhite(c: string): boolean {
   return s === '#fff' || s === '#ffffff' || s === 'white';
 }
 
-/** The variant's colours and furniture; `palette` overrides the petal colours (or the leaves in 'spring'). */
+/** The variant's colors and furniture; `palette` overrides the petal colors (or the leaves in 'spring'). */
 export function lookFor(variant: string, palette: readonly string[] | undefined, theme: Theme): Look {
   const p = palette && palette.length > 0 ? palette : null;
   switch (variant) {

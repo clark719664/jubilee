@@ -132,7 +132,7 @@ export function inSeason(it: Item, season: readonly SeasonHoliday[]): number {
 
 /**
  * A slot's items with in-season ones first: the first season holiday's own items (the next holiday),
- * then the next holiday's, then shared-tag matches; the rest in catalogue order.
+ * then the next holiday's, then shared-tag matches; the rest in catalog order.
  */
 export function sortForSeason(slot: Slot, season: readonly SeasonHoliday[]): { item: Item; score: number }[] {
   const rank = (it: Item): number => {
@@ -215,7 +215,7 @@ export function describeOutfit(o: Outfit, holidayName?: string): string {
   return `Jubi in ${list.join(' and ')}${names.length > 2 ? ' and more' : ''}`;
 }
 
-/** The ids of the holidays an item belongs to that exist in a catalogue (for tests and labels). */
+/** The ids of the holidays an item belongs to that exist in a catalog (for tests and labels). */
 export function knownHolidays(it: Item, ids: ReadonlySet<HolidayId>): HolidayId[] {
   return it.holidays.filter((h) => ids.has(h));
 }

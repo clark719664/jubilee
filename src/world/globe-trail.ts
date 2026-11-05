@@ -37,7 +37,7 @@ function densifyStops(points: readonly LonLat[], from: number, to: number): [Flo
       push(ka * a[0] + kb * b[0], ka * a[1] + kb * b[1], ka * a[2] + kb * b[2]);
     }
   }
-  // On the flat map the pole is a whole edge: give pole points their neighbour's longitude.
+  // On the flat map the pole is a whole edge: give pole points their neighbor's longitude.
   const n = ll.length / 2;
   for (let i = 0; i < n; i++) {
     if (Math.abs(ll[2 * i + 1]!) < 89.9) continue;

@@ -50,13 +50,13 @@ export function buildStamp(): HTMLElement {
 const STAR = 'M12 2l2.4 6.9L21 10l-5.4 4.3L17.5 21 12 17.3 6.5 21l1.9-6.7L3 10l6.6-1.1L12 2z';
 
 /** A burst of eight little stars from (x, y); removed when it is done. */
-export function sparkle(host: HTMLElement, x: number, y: number, colours: readonly string[]): void {
+export function sparkle(host: HTMLElement, x: number, y: number, colors: readonly string[]): void {
   const burst = h('span', { class: 'seek-sparkle' });
   setVars(burst, { left: x, top: y });
   for (let i = 0; i < 10; i++) {
     const a = (i / 10) * Math.PI * 2 + (i % 2) * 0.3;
     const dist = 46 + (i % 3) * 18;
-    const star = svg('svg', { class: 'seek-spark', viewBox: '0 0 24 24', width: 22, height: 22 }, svg('path', { d: STAR, fill: colours[i % colours.length] ?? '#ffd166' }));
+    const star = svg('svg', { class: 'seek-spark', viewBox: '0 0 24 24', width: 22, height: 22 }, svg('path', { d: STAR, fill: colors[i % colors.length] ?? '#ffd166' }));
     setVars(star, { '--dx': Math.cos(a) * dist, '--dy': Math.sin(a) * dist, '--rot': `${(i * 47) % 180}deg`, '--d': `${(i % 4) * 30}ms` });
     burst.append(star);
   }
@@ -100,7 +100,7 @@ export function cheer(host: HTMLElement, x: number, y: number, text: string): vo
 }
 
 /** Paper confetti for the finish (full motion only). */
-export function confetti(host: HTMLElement, colours: readonly string[], seed: number): void {
+export function confetti(host: HTMLElement, colors: readonly string[], seed: number): void {
   const box = h('div', { class: 'seek-confetti', 'aria-hidden': 'true' });
   let s = seed >>> 0 || 1;
   const rnd = (): number => { s = (Math.imul(s, 1664525) + 1013904223) >>> 0; return s / 4294967296; };
@@ -108,7 +108,7 @@ export function confetti(host: HTMLElement, colours: readonly string[], seed: nu
     const bit = h('i');
     setVars(bit, {
       '--x': `${Math.round(rnd() * 100)}%`, '--drift': Math.round((rnd() - 0.5) * 160), '--spin': `${Math.round(360 + rnd() * 540)}deg`,
-      '--delay': `${Math.round(rnd() * 500)}ms`, '--dur': `${Math.round(1700 + rnd() * 1200)}ms`, '--c': colours[i % colours.length] ?? '#ffd166',
+      '--delay': `${Math.round(rnd() * 500)}ms`, '--dur': `${Math.round(1700 + rnd() * 1200)}ms`, '--c': colors[i % colors.length] ?? '#ffd166',
       '--w': Math.round(8 + rnd() * 8), '--h': Math.round(10 + rnd() * 10),
     });
     box.append(bit);
@@ -117,7 +117,7 @@ export function confetti(host: HTMLElement, colours: readonly string[], seed: nu
   window.setTimeout(() => box.remove(), 3600);
 }
 
-/** Positions a screen-space mark centred on (x, y) with diameter d. */
+/** Positions a screen-space mark centered on (x, y) with diameter d. */
 export function place(el: HTMLElement, x: number, y: number, d?: number): void {
   el.style.setProperty('left', `${Math.round(x)}px`);
   el.style.setProperty('top', `${Math.round(y)}px`);

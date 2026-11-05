@@ -15,7 +15,7 @@ const content: HolidayContent = {
       text: 'Labor Day became a national holiday in 1894, when President Grover Cleveland signed the law.',
     },
     {
-      text: 'Many countries honour workers on a different day: 1 May, which is called May Day or International Workers\' Day. Canada shares the September date with the United States and spells it Labour Day.',
+      text: 'Many countries honor workers on a different day: 1 May, which is called May Day or International Workers\' Day. Canada shares the September date with the United States and spells it Labour Day.',
       wow: true,
     },
   ],

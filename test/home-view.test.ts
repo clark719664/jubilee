@@ -437,7 +437,7 @@ describe('parade', () => {
     expect(variantRegion(meta('halloween'), 'GB')).toBeNull();
   });
 
-  it('"we just celebrated" for a week afterwards', () => {
+  it('"we just celebrated" for a week afterward', () => {
     const prev = (y: number, m: number, d: number) =>
       paradeEntries(HOLIDAYS, civil(y, m, d), 'US').find((e) => e.meta.id === 'halloween')!.prev;
     expect(justCelebrated(prev(2026, 11, 1), civil(2026, 11, 1))).toBe(true);

@@ -5,7 +5,7 @@
    .wish-tray .wish-chips .wish-chip[aria-pressed] .wish-bar .wish-send
    .wish-fly (overlay) .wish-flystage .wish-carrier .wish-env(-back|-pocket|-flap|-seal) .wish-fold .wish-panel .wish-token
    .wish-done .wish-read .wish-keep .wish-rows .wish-row .wish-print-sheet
-   Paper and chips use fixed light colours with --wish-ink so they read on every sky, day or night.
+   Paper and chips use fixed light colors with --wish-ink so they read on every sky, day or night.
    ═══════════════════════════════════════════════════════════════════════════ */
 .wish {
   --wish-ink: #2b2140;
@@ -288,10 +288,10 @@ button.wish-sticker:hover::after, button.wish-sticker:focus-visible::after { opa
 .wish-keep-title:focus { outline: none; }
 .wish-keep-ready { justify-self: center; padding: 8px 18px; border-radius: 999px; background: #ffd166; color: #2b1a00; font: 700 18px var(--font-display); box-shadow: 0 0 0 3px var(--wish-ink); animation: bob 2.4s ease-in-out infinite; }
 .wish-keep-art { position: relative; display: grid; place-items: center; min-height: 220px; }
-.wish-keep-postbox { width: 170px; }
+.wish-keep-mailbox { width: 170px; }
 .wish-keep-jar { width: 190px; }
-.wish-keep-postbox > svg, .wish-keep-jar > svg, .wish-keep-tree > svg { display: block; width: 100%; height: auto; overflow: visible; }
-.wish-postbox-flag { transition: transform .5s var(--spring); }
+.wish-keep-mailbox > svg, .wish-keep-jar > svg, .wish-keep-tree > svg { display: block; width: 100%; height: auto; overflow: visible; }
+.wish-mailbox-flag { transition: transform .5s var(--spring); }
 .wish-keep-tree { position: relative; width: min(480px, 100%); }
 .wish-keep-art[data-skin="lantern"], .wish-keep-art[data-skin="diya"], .wish-keep-art[data-skin="love"], .wish-keep-art[data-skin="star"] {
   height: 300px; overflow: hidden; border: 3px solid var(--wish-ink); border-radius: 26px;

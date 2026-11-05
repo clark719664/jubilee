@@ -1,8 +1,8 @@
 /**
  * extra-day.ts — sprite painters for the "day" presets (hearts, holi, shamrocks, eggs, petals).
  * Each preset registers the ones it needs under its own prefix (`holi:splash0`, `eggs:grass`, …) in its
- * constructor, guarded by `sprites.has(name)`. Like every painter they draw centred on the origin within
- * about ±size/2 and run once per (name, size, colour), so gradients and loops here cost nothing per frame.
+ * constructor, guarded by `sprites.has(name)`. Like every painter they draw centered on the origin within
+ * about ±size/2 and run once per (name, size, color), so gradients and loops here cost nothing per frame.
  */
 import type { SpritePainter } from '../types';
 import { shade, withAlpha } from './color';
@@ -237,7 +237,7 @@ export const bunnyEars: SpritePainter = (ctx, size, color) => {
 
 // ------------------------------------------------------------------ petals
 
-/** Remembrance poppy, seen from above: four round petals and a dark centre. */
+/** Remembrance poppy, seen from above: four round petals and a dark center. */
 export const poppy: SpritePainter = (ctx, size, color) => {
   const s = size;
   for (let k = 0; k < 4; k++) {
@@ -261,7 +261,7 @@ export const poppy: SpritePainter = (ctx, size, color) => {
   }
 };
 
-/** Daisy: a ring of long `color` petals and a golden centre. */
+/** Daisy: a ring of long `color` petals and a golden center. */
 export const daisy: SpritePainter = (ctx, size, color) => {
   const s = size;
   ctx.fillStyle = color;
@@ -379,7 +379,7 @@ export const candle: SpritePainter = (ctx, size, color) => {
 
 /**
  * A short label (digit, "×") in a plain rounded system font with a white sticker outline. Glyph sprites
- * use the emoji font stack, where colour fonts paint digits as grey keycap glyphs; these stay in `color`.
+ * use the emoji font stack, where color fonts paint digits as gray keycap glyphs; these stay in `color`.
  */
 export function labelPainter(text: string): SpritePainter {
   return (ctx, size, color) => {

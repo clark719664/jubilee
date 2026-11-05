@@ -29,8 +29,8 @@ export function listPanel(choices: readonly Choice[], onPick: (iso: string) => v
   }, shapeIcon(c.iso), h('span', { class: 'quiz-choice-text' },
     h('span', { class: 'quiz-choice-name' }, c.label),
     c.sub ? h('span', { class: 'quiz-choice-sub' }, c.sub) : null)));
-  const grid = h('div', { class: 'quiz-choices', role: 'group', 'aria-labelledby': 'quiz-list-title' }, ...buttons);
-  const el = h('div', { class: 'quiz-list', role: 'dialog', 'aria-modal': 'true', 'aria-labelledby': 'quiz-list-title' },
+  const grid = h('div', { class: 'quiz-choices', role: 'group', 'aria-labeledby': 'quiz-list-title' }, ...buttons);
+  const el = h('div', { class: 'quiz-list', role: 'dialog', 'aria-modal': 'true', 'aria-labeledby': 'quiz-list-title' },
     h('div', { class: 'quiz-list-card' },
       h('div', { class: 'quiz-list-head' },
         h('h2', { class: 'quiz-list-title', id: 'quiz-list-title' }, COPY.listTitle),

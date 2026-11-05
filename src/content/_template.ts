@@ -62,7 +62,7 @@ const template: HolidayContent = {
       noHeat: true, // [no step may carry 'heat' | 'hot-liquid' | 'electric' hazards]
       /**
        * `allergens` is REQUIRED; [] is a positive statement ("no major allergens"). Every ingredient keyword the
-       * ALLERGEN_LEXICON recognises (milk, butter, cheese, yogurt, cream, chocolate, egg, flour, bread, pasta, oats,
+       * ALLERGEN_LEXICON recognizes (milk, butter, cheese, yogurt, cream, chocolate, egg, flour, bread, pasta, oats,
        * peanut, almond…, soy, sesame, fish, shrimp…) must appear here or in `mayContain` [lint].
        */
       allergens: [],
@@ -80,7 +80,7 @@ const template: HolidayContent = {
       steps: [
         // One action per step, kid-readable. The LAST step always starts with "Taste test!" [lint] and may add a flourish.
         { text: 'Hull the strawberries and drop them into the cups.' },
-        // A step mentioning oven/stove/hob/boil/simmer/fry/bake/microwave/blender/knife/chop/slice/grate/peel/hot glue/
+        // A step mentioning oven/stove/stovetop/boil/simmer/fry/bake/microwave/blender/knife/chop/slice/grate/peel/hot glue/
         // scissors/candle/match/lighter MUST have `adult: true`, non-empty `hazards`, or a `kidSafeOverride` [lint].
         { text: 'Peel a banana and break it into chunks.', kidSafeOverride: 'Peeling a banana by hand: no peeler, no knife.' },
         { text: 'Sprinkle the seeds on top and wait 5 minutes for the juice to run.', timerMinutes: 5, tip: 'Patience is the secret ingredient.' },
@@ -99,9 +99,9 @@ const template: HolidayContent = {
       adultHelp: 'needed',
       noHeat: false,
       allergens: ['wheat', 'gluten', 'egg', 'milk'],
-      equipment: ['Mixing bowl', 'Baking tray', 'Oven gloves'],
+      equipment: ['Mixing bowl', 'Baking sheet', 'Oven gloves'],
       ingredients: [
-        { item: 'Plain flour', us: { qty: 1, unit: 'cup' }, metric: { qty: 125, unit: 'g' }, allergens: ['wheat', 'gluten'] },
+        { item: 'All-purpose flour', us: { qty: 1, unit: 'cup' }, metric: { qty: 125, unit: 'g' }, allergens: ['wheat', 'gluten'] },
         { item: 'Egg', us: { qty: 1, unit: 'piece' }, metric: { qty: 1, unit: 'piece' }, allergens: ['egg'] },
         { item: 'Butter', us: { qty: 4, unit: 'tbsp' }, metric: { qty: 60, unit: 'g' }, allergens: ['milk'] },
       ],
@@ -132,7 +132,7 @@ const template: HolidayContent = {
       adultHelp: 'some',
       hazards: ['sharp'],
       materials: [
-        { item: 'Coloured paper', qty: '3 sheets' },
+        { item: 'Colored paper', qty: '3 sheets' },
         { item: 'Scissors', substitute: 'ask a grown-up to pre-cut the shapes' },
         { item: 'Googly eyes', optional: true, substitute: 'paper circles' }, // small parts for under-3s: say so in a step tip
       ],

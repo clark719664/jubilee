@@ -15,11 +15,11 @@
       "label": "Dress up in hanbok"
     },
     {
-      "activity": "colour",
+      "activity": "color",
       "x": 214,
       "y": 650,
       "r": 36,
-      "label": "Colour the songpyeon"
+      "label": "Color the songpyeon"
     },
     {
       "activity": "card",

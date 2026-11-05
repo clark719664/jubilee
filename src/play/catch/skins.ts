@@ -1,7 +1,7 @@
 /**
  * skins.ts — the holiday skins for Catch & Stack. One engine, many holidays: a skin is pure data
  * (basket, falling items, the golden special, the sleepy "oops" things, the stack piece and its
- * colours, and the words we cheer with). `skinFor(meta, theme)` merges a hand-made entry from
+ * colors, and the words we cheer with). `skinFor(meta, theme)` merges a hand-made entry from
  * `SKINS` over a default built from the holiday's theme and its effect, so every holiday — including
  * silly days, which fall back to their effect glyphs — gets a playable, on-theme game.
  *
@@ -34,9 +34,9 @@ export interface Skin {
   readonly catchNoun: string;
   /** Plural: "presents" — "Your tower is 9 presents tall!" */
   readonly stackNoun: string;
-  /** Ground colour under the basket and the tower. */
+  /** Ground color under the basket and the tower. */
   readonly ground: string;
-  /** Holiday-flavoured cheer for milestones: "Snow-tastic!" */
+  /** Holiday-flavored cheer for milestones: "Snow-tastic!" */
   readonly cheer: string;
 }
 
@@ -170,10 +170,10 @@ export const SKINS: Readonly<Record<string, Partial<Skin>>> = {
   },
   holi: {
     basket: 'bowl', basketColor: '#d4a017',
-    items: [{ sprite: 'colourBall', color: '#ff4d9d' }, { sprite: 'colourBall', color: '#00a3c4' }, { sprite: 'colourBall', color: '#ffb703' }, { sprite: 'colourBall', color: '#4cd964' }, { sprite: 'colourBall', color: '#9b5de5' }],
+    items: [{ sprite: 'colorBall', color: '#ff4d9d' }, { sprite: 'colorBall', color: '#00a3c4' }, { sprite: 'colorBall', color: '#ffb703' }, { sprite: 'colorBall', color: '#4cd964' }, { sprite: 'colorBall', color: '#9b5de5' }],
     special: { sprite: 'balloon', color: '#ff4d9d', scale: 1.2 },
     piece: 'cake', pieceColors: ['#ff4d9d', '#00a3c4', '#ffb703', '#4cd964', '#9b5de5'],
-    catchNoun: 'colour balls', stackNoun: 'rainbow cakes', ground: '#ffe2bf', cheer: 'Colour-tastic!',
+    catchNoun: 'color balls', stackNoun: 'rainbow cakes', ground: '#ffe2bf', cheer: 'Color-tastic!',
   },
   'day-of-the-dead': {
     basket: 'basket', basketColor: '#ff9f1c',
@@ -327,7 +327,7 @@ function parse(hex: string): [number, number, number] | null {
   return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
 }
 
-/** Blends two #rrggbb colours (k = 0 → a). */
+/** Blends two #rrggbb colors (k = 0 → a). */
 export function blend(a: string, b: string, k: number): string {
   const pa = parse(a);
   const pb = parse(b);

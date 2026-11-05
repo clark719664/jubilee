@@ -20,7 +20,7 @@ function accessory(id: string): Spec[] {
   }
 }
 
-/** A ghost centred on (0, 0): its head top at y -32, feet at y 44. */
+/** A ghost centered on (0, 0): its head top at y -32, feet at y 44. */
 export function ghostSpec(hat: string): Spec {
   return ['g', {},
     ['path', { d: GHOST_BODY, fill: '#f6f0ff' }],
@@ -30,7 +30,7 @@ export function ghostSpec(hat: string): Spec {
     ...accessory(hat)];
 }
 
-/** A small icon of a ghost for the tray (found = in colour, not yet = a faint outline). */
+/** A small icon of a ghost for the tray (found = in color, not yet = a faint outline). */
 export function ghostIcon(hat: string, found: boolean): SVGSVGElement {
   return build(['svg', { viewBox: '-40 -62 80 120', class: `pb-icon${found ? ' is-found' : ''}`, 'aria-hidden': 'true', focusable: 'false' }, ghostSpec(hat)]) as SVGSVGElement;
 }

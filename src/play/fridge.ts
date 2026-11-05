@@ -1,8 +1,8 @@
 /**
- * fridge.ts — the child's gallery of things they made (cards, coloured pages, letters, puzzles solved),
+ * fridge.ts — the child's gallery of things they made (cards, colored pages, letters, puzzles solved),
  * kept only on this device under its own localStorage key so the main Progress record stays small.
  *
- * Items are tiny JSON descriptions, never images: a coloured page is { pageId, fills }, a card is its
+ * Items are tiny JSON descriptions, never images: a colored page is { pageId, fills }, a card is its
  * layout. The Fridge holds at most 60 items; when full, `add` refuses and tells the caller so the UI can
  * offer to take an old one down. Nothing is ever deleted silently. Nothing is written while the app is
  * pretending a date (`?today=`). Storage failures fall back to memory for the session.
@@ -10,7 +10,7 @@
 export const FRIDGE_KEY = 'jubilee.fridge.v1';
 export const FRIDGE_CAP = 60;
 
-export type FridgeKind = 'card' | 'colour' | 'wish' | 'path' | 'story' | 'dressup' | 'pumpkin' | 'monster';
+export type FridgeKind = 'card' | 'color' | 'wish' | 'path' | 'story' | 'dressup' | 'pumpkin' | 'monster';
 
 export interface FridgeItem<T = unknown> {
   readonly id: string;

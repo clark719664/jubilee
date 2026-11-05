@@ -15,8 +15,8 @@ const book: StoryBook = {
       camera: { x: 800, y: 560, zoom: 2.8 }, prop: '🖼️',
     },
     {
-      text: '{name} and {friend} scatter orange marigold petals in a path to the ofrenda. A tradition says their bright colour helps loved ones find their way home.',
-      solo: '{name} scatters orange marigold petals in a path to the ofrenda. A tradition says their bright colour helps loved ones find their way home.',
+      text: '{name} and {friend} scatter orange marigold petals in a path to the ofrenda. A tradition says their bright color helps loved ones find their way home.',
+      solo: '{name} scatters orange marigold petals in a path to the ofrenda. A tradition says their bright color helps loved ones find their way home.',
       camera: { x: 800, y: 800, zoom: 2.4 }, prop: '🏵️',
     },
     {

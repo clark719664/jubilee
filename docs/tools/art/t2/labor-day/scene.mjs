@@ -1,4 +1,4 @@
-// Labor Day — "The thank-you picnic": the last long weekend of summer at the town park. Neighbours have put on a
+// Labor Day — "The thank-you picnic": the last long weekend of summer at the town park. Neighbors have put on a
 // picnic for the people who keep the town running: a girl hands a heart card to the mail carrier; a boy in a toy
 // hard hat brings a cup of lemonade to a nurse in scrubs and a builder in a hard hat; a firefighter lets a toddler
 // try on the big helmet beside the red fire engine; dad flips burgers on the grill. A picnic table with watermelon,
@@ -141,13 +141,13 @@ export function mid() {
   out.push(dog(1030, 878, 0.8, '#c8894a', { flip: -1 }), ellipse(1004, 846, 14, 5, { fill: '#ff4a8a' }));
   ppl.dog = [1024, 840];
 
-  return { svg: compactSvg(doc(`Labor Day · mid. Concept: "the thank-you picnic" on the last long weekend of summer at the town park. Focal point: the picnic (x 100–1250, y 600–880) the neighbours put on for the people who keep the town running — under a striped pavilion a girl hands a heart card to the mail carrier; a boy in a yellow toy hard hat brings lemonade to a nurse in blue scrubs; dad in an apron flips burgers on the grill beside a picnic table with watermelon, corn and a jug of lemonade; a firefighter in her yellow coat lets a toddler try on the big red helmet beside the red fire engine; a dog with a frisbee. A crane far off over the round park trees. Light story: warm late-summer sun. The confetti is the effect's.`, defs, out)), ppl };
+  return { svg: compactSvg(doc(`Labor Day · mid. Concept: "the thank-you picnic" on the last long weekend of summer at the town park. Focal point: the picnic (x 100–1250, y 600–880) the neighbors put on for the people who keep the town running — under a striped pavilion a girl hands a heart card to the mail carrier; a boy in a yellow toy hard hat brings lemonade to a nurse in blue scrubs; dad in an apron flips burgers on the grill beside a picnic table with watermelon, corn and a jug of lemonade; a firefighter in her yellow coat lets a toddler try on the big red helmet beside the red fire engine; a dog with a frisbee. A crane far off over the round park trees. Light story: warm late-summer sun. The confetti is the effect's.`, defs, out)), ppl };
 }
 
 // ============================== front ==============================
 export function front() {
   setPrecision(1);
-  return compactSvg(doc(`Labor Day · front: a red wagon bottom left and sunflowers bottom right; the centre stays open`, [], [
+  return compactSvg(doc(`Labor Day · front: a red wagon bottom left and sunflowers bottom right; the center stays open`, [], [
     C('a red wagon with a watermelon'),
     path('M-10 870h100v-26H-10z', { fill: '#d62828' }), circle(8, 876, 12, { fill: '#2a2a32' }), circle(74, 876, 12, { fill: '#2a2a32' }), path('M90 860l30 -16', { fill: 'none', stroke: '#3a3a42', 'stroke-width': 5 }),
     ellipse(40, 840, 30, 20, { fill: '#3a9a3a' }), path('M14 836q26 -12 52 0', { fill: 'none', stroke: '#6ac86a', 'stroke-width': 4 }),
@@ -165,7 +165,7 @@ export function sceneData(ppl) {
       { activity: 'card', x: r(ppl.card[0]), y: r(ppl.card[1]), r: 34, label: 'Make a thank-you card' },
       { activity: 'dressup', x: r(ppl.helmet[0]), y: r(ppl.helmet[1]), r: 36, label: 'Try on a work hat' },
       { activity: 'memory', x: ppl.table[0], y: ppl.table[1], r: 50, label: 'Match the picnic food' },
-      { activity: 'colour', x: ppl.truck[0], y: ppl.truck[1], r: 70, label: 'Colour the fire engine' },
+      { activity: 'color', x: ppl.truck[0], y: ppl.truck[1], r: 70, label: 'Color the fire engine' },
     ],
     findables: [
       { id: 'lemonade', label: 'a cup of lemonade', x: r(ppl.lemonade[0]), y: r(ppl.lemonade[1]), r: 16 },

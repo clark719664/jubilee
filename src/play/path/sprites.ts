@@ -23,10 +23,10 @@ const C = (cx: number, cy: number, r: number, fill: string, o: Attrs = {}): SVGC
 const E = (cx: number, cy: number, rx: number, ry: number, fill: string, o: Attrs = {}): SVGEllipseElement => svg('ellipse', { cx, cy, rx, ry, fill, ...line(o) });
 const R = (x: number, y: number, w: number, h: number, rx: number, fill: string, o: Attrs = {}): SVGRectElement => svg('rect', { x, y, width: w, height: h, rx, fill, ...line(o) });
 /** Interior detail: no outline. */
-/** Interior detail: no ink outline (line-only details keep their own coloured stroke). */
+/** Interior detail: no ink outline (line-only details keep their own colored stroke). */
 const d = (el: SVGElement): SVGElement => { if (el.getAttribute('fill') !== 'none') el.setAttribute('stroke', 'none'); el.setAttribute('data-cut', 'no'); return el; };
 
-/** Recolours a clone of the silhouette (white cut edge or shadow); details without a fill drop out. */
+/** Recolors a clone of the silhouette (white cut edge or shadow); details without a fill drop out. */
 function silhouette(parts: readonly SVGElement[], fill: string, widen: number, dy: number, opacity: number): SVGGElement {
   const g = svg('g', { 'aria-hidden': 'true', ...(dy ? { transform: `translate(0 ${dy})` } : {}), ...(opacity < 1 ? { opacity } : {}) });
   for (const part of parts) {
@@ -61,11 +61,11 @@ const box = (cls: string, ...children: SVGElement[]): SVGSVGElement =>
   svg('svg', { viewBox: '0 0 100 100', class: cls, 'aria-hidden': 'true', focusable: 'false', overflow: 'visible' }, ...children);
 
 /** A soft round glow behind something that lights up (no hard edge: three stacked, fading discs). */
-function glow(cx: number, cy: number, r: number, colour: string): SVGGElement {
+function glow(cx: number, cy: number, r: number, color: string): SVGGElement {
   return svg('g', { class: 'pth-glow' },
-    svg('circle', { cx, cy, r, fill: colour, opacity: 0.16 }),
-    svg('circle', { cx, cy, r: r * 0.72, fill: colour, opacity: 0.2 }),
-    svg('circle', { cx, cy, r: r * 0.45, fill: colour, opacity: 0.26 }));
+    svg('circle', { cx, cy, r, fill: color, opacity: 0.16 }),
+    svg('circle', { cx, cy, r: r * 0.72, fill: color, opacity: 0.2 }),
+    svg('circle', { cx, cy, r: r * 0.45, fill: color, opacity: 0.26 }));
 }
 
 // ── items ────────────────────────────────────────────────────────────────

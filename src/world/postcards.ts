@@ -6,7 +6,7 @@
  *   │ │  moon + sleigh / fireworks  postmark││  Santa and the wave), the city's skyline
  *   │ │        city skyline                 ││  (postcard-skylines.ts) and, in snowy cities, snow
  *   │ └─────────────────────────────────────┘│
- *   │ POSTCARD FROM TOKYO                    │  the local greeting, its romanisation, a kid
+ *   │ POSTCARD FROM TOKYO                    │  the local greeting, its romanization, a kid
  *   │ メリークリスマス                         │  respelling and its meaning, then the fact
  *   │ Merī Kurisumasu · say “meh-REE …”      │
  *   │ - - - - - - - - - - - - - - - - - - -  │
@@ -163,7 +163,7 @@ export function postcardLabel(v: PostcardView): string {
 
 let uidSeq = 0;
 
-/** The sleigh and reindeer, small and in colour, flying left past the moon. */
+/** The sleigh and reindeer, small and in color, flying left past the moon. */
 function sleigh(a: Art, x: number, y: number, s: number): void {
   const done = group(a, { transform: `translate(${x} ${y}) scale(${s})` });
   const deer = '#9a6a48';

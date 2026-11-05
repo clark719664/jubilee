@@ -1,7 +1,7 @@
 /**
- * logic.ts — Cauldron Colours' colour mixing, with no DOM. Drops of red, yellow and blue mix the way
+ * logic.ts — Cauldron Colors' color mixing, with no DOM. Drops of red, yellow and blue mix the way
  * paint does (red + yellow = orange, yellow + blue = green, red + blue = purple, all three = brown) by
- * blending the corners of a red-yellow-blue colour cube; white drops lighten and night ink darkens.
+ * blending the corners of a red-yellow-blue color cube; white drops lighten and night ink darkens.
  * Every mix has a friendly name, and the orders friends ask for are all makeable in a few drops.
  */
 export type Drop = 'red' | 'yellow' | 'blue' | 'white' | 'ink';
@@ -31,7 +31,7 @@ const CUBE: readonly Rgb[] = [
 const WATER: Rgb = [0.6, 0.84, 0.91];
 const INK: Rgb = [0.12, 0.06, 0.22];
 
-export function mixColour(m: Mix): Rgb {
+export function mixColor(m: Mix): Rgb {
   const p = m.red + m.yellow + m.blue;
   if (totalDrops(m) === 0) return WATER;
   let base: Rgb;
@@ -74,11 +74,11 @@ function hsl(c: Rgb): { h: number; s: number; l: number } {
   return { h, s, l };
 }
 
-/** A friendly name for a colour: "Orange", "Light blue", "Pink", "Midnight"… */
-export function colourName(c: Rgb): string {
+/** A friendly name for a color: "Orange", "Light blue", "Pink", "Midnight"… */
+export function colorName(c: Rgb): string {
   const { h, s, l } = hsl(c);
   if (l < 0.16) return 'Midnight';
-  if (s < 0.12) return l > 0.86 ? 'White' : l < 0.3 ? 'Dark grey' : 'Grey';
+  if (s < 0.12) return l > 0.86 ? 'White' : l < 0.3 ? 'Dark gray' : 'Gray';
   const red = h < 14 || h >= 340;
   if (red && l > 0.7) return 'Pink';
   if (h >= 290 && h < 340 && l > 0.72) return 'Pink';
@@ -97,29 +97,29 @@ export function colourName(c: Rgb): string {
   return name;
 }
 
-export const nameOf = (m: Mix): string => (totalDrops(m) === 0 ? 'Water' : colourName(mixColour(m)));
+export const nameOf = (m: Mix): string => (totalDrops(m) === 0 ? 'Water' : colorName(mixColor(m)));
 
 export interface Order {
-  readonly colour: string;
+  readonly color: string;
   readonly recipe: readonly Drop[];
   readonly ask: string;
 }
 
-/** What friends ask for; each recipe really makes that colour (a test checks). */
+/** What friends ask for; each recipe really makes that color (a test checks). */
 export const ORDERS: readonly Order[] = [
-  { colour: 'Orange', recipe: ['red', 'yellow'], ask: 'an orange potion, like a pumpkin' },
-  { colour: 'Green', recipe: ['yellow', 'blue'], ask: 'a green potion, like slime' },
-  { colour: 'Purple', recipe: ['red', 'blue'], ask: 'a purple potion, like a grape' },
-  { colour: 'Pink', recipe: ['red', 'white', 'white'], ask: 'a pink potion, like candy floss' },
-  { colour: 'Light blue', recipe: ['blue', 'white', 'white'], ask: 'a light blue potion, like the sky' },
-  { colour: 'Brown', recipe: ['red', 'yellow', 'blue'], ask: 'a brown potion, like chocolate' },
-  { colour: 'Yellow', recipe: ['yellow'], ask: 'a yellow potion, like the sun' },
-  { colour: 'Red', recipe: ['red'], ask: 'a red potion, like a ripe apple' },
-  { colour: 'Blue', recipe: ['blue'], ask: 'a blue potion, like the sea' },
+  { color: 'Orange', recipe: ['red', 'yellow'], ask: 'an orange potion, like a pumpkin' },
+  { color: 'Green', recipe: ['yellow', 'blue'], ask: 'a green potion, like slime' },
+  { color: 'Purple', recipe: ['red', 'blue'], ask: 'a purple potion, like a grape' },
+  { color: 'Pink', recipe: ['red', 'white', 'white'], ask: 'a pink potion, like candy floss' },
+  { color: 'Light blue', recipe: ['blue', 'white', 'white'], ask: 'a light blue potion, like the sky' },
+  { color: 'Brown', recipe: ['red', 'yellow', 'blue'], ask: 'a brown potion, like chocolate' },
+  { color: 'Yellow', recipe: ['yellow'], ask: 'a yellow potion, like the sun' },
+  { color: 'Red', recipe: ['red'], ask: 'a red potion, like a ripe apple' },
+  { color: 'Blue', recipe: ['blue'], ask: 'a blue potion, like the sea' },
 ];
 
 export function nextOrder(rand: () => number, last: string | null): Order {
-  const pool = ORDERS.filter((o) => o.colour !== last);
+  const pool = ORDERS.filter((o) => o.color !== last);
   return pool[Math.floor(rand() * pool.length) % pool.length]!;
 }
 

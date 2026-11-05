@@ -8,7 +8,7 @@ export const PLAY_STORAGE: readonly PlayStoreKey[] = [
   { key: 'jubilee.fridge.v1', label: 'Things your child made (cards, pages, letters)' },
   { key: 'jubilee.doors.v1', label: 'Countdown doors opened' },
   { key: 'jubilee.seek.v1', label: 'Seek & Find progress' },
-  { key: 'jubilee.colour.v1', label: 'Colouring pages in progress' },
+  { key: 'jubilee.color.v1', label: 'Coloring pages in progress' },
   { key: 'jubilee.jubi.v1', label: "Jubi's outfit" },
   { key: 'jubilee.arcade.v1', label: 'Best scores in Catch & Stack' },
   { key: 'jubilee.postcards.v1', label: 'Postcards collected' },

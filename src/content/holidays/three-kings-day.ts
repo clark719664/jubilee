@@ -39,7 +39,7 @@ const content: HolidayContent = {
       swaps: [{ avoid: 'milk', use: 'plant milk and a dairy-free spread' }],
       chokingNote:
         'If you hide a bean or charm inside, tell everyone before they take a bite, and skip it entirely when children under 4 are eating.',
-      equipment: ['large mixing bowl', 'small saucepan or microwave-safe jug', 'baking tray', 'baking paper', 'clean tea towel', 'pastry brush'],
+      equipment: ['large mixing bowl', 'small saucepan or microwave-safe jug', 'baking sheet', 'parchment paper', 'clean dish towel', 'pastry brush'],
       ingredients: [
         { item: 'plain (all-purpose) flour', us: { qty: 3, unit: 'cup' }, metric: { qty: 360, unit: 'g' }, note: 'plus extra for dusting' },
         { item: 'instant (fast-action) yeast', us: { qty: 2.25, unit: 'tsp' }, metric: { qty: 7, unit: 'g' }, note: 'one packet' },
@@ -58,7 +58,7 @@ const content: HolidayContent = {
           text: 'Warm the milk and butter together in a saucepan or microwave until the butter melts and the milk feels like warm bath water, not hot.',
           adult: true,
           hazards: ['heat'],
-          tip: 'Too hot and the yeast will not work. Dip in a clean finger: it should feel cosy.',
+          tip: 'Too hot and the yeast will not work. Dip in a clean finger: it should feel cozy.',
         },
         { text: 'In the large bowl, mix the flour, yeast, sugar and salt with a spoon.' },
         {
@@ -67,9 +67,9 @@ const content: HolidayContent = {
           tip: 'Wash your hands after touching raw egg.',
         },
         { text: 'Dust the counter with flour and knead the dough: push, fold, turn. Keep going for 8 minutes until it is smooth and springy.', timerMinutes: 8 },
-        { text: 'Put the dough back in the bowl, cover with the tea towel and leave it somewhere warm to puff up to twice its size, about 1 hour.', timerMinutes: 60 },
+        { text: 'Put the dough back in the bowl, cover with the dish towel and leave it somewhere warm to puff up to twice its size, about 1 hour.', timerMinutes: 60 },
         {
-          text: 'Roll the dough into a long log, then join the ends to make a ring on the lined baking tray. If you are using the foil-wrapped bean, tuck it in underneath now.',
+          text: 'Roll the dough into a long log, then join the ends to make a ring on the lined baking sheet. If you are using the foil-wrapped bean, tuck it in underneath now.',
         },
         {
           text: 'Press the strips of dried fruit on top like crown jewels. Brush the ring with the second egg, beaten, and sprinkle on the coarse sugar. Let it rest 20 minutes while a grown-up heats the oven to 350°F / 180°C.',
@@ -99,7 +99,7 @@ const content: HolidayContent = {
         { item: 'safety scissors' },
         { item: 'sticky tape or a stapler' },
         { item: 'crayons or markers' },
-        { item: 'jewel stickers or scraps of coloured paper', optional: true },
+        { item: 'jewel stickers or scraps of colored paper', optional: true },
         { item: 'glue stick', optional: true },
       ],
       steps: [

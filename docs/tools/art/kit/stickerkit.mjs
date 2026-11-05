@@ -84,7 +84,7 @@ export const PATTERNS = {
   fireworks: (b, s = 74) => grid(b, s, (x, y, i) => burstMark(x, y, 9 + (i % 2) * 5)),
   /** six-armed snowflakes made of capsules */
   snowflakes: (b, s = 64) => grid(b, s, (x, y, i) => flake(x, y, 9 + (i % 2) * 4)),
-  /** sun rays from the badge centre */
+  /** sun rays from the badge center */
   rays: (b, n = 20) => { let d = ''; const R = 400; for (let i = 0; i < n; i++) { const a0 = (Math.PI * 2 * i) / n, a1 = a0 + Math.PI / n; d += `M${P(b.cx, b.cy)}L${P(b.cx + R * Math.cos(a0), b.cy + R * Math.sin(a0))}L${P(b.cx + R * Math.cos(a1), b.cy + R * Math.sin(a1))}Z`; } return d; },
   /** diagonal stripes */
   stripes: (b, s = 30, w = 12) => { let d = ''; for (let k = -600; k < 600; k += s) d += `M${P(b.cx + k, b.cy - 300)}l${f(w)} 0l-600 600l${f(-w)} 0Z`; return d; },
@@ -100,7 +100,7 @@ export const PATTERNS = {
   diamonds: (b, s = 36, r = 7) => grid(b, s, (x, y) => `M${P(x, y - r)}l${f(r)} ${f(r)}l${f(-r)} ${f(r)}l${f(-r)} ${f(-r)}Z`),
   /** crescents */
   crescents: (b, s = 60, r = 10) => grid(b, s, (x, y) => `M${P(x + r * 0.3, y - r)}A${f(r)} ${f(r)} 0 1 0 ${P(x + r * 0.3, y + r)}A${f(r * 0.78)} ${f(r * 0.78)} 0 1 1 ${P(x + r * 0.3, y - r)}Z`),
-  /** concentric rings round the centre (a ripple) */
+  /** concentric rings round the center (a ripple) */
   rings: (b, s = 30, w = 7) => { let d = ''; for (let r = s; r < 340; r += s) d += circleD(b.cx, b.cy, r + w / 2) + circleD(b.cx, b.cy, r - w / 2).replace(/a([\d.]+) ([\d.]+) 0 1 0/g, 'a$1 $2 0 1 1'); return d; },
   /** four-petal flowers */
   petals: (b, s = 56, r = 8) => grid(b, s, (x, y) => [0, 1, 2, 3].map((k) => ellD(x + Math.cos((k * Math.PI) / 2) * r, y + Math.sin((k * Math.PI) / 2) * r, r * 0.7, r * 0.7)).join('')),
@@ -127,7 +127,7 @@ function flake(x, y, r) {
   for (let k = 0; k < 6; k++) { const a = (k * Math.PI) / 3; d += capsule(x + Math.cos(a) * r * 0.5, y + Math.sin(a) * r * 0.5, r * 0.5, r * 0.11, (a * 180) / Math.PI); }
   return d;
 }
-/** A capsule centred at (x, y), half-length l, half-width w, rotated `deg`. */
+/** A capsule centered at (x, y), half-length l, half-width w, rotated `deg`. */
 export function capsule(x, y, l, w, deg) {
   const a = (deg * Math.PI) / 180, c = Math.cos(a), s = Math.sin(a);
   const L = l - w;
@@ -142,7 +142,7 @@ function leaf(x, y, r, deg) {
 
 /**
  * A tiled pattern: each mark variant is drawn once at the origin and placed with <use> on an offset grid inside the
- * badge. `marks` are path data centred on (0, 0). Much smaller than one long path when a mark has many parts.
+ * badge. `marks` are path data centered on (0, 0). Much smaller than one long path when a mark has many parts.
  */
 export const MARKS = {
   firework: (r) => burstMark(0, 0, r),
@@ -167,7 +167,7 @@ export function tiled(ID, b, s, marks) {
 // ───────────────────────────────────────────── badge
 
 /**
- * The enamel badge behind the hero. `d` is its outline; `c1`/`c2` the top/bottom enamel colours; `pattern` a path
+ * The enamel badge behind the hero. `d` is its outline; `c1`/`c2` the top/bottom enamel colors; `pattern` a path
  * clipped inside it. Returns { defs, art, d } — `d` joins the die-cut silhouette.
  */
 export function badge(ID, { d, cx, cy, c1, c2, pattern = '', tile = null, patternFill = '#ffffff', patternOpacity = 0.16, stitch = '#ffffff', stitchOpacity = 0.55, inset = 0.88, ink, inside = '' }) {
@@ -193,7 +193,7 @@ export function badge(ID, { d, cx, cy, c1, c2, pattern = '', tile = null, patter
       bd({ fill: `url(#${back('shine')})` }),
       bd({ fill: 'none', stroke: `url(#${back('bev')})`, 'stroke-width': 22 }),
     ),
-    // the stitched inner ring: the outline scaled about the centre
+    // the stitched inner ring: the outline scaled about the center
     G({ transform: `translate(${f(cx)} ${f(cy)}) scale(${k}) translate(${f(-cx)} ${f(-cy)})` },
       bd({ fill: 'none', stroke: stitch, 'stroke-width': f(4 / k), 'stroke-dasharray': `${f(10 / k)} ${f(9 / k)}`, 'stroke-linecap': 'round', opacity: stitchOpacity })),
     bd({ fill: 'none', stroke: dark, 'stroke-width': 6, 'stroke-linejoin': 'round' }),
@@ -207,7 +207,7 @@ export const inkUnder = (silId, ink, w = 12) => use(silId, { fill: ink, stroke: 
 // ───────────────────────────────────────────── faces
 
 /**
- * A face: eyes `gap` apart (centres at cx ± gap/2), `s` = eye height.
+ * A face: eyes `gap` apart (centers at cx ± gap/2), `s` = eye height.
  * expr: happy · joy · wink · gasp · sleepy · cheeky · starry · proud · shy · sing · determined
  */
 export function face(cx, cy, gap, s, expr = 'happy', o = {}) {

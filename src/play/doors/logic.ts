@@ -7,7 +7,7 @@
  *
  *   unlocked  ⇔  sleepsToMain ≤ opensAt
  *
- * During the holiday and for a fortnight afterwards every door is open. Outside the countdown window the
+ * During the holiday and for a two weeks afterward every door is open. Outside the countdown window the
  * board is shown with every door shut and "The first door opens in N sleeps". Nothing is ever lost: doors
  * opened on earlier days stay open, missed days are simply ready to open, and doors opened last time keep a
  * star so they can be peeked at again all year.

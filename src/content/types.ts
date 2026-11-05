@@ -112,10 +112,10 @@ export interface AdventDoor { readonly day: number; readonly kind: 'fact' | 'cra
 /**
  * Countdown door behind one of the last sleeps before a holiday (Christmas keeps its 24 advent doors).
  * `sleeps` is how many sleeps before the main day the door opens (12 … 1). 'say' teaches a greeting
- * (text is the instruction; the greeting itself comes from `greetings[greeting]`); 'seek' and 'colour'
- * open the scene's Seek & Find or the holiday's colouring page.
+ * (text is the instruction; the greeting itself comes from `greetings[greeting]`); 'seek' and 'color'
+ * open the scene's Seek & Find or the holiday's coloring page.
  */
-export type DoorKind = 'fact' | 'joke' | 'craft' | 'say' | 'seek' | 'colour';
+export type DoorKind = 'fact' | 'joke' | 'craft' | 'say' | 'seek' | 'color';
 export interface CountdownDoor {
   readonly sleeps: number;
   readonly kind: DoorKind;

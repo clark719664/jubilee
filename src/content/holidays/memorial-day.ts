@@ -31,7 +31,7 @@ const content: HolidayContent = {
   recipes: [],
   crafts: [],
   parentNote:
-    'Memorial Day honours those who died in military service; Veterans Day in November honours everyone who has served. Many families prefer "have a meaningful Memorial Day" to "happy Memorial Day". The National Moment of Remembrance is at 3 p.m. local time.',
+    'Memorial Day honors those who died in military service; Veterans Day in November honors everyone who has served. Many families prefer "have a meaningful Memorial Day" to "happy Memorial Day". The National Moment of Remembrance is at 3 p.m. local time.',
   sources: [
     'U.S. Department of Veterans Affairs, "Memorial Day History"',
     'Arlington National Cemetery, "Flags In"',

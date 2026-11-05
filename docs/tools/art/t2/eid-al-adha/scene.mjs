@@ -1,7 +1,7 @@
 // Eid al-Adha — "Sharing the feast": a courtyard on Eid evening, everyone in their best new clothes. Round a
 // low sofra under a shady fig tree the family share big dishes of rice, flatbread, dates and maamoul; grandpa gives
 // a shiny coin of Eidi to the littlest; a boy and his sister carry a covered tray of food out through the gate to the
-// neighbour, who waves from her door. Beyond the low wall a toddler pats a woolly lamb beside its mother in a little
+// neighbor, who waves from her door. Beyond the low wall a toddler pats a woolly lamb beside its mother in a little
 // meadow; bunting with crescents and stars crosses the courtyard; the mosque's green dome and minaret rise behind.
 // The moon, the stars, the lattice and the hanging lanterns are the effect's.
 import { f, P, mix, lighten, darken, rng, E, G, C, path, circle, ellipse, lin, rad, doc, compactSvg, setPrecision } from '../../gen-xmas/lib.mjs';
@@ -33,7 +33,7 @@ export function back() {
   let houses = '', wins = '';
   for (let x = 250; x < 1300;) { const w = 80 + R() * 70, top = 480 + R() * 40; houses += `M${P(x, 640)}V${f(top)}H${f(x + w)}V640Z`; wins += `M${P(x + w * 0.3, top + 20)}h12v16h-12Z`; x += w + 6; }
   const defs = [lin(id('dome'), 0, 0, 0, 1, [[0, '#3ac89a'], [1, GREEN]])];
-  return compactSvg(doc(`Eid al-Adha · back: the evening sky (the effect draws its moon and stars); sand-coloured houses with flat roofs and lit windows kept low; the mosque's green dome and slender minaret on the right, outside the copy zone`, defs, [
+  return compactSvg(doc(`Eid al-Adha · back: the evening sky (the effect draws its moon and stars); sand-colored houses with flat roofs and lit windows kept low; the mosque's green dome and slender minaret on the right, outside the copy zone`, defs, [
     C('the town'),
     path(houses, { fill: '#c8b090' }), path(wins, { fill: '#ffd98a', opacity: 0.9 }),
     C('the mosque'),
@@ -121,8 +121,8 @@ export function mid() {
     ppl.dates = [650, 784];
   }
 
-  // ---- the children carrying food to the neighbour (sharing)
-  out.push(C('a boy and his sister carry a covered tray of food out through the gate to the neighbour, who waves from her door'));
+  // ---- the children carrying food to the neighbor (sharing)
+  out.push(C('a boy and his sister carry a covered tray of food out through the gate to the neighbor, who waves from her door'));
   {
     const carry = (s) => ({ sx: s, elbow: [s * 0.7, 1.0], hand: [s * 0.4, 1.4] });
     const b = figure({ x: 1100, foot: 858, H: 86, heads: 2.7, skin: SKIN.light, hair: '#1a1210', style: 'short', top: '#ffffff', bottom: '#2a2a3a', shoe: '#2a1a14', gaze: 0.5, mouth: 'smile', arms: [carry(-1), carry(1)] });
@@ -134,12 +134,12 @@ export function mid() {
     out.push(line(`M${P((bh[0] + gh[0]) / 2 - 20, ty - 46)}c-6 -10 4 -16 -2 -26M${P((bh[0] + gh[0]) / 2 + 10, ty - 44)}c-6 -10 4 -16 -2 -26`, '#ffffff', 2.4, { opacity: 0.7 }));
     for (const [p, fg, sk] of [[b.hand(carry(-1)), b, SKIN.light], [bh, b, SKIN.light], [gh, g, SKIN.light], [g.hand(carry(1)), g, SKIN.light]]) out.push(circle(p[0], p[1], fg.r * 0.36, { fill: sk }));
     ppl.tray = [(bh[0] + gh[0]) / 2, ty - 16];
-    // the neighbour at her door, beyond the gate
+    // the neighbor at her door, beyond the gate
     out.push(path('M1360 720V560h140V720Z', { fill: '#f4e4cc' }), path('M1350 560h160l-80 -40z', { fill: '#c86a3a' }), path('M1400 720v-100a30 30 0 0 1 60 0v100z', { fill: '#2a6ad8' }));
     const wave = { sx: -1, elbow: [-0.9, -0.6], hand: [-1.2, -1.8] };
     const nb = figure({ x: 1430, foot: 722, H: 110, heads: 3.2, skin: SKIN.deep, hair: '#1a1210', style: 'bun', top: '#ff8a1a', bottom: '#ff8a1a', gaze: -0.5, mouth: 'smile', arms: [wave, { sx: 1, elbow: [0.6, 1.0], hand: [0.3, 1.8] }] });
     out.push(nb.svg, hijab(nb, 1430, '#2ab8a8'));
-    ppl.neighbour = [1430, nb.headY];
+    ppl.neighbor = [1430, nb.headY];
   }
 
   // ---- the lamb and its mother in the meadow, a toddler patting the lamb
@@ -158,13 +158,13 @@ export function mid() {
     ppl.lamb = [1330, 696];
   }
 
-  return { svg: compactSvg(doc(`Eid al-Adha · mid. Concept: "sharing the feast" on Eid evening, everyone in their best new clothes. Focal point: the family round a low sofra on a red rug under a fig tree (x 280–1010, y 620–900) sharing big dishes of rice, flatbread, dates and maamoul and a brass jug; grandpa in a white kufi gives the littlest a shiny coin of Eidi. On the right a boy and his sister carry a covered tray of food out through the gate to the neighbour, who waves from her blue door; beyond the low tiled wall a toddler pats a woolly lamb beside its mother in a little meadow. Bunting with crescents and stars crosses the courtyard; the mosque's green dome and minaret rise behind. Light story: a warm glow from the lantern and lit windows under the evening sky. The moon, stars, lattice and hanging lanterns are the effect's.`, defs, out)), ppl };
+  return { svg: compactSvg(doc(`Eid al-Adha · mid. Concept: "sharing the feast" on Eid evening, everyone in their best new clothes. Focal point: the family round a low sofra on a red rug under a fig tree (x 280–1010, y 620–900) sharing big dishes of rice, flatbread, dates and maamoul and a brass jug; grandpa in a white kufi gives the littlest a shiny coin of Eidi. On the right a boy and his sister carry a covered tray of food out through the gate to the neighbor, who waves from her blue door; beyond the low tiled wall a toddler pats a woolly lamb beside its mother in a little meadow. Bunting with crescents and stars crosses the courtyard; the mosque's green dome and minaret rise behind. Light story: a warm glow from the lantern and lit windows under the evening sky. The moon, stars, lattice and hanging lanterns are the effect's.`, defs, out)), ppl };
 }
 
 // ============================== front ==============================
 export function front() {
   setPrecision(1);
-  return compactSvg(doc(`Eid al-Adha · front: a brass lantern on the tiles bottom left and a pot of jasmine bottom right; the centre stays open`, [
+  return compactSvg(doc(`Eid al-Adha · front: a brass lantern on the tiles bottom left and a pot of jasmine bottom right; the center stays open`, [
     rad(id('fglow'), 0.5, 0.5, 0.5, [[0, '#ffd98a', 0.5], [1, '#ffd98a', 0]]),
   ], [
     C('a brass lantern'),
@@ -181,10 +181,10 @@ export function sceneData(ppl) {
   const r = (v) => Math.round(v);
   return {
     hotspots: [
-      { activity: 'card', x: r(ppl.tray[0]), y: r(ppl.tray[1]), r: 40, label: 'Send an Eid card to the neighbours' },
+      { activity: 'card', x: r(ppl.tray[0]), y: r(ppl.tray[1]), r: 40, label: 'Send an Eid card to the neighbors' },
       { activity: 'memory', x: ppl.feast[0], y: ppl.feast[1], r: 56, label: 'Match the Eid feast' },
-      { activity: 'colour', x: ppl.lamb[0], y: ppl.lamb[1], r: 36, label: 'Colour the woolly lamb' },
-      { activity: 'dressup', x: r(ppl.neighbour[0]), y: r(ppl.neighbour[1] + 30), r: 46, label: 'Dress up in Eid best clothes' },
+      { activity: 'color', x: ppl.lamb[0], y: ppl.lamb[1], r: 36, label: 'Color the woolly lamb' },
+      { activity: 'dressup', x: r(ppl.neighbor[0]), y: r(ppl.neighbor[1] + 30), r: 46, label: 'Dress up in Eid best clothes' },
     ],
     findables: [
       { id: 'coin', label: 'a shiny coin of Eidi', x: r(ppl.coin[0]), y: r(ppl.coin[1]), r: 14 },

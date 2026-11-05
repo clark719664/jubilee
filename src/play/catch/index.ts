@@ -84,7 +84,7 @@ export function mountCatch(env: PlayEnv): ActivityInstance {
   const overlay = h('div', { class: 'catch-overlay' });
   const stage = h('div', { class: 'catch-stage', tabindex: 0, role: 'application', 'aria-label': COPY.stageCatch });
   // The far layer: the holiday's illustrated scene (minus the front plane, which would hide the
-  // basket), or a painted landscape in the theme colours until that art exists. It drifts with the
+  // basket), or a painted landscape in the theme colors until that art exists. It drifts with the
   // Stack camera at half speed for a little parallax; it never moves in Catch.
   const far = h('div', { class: 'catch-far', 'aria-hidden': 'true' });
   const layers = sceneFor(meta.id);
@@ -100,7 +100,7 @@ export function mountCatch(env: PlayEnv): ActivityInstance {
     far.appendChild(backdrop);
   }
   stage.append(far, canvas, ...bubbles, hint, overlay);
-  const root = h('section', { class: 'catch-play sky', 'aria-labelledby': 'catch-h1', 'data-phase': 'menu' }, bar, stage);
+  const root = h('section', { class: 'catch-play sky', 'aria-labeledby': 'catch-h1', 'data-phase': 'menu' }, bar, stage);
 
   // ------------------------------------------------------------ rendering
   let raf = 0;

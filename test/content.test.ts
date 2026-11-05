@@ -351,7 +351,7 @@ describe('content files', () => {
       const kinds = new Set(c.doors.map((d) => d.kind));
       expect(kinds.size, `${id}: at least four kinds of door`).toBeGreaterThanOrEqual(4);
       for (const d of c.doors) {
-        expect(['fact', 'joke', 'craft', 'say', 'seek', 'colour'], `${id} door ${d.sleeps}`).toContain(d.kind);
+        expect(['fact', 'joke', 'craft', 'say', 'seek', 'color'], `${id} door ${d.sleeps}`).toContain(d.kind);
         expect(d.text.length, `${id} door ${d.sleeps} text`).toBeGreaterThan(10);
         expect(d.text.length, `${id} door ${d.sleeps} ≤ 240 chars`).toBeLessThanOrEqual(240);
         if (d.kind === 'say') {

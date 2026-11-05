@@ -1,6 +1,6 @@
 /**
  * deck.ts — which stickers go into a Sticker Memory board, and how they are dealt. Pure (no DOM), so the
- * season-mate maths and the shuffle are tested in Node.
+ * season-mate math and the shuffle are tested in Node.
  *
  * A deck is the holiday's own sticker plus its "season-mates": holidays whose main day falls within
  * ±45 days of this holiday's next main day, found with the dates engine rather than month numbers so
@@ -44,7 +44,7 @@ export interface MemorySticker {
   readonly holidayName: string;
   readonly emoji: string;
   readonly label: string;
-  /** The sticker's own holiday theme, so a Diwali sticker sits on a Diwali-coloured disc. */
+  /** The sticker's own holiday theme, so a Diwali sticker sits on a Diwali-colored disc. */
   readonly theme: ThemeId;
   /** Illustrated die-cut sticker, once the art exists; otherwise the emoji on a theme disc. */
   readonly url?: string;
@@ -76,7 +76,7 @@ export function toSticker(meta: HolidayMeta, year: number, urlFor: UrlFor, mine 
 }
 
 /** The holiday's next (or current) main day, or today when the calendar has run out. */
-export function centreDay(metas: readonly HolidayMeta[], id: HolidayId, today: CivilDate, region: Region): DayNumber {
+export function centerDay(metas: readonly HolidayMeta[], id: HolidayId, today: CivilDate, region: Region): DayNumber {
   const next = nextOccurrence(metas, id, today, region);
   return 'occ' in next ? next.occ.main : toDayNumber(today);
 }
@@ -86,11 +86,11 @@ export function centreDay(metas: readonly HolidayMeta[], id: HolidayId, today: C
  * for the child's region before the rest, silly days after the real ones), then everything else by distance.
  */
 export function seasonMates(metas: readonly HolidayMeta[], id: HolidayId, today: CivilDate, region: Region): Mate[] {
-  const centre = centreDay(metas, id, today, region);
+  const center = centerDay(metas, id, today, region);
   const nearest = new Map<HolidayId, { distance: number; main: DayNumber }>();
-  for (const occ of allOccurrences(metas, [], fromDayNumber(centre), region)) {
+  for (const occ of allOccurrences(metas, [], fromDayNumber(center), region)) {
     if (occ.holidayId === id) continue;
-    const distance = Math.abs(occ.main - centre);
+    const distance = Math.abs(occ.main - center);
     const best = nearest.get(occ.holidayId);
     if (!best || distance < best.distance) nearest.set(occ.holidayId, { distance, main: occ.main });
   }
@@ -139,7 +139,7 @@ export function earnedHolidays(stickers: Readonly<Record<string, IsoDate>>): { i
 }
 
 export interface DeckInput {
-  readonly centre: HolidayMeta;
+  readonly center: HolidayMeta;
   readonly metas: readonly HolidayMeta[];
   readonly today: CivilDate;
   readonly region: Region;
@@ -148,10 +148,10 @@ export interface DeckInput {
 
 /** "{Holiday} & friends": the holiday's own sticker first, then its season-mates. */
 export function seasonDeck(input: DeckInput, count = MAX_PAIRS): MemorySticker[] {
-  const { centre, metas, today, region, urlFor } = input;
-  const year = fromDayNumber(centreDay(metas, centre.id, today, region)).y;
-  const own = toSticker(centre, year, urlFor);
-  const mates = seasonMates(metas, centre.id, today, region).map((m) => toSticker(m.meta, m.year, urlFor));
+  const { center, metas, today, region, urlFor } = input;
+  const year = fromDayNumber(centerDay(metas, center.id, today, region)).y;
+  const own = toSticker(center, year, urlFor);
+  const mates = seasonMates(metas, center.id, today, region).map((m) => toSticker(m.meta, m.year, urlFor));
   return pickDistinct([own, ...mates], count);
 }
 

@@ -139,7 +139,7 @@ export function createDrawer(opts: DrawerOptions): Drawer {
     });
     grid.replaceChildren(...buttons);
     grid.setAttribute('aria-label', fill(COPY.drawer, { slot: COPY.slots[current] }));
-    panel.setAttribute('aria-labelledby', `dz-tab-${current}`);
+    panel.setAttribute('aria-labeledby', `dz-tab-${current}`);
     const worn = buttons.findIndex((b) => b.getAttribute('aria-pressed') === 'true');
     (buttons[worn >= 0 ? worn : 0])?.setAttribute('tabindex', '0');
     grid.scrollLeft = 0;

@@ -53,7 +53,7 @@ const TAU = Math.PI * 2;
 
 // ───────────────────────────────────────────────────────── pure geometry (tested)
 
-/** Angle of a day on the ring (radians, 0 = Jan 1 at the top, clockwise); the day's centre. */
+/** Angle of a day on the ring (radians, 0 = Jan 1 at the top, clockwise); the day's center. */
 export function dayAngle(doy: number, daysInYear: number): number {
   return ((doy + 0.5) / daysInYear) * TAU;
 }
@@ -234,7 +234,7 @@ export function mountWheel(opts: WheelOptions): WheelInstance {
     g.fillStyle = cssVar(el, '--accent', '#d6336c'); g.fill();
     g.lineWidth = 2.5; g.strokeStyle = ink; g.stroke();
 
-    // Centre: the selected holiday, big
+    // Center: the selected holiday, big
     const it = items[selected];
     if (it) {
       g.font = `${Math.round(R * 0.34)}px 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif`;
@@ -348,7 +348,7 @@ export function mountWheel(opts: WheelOptions): WheelInstance {
     stage.classList.remove('is-dragging');
     if (stage.hasPointerCapture(e.pointerId)) stage.releasePointerCapture(e.pointerId);
     if (moved < 0.03) {
-      // A tap: the centre opens the selected holiday; anywhere else picks the nearest dot.
+      // A tap: the center opens the selected holiday; anywhere else picks the nearest dot.
       const rect = stage.getBoundingClientRect();
       const dx = e.clientX - (rect.left + rect.width / 2);
       const dy = e.clientY - (rect.top + rect.height / 2);
@@ -388,7 +388,7 @@ export function mountWheel(opts: WheelOptions): WheelInstance {
   });
   ro.observe(stage);
 
-  // Dark/light flips change the card and ink colours drawn into the canvas.
+  // Dark/light flips change the card and ink colors drawn into the canvas.
   const scheme = window.matchMedia('(prefers-color-scheme: dark)');
   const redraw = (): void => draw();
   scheme.addEventListener('change', redraw);
@@ -411,5 +411,5 @@ export function mountWheel(opts: WheelOptions): WheelInstance {
 /** For the year view: a short descriptive label for the canvas. */
 export function wheelLabel(year: number, count: number, todayDoy: number | null): string {
   const here = todayDoy === null ? '' : ' A star marks today.';
-  return `Year wheel for ${year}: the seasons in a circle with ${count} holidays as coloured dots.${here}`;
+  return `Year wheel for ${year}: the seasons in a circle with ${count} holidays as colored dots.${here}`;
 }

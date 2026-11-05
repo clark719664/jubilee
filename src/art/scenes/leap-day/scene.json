@@ -15,11 +15,11 @@
       "label": "Catch the hopping frogs"
     },
     {
-      "activity": "colour",
+      "activity": "color",
       "x": 700,
       "y": 730,
       "r": 36,
-      "label": "Colour the party frog"
+      "label": "Color the party frog"
     },
     {
       "activity": "card",

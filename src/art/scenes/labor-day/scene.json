@@ -22,11 +22,11 @@
       "label": "Match the picnic food"
     },
     {
-      "activity": "colour",
+      "activity": "color",
       "x": 1360,
       "y": 660,
       "r": 70,
-      "label": "Colour the fire engine"
+      "label": "Color the fire engine"
     }
   ],
   "findables": [

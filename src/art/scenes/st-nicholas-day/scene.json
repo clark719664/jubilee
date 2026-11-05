@@ -29,11 +29,11 @@
       "label": "Dress up for St Nicholas Day"
     },
     {
-      "activity": "colour",
+      "activity": "color",
       "x": 1206,
       "y": 736,
       "r": 64,
-      "label": "Colour in the white horse"
+      "label": "Color in the white horse"
     }
   ],
   "findables": [

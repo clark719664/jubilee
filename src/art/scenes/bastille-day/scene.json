@@ -12,14 +12,14 @@
       "x": 584,
       "y": 733,
       "r": 36,
-      "label": "Make a tricolour card"
+      "label": "Make a tricolor card"
     },
     {
-      "activity": "colour",
+      "activity": "color",
       "x": 945,
       "y": 837,
       "r": 50,
-      "label": "Colour the dancers"
+      "label": "Color the dancers"
     },
     {
       "activity": "wish",

@@ -8,10 +8,10 @@
  *   haunted    Halloween: a friendly haunted house whose windows glow
  *   envelopes  Lunar New Year: a wall of red envelopes under two hanging lanterns
  *   eggs       Easter: eggs in the grass
- *   doors      everything else: numbered doors in the holiday's own colours under bunting
+ *   doors      everything else: numbered doors in the holiday's own colors under bunting
  *
  * Respect rules (ART_BRIEF): no faces on diyas, crescents or menorahs (pumpkins may smile), no text, no
- * flags, no religious figures. Colours come from the holiday theme (`--h-*`) wherever the skin allows.
+ * flags, no religious figures. Colors come from the holiday theme (`--h-*`) wherever the skin allows.
  */
 import { svg } from '../../ui/dom';
 import { mulberry32 } from '../../effects/rng';
@@ -82,7 +82,7 @@ function toran(): SVGSVGElement {
 
 function rangoli(): SVGSVGElement {
   const parts: SVGElement[] = [];
-  const colours = ['#ff4d9d', '#ffb703', '#2ec4b6', '#ff7a00', '#9b5de5'];
+  const colors = ['#ff4d9d', '#ffb703', '#2ec4b6', '#ff7a00', '#9b5de5'];
   for (let ring = 4; ring >= 0; ring--) {
     const r = 14 + ring * 12;
     const petals = 8 + ring * 4;
@@ -90,7 +90,7 @@ function rangoli(): SVGSVGElement {
       const a = (k / petals) * Math.PI;
       const cx = 100 + Math.cos(Math.PI + a) * r;
       const cy = 64 + Math.sin(Math.PI + a) * r;
-      parts.push(svg('circle', { cx: Math.round(cx * 10) / 10, cy: Math.round(cy * 10) / 10, r: 4 + ring * 0.6, fill: colours[ring % colours.length]! }));
+      parts.push(svg('circle', { cx: Math.round(cx * 10) / 10, cy: Math.round(cy * 10) / 10, r: 4 + ring * 0.6, fill: colors[ring % colors.length]! }));
     }
   }
   parts.push(svg('circle', { cx: 100, cy: 64, r: 10, fill: '#ffd166' }));
@@ -157,11 +157,11 @@ function hauntedRoof(): SVGSVGElement {
 }
 
 /** A vertical fill that fades out at the bottom, so ground strips melt into the page instead of ending on a hard edge. */
-function fadeDown(colour: string, from = 0.55): { readonly defs: SVGElement; readonly fill: string } {
+function fadeDown(color: string, from = 0.55): { readonly defs: SVGElement; readonly fill: string } {
   const id = nextId('dr-fade');
   return {
     defs: svg('defs', {}, svg('linearGradient', { id, x1: 0, y1: 0, x2: 0, y2: 1 },
-      svg('stop', { offset: 0, 'stop-color': colour }), svg('stop', { offset: from, 'stop-color': colour }), svg('stop', { offset: 1, 'stop-color': colour, 'stop-opacity': 0 }))),
+      svg('stop', { offset: 0, 'stop-color': color }), svg('stop', { offset: from, 'stop-color': color }), svg('stop', { offset: 1, 'stop-color': color, 'stop-opacity': 0 }))),
     fill: `url(#${id})`,
   };
 }
@@ -199,12 +199,12 @@ function hangingLanterns(): SVGSVGElement {
 
 // ───────── Easter: bunting, grass and flowers ─────────
 
-function bunting(colours: readonly string[]): SVGSVGElement {
+function bunting(colors: readonly string[]): SVGSVGElement {
   const parts: SVGElement[] = [svg('path', { d: 'M0 4 Q400 30 800 4', stroke: 'currentColor', 'stroke-width': 2.5, fill: 'none', opacity: 0.6 })];
   for (let i = 0, x = 6; x < 790; x += 40, i++) {
     const y = 4 + 26 * (1 - ((x - 400) / 400) ** 2) * 0.97;
     const y2 = 4 + 26 * (1 - ((x + 30 - 400) / 400) ** 2) * 0.97;
-    parts.push(svg('polygon', { points: `${x},${y.toFixed(1)} ${x + 30},${y2.toFixed(1)} ${x + 15},${(Math.max(y, y2) + 30).toFixed(1)}`, style: `fill: ${colours[i % colours.length]!}` }));
+    parts.push(svg('polygon', { points: `${x},${y.toFixed(1)} ${x + 30},${y2.toFixed(1)} ${x + 15},${(Math.max(y, y2) + 30).toFixed(1)}`, style: `fill: ${colors[i % colors.length]!}` }));
   }
   return deco('dr-bunting', '0 0 800 64', 'xMidYMin slice', ...parts);
 }

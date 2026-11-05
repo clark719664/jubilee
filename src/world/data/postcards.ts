@@ -3,7 +3,7 @@
  * Year wave. When Santa (or midnight) reaches one of these cities the globe zooms in and its
  * postcard flips in (world/postcards.ts draws it; world/album.ts keeps the collected ones).
  *
- * Each city has the local Christmas and New Year greeting (native script, romanisation when the
+ * Each city has the local Christmas and New Year greeting (native script, romanization when the
  * script is not Latin, a kid respelling with the stressed syllable in CAPS, and the plain
  * meaning), one true and checkable fact for each card, and a description of the skyline the card
  * draws. Skylines are inspired by real landmarks, never copied: no logos, signs, flags or
@@ -65,7 +65,7 @@ export const POSTCARDS: readonly PostcardCity[] = [
   },
   {
     id: 'auckland',
-    skyline: 'A tall needle tower with a round lookout pod, the low volcano cone of an island across the harbour, sailboats and a red-flowering pōhutukawa tree.',
+    skyline: 'A tall needle tower with a round lookout pod, the low volcano cone of an island across the harbor, sailboats and a red-flowering pōhutukawa tree.',
     climate: 'mild',
     christmas: {
       greeting: { lang: 'mi', langName: 'Māori', text: 'Meri Kirihimete!', sayIt: 'MEH-ree kee-ree-HEE-meh-teh', meaning: 'Merry Christmas' },
@@ -78,15 +78,15 @@ export const POSTCARDS: readonly PostcardCity[] = [
   },
   {
     id: 'sydney',
-    skyline: 'An opera house roofed with white shell-shaped sails, a great steel arch bridge across the harbour and a tower with a golden lookout.',
+    skyline: 'An opera house roofed with white shell-shaped sails, a great steel arch bridge across the harbor and a tower with a golden lookout.',
     climate: 'mild',
     christmas: {
       greeting: EN_XMAS,
-      fact: 'Christmas is in summer in Sydney, and prawns are a favourite for Christmas lunch. Before Christmas the Sydney Fish Market has stayed open for 36 hours non-stop!',
+      fact: 'Christmas is in summer in Sydney, and shrimp are a favorite for Christmas lunch. Before Christmas the Sydney Fish Market has stayed open for 36 hours non-stop!',
     },
     newYear: {
       greeting: EN_NY,
-      fact: 'Sydney has two firework shows on New Year’s Eve: an early one at 9 pm for children who can’t stay up, and a giant one over the Harbour Bridge at midnight.',
+      fact: 'Sydney has two firework shows on New Year’s Eve: an early one at 9 pm for children who can’t stay up, and a giant one over the Harbor Bridge at midnight.',
     },
   },
   {
@@ -130,7 +130,7 @@ export const POSTCARDS: readonly PostcardCity[] = [
   },
   {
     id: 'manila',
-    skyline: 'Palm trees along the bay, an old stone church front with bell towers, city towers, star lanterns and a colourful jeepney.',
+    skyline: 'Palm trees along the bay, an old stone church front with bell towers, city towers, star lanterns and a colorful jeepney.',
     climate: 'tropical',
     christmas: {
       greeting: { lang: 'tl', langName: 'Filipino (Tagalog)', text: 'Maligayang Pasko!', sayIt: 'mah-lee-GAH-yahng PAHS-koh', meaning: 'Happy Christmas' },
@@ -190,7 +190,7 @@ export const POSTCARDS: readonly PostcardCity[] = [
     },
     newYear: {
       greeting: { lang: 'ar', langName: 'Arabic', text: 'سنة جديدة سعيدة', roman: 'Sana jadīda saʿīda', sayIt: 'SAH-nah jah-DEE-dah sah-EE-dah', meaning: 'Happy new year' },
-      fact: 'At midnight, fireworks shoot out of the world’s tallest building, which is 828 metres high. That is taller than two Eiffel Towers on top of each other!',
+      fact: 'At midnight, fireworks shoot out of the world’s tallest building, which is 828 meters high. That is taller than two Eiffel Towers on top of each other!',
     },
   },
   {
@@ -260,7 +260,7 @@ export const POSTCARDS: readonly PostcardCity[] = [
   },
   {
     id: 'paris',
-    skyline: 'An iron lattice tower, grey slate rooftops with chimney pots, and the river Seine with a stone bridge.',
+    skyline: 'An iron lattice tower, gray slate rooftops with chimney pots, and the river Seine with a stone bridge.',
     climate: 'cold',
     christmas: {
       greeting: { lang: 'fr', langName: 'French', text: 'Joyeux Noël !', sayIt: 'zhwah-YUH no-EL', meaning: 'Joyful Christmas' },
@@ -286,7 +286,7 @@ export const POSTCARDS: readonly PostcardCity[] = [
   },
   {
     id: 'reykjavik',
-    skyline: 'A tall church tower stepped like columns of rock, colourful little houses with snowy roofs, a flat-topped mountain and the northern lights.',
+    skyline: 'A tall church tower stepped like columns of rock, colorful little houses with snowy roofs, a flat-topped mountain and the northern lights.',
     climate: 'snowy',
     christmas: {
       greeting: { lang: 'is', langName: 'Icelandic', text: 'Gleðileg jól!', sayIt: 'GLEH-thi-leg YOHL', meaning: 'Joyful Yule' },
@@ -303,7 +303,7 @@ export const POSTCARDS: readonly PostcardCity[] = [
     climate: 'tropical',
     christmas: {
       greeting: { lang: 'yo', langName: 'Yoruba', text: 'Ẹ kú ọdún!', sayIt: 'eh KOO aw-DOON', meaning: 'Greetings for the festive season' },
-      fact: 'In Lagos, Christmas lunch is often a big pot of smoky jollof rice with fried plantain, called dodo, and chicken, shared with family, friends and neighbours.',
+      fact: 'In Lagos, Christmas lunch is often a big pot of smoky jollof rice with fried plantain, called dodo, and chicken, shared with family, friends and neighbors.',
     },
     newYear: {
       greeting: { lang: 'yo', langName: 'Yoruba', text: 'Ẹ kú ọdún tuntun!', sayIt: 'eh KOO aw-DOON toon-TOON', meaning: 'Greetings for the new year' },
@@ -338,7 +338,7 @@ export const POSTCARDS: readonly PostcardCity[] = [
   },
   {
     id: 'mexico-city',
-    skyline: 'A tall column with a golden top on a roundabout, a skyscraper, colourful houses, and a snowy volcano in the distance.',
+    skyline: 'A tall column with a golden top on a roundabout, a skyscraper, colorful houses, and a snowy volcano in the distance.',
     climate: 'mild',
     christmas: {
       greeting: ES_XMAS,
@@ -403,7 +403,7 @@ export const POSTCARDS: readonly PostcardCity[] = [
   },
   {
     id: 'honolulu',
-    skyline: 'A volcanic crater headland by the sea, palm trees, a clock tower by the harbour, surfboards and gentle waves.',
+    skyline: 'A volcanic crater headland by the sea, palm trees, a clock tower by the harbor, surfboards and gentle waves.',
     climate: 'tropical',
     christmas: {
       greeting: { lang: 'haw', langName: 'Hawaiian', text: 'Mele Kalikimaka!', sayIt: 'MEH-leh kah-lee-kee-MAH-kah', meaning: 'Merry Christmas' },

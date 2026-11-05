@@ -308,7 +308,7 @@ export function mid() {
 // ============================== front ==============================
 export function front() {
   setPrecision(1);
-  return compactSvg(doc(`Three Kings Day · front: a geranium pot and a lantern in the bottom corners; the centre stays open`, [], [
+  return compactSvg(doc(`Three Kings Day · front: a geranium pot and a lantern in the bottom corners; the center stays open`, [], [
     C('a big pot of geraniums, bottom left'),
     path('M-10 900l8 -70h96l8 70z', { fill: '#b8582e' }), path('M-6 834h104v-10h-104z', { fill: '#d8743e' }),
     path(circD(10, 812, 22) + circD(46, 800, 26) + circD(82, 814, 22) + circD(30, 780, 18) + circD(66, 782, 18), { fill: '#2a7a4a' }),
@@ -325,7 +325,7 @@ export function sceneData(ppl) {
     hotspots: [
       { activity: 'dressup', x: r(ppl.king1[0]), y: r(ppl.king1[1] + 20), r: 56, label: 'Dress up as one of the Kings' },
       { activity: 'catch', x: r(ppl.umbrella[0]), y: r(ppl.umbrella[1] + 10), r: 44, label: 'Catch the sweets in the umbrella' },
-      { activity: 'colour', x: r(ppl.camel[0] + 80), y: r(ppl.camel[1] + 90), r: 56, label: 'Colour in the camel' },
+      { activity: 'color', x: r(ppl.camel[0] + 80), y: r(ppl.camel[1] + 90), r: 56, label: 'Color in the camel' },
       { activity: 'card', x: ppl.shoes[0], y: ppl.shoes[1], r: 40, label: 'Leave a note in the shoes' },
       { activity: 'wish', x: 1470, y: 126, r: 56, label: 'Make a wish on the star' },
     ],

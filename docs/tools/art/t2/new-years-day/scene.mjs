@@ -266,7 +266,7 @@ export function mid() {
 // ============================== front ==============================
 export function front() {
   setPrecision(1);
-  return compactSvg(doc(`New Year's Day · front: pebbly sand banks with marram grass in both bottom corners; the centre stays open`, [], [
+  return compactSvg(doc(`New Year's Day · front: pebbly sand banks with marram grass in both bottom corners; the center stays open`, [], [
     C('a sandbank with marram grass on the left'),
     path('M-20 900V842Q80 818 190 836T320 900Z', { fill: '#c8987c' }),
     path('M-20 900V868Q90 854 210 874T320 900Z', { fill: '#a87a62' }),
@@ -285,7 +285,7 @@ export function sceneData(ppl) {
     hotspots: [
       { activity: 'wish', x: 800, y: 548, r: 52, label: 'Make a wish on the first sunrise' },
       { activity: 'dressup', x: r(ppl.dippers[0]), y: r(ppl.dippers[1]), r: 52, label: 'Pick a silly hat for the dip' },
-      { activity: 'colour', x: r(ppl.huts[0]), y: r(ppl.huts[1]), r: 70, label: 'Colour in the beach huts' },
+      { activity: 'color', x: r(ppl.huts[0]), y: r(ppl.huts[1]), r: 70, label: 'Color in the beach huts' },
       { activity: 'card', x: ppl.bottle[0], y: ppl.bottle[1], r: 34, label: 'Write a message for the bottle' },
       { activity: 'catch', x: r(ppl.towel[0]), y: r(ppl.towel[1]), r: 46, label: 'Catch the splashes in the towel' },
     ],

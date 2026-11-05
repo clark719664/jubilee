@@ -40,7 +40,7 @@ function lonGap(a: number, b: number): number {
   return d > 180 ? 360 - d : d;
 }
 
-/** The rings that make the recognisable shape of a country. */
+/** The rings that make the recognizable shape of a country. */
 export function mainRings(iso: string): number[][] {
   const shape = COUNTRIES.find((c) => c.iso === iso);
   if (!shape || shape.rings.length === 0) return [];

@@ -113,8 +113,8 @@ function candleRow(panel: NonNullable<DayPanel['candles']>): HTMLElement {
     }
     return row;
   }
-  const colours = ['c-red', 'c-red', 'c-red', 'c-black', 'c-green', 'c-green', 'c-green'];
-  colours.forEach((c, slot) => row.append(candle(kinaraLit(slot, panel.lit), c)));
+  const colors = ['c-red', 'c-red', 'c-red', 'c-black', 'c-green', 'c-green', 'c-green'];
+  colors.forEach((c, slot) => row.append(candle(kinaraLit(slot, panel.lit), c)));
   return row;
 }
 
@@ -214,7 +214,7 @@ function sectionShell(section: PageSection, ...children: Child[]): HTMLElement {
   const id = sectionDomId(section);
   return h('section', {
     id, class: `${CARD_SECTIONS.has(section) ? 'section holiday-sec' : 'holiday-sec holiday-sec-plain'} sec-${section}`,
-    'data-section': section, 'aria-labelledby': `${id}-title`,
+    'data-section': section, 'aria-labeledby': `${id}-title`,
   },
   h('h2', { class: 'section-title', id: `${id}-title`, tabindex: -1 }, icon(SECTION_ICONS[section], 28), SECTION_NAMES[section]),
   ...children);
@@ -352,7 +352,7 @@ export const holidayView: ViewFactory<'holiday'> = (ctx, route): ViewInstance =>
     };
     const sections = available.map((s) => sectionShell(s, ...build[s]()));
     const advent = content.advent && adventShown
-      ? h('section', { class: 'section holiday-sec advent-sec', id: 'sec-advent', 'aria-labelledby': 'sec-advent-title' },
+      ? h('section', { class: 'section holiday-sec advent-sec', id: 'sec-advent', 'aria-labeledby': 'sec-advent-title' },
         h('h2', { class: 'section-title', id: 'sec-advent-title' }, icon('gift', 28), 'Advent calendar'),
         adventStrip(ctx, content.advent, today),
         h('p', { class: 'advent-more' },

@@ -8,11 +8,11 @@
       "label": "Make a wish on the bandstand lantern"
     },
     {
-      "activity": "colour",
+      "activity": "color",
       "x": 800,
       "y": 548,
       "r": 48,
-      "label": "Colour the striped bandstand roof"
+      "label": "Color the striped bandstand roof"
     },
     {
       "activity": "memory",

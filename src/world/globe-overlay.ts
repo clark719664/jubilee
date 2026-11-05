@@ -128,7 +128,7 @@ export class Overlay {
     this.labels.clear();
   }
 
-  /** A soft light centred at (x, y); sizes snap to 4 px so zooming reuses rasters. */
+  /** A soft light centered at (x, y); sizes snap to 4 px so zooming reuses rasters. */
   soft(ctx: CanvasRenderingContext2D, x: number, y: number, size: number, color: string): void {
     this.sprites.draw(ctx, 'world:soft', Math.max(4, Math.round(size / 4) * 4), color, x, y);
   }

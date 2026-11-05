@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" fill="#ffffff" stroke="#2a2340" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+<!-- Earth Day coloring page: a smiling Earth waters the sprout growing on its own head — one hand tips a watering can, the other waves; the sun, a cloud, a hill of flowers -->
+<path data-fill="sun" fill="#ffffff" d="M46 92a50 50 0 1 0 100 0a50 50 0 1 0-100 0z"/>
+<path fill="none" stroke-width="5" d="M160 92l22 0m-34 38l17.6 12.5m-50 10.4l7 21m-46-21l-7.2 21m-25-44l-18 12.6m5.6-50l-22-.5m34-38l-17.6-12.5m50-10.4l-7-21m46 21l7.2-21m25 44l18-12.6"/>
+<path data-fill="cloud" fill="#ffffff" d="M200 236a22 22 0 0 1-26 24a37 37 0 0 1-60 5.2a31 31 0 0 1-47-16.2a16.1 16.1 0 0 1-.1-26a31 31 0 0 1 48-16.2a37 37 0 0 1 59 5.7a22 22 0 0 1 26 24z"/>
+<path data-fill="hill" fill="#ffffff" d="M-10 716q410-76 820 0v94h-820z"/>
+<path data-fill="flower-1-stem" fill="#ffffff" d="M58 770v-53h16v53z"/><path data-fill="flower-1-petals" fill="#ffffff" d="M104 690a19.8 19.8 0 0 1-19 33a19.8 19.8 0 0 1-38-.1a19.8 19.8 0 0 1-19-33a19.8 19.8 0 0 1 19-33a19.8 19.8 0 0 1 38 .2a19.8 19.8 0 0 1 19 33z"/><path data-fill="flower-1-center" fill="#ffffff" d="M52 690a14.4 14.4 0 1 0 29 0a14.4 14.4 0 1 0-29 0z"/>
+<path data-fill="flower-2-stem" fill="#ffffff" d="M696 772v-55h16v55z"/><path data-fill="flower-2-petals" fill="#ffffff" d="M740 692a18.7 18.7 0 0 1-18 31a18.7 18.7 0 0 1-36 .2a18.7 18.7 0 0 1-18-31a18.7 18.7 0 0 1 18-31a18.7 18.7 0 0 1 36-.4a18.7 18.7 0 0 1 18 31z"/><path data-fill="flower-2-center" fill="#ffffff" d="M690 692a13.7 13.7 0 1 0 27 0a13.7 13.7 0 1 0-27 0z"/>
+<path data-fill="flower-3-stem" fill="#ffffff" d="M582 800v-60h16v60z"/><path data-fill="flower-3-petals" fill="#ffffff" d="M618 720a14.6 14.6 0 0 1-14 24a14.6 14.6 0 0 1-28 .2a14.6 14.6 0 0 1-14-24a14.6 14.6 0 0 1 14-24a14.6 14.6 0 0 1 28-.4a14.6 14.6 0 0 1 14 24z"/><path data-fill="flower-3-center" fill="#ffffff" d="M579 720a10.6 10.6 0 1 0 21 0a10.6 10.6 0 1 0-21 0z"/>
+<path data-fill="arm-right" fill="#ffffff" d="M530 401c1.9-2.4 8.9-7.8 13.1-11.9c4.2-4.1 8.1-8.5 11.6-13.1c3.6-4.7 6.9-9.6 9.8-14.8c2.9-5.2 5.5-10.7 7.8-16.4c2.3-5.6 4.3-11.6 6-17.8c1.6-6.1 3-12.5 4-19.2c1.1-6.6 1.9-13.5 2.3-21c.5-6.7.7-14 .6-22c-.2-7.1-.6-14.9-1.2-23c-.7-8-1.7-16.3-2.9-25c-1.2-8.3-2.8-17-4.6-26c-1.8-9-3.8-18.2-6.2-28c-2.3-9.2-4.9-18.9-7.8-29c-2.9-9.8-8-25-9.5-30a13 13 0 0 1-25 7.7l.3 0c1.5 5 6.4 20 9.2 30c2.8 9.4 5.3 18.8 7.6 28c2.3 9 4.2 17.8 5.9 26c1.8 8.9 3.2 17.2 4.4 25c1.1 8.3 2 16 2.7 24c.6 7 1 14.2 1.1 21c.1 7-.1 13.6-.5 20c-.4 6.4-1.1 12.4-2 18.2c-1 5.8-2.1 11.3-3.5 16.6c-1.5 5.2-3.1 10.1-5 14.8c-1.9 4.7-4 9.1-6.4 13.3c-2.3 4.2-4.9 8.1-7.7 11.8c-2.8 3.7-5.9 7.1-9.2 10.3c-3.3 3.2-8.8 7.5-10.6 9a13 13 0 0 1 15.4 21z"/>
+<path data-fill="arm-left" fill="#ffffff" d="M189 416c-1.5-.1-6.2-.1-9.1-.4c-2.8-.3-5.5-.7-8-1.2c-2.5-.5-4.9-1.2-7.1-2c-2.2-.7-4.2-1.6-6.1-2.6c-1.9-.9-3.7-2-5.3-3.2c-1.7-1.2-3.2-2.5-4.7-3.9c-1.4-1.5-2.7-3-4-4.7c-1.3-1.7-2.4-3.5-3.5-5.5c-1.1-2.1-2.1-4.2-3-6.6c-.9-2.3-1.7-4.9-2.4-7.6c-.7-2.7-1.3-5.6-1.8-8.7c-.5-3.1-.9-6.4-1.1-9.8c-.2-3.5-.4-7.1-.3-11c0-3.8.3-10 .4-12a13 13 0 0 1-26-1.6l0 0c-.1 2.2-.4 9.2-.4 13.6c-.1 4.4.1 8.6.4 12.8c.3 4.1.7 8.1 1.3 12c.6 3.9 1.4 7.6 2.3 11.2c.9 3.6 2 7.1 3.3 10.4c1.3 3.4 2.7 6.6 4.4 9.6c1.6 3.1 3.5 6 5.5 8.7c2 2.7 4.3 5.3 6.6 7.7c2.4 2.3 5 4.5 7.8 6.5c2.7 2 5.6 3.7 8.6 5.3c3.1 1.5 6.2 2.9 9.5 4c3.3 1.2 6.7 2.1 10.3 2.8c3.5.8 7.1 1.3 10.9 1.7c3.7.3 9.6.4 11.5.5a13 13 0 0 1 0-26z"/>
+<path data-fill="stem" fill="#ffffff" d="M359 309c-3.5-27 4-45 11.5-63l15 3c-9 18-10.5 33-6 60z"/>
+<path data-fill="leaf-left" fill="#ffffff" d="M368 264q-26-45-76-30q26 45 76 30z"/>
+<path data-fill="leaf-right" fill="#ffffff" d="M377 252q54 10.3 76-41q-54-10.1-76 41z"/>
+<path data-fill="sea" fill="#ffffff" d="M177 474a183 183 0 1 0 366 0a183 183 0 1 0-366 0z"/>
+<path data-fill="land-1" fill="#ffffff" d="M195 428c-4.5-10.7 11.3-43 28-64c16.2-21 35-30 55-40c19.8-9.6 35-12.5 45-7.4c11 5.1 15 22 7.7 33c-7.3 11.3-27 9.8-44 24c-16.7 13.7-22 35-40 46c-18.5 10.5-47 19.6-51 8.7z"/>
+<path data-fill="land-2" fill="#ffffff" d="M393 313c9.5-4.4 37 4.4 59 18.3c22 13.9 37 30 51 51c13.6 21 20 43 18 55c-2.2 12.5-15.3 14.7-29 7.4c-14.1-7.3-23-26-40-44c-18.1-18.2-36-30-48-47c-11.8-18-21-36-11.1-41z"/>
+<path data-fill="land-3" fill="#ffffff" d="M206 547c5.4-.5 27 18.5 44 33c17 14.8 38 34 41 40c2.4 7-13 .4-26-6.9c-13.3-7.3-29-16.1-40-29c-12.1-13.5-24-36-18.7-37z"/>
+<path data-fill="land-4" fill="#ffffff" d="M521 536c3 2.4-.7 26-10.9 41c-10.3 14.1-26 24-40 32c-14.9 9.2-30 14.3-33 11.4c-3.9-2.9 2.7-14.6 14.4-26c11.7-10.6 30-17.2 44-29c13.8-11.6 23-31 26-29z"/>
+<path data-fill="eye-left" fill="#ffffff" d="M275 477a26 32 0 1 0 51 0a26 32 0 1 0-51 0z"/>
+<path fill="#2a2340" d="M291 468a16.5 16.5 0 1 0 33 0a16.5 16.5 0 1 0-33 0z"/>
+<path fill="#ffffff" stroke="none" d="M295.2 460.5a6.3 6.3 0 1 0 12.6 0a6.3 6.3 0 1 0 -12.6 0Z"/>
+<path data-fill="eye-right" fill="#ffffff" d="M395 477a26 32 0 1 0 51 0a26 32 0 1 0-51 0z"/>
+<path fill="#2a2340" d="M411 468a16.5 16.5 0 1 0 33 0a16.5 16.5 0 1 0-33 0z"/>
+<path fill="#ffffff" stroke="none" d="M415.2 460.5a6.3 6.3 0 1 0 12.6 0a6.3 6.3 0 1 0 -12.6 0Z"/>
+<path data-fill="cheek-left" fill="#ffffff" d="M225 528a24 15 0 1 0 48 0a24 15 0 1 0-48 0z"/>
+<path data-fill="cheek-right" fill="#ffffff" d="M450 528a24 15 0 1 0 48 0a24 15 0 1 0-48 0z"/>
+<path data-fill="mouth" fill="#ffffff" d="M324 525q36 48 72 0q-36 15-72 0z"/>
+<path data-fill="hand-left" fill="#ffffff" d="M102 336a18 18 0 1 0 36 0a18 18 0 1 0-36 0z"/>
+<g transform="rotate(-32 567 144)"><path data-fill="can-spout" fill="#ffffff" d="M528 150l-66-39l-7.5 13.5l65 41z"/>
+<path data-fill="can-rose" fill="#ffffff" d="M442 98q2-5 6.8-3.6l11.4 3.2q4.8 1.4 2.9 6l-8.2 21q-1.9 4.4-6.7 3l-11.4-3.2q-4.8-1.4-2.9-6z"/>
+<path data-fill="can-body" fill="#ffffff" d="M519 114q0-12 12-12l84 0q12 0 12 12l0 48q0 12-12 12l-84 0q-12 0-12-12z"/>
+<path data-fill="can-band" fill="#ffffff" d="M519 125q0-2 2-2l104 0q2 0 2 2l0 17q0 2-2 2l-104 0q-2 0-2-2z"/></g>
+<path data-fill="hand-right" fill="#ffffff" d="M521 107a20 20 0 1 0 40 0a20 20 0 1 0-40 0z"/>
+<path data-fill="drop-1" fill="#ffffff" d="M422 179c4.5 6.7 9.9 13 9.9 17.5c0 6.3-4.5 9.9-9.9 9.9c-5.4 0-9.9-3.6-9.9-9.9c0-4.5 5.4-10.8 9.9-18z"/>
+<path data-fill="drop-2" fill="#ffffff" d="M476 213c4.3 7.1 9.4 13 9.4 17.3c0 5.9-4.3 9.3-9.4 9.3c-5.1 0-9.3-3.4-9.3-9.3c0-4.3 5.1-10.2 9.3-17z"/>
+</svg>

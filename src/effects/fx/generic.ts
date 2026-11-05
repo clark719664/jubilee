@@ -1,11 +1,11 @@
 /**
  * generic — stand-in preset for effects that are not written yet (see PENDING_PRESETS in index.ts).
- * Ambient: a gentle rain of theme-coloured dots — or `params.glyphs` as outlined emoji — in two depth
+ * Ambient: a gentle rain of theme-colored dots — or `params.glyphs` as outlined emoji — in two depth
  *   layers (far: small, slow, faint → near: bigger, quicker, brighter).
- * Behaviours: constant fall by depth + sway (dots) / flutter (glyphs, which also rock as they fall).
+ * Behaviors: constant fall by depth + sway (dots) / flutter (glyphs, which also rock as they fall).
  * Tap: a soft puff of 14 pieces that drifts outward under drag and fades within a second.
  * Still: pieces scattered across the sky, alpha by depth.
- * Params: palette (dot colours; default accent/accent2/glow), glyphs (switches to emoji rain), density.
+ * Params: palette (dot colors; default accent/accent2/glow), glyphs (switches to emoji rain), density.
  */
 import {
   Emitter, TAU, drag, envelope, expired, flutter, integrate, range, spawnEdge, steadyRate, sway,

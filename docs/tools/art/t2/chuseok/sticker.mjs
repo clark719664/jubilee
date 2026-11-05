@@ -21,7 +21,7 @@ export function sticker() {
     return [C0.x + x * Math.cos(a) - y * Math.sin(a), C0.y + x * Math.sin(a) + y * Math.cos(a)];
   });
   const bd = roundPoly(sq, 46);
-  // patchwork: split the square into blocks, each its own colour, with white seams
+  // patchwork: split the square into blocks, each its own color, with white seams
   const R = rng(17);
   const COLS = ['#ff7aa8', '#ffd040', '#3aaa8a', '#a86ad0', '#ff6a4a', '#5aa8e8', '#f4f0e0', '#8ac858'];
   const blocks = [];

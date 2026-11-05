@@ -4,14 +4,14 @@
  *
  *  - `light` is drawn with 'multiply': white-ish on the day side (gently dimmer toward the
  *    terminator, like a lit ball), the night tint on the dark side. Multiplying keeps the
- *    land and sea colours rich (green turns deep teal, blue turns ink) instead of greying
+ *    land and sea colors rich (green turns deep teal, blue turns ink) instead of graying
  *    them under a translucent veil.
  *  - `glow` is drawn with 'screen': a warm sunset band along the terminator, on land only
  *    (over open sea a warm band just reads as murk).
  *
  * Each texture is tiny (≈160² for the globe, 1° per texel for the map) and drawn scaled up
  * with smoothing, clipped to the disc on the globe. Globe textures live in screen space and
- * are rebuilt only when the view centre or the sun moves (zoom just rescales them); map
+ * are rebuilt only when the view center or the sun moves (zoom just rescales them); map
  * textures live in lon/lat space and are rebuilt only when the sun moves.
  */
 import { parseColor } from '../effects/painters/color';

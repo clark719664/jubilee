@@ -12,14 +12,14 @@
       "x": 790,
       "y": 606,
       "r": 30,
-      "label": "Open the coloured-glass window"
+      "label": "Open the colored-glass window"
     },
     {
-      "activity": "colour",
+      "activity": "color",
       "x": 702,
       "y": 496,
       "r": 30,
-      "label": "Colour the tile stars"
+      "label": "Color the tile stars"
     },
     {
       "activity": "wish",

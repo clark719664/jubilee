@@ -11,7 +11,7 @@ const GOLD = '#ffd166';
 
 // ------------------------------------------------------------------ menorah (Hanukkah)
 
-/** Cup centres of the nine-branch menorah (unit coords; index 4 is the raised shamash). */
+/** Cup centers of the nine-branch menorah (unit coords; index 4 is the raised shamash). */
 export const MENORAH_CUPS: readonly (readonly [number, number])[] = Array.from({ length: 9 }, (_, i) => {
   const x = (i - 4) * 0.105;
   return [x, i === 4 ? -0.3 : -0.2] as const;
@@ -126,7 +126,7 @@ export function dreidelFace(k: number): SpritePainter {
 
 // ------------------------------------------------------------------ kinara (Kwanzaa)
 
-/** Holder tops of the seven-branch kinara (unit coords; index 3 is the centre). */
+/** Holder tops of the seven-branch kinara (unit coords; index 3 is the center). */
 export const KINARA_CUPS: readonly (readonly [number, number])[] = Array.from({ length: 7 }, (_, i) => {
   const d = Math.abs(i - 3) / 3;
   return [(i - 3) * 0.13, -0.02 - 0.06 * (1 - d * d)] as const;
@@ -143,7 +143,7 @@ function roundRectSub(ctx: CanvasRenderingContext2D, x: number, y: number, w: nu
   ctx.closePath();
 }
 
-/** Cardboard-craft kinara: a curved wooden bar with seven holders, flat colours and a white sticker edge. */
+/** Cardboard-craft kinara: a curved wooden bar with seven holders, flat colors and a white sticker edge. */
 export const kinaraBody: SpritePainter = (ctx, size, color) => {
   const s = size;
   const path = (): void => {

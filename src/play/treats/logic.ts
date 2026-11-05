@@ -29,8 +29,8 @@ export const VISITORS: readonly Visitor[] = [
   { id: 'witch', name: 'a kind witch', line: 'Happy Halloween, dearie! Pick a treat!', thanks: 'Hee hee! Enjoy it!' },
   { id: 'cat', name: 'a black cat', line: 'Meow! I mean… trick or treat!', thanks: 'Purrrr-fect choice!' },
   { id: 'bat', name: 'a fluffy bat', line: 'Squeak! Happy Halloween!', thanks: 'Flap-tastic!' },
-  { id: 'mummy', name: 'a cosy mummy', line: 'Unwrap a treat, little one!', thanks: 'Wrap it up and enjoy!' },
-  { id: 'kid', name: 'a pumpkin kid', line: 'I love your costume! Pick one!', thanks: 'Yum! That’s my favourite too!' },
+  { id: 'mummy', name: 'a cozy mummy', line: 'Unwrap a treat, little one!', thanks: 'Wrap it up and enjoy!' },
+  { id: 'kid', name: 'a pumpkin kid', line: 'I love your costume! Pick one!', thanks: 'Yum! That’s my favorite too!' },
 ];
 
 export const HOUSES = 6;

@@ -4,7 +4,7 @@
  *   on the left and ending at a pot of gold on the right; gold coins hop out of the pot, spin (|cos φ|
  *   flip), bounce on the grass and fade. Shamrocks — now and then a lucky four-leaf clover with a glint —
  *   flutter down in continuous depth. Gold motes twinkle near the rainbow in a 'lighter' pass.
- * Behaviours: gravity + flutter + spin + slow wind (shamrocks); gravity + bounce + spin (coins); twinkle.
+ * Behaviors: gravity + flutter + spin + slow wind (shamrocks); gravity + bounce + spin (coins); twinkle.
  * Tap: tap a coin to collect it — it flies up to a little counter (a coin, "×" and digits drawn as glyph
  *   sprites) that bumps and sparkles; the count is cosmetic and lasts as long as the effect. Tapping
  *   anywhere else throws a lucky ring of shamrocks and gold sparkles.

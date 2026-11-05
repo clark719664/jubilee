@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 900">
-<!-- Kwanzaa · front: the dark kerb along the bottom, a fire hydrant and a big planter of broad leaves in the left corner, a potted palm and a skateboard in the right; the centre stays open for the table -->
+<!-- Kwanzaa · front: the dark kerb along the bottom, a fire hydrant and a big planter of broad leaves in the left corner, a potted palm and a skateboard in the right; the center stays open for the table -->
 <defs><linearGradient id="kwanzaa-pot"><stop stop-color="#7a3a22"/><stop offset=".5" stop-color="#a0502e"/><stop offset="1" stop-color="#5a2a18"/></linearGradient><linearGradient id="kwanzaa-leaf" x2="0" y2="1"><stop stop-color="#1f6a44"/><stop offset="1" stop-color="#0e3a26"/></linearGradient></defs>
 <!-- the kerb and street along the bottom, darkest plane -->
 <path d="M-30 866q430-14 830-8q400 6 830-8v60h-1660z" fill="#16100c"/>

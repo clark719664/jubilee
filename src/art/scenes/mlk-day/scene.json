@@ -1,7 +1,7 @@
 {
   "hotspots": [
     {
-      "activity": "colour",
+      "activity": "color",
       "x": 700,
       "y": 640,
       "r": 70,
@@ -26,7 +26,7 @@
       "x": 742,
       "y": 830,
       "r": 40,
-      "label": "Match the paint colours"
+      "label": "Match the paint colors"
     }
   ],
   "findables": [

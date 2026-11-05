@@ -8,11 +8,11 @@
       "label": "Catch the flying kites"
     },
     {
-      "activity": "colour",
+      "activity": "color",
       "x": 880,
       "y": 502,
       "r": 50,
-      "label": "Colour the flag"
+      "label": "Color the flag"
     },
     {
       "activity": "memory",
@@ -53,7 +53,7 @@
     },
     {
       "id": "washing",
-      "label": "a line of washing",
+      "label": "a clothesline",
       "x": 1400,
       "y": 570,
       "r": 40

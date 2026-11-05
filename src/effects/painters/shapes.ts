@@ -1,7 +1,7 @@
 /**
- * shapes.ts — geometric and nature sprite painters. Every painter draws centred on the origin within
+ * shapes.ts — geometric and nature sprite painters. Every painter draws centered on the origin within
  * roughly ±size/2 (strokes may overhang a little; the cache pads for it). Painters run once per
- * (name, size, colour) and are cached, so a few gradients and arcs here cost nothing per frame.
+ * (name, size, color) and are cached, so a few gradients and arcs here cost nothing per frame.
  */
 import type { SpritePainter } from '../types';
 import { shade, withAlpha } from './color';

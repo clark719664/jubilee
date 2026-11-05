@@ -70,7 +70,7 @@ export function nextWhen(u: Upcoming): string {
 function stickerSheet(meta: HolidayMeta, occ: Occurrence, fresh: boolean): HTMLElement {
   const label = stickerLabel(meta, occ.year);
   const titleId = `sheet-${meta.id}-${occ.year}`;
-  return h('section', { class: 'celebrate-sheet card', 'aria-labelledby': titleId },
+  return h('section', { class: 'celebrate-sheet card', 'aria-labeledby': titleId },
     h('div', { class: 'celebrate-backing', 'aria-hidden': 'true' },
       h('span', { class: `sticker is-earned${fresh ? ' is-new' : ''}` },
         h('span', { class: 'sticker-emoji' }, meta.sticker.emoji),

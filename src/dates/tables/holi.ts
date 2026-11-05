@@ -1,6 +1,6 @@
 import type { HolidayTable } from './types';
 
-/** Rangwali Holi (Dhulandi), the colour day after Holika Dahan. */
+/** Rangwali Holi (Dhulandi), the color day after Holika Dahan. */
 export const HOLI: HolidayTable = {
   id: 'holi',
   calendar: 'hindu',
@@ -16,7 +16,7 @@ export const HOLI: HolidayTable = {
     {
       date: '2027-03-23',
       alt: '2027-03-22',
-      note: 'Contested: the full-moon tithi runs from the evening of 21 March into the afternoon of the 22nd with Bhadra past midnight, the same shape as 2023, so most calendars put Holika Dahan on the 22nd and colours on the 23rd; some regions celebrate a day earlier',
+      note: 'Contested: the full-moon tithi runs from the evening of 21 March into the afternoon of the 22nd with Bhadra past midnight, the same shape as 2023, so most calendars put Holika Dahan on the 22nd and colors on the 23rd; some regions celebrate a day earlier',
     },
     { date: '2028-03-11' },
     { date: '2029-03-01' },

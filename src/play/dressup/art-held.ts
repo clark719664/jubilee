@@ -170,7 +170,7 @@ function paintbrush(): SVGGElement {
   );
 }
 
-function colourBowl(): SVGGElement {
+function colorBowl(): SVGGElement {
   return resting(
     p('M77.8 33.6Q78.6 27 83 28.4Q84.4 24.6 88 27.2Q91.8 25.6 93.4 30.4Q95.6 31 94.6 34Z', '#ff5ec4', { 'stroke-width': 1.8 }),
     p('M84.2 33.4Q84.4 29.2 88.2 29Q92 29.4 92.2 33.4Z', '#ffd23f', { 'stroke-width': 1.6 }),
@@ -262,7 +262,7 @@ function iceCream(): SVGGElement {
   );
 }
 
-/** A maple leaf pointing up, centred at (cx, cy), about 22 units across. */
+/** A maple leaf pointing up, centered at (cx, cy), about 22 units across. */
 function leafD(cx: number, cy: number, k: number): string {
   const pts = [[0, -12], [2.6, -6.4], [6.8, -8.4], [5.8, -3.2], [11, -3.6], [7.6, 0.6], [9.4, 4], [3.6, 3.4], [1, 7.4]];
   const right = pts.map(([x, y]) => `${(cx + x! * k).toFixed(2)},${(cy + y! * k).toFixed(2)}`);
@@ -309,14 +309,14 @@ export const HELD_ART: Readonly<Record<string, () => SVGGElement>> = {
   mooncake,
   'red-envelope': redEnvelope,
   paintbrush,
-  'colour-bowl': colourBowl,
+  'color-bowl': colorBowl,
   umbrella,
   'magic-wand': magicWand,
   'egg-basket': eggBasket,
   'flower-bunch': flowerBunch,
   'heart-lolly': heartLolly,
   'ice-cream': iceCream,
-  'autumn-leaf': autumnLeaf,
+  'fall-leaf': autumnLeaf,
   'fruit-basket': fruitBasket,
 };
 

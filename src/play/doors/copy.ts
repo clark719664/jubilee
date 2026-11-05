@@ -34,7 +34,7 @@ export const COPY = {
   boardLabel: '{name} countdown doors',
   tellMe: 'Tell me!',
   playSeek: 'Let’s play Seek & Find',
-  playColour: 'Let’s colour it in',
+  playColor: 'Let’s color it in',
   stillPainting: 'Jubi is still painting this one. Peek again soon!',
   craftNote: 'Ask a grown-up to help you get things ready.',
   backToDoors: 'Back to the doors',
@@ -50,12 +50,12 @@ export const COPY = {
   jubi: 'Jubi the star lantern. Tap for a spin!',
 } as const;
 
-export const KIND_EMOJI: Readonly<Record<DoorKind, string>> = { fact: '💡', joke: '😂', craft: '✂️', say: '💬', seek: '🔍', colour: '🖍️' };
+export const KIND_EMOJI: Readonly<Record<DoorKind, string>> = { fact: '💡', joke: '😂', craft: '✂️', say: '💬', seek: '🔍', color: '🖍️' };
 export const KIND_TITLE: Readonly<Record<DoorKind, string>> = {
-  fact: 'A fun fact!', joke: 'A joke!', craft: 'A tiny craft', say: 'Say it!', seek: 'Seek & Find', colour: 'Colouring time',
+  fact: 'A fun fact!', joke: 'A joke!', craft: 'A tiny craft', say: 'Say it!', seek: 'Seek & Find', color: 'Coloring time',
 };
 export const KIND_NAME: Readonly<Record<DoorKind, string>> = {
-  fact: 'a fact', joke: 'a joke', craft: 'a tiny craft', say: 'a greeting to say', seek: 'a Seek & Find game', colour: 'a colouring page',
+  fact: 'a fact', joke: 'a joke', craft: 'a tiny craft', say: 'a greeting to say', seek: 'a Seek & Find game', color: 'a coloring page',
 };
 
 /** "{n} sleeps" → "3 sleeps". Unknown keys stay as they are. */

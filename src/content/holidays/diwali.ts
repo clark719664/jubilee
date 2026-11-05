@@ -2,7 +2,7 @@ import type { HolidayContent } from '../types';
 
 const content: HolidayContent = {
   story: [
-    'Diwali, also called Deepavali, is the festival of lights, celebrated each autumn by Hindus and also by Sikhs, Jains and some Buddhists.',
+    'Diwali, also called Deepavali, is the festival of lights, celebrated each fall by Hindus and also by Sikhs, Jains and some Buddhists.',
     "The name comes from a Sanskrit word meaning 'a row of lamps', and that is exactly what you see: little clay oil lamps called diyas glowing along windowsills, doorsteps and rooftops.",
     'Many Hindu families remember the story of Prince Rama coming home after fourteen years away, when the people of his city lit lamps to guide him through the dark.',
     'Families clean and decorate their homes, make rangoli patterns by the door, wear new clothes, share sweets and welcome Lakshmi, the goddess of good fortune.',
@@ -27,7 +27,7 @@ const content: HolidayContent = {
       text: 'Sikhs celebrate Bandi Chhor Divas in the same week, remembering the day in 1619 when Guru Hargobind was freed from prison and the Golden Temple in Amritsar was lit with lamps to welcome him. Jains remember their great teacher Mahavira on Diwali too.',
     },
     {
-      text: 'Sweets called mithai are a huge part of Diwali. Families make or buy boxes of ladoo, barfi and jalebi to share with neighbours, friends and anyone who knocks on the door.',
+      text: 'Sweets called mithai are a huge part of Diwali. Families make or buy boxes of ladoo, barfi and jalebi to share with neighbors, friends and anyone who knocks on the door.',
     },
   ],
   greetings: [
@@ -85,7 +85,7 @@ const content: HolidayContent = {
       id: 'rainbow-fruit-chaat',
       title: 'Rainbow Fruit Chaat',
       emoji: '🍍',
-      blurb: 'A tangy Indian fruit salad: juicy fruit in rainbow colours with a squeeze of lemon and a sprinkle of chaat masala that makes your tongue tingle.',
+      blurb: 'A tangy Indian fruit salad: juicy fruit in rainbow colors with a squeeze of lemon and a sprinkle of chaat masala that makes your tongue tingle.',
       minutes: 20,
       serves: 4,
       difficulty: 1,
@@ -153,7 +153,7 @@ const content: HolidayContent = {
         { item: 'butter or ghee', us: { qty: 1, unit: 'tbsp' }, metric: { qty: 15, unit: 'g' }, allergens: ['milk'] },
         { item: 'ground cardamom', us: { qty: 0.5, unit: 'tsp' }, metric: { qty: 0.5, unit: 'tsp' } },
         { item: 'desiccated coconut for rolling', us: { qty: 0.5, unit: 'cup' }, metric: { qty: 45, unit: 'g' } },
-        { item: 'coloured sprinkles or a few drops of food colouring', us: { qty: 1, unit: 'tbsp' }, metric: { qty: 1, unit: 'tbsp' }, optional: true },
+        { item: 'colored sprinkles or a few drops of food coloring', us: { qty: 1, unit: 'tbsp' }, metric: { qty: 1, unit: 'tbsp' }, optional: true },
       ],
       steps: [
         { text: 'Measure the coconut and cardamom and open the can of condensed milk so everything is ready by the stove.', kidSafeOverride: 'measuring at the counter; the stove is off' },
@@ -182,7 +182,7 @@ const content: HolidayContent = {
         },
         { text: 'Roll each ball in the extra coconut (or sprinkles) and set it on the tray.' },
         { text: 'Chill the ladoo in the fridge so they firm up.', timerMinutes: 30 },
-        { text: 'Taste test! Pack a few in a pretty box and give them to a neighbour, Diwali style.' },
+        { text: 'Taste test! Pack a few in a pretty box and give them to a neighbor, Diwali style.' },
       ],
       tip: 'Makes about 20 ladoo. They keep in a box in the fridge for up to five days.',
     },
@@ -192,7 +192,7 @@ const content: HolidayContent = {
       id: 'rice-rangoli',
       title: 'Rice Rangoli',
       emoji: '🌸',
-      blurb: 'Dye dry rice in bright colours, then sprinkle it into a flower or diya pattern to welcome visitors, just like a real rangoli by the front door.',
+      blurb: 'Dye dry rice in bright colors, then sprinkle it into a flower or diya pattern to welcome visitors, just like a real rangoli by the front door.',
       minutes: 90,
       mess: 3,
       adultHelp: 'some',
@@ -200,18 +200,18 @@ const content: HolidayContent = {
       materials: [
         { item: 'uncooked white rice', qty: '2 cups' },
         { item: 'zip-seal bags', qty: '4 or 5' },
-        { item: 'food colouring', qty: 'liquid or gel, one bottle per colour' },
+        { item: 'food coloring', qty: 'liquid or gel, one bottle per color' },
         { item: 'white vinegar', qty: '1 tsp per bag' },
-        { item: 'paper plates or a tray', qty: 'one per colour, for drying' },
+        { item: 'paper plates or a tray', qty: 'one per color, for drying' },
         { item: 'paper plate or stiff card for the design' },
         { item: 'pencil' },
         { item: 'white glue', optional: true, substitute: 'skip the glue and make a loose rangoli on a tray' },
       ],
       steps: [
         { text: 'Put about half a cup of rice into each bag.' },
-        { text: 'Add 6 to 8 drops of food colouring and a teaspoon of vinegar to each bag.', tip: 'Food colouring stains fingers and clothes: wear an apron.' },
-        { text: 'Seal the bags tight and shake, squish and shake until every grain is coloured.' },
-        { text: 'Tip each colour onto its own plate, spread it out and leave it to dry.', timerMinutes: 60, tip: 'Dyed rice is for looking at, not eating.' },
+        { text: 'Add 6 to 8 drops of food coloring and a teaspoon of vinegar to each bag.', tip: 'Food coloring stains fingers and clothes: wear an apron.' },
+        { text: 'Seal the bags tight and shake, squish and shake until every grain is colored.' },
+        { text: 'Tip each color onto its own plate, spread it out and leave it to dry.', timerMinutes: 60, tip: 'Dyed rice is for looking at, not eating.' },
         { text: 'Draw a simple design on your plate or card: a flower, a diya, a star, or a circle with petals around it.' },
         {
           text: 'Fill in one part at a time: spread a thin layer of glue, sprinkle rice on top and tap off the extra. For a loose rangoli, skip the glue and pour the rice straight onto a tray with your fingers.',
@@ -225,16 +225,16 @@ const content: HolidayContent = {
   doors: [
     { sleeps: 12, kind: 'fact', text: 'Diwali is a public holiday in many countries, not just India: Nepal, Singapore, Malaysia, Fiji, Mauritius, and Trinidad and Tobago all take a day off for it.' },
     { sleeps: 11, kind: 'joke', text: 'Why did the diya get top marks at school? Because it was so bright!' },
-    { sleeps: 10, kind: 'colour', text: 'Grab your brightest colours! The Diwali colouring page is full of lamps, patterns and flowers. Open the colouring page!' },
+    { sleeps: 10, kind: 'color', text: 'Grab your brightest colors! The Diwali coloring page is full of lamps, patterns and flowers. Open the coloring page!' },
     { sleeps: 9, kind: 'fact', text: 'Lakshmi, the goddess of good fortune, is often shown sitting or standing on a pink lotus flower, so lotus patterns pop up everywhere at Diwali.' },
-    { sleeps: 8, kind: 'craft', text: 'Fold a square of paper in half and in half again, colour a bold pattern in each quarter, then open it up: a mini rangoli for your door!' },
+    { sleeps: 8, kind: 'craft', text: 'Fold a square of paper in half and in half again, color a bold pattern in each quarter, then open it up: a mini rangoli for your door!' },
     { sleeps: 7, kind: 'say', text: 'Learn to say happy Diwali in Gujarati!', greeting: 2 },
     { sleeps: 6, kind: 'fact', text: 'In South India many families draw a kolam by the door each morning with white rice flour. Because it is made of rice, ants and little birds get a snack too.' },
     { sleeps: 5, kind: 'joke', text: 'Why is the jalebi such a good dancer? It has all the right twists!' },
     { sleeps: 4, kind: 'seek', text: 'The Diwali picture has hidden things tucked between the lamps. Can you spot them all? Open Seek & Find!' },
     { sleeps: 3, kind: 'fact', text: "On the day after the big Diwali night, many temples build an Annakut, a 'mountain of food': dozens or even hundreds of vegetarian dishes, offered with thanks and then shared with visitors." },
     { sleeps: 2, kind: 'craft', text: 'Roll a ball of play dough, press your thumb into the middle and pinch the edges: a little diya! Pop a battery tea light inside to make it glow.' },
-    { sleeps: 1, kind: 'say', text: 'The festival of lights is here! Practise the Hindi Diwali wish so you can say it to family, friends and neighbours.', greeting: 0 },
+    { sleeps: 1, kind: 'say', text: 'The festival of lights is here! Practise the Hindi Diwali wish so you can say it to family, friends and neighbors.', greeting: 0 },
   ],
   parentNote:
     'Diwali follows the Hindu lunisolar calendar: Lakshmi Puja, the main night, is the new-moon night of the month of Kartik, so it lands between mid-October and mid-November and the exact day can differ by one day between regional calendars (some say 1 November where others say 31 October). In Tamil Nadu and much of South India the main day is Naraka Chaturdashi, the day before Lakshmi Puja. Sikh families mark Bandi Chhor Divas, Jain families mark the nirvana of Mahavira, and Nepali families celebrate Tihar in the same week. Real diyas and sparklers mean open flames; the craft here uses none.',

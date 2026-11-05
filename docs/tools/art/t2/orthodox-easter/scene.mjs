@@ -165,7 +165,7 @@ export function mid() {
 // ============================== front ==============================
 export function front() {
   setPrecision(1);
-  return compactSvg(doc(`Orthodox Easter · front: whitewashed pots of red geraniums in both bottom corners; the centre stays open`, [], [
+  return compactSvg(doc(`Orthodox Easter · front: whitewashed pots of red geraniums in both bottom corners; the center stays open`, [], [
     C('a pot of geraniums bottom left'),
     path('M10 900l10 -56h100l10 56z', { fill: WHITE }), path('M20 852h100', { fill: 'none', stroke: BLUE, 'stroke-width': 5 }),
     path(circD(40, 820, 24) + circD(80, 810, 28) + circD(112, 826, 20), { fill: '#3a7a3a' }), path(circD(36, 806, 9) + circD(74, 794, 10) + circD(108, 812, 8) + circD(58, 822, 8), { fill: '#e8243a' }),
@@ -181,7 +181,7 @@ export function sceneData(ppl) {
   return {
     hotspots: [
       { activity: 'catch', x: r(ppl.crack[0]), y: r(ppl.crack[1]), r: 44, label: 'Crack the red eggs' },
-      { activity: 'colour', x: r(ppl.basket[0]), y: r(ppl.basket[1]), r: 40, label: 'Colour an Easter egg' },
+      { activity: 'color', x: r(ppl.basket[0]), y: r(ppl.basket[1]), r: 40, label: 'Color an Easter egg' },
       { activity: 'card', x: r(ppl.candle[0]), y: r(ppl.candle[1]), r: 36, label: 'Make a Pascha card' },
       { activity: 'memory', x: r(ppl.bowl[0]), y: r(ppl.bowl[1]), r: 40, label: 'Match the Easter treats' },
     ],

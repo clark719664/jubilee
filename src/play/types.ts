@@ -2,9 +2,9 @@
  * play/types.ts — the contract every activity implements.
  *
  * An activity is a little place inside a holiday: a countdown-door board, a seek-and-find in the scene,
- * a colouring page, a card maker, the wish post, sticker memory, the catch game, dress-up Jubi, the globe
+ * a coloring page, a card maker, the wish post, sticker memory, the catch game, dress-up Jubi, the globe
  * quiz, a picture-book story or a path puzzle. Each one is written once and skinned by the holiday it is
- * opened from (theme colours, scene art, stickers, effect sprites, content), so every holiday gets every
+ * opened from (theme colors, scene art, stickers, effect sprites, content), so every holiday gets every
  * activity it has material for, forever. Routes: `#/h/:id/play/:activity`.
  *
  * Rules (from the competitive bar): one finger and keyboard both work; reduced motion has a variant;
@@ -17,12 +17,12 @@ import type { HolidayContent, HolidayMeta } from '../content/types';
 import type { Theme } from '../theme/themes';
 
 export type ActivityId =
-  | 'doors' | 'seek' | 'colour' | 'card' | 'wish' | 'memory' | 'catch' | 'quiz' | 'dressup' | 'story' | 'path'
+  | 'doors' | 'seek' | 'color' | 'card' | 'wish' | 'memory' | 'catch' | 'quiz' | 'dressup' | 'story' | 'path'
   // Holiday-only games (available() is true only for the holidays they are made for).
   | 'pumpkin' | 'treats' | 'monster' | 'potion' | 'peekaboo';
 
 export const ACTIVITY_IDS: readonly ActivityId[] = [
-  'doors', 'seek', 'colour', 'card', 'wish', 'memory', 'catch', 'quiz', 'dressup', 'story', 'path',
+  'doors', 'seek', 'color', 'card', 'wish', 'memory', 'catch', 'quiz', 'dressup', 'story', 'path',
   'pumpkin', 'treats', 'monster', 'potion', 'peekaboo',
 ];
 

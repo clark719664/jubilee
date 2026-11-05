@@ -4,12 +4,12 @@
  *   quick, bright), each swaying on its own slow sine and rocking gently as it sways; their opacity
  *   twinkles at ≤ 0.8 Hz. A big glossy heart sits in the upper right and beats a calm lub-dub (60 bpm),
  *   breathing out a tiny sparkle heart on every beat. Faint glow motes drift up in a 'lighter' pass.
- * Behaviours: rise + sway + twinkle (hearts), rise + twinkle (motes), drag + upward float (pop ring).
+ * Behaviors: rise + sway + twinkle (hearts), rise + twinkle (motes), drag + upward float (pop ring).
  * Tap: a heart-pop ring — two rings of hearts spring out from the finger, tips inward like a flower,
  *   slow, float up and fade, around a soft glow that ramps over 300 ms. Tapping the big heart makes it
  *   do a big happy double beat.
  * Still: hearts floating in place at every depth and the big heart at rest.
- * Params: palette (heart colours; default accent / glow / a pale glow / white), density. Grandparents Day
+ * Params: palette (heart colors; default accent / glow / a pale glow / white), density. Grandparents Day
  *   passes a warm palette. The big heart is always the theme accent.
  */
 import type { Theme } from '../../theme/themes';

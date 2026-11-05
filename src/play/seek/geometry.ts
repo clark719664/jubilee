@@ -46,7 +46,7 @@ export function coverScale(vp: Viewport): number {
   return Math.max(vp.w / ART_W, vp.h / ART_H, 1e-6);
 }
 
-/** The hero framing: cover, centred horizontally, bottom edge on the stage's bottom edge. */
+/** The hero framing: cover, centered horizontally, bottom edge on the stage's bottom edge. */
 export function coverView(vp: Viewport): View {
   const s = coverScale(vp);
   return { s, ox: (vp.w - ART_W * s) / 2, oy: vp.h - ART_H * s };
@@ -72,7 +72,7 @@ export function scaleLimits(vp: Viewport): { readonly min: number; readonly cove
   return { min: Math.min(cover, fit), cover, max: cover * MAX_ZOOM };
 }
 
-/** Clamp one axis: keep `o` in [lo, hi]; when the picture is smaller than the room, centre it. */
+/** Clamp one axis: keep `o` in [lo, hi]; when the picture is smaller than the room, center it. */
 function clampAxis(o: number, lo: number, hi: number): number {
   return lo > hi ? (lo + hi) / 2 : clampNum(o, lo, hi);
 }
@@ -116,8 +116,8 @@ export function zoomAt(v: View, vp: Viewport, factor: number, anchor: Point): Vi
   return clampView({ s, ox: anchor.x - a.x * s, oy: anchor.y - a.y * s }, vp);
 }
 
-/** Centre of the visible band between the bars, in screen px (where buttons zoom about). */
-export function bandCentre(vp: Viewport): Point {
+/** Center of the visible band between the bars, in screen px (where buttons zoom about). */
+export function bandCenter(vp: Viewport): Point {
   return { x: vp.w / 2, y: (vp.top + vp.h - vp.bottom) / 2 };
 }
 
@@ -142,9 +142,9 @@ export function wheelFactor(deltaY: number, pinch: boolean): number {
   return Math.exp(-clampNum(deltaY, -240, 240) * k);
 }
 
-/** A view that centres an artboard point in the visible band at scale `s` (then clamps). */
+/** A view that centers an artboard point in the visible band at scale `s` (then clamps). */
 export function focusView(vp: Viewport, p: Point, s: number): View {
-  const c = bandCentre(vp);
+  const c = bandCenter(vp);
   return clampView({ s, ox: c.x - p.x * s, oy: c.y - p.y * s }, vp);
 }
 
@@ -230,13 +230,13 @@ export function cropFor(f: Circle, box: number): { readonly width: number; reado
   return { width: ART_W * k, height: ART_H * k, left: -(f.x - side / 2) * k, top: -(f.y - side / 2) * k };
 }
 
-/** Hint glow radius in artboard px: a neighbourhood, not a spot. */
+/** Hint glow radius in artboard px: a neighborhood, not a spot. */
 export const HINT_RADIUS = 220;
-/** How far off-centre the thing sits in the glow, as a share of the glow's radius. */
+/** How far off-center the thing sits in the glow, as a share of the glow's radius. */
 const HINT_OFFSET = 0.55;
 
 /**
- * Where a hint glows: a pool that only says "somewhere round here", with the thing off-centre in a
+ * Where a hint glows: a pool that only says "somewhere round here", with the thing off-center in a
  * seeded direction so the middle of the glow is never the answer.
  */
 export function hintCircle(f: Circle, seed: number): Circle {
@@ -255,17 +255,17 @@ export function fxOpacity(v: View, vp: Viewport): number {
   return clampNum(1 - Math.abs(z - 1) / 0.6, 0, 1);
 }
 
-/** Keeps the same artboard point at the band centre (and the same zoom ratio) when the stage resizes. */
+/** Keeps the same artboard point at the band center (and the same zoom ratio) when the stage resizes. */
 export function refit(v: View, from: Viewport, to: Viewport): View {
   const zoom = v.s / coverScale(from);
-  const centreArt = screenToArt(v, bandCentre(from));
-  return focusView(to, centreArt, coverScale(to) * zoom);
+  const centerArt = screenToArt(v, bandCenter(from));
+  return focusView(to, centerArt, coverScale(to) * zoom);
 }
 
 /**
  * Where and how big the hint glow is drawn on screen. Zoomed in, the hint circle would swallow the
  * screen, so it is capped to the visible band, never below what still fits the thing. It stays just
- * as off-centre when capped, so zooming in cannot turn the glow into a pointer.
+ * as off-center when capped, so zooming in cannot turn the glow into a pointer.
  */
 export function hintDisc(v: View, vp: Viewport, hint: Circle, target: Circle): { readonly x: number; readonly y: number; readonly d: number } {
   const cap = Math.max(0.9 * Math.min(vp.w, vp.h - vp.top - vp.bottom), target.r * 4.6 * v.s);

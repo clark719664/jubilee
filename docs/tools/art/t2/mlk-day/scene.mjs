@@ -1,4 +1,4 @@
-// Martin Luther King Jr. Day — "A day of service": on a January morning a neighbourhood paints a mural together on
+// Martin Luther King Jr. Day — "A day of service": on a January morning a neighborhood paints a mural together on
 // a long brick wall: a rising sun, a white dove with an olive branch, a circle of children of every skin tone
 // holding hands and a border of rainbow handprints. A boy presses his painted hand on the wall, a girl on a step
 // ladder paints the dove's wing, grandpa paints the hills with a roller from his wheelchair, a teen on a ladder
@@ -23,7 +23,7 @@ const WALL = { x0: 272, x1: 1328, top: 480, base: 776 };
 const MURAL = { x0: 300, x1: 1112, top: 506, base: 760 };     // painted so far; the rest is still bare brick
 const GROUND = 776;
 
-/** A dove (flying left), centred at (x, y), wingspan about 140·s. */
+/** A dove (flying left), centered at (x, y), wingspan about 140·s. */
 const dove = (x, y, s, col = '#ffffff', shade = '#d8e0ee') => G({ transform: `translate(${f(x)} ${f(y)}) scale(${f(s)})` },
   path('M-6 4C14 -40 46 -58 72 -54C52 -40 40 -20 30 0Z', { fill: shade }),
   path('M-58 0C-46 -12 -26 -14 -8 -10C20 -6 46 0 66 14L84 8L78 24C50 34 0 32 -30 18C-42 12 -52 8 -58 0Z', { fill: col }),
@@ -222,7 +222,7 @@ export function mid() {
   }
 
   // ---- paint pots on the drop cloth
-  out.push(C('paint pots in every colour on the drop cloth'));
+  out.push(C('paint pots in every color on the drop cloth'));
   {
     const pots = [[560, 856, 0], [700, 862, 1], [742, 852, 2], [960, 866, 3], [1100, 856, 4], [1146, 864, 5], [400, 866, 6]];
     for (const [x, y, k] of pots) out.push(path(`M${x - 14} ${y}l-2 -26h32l-2 26z`, { fill: '#d8d8e0' }), ellipse(x, y - 26, 16, 5, { fill: PAINT[k] }), path(`M${x - 16} ${y - 20}h32`, { fill: 'none', stroke: '#b8b8c4', 'stroke-width': 2 }));
@@ -248,13 +248,13 @@ export function mid() {
   out.push(dog(1500, 856, 0.85, '#d8a868', { coat: null, flip: -1 }), path('M1474 816q12 10 26 2l-4 12q-10 4 -20 -2z', { fill: '#e8343a' }));
   ppl.dog = [1500, 814];
 
-  return { svg: compactSvg(doc(`MLK Day · mid. Concept: "a day of service": on a January morning a neighbourhood paints a mural together on a long brick wall. Focal point: the mural (x 300–1110, y 506–760) — a rising sun, rolling hills, a white dove with an olive branch, a ring of children of every skin tone holding hands and a border of rainbow handprints — with the painters in front: mum with a paint tray, a boy pressing his green hand to the wall, a girl on a step ladder painting the dove, grandpa painting the hills with a roller from his wheelchair, a teen on a ladder sketching the next part. A coat-drive box on the brownstone stoop on the left with a girl giving a scarf; a little free pantry on the right with a boy carrying tins and a dog. Light story: the morning sun warms the horizon; lit windows. The drifting doves, hearts and fists are the effect's.`, defs, out)), ppl };
+  return { svg: compactSvg(doc(`MLK Day · mid. Concept: "a day of service": on a January morning a neighborhood paints a mural together on a long brick wall. Focal point: the mural (x 300–1110, y 506–760) — a rising sun, rolling hills, a white dove with an olive branch, a ring of children of every skin tone holding hands and a border of rainbow handprints — with the painters in front: mum with a paint tray, a boy pressing his green hand to the wall, a girl on a step ladder painting the dove, grandpa painting the hills with a roller from his wheelchair, a teen on a ladder sketching the next part. A coat-drive box on the brownstone stoop on the left with a girl giving a scarf; a little free pantry on the right with a boy carrying tins and a dog. Light story: the morning sun warms the horizon; lit windows. The drifting doves, hearts and fists are the effect's.`, defs, out)), ppl };
 }
 
 // ============================== front ==============================
 export function front() {
   setPrecision(1);
-  return compactSvg(doc(`MLK Day · front: a planter with winter greens bottom left and a fire hydrant bottom right; the centre stays open`, [], [
+  return compactSvg(doc(`MLK Day · front: a planter with winter greens bottom left and a fire hydrant bottom right; the center stays open`, [], [
     C('a planter with winter greens and red berries'),
     path('M-10 900V840h120v60z', { fill: '#5a6a7a' }), path('M-14 840h128v-10h-128z', { fill: '#7a8a9a' }),
     path(circD(10, 818, 22) + circD(48, 806, 26) + circD(86, 820, 22), { fill: '#2a6a4a' }), path(circD(20, 808, 4) + circD(54, 796, 4) + circD(80, 810, 4) + circD(40, 818, 4), { fill: '#e8243a' }),
@@ -268,10 +268,10 @@ export function sceneData(ppl) {
   const r = (v) => Math.round(v);
   return {
     hotspots: [
-      { activity: 'colour', x: ppl.mural[0], y: ppl.mural[1], r: 70, label: 'Help paint the mural' },
+      { activity: 'color', x: ppl.mural[0], y: ppl.mural[1], r: 70, label: 'Help paint the mural' },
       { activity: 'wish', x: ppl.dove[0], y: ppl.dove[1], r: 50, label: 'Share your dream' },
       { activity: 'card', x: ppl.box[0], y: ppl.box[1], r: 44, label: 'Write a kind note' },
-      { activity: 'memory', x: ppl.pots[0], y: ppl.pots[1], r: 40, label: 'Match the paint colours' },
+      { activity: 'memory', x: ppl.pots[0], y: ppl.pots[1], r: 40, label: 'Match the paint colors' },
     ],
     findables: [
       { id: 'handprint', label: 'a green painted hand', x: r(ppl.handprint[0]), y: r(ppl.handprint[1]), r: 16 },

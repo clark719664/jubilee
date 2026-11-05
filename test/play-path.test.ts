@@ -6,7 +6,7 @@ import {
   MAX_DEPTH, balanced, cardCount, cardsOf, depths, insertCard, maxDepth, moveCard, moveCardTo, parse, partners, removeCard, run,
   type Board, type Card,
 } from '../src/play/path/model';
-import { SKINNED, focusColour, ringSurfaces, skinFor } from '../src/play/path/skins';
+import { SKINNED, focusColor, ringSurfaces, skinFor } from '../src/play/path/skins';
 import { contrastRatio } from '../src/theme/contrast';
 import { solve } from '../src/play/path/solver';
 import { PATH_KEY, forgetSessionStars, pathStars, readSolved } from '../src/play/path/stars';
@@ -284,12 +284,12 @@ describe('skins and words', () => {
 
   it('focus rings and the caret slot stand out (3:1) on every theme’s sky and panels', () => {
     for (const t of Object.values(THEMES)) {
-      const f = focusColour(t);
+      const f = focusColor(t);
       for (const bg of ringSurfaces(t)) expect(contrastRatio(f, bg), `${t.id} ${f} on ${bg}`).toBeGreaterThanOrEqual(3);
     }
     // A white glow on a pale Easter sky falls back to the theme's ink.
-    expect(focusColour(THEMES.easter)).toBe(THEMES.easter.ink);
-    expect(focusColour(THEMES.christmas)).toBe(THEMES.christmas.glow);
+    expect(focusColor(THEMES.easter)).toBe(THEMES.easter.ink);
+    expect(focusColor(THEMES.christmas)).toBe(THEMES.christmas.glow);
   });
 
   it('every COPY string is URL-free', () => {

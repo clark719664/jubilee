@@ -1,6 +1,6 @@
 /**
  * Year view (§3.1 `#/year`, `#/year/:year`): twelve little month calendars with a
- * holiday emoji on each main day, soft colour behind the days of several-day holidays,
+ * holiday emoji on each main day, soft color behind the days of several-day holidays,
  * today's square, weekend tint, a ◀ ▶ switcher clamped to 2024–2035,
  * the optional Year Wheel, and "All holidays in 2027" — the same information as an
  * ordinary list for screen readers and keyboard users (the grid itself is aria-hidden).
@@ -170,7 +170,7 @@ export function yearModel(metas: readonly HolidayMeta[], year: number, region: R
   return { year, dots, bars, list, missing };
 }
 
-/** A strong, readable colour for a holiday's bar or legend swatch: the accent, unless it is a pale gold. */
+/** A strong, readable color for a holiday's bar or legend swatch: the accent, unless it is a pale gold. */
 export function holidayColor(theme: Theme): string {
   return relativeLuminance(theme.accent) > 0.55 ? theme.bg2 : theme.accent;
 }
@@ -222,7 +222,7 @@ interface MonthBuild {
   readonly openDay: (day: DayNumber, entries: readonly YearEntry[]) => void;
 }
 
-/** Day → the colours of every several-day holiday on it, lowest lane first. */
+/** Day → the colors of every several-day holiday on it, lowest lane first. */
 function barPieces(model: YearModel): Map<DayNumber, string[]> {
   const out = new Map<DayNumber, string[]>();
   for (const { entry } of [...model.bars].sort((a, b) => a.lane - b.lane)) {

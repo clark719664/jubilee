@@ -239,7 +239,7 @@ export function mid() {
 // ============================== front ==============================
 export function front() {
   setPrecision(1);
-  return compactSvg(doc(`Groundhog Day · front: snowbanks in both bottom corners with dry grass poking through; the centre stays open`, [], [
+  return compactSvg(doc(`Groundhog Day · front: snowbanks in both bottom corners with dry grass poking through; the center stays open`, [], [
     C('a snowbank on the left'),
     path('M-20 900V846Q70 824 170 838T300 880L316 900Z', { fill: '#ffffff' }),
     path('M-20 900V866Q90 852 200 872T316 900Z', { fill: '#dce8f2' }),
@@ -255,7 +255,7 @@ export function sceneData(ppl) {
   const r = (v) => Math.round(v);
   return {
     hotspots: [
-      { activity: 'colour', x: ppl.groundhog[0], y: r(ppl.groundhog[1] + 40), r: 56, label: 'Colour in the groundhog' },
+      { activity: 'color', x: ppl.groundhog[0], y: r(ppl.groundhog[1] + 40), r: 56, label: 'Color in the groundhog' },
       { activity: 'wish', x: 1468, y: 150, r: 60, label: 'Wish for an early spring' },
       { activity: 'dressup', x: r(ppl.tophat[0]), y: r(ppl.tophat[1] + 40), r: 50, label: 'Try on the top hat' },
       { activity: 'card', x: r(ppl.sunSign[0]), y: r(ppl.sunSign[1]), r: 40, label: 'Make a weather sign' },

@@ -1,5 +1,5 @@
 /**
- * "Say it": greeting cards with the native text large (and its `lang` attribute), the romanisation, a kid
+ * "Say it": greeting cards with the native text large (and its `lang` attribute), the romanization, a kid
  * respelling in a speech bubble and the meaning. The only sound Jubilee ever makes is a greeting the child
  * tapped: "Hear it" appears only when the browser has a voice for that language (SpeechSynthesis, feature-detected
  * per language; voices often load late, so cards listen for `voiceschanged`).
@@ -82,7 +82,7 @@ export function onVoicesChanged(cb: () => void): () => void {
   return () => s.removeEventListener('voiceschanged', cb);
 }
 
-/** 'hi' → 'hi-Latn' for the romanised line, so screen readers do not read it with a Hindi voice. */
+/** 'hi' → 'hi-Latn' for the romanized line, so screen readers do not read it with a Hindi voice. */
 function latnTag(lang: string): string {
   return `${lang.split('-')[0] ?? lang}-Latn`;
 }

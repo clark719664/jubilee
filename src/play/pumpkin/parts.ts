@@ -12,7 +12,7 @@ export interface PumpkinSpec {
   readonly nose: string;
   readonly mouth: string;
   readonly hat: string;
-  readonly colour: string;
+  readonly color: string;
   readonly lit: boolean;
 }
 
@@ -38,20 +38,20 @@ export const HATS: readonly Part[] = [
   { id: 'crown', name: 'Crown' }, { id: 'bow', name: 'Bow' }, { id: 'bat', name: 'A little bat' },
 ];
 
-export interface Colour extends Part {
+export interface Color extends Part {
   readonly base: string;
   readonly dark: string;
   readonly light: string;
 }
-export const COLOURS: readonly Colour[] = [
+export const COLORS: readonly Color[] = [
   { id: 'orange', name: 'Orange', base: '#ff8c1a', dark: '#d9650c', light: '#ffb454' },
   { id: 'white', name: 'White', base: '#f1ebdf', dark: '#cfc5b2', light: '#fffaf0' },
   { id: 'green', name: 'Green', base: '#82b650', dark: '#5f9239', light: '#aad676' },
-  { id: 'blue', name: 'Blue-grey', base: '#8db0c9', dark: '#6b92ae', light: '#b9d4e6' },
+  { id: 'blue', name: 'Blue-gray', base: '#8db0c9', dark: '#6b92ae', light: '#b9d4e6' },
   { id: 'pink', name: 'Pink', base: '#ff9db8', dark: '#e4738f', light: '#ffc2d3' },
 ];
 
-export const DEFAULT_PUMPKIN: PumpkinSpec = { v: 1, eyes: 'triangle', nose: 'triangle', mouth: 'grin', hat: 'none', colour: 'orange', lit: false };
+export const DEFAULT_PUMPKIN: PumpkinSpec = { v: 1, eyes: 'triangle', nose: 'triangle', mouth: 'grin', hat: 'none', color: 'orange', lit: false };
 
 const ids = (list: readonly Part[]): readonly string[] => list.map((p) => p.id);
 const oneOf = (v: unknown, list: readonly Part[], fallback: string): string => (typeof v === 'string' && ids(list).includes(v) ? v : fallback);
@@ -65,12 +65,12 @@ export function sanitizePumpkin(data: unknown): PumpkinSpec {
     nose: oneOf(o.nose, NOSES, DEFAULT_PUMPKIN.nose),
     mouth: oneOf(o.mouth, MOUTHS, DEFAULT_PUMPKIN.mouth),
     hat: oneOf(o.hat, HATS, DEFAULT_PUMPKIN.hat),
-    colour: oneOf(o.colour, COLOURS, DEFAULT_PUMPKIN.colour),
+    color: oneOf(o.color, COLORS, DEFAULT_PUMPKIN.color),
     lit: o.lit === true,
   };
 }
 
-export type Slot = 'eyes' | 'nose' | 'mouth' | 'hat' | 'colour';
+export type Slot = 'eyes' | 'nose' | 'mouth' | 'hat' | 'color';
 
 export function withPart(spec: PumpkinSpec, slot: Slot, id: string): PumpkinSpec {
   return { ...spec, [slot]: id };
@@ -79,7 +79,7 @@ export function withPart(spec: PumpkinSpec, slot: Slot, id: string): PumpkinSpec
 /** A random pumpkin for "Surprise me" (rand in [0, 1)). */
 export function randomPumpkin(rand: () => number, lit = false): PumpkinSpec {
   const p = <T extends Part>(l: readonly T[]): string => l[Math.floor(rand() * l.length) % l.length]!.id;
-  return { v: 1, eyes: p(EYES), nose: p(NOSES), mouth: p(MOUTHS), hat: p(HATS), colour: p(COLOURS), lit };
+  return { v: 1, eyes: p(EYES), nose: p(NOSES), mouth: p(MOUTHS), hat: p(HATS), color: p(COLORS), lit };
 }
 
 const MOUTH_WORD: Readonly<Record<string, string>> = {
@@ -89,8 +89,8 @@ const MOUTH_WORD: Readonly<Record<string, string>> = {
 /** "Grinning orange pumpkin": what the Fridge calls it. */
 export function pumpkinTitle(spec: PumpkinSpec): string {
   const word = MOUTH_WORD[spec.mouth] ?? 'friendly';
-  const colour = (COLOURS.find((c) => c.id === spec.colour) ?? COLOURS[0]!).name.toLowerCase();
-  const t = `${word} ${colour} pumpkin`;
+  const color = (COLORS.find((c) => c.id === spec.color) ?? COLORS[0]!).name.toLowerCase();
+  const t = `${word} ${color} pumpkin`;
   return t.charAt(0).toUpperCase() + t.slice(1);
 }
 
@@ -99,7 +99,7 @@ export function describePumpkin(spec: PumpkinSpec): string {
   const name = (list: readonly Part[], id: string): string => (list.find((p) => p.id === id)?.name ?? id).toLowerCase();
   const hat = spec.hat === 'none' ? '' : ` wearing ${name(HATS, spec.hat) === 'a little bat' ? 'a little bat' : `a ${name(HATS, spec.hat)}`}`;
   const nose = spec.nose === 'none' ? 'no nose' : name(NOSES, spec.nose);
-  return `A ${spec.lit ? 'glowing ' : ''}${name(COLOURS, spec.colour)} jack-o’-lantern${hat}, with ${name(EYES, spec.eyes)}, ${nose} and a ${name(MOUTHS, spec.mouth)}`;
+  return `A ${spec.lit ? 'glowing ' : ''}${name(COLORS, spec.color)} jack-o’-lantern${hat}, with ${name(EYES, spec.eyes)}, ${nose} and a ${name(MOUTHS, spec.mouth)}`;
 }
 
 // ── drawing (a 200 × 220 board; the pumpkin sits low so hats have headroom) ──
@@ -134,8 +134,8 @@ function noseShapes(id: string): Spec[] {
 
 const TOOTH = 'pk-tooth';
 
-function mouthShapes(id: string, colour: Colour): Spec[] {
-  const tooth = (d: string): Spec => ['path', { class: TOOTH, d, fill: colour.base }];
+function mouthShapes(id: string, color: Color): Spec[] {
+  const tooth = (d: string): Spec => ['path', { class: TOOTH, d, fill: color.base }];
   switch (id) {
     case 'smile': return [line('M-36-6Q0 32 36-6', 8)];
     case 'grin': return [cut('path', { d: 'M-42-8Q0 14 42-8Q0 54-42-8z' }), tooth('M-22 0L-14 14L-6 3z'), tooth('M6 3L14 14L22 0z')];
@@ -181,7 +181,7 @@ function hatShapes(id: string): Spec[] {
   }
 }
 
-/** A deeper shade of a #rrggbb colour (a lit pumpkin's body goes dusky so the glow stands out). */
+/** A deeper shade of a #rrggbb color (a lit pumpkin's body goes dusky so the glow stands out). */
 function shade(hex: string): string {
   const n = parseInt(hex.slice(1), 16);
   const f = (v: number): string => Math.round(v * 0.72).toString(16).padStart(2, '0');
@@ -190,7 +190,7 @@ function shade(hex: string): string {
 
 /** The board is 200 wide × 220 tall; the pumpkin's middle is (100, 140). */
 export function pumpkinSpec(spec: PumpkinSpec): Spec {
-  const c = COLOURS.find((x) => x.id === spec.colour) ?? COLOURS[0]!;
+  const c = COLORS.find((x) => x.id === spec.color) ?? COLORS[0]!;
   const gid = uid('pkglow');
   const body = (cx: number, rx: number, ry: number, fillc: string): Spec => ['ellipse', { cx, cy: 140, rx, ry, fill: fillc }];
   const face: Spec = ['g', { class: 'pk-face' },

@@ -7,10 +7,10 @@
  * The child taps picture wishes onto the paper (and may write ≤ 600 characters), then sends it: the
  * paper folds into an envelope or becomes a lantern/lamp/slip/leaf/star and goes (send.ts). It is kept
  * on the Fridge (kind 'wish'). At Christmas, from the next real morning, Santa's reply waits in the
- * postbox, written on the device (reply.ts). Nothing leaves the device and no copy says otherwise.
+ * mailbox, written on the device (reply.ts). Nothing leaves the device and no copy says otherwise.
  *
  * Keys: Tab moves between areas; arrows/Home/End move in the picture tray, Enter/Space picks; Esc skips
- * a flight, closes a letter, leaves the postbox, then leaves the activity.
+ * a flight, closes a letter, leaves the mailbox, then leaves the activity.
  */
 import './wish.css';
 import { sceneFor } from '../../art/index';
@@ -74,7 +74,7 @@ function mountWish(env: PlayEnv): ActivityInstance {
   const desk = h('div', { class: 'wish-desk' }, view.paper, view.tray);
   const writeArea = h('div', { class: 'wish-write' }, desk, bar);
   const stage = h('main', { class: 'wish-stage' }, writeArea);
-  const root = h('section', { class: 'wish sky', 'data-skin': skin.id, 'aria-labelledby': 'wish-h1' },
+  const root = h('section', { class: 'wish sky', 'data-skin': skin.id, 'aria-labeledby': 'wish-h1' },
     sceneBackdrop(scene, 'is-bg'), header, stage);
   applyTheme(root, theme);
   const syncMotion = (): void => { root.classList.toggle('wish-calm', !full()); };
@@ -147,7 +147,7 @@ function mountWish(env: PlayEnv): ActivityInstance {
     const paper = letterPaper(letter);
     const again = h('button', { type: 'button', class: 'btn btn-lg wish-again', onclick: () => endFlight(false) }, icon('plus', 22), skin.another);
     const fridgeNote = h('p', { class: 'wish-done-note' }, saved === 'saved' ? COPY.fridgeSaved : saved === 'pretending' ? COPY.fridgeNotSaved : '');
-    const card = h('div', { class: 'wish-done', role: 'dialog', 'aria-modal': 'true', 'aria-labelledby': 'wish-done-title' },
+    const card = h('div', { class: 'wish-done', role: 'dialog', 'aria-modal': 'true', 'aria-labeledby': 'wish-done-title' },
       h('div', { class: 'wish-done-jubi' }, mascot('party', 76)),
       h('h2', { class: 'wish-done-title', id: 'wish-done-title' }, skin.flewTitle),
       h('p', { class: 'wish-done-sub' }, skin.flewSub),
@@ -208,7 +208,7 @@ function mountWish(env: PlayEnv): ActivityInstance {
     dialog = d;
   }
 
-  // ── keep (postbox / sky / jar / tree) ──
+  // ── keep (mailbox / sky / jar / tree) ──
   function showKeep(focus: boolean): void {
     const { letters, replies } = mine();
     const next = keepView({

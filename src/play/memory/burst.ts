@@ -45,7 +45,7 @@ export function spritesFor(effect: EffectId, params: EffectParams | undefined): 
   return glyphs.length > 0 ? [...glyphs, ...base.slice(0, 2)] : base;
 }
 
-/** Colours: the effect's own palette when it has one, else the theme's glow, accents and white. */
+/** Colors: the effect's own palette when it has one, else the theme's glow, accents and white. */
 export function paletteFor(theme: Theme, params: EffectParams | undefined): string[] {
   return params?.palette && params.palette.length > 0 ? [...params.palette, theme.glow] : [theme.glow, theme.accent, theme.accent2, '#ffffff'];
 }

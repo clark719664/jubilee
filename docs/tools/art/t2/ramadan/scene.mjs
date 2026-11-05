@@ -1,6 +1,6 @@
 // Ramadan — "Iftar on the rooftop": the sun has just set and the fast is over. On a whitewashed rooftop a family
 // sits round a low table spread with dates, water, lentil soup, samosas and flatbread under strings of glowing
-// fanous lanterns; grandma offers the dates. Across the gap a neighbour passes over a plate of sweet qatayef; two
+// fanous lanterns; grandma offers the dates. Across the gap a neighbor passes over a plate of sweet qatayef; two
 // children with little lanterns aim a telescope at the sky to look for the moon. Minarets and domes against the
 // last light. The moon, the stars and the lattice are the effect's (the sky is left open for them).
 import { f, P, mix, lighten, darken, rng, E, G, C, path, circle, ellipse, rect, lin, rad, doc, compactSvg, setPrecision } from '../../gen-xmas/lib.mjs';
@@ -105,8 +105,8 @@ export function mid() {
     out.push(line(fringe, '#f4e0c0', 2.4));
   }
 
-  // ---- the neighbours' rooftop on the left, lower, across a gap
-  out.push(C('the neighbours\' rooftop on the left: a parapet, a potted palm, a water tank; the neighbour boy passes over a plate of qatayef'));
+  // ---- the neighbors' rooftop on the left, lower, across a gap
+  out.push(C('the neighbors\' rooftop on the left: a parapet, a potted palm, a water tank; the neighbor boy passes over a plate of qatayef'));
   out.push(path(`M-20 ${ROOF}V640H330V${ROOF}Z`, { fill: url('wall') }), path('M-20 640H330', { fill: 'none', stroke: '#c8b8a8', 'stroke-width': 4 }));
   { let cren = ''; for (let x = -20; x < 330; x += 34) cren += `M${x} 640v-14h20v14z`; out.push(path(cren, { fill: '#f4ece2' })); }
   out.push(path('M40 640v-70h80v70z', { fill: '#5a7a8a' }), path('M34 572h92v-10h-92z', { fill: '#4a6a7a' }), path('M60 562v-12h40v12z', { fill: '#4a6a7a' }));
@@ -206,13 +206,13 @@ export function mid() {
     ppl.lantern = [bh[0], bh[1] + 30];
   }
 
-  return { svg: compactSvg(doc(`Ramadan · mid. Concept: "iftar on the rooftop": the sun has just set and the fast is over. Focal point: the family round a low table (x 470–1110, y 640–810) spread with dates, water, lentil soup, samosas, flatbread and fruit — grandma in a lilac hijab offers the dates, dad pours water, a child breaks the fast with a date, mum in a blue hijab, a little girl — under strings of glowing fanous lanterns. On the neighbours' lower rooftop on the left a boy passes over a plate of qatayef and a cat sits on the parapet; on the right two children with a little lantern aim a telescope at the sky to look for the moon. Light story: lantern-gold from above and the last warm light of sunset on the horizon; the upper sky is left open for the effect's moon and stars.`, defs, out)), ppl };
+  return { svg: compactSvg(doc(`Ramadan · mid. Concept: "iftar on the rooftop": the sun has just set and the fast is over. Focal point: the family round a low table (x 470–1110, y 640–810) spread with dates, water, lentil soup, samosas, flatbread and fruit — grandma in a lilac hijab offers the dates, dad pours water, a child breaks the fast with a date, mum in a blue hijab, a little girl — under strings of glowing fanous lanterns. On the neighbors' lower rooftop on the left a boy passes over a plate of qatayef and a cat sits on the parapet; on the right two children with a little lantern aim a telescope at the sky to look for the moon. Light story: lantern-gold from above and the last warm light of sunset on the horizon; the upper sky is left open for the effect's moon and stars.`, defs, out)), ppl };
 }
 
 // ============================== front ==============================
 export function front() {
   setPrecision(1);
-  return compactSvg(doc(`Ramadan · front: cushions and a brass lantern bottom left, a potted plant bottom right; the centre stays open`, [
+  return compactSvg(doc(`Ramadan · front: cushions and a brass lantern bottom left, a potted plant bottom right; the center stays open`, [
     rad(id('fglow'), 0.5, 0.5, 0.5, [[0, '#ffd98a', 0.55], [1, '#ffd98a', 0]]),
   ], [
     C('floor cushions and a brass lantern'),
@@ -229,8 +229,8 @@ export function sceneData(ppl) {
   return {
     hotspots: [
       { activity: 'wish', x: r(ppl.telescope[0]), y: r(ppl.telescope[1]), r: 44, label: 'Look for the new moon' },
-      { activity: 'colour', x: r(ppl.lanterns[0]), y: r(ppl.lanterns[1] + 50), r: 50, label: 'Colour a fanous lantern' },
-      { activity: 'card', x: r(ppl.qatayef[0]), y: r(ppl.qatayef[1]), r: 36, label: 'Make a Ramadan card for the neighbours' },
+      { activity: 'color', x: r(ppl.lanterns[0]), y: r(ppl.lanterns[1] + 50), r: 50, label: 'Color a fanous lantern' },
+      { activity: 'card', x: r(ppl.qatayef[0]), y: r(ppl.qatayef[1]), r: 36, label: 'Make a Ramadan card for the neighbors' },
       { activity: 'memory', x: ppl.table[0], y: ppl.table[1], r: 56, label: 'Match the iftar treats' },
     ],
     findables: [

@@ -3,7 +3,7 @@
  * the book), a story page (its sentences, each word its own span so "Read to me" can light it up) and
  * The End (Fridge, print, read again). Also the die-cut title plates laid over the picture.
  *
- * Every leaf is a labelled group ("Page 3 of 8") so a screen reader hears where it is; the pictures are
+ * Every leaf is a labeled group ("Page 3 of 8") so a screen reader hears where it is; the pictures are
  * decorative (the words tell the story), and page turns are announced through ctx.announce by the view.
  */
 import { h } from '../../ui/dom';

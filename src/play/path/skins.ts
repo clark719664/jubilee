@@ -38,7 +38,7 @@ export interface Skin {
 }
 
 const SKINS: Partial<Record<string, Skin>> = {
-  christmas: { ground: 'snow', item: 'present', block: 'snowman', goal: 'snowHouse', one: 'present', many: 'presents', verb: 'deliver', done: 'delivered', aBlock: 'a snowman', blocks: 'snowmen', goalName: 'the cosy house', place: 'the snowy field' },
+  christmas: { ground: 'snow', item: 'present', block: 'snowman', goal: 'snowHouse', one: 'present', many: 'presents', verb: 'deliver', done: 'delivered', aBlock: 'a snowman', blocks: 'snowmen', goalName: 'the cozy house', place: 'the snowy field' },
   hanukkah: { ground: 'snow', item: 'coin', block: 'snowman', goal: 'snowHouse', one: 'chocolate coin', many: 'chocolate coins', verb: 'gather', done: 'gathered', aBlock: 'a snowman', blocks: 'snowmen', goalName: 'the house', place: 'the snowy yard' },
   diwali: { ground: 'tiles', item: 'diya', block: 'pot', goal: 'house', one: 'diya', many: 'diyas', verb: 'light', done: 'lit', aBlock: 'a flower pot', blocks: 'flower pots', goalName: 'the front door', place: 'the courtyard' },
   'lunar-new-year': { ground: 'tiles', item: 'envelope', block: 'lanternPost', goal: 'gate', one: 'red envelope', many: 'red envelopes', verb: 'hand out', done: 'handed out', aBlock: 'a lantern post', blocks: 'lantern posts', goalName: 'the moon gate', place: 'the street' },
@@ -91,7 +91,7 @@ export function skinFor(meta: Pick<HolidayMeta, 'id' | 'theme'>, mood: 'day' | '
 /** Every holiday id with a hand-made skin (for tests). */
 export const SKINNED: readonly string[] = Object.keys(SKINS);
 
-// ── focus and selection colour ──
+// ── focus and selection color ──
 
 const hex = (rgb: readonly number[]): string => `#${rgb.map((c) => Math.round(c).toString(16).padStart(2, '0')).join('')}`;
 const mix = (a: string, b: string, t: number): string => {
@@ -110,11 +110,11 @@ export function ringSurfaces(theme: Theme): string[] {
 }
 
 /**
- * The colour for focus rings, the selected card, the running card and the caret slot: the theme's glow
+ * The color for focus rings, the selected card, the running card and the caret slot: the theme's glow
  * when it stands out (≥ 3:1) on every surface it sits on, otherwise the theme's ink (≥ 4.5:1 on the sky
  * by construction). A white glow on a pale Easter sky is invisible; ink is not.
  */
-export function focusColour(theme: Theme): string {
+export function focusColor(theme: Theme): string {
   const ok = (c: string): boolean => ringSurfaces(theme).every((bg) => contrastRatio(c, bg) >= 3);
   return ok(theme.glow) ? theme.glow : theme.ink;
 }

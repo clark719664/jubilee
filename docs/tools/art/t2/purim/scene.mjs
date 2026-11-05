@@ -1,7 +1,7 @@
 // Purim — "The costume parade": a street on Purim evening. Children in costumes parade across the middle spinning
 // groggers: Queen Esther in a gold crown holding the scroll, a lion, a clown with a red nose and a little bumblebee,
 // with dad dressed as a jolly king. On the left a girl hands a gift basket of hamantaschen, an orange and a juice box
-// to the neighbour at his door; on the right a table is piled with hamantaschen and a grogger. The confetti is
+// to the neighbor at his door; on the right a table is piled with hamantaschen and a grogger. The confetti is
 // the effect's.
 import { f, P, mix, lighten, darken, rng, E, G, C, path, circle, ellipse, lin, rad, doc, compactSvg, setPrecision } from '../../gen-xmas/lib.mjs';
 import { figure } from '../../gen-kw/people.mjs';
@@ -62,8 +62,8 @@ export function mid() {
   out.push(path(`M-20 ${STREET - 120}H1620V920H-20Z`, { fill: url('road') }), path(`M-20 ${STREET - 120}H1620v10H-20Z`, { fill: '#8a7aba' }));
   out.push(ellipse(780, 830, 480, 70, { fill: url('pool') }));
 
-  // ---- the neighbour's house on the left, door open
-  out.push(C('the neighbour\'s house on the left: an open door with a warm hall, a mezuzah, a window with paper decorations'));
+  // ---- the neighbor's house on the left, door open
+  out.push(C('the neighbor\'s house on the left: an open door with a warm hall, a mezuzah, a window with paper decorations'));
   out.push(path('M-20 650V250L130 170L290 250V650Z', { fill: url('house') }), path('M-26 254L130 162L296 254', { fill: 'none', stroke: night('#6a3a5a', 0.1), 'stroke-width': 14 }));
   out.push(path('M30 300h80v90h-80zM170 300h80v90h-80z', { fill: url('win') }), path('M70 300v90M30 344h80M210 300v90M170 344h80', { fill: 'none', stroke: '#f4ecd8', 'stroke-width': 4 }));
   {
@@ -73,7 +73,7 @@ export function mid() {
   }
   out.push(path('M120 650V470h110V650Z', { fill: url('win') }), path('M118 650V470h4V650ZM228 650V470h4V650Z', { fill: '#5a3a2a' }), path('M118 466h114v8h-114z', { fill: '#5a3a2a' }));
   out.push(path('M236 520l8 -4v30l-8 4z', { fill: GOLD }));
-  // the neighbour grandpa in the doorway, receiving the basket
+  // the neighbor grandpa in the doorway, receiving the basket
   {
     const take = { sx: 1, elbow: [0.8, 0.4], hand: [1.4, 0.4] };
     const gp = figure({ x: 176, foot: 650, H: 116, heads: 3.2, skin: SKIN.fair, hair: '#dcd8e0', style: 'short', top: '#3a5a8a', bottom: '#2a2a3a', gaze: 0.5, mouth: 'open', arms: [{ sx: -1, elbow: [-0.6, 1.0], hand: [-0.3, 1.8] }, take] });
@@ -177,13 +177,13 @@ export function mid() {
     ppl.tasch = [1322, T.top - 26];
   }
 
-  return { svg: compactSvg(doc(`Purim · mid. Concept: "the costume parade" on a street on Purim evening. Focal point: the parade crossing the middle (x 540–1110, y 620–860) — Queen Esther in a gold crown holding up the scroll, a lion and a clown spinning groggers, a little bumblebee, dad as a jolly king in a purple cape. On the left a girl hands a gift basket of hamantaschen, an orange and a juice box to the neighbour at his open door; on the right a table piled with hamantaschen, a jug of juice and a spare grogger. Light story: string lights and lit windows against a purple evening. The confetti is the effect's.`, defs, out)), ppl };
+  return { svg: compactSvg(doc(`Purim · mid. Concept: "the costume parade" on a street on Purim evening. Focal point: the parade crossing the middle (x 540–1110, y 620–860) — Queen Esther in a gold crown holding up the scroll, a lion and a clown spinning groggers, a little bumblebee, dad as a jolly king in a purple cape. On the left a girl hands a gift basket of hamantaschen, an orange and a juice box to the neighbor at his open door; on the right a table piled with hamantaschen, a jug of juice and a spare grogger. Light story: string lights and lit windows against a purple evening. The confetti is the effect's.`, defs, out)), ppl };
 }
 
 // ============================== front ==============================
 export function front() {
   setPrecision(1);
-  return compactSvg(doc(`Purim · front: a bunch of balloons tied to a post bottom left and a gift basket bottom right; the centre stays open`, [], [
+  return compactSvg(doc(`Purim · front: a bunch of balloons tied to a post bottom left and a gift basket bottom right; the center stays open`, [], [
     C('balloons on a post'),
     path('M40 900V760h10V900Z', { fill: '#5a4a6a' }),
     path('M45 760q-20 -40 -30 -90M45 760q0 -50 10 -110M45 760q20 -40 40 -80', { fill: 'none', stroke: '#ffffff', 'stroke-width': 2, opacity: 0.8 }),
@@ -202,7 +202,7 @@ export function sceneData(ppl) {
       { activity: 'dressup', x: r(ppl.queen[0]), y: r(ppl.queen[1] + 30), r: 50, label: 'Pick a Purim costume' },
       { activity: 'card', x: r(ppl.basket[0]), y: r(ppl.basket[1]), r: 40, label: 'Send a Purim gift card' },
       { activity: 'memory', x: ppl.tasch[0], y: ppl.tasch[1], r: 48, label: 'Match the hamantaschen' },
-      { activity: 'colour', x: r(ppl.lion[0]), y: r(ppl.lion[1] + 30), r: 46, label: 'Colour the costume parade' },
+      { activity: 'color', x: r(ppl.lion[0]), y: r(ppl.lion[1] + 30), r: 46, label: 'Color the costume parade' },
     ],
     findables: [
       { id: 'grogger', label: 'a spinning grogger', x: r(ppl.grogger[0]), y: r(ppl.grogger[1]), r: 22 },

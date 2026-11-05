@@ -36,11 +36,11 @@
       "label": "Catch pumpkins in the wheelbarrow"
     },
     {
-      "activity": "colour",
+      "activity": "color",
       "x": 195,
       "y": 650,
       "r": 64,
-      "label": "Colour in the red barn"
+      "label": "Color in the red barn"
     }
   ],
   "findables": [

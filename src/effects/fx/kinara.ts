@@ -5,7 +5,7 @@
  *   tonight's `candles` are lit in the traditional order: the black candle first, then red and green
  *   alternating outward. Each flame flickers and glows; ears of corn (muhindi) drift down turning
  *   slowly; a few gold stars twinkle.
- * Behaviours: flame (flicker), gravity + sway + spin (corn), twinkle (stars), drag + envelope (sparkles).
+ * Behaviors: flame (flicker), gravity + sway + spin (corn), twinkle (stars), drag + envelope (sparkles).
  * Tap: a burst of red, green and gold sparkles from the finger.
  * Still: the kinara with tonight's candles lit, corn resting mid-air, the kente band still.
  * Scene mode (`params.stage`): the scene draws its own kinara, so there is none here; with `stage.wicks`
@@ -37,7 +37,7 @@ export function kinaraWicks(n: number): readonly number[] {
   return LIGHTING_ORDER.slice(0, k);
 }
 
-/** Candle colours left to right: red ×3, black, green ×3. */
+/** Candle colors left to right: red ×3, black, green ×3. */
 export const KINARA_COLORS = ['#d62828', '#d62828', '#d62828', '#1b1b1b', '#1f8a4c', '#1f8a4c', '#1f8a4c'] as const;
 
 

@@ -2,7 +2,7 @@
  * face.ts — one face of the card in the editor, at the screen's size.
  *
  *   base canvas   background + scene layers + words   (painted by raster.paintPanel, so it matches print)
- *   sticker layer one element per placed sticker      (real buttons: draggable, focusable, labelled)
+ *   sticker layer one element per placed sticker      (real buttons: draggable, focusable, labeled)
  *   ink canvas    the pen strokes, on top              (repainted while drawing)
  *   ghost layer   dashed "Who is it for?" hints on an empty inside (editor only, never printed)
  *

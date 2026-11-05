@@ -8,18 +8,18 @@
       "label": "Look for the new moon"
     },
     {
-      "activity": "colour",
+      "activity": "color",
       "x": 840,
       "y": 536,
       "r": 50,
-      "label": "Colour a fanous lantern"
+      "label": "Color a fanous lantern"
     },
     {
       "activity": "card",
       "x": 361,
       "y": 575,
       "r": 36,
-      "label": "Make a Ramadan card for the neighbours"
+      "label": "Make a Ramadan card for the neighbors"
     },
     {
       "activity": "memory",

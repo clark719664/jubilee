@@ -140,7 +140,7 @@ export function mid() {
 // ============================== front ==============================
 export function front() {
   setPrecision(1);
-  return compactSvg(doc(`Grandparents Day · front: a rose bush bottom left and a garden gnome bottom right; the centre stays open`, [], [
+  return compactSvg(doc(`Grandparents Day · front: a rose bush bottom left and a garden gnome bottom right; the center stays open`, [], [
     C('a rose bush bottom left'),
     path(circD(20, 860, 40) + circD(80, 850, 44) + circD(130, 872, 34), { fill: '#3a8a3a' }),
     path(circD(20, 840, 10) + circD(70, 826, 11) + circD(116, 848, 10) + circD(50, 866, 9), { fill: '#ff6a8a' }),
@@ -155,7 +155,7 @@ export function sceneData(ppl) {
   return {
     hotspots: [
       { activity: 'card', x: r(ppl.album[0]), y: r(ppl.album[1]), r: 36, label: 'Make a card for Grandma and Grandpa' },
-      { activity: 'colour', x: r(ppl.tomato[0]), y: r(ppl.tomato[1]), r: 46, label: 'Colour the prize tomato' },
+      { activity: 'color', x: r(ppl.tomato[0]), y: r(ppl.tomato[1]), r: 46, label: 'Color the prize tomato' },
       { activity: 'memory', x: ppl.apples[0], y: ppl.apples[1], r: 30, label: 'Match the garden treats' },
       { activity: 'wish', x: ppl.swing[0], y: ppl.swing[1], r: 50, label: 'Ask for a story' },
     ],

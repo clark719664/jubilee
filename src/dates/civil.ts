@@ -144,7 +144,7 @@ export function todayLocal(now: Date): CivilDate {
   return { y: now.getFullYear(), m: now.getMonth() + 1, d: now.getDate() };
 }
 
-/** Local midnight at the start of the given civil day (Date normalises DST). */
+/** Local midnight at the start of the given civil day (Date normalizes DST). */
 export function localMidnight(c: CivilDate): Date {
   return new Date(c.y, c.m - 1, c.d, 0, 0, 0, 0);
 }

@@ -3,7 +3,7 @@
  * stored on this device, how the dates are worked out, where the content comes from,
  * our privacy promises, and Reset everything (behind a typed confirmation).
  *
- * Every control is a real labelled form control (inputs, radios, a select) at least
+ * Every control is a real labeled form control (inputs, radios, a select) at least
  * 48 px tall. Settings save immediately through the Store; nothing leaves the device.
  */
 import { clearPlayStorage, playStorageLines } from '../play/storage';

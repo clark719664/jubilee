@@ -9,14 +9,14 @@ function one(story: string, fact: string): HolidayContent {
 export const SILLY_CONTENT: Record<HolidayId, HolidayContent> = {
   'squirrel-day': one(
     'Squirrel Appreciation Day is a day to notice the bushy-tailed acrobats in your park.',
-    'Squirrels bury thousands of nuts each autumn and forget some of them, so they accidentally plant new trees.',
+    'Squirrels bury thousands of nuts each fall and forget some of them, so they accidentally plant new trees.',
   ),
   'puzzle-day': one(
     'National Puzzle Day is for jigsaws, riddles and brain-teasers of every size.',
     'The first jigsaw puzzles were maps glued to wood and cut into pieces to help children learn geography.',
   ),
   'pizza-day': one(
-    "Pizza Day celebrates one of the world's favourite foods, from a plain slice to a wild topping mix.",
+    "Pizza Day celebrates one of the world's favorite foods, from a plain slice to a wild topping mix.",
     'Pizza as we know it comes from Naples in Italy, where it began as a cheap, tasty meal for busy workers.',
   ),
   'kind-acts-day': one(

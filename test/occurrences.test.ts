@@ -295,7 +295,7 @@ describe('nextUp (hero rotation)', () => {
 });
 
 describe('allOccurrences', () => {
-  it('is deduped, sorted by start and covers the neighbouring years', () => {
+  it('is deduped, sorted by start and covers the neighboring years', () => {
     const all = allOccurrences(METAS, [], day('2026-06-15'), 'US');
     const keys = new Set(all.map((o) => `${o.holidayId}:${o.start}`));
     expect(keys.size).toBe(all.length);

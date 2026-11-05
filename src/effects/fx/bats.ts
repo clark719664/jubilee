@@ -5,7 +5,7 @@
  *   fog band of wide soft puffs drifting along the bottom, and a little flock of bats flapping (two-frame
  *   flap) after a slowly roaming attractor, each on its own orbit so the flock loops and tumbles rather
  *   than clumping. Every ~20 s a friendly ghost peeks in from the right edge and says "boo!".
- * Behaviours: steering toward the attractor + wander + speed cap (bats), horizontal drift + wrap (fog),
+ * Behaviors: steering toward the attractor + wander + speed cap (bats), horizontal drift + wrap (fog),
  *   twinkle (stars), alpha breathing (pumpkin glows), drag + envelope (sparkles).
  * Tap: bats near the finger scatter away from it (and stay skittish for a moment), a few green and orange
  *   sparkles puff out, then the flock regroups on its own.
@@ -48,7 +48,7 @@ export const BREATH_PERIOD = 3;
 /** Where the bats hang along the branch (unit coords along its length). */
 const HANG_U = [-0.2, 0.02, 0.2, -0.08, 0.12, 0.3] as const;
 /**
- * Scene mode: the moon's centre and diameter in artboard units, in open sky above every scene's hills,
+ * Scene mode: the moon's center and diameter in artboard units, in open sky above every scene's hills,
  * clear of the words (whose right edge sits near x 990 at every hero size).
  */
 export const SCENE_MOON = { x: 1140, y: 230, d: 220 } as const;
@@ -56,7 +56,7 @@ export const SCENE_MOON = { x: 1140, y: 230, d: 220 } as const;
 const STILL_BATS = [[-0.32, -0.05, 0.9], [0.22, 0.2, 0.6]] as const;
 const SCENE_STILL_BATS = [[-1.05, 0.5, 0.5], [-0.8, -0.32, 0.4]] as const;
 
-/** Where the moon is drawn: centre and sprite size, CSS px. */
+/** Where the moon is drawn: center and sprite size, CSS px. */
 export interface MoonPlace {
   x: number;
   y: number;

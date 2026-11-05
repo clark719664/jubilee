@@ -33,7 +33,7 @@ describe('router: parseHash / formatRoute', () => {
     expect(formatRoute({ view: 'year', year: 2030 })).toBe('#/year/2030');
     expect(formatRoute({ view: 'world' })).toBe('#/world');
     expect(formatRoute({ view: 'world', id: 'lunar-new-year' })).toBe('#/world/lunar-new-year');
-    expect(formatRoute({ view: 'play', id: 'holi', activity: 'colour' })).toBe('#/h/holi/play/colour');
+    expect(formatRoute({ view: 'play', id: 'holi', activity: 'color' })).toBe('#/h/holi/play/color');
   });
 
   it('treats empty, "#", "#/" and unknown hashes as home', () => {
@@ -120,7 +120,7 @@ describe('router: Router', () => {
     expect(f.log).toEqual([]);
   });
 
-  it('normalises an unknown hash to #/ on start', () => {
+  it('normalizes an unknown hash to #/ on start', () => {
     const f = fakeHost('#/what');
     const r = new Router(f.host);
     r.start();

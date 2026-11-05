@@ -3,7 +3,7 @@
  *
  *   factCard: "True or silly?" A trading card with the statement on the front and two big buttons.
  *             Picking one flips the card (a cross-fade under reduced motion) to show the answer.
- *   greetCard: a greeting in big letters (romanised, with the native script and language under it)
+ *   greetCard: a greeting in big letters (romanized, with the native script and language under it)
  *             and three holidays to choose from.
  *
  * Both report the child's pick once; the view shows the answer line and the Next button.

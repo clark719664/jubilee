@@ -5,13 +5,13 @@
  *   around it; round paper lanterns rise from below in three depths (far: small, dim, slow), each lit
  *   from inside with a warm halo; a garland of lanterns hangs from a sagging cord along the top left and
  *   swings as real pendulums.
- * Behaviours: rise + sway (lanterns), pendulum (hung lanterns), horizontal drift with wrap (clouds),
+ * Behaviors: rise + sway (lanterns), pendulum (hung lanterns), horizontal drift with wrap (clouds),
  *   twinkle (stars, glints), drag + envelope (glints).
  * Press-and-hold: a lantern grows under the finger and follows it; release and it floats up.
  * Tap: a lantern lifts off from the finger in a puff of glints (a tap right after a release just adds
  *   glints, so a press never makes two lanterns).
  * Still: the moon (size from moonPhase), the hung lanterns at rest, lanterns afloat, clouds and stars.
- * Params: moonPhase (0..1 closeness to the festival; default full), palette (lantern colours), density.
+ * Params: moonPhase (0..1 closeness to the festival; default full), palette (lantern colors), density.
  */
 import { mixColor } from '../painters';
 import { frameScenery, moonDisc, moonPestle, moonRabbit, quant, roundLantern, softCloud } from '../painters/extra-whimsy';
@@ -406,7 +406,7 @@ export class MoonEffect extends PooledEffect {
     const paint = Math.min(MOON_PAINT_MAX, quant(d, 16));
     const k = d / paint;
     sprites.draw(ctx, 'moon:disc', paint, MOON_FACE, x, y, 0, k, k);
-    // The rabbit sits a little low and right of centre; its pestle pounds about twice a second.
+    // The rabbit sits a little low and right of center; its pestle pounds about twice a second.
     const rs = d * 0.38;
     const rp = Math.min(256, quant(rs, 16));
     const rk = rs / rp;

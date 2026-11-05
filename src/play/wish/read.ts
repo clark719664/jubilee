@@ -53,7 +53,7 @@ export function readDialog(opts: ReadOptions): ReadDialog {
   const closeBtn = h('button', { type: 'button', class: 'btn btn-secondary wish-read-back', onclick: () => close() }, icon('arrowLeft', 20), COPY.back);
   const printBtn = h('button', { type: 'button', class: 'btn wish-read-print', onclick: () => printPaper(opts.paper) }, icon('print', 20), opts.printLabel);
   const body = h('div', { class: 'wish-read-body' });
-  const card = h('div', { class: 'wish-read-card', role: 'dialog', 'aria-modal': 'true', 'aria-labelledby': titleId },
+  const card = h('div', { class: 'wish-read-card', role: 'dialog', 'aria-modal': 'true', 'aria-labeledby': titleId },
     h('h2', { class: 'sr-only', id: titleId }, opts.title),
     body,
     h('div', { class: 'wish-read-actions' }, closeBtn, printBtn));

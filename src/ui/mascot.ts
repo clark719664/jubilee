@@ -27,7 +27,7 @@ const LABELS: Record<MascotState, string> = {
   party: 'Jubi the star lantern in a party hat',
 };
 
-/** Five-point star path centred at (50, 54), outer radius 40. */
+/** Five-point star path centered at (50, 54), outer radius 40. */
 function starPath(): string {
   const pts: string[] = [];
   for (let i = 0; i < 10; i++) {

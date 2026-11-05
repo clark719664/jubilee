@@ -5,7 +5,7 @@
       "x": 1141,
       "y": 817,
       "r": 40,
-      "label": "Send an Eid card to the neighbours"
+      "label": "Send an Eid card to the neighbors"
     },
     {
       "activity": "memory",
@@ -15,11 +15,11 @@
       "label": "Match the Eid feast"
     },
     {
-      "activity": "colour",
+      "activity": "color",
       "x": 1330,
       "y": 696,
       "r": 36,
-      "label": "Colour the woolly lamb"
+      "label": "Color the woolly lamb"
     },
     {
       "activity": "dressup",

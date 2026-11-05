@@ -22,7 +22,7 @@ import { icon } from '../../ui/icons';
 import type { ActivityInstance, PlayEnv } from '../types';
 import { CHEERS, COPY, capital, say, thing } from './copy';
 import {
-  artToScreen, bandCentre, cssTransform, startView, focusView, fxOpacity, hintCircle, hintDisc, hitTest, isVisible,
+  artToScreen, bandCenter, cssTransform, startView, focusView, fxOpacity, hintCircle, hintDisc, hitTest, isVisible,
   panBy, scaleLimits, screenToArt, tapSlop, type Point, type View, type Viewport,
 } from './geometry';
 import { PanZoom, type PanZoomOptions } from './panzoom';
@@ -45,7 +45,7 @@ export function mountSeek(env: PlayEnv, scene: SeekScene): ActivityInstance {
   const found = new Set<string>(resumeFound(save, meta.id, ids));
   const midUrl = scene.layers.find((l) => l.name === 'mid')?.url ?? null;
   const reduced = (): boolean => ctx.motion !== 'full';
-  const colours = [theme.glow, theme.accent, theme.accent2, '#ffffff'];
+  const colors = [theme.glow, theme.accent, theme.accent2, '#ffffff'];
   const disposers: (() => void)[] = [];
   const timers = new Set<number>();
   const later = (fn: () => void, ms: number): void => {
@@ -110,7 +110,7 @@ export function mountSeek(env: PlayEnv, scene: SeekScene): ActivityInstance {
       hintBtn),
     list);
 
-  const root = h('section', { class: 'seek sky', 'data-motion': ctx.motion, 'aria-labelledby': title.id },
+  const root = h('section', { class: 'seek sky', 'data-motion': ctx.motion, 'aria-labeledby': title.id },
     stage, top, ...(ribbon ? [ribbon] : []), coach, strip);
 
   // ── state ──
@@ -162,7 +162,7 @@ export function mountSeek(env: PlayEnv, scene: SeekScene): ActivityInstance {
       const g = hintDisc(v, vp, hint, target ?? hint);
       place(glow, g.x, g.y, g.d);
     }
-    const c = aimAt ?? bandCentre(vp);
+    const c = aimAt ?? bandCenter(vp);
     place(aim, c.x, c.y);
     const lim = scaleLimits(vp);
     zoomIn.disabled = v.s >= lim.max - 1e-6;
@@ -210,7 +210,7 @@ export function mountSeek(env: PlayEnv, scene: SeekScene): ActivityInstance {
     const p = artToScreen(v, f);
     if (!reduced()) {
       if (midUrl) popOut(marks, midUrl, f, v.s, v.ox, v.oy);
-      sparkle(marks, p.x, p.y, colours);
+      sparkle(marks, p.x, p.y, colors);
       fx?.burst(p.x, p.y);
     }
     const cheerText = CHEERS[cheerIndex++ % CHEERS.length] ?? CHEERS[0];
@@ -294,7 +294,7 @@ export function mountSeek(env: PlayEnv, scene: SeekScene): ActivityInstance {
   // Arrows steer the ring; at the edge of the visible band it pushes the picture along instead.
   const moveAim = (dx: number, dy: number): void => {
     const { view, viewport } = pz.get();
-    const from = aimAt ?? bandCentre(viewport);
+    const from = aimAt ?? bandCenter(viewport);
     const x = from.x + dx;
     const y = from.y + dy;
     aimAt = {
@@ -313,10 +313,10 @@ export function mountSeek(env: PlayEnv, scene: SeekScene): ActivityInstance {
     else if (e.key === 'ArrowRight') move = [AIM_STEP, 0];
     else if (e.key === 'ArrowUp') move = [0, -AIM_STEP];
     else if (e.key === 'ArrowDown') move = [0, AIM_STEP];
-    else if (e.key === '+' || e.key === '=') { e.preventDefault(); void pz.get().zoomBy(ZOOM_STEP, bandCentre(viewport)); return; }
-    else if (e.key === '-' || e.key === '_') { e.preventDefault(); void pz.get().zoomBy(1 / ZOOM_STEP, bandCentre(viewport)); return; }
+    else if (e.key === '+' || e.key === '=') { e.preventDefault(); void pz.get().zoomBy(ZOOM_STEP, bandCenter(viewport)); return; }
+    else if (e.key === '-' || e.key === '_') { e.preventDefault(); void pz.get().zoomBy(1 / ZOOM_STEP, bandCenter(viewport)); return; }
     else if (e.key === '0') { e.preventDefault(); void pz.get().flyTo(startView(viewport)); return; }
-    else if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onTap(aimAt ?? bandCentre(viewport)); return; }
+    else if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onTap(aimAt ?? bandCenter(viewport)); return; }
     if (move) { e.preventDefault(); hideCoach(); moveAim(move[0], move[1]); }
   });
 
@@ -327,8 +327,8 @@ export function mountSeek(env: PlayEnv, scene: SeekScene): ActivityInstance {
     env.close();
   });
 
-  zoomIn.addEventListener('click', () => { hideCoach(); void pz.get().zoomBy(ZOOM_STEP, bandCentre(pz.get().viewport)); });
-  zoomOut.addEventListener('click', () => { hideCoach(); void pz.get().zoomBy(1 / ZOOM_STEP, bandCentre(pz.get().viewport)); });
+  zoomIn.addEventListener('click', () => { hideCoach(); void pz.get().zoomBy(ZOOM_STEP, bandCenter(pz.get().viewport)); });
+  zoomOut.addEventListener('click', () => { hideCoach(); void pz.get().zoomBy(1 / ZOOM_STEP, bandCenter(pz.get().viewport)); });
   hintBtn.addEventListener('click', showHint);
   back.addEventListener('click', () => env.close());
 
@@ -372,7 +372,7 @@ export function mountSeek(env: PlayEnv, scene: SeekScene): ActivityInstance {
     const admireBtn = h('button', { class: 'btn btn-ghost seek-admire', type: 'button' }, COPY.admire);
     const homeBtn = h('button', { class: 'btn btn-lg', type: 'button' }, say('back', { holiday: meta.name }));
     const titleId = `seek-done-${meta.id}`;
-    const card = h('div', { class: 'seek-done-card card', role: 'dialog', 'aria-modal': 'true', 'aria-labelledby': titleId },
+    const card = h('div', { class: 'seek-done-card card', role: 'dialog', 'aria-modal': 'true', 'aria-labeledby': titleId },
       h('div', { class: 'seek-done-art' }, art, h('span', { class: 'seek-done-stamp' }, COPY.stampWord)),
       h('h2', { class: 'h2 seek-done-title', id: titleId }, COPY.done),
       h('p', { class: 'seek-done-body' }, say('doneBody', { holiday: meta.name })),
@@ -382,7 +382,7 @@ export function mountSeek(env: PlayEnv, scene: SeekScene): ActivityInstance {
     const overlay = h('div', { class: 'seek-done' }, card);
     doneEl = overlay;
     root.append(overlay);
-    if (!reduced()) confetti(overlay, colours, found.size * 97 + rounds);
+    if (!reduced()) confetti(overlay, colors, found.size * 97 + rounds);
     const untrap = trapFocus(card);
     const close = (): void => { untrap(); overlay.remove(); doneEl = null; };
     homeBtn.addEventListener('click', () => env.close());

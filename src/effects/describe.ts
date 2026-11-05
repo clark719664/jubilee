@@ -7,7 +7,7 @@ export const DESCRIBE: Record<EffectId, string> = {
   fireworks: 'Fireworks blooming in the night sky',
   bats: 'Bats flitting through a misty night sky',
   hearts: 'Hearts floating up through the sky',
-  holi: 'Puffs of bright colour powder in the air',
+  holi: 'Puffs of bright color powder in the air',
   lanterns: 'Glowing lanterns in the sky',
   diyas: 'A row of little oil lamps flickering under the stars',
   leaves: 'Autumn leaves tumbling in the wind',

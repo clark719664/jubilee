@@ -100,12 +100,12 @@ const TIER1: readonly HolidayMeta[] = [
     rule: easter(0), theme: 'easter', effect: 'eggs', sticker: ['🐣', 'Hoppy Easter'],
   }),
   def({
-    id: 'holi', name: 'Holi', alsoCalled: ['Festival of Colours', 'Dhulandi'], emoji: '🎨',
-    tagline: 'Throw colour powder and welcome the spring!',
+    id: 'holi', name: 'Holi', alsoCalled: ['Festival of Colors', 'Dhulandi'], emoji: '🎨',
+    tagline: 'Throw color powder and welcome the spring!',
     tier: 1, tags: ['spring', 'faith', 'world'], traditions: ['hindu'],
     rule: table('holi'), startOffset: -1, days: 2, mainDayOffset: 1,
-    dayNames: ['Holika Dahan (bonfire night)', 'Rangwali Holi — colour day!'],
-    theme: 'holi', effect: 'holi', sticker: ['🎨', 'Colour Thrower'],
+    dayNames: ['Holika Dahan (bonfire night)', 'Rangwali Holi — color day!'],
+    theme: 'holi', effect: 'holi', sticker: ['🎨', 'Color Thrower'],
   }),
   def({
     id: 'day-of-the-dead', name: 'Day of the Dead', alsoCalled: ['Día de los Muertos'], emoji: '💀',
@@ -157,7 +157,7 @@ const TIER1: readonly HolidayMeta[] = [
   }),
   def({
     id: 'mothers-day', name: "Mother's Day", alsoCalled: ['Mothering Sunday'], emoji: '💐',
-    tagline: 'A day to spoil the mum, gran or grown-up who cares for you',
+    tagline: 'A day to spoil the mom, gran or grown-up who cares for you',
     tier: 1, tags: ['family'], traditions: ['secular'],
     rule: byRegion({ GB: easter(-21), MX: fixed(5, 10), FR: { kind: 'custom', id: 'mothers-day-fr' } }, nth(5, SUNDAY, 2)),
     theme: 'mothers', effect: 'petals', effectParams: { variant: 'bloom' }, sticker: ['💐', 'Best Helper'],
@@ -181,7 +181,7 @@ const TIER1: readonly HolidayMeta[] = [
     rule: fixed(4, 22), theme: 'earth', effect: 'bubbles', effectParams: { variant: 'earth' }, sticker: ['🌍', 'Earth Helper'],
   }),
   def({
-    id: 'pi-day', name: 'Pi Day', emoji: '🥧', tagline: '3.14… a maths party with actual pie',
+    id: 'pi-day', name: 'Pi Day', emoji: '🥧', tagline: '3.14… a math party with actual pie',
     tier: 1, tags: ['silly', 'sweets'], traditions: ['secular'],
     rule: fixed(3, 14), theme: 'pi', effect: 'glyph-rain',
     effectParams: { glyphs: ['π', '3', '1', '4', '1', '5', '9'], variant: 'chalk' }, sticker: ['🥧', '3.14159'],
@@ -203,7 +203,7 @@ const TIER2: readonly HolidayMeta[] = [
   }),
   def({
     id: 'three-kings-day', name: 'Three Kings Day', alsoCalled: ['Epiphany', 'Día de los Reyes', 'Fête des Rois'], emoji: '👑',
-    tagline: 'Three travellers, a star and a cake with a surprise inside',
+    tagline: 'Three travelers, a star and a cake with a surprise inside',
     tier: 2, tags: ['faith', 'sweets', 'world'], traditions: ['christian'],
     rule: fixed(1, 6), theme: 'threekings', effect: 'glyph-rain', effectParams: { glyphs: ['⭐', '👑'] }, sticker: ['👑', 'Crown Finder'],
   }),
@@ -288,7 +288,7 @@ const TIER2: readonly HolidayMeta[] = [
   }),
   def({
     id: 'eid-al-adha', name: 'Eid al-Adha', alsoCalled: ['Eid ul-Adha', 'Bakrid', 'Kurban Bayramı'], emoji: '🐑',
-    tagline: 'A feast about sharing with family and neighbours',
+    tagline: 'A feast about sharing with family and neighbors',
     tier: 2, tags: ['faith'], traditions: ['muslim'],
     rule: table('eid-al-adha'), days: 4, mainDayOffset: 0,
     theme: 'eid', effect: 'crescent', effectParams: { variant: 'lanterns' }, sticker: ['🐑', 'Sharing Heart'],
@@ -358,7 +358,7 @@ const TIER2: readonly HolidayMeta[] = [
     theme: 'roshhashanah', effect: 'glyph-rain', effectParams: { glyphs: ['🍎', '🍯'] }, sticker: ['🍎', 'Sweet New Year'],
   }),
   def({
-    id: 'indigenous-peoples-day', name: "Indigenous Peoples' Day", emoji: '🌽', tagline: 'Honouring the first peoples of this land',
+    id: 'indigenous-peoples-day', name: "Indigenous Peoples' Day", emoji: '🌽', tagline: 'Honoring the first peoples of this land',
     tier: 2, tags: ['national'], traditions: ['civic'], regions: ['US'],
     rule: nth(10, MONDAY, 2), theme: 'harvest', effect: 'leaves',
     effectParams: { palette: ['#c8102e', '#ff8c1a', '#ffd166', '#7a3e13'] }, sticker: ['🌽', 'First Peoples'],
@@ -376,9 +376,9 @@ const TIER2: readonly HolidayMeta[] = [
     rule: fixed(12, 6), theme: 'christmas', effect: 'snow', sticker: ['🥾', 'Shiny Boots'],
   }),
   def({
-    id: 'boxing-day', name: 'Boxing Day', emoji: '🎁', tagline: 'A cosy, slow day after Christmas',
+    id: 'boxing-day', name: 'Boxing Day', emoji: '🎁', tagline: 'A cozy, slow day after Christmas',
     tier: 2, tags: ['family'], traditions: ['secular'], regions: ['GB', 'CA', 'AU'],
-    rule: fixed(12, 26), theme: 'christmas', effect: 'snow', sticker: ['🎁', 'Cosy Day'],
+    rule: fixed(12, 26), theme: 'christmas', effect: 'snow', sticker: ['🎁', 'Cozy Day'],
   }),
 ];
 
@@ -386,7 +386,7 @@ const TIER2: readonly HolidayMeta[] = [
 const TIER3: readonly HolidayMeta[] = [
   sillyDay('squirrel-day', 'Squirrel Appreciation Day', 'Cheer for the bushy-tailed acrobats', fixed(1, 21), ['🐿️', '🌰']),
   sillyDay('puzzle-day', 'National Puzzle Day', 'Jigsaws, riddles and brain teasers', fixed(1, 29), ['🧩']),
-  sillyDay('pizza-day', 'Pizza Day', "A slice of the world's favourite food", fixed(2, 9), ['🍕']),
+  sillyDay('pizza-day', 'Pizza Day', "A slice of the world's favorite food", fixed(2, 9), ['🍕']),
   sillyDay('kind-acts-day', 'Random Acts of Kindness Day', 'Do something nice, just because', fixed(2, 17), ['💛']),
   sillyDay('tooth-fairy-day', 'Tooth Fairy Day', 'For the tiny visitor who collects teeth', fixed(2, 28), ['🦷', '🧚']),
   sillyDay('wildlife-day', 'World Wildlife Day', 'A cheer for wild animals everywhere', fixed(3, 3), ['🦁', '🐘', '🦋']),

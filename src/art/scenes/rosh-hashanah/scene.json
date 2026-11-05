@@ -22,11 +22,11 @@
       "label": "Catch apples and honey"
     },
     {
-      "activity": "colour",
+      "activity": "color",
       "x": 1150,
       "y": 799,
       "r": 44,
-      "label": "Colour the honeycomb"
+      "label": "Color the honeycomb"
     },
     {
       "activity": "memory",
@@ -73,8 +73,8 @@
       "r": 20
     },
     {
-      "id": "ladybird",
-      "label": "a ladybird",
+      "id": "ladybug",
+      "label": "a ladybug",
       "x": 990,
       "y": 836,
       "r": 14

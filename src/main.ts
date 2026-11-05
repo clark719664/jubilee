@@ -49,7 +49,7 @@ function boot(root: HTMLElement): void {
     storage, pretending: clock.pretending, defaultRegion: detectedRegion,
   });
 
-  // ── colour scheme (grown-ups override; the OS otherwise) ──
+  // ── color scheme (grown-ups override; the OS otherwise) ──
   let scheme = store.progress.scheme;
   applyScheme(scheme);
   const shellColor = (): void => {

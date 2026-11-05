@@ -2,7 +2,7 @@ import type { HolidayContent } from '../types';
 
 const content: HolidayContent = {
   story: [
-    'Martin Luther King Jr. Day honours Dr. Martin Luther King Jr., a minister who led the fight for equal rights for Black Americans using peaceful protest.',
+    'Martin Luther King Jr. Day honors Dr. Martin Luther King Jr., a minister who led the fight for equal rights for Black Americans using peaceful protest.',
     'The holiday falls on the third Monday in January, close to his birthday on 15 January.',
     'Many people spend the day volunteering, because it is the only US federal holiday officially named a national day of service.',
   ],

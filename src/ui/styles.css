@@ -763,7 +763,7 @@ html.is-stepmode .toast-host { z-index: 110; top: calc(env(safe-area-inset-top, 
 .chef-meter-label { margin-bottom: 6px; font-weight: 700; }
 /* Play: the Countdown Doors teaser (a strip of the holiday's sky with a little door) and a round button per activity,
    each disc a small window onto the same sky. Four across on phones and tablets, eight across on wide screens. */
-/* Centred rows, so a short last row sits in the middle: four across on phones, six on wide screens. */
+/* Centered rows, so a short last row sits in the middle: four across on phones, six on wide screens. */
 .hp-grid { --hp-cols: 4; display: flex; flex-wrap: wrap; justify-content: center; gap: 16px 6px; }
 .hp-games-title { margin: 18px 0 10px; font: 700 clamp(19px, 4vw, 24px)/1.1 var(--font-display); text-align: center; }
 .hp-grid.hp-games { --hp-cols: 3; }
@@ -846,7 +846,7 @@ html.is-stepmode .toast-host { z-index: 110; top: calc(env(safe-area-inset-top, 
 .hero-next .emoji { font-size: 22px; }
 .hero-confetti { position: absolute; inset: 0; z-index: 1; pointer-events: none; transition: opacity .9s var(--ease); }
 .hero-confetti.is-fading { opacity: 0; }
-/* The words travel as one group. A soft pool of the sky's own colour sits right behind them, so they always
+/* The words travel as one group. A soft pool of the sky's own color sits right behind them, so they always
    read without a heavy band hiding the bottom of the sky (diyas, the menorah, fog, a scene's foreground). */
 .hero-copy { position: relative; isolation: isolate; display: grid; gap: 6px; justify-items: start; min-width: 0; max-width: 100%; }
 .hero-copy::before { content: ''; position: absolute; inset: -40px -64px -32px -48px; z-index: -1; pointer-events: none; background: radial-gradient(farthest-side at 42% 56%, color-mix(in srgb, var(--h-bg1) 66%, transparent) 0%, color-mix(in srgb, var(--h-bg1) 44%, transparent) 52%, transparent 100%); }
@@ -860,7 +860,7 @@ html.is-stepmode .toast-host { z-index: 110; top: calc(env(safe-area-inset-top, 
 .hero.has-scene .hero-canvas { transition: transform .8s var(--ease); }
 .hero-layer { position: absolute; left: -14px; top: -8px; width: calc(100% + 28px); height: calc(100% + 16px); max-width: none; object-fit: cover; object-position: 50% 100%; pointer-events: none; user-select: none; -webkit-user-drag: none; opacity: 0; transition: opacity .6s var(--ease), transform .8s var(--ease); }
 .hero-layer.is-loaded { opacity: 1; }
-/* With a scene the copy takes the picture's empty upper centre over a gentle top-down scrim; the bottom of
+/* With a scene the copy takes the picture's empty upper center over a gentle top-down scrim; the bottom of
    the picture is never dimmed. The buttons stand on the ground bottom-left and Jubi bottom-right. The hero's
    height keeps the artboard's upper 48 % (its sky, kept clear for words) at least as tall as the copy. */
 .hero.has-scene { min-height: max(clamp(580px, 75svh, 660px), var(--scene-fit, 0px)); }

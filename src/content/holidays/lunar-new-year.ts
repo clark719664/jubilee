@@ -15,7 +15,7 @@ const content: HolidayContent = {
       bigKids: true,
     },
     {
-      text: 'In the weeks around the festival, billions of journeys are made across China by people travelling home to their families. It is the biggest yearly movement of people anywhere on Earth, and it has its own name: chunyun, the Spring Festival travel rush.',
+      text: 'In the weeks around the festival, billions of journeys are made across China by people traveling home to their families. It is the biggest yearly movement of people anywhere on Earth, and it has its own name: chunyun, the Spring Festival travel rush.',
       wow: true,
     },
     {
@@ -202,7 +202,7 @@ const content: HolidayContent = {
       id: 'red-envelope-lanterns',
       title: 'Red Envelope Lanterns',
       emoji: '🧧',
-      blurb: 'Turn red envelopes into a string of little lanterns to hang in the window. Red is the luckiest colour of the year, and gold tassels make them shine.',
+      blurb: 'Turn red envelopes into a string of little lanterns to hang in the window. Red is the luckiest color of the year, and gold tassels make them shine.',
       minutes: 30,
       mess: 1,
       adultHelp: 'some',
@@ -224,7 +224,7 @@ const content: HolidayContent = {
         },
         { text: 'Fold one envelope in half the long way, decorated side out, and press the fold flat with your thumbnail.' },
         {
-          text: 'Use the ruler and pencil to draw lines from the fold towards the open edge, about half an inch (1 cm) apart. Stop each line a thumb-width before the open edge.',
+          text: 'Use the ruler and pencil to draw lines from the fold toward the open edge, about half an inch (1 cm) apart. Stop each line a thumb-width before the open edge.',
         },
         {
           text: 'Cut along each line from the fold, stopping where the line stops, so the envelope stays in one piece.',
@@ -232,7 +232,7 @@ const content: HolidayContent = {
           kidSafeOverride: 'safety scissors on paper; a grown-up helps younger children',
         },
         { text: 'Unfold the envelope and gently bend it round so the two short ends meet. Tape or staple the ends together at the top and the bottom.' },
-        { text: 'Push the top and bottom of the tube towards each other so the strips puff out into a round lantern shape.' },
+        { text: 'Push the top and bottom of the tube toward each other so the strips puff out into a round lantern shape.' },
         {
           text: 'Cut a short piece of string for a tassel, tape it inside the bottom of the lantern, and tape a loop of string to the top for hanging.',
           hazards: ['sharp'],
@@ -240,14 +240,14 @@ const content: HolidayContent = {
         },
         { text: 'Make five more lanterns, then thread all the loops onto the long string, space them out, and hang the string across a window or doorway.' },
       ],
-      learn: 'Red envelopes carry lucky money from grown-ups to children at Lunar New Year. The amount matters less than the colour: red frightens away bad luck. In Vietnam the envelopes are called lì xì, and in Korea Seollal money comes in a pretty pouch or a white envelope after the sebae bow.',
+      learn: 'Red envelopes carry lucky money from grown-ups to children at Lunar New Year. The amount matters less than the color: red frightens away bad luck. In Vietnam the envelopes are called lì xì, and in Korea Seollal money comes in a pretty pouch or a white envelope after the sebae bow.',
     },
   ],
 
   doors: [
-    { sleeps: 12, kind: 'fact', text: 'A legend says a monster called Nian came out at New Year, but it was scared of the colour red, bright lights and loud noises. That is one reason red is everywhere!' },
+    { sleeps: 12, kind: 'fact', text: 'A legend says a monster called Nian came out at New Year, but it was scared of the color red, bright lights and loud noises. That is one reason red is everywhere!' },
     { sleeps: 11, kind: 'joke', text: "Why are dumplings so good at keeping secrets? They keep everything folded up inside!" },
-    { sleeps: 10, kind: 'colour', text: 'Red and gold crayons ready? The Lunar New Year colouring page is waiting for you. Open the colouring page!' },
+    { sleeps: 10, kind: 'color', text: 'Red and gold crayons ready? The Lunar New Year coloring page is waiting for you. Open the coloring page!' },
     { sleeps: 9, kind: 'fact', text: 'Many families hang spring couplets beside the front door: a pair of lucky lines of poetry written in black or gold on long strips of red paper.' },
     { sleeps: 8, kind: 'craft', text: 'Fold a sheet of red paper back and forth into a zigzag fan, then decorate it with gold or yellow swirls.' },
     { sleeps: 7, kind: 'say', text: 'Learn to say happy new year in Vietnamese, ready for Tết!', greeting: 4 },

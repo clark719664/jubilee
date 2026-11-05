@@ -191,7 +191,7 @@ export function mid() {
 // ============================== front ==============================
 export function front() {
   setPrecision(1);
-  return compactSvg(doc(`Songkran · front: a bucket and a water gun bottom left, a pot of orchids bottom right; the centre stays open`, [], [
+  return compactSvg(doc(`Songkran · front: a bucket and a water gun bottom left, a pot of orchids bottom right; the center stays open`, [], [
     C('a bucket and a water gun'),
     path('M20 900l8 -64h80l8 64z', { fill: '#2a8ad8' }), path('M24 838h88', { fill: 'none', stroke: '#1a6ab8', 'stroke-width': 5 }), ellipse(68, 838, 42, 8, { fill: '#9ae0ff' }),
     path('M126 880h60v14h-60zM150 894v20h12v-16z', { fill: '#ffd23a' }), path('M140 880v-14h18v14z', { fill: '#ff6a9a' }),
@@ -208,7 +208,7 @@ export function sceneData(ppl) {
   return {
     hotspots: [
       { activity: 'catch', x: r(ppl.spray[0]), y: r(ppl.spray[1] + 40), r: 50, label: 'Catch the water splashes' },
-      { activity: 'colour', x: r(ppl.elephant[0]), y: r(ppl.elephant[1]), r: 60, label: 'Colour the baby elephant' },
+      { activity: 'color', x: r(ppl.elephant[0]), y: r(ppl.elephant[1]), r: 60, label: 'Color the baby elephant' },
       { activity: 'card', x: r(ppl.blessing[0]), y: r(ppl.blessing[1]), r: 36, label: 'Send a Songkran blessing' },
       { activity: 'dressup', x: r(ppl.teens[0]), y: r(ppl.teens[1]), r: 50, label: 'Pick a flowery Songkran shirt' },
     ],

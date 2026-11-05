@@ -28,12 +28,12 @@ const book: StoryBook = {
       camera: { x: 1300, y: 400, zoom: 1.8 }, prop: '🧦',
     },
     {
-      text: 'In the morning, the stockings are lumpy and bumpy and full! {name} and {friend} race outside in their pyjamas to try the brand-new sled.',
-      solo: 'In the morning, the stockings are lumpy and bumpy and full! {name} races outside, still in pyjamas, to try the brand-new sled.',
+      text: 'In the morning, the stockings are lumpy and bumpy and full! {name} and {friend} race outside in their pajamas to try the brand-new sled.',
+      solo: 'In the morning, the stockings are lumpy and bumpy and full! {name} races outside, still in pajamas, to try the brand-new sled.',
       camera: { x: 630, y: 790, zoom: 2.4 }, prop: '🛷',
     },
     {
-      text: '{name} sprinkles seeds in the snow for a little robin, who says thank you by puffing up like a ball. Christmas is extra cosy when you share it.',
+      text: '{name} sprinkles seeds in the snow for a little robin, who says thank you by puffing up like a ball. Christmas is extra cozy when you share it.',
       camera: { x: 1430, y: 770, zoom: 2.6 }, prop: '🐦',
     },
     {

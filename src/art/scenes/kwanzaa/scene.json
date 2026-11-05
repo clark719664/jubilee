@@ -29,11 +29,11 @@
       "label": "Peek in the windows: Seek & Find"
     },
     {
-      "activity": "colour",
+      "activity": "color",
       "x": 1098,
       "y": 652,
       "r": 40,
-      "label": "Colour in the kente banner"
+      "label": "Color in the kente banner"
     }
   ],
   "findables": [

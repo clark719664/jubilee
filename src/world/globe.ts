@@ -411,7 +411,7 @@ export class Globe {
     d.x = p.x;
     d.y = p.y;
     this.sync();
-    // Globe: the point under the finger stays under the finger (at the centre of the disc).
+    // Globe: the point under the finger stays under the finger (at the center of the disc).
     const k = this.r.mode === 'globe' ? RAD / this.r.ortho.scale : 1 / this.r.flat.scale;
     this.cam.dragBy(-dx * k, dy * k, e.timeStamp);
     this.invalidate();

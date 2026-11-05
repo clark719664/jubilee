@@ -1,6 +1,6 @@
 /**
  * picture.ts — one page's picture: the holiday's illustrated scene seen through the page's camera, or,
- * while a holiday has no scene yet, a small sky-and-hills picture in the theme's colours with the
+ * while a holiday has no scene yet, a small sky-and-hills picture in the theme's colors with the
  * holiday's die-cut sticker (or its emoji on a theme disc) and the page's thing beside it.
  *
  * Planes keep the scene's order (the book's moon → back → mid → front). Each is laid out with percentages for
@@ -74,7 +74,7 @@ function hillsSvg(kind: 'back' | 'mid' | 'front', mood: 'day' | 'night', seed: n
     if (mood === 'night') {
       const rand = mulberry32(seed);
       for (let i = 0; i < 22; i++) {
-        // Spread across the width in bands so no two stars clump; smaller and dimmer towards the hills.
+        // Spread across the width in bands so no two stars clump; smaller and dimmer toward the hills.
         const x = (i + 0.15 + rand() * 0.7) * (ARTBOARD.w / 22);
         const y = 40 + rand() * 470;
         const r = 7 + rand() * 9 - (y / 520) * 3;

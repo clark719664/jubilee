@@ -29,11 +29,11 @@
       "label": "Look out of the windows: Seek & Find"
     },
     {
-      "activity": "colour",
+      "activity": "color",
       "x": 1400,
       "y": 300,
       "r": 74,
-      "label": "Colour in the chalk circle"
+      "label": "Color in the chalk circle"
     },
     {
       "activity": "catch",

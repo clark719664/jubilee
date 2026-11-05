@@ -1,6 +1,6 @@
 /**
  * Where the sun is: the subsolar point for any instant (Meeus-lite — mean longitude,
- * equation of centre, obliquity and sidereal time, good to about a quarter of a degree),
+ * equation of center, obliquity and sidereal time, good to about a quarter of a degree),
  * the terminator ring and simple day/night tests. Good enough to shade the night side
  * of a kids' globe and to say which cities are having breakfast.
  */

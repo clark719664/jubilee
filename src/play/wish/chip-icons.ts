@@ -4,7 +4,7 @@
  * Every picture is drawn on a 48×48 board in Jubilee's sticker style: chunky closed shapes with a
  * 2-unit ink outline and round joins. Parts always overlap the shape they belong to (a wheel touches
  * its frame, an ear tucks under its head), so nothing floats apart or leaves a gap when the chip is
- * zoomed 3×. Colours are fixed (not the theme's) because chips sit on paper, on every sky.
+ * zoomed 3×. Colors are fixed (not the theme's) because chips sit on paper, on every sky.
  */
 import { svg } from '../../ui/dom';
 import type { IconId } from './skins';
@@ -13,7 +13,7 @@ const INK = '#2b2140';
 const SW = 2;
 const K = {
   red: '#ff5a5f', blue: '#4d8df7', sky: '#a8dcff', yellow: '#ffd23f', green: '#3cc47c', leaf: '#2fa866', orange: '#ff9f43',
-  purple: '#9b6bff', pink: '#ff8fc7', rose: '#ff6fa3', brown: '#b07a4f', dark: '#7a4b2a', tan: '#f0c99a', grey: '#c9d3e0',
+  purple: '#9b6bff', pink: '#ff8fc7', rose: '#ff6fa3', brown: '#b07a4f', dark: '#7a4b2a', tan: '#f0c99a', gray: '#c9d3e0',
   white: '#ffffff', cream: '#fff6e0', skin1: '#f2c9a0', skin2: '#c68a5b', skin3: '#8d5a3b', silver: '#e6ebf2',
 } as const;
 
@@ -24,7 +24,7 @@ const C = (cx: number, cy: number, r: number, fill: string): Part => svg('circle
 const E = (cx: number, cy: number, rx: number, ry: number, fill: string, rot = 0): Part =>
   svg('ellipse', { cx, cy, rx, ry, fill, ...base, ...(rot ? { transform: `rotate(${rot} ${cx} ${cy})` } : {}) });
 const R = (x: number, y: number, w: number, hh: number, rx: number, fill: string): Part => svg('rect', { x, y, width: w, height: hh, rx, fill, ...base });
-/** An outlined stroke: ink underneath, colour on top (bike frames, necks, stems). */
+/** An outlined stroke: ink underneath, color on top (bike frames, necks, stems). */
 const S = (d: string, color: string, w: number): Part[] => [
   svg('path', { d, fill: 'none', stroke: INK, 'stroke-width': w + SW * 2, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }),
   svg('path', { d, fill: 'none', stroke: color, 'stroke-width': w, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }),
@@ -109,9 +109,9 @@ const DRAW: Record<IconId, () => Part[]> = {
     shine('M13 13 Q17 9 22 8.6 Q18 11 15 15 Z'),
   ],
   robot: () => [
-    ...S('M24 11 V6', K.grey, 2), C(24, 5, 2.8, K.red),
-    R(5.5, 29, 7, 11, 3.5, K.grey), R(35.5, 29, 7, 11, 3.5, K.grey),
-    R(16, 39, 6, 6, 2, K.grey), R(26, 39, 6, 6, 2, K.grey),
+    ...S('M24 11 V6', K.gray, 2), C(24, 5, 2.8, K.red),
+    R(5.5, 29, 7, 11, 3.5, K.gray), R(35.5, 29, 7, 11, 3.5, K.gray),
+    R(16, 39, 6, 6, 2, K.gray), R(26, 39, 6, 6, 2, K.gray),
     R(11, 25, 26, 16, 4, K.blue),
     R(12, 10, 24, 16, 5, K.silver),
     C(19, 17, 3.6, K.sky), C(29, 17, 3.6, K.sky), D(19, 17, 1.5), D(29, 17, 1.5),
@@ -167,7 +167,7 @@ const DRAW: Record<IconId, () => Part[]> = {
     R(25, 12, 15, 18, 2, K.red), R(23, 8.5, 19, 4.5, 2, K.dark), R(28.5, 15.5, 8, 7, 1.5, K.sky),
     R(7, 19, 20, 11, 4, K.blue), R(4, 28, 38, 7, 2, K.dark),
     P('M4 30 L1 35 H5 Z', K.yellow, { 'stroke-width': 1.6 }),
-    C(13, 37, 5.2, K.grey), C(33, 37, 5.2, K.grey), C(23, 38, 3.6, K.grey),
+    C(13, 37, 5.2, K.gray), C(33, 37, 5.2, K.gray), C(23, 38, 3.6, K.gray),
     D(13, 37, 1.6), D(33, 37, 1.6), D(23, 38, 1.2),
     C(9, 24, 2, K.yellow),
   ],
@@ -177,10 +177,10 @@ const DRAW: Record<IconId, () => Part[]> = {
     P('M24 3 C32 9 33.5 21 31 34 H17 C14.5 21 16 9 24 3 Z', K.silver),
     P('M24 3 C28 6 30.3 9.5 31.5 14 H16.5 C17.7 9.5 20 6 24 3 Z', K.red),
     C(24, 22, 4.6, K.sky), shine('M21.5 20.5 Q23 18.7 25 18.8 Q23 20 22.5 22 Z'),
-    R(20.5, 30.5, 7, 3.5, 1.5, K.grey),
+    R(20.5, 30.5, 7, 3.5, 1.5, K.gray),
   ],
   sled: () => [
-    ...S('M4 36 H37 Q44 36 43.5 29 Q43 26.5 40.5 26.5', K.grey, 2.4),
+    ...S('M4 36 H37 Q44 36 43.5 29 Q43 26.5 40.5 26.5', K.gray, 2.4),
     R(12, 28, 3.6, 8, 1.2, K.dark), R(31, 28, 3.6, 8, 1.2, K.dark),
     R(7, 22, 32, 7, 2.5, K.red), L('M12 25.5 H34', 1.5),
     ...S('M7 25 Q3 20 6 16', K.yellow, 1.6),
@@ -194,11 +194,11 @@ const DRAW: Record<IconId, () => Part[]> = {
     D(24, 31.5, 1.4), D(24, 36, 1.4), D(24, 40.5, 1.4),
   ],
   grandma: () => [
-    C(24, 7, 4.5, K.grey),
+    C(24, 7, 4.5, K.gray),
     P('M9 46 Q9 30 24 30 Q39 30 39 46 Z', K.purple),
     L('M24 31 V46', 1.5),
     C(24, 19, 9.5, K.skin2),
-    P('M14.5 18 Q14.5 8.5 24 8.5 Q33.5 8.5 33.5 18 Q29.5 12.6 24 13 Q18.5 12.6 14.5 18 Z', K.grey),
+    P('M14.5 18 Q14.5 8.5 24 8.5 Q33.5 8.5 33.5 18 Q29.5 12.6 24 13 Q18.5 12.6 14.5 18 Z', K.gray),
     C(20, 19.5, 3.1, '#ffffff'), C(28, 19.5, 3.1, '#ffffff'), L('M23.1 19.5 H24.9', 1.6),
     D(20, 19.8, 1.1), D(28, 19.8, 1.1),
     L('M21 24.5 Q24 26.8 27 24.5', 1.6), D(17.5, 23.5, 1.4, K.rose), D(30.5, 23.5, 1.4, K.rose),

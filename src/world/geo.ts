@@ -1,7 +1,7 @@
 /**
  * Spherical geometry helpers for the World view: degrees↔radians, unit vectors,
  * great-circle distance/bearing/interpolation. Everything is pure and small so the
- * globe renderer, the sun/moon maths and Santa's flight path share one vocabulary.
+ * globe renderer, the sun/moon math and Santa's flight path share one vocabulary.
  *
  * Conventions: longitude east-positive in (−180, 180], latitude north-positive.
  * Unit vectors are [x, y, z] with x toward (lon 0, lat 0), y toward lon 90°E and
@@ -117,7 +117,7 @@ export function slerp(a: LonLat, b: LonLat, t: number): LonLat {
   ]);
 }
 
-/** Spherical centroid (normalised mean vector); `weights` default to 1. */
+/** Spherical centroid (normalized mean vector); `weights` default to 1. */
 export function centroid(points: readonly LonLat[], weights?: readonly number[]): LonLat {
   const sum: MVec3 = [0, 0, 0];
   const tmp: MVec3 = [0, 0, 0];
@@ -138,7 +138,7 @@ export function lonDelta(a: number, b: number): number {
 
 /**
  * Closed ring of `n` unit vectors on the small circle `radiusDeg` from `center`, going
- * anticlockwise about the centre as seen from outside, so the cap is the ring's interior
+ * counterclockwise about the center as seen from outside, so the cap is the ring's interior
  * (the convention the hemisphere clipper expects). 90° gives a great circle.
  */
 export function smallCircleRing(center: Vec3, radiusDeg: number, n = 120): Float32Array {

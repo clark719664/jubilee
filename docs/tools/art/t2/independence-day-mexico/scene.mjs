@@ -1,7 +1,7 @@
 // Independence Day (Mexico) — "¡Viva México! in the square": the night of 15 September in a town square. Up on the
 // town hall's balcony, under the big green, white and red flag, the mayor rings the old bell for the Grito; below,
 // the crowd cheers: a girl in a china poblana dress waves a flag, a boy spins a wooden matraca rattle, dad lifts a
-// paper cup of esquites, grandma holds a balloon bunch in the three colours; a churro cart steams beside a
+// paper cup of esquites, grandma holds a balloon bunch in the three colors; a churro cart steams beside a
 // balloon seller. Green, white and red streamers cross low over the square. The fireworks are the effect's.
 import { f, P, mix, lighten, darken, rng, E, G, C, path, circle, ellipse, lin, rad, doc, compactSvg, setPrecision } from '../../gen-xmas/lib.mjs';
 import { figure } from '../../gen-kw/people.mjs';
@@ -142,17 +142,17 @@ export function mid() {
     { let fr = ''; for (let k = 0; k < 8; k++) fr += `M${P(1020 - gm.tw * 0.6 + k * gm.tw * 0.16, gm.torsoTop + gm.r * 1.9)}v10`; out.push(line(fr, '#2a8a8a', 2)); }
   }
 
-  // ---- a little dog in a tricolour bandana
+  // ---- a little dog in a tricolor bandana
   out.push(G({ transform: 'translate(1140 880)' }, ellipse(0, 2, 20, 4, { fill: '#000', opacity: 0.2 }), path('M-14 0c-2 -14 6 -22 16 -20c10 2 14 12 10 20z', { fill: '#e8c8a0' }), circle(-12, -20, 10, { fill: '#e8c8a0' }), path('M-18 -28l-4 -10l8 6zM-6 -28l4 -10l-8 6z', { fill: '#c8a878' }), circle(-15, -21, 1.6, { fill: '#1a1a1a' }), circle(-9, -21, 1.6, { fill: '#1a1a1a' }), path('M-20 -10l8 8l8 -8z', { fill: GREEN }), path('M-14 -10l2 4l2 -4z', { fill: WHITE }), path('M14 -4q10 -6 6 -16', { fill: 'none', stroke: '#e8c8a0', 'stroke-width': 4, 'stroke-linecap': 'round' })));
   ppl.dog = [1132, 864];
 
-  return { svg: compactSvg(doc(`Independence Day (Mexico) · mid. Concept: "¡Viva México! in the square" on the night of 15 September. Focal point: the cheering family in front of the town hall (x 600–1080, y 440–880) — a girl in a china poblana dress waves a flag, a boy spins a wooden matraca rattle, dad holds a cup of esquites, grandma in a teal rebozo laughs — while up on the balcony the mayor rings the old bell for the Grito beside the big green, white and red flag. A churro cart and a balloon seller with balloons in the three colours on the left; a little dog in a bandana; green, white and red streamers cross low over the square; lamplight. The fireworks are the effect's.`, defs, out)), ppl };
+  return { svg: compactSvg(doc(`Independence Day (Mexico) · mid. Concept: "¡Viva México! in the square" on the night of 15 September. Focal point: the cheering family in front of the town hall (x 600–1080, y 440–880) — a girl in a china poblana dress waves a flag, a boy spins a wooden matraca rattle, dad holds a cup of esquites, grandma in a teal rebozo laughs — while up on the balcony the mayor rings the old bell for the Grito beside the big green, white and red flag. A churro cart and a balloon seller with balloons in the three colors on the left; a little dog in a bandana; green, white and red streamers cross low over the square; lamplight. The fireworks are the effect's.`, defs, out)), ppl };
 }
 
 // ============================== front ==============================
 export function front() {
   setPrecision(1);
-  return compactSvg(doc(`Independence Day (Mexico) · front: a pot of red geraniums bottom left and a potted cactus bottom right; the centre stays open`, [], [
+  return compactSvg(doc(`Independence Day (Mexico) · front: a pot of red geraniums bottom left and a potted cactus bottom right; the center stays open`, [], [
     C('geraniums bottom left'),
     path('M10 900l10 -56h100l10 56z', { fill: '#c8643a' }),
     path(circD(36, 822, 22) + circD(76, 812, 26) + circD(110, 826, 20), { fill: '#2a6a3a' }), path(circD(34, 810, 9) + circD(74, 798, 10) + circD(108, 814, 8), { fill: '#ce1126' }),
@@ -168,14 +168,14 @@ export function sceneData(ppl) {
   return {
     hotspots: [
       { activity: 'wish', x: ppl.bell[0], y: ppl.bell[1], r: 44, label: 'Ring the bell and shout ¡Viva!' },
-      { activity: 'colour', x: ppl.flag[0], y: ppl.flag[1], r: 50, label: 'Colour the flag' },
+      { activity: 'color', x: ppl.flag[0], y: ppl.flag[1], r: 50, label: 'Color the flag' },
       { activity: 'dressup', x: r(ppl.girlFlag[0] - 40), y: r(ppl.girlFlag[1] + 80), r: 50, label: 'Dress up for the fiesta' },
       { activity: 'memory', x: ppl.churros[0], y: ppl.churros[1], r: 44, label: 'Match the fiesta treats' },
     ],
     findables: [
       { id: 'matraca', label: 'a matraca rattle', x: r(ppl.matraca[0]), y: r(ppl.matraca[1]), r: 20 },
       { id: 'esquites', label: 'a cup of esquites', x: r(ppl.esquites[0]), y: r(ppl.esquites[1]), r: 16 },
-      { id: 'balloons', label: 'tricolour balloons', x: r(ppl.balloons[0]), y: r(ppl.balloons[1]), r: 40 },
+      { id: 'balloons', label: 'tricolor balloons', x: r(ppl.balloons[0]), y: r(ppl.balloons[1]), r: 40 },
       { id: 'dog', label: 'a dog in a bandana', x: ppl.dog[0], y: ppl.dog[1], r: 22 },
       { id: 'mayor', label: 'the mayor ringing the bell', x: r(ppl.mayor[0]), y: r(ppl.mayor[1]), r: 24 },
       { id: 'cactus', label: 'a cactus', x: 1554, y: 790, r: 30 },

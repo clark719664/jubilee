@@ -21,10 +21,10 @@ import { g, heartD, INK, starD } from './art-kit';
 import { itemById, type Slot } from './catalog';
 import type { Outfit } from './outfit';
 
-/** A viewBox with room for tall hats, balloons and the held item (Jubi stays centred). */
+/** A viewBox with room for tall hats, balloons and the held item (Jubi stays centered). */
 export const DRESS_VIEWBOX = '-14 -18 128 128';
 
-/** Jubi's star outline (same maths as mascot.ts), used when the element has no .jubi-body. */
+/** Jubi's star outline (same math as mascot.ts), used when the element has no .jubi-body. */
 function starOutline(): string {
   return starD(50, 54, 40, 17);
 }
@@ -45,11 +45,11 @@ export function drawItem(id: string): SVGGElement | null {
   return el;
 }
 
-/** The halo behind Jubi in the glow's colours (rings blur together into one soft glow). */
+/** The halo behind Jubi in the glow's colors (rings blur together into one soft glow). */
 export function drawGlow(id: string): SVGGElement | null {
   const it = itemById(id);
   if (!it || it.slot !== 'glow') return null;
-  const cols = it.colours ?? ['#ffd166'];
+  const cols = it.colors ?? ['#ffd166'];
   const out = g({ class: 'dz-glow', 'data-item': id });
   const outer = 51;
   if (cols.length <= 2) {
@@ -70,7 +70,7 @@ export function drawGlow(id: string): SVGGElement | null {
 export function drawPattern(id: string, outline: string): SVGGElement | null {
   const it = itemById(id);
   if (!it || it.slot !== 'pattern') return null;
-  const cols = it.colours ?? ['#ffffff'];
+  const cols = it.colors ?? ['#ffffff'];
   const clipId = `dz-clip-${++uid}`;
   const clip = svg('clipPath', { id: clipId });
   clip.append(svg('path', { d: outline }));

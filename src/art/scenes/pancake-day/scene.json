@@ -8,11 +8,11 @@
       "label": "Catch the flipping pancakes"
     },
     {
-      "activity": "colour",
+      "activity": "color",
       "x": 930,
       "y": 816,
       "r": 50,
-      "label": "Colour in the pancake race"
+      "label": "Color in the pancake race"
     },
     {
       "activity": "memory",
@@ -67,7 +67,7 @@
     },
     {
       "id": "flag",
-      "label": "the chequered flag",
+      "label": "the checkered flag",
       "x": 1082,
       "y": 718,
       "r": 24

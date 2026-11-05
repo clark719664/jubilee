@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" fill="#ffffff" stroke="#2a2340" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+<!-- Easter coloring page: the egg tree — a girl hangs a painted egg on a blossom tree while the bunny brings another egg; a basket of eggs, tulips, the sun and a cloud -->
+<path data-fill="sun" fill="#ffffff" d="M46 92a46 46 0 1 0 92 0a46 46 0 1 0-92 0z"/>
+<path fill="none" stroke-width="5" d="M152 92l20 0m-31 35l15.7 12m-46 10.1l6 19m-43-19l-6.4 19m-24-41l-16 11.9m4.7-47l-20 0m32-35l-16.7-12m46-10.1l-6-19m43 19l6.4-19m24 41l16-11.9"/>
+<path data-fill="cloud" fill="#ffffff" d="M600 120a31 31 0 0 1 32-39a22 22 0 0 1 32-15.1a19.8 19.8 0 0 1 32 0a22 22 0 0 1 32 15.5a31 31 0 0 1 32 39z"/>
+<path data-fill="grass" fill="#ffffff" d="M-10 810v-120c130-14 270 0 410 4s280-10 410-4v120z"/>
+<path data-fill="trunk" fill="#ffffff" d="M346 702c10-62-2-182 10-302l-36-50l24-10l28 40l16-80l26 2l-6 78l44-50l20 14l-48 76c-6 120 6 230 26 282z"/>
+<path fill="none" stroke-width="4" d="M160 288v68m400-39v48m92-83v56m-322-7.1v85"/>
+<path data-fill="blossom" fill="#ffffff" d="M682 267a28 28 0 0 1-35 29a51 51 0 0 1-76 38a66 66 0 0 1-108 23a99 99 0 0 1-165-7.5a69 69 0 0 1-110-31a52 52 0 0 1-77-38a27 27 0 0 1-8.4-44a38 38 0 0 1 46-42a64 64 0 0 1 99-42a87 87 0 0 1 144-10.2a57 57 0 0 1 96 1.3a69 69 0 0 1 111 23a51 51 0 0 1 72 46a33 33 0 0 1 11.6 55z"/>
+<path data-fill="flower-1" fill="#ffffff" d="M272 220a14.5 14.5 0 0 1-15.2 21a14.5 14.5 0 0 1-25-8.1a14.5 14.5 0 0 1 .4-26a14.5 14.5 0 0 1 25-7.8a14.5 14.5 0 0 1 14.8 21z"/>
+<path data-fill="flower-2" fill="#ffffff" d="M442 190a14.5 14.5 0 0 1-15.2 21a14.5 14.5 0 0 1-25-8.1a14.5 14.5 0 0 1 .4-26a14.5 14.5 0 0 1 25-7.8a14.5 14.5 0 0 1 14.8 21z"/>
+<path data-fill="flower-3" fill="#ffffff" d="M372 290a14.5 14.5 0 0 1-15.2 21a14.5 14.5 0 0 1-25-8.1a14.5 14.5 0 0 1 .4-26a14.5 14.5 0 0 1 25-7.8a14.5 14.5 0 0 1 14.8 21z"/>
+<path data-fill="flower-4" fill="#ffffff" d="M562 260a14.5 14.5 0 0 1-15.2 21a14.5 14.5 0 0 1-25-8.1a14.5 14.5 0 0 1 .4-26a14.5 14.5 0 0 1 25-7.8a14.5 14.5 0 0 1 14.8 21z"/>
+<path data-fill="flower-5" fill="#ffffff" d="M182 280a14.5 14.5 0 0 1-15.2 21a14.5 14.5 0 0 1-25-8.1a14.5 14.5 0 0 1 .4-26a14.5 14.5 0 0 1 25-7.8a14.5 14.5 0 0 1 14.8 21z"/>
+<path data-fill="flower-6" fill="#ffffff" d="M642 200a14.5 14.5 0 0 1-15.2 21a14.5 14.5 0 0 1-25-8.1a14.5 14.5 0 0 1 .4-26a14.5 14.5 0 0 1 25-7.8a14.5 14.5 0 0 1 14.8 21z"/>
+<path data-fill="egg-a-top" fill="#ffffff" d="M130 388a30 38 0 0 1 60 .4z"/>
+<path data-fill="egg-a-band" fill="#ffffff" d="M130 388l60 .4a30 38 0 0 1-2.1 18l-56 0a30 38 0 0 1-1.7-18z"/>
+<path data-fill="egg-a-bottom" fill="#ffffff" d="M132 406l56 .4a30 38 0 0 1-56 0z"/>
+<path data-fill="egg-b-top" fill="#ffffff" d="M530 397a30 38 0 0 1 60-.3z"/>
+<path data-fill="egg-b-band" fill="#ffffff" d="M530 397l60-.3a30 38 0 0 1-2.1 18l-56 0a30 38 0 0 1-1.7-18z"/>
+<path data-fill="egg-b-bottom" fill="#ffffff" d="M532 415l56-.3a30 38 0 0 1-56 0z"/>
+<path data-fill="egg-c-top" fill="#ffffff" d="M622 370a30 38 0 0 1 60-.5z"/>
+<path data-fill="egg-c-band" fill="#ffffff" d="M622 370l60-.5a30 38 0 0 1-2.1 18l-56 0a30 38 0 0 1-1.7-18z"/>
+<path data-fill="egg-c-bottom" fill="#ffffff" d="M624 388l56-.5a30 38 0 0 1-56 0z"/>
+<path data-fill="girl-hair" fill="#ffffff" d="M170 534a22 22 0 1 0 .1 0zm80 0a22 22 0 1 0 .1 0z"/>
+<path data-fill="girl-legs" fill="#ffffff" d="M188 680v52h18v-52zm26 0v52h18v-52z"/>
+<path data-fill="girl-shoe-left" fill="#ffffff" d="M174 736a20 11 0 1 0 40 0a20 11 0 1 0-40 0z"/>
+<path data-fill="girl-shoe-right" fill="#ffffff" d="M206 736a20 11 0 1 0 40 0a20 11 0 1 0-40 0z"/>
+<path data-fill="girl-dress" fill="#ffffff" d="M177 588q3-16 19-16l28 0q16 0 19.4 15.6l18.5 87q2.1 9.4-7.9 9.4l-88 0q-10 0-7.9-9.8z"/>
+<path data-fill="girl-arm-left" fill="#ffffff" d="M189 584q-5-6-8.2 1.3l-17.6 39q-3.2 7.7 4 11.3l1.6.8q7.2 3.6 10.7-3.6l15-32q3.5-6.8-1.8-12.8z"/>
+<path data-fill="girl-arm-right" fill="#ffffff" d="M229 589q-7-5-2-11.3l72-91q5-6.7 11.9-2.6l6.2 3.8q6.9 4.1 2 10.4l-72 93q-5.1 6.7-11.7 2.1z"/>
+<path data-fill="girl-face" fill="#ffffff" d="M172 534a38 38 0 1 0 76 0a38 38 0 1 0-76 0z"/>
+<path data-fill="girl-fringe" fill="#ffffff" d="M172 530c-2-48 78-48 76 0q-20-22-38-18q-20-4-38 18z"/>
+<path fill="#2a2340" d="M192 538a5 5 0 1 0 10 0a5 5 0 1 0-10 0zm26 0a5 5 0 1 0 10 0a5 5 0 1 0-10 0z"/>
+<path fill="none" stroke-width="4" d="M201 554q9 8 18 0"/>
+<path data-fill="egg-held-top" fill="#ffffff" d="M300 448a30 38 0 0 1 60 0z"/>
+<path data-fill="egg-held-band" fill="#ffffff" d="M300 448l60 0a30 38 0 0 1-2.1 18l-56 0a30 38 0 0 1-1.7-18z"/>
+<path data-fill="egg-held-bottom" fill="#ffffff" d="M302 466l56 0a30 38 0 0 1-56 0z"/>
+<path data-fill="girl-hand" fill="#ffffff" d="M298 484a14 14 0 1 0 28 0a14 14 0 1 0-28 0z"/>
+<path data-fill="bunny-ear-left" fill="#ffffff" d="M466 594c-26-60-10-112 10-112c20 0 20 52 14 112z"/>
+<path data-fill="bunny-ear-right" fill="#ffffff" d="M510 594c10-60 38-102 58-88c18 16-12 56-34 90z"/>
+<path data-fill="bunny-inner-left" fill="#ffffff" d="M470 576c-14-38-6-74 6-74c12 0 12 36 8 74z"/>
+<path data-fill="bunny-inner-right" fill="#ffffff" d="M518 576c10-38 30-64 44-58c10 10-12 36-28 60z"/>
+<path data-fill="bunny-body" fill="#ffffff" d="M438 682a62 66 0 1 0 124 0a62 66 0 1 0-124 0z"/>
+<path data-fill="bunny-foot-left" fill="#ffffff" d="M438 734a28 14 0 1 0 56 0a28 14 0 1 0-56 0z"/>
+<path data-fill="bunny-foot-right" fill="#ffffff" d="M506 734a28 14 0 1 0 56 0a28 14 0 1 0-56 0z"/>
+<path data-fill="bunny-head" fill="#ffffff" d="M454 594a46 46 0 1 0 92 0a46 46 0 1 0-92 0z"/>
+<path fill="#2a2340" d="M477 588a6 6 0 1 0 12 0a6 6 0 1 0-12 0zm34 0a6 6 0 1 0 12 0a6 6 0 1 0-12 0z"/>
+<path data-fill="bunny-nose" fill="#ffffff" d="M491 608a9 7 0 1 0 18 0a9 7 0 1 0-18 0z"/>
+<path fill="none" stroke-width="4" d="M500 615v7m0 0q-8 8-14 2m14-2q8 8 14 2"/>
+<path data-fill="bunny-egg" fill="#ffffff" d="M470 678a30 38 0 1 0 60 0a30 38 0 1 0-60 0z"/>
+<path fill="none" stroke-width="4" d="M471 674q29 14 58 0"/>
+<path data-fill="bunny-paw-left" fill="#ffffff" d="M456 674a14 14 0 1 0 28 0a14 14 0 1 0-28 0z"/>
+<path data-fill="bunny-paw-right" fill="#ffffff" d="M516 674a14 14 0 1 0 28 0a14 14 0 1 0-28 0z"/>
+<path data-fill="basket-egg-1" fill="#ffffff" d="M600 694a20 26 0 1 0 40 0a20 26 0 1 0-40 0z"/>
+<path data-fill="basket-egg-2" fill="#ffffff" d="M650 692a20 26 0 1 0 40 0a20 26 0 1 0-40 0z"/>
+<path data-fill="basket-handle" fill="#ffffff" d="M580 704c0-94 132-94 132 0l-14 0c0-76-104-76-104 0z"/>
+<path data-fill="basket" fill="#ffffff" d="M572 700h148l-16 50h-116z"/>
+<path fill="none" stroke-width="4" d="M578 724h136"/>
+<path data-fill="tulip-left-leaves" fill="#ffffff" d="M40 790c0-55 0-93-18-110c22 22 42 61 42 110zm12 0c0-50 24-85 42-100c-7.8 20-18 55-18 100z"/>
+<path data-fill="tulip-left-stem" fill="#ffffff" d="M51 790v-150h14v150z"/>
+<path data-fill="tulip-left-flower" fill="#ffffff" d="M26 640c-4-34 2-60 8-64l13 24l11-32l11 32l13-24c6 4 12 30 8 64c-5 24-59 24-64 0z"/>
+<path data-fill="tulip-right-leaves" fill="#ffffff" d="M744 790c0-55 0-93-18-110c22 22 42 61 42 110zm12 0c0-50 24-85 42-100c-7.8 20-18 55-18 100z"/>
+<path data-fill="tulip-right-stem" fill="#ffffff" d="M755 790v-150h14v150z"/>
+<path data-fill="tulip-right-flower" fill="#ffffff" d="M730 640c-4-34 2-60 8-64l13 24l11-32l11 32l13-24c6 4 12 30 8 64c-5 24-59 24-64 0z"/>
+</svg>

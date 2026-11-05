@@ -29,7 +29,7 @@ export interface Progress {
   greetedToday?: IsoDate;
   /** `${year}-${day}` */
   adventOpened: Record<string, true>;
-  /** Shell colour scheme override; undefined follows the OS. */
+  /** Shell color scheme override; undefined follows the OS. */
   scheme?: 'light' | 'dark';
 }
 
@@ -328,7 +328,7 @@ export class Store {
     lines.push(`Moving skies: ${p.motion}`);
     lines.push(`Measurements: ${p.units === 'us' ? COPY.unitsUs : COPY.unitsMetric}`);
     lines.push(`Holidays from everywhere: ${p.everywhere ? 'on' : 'off'}`);
-    if (p.scheme) lines.push(`Colours: ${p.scheme}`);
+    if (p.scheme) lines.push(`Colors: ${p.scheme}`);
     lines.push(`Stickers earned: ${Object.keys(p.stickers).length}`);
     lines.push(`Badges: ${Object.keys(p.badges).length}`);
     lines.push(`Holiday pages visited: ${Object.keys(p.visited).length}`);

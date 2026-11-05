@@ -22,11 +22,11 @@
       "label": "Make a Passover card"
     },
     {
-      "activity": "colour",
+      "activity": "color",
       "x": 885,
       "y": 701,
       "r": 46,
-      "label": "Colour the seder table"
+      "label": "Color the seder table"
     }
   ],
   "findables": [

@@ -1,6 +1,6 @@
 /**
  * Settings resolution: region from the browser language, motion from
- * `?motion=` > saved setting > OS preference, units and colour scheme.
+ * `?motion=` > saved setting > OS preference, units and color scheme.
  * Pure functions; the media-query helpers at the bottom are the only DOM touch
  * and are guarded so the module loads under Node for tests.
  */

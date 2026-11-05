@@ -1,5 +1,5 @@
 /**
- * Story Time (activity id 'story') — a personalised read-along picture book for twelve big holidays.
+ * Story Time (activity id 'story') — a personalized read-along picture book for twelve big holidays.
  *
  * The child's saved first name stars in the book ("our hero" when there is none) and a friend can come
  * along: a first name typed on the cover, used only while the book is open and kept only if the child

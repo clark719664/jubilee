@@ -3,7 +3,7 @@
  * Spring, Silly, Family, Faith, National, Around the world, My holidays], a sort switch [Soonest, A–Z,
  * By month] and a grid of sticker tiles — each with its holiday's own little sky, its emoji, a badge
  * ("in 12 sleeps", "today!", "next in 2028"), the region variant ("Thanksgiving · Canada") and a
- * "we just celebrated!" ribbon for a week afterwards. Tier-3 silly days appear only under Silly; birthdays
+ * "we just celebrated!" ribbon for a week afterward. Tier-3 silly days appear only under Silly; birthdays
  * and custom days under All, Family and My holidays.
  *
  * Chips and sort live in the route, so Back walks through them and every combination is a shareable link;
@@ -182,7 +182,7 @@ export function nextIndex(key: string, i: number, count: number): number | null 
 export interface Box { readonly left: number; readonly top: number; readonly width: number; readonly height: number }
 
 /**
- * Up/Down: the tile in the nearest row above/below whose centre is closest horizontally (rows are found
+ * Up/Down: the tile in the nearest row above/below whose center is closest horizontally (rows are found
  * from the layout, so it works for any column count and across the month groups). Stays put at an edge.
  */
 export function verticalNeighbor(boxes: readonly Box[], i: number, dir: 1 | -1): number {

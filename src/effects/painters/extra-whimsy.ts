@@ -3,7 +3,7 @@
  * glyph-rain, balloons, bubbles and planes. Each preset registers what it needs in its constructor,
  * guarded by `sprites.has(name)`, under a `<preset>:` prefix so names never collide with other groups.
  *
- * Painters draw centred on the origin within about ±size/2 and run once per (name, size, colour), so
+ * Painters draw centered on the origin within about ±size/2 and run once per (name, size, color), so
  * gradients and a few dozen arcs here cost nothing per frame. Big scenery (the moon, the globe, the
  * cake) is painted at a capped, quantised size and drawn with a scale.
  */

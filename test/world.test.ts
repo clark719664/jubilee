@@ -1,5 +1,5 @@
 /**
- * The World view's maths and data: projections and hemisphere clipping, the sun and the
+ * The World view's math and data: projections and hemisphere clipping, the sun and the
  * moon, time zones, the New Year wave, Santa's flight, and the hand-made city and
  * "celebrated in" tables. Everything here is pure and runs in Node; the canvas and the DOM
  * are reviewed with screenshots instead. Nothing depends on the process time zone (the
@@ -53,7 +53,7 @@ const HOLIDAY_IDS = [
 // ───────────────────────────────────────────────────────── geometry
 
 describe('geo', () => {
-  it('normalises longitudes into (−180, 180]', () => {
+  it('normalizes longitudes into (−180, 180]', () => {
     expect(normLon(190)).toBe(-170);
     expect(normLon(-180)).toBe(180);
     expect(normLon(540)).toBe(180);
@@ -153,9 +153,9 @@ describe('projection', () => {
         }
       }
       expect(o.unproject(1, 1)).toBeNull();
-      const centre = o.project(clon, clat);
-      expect(centre.x).toBeCloseTo(o.w / 2, 9);
-      expect(centre.y).toBeCloseTo(o.h / 2, 9);
+      const center = o.project(clon, clat);
+      expect(center.x).toBeCloseTo(o.w / 2, 9);
+      expect(center.y).toBeCloseTo(o.h / 2, 9);
     }
   });
 
@@ -167,7 +167,7 @@ describe('projection', () => {
     expect(east.x).toBeGreaterThan(o.w / 2);
   });
 
-  it('equirectangular round-trips and wraps to the copy nearest the centre', () => {
+  it('equirectangular round-trips and wraps to the copy nearest the center', () => {
     const m = new Equirectangular(150, 0);
     m.setSize(720, 360);
     m.setScale(2);
@@ -177,7 +177,7 @@ describe('projection', () => {
       expect(back.lon).toBeCloseTo(lon, 9);
       expect(back.lat).toBeCloseTo(lat, 9);
     }
-    // −170 is 40° east of 150 across the date line, so it lands right of centre.
+    // −170 is 40° east of 150 across the date line, so it lands right of center.
     expect(m.project(-170, 0).x).toBeCloseTo(360 + 40 * 2, 9);
     expect(m.unproject(10, -5)).toBeNull();
   });
@@ -196,16 +196,16 @@ describe('projection', () => {
   });
 
   it('clips rings across the limb into closed polygons inside the disc with the right area', () => {
-    const cases: { view: [number, number]; centre: [number, number]; radius: number }[] = [
-      { view: [0, 0], centre: [90, 0], radius: 30 },     // half a cap, on the right limb
-      { view: [0, 0], centre: [90, 0], radius: 90 },     // the hemisphere east of the view: half the disc
-      { view: [20, 30], centre: [120, 10], radius: 50 },
-      { view: [-60, -20], centre: [-60, 70], radius: 75 },
-      { view: [0, 0], centre: [0, 0], radius: 120 },     // bigger than a hemisphere: the whole disc
+    const cases: { view: [number, number]; center: [number, number]; radius: number }[] = [
+      { view: [0, 0], center: [90, 0], radius: 30 },     // half a cap, on the right limb
+      { view: [0, 0], center: [90, 0], radius: 90 },     // the hemisphere east of the view: half the disc
+      { view: [20, 30], center: [120, 10], radius: 50 },
+      { view: [-60, -20], center: [-60, 70], radius: 75 },
+      { view: [0, 0], center: [0, 0], radius: 120 },     // bigger than a hemisphere: the whole disc
     ];
     for (const k of cases) {
       const o = globe(k.view[0], k.view[1], 100);
-      const c = { lon: k.centre[0], lat: k.centre[1] };
+      const c = { lon: k.center[0], lat: k.center[1] };
       const ring = smallCircleRing(lonlatToVec3(c.lon, c.lat), k.radius, 240);
       const polys = clipRingToHemisphere(ring, o);
       expect(polys.length).toBeGreaterThan(0);
@@ -242,7 +242,7 @@ describe('projection', () => {
     }
   });
 
-  it('prepares every outline once, anticlockwise from outside, with sensible centres', () => {
+  it('prepares every outline once, counterclockwise from outside, with sensible centers', () => {
     const world = prepareShapes();
     expect(prepareShapes()).toBe(world);
     expect(world.countries.length).toBeGreaterThan(150);
@@ -447,7 +447,7 @@ describe('cities', () => {
 });
 
 describe('celebrated', () => {
-  it('has an entry for every holiday in the catalogue, and nothing else', () => {
+  it('has an entry for every holiday in the catalog, and nothing else', () => {
     expect(HOLIDAY_IDS).toHaveLength(76);
     for (const id of HOLIDAY_IDS) expect(CELEBRATED[id], id).toBeDefined();
     expect(Object.keys(CELEBRATED).sort()).toEqual([...HOLIDAY_IDS].sort());

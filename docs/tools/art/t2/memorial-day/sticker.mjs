@@ -18,7 +18,7 @@ export function sticker() {
   const inside = [circle(256, 230, 140, { fill: 'none', stroke: '#ffffff', 'stroke-width': 4, opacity: 0.5 })].join('');
   const bg = badge(ID, { d: bd, cx: 256, cy: 230, c1: '#3a5ac8', c2: BLUE, tile: tiled(ID, B, 40, [MARKS.star(8), MARKS.star(5)]), patternFill: '#ffffff', patternOpacity: 0.55, ink: '#0a1240', inside, inset: 0.86 });
 
-  // ---- the poppy: four round petals, a dark centre, a stem with leaves, a little flag
+  // ---- the poppy: four round petals, a dark center, a stem with leaves, a little flag
   const C0 = { x: 256, y: 222 };
   const petal = (a, r) => `M${P(C0.x + Math.cos(a) * r * 0.66 - r, C0.y + Math.sin(a) * r * 0.66)}a${f(r)} ${f(r * 0.9)} 0 1 0 ${f(2 * r)} 0a${f(r)} ${f(r * 0.9)} 0 1 0 ${f(-2 * r)} 0Z`;
   const petals = [-Math.PI / 4, Math.PI / 4, (3 * Math.PI) / 4, (-3 * Math.PI) / 4].map((a) => petal(a, 74)).join('');

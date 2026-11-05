@@ -61,7 +61,7 @@ export function sectionDomId(section: PageSection): string {
 // ───────────────────────────────────────────────────────── Play: activity links + countdown-doors teaser
 
 /** The activities every holiday page links to (the play view wires `#/h/:id/play/:activity`). */
-export type PlayLinkId = Extract<ActivityId, 'doors' | 'seek' | 'colour' | 'card' | 'wish' | 'memory' | 'catch' | 'dressup' | 'quiz' | 'path' | 'story' | 'pumpkin' | 'treats' | 'monster' | 'potion' | 'peekaboo'>;
+export type PlayLinkId = Extract<ActivityId, 'doors' | 'seek' | 'color' | 'card' | 'wish' | 'memory' | 'catch' | 'dressup' | 'quiz' | 'path' | 'story' | 'pumpkin' | 'treats' | 'monster' | 'potion' | 'peekaboo'>;
 
 export interface PlayLink {
   readonly id: PlayLinkId;
@@ -81,7 +81,7 @@ export const STORY_HOLIDAYS: readonly string[] = [
 export const PLAY_LINKS: readonly PlayLink[] = [
   { id: 'doors', label: 'Doors', emoji: '🚪' },
   { id: 'seek', label: 'Seek & Find', emoji: '🔍' },
-  { id: 'colour', label: 'Colour-in', emoji: '🖍️' },
+  { id: 'color', label: 'Color-in', emoji: '🖍️' },
   { id: 'card', label: 'Make a card', emoji: '💌' },
   { id: 'wish', label: 'Wish Post', emoji: '📮' },
   { id: 'memory', label: 'Memory', emoji: '🃏' },
@@ -107,7 +107,7 @@ export const HOLIDAY_GAMES: readonly HolidayGames[] = [
       { id: 'pumpkin', label: 'Pumpkin Carver', emoji: '🎃' },
       { id: 'treats', label: 'Trick-or-Treat', emoji: '🏘️' },
       { id: 'monster', label: 'Monster Maker', emoji: '👾' },
-      { id: 'potion', label: 'Cauldron Colours', emoji: '🧪' },
+      { id: 'potion', label: 'Cauldron Colors', emoji: '🧪' },
       { id: 'peekaboo', label: 'Peekaboo Ghosts', emoji: '👻' },
     ],
   },
@@ -286,7 +286,7 @@ export function dayPanel(meta: HolidayMeta, occ: Occurrence, status: Status, tod
 export interface Zodiac {
   readonly animal: string;
   readonly emoji: string;
-  /** Mandarin (simplified) + pinyin, Korean + romanisation, Vietnamese (which has its own animals for two years). */
+  /** Mandarin (simplified) + pinyin, Korean + romanization, Vietnamese (which has its own animals for two years). */
   readonly zh: string; readonly zhRoman: string;
   readonly ko: string; readonly koRoman: string;
   readonly vi: string; readonly viNote: string | null;

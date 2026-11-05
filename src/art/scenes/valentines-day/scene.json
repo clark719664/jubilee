@@ -5,7 +5,7 @@
       "x": 800,
       "y": 640,
       "r": 100,
-      "label": "Make a valentine for the postbox"
+      "label": "Make a valentine for the mailbox"
     },
     {
       "activity": "memory",
@@ -22,11 +22,11 @@
       "label": "Peek into the café"
     },
     {
-      "activity": "colour",
+      "activity": "color",
       "x": 906,
       "y": 650,
       "r": 40,
-      "label": "Colour a big heart card"
+      "label": "Color a big heart card"
     },
     {
       "activity": "doors",
@@ -66,8 +66,8 @@
       "r": 20
     },
     {
-      "id": "ladybird",
-      "label": "a ladybird",
+      "id": "ladybug",
+      "label": "a ladybug",
       "x": 1450,
       "y": 730,
       "r": 18

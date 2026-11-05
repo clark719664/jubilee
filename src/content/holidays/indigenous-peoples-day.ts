@@ -2,13 +2,13 @@ import type { HolidayContent } from '../types';
 
 const content: HolidayContent = {
   story: [
-    'Indigenous Peoples\' Day, on the second Monday in October, honours the Native nations who have lived on the land now called the United States for thousands of years and who live here today.',
+    'Indigenous Peoples\' Day, on the second Monday in October, honors the Native nations who have lived on the land now called the United States for thousands of years and who live here today.',
     'There is no single "Native American" way of life: hundreds of nations, from the Navajo to the Lakota to the Haudenosaunee, each have their own language, stories, foods and celebrations.',
     'Many towns mark the day with powwows, drumming and dancing, storytelling and talks by Native speakers about their history and their communities now.',
   ],
   facts: [
     {
-      text: 'The United States government recognises more than 570 Native nations, each with its own government, and dozens more are recognised by individual states.',
+      text: 'The United States government recognizes more than 570 Native nations, each with its own government, and dozens more are recognized by individual states.',
       bigKids: true,
     },
     {

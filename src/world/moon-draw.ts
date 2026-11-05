@@ -35,7 +35,7 @@ function litPath(ctx: CanvasRenderingContext2D, cx: number, cy: number, r: numbe
   ctx.closePath();
 }
 
-/** Draws the moon centred at (cx, cy) with radius r (CSS px; set the dpr transform first). */
+/** Draws the moon centered at (cx, cy) with radius r (CSS px; set the dpr transform first). */
 export function drawMoon(
   ctx: CanvasRenderingContext2D, cx: number, cy: number, r: number, fraction: number, waxing: boolean, colors: MoonColors = MOON_COLORS,
 ): void {

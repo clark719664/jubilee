@@ -16,7 +16,7 @@ const SKIN = { a: '#f0c8a8', b: '#c8946a', c: '#8a5a3a', d: '#e4b08a' };
 const HAIR = '#2a1a14';
 const GROUND = 700;
 
-/** A frog sitting, facing front, at (x, y) (bottom centre), scale s. */
+/** A frog sitting, facing front, at (x, y) (bottom center), scale s. */
 const frog = (x, y, s = 1, col = '#4aa84a', hat = false) => G({ transform: `translate(${f(x)} ${f(y)}) scale(${f(s)})` },
   ellipse(0, -2, 26, 6, { fill: '#000', opacity: 0.2 }),
   path('M-24 0c-6 -10 -2 -18 8 -18M24 0c6 -10 2 -18 -8 -18', { fill: 'none', stroke: darken(col, 0.15), 'stroke-width': 8, 'stroke-linecap': 'round' }),
@@ -175,7 +175,7 @@ export function mid() {
 // ============================== front ==============================
 export function front() {
   setPrecision(1);
-  return compactSvg(doc(`Leap Day · front: reeds and cattails in the bottom corners; the centre stays open`, [], [
+  return compactSvg(doc(`Leap Day · front: reeds and cattails in the bottom corners; the center stays open`, [], [
     C('reeds and cattails, bottom left'),
     line('M20 900q-4 -80 6 -140M48 900q4 -60 -8 -110M76 900q2 -50 14 -86', '#4a8a3a', 5),
     path('M20 760q6 0 6 8v30q0 6 -6 6q-6 0 -6 -6v-30q0 -8 6 -8z', { fill: '#7a4a2a' }),
@@ -192,7 +192,7 @@ export function sceneData(ppl) {
     hotspots: [
       { activity: 'wish', x: ppl.calendar[0], y: ppl.calendar[1], r: 70, label: 'Make a leap day wish' },
       { activity: 'catch', x: 760, y: 770, r: 70, label: 'Catch the hopping frogs' },
-      { activity: 'colour', x: ppl.partyFrog[0], y: ppl.partyFrog[1], r: 36, label: 'Colour the party frog' },
+      { activity: 'color', x: ppl.partyFrog[0], y: ppl.partyFrog[1], r: 36, label: 'Color the party frog' },
       { activity: 'card', x: r(ppl.vaulter[0]), y: r(ppl.vaulter[1] + 40), r: 50, label: 'Make a leap day card' },
       { activity: 'memory', x: ppl.crocus[0], y: ppl.crocus[1], r: 36, label: 'Spring memory game' },
     ],

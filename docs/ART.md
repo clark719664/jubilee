@@ -55,23 +55,23 @@ The hero stacks `sky → back → mid → effect canvas → front`, each layer `
 - **Ground** reaches y 900 across the full width in `mid` or `front`; no sky shows below y 860. Every layer spans
   x 0–1600 with no gaps at the sides (overdraw to −20 and 1620).
 - **Effect space**: the canvas draws between `mid` and `front`. Leave its space clear and never draw what it draws
-  (the brief lists them). Diwali's diyas and rangoli sit in the bottom centre, so the Diwali courtyard there is plain
+  (the brief lists them). Diwali's diyas and rangoli sit in the bottom center, so the Diwali courtyard there is plain
   warm stone with a soft pool of light and nothing else.
-- **`front.svg`** frames the bottom and corners only: under 22% of the height in the centre (y ≥ 700 at x 520–1080),
+- **`front.svg`** frames the bottom and corners only: under 22% of the height in the center (y ≥ 700 at x 520–1080),
   and it never covers the focal point. It is the darkest or most saturated plane.
-- **Three planes**: `back` low contrast and tinted toward the sky; `mid` full colour and crisp; `front` darkest or most
+- **Three planes**: `back` low contrast and tinted toward the sky; `mid` full color and crisp; `front` darkest or most
   saturated. If you squint, the planes separate into three values.
 
 ## 3. Palette recipe
 
-Start from the holiday's theme (`bg1`, `bg2`, `ink`, `accent`, `accent2`, `glow`) and derive every colour from it with
+Start from the holiday's theme (`bg1`, `bg2`, `ink`, `accent`, `accent2`, `glow`) and derive every color from it with
 a few mixing functions. Write them as code; never eyedrop.
 
 ```js
-const mix = (a, b, t) => /* per-channel lerp of two hex colours */;
-const night = (c, k = 0.32) => mix(c, NIGHT, k); // local colour sinking into the night
-const lit   = (c, k = 0.30) => mix(c, WARM,  k); // local colour catching lamp light
-const haze  = (k) => mix(T.bg2, MIST, k);        // far plane: sky colour lifted toward a pale mist
+const mix = (a, b, t) => /* per-channel lerp of two hex colors */;
+const night = (c, k = 0.32) => mix(c, NIGHT, k); // local color sinking into the night
+const lit   = (c, k = 0.30) => mix(c, WARM,  k); // local color catching lamp light
+const haze  = (k) => mix(T.bg2, MIST, k);        // far plane: sky color lifted toward a pale mist
 ```
 
 ### Night (Christmas, Diwali, Halloween, Hanukkah, Eid, …)
@@ -82,27 +82,27 @@ const haze  = (k) => mix(T.bg2, MIST, k);        // far plane: sky colour lifted
 | `WARM` (lamp light) | `#ffd98a` | `#ffc46b` | theme `glow` pushed toward cream |
 | far plane | pale: `haze(.2–.7)` with `MIST` `#d8f3e8` (snowy peaks lit by the moon) | dark: silhouettes `mix(NIGHT, bg2, .55–.72)` against a rose glow, the farthest skyline `mix(bg2, '#d9708a', .32)` | either lighter or darker than the sky, never both; lightness spread inside `back.svg` stays small |
 | walls facing us | `night(c, .30–.40)` | same | then a vertical gradient: top `darken(c, .18–.22)` (eave shadow), `c` at .6, foot `mix(c, warm bounce, .12–.22)` |
-| walls facing the light | `lit(c, .22–.30)` | a 6–7 unit `WARM` strip at 35–40% on each wall edge that faces the centre | the focal light's side of every building |
+| walls facing the light | `lit(c, .22–.30)` | a 6–7 unit `WARM` strip at 35–40% on each wall edge that faces the center | the focal light's side of every building |
 | accents | `accent`, `accent2` | marigold, pink | small doses, densest near the focal point |
 
-Two traps from the Diwali revision: a green or teal wall sunk toward plum turns grey, so sink greens toward a cool dark
+Two traps from the Diwali revision: a green or teal wall sunk toward plum turns gray, so sink greens toward a cool dark
 (`#14102a`) and give them a contrasting warm trim (trims mixed toward the green go olive); and shade the tops of walls
 toward the scene's `NIGHT` hue, never toward black, which turns saturated ochre to mud.
 
-Distance is a colour, not an overlay: a farther house uses `dim = 0.1–0.22` mixed into every one of its colours
+Distance is a color, not an overlay: a farther house uses `dim = 0.1–0.22` mixed into every one of its colors
 (walls, roof, snow, door). Translucent dark overlays double up where shapes overlap and show seams.
 
 Snow is the brightest cool surface at night and comes in four values (the revised Christmas scene): `#eef8ff` moonlit,
 `#fff4dc` where it faces a lamp, `#c6d9eb` in shade, and `#a8c1d9` on its cut edge. The far plane stays hazy
 (`haze(.1–.44)`), and a snowy front bank is the darkest plane (`#4d7e9a` → `#203f58`). Ground is one radial gradient
-centred under the focal point: warmest and lightest there, cooler at the edges.
+centered under the focal point: warmest and lightest there, cooler at the edges.
 
 ### Day (Easter, Holi, Nowruz, Mother's Day, …)
 
 - Sun from the upper left. Light faces: `mix(c, '#ffffff', .3–.5)` on upper-left edges; shadow faces:
-  `mix(c, COOL, .2–.3)` where `COOL` is `bg2` desaturated (lavender for Easter, blue-grey for snow days).
+  `mix(c, COOL, .2–.3)` where `COOL` is `bg2` desaturated (lavender for Easter, blue-gray for snow days).
 - Far plane: `mix(c, bg1, .55–.75)`. Cast shadows are soft ellipses of a cool dark at 12–20%.
-- No glows except the sun's. Pastels need one saturated anchor colour (the Easter sticker: theme `accent` violet in
+- No glows except the sun's. Pastels need one saturated anchor color (the Easter sticker: theme `accent` violet in
   the zigzag, `accent2` pink in the band) or they wash out on the light sky.
 
 ## 4. Light recipe
@@ -111,7 +111,7 @@ One light story per scene, said in the `mid.svg` comment, then obeyed by every o
 
 - **Night**: one warm key at the focal point (the tree and its star; the kandil and the haveli doorway), many small
   practical lights (windows, lanterns, strings), a cool fill from the sky. Everything facing the key catches it; the
-  rest sits in the cool night colour.
+  rest sits in the cool night color.
 - **Glows are radial gradients that reach zero at their edge**: `glow` at opacity .55 → .22 at 35% → 0 at 100%.
   Size the halo 1.3–1.5× the light plus 10. A glow with a visible edge is a defect.
 - **Spill**: every lit door and ground-floor window throws an ellipse of light on the ground below it (radial, .5 → 0,
@@ -127,7 +127,7 @@ One light story per scene, said in the `mid.svg` comment, then obeyed by every o
 
 - **Chunky and rounded.** Every polygon corner is rounded (2–8 units on scene objects, up to 36 on big masses such
   as tree tiers). Minimum feature 6 units, minimum stroke 2.5 units: anything smaller vanishes on a phone.
-- **Silhouette first.** Each object reads as one shape at a glance; interior detail is 2–3 values of its own colour.
+- **Silhouette first.** Each object reads as one shape at a glance; interior detail is 2–3 values of its own color.
 - **Repetition with variation.** Drips, merlons, bulbs, icicles and tiles repeat with seeded jitter (thickness
   × 0.72–1.0, an occasional longer drip). Use a seeded RNG so a rebuild is identical.
 - **One perspective.** The reference scenes now use flat front elevations only: no building shows a side wall, which
@@ -229,8 +229,8 @@ A long side facing us gets a hipped roof, never a rectangle of white with a vert
 
 ### 6.4 Pine (fir) with snow
 
-One unit symbol (base centre at (0,0), 100 tall), coloured by its `<use>`: body `currentColor`, snow `fill`. Push
-both colours toward the sky for distance.
+One unit symbol (base center at (0,0), 100 tall), colored by its `<use>`: body `currentColor`, snow `fill`. Push
+both colors toward the sky for distance.
 
 ```svg
 <g id="christmas-fir">
@@ -271,7 +271,7 @@ covers the tree's apex: attached.
 
 A dashed stroke with zero-length dashes and round caps draws a row of perfect dots along any path: bulbs on a far
 roofline, a pearl-beaded arch, rounded merlons on a parapet, or a marigold garland (three passes: dark orange, orange
-offset by half a gap, small gold centres).
+offset by half a gap, small gold centers).
 
 ```svg
 <path d="M622 628Q683 654 744 628" fill="none" stroke="#e0640c" stroke-width="12" stroke-linecap="round" stroke-dasharray="0 8.8"/>
@@ -286,7 +286,7 @@ hanging lantern (the akash kandil) hangs on a cord from a brass bracket fixed to
 ## 7. Sticker recipe
 
 Every sticker is a **collectible badge**: a hero that belongs to one holiday, standing on a badge that could only be
-that holiday's. No two stickers share a badge shape and colourway, so a page of them reads as a set of different
+that holiday's. No two stickers share a badge shape and colorway, so a page of them reads as a set of different
 things, not one template.
 
 ```
@@ -301,16 +301,16 @@ extras    sparkles, a prop, sparks or steam breaking out past the badge
   one symbol per mark placed with `<use>`. Both keep a sticker inside its 30 KB.
 - **Badge:** pick a shape that says the holiday (a firework burst for Bonfire Night, a mosque-window arch for Eid, a
   rangoli flower for Diwali, a shield for the Fourth of July, an egg for Easter, a heart for Valentine's). Its pattern
-  is the holiday's own motif (marigolds, kente, crescents, snowflakes, little π signs), and colour bands inside it can
+  is the holiday's own motif (marigolds, kente, crescents, snowflakes, little π signs), and color bands inside it can
   tell a bit of story (a kente band, a rainbow, a row of bonfire flames, flag stripes).
 - **Hero:** larger than feels safe, so it breaks out of the badge somewhere (sparks, a stick, a flame, a puddle). Its
-  ink outline is a darker shade of its own main colour, 6–7 units wide. Parts of the silhouette that only widen the
+  ink outline is a darker shade of its own main color, 6–7 units wide. Parts of the silhouette that only widen the
   die-cut (a glow halo, extra-thick arm strokes) get no ink and no white underlay.
 - **Faces** are optional and come from the expression library (happy, joy, wink, gasp, sleepy, cheeky, starry, proud,
   shy, sing, determined): vary them across the set. Painted eyes stay dark plum `#2b1a4d` (or a darker shade of the
   hero on red or orange), each with a big white catchlight up-left and a small glint low-right. Sacred objects never
   get a face; a companion carries it instead (the Diwali kitten).
-- **Read at 40 px:** one silhouette, the badge colour against the hero colour, a strong light/dark split. Delight at
+- **Read at 40 px:** one silhouette, the badge color against the hero color, a strong light/dark split. Delight at
   256 px: highlights, a pattern, small finishing details.
 - **Die-cut:** border stroke 40; hairline stroke 43 `#2b1a4d` at 0.1; shadow `#1a1030` as stroke 40 at 0.2 shifted 6
   down plus stroke 48 at 0.08 shifted 10 down.
@@ -329,10 +329,10 @@ Data for the hero hotspots and Seek & Find, in artboard units (`SceneData` in `s
 ```
 
 - **4–6 hotspots**, each on an object that fits its activity: `wish` on the star or lantern, `doors` on a front door,
-  `card` on presents or a sweet box, `catch` on a sled or basket, `seek` on windows to peek into, `colour` on a painted
+  `card` on presents or a sweet box, `catch` on a sled or basket, `seek` on windows to peek into, `color` on a painted
   thing, `memory` on a shop counter of matching things, `dressup` on a snowman or a clothes rail. Labels are short
   invitations ("Open a countdown door").
-- Hotspot centres sit inside **x 520–1080** wherever possible (that is all a phone shows). `r` covers the object and
+- Hotspot centers sit inside **x 520–1080** wherever possible (that is all a phone shows). `r` covers the object and
   stays ≥ 30, so the touch target is big enough on a phone.
 - **6–8 findables**: small, charming details drawn in `mid.svg` (never in the effect or `front`), each with a unique
   kebab-case `id`, a label that reads after "Find…" and names the thing, never its spot ("a ginger cat", not "a cat on the roof
@@ -381,7 +381,7 @@ From the reference revision (each was a defect at 3–4× zoom):
 
 11. **Facets share vertices.** When a shape splits into lit and shaded parts, draw it once whole, then draw the same
     shape clipped to the lit face. Two separate polygons meant to meet leave notches and tongues.
-12. **Rim light is a fill inside the shape** (an off-centre radial gradient with stops at 0.8–1, or a clipped
+12. **Rim light is a fill inside the shape** (an off-center radial gradient with stops at 0.8–1, or a clipped
     crescent), never a stroke.
 13. **Clip garlands to everything painted**: if a tier is painted twice (a lit hem plus the body), the clip includes
     both.
@@ -393,10 +393,10 @@ From the reference revision (each was a defect at 3–4× zoom):
     doorway, the lowest toran or garland tip stays above the figure's hair.
 17. **Pots:** a row of dots above a curved band on a round pot reads as a face. Paint pots with straight bands or
     zigzags between two lines.
-18. **Floors:** reflections are radial ellipses centred on the foot of the wall, drawn before the building so it hides
+18. **Floors:** reflections are radial ellipses centered on the foot of the wall, drawn before the building so it hides
     their top half (trapezoids leave hard edges); every floor joint ends where it meets another joint, never in open
     floor.
-19. **Neighbouring railings** at the same height merge into one long fence: offset them by at least 20 units.
+19. **Neighboring railings** at the same height merge into one long fence: offset them by at least 20 units.
 20. **A swinging lantern** rotates about its cord's hook, and its hotspot is computed with the same rotation.
 21. **Ids are unique and every `url(#…)`/`href` resolves.** A shared gradient and clip id silently dropped a clip.
 22. **Carving:** a carved cut wall is an even-width band drawn inside the hole, never an offset copy of it; ribs and
@@ -411,7 +411,7 @@ From the reference revision (each was a defect at 3–4× zoom):
 
 ## 10. Drawing with code
 
-All the reference files are generated by small JavaScript modules (helpers for colour mixing, rounded polygons,
+All the reference files are generated by small JavaScript modules (helpers for color mixing, rounded polygons,
 smooth curves through points, sagging wires and snow blankets), then compacted. That is how the rules above stay true
 when something moves. Two traps the reference work fell into:
 
@@ -440,7 +440,7 @@ icing dots or a wreath as one dotted stroke instead of many circles.
 
 ## 12. Beyond correct: story, value, hand and charm
 
-Two art directors scored the first reference set 5.5–7 out of 10: clean and cosy, but "the most expected version of
+Two art directors scored the first reference set 5.5–7 out of 10: clean and cozy, but "the most expected version of
 everything" and "a set waiting for actors". These rules are what lifts a piece to 8–9. They apply to every scene and
 sticker, the references included.
 
@@ -450,7 +450,7 @@ sticker, the references included.
    (head, body, arms as soft shapes, dot eyes at most), with a range of skin tones across the set, clothing that fits
    the holiday without costume clichés, and the same friendly proportions as the stickers. Never draw deities, saints,
    prophets or religious leaders; worship is shown through objects and gatherings, not figures praying.
-2. **Design the values before the colours.** Squint at the render (or view it in greyscale): the light source and the
+2. **Design the values before the colors.** Squint at the render (or view it in grayscale): the light source and the
    surfaces it hits are the lightest values, `front.svg` the darkest, and the `mid` walls separate clearly from the sky
    behind them. On snow at night, snow is the brightest cool surface (moonlit blue-white `#eef8ff`–`#fff4dc`), not a
    muddy sky-tinted green. Same-hue-on-same-hue is the most common failure (green walls on a green sky, mauve floor on
@@ -477,7 +477,7 @@ sticker, the references included.
    they get charm from setting instead (a ring of marigolds, a tiny cat beside them, a glow). Flames are short and
    round like oil-lamp flames, not tall candle teardrops. The die-cut border stays at least 18 units thick everywhere,
    including leaf tips.
-9. **Judge the real layout.** The hero's countdown is centred at the top over the sky (the copy zone); the review
+9. **Judge the real layout.** The hero's countdown is centered at the top over the sky (the copy zone); the review
    render (`render.mjs`) mocks it there. Composition problems are judged against that, not against a label in a
    corner.
 
@@ -493,7 +493,7 @@ sides), and the owner noticed straight away.
   light as a fill clipped to the head. Children are about 2.7 heads tall (a 22–24 unit head at the 60–65 unit size in
   §9.16), adults about 3.2.
 - **Eyes:** two solid ovals in `#2b1a4d`, level, about a sixth of the head's width tall, a third of the head's width apart
-  centre to centre, just below the middle of the head. Exactly **one** white catchlight per eye, up and to the left,
+  center to center, just below the middle of the head. Exactly **one** white catchlight per eye, up and to the left,
   about a third of the eye's width. Two dots stacked in one eye read as a colon or a button. Glasses are round rims with
   a bridge and no lens fill.
 - **Mouth:** every face has one, halfway between the eyes and the chin: a short smile arc (stroke 2–2.5, round caps, a
@@ -505,7 +505,7 @@ sides), and the owner noticed straight away.
   face). Volume is balanced on both sides unless the style is deliberately one-sided (a side ponytail), and never larger
   than the head on one side. Styles are built from named parts: crop (cap + fringe), bob (cap + side panels to the jaw),
   ponytail, pigtails or puffs (cap + tails or circles fixed with a hair tie), bun (cap + circle), curls and coils (a cap
-  of overlapping circles), braids (a tapering chain of ovals), and grey or white hair for elders. Across the set use
+  of overlapping circles), braids (a tapering chain of ovals), and gray or white hair for elders. Across the set use
   every texture: straight, wavy, curly and coily.
 - **Head coverings:** a hat or beanie sits on the hair, which shows only below the brim as small balanced tufts or a
   fringe; a hijab or headscarf is one smooth shape framing the face and covering the hair and neck; a kippah sits on
@@ -517,4 +517,4 @@ sides), and the owner noticed straight away.
   with shoes; a contact shadow under the feet.
 - **Check:** render every head at 8× (`node $S/shots/people-zoom.mjs <outDir> <id> x0 y0 x1 y1 8`, an artboard box
   around the head) and compare it with this list. A face that reads as a mask or a robot, a face with a missing
-  feature, or hair like a helmet or a blob is a must-fix. Colouring pages follow the same features in line art.
+  feature, or hair like a helmet or a blob is a must-fix. Coloring pages follow the same features in line art.

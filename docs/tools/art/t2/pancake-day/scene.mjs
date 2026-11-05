@@ -1,7 +1,7 @@
 // Pancake Day — "The pancake race": a village street on Shrove Tuesday evening. Three racers dash for the finish
 // with frying pans: a girl in an apron flips her pancake sky-high as she runs, grandma in an apron and headscarf
 // keeps up, a boy in a chef's hat brings up the rear; a dog leaps for a pancake that got away. A boy rings the
-// pancake bell, two neighbours hold the finish ribbon by the church, and the crowd cheers by a stall stacked with
+// pancake bell, two neighbors hold the finish ribbon by the church, and the crowd cheers by a stall stacked with
 // pancakes, lemons and sugar; a girl waves a carnival mask. The confetti and the papel-picado banner are the effect's.
 import { f, P, mix, lighten, darken, rng, E, G, C, path, circle, ellipse, rect, lin, rad, doc, compactSvg, setPrecision } from '../../gen-xmas/lib.mjs';
 import { figure } from '../../gen-kw/people.mjs';
@@ -22,7 +22,7 @@ const pancake = (x, y, rx, ry, tilt = 0) => G({ transform: `rotate(${f(tilt)} ${
   ellipse(x, y + ry * 0.3, rx, ry, { fill: '#c8862a' }), ellipse(x, y, rx, ry, { fill: '#f0b85a' }),
   path(circD(x - rx * 0.4, y - ry * 0.1, rx * 0.12) + circD(x + rx * 0.3, y + ry * 0.2, rx * 0.1) + circD(x + rx * 0.05, y - ry * 0.35, rx * 0.08), { fill: '#d8943a' }));
 
-/** A frying pan held at (hx, hy), pan centre `dx` along the handle, tilted `deg`. */
+/** A frying pan held at (hx, hy), pan center `dx` along the handle, tilted `deg`. */
 const pan = (hx, hy, dx, deg) => G({ transform: `translate(${f(hx)} ${f(hy)}) rotate(${f(deg)})` },
   path(`M0 -4h${f(dx - 26)}v8H0z`, { fill: '#3a2a22' }),
   ellipse(dx, 0, 30, 9, { fill: '#2a2a32' }), ellipse(dx, -2, 26, 6, { fill: '#4a4a56' }));
@@ -168,15 +168,15 @@ export function mid() {
     ppl.dog = [1070, 776];
   }
 
-  // ---- the finish: two neighbours with the ribbon, the boy with the pancake bell
-  out.push(C('the finish: two neighbours hold the ribbon; a boy rings the pancake bell'));
+  // ---- the finish: two neighbors with the ribbon, the boy with the pancake bell
+  out.push(C('the finish: two neighbors hold the ribbon; a boy rings the pancake bell'));
   {
     const wave = { sx: -1, elbow: [-1.0, -0.8], hand: [-1.3, -2.1] };
     const cheer = (s) => ({ sx: s, elbow: [s * 0.9, -0.9], hand: [s * 1.2, -2.2] });
     const a = figure({ x: 1150, foot: 846, H: 112, heads: 3.2, skin: SKIN.light, hair: '#c8642a', style: 'side', top: '#e8343a', bottom: '#2a2a3a', gaze: -0.5, mouth: 'open', arms: [wave, { sx: 1, elbow: [0.6, 1.0], hand: [0.3, 1.8] }] });
     const b = figure({ x: 1262, foot: 846, H: 116, heads: 3.2, skin: SKIN.brown, hair: '#1a1210', style: 'bun', top: '#2ab8a8', bottom: '#2a2a3a', gaze: -0.5, mouth: 'open', arms: [cheer(-1), cheer(1)] });
     out.push(b.svg, a.svg);
-    // a chequered flag for the winner
+    // a checkered flag for the winner
     const ha = a.hand(wave);
     let chk = '';
     for (let i = 0; i < 4; i++) for (let j = 0; j < 3; j++) if ((i + j) % 2 === 0) chk += `M${f(ha[0] - 2 - 14 * (i + 1))} ${f(ha[1] - 46 + 12 * j)}h14v12h-14z`;
@@ -190,13 +190,13 @@ export function mid() {
     ppl.bell = [kh[0], kh[1] - 30];
   }
 
-  return { svg: compactSvg(doc(`Pancake Day · mid. Concept: "the pancake race" on a village street on Shrove Tuesday evening. Focal point: the racers dashing left to right (x 560–1000, y 460–860) — a girl in an apron flips her pancake sky-high as she runs, grandma in an apron and red headscarf keeps up, a boy in a chef's hat brings up the rear — and a dog leaps for a pancake that got away. A boy rings the pancake bell and two neighbours hold the finish ribbon by the old stone church on the right; on the left a dad cheers and a girl waves a carnival mask by a stall stacked with pancakes, lemons and a sugar shaker. Light story: lamplight and lit windows against a carnival-purple evening. The confetti and the papel-picado banner are the effect's.`, defs, out)), ppl };
+  return { svg: compactSvg(doc(`Pancake Day · mid. Concept: "the pancake race" on a village street on Shrove Tuesday evening. Focal point: the racers dashing left to right (x 560–1000, y 460–860) — a girl in an apron flips her pancake sky-high as she runs, grandma in an apron and red headscarf keeps up, a boy in a chef's hat brings up the rear — and a dog leaps for a pancake that got away. A boy rings the pancake bell and two neighbors hold the finish ribbon by the old stone church on the right; on the left a dad cheers and a girl waves a carnival mask by a stall stacked with pancakes, lemons and a sugar shaker. Light story: lamplight and lit windows against a carnival-purple evening. The confetti and the papel-picado banner are the effect's.`, defs, out)), ppl };
 }
 
 // ============================== front ==============================
 export function front() {
   setPrecision(1);
-  return compactSvg(doc(`Pancake Day · front: a crate of eggs and lemons bottom left, a milk churn bottom right; the centre stays open`, [], [
+  return compactSvg(doc(`Pancake Day · front: a crate of eggs and lemons bottom left, a milk churn bottom right; the center stays open`, [], [
     C('a crate of eggs and lemons'),
     path('M-10 900v-60h150v60z', { fill: '#a8743e' }), path('M-10 860h150M-10 880h150', { fill: 'none', stroke: '#7a4a22', 'stroke-width': 3 }),
     path(circD(20, 834, 14) + circD(48, 830, 14) + circD(76, 834, 14), { fill: '#fff4e0' }), path(circD(104, 832, 15) + circD(124, 838, 13), { fill: '#ffe03a' }),
@@ -211,7 +211,7 @@ export function sceneData(ppl) {
   return {
     hotspots: [
       { activity: 'catch', x: r(ppl.flip[0]), y: r(ppl.flip[1]), r: 44, label: 'Catch the flipping pancakes' },
-      { activity: 'colour', x: r(ppl.racer[0]), y: r(ppl.racer[1] + 40), r: 50, label: 'Colour in the pancake race' },
+      { activity: 'color', x: r(ppl.racer[0]), y: r(ppl.racer[1] + 40), r: 50, label: 'Color in the pancake race' },
       { activity: 'memory', x: ppl.stack[0], y: ppl.stack[1], r: 44, label: 'Match the pancake toppings' },
       { activity: 'dressup', x: r(ppl.mask[0]), y: r(ppl.mask[1]), r: 34, label: 'Make a carnival mask' },
     ],
@@ -221,7 +221,7 @@ export function sceneData(ppl) {
       { id: 'lemons', label: 'three lemons', x: ppl.lemons[0], y: ppl.lemons[1], r: 20 },
       { id: 'chef-hat', label: 'a chef\'s hat', x: 600, y: 742, r: 20 },
       { id: 'clock', label: 'the church clock', x: 1380, y: 310, r: 24 },
-      { id: 'flag', label: 'the chequered flag', x: r(ppl.ribbon[0]), y: r(ppl.ribbon[1]), r: 24 },
+      { id: 'flag', label: 'the checkered flag', x: r(ppl.ribbon[0]), y: r(ppl.ribbon[1]), r: 24 },
       { id: 'cherry', label: 'a cherry on the pancake tower', x: 232, y: 616, r: 14 },
     ],
   };

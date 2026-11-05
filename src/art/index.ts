@@ -44,7 +44,7 @@ for (const list of SCENES.values()) list.sort((a, b) => LAYER_ORDER.indexOf(a.na
 
 /**
  * Per-scene interaction data in `scenes/<id>/scene.json`, in 1600×900 artboard units:
- * - `hotspots`: where activities live in the picture (the postbox → Wish Post, the easel → Colour-in…).
+ * - `hotspots`: where activities live in the picture (the mailbox → Wish Post, the easel → Color-in…).
  *   Phone-visible hotspots sit inside x 520–1080; the hero falls back to a button row when a scene has none.
  * - `findables`: 5–8 hidden details for Seek & Find, each drawn in mid.svg (never in the effect layer).
  */
@@ -64,17 +64,17 @@ export function sceneDataFor(id: string): SceneData {
   return sceneData[`./scenes/${id}/scene.json`] ?? { hotspots: [], findables: [] };
 }
 
-/** Colouring pages in `colour/<id>.svg`: line art whose fillable regions carry `data-fill` ids. */
-const colourFiles = import.meta.glob('./colour/*.svg', { query: '?raw', import: 'default', eager: false }) as Record<string, () => Promise<string>>;
+/** Coloring pages in `color/<id>.svg`: line art whose fillable regions carry `data-fill` ids. */
+const colorFiles = import.meta.glob('./color/*.svg', { query: '?raw', import: 'default', eager: false }) as Record<string, () => Promise<string>>;
 
-/** Raw SVG source of a holiday's colouring page (bundled, test-checked), or null. Loaded on demand. */
-export async function colourPageSource(id: string): Promise<string | null> {
-  const load = colourFiles[`./colour/${id}.svg`];
+/** Raw SVG source of a holiday's coloring page (bundled, test-checked), or null. Loaded on demand. */
+export async function colorPageSource(id: string): Promise<string | null> {
+  const load = colorFiles[`./color/${id}.svg`];
   return load ? load() : null;
 }
 
-export function hasColourPage(id: string): boolean {
-  return `./colour/${id}.svg` in colourFiles;
+export function hasColorPage(id: string): boolean {
+  return `./color/${id}.svg` in colorFiles;
 }
 
 const worldFiles = import.meta.glob('./world/*.svg', { query: '?url', import: 'default', eager: true }) as Record<string, string>;

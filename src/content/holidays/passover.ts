@@ -51,7 +51,7 @@ const content: HolidayContent = {
         { text: 'Tip the apples and nut crumbs into the bowl and mix.' },
         { text: 'Sprinkle on the cinnamon and stir again.' },
         { text: 'Pour in the grape juice and the honey, if using, and stir until everything is sticky and glossy.', tip: 'No honey for babies under 1.' },
-        { text: 'Let the charoset sit for 10 minutes so the flavours mix.', timerMinutes: 10 },
+        { text: 'Let the charoset sit for 10 minutes so the flavors mix.', timerMinutes: 10 },
         { text: 'Taste test! Then spoon some onto the seder plate and keep the rest for spreading on matzah.' },
       ],
       tip: 'Families from different places make charoset differently: some use dates, figs or oranges instead of apples.',

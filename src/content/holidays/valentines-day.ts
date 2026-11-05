@@ -115,7 +115,7 @@ const valentinesDay: HolidayContent = {
       mayContain: ['tree-nut'],
       swaps: [
         { avoid: 'milk', use: 'dairy-free dark chocolate chips' },
-        { avoid: 'soy', use: 'chocolate chips labelled soy-free' },
+        { avoid: 'soy', use: 'chocolate chips labeled soy-free' },
       ],
       equipment: ['Tray lined with parchment paper', 'Microwave-safe bowl', 'Spoon', 'Paper towel', 'Space in the fridge'],
       ingredients: [
@@ -171,7 +171,7 @@ const valentinesDay: HolidayContent = {
       steps: [
         { text: 'Fold the card in half like a book, then fold the red paper in half too.' },
         {
-          text: 'Use scissors to cut two short slits, a thumb apart, from the folded edge of the card towards the middle, each about as long as your thumb.',
+          text: 'Use scissors to cut two short slits, a thumb apart, from the folded edge of the card toward the middle, each about as long as your thumb.',
           hazards: ['sharp'],
         },
         {
@@ -195,7 +195,7 @@ const valentinesDay: HolidayContent = {
     { sleeps: 10, kind: 'craft', text: 'Fold a piece of paper in half, draw half a heart against the fold and cut it out with safety scissors. Open it up: a perfect heart, every time!' },
     { sleeps: 9, kind: 'fact', text: 'In the 1840s, Esther Howland of Worcester, Massachusetts, began making valentines from paper lace and ribbon. She is often called the Mother of the American Valentine.' },
     { sleeps: 8, kind: 'say', text: "Learn to say Happy Valentine's Day in French, the language of the oldest valentine still around!", greeting: 0 },
-    { sleeps: 7, kind: 'colour', text: "Colour in the Valentine's Day page. Hearts don't have to be red: try stripes, spots or every colour of the rainbow!" },
+    { sleeps: 7, kind: 'color', text: "Color in the Valentine's Day page. Hearts don't have to be red: try stripes, spots or every color of the rainbow!" },
     { sleeps: 6, kind: 'fact', text: 'The biggest heart on Earth belongs to the blue whale. It weighs about 180 kilograms, as much as two or three grown-ups put together.' },
     { sleeps: 5, kind: 'joke', text: "Why do skunks love Valentine's Day? Because they're very scent-imental!" },
     { sleeps: 4, kind: 'seek', text: "Some sneaky surprises are hiding in the Valentine's Day picture. Can you find every single one? Open Seek & Find!" },

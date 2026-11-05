@@ -1,11 +1,11 @@
 {
   "hotspots": [
     {
-      "activity": "colour",
+      "activity": "color",
       "x": 760,
       "y": 720,
       "r": 70,
-      "label": "Colour the dragon boat"
+      "label": "Color the dragon boat"
     },
     {
       "activity": "memory",
@@ -60,7 +60,7 @@
     },
     {
       "id": "bracelet",
-      "label": "a five-colour bracelet",
+      "label": "a five-color bracelet",
       "x": 1093,
       "y": 816,
       "r": 14

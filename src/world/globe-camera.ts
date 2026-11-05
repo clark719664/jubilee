@@ -1,7 +1,7 @@
 /**
  * Where the globe looks and how it moves between frames: eased spins, following a moving
  * point (Santa), flings that glide to a stop, slow auto-rotation and eased zoom. Pure state
- * and maths (no DOM), so `Globe` is only about input, the loop and drawing.
+ * and math (no DOM), so `Globe` is only about input, the loop and drawing.
  *
  * A fling uses the drag's last ~100 ms of camera positions, not one jittery pointer event,
  * and decays exponentially (velocity falls to 1/e in GLIDE_S seconds): it feels like a real

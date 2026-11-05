@@ -16,11 +16,11 @@ const book: StoryBook = {
       camera: { x: 470, y: 700, zoom: 2.4 }, prop: '🍬',
     },
     {
-      text: 'Next come new clothes for Diwali! {name} twirls in an outfit the colour of marigolds, so fast that the parrot on the roof flaps its wings.',
+      text: 'Next come new clothes for Diwali! {name} twirls in an outfit the color of marigolds, so fast that the parrot on the roof flaps its wings.',
       camera: { x: 1150, y: 640, zoom: 2.4 }, prop: '🦜',
     },
     {
-      text: 'On the doorstep, {name} helps Mum make a rangoli, a big flower pattern of coloured powder. The cat watches closely, but promises not to walk on it.',
+      text: 'On the doorstep, {name} helps Mom make a rangoli, a big flower pattern of colored powder. The cat watches closely, but promises not to walk on it.',
       camera: { x: 800, y: 760, zoom: 2.6 }, prop: '🌸',
     },
     {
@@ -32,8 +32,8 @@ const book: StoryBook = {
       camera: { x: 800, y: 560, zoom: 2.4 }, prop: '🔔',
     },
     {
-      text: 'Neighbours come by with boxes of sweets, and soon the sky crackles with fireworks. {friend} and {name} cover their ears and giggle.',
-      solo: 'Neighbours come by with boxes of sweets, and soon the sky crackles with fireworks. The sleepy puppy hides its nose under its paws.',
+      text: 'Neighbors come by with boxes of sweets, and soon the sky crackles with fireworks. {friend} and {name} cover their ears and giggle.',
+      solo: 'Neighbors come by with boxes of sweets, and soon the sky crackles with fireworks. The sleepy puppy hides its nose under its paws.',
       camera: { x: 1266, y: 780, zoom: 2.6 }, prop: '🎆',
     },
     {

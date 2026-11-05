@@ -73,7 +73,7 @@ export function createShell(env: PlayEnv, o: ShellOptions): Shell {
     h('div', { class: 'sp-titles' }, h('h1', { class: 'sp-h1', id: h1Id }, o.title), sub),
     tools);
   const body = h('div', { class: 'sp-body' });
-  const root = h('section', { class: `sp sky ${o.game}`, 'aria-labelledby': h1Id }, header, body);
+  const root = h('section', { class: `sp sky ${o.game}`, 'aria-labeledby': h1Id }, header, body);
   applyTheme(root, theme);
   const syncMotion = (): void => { root.classList.toggle('sp-calm', !full()); };
   syncMotion();
@@ -90,7 +90,7 @@ export function createShell(env: PlayEnv, o: ShellOptions): Shell {
 
   function dialog(title: string, kids: readonly Child[], onClose?: () => void): { readonly el: HTMLElement; close(): void } {
     const id = `${o.game}-dlg-${open.length}-${Math.random().toString(36).slice(2, 7)}`;
-    const card = h('div', { class: 'sp-dlg-card', role: 'dialog', 'aria-modal': 'true', 'aria-labelledby': id },
+    const card = h('div', { class: 'sp-dlg-card', role: 'dialog', 'aria-modal': 'true', 'aria-labeledby': id },
       h('h2', { class: 'sp-dlg-title', id }, title), ...kids);
     const el = h('div', { class: 'sp-dlg' }, card);
     const back = document.activeElement as HTMLElement | null;

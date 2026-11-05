@@ -1,7 +1,7 @@
 /**
  * doors/card.ts — what is behind a door: a fact, a joke (riddle first, "Tell me!" for the answer), a tiny
- * craft step, a greeting to say (native text, romanisation, kid respelling, and "Hear it" only when the
- * device has a voice for that language), or a button into Seek & Find / Colour-in.
+ * craft step, a greeting to say (native text, romanization, kid respelling, and "Hear it" only when the
+ * device has a voice for that language), or a button into Seek & Find / Color-in.
  */
 import type { HolidayMeta } from '../../content/types';
 import { h } from '../../ui/dom';
@@ -11,11 +11,11 @@ import { splitJoke, type BoardDoor } from './logic';
 import { COPY, KIND_EMOJI, KIND_TITLE, fill } from './copy';
 
 export interface CardHooks {
-  /** Whether the holiday has a Seek & Find scene / a colouring page to jump into. */
+  /** Whether the holiday has a Seek & Find scene / a coloring page to jump into. */
   readonly canSeek: boolean;
-  readonly canColour: boolean;
-  /** Leave the doors for another activity ('seek' | 'colour'). */
-  go(activity: 'seek' | 'colour'): void;
+  readonly canColor: boolean;
+  /** Leave the doors for another activity ('seek' | 'color'). */
+  go(activity: 'seek' | 'color'): void;
   close(): void;
   /** Screen-reader note (the joke's answer, …). */
   announce(text: string): void;
@@ -59,13 +59,13 @@ export function doorCard(door: BoardDoor, meta: HolidayMeta, hooks: CardHooks, h
       break;
     }
     case 'seek':
-    case 'colour': {
+    case 'color': {
       body.push(h('p', { class: 'dr-card-text' }, door.text));
-      const can = door.kind === 'seek' ? hooks.canSeek : hooks.canColour;
+      const can = door.kind === 'seek' ? hooks.canSeek : hooks.canColor;
       if (can) {
         const go = h('button', { type: 'button', class: 'btn btn-lg dr-go' },
-          h('span', { 'aria-hidden': 'true' }, KIND_EMOJI[door.kind]), door.kind === 'seek' ? COPY.playSeek : COPY.playColour, icon('arrowRight', 22));
-        go.addEventListener('click', () => hooks.go(door.kind === 'seek' ? 'seek' : 'colour'));
+          h('span', { 'aria-hidden': 'true' }, KIND_EMOJI[door.kind]), door.kind === 'seek' ? COPY.playSeek : COPY.playColor, icon('arrowRight', 22));
+        go.addEventListener('click', () => hooks.go(door.kind === 'seek' ? 'seek' : 'color'));
         body.push(go);
       } else {
         body.push(h('p', { class: 'dr-card-note' }, COPY.stillPainting));
@@ -85,7 +85,7 @@ export function doorCard(door: BoardDoor, meta: HolidayMeta, hooks: CardHooks, h
   const x = h('button', { type: 'button', class: 'btn btn-secondary btn-icon dr-x', 'aria-label': COPY.closeCard }, icon('close', 22));
   x.addEventListener('click', () => hooks.close());
 
-  const el = h('div', { class: `card dr-card dr-card-${door.kind}`, role: 'dialog', 'aria-modal': 'true', 'aria-labelledby': headingId },
+  const el = h('div', { class: `card dr-card dr-card-${door.kind}`, role: 'dialog', 'aria-modal': 'true', 'aria-labeledby': headingId },
     x,
     h('div', { class: 'dr-card-medal', 'aria-hidden': 'true' }, h('span', { class: 'emoji' }, KIND_EMOJI[door.kind])),
     h('p', { class: 'dr-card-kicker' }, fill(COPY.doorN, { n: door.n }), ' · ', meta.name),

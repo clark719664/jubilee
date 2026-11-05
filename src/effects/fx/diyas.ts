@@ -3,12 +3,12 @@
  * Ambient: an arc of clay diyas cupping the rangoli whose count is 1 + round(growth·8) (one more lamp each
  *   day closer), each flame flickering on its own and wrapped in a warm glow; above them a rangoli — a
  *   procedural 8-fold pattern of five rings (petals, lotus scallops, dots) that blooms ring by ring as
- *   `growth` rises, each ring turning slowly the opposite way to its neighbour; gold and pink sparkles
+ *   `growth` rises, each ring turning slowly the opposite way to its neighbor; gold and pink sparkles
  *   drift up from the lamps; a few faint stars.
- * Behaviours: flame (flicker), rise + sway + twinkle (sparkles), drag + gravity + trails (sparkler).
+ * Behaviors: flame (flicker), rise + sway + twinkle (sparkles), drag + gravity + trails (sparkler).
  * Tap: a sparkler burst — bright sparks spray out from the finger, each leaving a short fading trail.
  * Still: every diya lit, the rangoli fully drawn for today's growth, sparkles hanging in the air.
- * Params: growth (0..1; default 1), palette (rangoli lead colour first; default theme accent2), density.
+ * Params: growth (0..1; default 1), palette (rangoli lead color first; default theme accent2), density.
  */
 import { diya, frameKeeping, quantize, rangoliRing, sparkle } from '../painters/extra-night';
 import {
@@ -197,7 +197,7 @@ export class DiyasEffect extends PooledEffect {
         pool.life[i]! += dt;
         pool.rot[i]! += pool.rotV[i]! * dt;
         const target = ringReveal(this.growth, pool.aux[i]!);
-        // Rings bloom in from the centre after arrival: ring k waits k·0.35 s, then grows over ~1 s.
+        // Rings bloom in from the center after arrival: ring k waits k·0.35 s, then grows over ~1 s.
         if (pool.life[i]! > pool.aux[i]! * 0.35) pool.alpha[i] = Math.min(target, pool.alpha[i]! + dt);
       } else if (kind === SPARKLE) {
         sway(pool, i, dt, 6, 0.3);

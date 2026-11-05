@@ -13,7 +13,7 @@
  * Variant 'waves' (Dragon Boat): a three-layer wave ribbon rolls along the bottom; dragon boats glide on it,
  *   their crews paddling in time and throwing up little splashes at every stroke. Tap: a splash (from the
  *   river surface when the finger is on the water, else from the finger) and a ripple.
- * Behaviours: rise + sway (bubbles), flutter + gravity + spin (leaves), ballistic arcs (drops), envelope
+ * Behaviors: rise + sway (bubbles), flutter + gravity + spin (leaves), ballistic arcs (drops), envelope
  *   (pops, ripples), wave-following (boats, ripples).
  * Still: bubbles frozen mid-rise; the globe, grown sprouts; water arcs frozen mid-throw; boats on the waves.
  * Scene mode (`params.stage`): the scene draws its own ground and water, so the globe, the sprouts, the water
@@ -49,7 +49,7 @@ const LEAF_COLORS = ['#3fae4f', '#7bc96f', '#2a9d8f', '#a7d65a'] as const;
 const POP_SECONDS = 0.4;
 const SPROUT_GROW = 1.8;
 
-/** Globe diameter and centre for this sky. */
+/** Globe diameter and center for this sky. */
 export function globeLayout(w: number, h: number): { d: number; x: number; y: number } {
   const phone = w < 600;
   const d = Math.max(0, phone ? Math.min(w * 0.5, h * 0.36) : Math.min(h * 0.56, w * 0.34, 440));
@@ -121,7 +121,7 @@ export class BubblesEffect extends PooledEffect {
     return this.h * (this.waves ? 0.6 : 0.8);
   }
 
-  /** Height of wave layer `layer` (0 back … 2 front) at x: two travelling sines on a base line. */
+  /** Height of wave layer `layer` (0 back … 2 front) at x: two traveling sines on a base line. */
   surface(x: number, layer: number): number {
     const h = this.h;
     const a = h * 0.012 * (1 + 0.3 * layer);

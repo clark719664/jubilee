@@ -28,7 +28,7 @@ export const COPY = {
   painting: 'The {holiday} picture is still being painted. Come back soon to spot its secrets!',
 } as const;
 
-export const CHEERS = ['Great spotting!', 'Eagle eyes!', 'You found it!', 'Super seeker!', 'Sharp eyes!', 'Brilliant!', 'Woo-hoo!'] as const;
+export const CHEERS = ['Great spotting!', 'Eagle eyes!', 'You found it!', 'Super seeker!', 'Sharp eyes!', 'Awesome!', 'Woo-hoo!'] as const;
 
 export type CopyKey = keyof typeof COPY;
 

@@ -6,7 +6,7 @@ const thanksgiving: HolidayContent = {
     'In the United States it falls on the fourth Thursday of November; in Canada it comes earlier, on the second Monday of October, when the harvest is safely in.',
     'Many American families remember a harvest feast in 1621, when English settlers at Plymouth and Wampanoag people shared food after a very hard first year; many Native Americans also use the day to remember the painful history that came after.',
     'The table is often piled with roast turkey, stuffing, mashed potatoes, cranberry sauce and pumpkin pie, and in lots of homes everyone takes a turn to say one thing they are thankful for.',
-    'Some families watch a parade or a football game, and many cook extra to share with neighbours or people who need a warm meal.',
+    'Some families watch a parade or a football game, and many cook extra to share with neighbors or people who need a warm meal.',
   ],
 
   facts: [
@@ -76,7 +76,7 @@ const thanksgiving: HolidayContent = {
       ],
       equipment: ['Zip-seal bag', 'Rolling pin', '2 mixing bowls', 'Fork', 'Whisk', 'Spoon', '6 small glasses or cups'],
       ingredients: [
-        { item: 'Graham crackers', us: { qty: 8, unit: 'piece' }, metric: { qty: 8, unit: 'piece' }, note: 'full sheets; or 8 digestive biscuits', allergens: ['wheat', 'gluten'] },
+        { item: 'Graham crackers', us: { qty: 8, unit: 'piece' }, metric: { qty: 8, unit: 'piece' }, note: 'full sheets; or 8 digestive cookies', allergens: ['wheat', 'gluten'] },
         { item: 'Butter', us: { qty: 2, unit: 'tbsp' }, metric: { qty: 30, unit: 'g' }, note: 'very soft', allergens: ['milk'] },
         { item: 'Cream cheese', us: { qty: 4, unit: 'oz' }, metric: { qty: 110, unit: 'g' }, note: 'softened', allergens: ['milk'] },
         { item: 'Brown sugar', us: { qty: 0.25, unit: 'cup' }, metric: { qty: 50, unit: 'g' } },
@@ -119,7 +119,7 @@ const thanksgiving: HolidayContent = {
         { avoid: 'egg', use: '2 tablespoons ground flaxseed stirred into 6 tablespoons water, left for 5 minutes' },
         { avoid: 'milk', use: 'oat or soy milk' },
       ],
-      equipment: ['12-hole muffin tin', '12 paper muffin cases', 'Large mixing bowl', 'Measuring jug', 'Whisk', 'Ice-cream scoop or big spoon', 'Toothpick', 'Wire rack'],
+      equipment: ['12-cup muffin pan', '12 paper muffin liners', 'Large mixing bowl', 'Measuring jug', 'Whisk', 'Ice-cream scoop or big spoon', 'Toothpick', 'Wire rack'],
       ingredients: [
         { item: 'Yellow cornmeal', us: { qty: 1, unit: 'cup' }, metric: { qty: 160, unit: 'g' }, note: 'fine or medium grind (polenta works)' },
         { item: 'All-purpose (plain) flour', us: { qty: 1, unit: 'cup' }, metric: { qty: 125, unit: 'g' }, allergens: ['wheat', 'gluten'] },
@@ -134,13 +134,13 @@ const thanksgiving: HolidayContent = {
       ],
       steps: [
         {
-          text: 'A grown-up heats the oven to 400°F / 200°C. Put a paper case in every hole of the muffin tin.',
+          text: 'A grown-up heats the oven to 400°F / 200°C. Put a paper liner in every hole of the muffin pan.',
           adult: true,
           hazards: ['heat'],
         },
         { text: 'Put the cornmeal, flour, sugar, baking powder and salt in the big bowl and whisk them together so there are no lumps.' },
         {
-          text: 'Crack the eggs into the jug, then add the milk and oil and whisk until it is all one yellow colour.',
+          text: 'Crack the eggs into the jug, then add the milk and oil and whisk until it is all one yellow color.',
           hazards: ['raw-egg'],
           tip: 'Crack each egg into a cup first, so any bits of shell are easy to fish out. Wash your hands after touching raw egg.',
         },
@@ -189,9 +189,9 @@ const thanksgiving: HolidayContent = {
         { text: 'Fold the sheet in half to make a card. Keep the fold on the left, like a book.' },
         { text: 'Lay one hand flat on the front of the card with your fingers spread wide, and trace around it with the pencil. Ask someone to help if your pencil hand gets stuck.' },
         { text: 'The thumb is the turkey head. Draw an orange triangle beak on the side, and a red wobbly wattle hanging under the beak.' },
-        { text: 'The four fingers are tail feathers. Colour each one a different autumn colour: red, orange, yellow and brown.' },
+        { text: 'The four fingers are tail feathers. Color each one a different fall color: red, orange, yellow and brown.' },
         { text: 'On each feather, write or draw one thing you are thankful for. A grown-up can write the words if you say them.', tip: 'Big or small both count: a pet, a friend, pancakes, a warm bed.' },
-        { text: 'Colour the palm brown for the body and draw two skinny legs with three toes each underneath.' },
+        { text: 'Color the palm brown for the body and draw two skinny legs with three toes each underneath.' },
         {
           text: 'Stick on a googly eye if you have one, or draw a big round eye with a dot in the middle.',
           hazards: ['small-parts'],
@@ -207,7 +207,7 @@ const thanksgiving: HolidayContent = {
     { sleeps: 12, kind: 'craft', text: 'Start a thankful chain: write one thing you are thankful for on a paper strip, loop it and tape it, then add a new link every day until Thanksgiving.' },
     { sleeps: 11, kind: 'fact', text: 'Many Native American nations grow corn, beans and squash together, called the Three Sisters: the corn holds up the beans, and the squash leaves shade the soil.' },
     { sleeps: 10, kind: 'joke', text: 'Why did the turkey join the band? It already had the drumsticks!' },
-    { sleeps: 9, kind: 'colour', text: 'Autumn colours at the ready! The Thanksgiving colouring page is full of leaves, pies and a very proud turkey. Open the colouring page!' },
+    { sleeps: 9, kind: 'color', text: 'Autumn colors at the ready! The Thanksgiving coloring page is full of leaves, pies and a very proud turkey. Open the coloring page!' },
     { sleeps: 8, kind: 'fact', text: 'Most farm turkeys are too heavy to fly, but wild turkeys can fly fast in short bursts, and at night they fly up into trees to sleep.' },
     { sleeps: 7, kind: 'say', text: 'Learn to say happy Thanksgiving in Spanish!', greeting: 1 },
     { sleeps: 6, kind: 'fact', text: 'It is mostly the male turkeys that gobble! The females make softer clucks, purrs and yelps instead.' },

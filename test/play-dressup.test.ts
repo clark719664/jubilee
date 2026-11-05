@@ -27,7 +27,7 @@ function memStore(): OutfitStorage & { data: Map<string, string>; writes: number
   return s;
 }
 
-describe('catalogue', () => {
+describe('catalog', () => {
   it('has about forty wearable things plus glows and patterns, with unique ids', () => {
     expect(new Set(ITEMS.map((i) => i.id)).size).toBe(ITEMS.length);
     const things = ITEMS.filter((i) => i.slot !== 'glow' && i.slot !== 'pattern');
@@ -38,7 +38,7 @@ describe('catalogue', () => {
   it('draws every hat, glasses, neck and held item (and nothing else)', () => {
     const drawn = new Set([...Object.keys(HEAD_ART), ...Object.keys(FACE_ART), ...Object.keys(HELD_ART)]);
     for (const it of ITEMS) {
-      if (it.slot === 'glow' || it.slot === 'pattern') expect(it.colours?.length).toBeGreaterThan(0);
+      if (it.slot === 'glow' || it.slot === 'pattern') expect(it.colors?.length).toBeGreaterThan(0);
       else expect(drawn.has(it.id), it.id).toBe(true);
     }
     for (const id of drawn) expect(itemById(id), id).toBeDefined();

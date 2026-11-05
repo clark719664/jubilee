@@ -1,5 +1,5 @@
 /**
- * paint.ts — Canvas 2D painting shared by the editor (background and pen canvases) and the rasteriser
+ * paint.ts — Canvas 2D painting shared by the editor (background and pen canvases) and the rasterizer
  * (print sheet, saved picture). Every function draws in PANEL UNITS: the caller sets a transform so that
  * one unit maps to however many device pixels it wants. Nothing here touches the DOM.
  */
@@ -17,13 +17,13 @@ export const INK = '#1f1a3d';
 export const CREAM = '#fffaf0';
 const GOLD = '#ffd166';
 
-/** A theme colour dark enough to read on cream paper (the inside of the card). */
+/** A theme color dark enough to read on cream paper (the inside of the card). */
 export function deepInk(theme: Theme): string {
   for (const c of [theme.accent2, theme.accent, theme.bg1, theme.bg2]) if (/^#[0-9a-f]{6}$/i.test(c) && contrastRatio(c, CREAM) >= 4.5) return c;
   return INK;
 }
 
-/** Mixes two #rrggbb colours (k = 0 → a). */
+/** Mixes two #rrggbb colors (k = 0 → a). */
 export function mixHex(a: string, b: string, k: number): string {
   const pa = parseInt(a.slice(1), 16);
   const pb = parseInt(b.slice(1), 16);
@@ -113,7 +113,7 @@ export function paintBackground(ctx: Ctx, bg: BgId, theme: Theme): void {
         for (let i = 0; i < 46; i++) { ctx.globalAlpha = 0.25 + rnd() * 0.35; ctx.beginPath(); ctx.arc(rnd() * PANEL_W, rnd() * PANEL_H, 3 + rnd() * 7, 0, Math.PI * 2); ctx.fill(); }
         ctx.globalAlpha = 1;
       }
-      // A soft hill of the accent colour along the bottom gives stickers somewhere to stand.
+      // A soft hill of the accent color along the bottom gives stickers somewhere to stand.
       ctx.fillStyle = mixHex(theme.bg2, '#ffffff', theme.mood === 'night' ? 0.12 : 0.55);
       ctx.beginPath();
       ctx.moveTo(0, PANEL_H);
@@ -222,7 +222,7 @@ export function paintPaper(ctx: Ctx, theme: Theme, seed: number): void {
   ctx.restore();
 }
 
-/** Scene layers (1600×900, bottom-anchored, covering the panel height, centred). */
+/** Scene layers (1600×900, bottom-anchored, covering the panel height, centered). */
 export function sceneRect(): { x: number; y: number; w: number; h: number } {
   const h = PANEL_H;
   const w = (1600 / 900) * h;
@@ -266,7 +266,7 @@ export function paintStrokes(ctx: Ctx, strokes: readonly Stroke[], live?: Stroke
 
 export interface TextStyle { readonly fill: string; readonly halo: string | null; readonly haloW: number }
 
-/** Colours for each kind of line: front words are die-cut sticker lettering; inside words are ink on paper. */
+/** Colors for each kind of line: front words are die-cut sticker lettering; inside words are ink on paper. */
 export function styleFor(role: TextLine['role'], theme: Theme): TextStyle {
   switch (role) {
     case 'name': return { fill: theme.accentInk, halo: null, haloW: 0 };
@@ -388,7 +388,7 @@ export function paintText(ctx: Ctx, lines: readonly TextLine[], theme: Theme): v
 
 export interface HolidayArtInfo { readonly emoji: string; readonly theme: ThemeId }
 
-/** A holiday sticker's emoji disc: that holiday's own sky colours, a white die-cut rim, an ink outline. */
+/** A holiday sticker's emoji disc: that holiday's own sky colors, a white die-cut rim, an ink outline. */
 export function paintEmojiDisc(ctx: Ctx, size: number, info: HolidayArtInfo, gold: boolean): void {
   const t = THEMES[info.theme];
   const r = size * 0.42;
@@ -400,7 +400,7 @@ export function paintEmojiDisc(ctx: Ctx, size: number, info: HolidayArtInfo, gol
   ctx.lineWidth = size * 0.018;
   ctx.strokeStyle = gold ? '#b8860b' : INK;
   ctx.stroke();
-  // A ring in that holiday's own sky colours around a pale centre, so the emoji reads on every theme.
+  // A ring in that holiday's own sky colors around a pale center, so the emoji reads on every theme.
   const g = ctx.createLinearGradient(0, -r, 0, r);
   g.addColorStop(0, t.bg1);
   g.addColorStop(1, t.bg2);
@@ -475,7 +475,7 @@ export function decorCanvas(name: string, color: string, px: number): HTMLCanvas
   return out[0];
 }
 
-/** Paints one placed sticker (centred, rotated, at its box size). `pxPerUnit` sizes decoration rasters. */
+/** Paints one placed sticker (centered, rotated, at its box size). `pxPerUnit` sizes decoration rasters. */
 export function paintPlaced(ctx: Ctx, p: Placed, src: StickerSources, pxPerUnit = 2): void {
   ctx.save();
   ctx.translate(p.x, p.y);

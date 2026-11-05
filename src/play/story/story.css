@@ -68,7 +68,7 @@
 img.st-layer { object-fit: fill; }
 
 /* fallback picture: theme sky, three rolling hills, the holiday's sticker and the page's thing */
-/* Night: hills in the sky's own colour, lighter far away and darker near (atmospheric depth), with a
+/* Night: hills in the sky's own color, lighter far away and darker near (atmospheric depth), with a
    thin warm glow on the far ridge. Day: tinted with the theme's two accents. */
 .st-stop-back-a { stop-color: color-mix(in srgb, var(--h-glow) 16%, color-mix(in srgb, var(--h-bg2) 78%, #fff)); }
 .st-stop-back-b { stop-color: color-mix(in srgb, var(--h-bg2) 86%, #fff); }
@@ -153,7 +153,7 @@ img.st-layer { object-fit: fill; }
 /* a story page */
 /* overflow-y: auto is the last resort (a phone held sideways with the longest page): the words scroll, never clip. */
 .st-text-box { flex: 1 1 auto; min-height: 0; display: flex; align-items: flex-start; overflow-y: auto; overscroll-behavior: contain; }
-/* auto margins centre the words when they fit and fall to 0 when they scroll, so the first line stays reachable */
+/* auto margins center the words when they fit and fall to 0 when they scroll, so the first line stays reachable */
 .st-text-box > .st-text { flex: 1 1 auto; min-width: 0; margin-block: auto; overflow-wrap: anywhere; }
 /* fitText() measures each size synchronously; a transition (reduced motion gives every property one, of
    .01ms) would leave the old size in place until the next frame and step the text all the way down. */

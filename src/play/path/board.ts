@@ -5,7 +5,7 @@
  *
  * Jubi is moved with transforms only (translate for the cell, a hop or a nudge on an inner element, the
  * facing arrow rotated the short way round). Full motion tweens on the spring curve; any other motion
- * snaps straight to the new cell. The board itself is one labelled image for screen readers, with a
+ * snaps straight to the new cell. The board itself is one labeled image for screen readers, with a
  * plain-words description of where everything is (kept current after every run).
  */
 import type { MotionMode } from '../../effects/types';
@@ -190,8 +190,8 @@ export class BoardView {
     return full ? ms : STILL_MS;
   }
 
-  /** Centre of item `i` (or Jubi) in client coordinates, for the sparkle burst. */
-  centreOf(i: number | 'jubi'): { x: number; y: number } | null {
+  /** Center of item `i` (or Jubi) in client coordinates, for the sparkle burst. */
+  centerOf(i: number | 'jubi'): { x: number; y: number } | null {
     const el = i === 'jubi' ? this.jubi : this.items[i];
     if (!el) return null;
     const r = el.getBoundingClientRect();

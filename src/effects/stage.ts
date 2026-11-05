@@ -4,7 +4,7 @@
  * A hero with a scene stacks sky → back.svg → mid.svg → effect canvas → front.svg. Every layer shares one
  * 1600×900 artboard and is drawn the same way (styles.css `.hero-layer`): a box overscanned by 14 px on
  * each side and 8 px top and bottom, filled with `object-fit: cover; object-position: 50% 100%`. For a
- * w×h hero, with W = w + 28 and H = h + 16, the artboard is drawn at s = max(W/1600, H/900), centred
+ * w×h hero, with W = w + 28 and H = h + 16, the artboard is drawn at s = max(W/1600, H/900), centered
  * across and bottom-anchored:
  *
  *   left = −14 + (W − 1600·s)/2        top = −8 + H − 900·s        (x, y) ↦ (left + x·s, top + y·s)

@@ -126,7 +126,7 @@ describe('year view: multi-day bars across month and year boundaries', () => {
     expect(usesTable(HOLIDAYS.find((x) => x.id === 'mothers-day')!, ruleOf)).toBe(false);
   });
 
-  it('bar colours avoid the pale gold accents', () => {
+  it('bar colors avoid the pale gold accents', () => {
     expect(holidayColor(THEMES.christmas)).toBe(THEMES.christmas.bg2);
     expect(holidayColor(THEMES.kwanzaa)).toBe(THEMES.kwanzaa.accent);
   });
@@ -138,10 +138,10 @@ describe('sticker book', () => {
 
   it('groups shelves by the month of the main day', () => {
     expect([12, 1, 2].map(seasonOfMonth)).toEqual(['winter', 'winter', 'winter']);
-    expect([3, 5, 6, 8, 9, 11].map(seasonOfMonth)).toEqual(['spring', 'spring', 'summer', 'summer', 'autumn', 'autumn']);
+    expect([3, 5, 6, 8, 9, 11].map(seasonOfMonth)).toEqual(['spring', 'spring', 'summer', 'summer', 'fall', 'fall']);
     const book = stickerBook(HOLIDAYS, new Set(), progress({}), 2026, today, 'US');
-    const ids = (s: 'winter' | 'spring' | 'summer' | 'autumn') => book.shelves[s].map((e) => e.meta.id);
-    expect(ids('autumn')).toEqual(expect.arrayContaining(['diwali', 'halloween', 'thanksgiving']));
+    const ids = (s: 'winter' | 'spring' | 'summer' | 'fall') => book.shelves[s].map((e) => e.meta.id);
+    expect(ids('fall')).toEqual(expect.arrayContaining(['diwali', 'halloween', 'thanksgiving']));
     expect(ids('winter')).toEqual(expect.arrayContaining(['christmas', 'kwanzaa', 'lunar-new-year', 'hanukkah']));
     expect(ids('spring')).toEqual(expect.arrayContaining(['easter', 'holi', 'nowruz']));
     expect(ids('summer')).toEqual(expect.arrayContaining(['juneteenth', 'independence-day-us']));
@@ -168,7 +168,7 @@ describe('sticker book', () => {
 
   it('missed is "see you next year", ongoing and upcoming look forward', () => {
     const book = stickerBook(HOLIDAYS, new Set(), progress({ stickers: { 'diwali:2026': '2026-11-08' } }), 2026, today, 'US');
-    const all = [...book.shelves.winter, ...book.shelves.spring, ...book.shelves.summer, ...book.shelves.autumn];
+    const all = [...book.shelves.winter, ...book.shelves.spring, ...book.shelves.summer, ...book.shelves.fall];
     const by = (id: string) => all.find((e) => e.meta.id === id)!;
     expect(by('diwali')).toMatchObject({ state: 'earned', earned: '2026-11-08' });
     expect(by('halloween').state).toBe('missed');

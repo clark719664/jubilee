@@ -4,7 +4,7 @@
  *   as they are placed, plus the raised shamash; every flame flickers on its own and glows; dreidels
  *   drift across the sky, bobbing and turning slowly (their four faces נ ג ה ש come round as they turn);
  *   chocolate gelt in gold and silver foil flutters slowly down; stars twinkle.
- * Behaviours: flame (flicker), drift + bob + wrap + spin with exponential spin-down (dreidels), flutter +
+ * Behaviors: flame (flicker), drift + bob + wrap + spin with exponential spin-down (dreidels), flutter +
  *   gravity (gelt), twinkle (stars), drag + envelope (sparkles), rise + envelope (letters).
  * Tap: tap a dreidel and it spins fast, slows, wobbles and settles on a letter, which pops up above it
  *   (`lastLetter` holds it so the UI can toast its meaning — see DREIDEL_MEANINGS). Tapping the sky

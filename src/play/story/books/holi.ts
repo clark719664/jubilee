@@ -1,4 +1,4 @@
-/** Holi — the bonfire night, then the colour morning; each camera is the point of the drawn scene the page is about. */
+/** Holi — the bonfire night, then the color morning; each camera is the point of the drawn scene the page is about. */
 import type { StoryBook } from '../types';
 
 const book: StoryBook = {
@@ -7,7 +7,7 @@ const book: StoryBook = {
   cover: { x: 800, y: 600, zoom: 1.25 },
   pages: [
     {
-      text: 'On the night before Holi, the neighbours gather round a big bonfire. {name} watches the sparks fly up like tiny orange stars.',
+      text: 'On the night before Holi, the neighbors gather round a big bonfire. {name} watches the sparks fly up like tiny orange stars.',
       camera: { x: 800, y: 560, zoom: 1.3 }, prop: '🔥',
     },
     {
@@ -15,7 +15,7 @@ const book: StoryBook = {
       camera: { x: 420, y: 620, zoom: 2.4 }, prop: '👕',
     },
     {
-      text: 'Outside, the whole street is waiting with bowls of coloured powder called gulal: pink, green, yellow and the brightest blue.',
+      text: 'Outside, the whole street is waiting with bowls of colored powder called gulal: pink, green, yellow and the brightest blue.',
       camera: { x: 760, y: 770, zoom: 2.4 }, prop: '🎨',
     },
     {

@@ -1,8 +1,8 @@
 /**
  * One-off painters for the globe's caches: the deep-space backdrop (gradient, nebula clouds
- * in the theme's colours, a faint milky band and seeded soft stars), the atmosphere glow,
+ * in the theme's colors, a faint milky band and seeded soft stars), the atmosphere glow,
  * sticker emoji with a white paper outline, label pills and the graticule. Each runs only
- * when its size or colours change; the renderer then blits the result with one drawImage.
+ * when its size or colors change; the renderer then blits the result with one drawImage.
  */
 import { mulberry32 } from '../effects/rng';
 import { withAlpha } from '../effects/painters/color';
@@ -21,7 +21,7 @@ export function makeCanvas(w: number, h: number): HTMLCanvasElement | null {
 
 /**
  * Grows an image's silhouette into a white die-cut "paper" edge with a soft navy shadow,
- * the sticker look used all over Jubilee. Colour emoji and composite sprites have no outline
+ * the sticker look used all over Jubilee. Color emoji and composite sprites have no outline
  * to stroke, so the silhouette is stamped round a small circle and painted white.
  */
 export function stickerize(src: HTMLCanvasElement, edge: number, shadowDy: number): HTMLCanvasElement | null {
@@ -69,7 +69,7 @@ export function paperGlyph(text: string): (ctx: CanvasRenderingContext2D, size: 
     if (!sticker) return;
     ctx.save();
     ctx.setTransform(1, 0, 0, 1, 0, 0);
-    // The sprite cache centres a canvas of ~1.5 × size; centre the sticker in it.
+    // The sprite cache centers a canvas of ~1.5 × size; center the sticker in it.
     const box = Math.ceil((Math.ceil(size * 1.5) + 2) * k);
     ctx.drawImage(sticker, (box - sticker.width) / 2, (box - sticker.height) / 2);
     ctx.restore();

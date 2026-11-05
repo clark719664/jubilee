@@ -24,7 +24,7 @@ export interface LexiconEntry { readonly pattern: RegExp; readonly allergen: All
 const entry = (allergen: Allergen, pattern: RegExp): LexiconEntry => ({ pattern, allergen });
 
 /** Breads, pastas and bakes that are wheat unless a lookbehind says otherwise (rice noodles, rice crackers…). */
-const WHEATY_FOODS = /(?<!\b(?:rice|glass|corn|gluten-free|gf)\s)\b(?:bread|breadcrumbs?|pitt?a|naan|bagels?|croissants?|brioche|panko|crackers?|graham|cookies?|biscuits?|pretzels?|pasta|spaghetti|macaroni|noodles?|couscous|semolina|seitan|wonton|dumpling wrappers?|filo|phyllo|pastry|cake mix|ladyfingers|sponge fingers|flour tortillas?|wafers?|waffle cones?|ice cream cones?)\b/i;
+const WHEATY_FOODS = /(?<!\b(?:rice|glass|corn|gluten-free|gf)\s)\b(?:bread|breadcrumbs?|pitt?a|naan|bagels?|croissants?|brioche|panko|crackers?|graham|cookies?|cookies?|pretzels?|pasta|spaghetti|macaroni|noodles?|couscous|semolina|seitan|wonton|dumpling wrappers?|filo|phyllo|pastry|cake mix|ladyfingers|sponge fingers|flour tortillas?|wafers?|waffle cones?|ice cream cones?)\b/i;
 
 /**
  * Ingredient keywords → allergen. Used by the UI to suggest chips and by the content lint, which requires every match
@@ -65,7 +65,7 @@ export const ALLERGEN_LEXICON: readonly LexiconEntry[] = [
   entry('fish', /(?<!\bswedish\s)\bfish\b(?![- ]shaped)/i),
   entry('fish', /\b(?:salmon|tuna|cod|anchov(?:y|ies)|sardines?|mackerel|trout|haddock|tilapia|worcestershire)\b/i),
   // shellfish
-  entry('shellfish', /\b(?:shellfish|shrimps?|prawns?|crab(?!\s*apple)|crabmeat|lobster|crayfish|crawfish|clams?|mussels?|oysters?|scallops?|squid|calamari)\b/i),
+  entry('shellfish', /\b(?:shellfish|shrimps?|shrimp?|crab(?!\s*apple)|crabmeat|lobster|crayfish|crawfish|clams?|mussels?|oysters?|scallops?|squid|calamari)\b/i),
 ];
 
 
@@ -77,7 +77,7 @@ export function allergensIn(text: string): Allergen[] {
 }
 
 /** A step mentioning any of these needs `adult`, `hazards` or a `kidSafeOverride` (content lint). */
-export const HAZARD_WORDS = /oven|stove|hob|boil|simmer|fry|bake|microwave|blender|knife|chop|slice|grate|peel|hot glue|scissors|candle|match|lighter/i;
+export const HAZARD_WORDS = /oven|stove|stovetop|boil|simmer|fry|bake|microwave|blender|knife|chop|slice|grate|peel|hot glue|scissors|candle|match|lighter/i;
 
 /** A recipe whose ingredients mention any of these needs a `chokingNote` (content lint). */
 export const CHOKING_WORDS = /whole (nuts|almonds)|popcorn|hard candy|grapes|marshmallow/i;

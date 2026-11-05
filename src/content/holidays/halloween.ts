@@ -7,8 +7,8 @@ import type { HolidayContent } from '../types';
 const halloween: HolidayContent = {
   story: [
     "Halloween is a night of dressing up, knocking on doors and shouting 'trick or treat!'",
-    'It began long ago with Samhain, an autumn festival in Ireland and Scotland, when people believed the line between our world and the spirit world grew thin.',
-    "Today many families carve pumpkins into glowing jack-o'-lanterns, hang paper bats and fill bowls with sweets for visitors.",
+    'It began long ago with Samhain, an fall festival in Ireland and Scotland, when people believed the line between our world and the spirit world grew thin.',
+    "Today many families carve pumpkins into glowing jack-o'-lanterns, hang paper bats and fill bowls with candy for visitors.",
     'Spooky is the fun kind here: the ghosts are made of bedsheets, and the monsters are mostly made of friends.',
   ],
 
@@ -142,7 +142,7 @@ const halloween: HolidayContent = {
       hazards: ['sharp'],
       materials: [
         { item: 'Paper lunch bag', qty: '1' },
-        { item: 'Coloured paper or card', qty: 'a few scraps' },
+        { item: 'Colored paper or card', qty: 'a few scraps' },
         { item: 'Scissors', substitute: 'ask a grown-up to pre-cut the shapes' },
         { item: 'Glue stick' },
         { item: 'Crayons or markers' },
@@ -151,7 +151,7 @@ const halloween: HolidayContent = {
       steps: [
         { text: 'Lay the bag flat with the folded bottom flap facing up. The flap is your monster’s head and the fold underneath is its mouth.' },
         {
-          text: 'Use scissors to cut eyes, horns, a tongue and a row of zig-zag teeth out of coloured paper.',
+          text: 'Use scissors to cut eyes, horns, a tongue and a row of zig-zag teeth out of colored paper.',
           hazards: ['sharp'],
           tip: 'Fold the paper in half before cutting and you get two matching eyes or horns at once.',
         },
@@ -159,14 +159,14 @@ const halloween: HolidayContent = {
         { text: 'Draw scales, spots or stripes with crayons. Add yarn hair if you like.' },
         { text: 'Slide your hand inside, curl your fingers into the flap, and make your monster talk!' },
       ],
-      learn: 'Cutting and gluing practise little fingers, and two eyes plus two horns are a sneaky lesson in symmetry.',
+      learn: 'Cutting and gluing practice little fingers, and two eyes plus two horns are a sneaky lesson in symmetry.',
     },
   ],
 
   doors: [
     { sleeps: 12, kind: 'fact', text: 'An owl can turn its head about three-quarters of the way round, so it can look over its own back without moving its body.' },
     { sleeps: 11, kind: 'joke', text: "Why didn't the skeleton go trick-or-treating? It had no body to go with!" },
-    { sleeps: 10, kind: 'colour', text: 'Orange, black and purple crayons at the ready! The Halloween colouring page is waiting. Open the colouring page!' },
+    { sleeps: 10, kind: 'color', text: 'Orange, black and purple crayons at the ready! The Halloween coloring page is waiting. Open the coloring page!' },
     { sleeps: 9, kind: 'fact', text: 'Weight for weight, some spider silk is stronger than steel, and it can stretch a long way before it snaps.' },
     { sleeps: 8, kind: 'craft', text: 'Wrap a cardboard tube in strips of white paper or toilet paper, then draw two big eyes: a friendly mummy for your windowsill!' },
     { sleeps: 7, kind: 'say', text: 'Learn to say happy Halloween in German!', greeting: 3 },
@@ -179,7 +179,7 @@ const halloween: HolidayContent = {
   ],
 
   parentNote:
-    "Halloween is a playful, secular holiday here: no horror, no gore. For families who don't celebrate it, the recipes and craft work just as well as an autumn monsters afternoon. Check sweets for allergens, and light paper pumpkins with a battery tea light rather than a candle.",
+    "Halloween is a playful, secular holiday here: no horror, no gore. For families who don't celebrate it, the recipes and craft work just as well as an fall monsters afternoon. Check candy for allergens, and light paper pumpkins with a battery tea light rather than a candle.",
 
   sources: [
     "Encyclopaedia Britannica, 'Halloween' (origins in Samhain and All Hallows' Eve)",

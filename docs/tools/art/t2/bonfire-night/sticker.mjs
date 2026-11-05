@@ -43,7 +43,7 @@ export function sticker() {
   };
   const cuff = (m) => `M${P(m.x - 24, m.y + 14)}h48v16q0 6-6 6h-36q-6 0-6-6Z`;
 
-  // ---- the sparkler: a wire through the right mitten, a grey coated tip, a ball of sparks breaking out top right
+  // ---- the sparkler: a wire through the right mitten, a gray coated tip, a ball of sparks breaking out top right
   const SP = { x: 428, y: 148 };
   const wire = `M${P(mitR.x - 10, mitR.y + 44)}L${P(SP.x - 6, SP.y + 8)}`;
   let sparks = '';

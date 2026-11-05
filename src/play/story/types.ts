@@ -4,7 +4,7 @@
  * longest names, no URLs, every camera inside the artboard.
  *
  * Text templates: `{name}` is the child's optional first name (Progress.name); without one the book says
- * "our hero" (capitalised at the start of a sentence). `{friend}` is a first name the child may type before
+ * "our hero" (capitalized at the start of a sentence). `{friend}` is a first name the child may type before
  * reading ("Who is coming with you?"); a page that uses it carries `solo`, the same page for reading alone.
  */
 import type { HolidayId } from '../../content/types';

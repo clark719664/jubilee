@@ -6,7 +6,7 @@
  *   small stars twinkle; a silhouette of domes and minarets with warm windows stands along the bottom.
  * Variant 'lanterns' (Eid al-Adha): fanous lanterns hang on cords along the top and swing as pendulums;
  *   some start dark.
- * Behaviours: eased rise (moon), pendulum swing + eased glow (lanterns), twinkle (stars), drag + spin +
+ * Behaviors: eased rise (moon), pendulum swing + eased glow (lanterns), twinkle (stars), drag + spin +
  *   envelope (star burst).
  * Tap: on a dark lantern it lights up (its glow ramps in over half a second); anywhere else, a burst of
  *   little gold stars.

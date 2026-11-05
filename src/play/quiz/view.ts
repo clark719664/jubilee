@@ -65,7 +65,7 @@ export function mountQuiz(env: PlayEnv): ActivityInstance {
     h('div', { class: 'quiz-titles' }, title, sub),
     progress);
   const body = h('div', { class: 'quiz-body' });
-  const root = h('section', { class: 'quiz sky', 'aria-labelledby': 'quiz-h1', 'data-mood': theme.mood }, header, body);
+  const root = h('section', { class: 'quiz sky', 'aria-labeledby': 'quiz-h1', 'data-mood': theme.mood }, header, body);
   applyTheme(root, theme);
 
   // ── play area (built once; the stage keeps its Globe for the whole visit)
@@ -332,7 +332,7 @@ export function mountQuiz(env: PlayEnv): ActivityInstance {
     const subText = places.length === 0 ? COPY.doneSub0 : places.length === 1 ? COPY.doneSub1 : fill(COPY.doneSub, { n: places.length });
     const again = h('button', { type: 'button', class: 'btn btn-lg quiz-again', onclick: () => { closeDone(); void begin(scope); } }, icon('shuffle', 22), COPY.again);
     const switchTo: Scope | null = scope === EVERYTHING ? (ownRound ? meta.id : null) : EVERYTHING;
-    const panelEl = h('div', { class: 'quiz-done', role: 'dialog', 'aria-modal': 'true', 'aria-labelledby': 'quiz-done-title' },
+    const panelEl = h('div', { class: 'quiz-done', role: 'dialog', 'aria-modal': 'true', 'aria-labeledby': 'quiz-done-title' },
       h('div', { class: 'quiz-done-card' },
         h('div', { class: 'quiz-done-jubi' }, mascot('party', 104)),
         h('h2', { class: 'quiz-done-title', id: 'quiz-done-title' }, name ? fill(COPY.doneName, { name }) : COPY.doneTitle),

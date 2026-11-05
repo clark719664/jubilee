@@ -46,7 +46,7 @@
 .seek-aim { position: absolute; display: none; width: 56px; height: 56px; transform: translate(-50%, -50%); border-radius: 50%; border: 4px solid #fff; box-shadow: 0 0 0 3px var(--focus); }
 .seek-stage:focus-visible .seek-aim { display: block; }
 
-/* hint glow: a slow breathing pool of light somewhere around the thing, never centred on it */
+/* hint glow: a slow breathing pool of light somewhere around the thing, never centered on it */
 .seek-glow { position: absolute; width: var(--d, 160px); height: var(--d, 160px); transform: translate(-50%, -50%); border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--h-glow) 50%, transparent) 0%, color-mix(in srgb, var(--h-glow) 22%, transparent) 50%, transparent 70%); border: 3px dashed color-mix(in srgb, var(--h-accent) 80%, #fff); box-shadow: 0 0 0 3px color-mix(in srgb, #fff 70%, transparent), 0 0 30px 6px color-mix(in srgb, var(--h-glow) 45%, transparent); opacity: 0; }
 .seek-glow.is-on { animation: seek-breathe 1.3s ease-in-out 3 both; }
 @keyframes seek-breathe { 0% { opacity: 0; transform: translate(-50%, -50%) scale(.85); } 50% { opacity: 1; transform: translate(-50%, -50%) scale(1.08); } 100% { opacity: .55; transform: translate(-50%, -50%) scale(.95); } }

@@ -4,7 +4,7 @@
  * by `sprites.has(name)`, under a `<preset>:` prefix so names never collide with other groups.
  *
  * Big scenery (rangoli rings here; the menorah and kinara in extra-night-lights.ts) is painted once at a
- * capped size and drawn with a scale, so a 1280 px hero never rasterises a 2000 px canvas. Geometry
+ * capped size and drawn with a scale, so a 1280 px hero never rasterizes a 2000 px canvas. Geometry
  * helpers (`branchY`) are shared with the presets so hanging bats sit exactly on the painted branch.
  */
 import type { Budgeter } from '../particles';

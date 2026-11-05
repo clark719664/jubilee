@@ -1,7 +1,7 @@
 /**
  * keep.ts — putting a finished story on the Fridge (kind 'story': { bookId, name?, friend? }), and the
  * friendly "The Fridge is full!" dialog that offers to take one thing down. Nothing is ever removed
- * unless the child presses "Take down" on that item and then "Yes, take it down" (a card or a coloured
+ * unless the child presses "Take down" on that item and then "Yes, take it down" (a card or a colored
  * page is gone for good), and nothing is written while pretending a date.
  */
 import { formatIso } from '../../dates/civil';
@@ -36,7 +36,7 @@ export function keepStory(f: Fridge, opts: { holidayId: string; holiday: string;
   });
 }
 
-const KIND_EMOJI: Readonly<Record<string, string>> = { card: '💌', colour: '🎨', wish: '✉️', path: '🧭', story: '📖', dressup: '👗' };
+const KIND_EMOJI: Readonly<Record<string, string>> = { card: '💌', color: '🎨', wish: '✉️', path: '🧭', story: '📖', dressup: '👗' };
 
 export interface Dialog { close(): void }
 
@@ -49,7 +49,7 @@ export interface TakeDownStep {
 /**
  * One tap on a row of the full-Fridge dialog (pure, so the rule is tested in Node). The first tap on a row only
  * asks; a second tap on the same row takes that item down; a tap on another row moves the question there. A
- * child's card or coloured page is gone for good once taken down, so one tap never removes anything.
+ * child's card or colored page is gone for good once taken down, so one tap never removes anything.
  */
 export function takeDownTap(asking: string | null, id: string): TakeDownStep {
   return asking === id ? { asking: null, remove: id } : { asking: id, remove: null };
@@ -102,7 +102,7 @@ export function fridgeFullDialog(host: HTMLElement, items: readonly FridgeItem[]
       btn);
   });
   const keepAll = h('button', { type: 'button', class: 'btn st-full-keep', onclick: () => close(onKeepAll) }, COPY.fridgeKeepAll);
-  const card = h('div', { class: 'st-dlg-card', role: 'dialog', 'aria-modal': 'true', 'aria-labelledby': id },
+  const card = h('div', { class: 'st-dlg-card', role: 'dialog', 'aria-modal': 'true', 'aria-labeledby': id },
     h('div', { class: 'st-dlg-head' },
       h('h2', { class: 'h3', id }, COPY.fridgeFullTitle),
       h('button', { type: 'button', class: 'btn btn-secondary btn-icon', 'aria-label': COPY.fridgeKeepAll, onclick: () => close(onKeepAll) }, icon('close', 22))),

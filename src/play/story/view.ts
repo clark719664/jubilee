@@ -86,7 +86,7 @@ export function mountStory(env: PlayEnv, book: StoryBook): ActivityInstance {
   const dots = h('ol', { class: 'st-dots', 'aria-hidden': 'true' }, ...Array.from({ length: last + 1 }, () => h('li')));
   const nav = h('nav', { class: 'st-nav', 'aria-label': COPY.navLabel }, prevBtn, h('div', { class: 'st-mid' }, dots, readBtn), nextBtn);
 
-  const root = h('section', { class: 'st sky', 'aria-labelledby': h1Id }, header, h('div', { class: 'st-main' }, book$), nav, hint);
+  const root = h('section', { class: 'st sky', 'aria-labeledby': h1Id }, header, h('div', { class: 'st-main' }, book$), nav, hint);
   applyTheme(root, theme);
   root.classList.toggle('has-scene', scene !== null);
   const syncMotion = (): void => { root.dataset.motion = motion(); };

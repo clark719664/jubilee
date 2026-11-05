@@ -32,11 +32,11 @@ const book: StoryBook = {
       camera: { x: 700, y: 680, zoom: 3 }, prop: '🌽',
     },
     {
-      text: 'After dinner, the family packs a plate of food for a neighbour who lives alone. {name} carries the pie, the bravest job of all.',
+      text: 'After dinner, the family packs a plate of food for a neighbor who lives alone. {name} carries the pie, the bravest job of all.',
       camera: { x: 1140, y: 700, zoom: 2.4 }, prop: '🍽️',
     },
     {
-      text: 'When the stars come out, the whole house is cosy and full and a little bit sleepy. {name} says one last thank-you, for today.',
+      text: 'When the stars come out, the whole house is cozy and full and a little bit sleepy. {name} says one last thank-you, for today.',
       camera: { x: 800, y: 560, zoom: 1.15 }, prop: '🍂',
     },
   ],

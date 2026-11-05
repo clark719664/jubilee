@@ -69,7 +69,7 @@ export function compose(opts: ComposeOptions): ComposeView {
     else i = n - 1;
     setRoving(i, true);
   });
-  const tray = h('section', { class: 'wish-tray', 'aria-labelledby': 'wish-tray-title' },
+  const tray = h('section', { class: 'wish-tray', 'aria-labeledby': 'wish-tray-title' },
     h('div', { class: 'wish-tray-head' }, h('h2', { class: 'wish-tray-title', id: 'wish-tray-title' }, skin.pickTitle), counter),
     grid);
 
@@ -115,7 +115,7 @@ export function compose(opts: ComposeOptions): ComposeView {
       return b;
     })) : null;
 
-  const paper = h('article', { class: 'wish-paper', 'data-skin': skin.id, 'aria-labelledby': 'wish-salutation' },
+  const paper = h('article', { class: 'wish-paper', 'data-skin': skin.id, 'aria-labeledby': 'wish-salutation' },
     skin.id === 'santa' ? h('div', { class: 'wish-paper-stamp', 'aria-hidden': 'true' }, stampArt()) : null,
     salutation,
     toRow ? h('p', { class: 'wish-to-label' }, COPY.toLabel) : null,

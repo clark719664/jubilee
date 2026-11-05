@@ -8,11 +8,11 @@
       "label": "Make a thank-you card"
     },
     {
-      "activity": "colour",
+      "activity": "color",
       "x": 800,
       "y": 650,
       "r": 40,
-      "label": "Colour the poppy wreath"
+      "label": "Color the poppy wreath"
     },
     {
       "activity": "wish",

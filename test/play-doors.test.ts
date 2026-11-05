@@ -148,7 +148,7 @@ describe('phaseOf (real dates)', () => {
     expect(boardYear(phase)).toBeNull();
   });
 
-  it('stays "after" for a fortnight, then lets go', () => {
+  it('stays "after" for a two weeks, then lets go', () => {
     const end = toDayNumber(civil(2026, 3, 1));
     const prev = { holidayId: 'x', year: 2026, start: end, main: end, end } as never;
     const next = (sleeps: number): never => ({ occ: { holidayId: 'x', year: 2027, start: end + 365, main: end + 365, end: end + 365 }, status: { kind: 'upcoming', sleeps } }) as never;

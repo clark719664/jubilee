@@ -12,7 +12,7 @@
  *   Ambient: warm sky lanterns rise and sway in three depths (far: small, dim, slow), each with a halo.
  *   Press-and-hold: a lantern grows under the finger (and follows it); release and it floats up.
  *   Tap: a lantern lifts off from the finger. Still: lanterns afloat at every height.
- * Behaviours: pendulum (hanging), flutter + gravity + spin (coins, envelopes, shreds), drag + gravity +
+ * Behaviors: pendulum (hanging), flutter + gravity + spin (coins, envelopes, shreds), drag + gravity +
  *   envelope (sparks), rise + sway (sky lanterns), twinkle (gold motes).
  * Params: density, variant.
  */

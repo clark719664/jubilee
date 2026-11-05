@@ -94,7 +94,7 @@ export function nextArrivals(order: readonly Arrival[], n = 5): Arrival[] {
  * The meridian where mean local time is midnight. With `targetUtcDayStart` (epoch ms of
  * 00:00 UTC on the target date) the result is clamped to [−180, 180] and bounds the region
  * that has crossed into that day: every longitude from it east to the date line (180°).
- * 180 means nowhere yet, −180 means everywhere. Without it, the meridian is normalised.
+ * 180 means nowhere yet, −180 means everywhere. Without it, the meridian is normalized.
  */
 export function midnightMeridian(now: Date, targetUtcDayStart?: number): number {
   if (targetUtcDayStart === undefined) {

@@ -216,7 +216,7 @@ export function mid() {
 // ============================== front ==============================
 export function front() {
   setPrecision(1);
-  return compactSvg(doc(`Lantern Festival · front: a potted kumquat tree bottom left and a stone lantern bottom right; the centre stays open`, [], [
+  return compactSvg(doc(`Lantern Festival · front: a potted kumquat tree bottom left and a stone lantern bottom right; the center stays open`, [], [
     C('a potted kumquat tree'),
     path('M10 900l10 -56h100l10 56z', { fill: '#2a5aa8' }), path('M18 856h104', { fill: 'none', stroke: '#ffd23a', 'stroke-width': 4 }),
     path(circD(40, 806, 30) + circD(90, 798, 34) + circD(66, 770, 30), { fill: '#2a7a3a' }),
@@ -231,7 +231,7 @@ export function sceneData(ppl) {
   const r = (v) => Math.round(v);
   return {
     hotspots: [
-      { activity: 'colour', x: r(ppl.rabbit[0]), y: r(ppl.rabbit[1]), r: 44, label: 'Colour the rabbit lantern' },
+      { activity: 'color', x: r(ppl.rabbit[0]), y: r(ppl.rabbit[1]), r: 44, label: 'Color the rabbit lantern' },
       { activity: 'card', x: r(ppl.riddle[0]), y: r(ppl.riddle[1]), r: 36, label: 'Write a lantern riddle' },
       { activity: 'memory', x: r(ppl.tangyuan[0]), y: r(ppl.tangyuan[1]), r: 40, label: 'Match the tangyuan' },
       { activity: 'wish', x: 150, y: 150, r: 64, label: 'Make a wish on the full moon' },

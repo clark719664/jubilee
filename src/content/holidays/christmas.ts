@@ -133,7 +133,7 @@ const content: HolidayContent = {
         { avoid: 'gluten', use: 'a 1-to-1 gluten-free flour blend' },
         { avoid: 'egg', use: '3 tbsp unsweetened applesauce in place of the egg' },
       ],
-      equipment: ['2 large bowls', 'wooden spoon', 'plastic wrap', 'rolling pin', 'cookie cutters', '2 baking trays', 'baking paper', 'cooling rack'],
+      equipment: ['2 large bowls', 'wooden spoon', 'plastic wrap', 'rolling pin', 'cookie cutters', '2 baking sheets', 'parchment paper', 'cooling rack'],
       ingredients: [
         { item: 'all-purpose flour', us: { qty: 3, unit: 'cup' }, metric: { qty: 360, unit: 'g' }, note: 'plus a little for rolling', allergens: ['wheat', 'gluten'] },
         { item: 'baking soda', us: { qty: 1, unit: 'tsp' }, metric: { qty: 5, unit: 'ml' } },
@@ -144,7 +144,7 @@ const content: HolidayContent = {
         { item: 'butter', us: { qty: 0.75, unit: 'cup' }, metric: { qty: 170, unit: 'g' }, note: 'softened', allergens: ['milk'] },
         { item: 'brown sugar', us: { qty: 0.75, unit: 'cup' }, metric: { qty: 150, unit: 'g' }, note: 'packed' },
         { item: 'egg', us: { qty: 1, unit: 'piece' }, metric: { qty: 1, unit: 'piece' }, allergens: ['egg'] },
-        { item: 'molasses', us: { qty: 0.5, unit: 'cup' }, metric: { qty: 120, unit: 'ml' }, note: 'or black treacle' },
+        { item: 'molasses', us: { qty: 0.5, unit: 'cup' }, metric: { qty: 120, unit: 'ml' }, note: 'or black molasses' },
         { item: 'icing and sprinkles', us: { qty: 0.5, unit: 'cup' }, metric: { qty: 120, unit: 'ml' }, note: 'to decorate', optional: true, allergens: ['milk'] },
       ],
       steps: [
@@ -161,7 +161,7 @@ const content: HolidayContent = {
         { text: 'Tip the flour mix into the butter mix a little at a time, stirring until it comes together into a stiff dough.' },
         { text: 'Wrap the dough in plastic wrap and chill it in the fridge for 1 hour so it is easy to roll.', timerMinutes: 60 },
         {
-          text: 'Heat the oven to 350°F / 180°C and line two trays with baking paper.',
+          text: 'Heat the oven to 350°F / 180°C and line two trays with parchment paper.',
           adult: true,
           hazards: ['heat'],
         },
@@ -243,7 +243,7 @@ const content: HolidayContent = {
         { item: 'water', qty: '1/2 cup / 120 ml' },
         { item: 'cookie cutters', substitute: 'a glass and a butter knife' },
         { item: 'drinking straw' },
-        { item: 'baking tray and baking paper' },
+        { item: 'baking sheet and parchment paper' },
         { item: 'paint and brushes' },
         { item: 'string or ribbon' },
       ],
@@ -264,7 +264,7 @@ const content: HolidayContent = {
         { text: 'Paint your ornaments and wait for the paint to dry.', timerMinutes: 30 },
         { text: 'Thread string through the hole, tie a loop and hang them on the tree.' },
       ],
-      learn: 'Salt dough is not food. The salt makes it taste awful and stops it going mouldy, so your ornaments can last for years.',
+      learn: 'Salt dough is not food. The salt makes it taste awful and stops it going moldy, so your ornaments can last for years.',
     },
   ],
 
@@ -282,9 +282,9 @@ const content: HolidayContent = {
     { day: 11, kind: 'joke', text: 'Why was the Christmas tree so bad at sewing? It kept dropping its needles!' },
     { day: 12, kind: 'craft', text: 'Fold a strip of paper into a zigzag fan and pinch it in the middle to make a paper bow for a present.' },
     { day: 13, kind: 'fact', text: 'In Ukraine some families hang a sparkly spider-web ornament on the tree. A folk tale says a spider once decorated a poor family\'s tree with shining webs.' },
-    { day: 14, kind: 'joke', text: 'What is a reindeer\'s favourite game? Stable tennis!' },
+    { day: 14, kind: 'joke', text: 'What is a reindeer\'s favorite game? Stable tennis!' },
     { day: 15, kind: 'fact', text: 'Rudolph the Red-Nosed Reindeer was invented in 1939 by a writer called Robert May, for a free story booklet given to children in a shop.' },
-    { day: 16, kind: 'fact', text: 'The tallest cut Christmas tree ever recorded stood 221 feet (67 metres) tall in Seattle in 1950. That is about as tall as a 20-storey building.' },
+    { day: 16, kind: 'fact', text: 'The tallest cut Christmas tree ever recorded stood 221 feet (67 meters) tall in Seattle in 1950. That is about as tall as a 20-storey building.' },
     { day: 17, kind: 'joke', text: 'Why did the gingerbread man go to the doctor? He was feeling crummy!' },
     { day: 18, kind: 'craft', text: 'Make a sleeps-to-go paper chain: tape one paper loop for every sleep left, and tear one off each morning.' },
     { day: 19, kind: 'fact', text: 'In the Philippines, Christmas songs start playing in September, which gives Filipino families one of the longest Christmas seasons in the world.' },
@@ -292,7 +292,7 @@ const content: HolidayContent = {
     { day: 21, kind: 'fact', text: 'The Nutcracker ballet, with music by Tchaikovsky, was first danced in Russia in 1892. Today it is performed somewhere almost every day of December.' },
     { day: 22, kind: 'fact', text: "Santa has many names: Father Christmas in Britain, Père Noël in France and Babbo Natale in Italy. In Russia a different gift-bringer, Ded Moroz or Grandfather Frost, comes on New Year's Eve instead." },
     { day: 23, kind: 'joke', text: 'What kind of photos do elves take? Elfies!' },
-    { day: 24, kind: 'craft', text: 'Draw your favourite moment from this whole year and leave it on the table tonight for everyone to find in the morning.' },
+    { day: 24, kind: 'craft', text: 'Draw your favorite moment from this whole year and leave it on the table tonight for everyone to find in the morning.' },
   ],
 
   parentNote: 'Christmas is always 25 December. In the US, when the 25th falls on a weekend the federal day off moves to the nearest Friday or Monday. Many Orthodox Christian families celebrate on 7 January instead. The advent calendar in this app opens one door a day from 1 to 24 December.',
@@ -306,7 +306,7 @@ const content: HolidayContent = {
     "Encyclopaedia Britannica, 'Christmas' (Orthodox observance on 7 January)",
     "National Museum of Iceland, 'The Yule Lads'",
     "Guinness World Records, 'Tallest cut Christmas tree', Seattle, 1950",
-    "Encyclopaedia Britannica, 'The Nutcracker' (Mariinsky Theatre, St Petersburg, 1892)",
+    "Encyclopaedia Britannica, 'The Nutcracker' (Mariinsky Theater, St Petersburg, 1892)",
   ],
 };
 

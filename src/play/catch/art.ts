@@ -1,5 +1,5 @@
 /**
- * art.ts — baskets, stack pieces and the basket's face, painted once per (kind, size, colour) into
+ * art.ts — baskets, stack pieces and the basket's face, painted once per (kind, size, color) into
  * small offscreen canvases (DPR-scaled) and blitted every frame. The face is the only thing drawn
  * live: two eyes that follow the nearest treat, a mouth that goes "o" when one is about to land,
  * a grin after a catch and surprised brows when a sleepy cloud boings off.
@@ -14,7 +14,7 @@ type Ctx2D = CanvasRenderingContext2D;
 
 export interface Raster {
   readonly img: HTMLCanvasElement;
-  /** Drawn size in CSS px and the anchor (bottom-centre for baskets, top-left for pieces) inside it. */
+  /** Drawn size in CSS px and the anchor (bottom-center for baskets, top-left for pieces) inside it. */
   readonly w: number;
   readonly h: number;
   readonly ax: number;
@@ -54,7 +54,7 @@ export class RasterCache {
 }
 
 // ------------------------------------------------------------------ baskets
-// Coordinates: origin at the bottom-centre of the basket body; up is negative y. `w` is the mouth width.
+// Coordinates: origin at the bottom-center of the basket body; up is negative y. `w` is the mouth width.
 
 function outline(g: Ctx2D, lw: number): void {
   g.lineJoin = 'round';
@@ -271,7 +271,7 @@ export interface FaceState {
   readonly blink: number;
 }
 
-/** The basket's face, drawn live (centre at x, y; s = basket width). */
+/** The basket's face, drawn live (center at x, y; s = basket width). */
 export function drawFace(g: Ctx2D, x: number, y: number, s: number, f: FaceState, dark: boolean): void {
   const ink = dark ? '#1a0b2e' : INK;
   const eyeR = s * 0.055;

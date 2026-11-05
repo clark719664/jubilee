@@ -499,7 +499,7 @@ export class ProgramEditor {
     m.style.height = `${Math.round(spot.height)}px`;
   }
 
-  private pointerUp(_e: PointerEvent, cancelled: boolean): void {
+  private pointerUp(_e: PointerEvent, canceled: boolean): void {
     const d = this.drag;
     this.drag = null;
     if (!d || !d.ghost) return;
@@ -509,7 +509,7 @@ export class ProgramEditor {
     this.items[d.index]?.classList.remove('is-dragging');
     this.swallowClick = true;
     window.setTimeout(() => { this.swallowClick = false; }, 0);
-    if (cancelled) { this.placeCaret(this.caret); return; }
+    if (canceled) { this.placeCaret(this.caret); return; }
     if (d.from === 'palette') {
       if (d.drop === null) { this.placeCaret(this.caret); return; }
       this.add(d.card, d.drop);

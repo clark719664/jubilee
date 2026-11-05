@@ -1,7 +1,7 @@
 /**
  * backdrop.ts — the far-away landscape behind the arcade for holidays that have no illustrated scene
  * yet: a moon (night) or sun (day), a few soft clouds, and two rolling hill bands in the theme's
- * colours. It is painted once per size into its own canvas (no per-frame cost) and is quiet on purpose:
+ * colors. It is painted once per size into its own canvas (no per-frame cost) and is quiet on purpose:
  * nothing in it moves or falls, so it can never be mistaken for a catchable item. When the holiday's
  * scene art lands (`sceneFor`), the scene layers replace this entirely.
  */
@@ -22,7 +22,7 @@ export const FULL_MOON_HOLIDAYS: ReadonlySet<string> = new Set(['mid-autumn-fest
 export interface BackdropOptions {
   readonly theme: Theme;
   readonly holidayId: string;
-  /** Ground colour of the play field, so the near hill melts into it. */
+  /** Ground color of the play field, so the near hill melts into it. */
   readonly ground: string;
   /** CSS px of the stage and the screen y of the ground line. */
   readonly w: number;
@@ -109,7 +109,7 @@ export function paintBackdrop(canvas: HTMLCanvasElement, o: BackdropOptions): vo
     cloud(g, x, y, s);
   }
 
-  // Far and near hills. Colours step from the sky toward the ground so the scene reads as depth.
+  // Far and near hills. Colors step from the sky toward the ground so the scene reads as depth.
   const top = o.groundY;
   const far = mixColor(theme.bg2, o.ground, night ? 0.35 : 0.3);
   const near = mixColor(theme.bg2, o.ground, night ? 0.65 : 0.6);

@@ -142,9 +142,9 @@ export function mid() {
     out.push(circle(930, 822, 20, { fill: '#b8102e' }), path('M940 816a12 12 0 1 1 0.1 0z', { fill: '#ffd0c8' }), path(circD(936, 812, 2.4) + circD(944, 814, 2.4) + circD(940, 822, 2.4) + circD(948, 822, 2.4), { fill: '#e8243a' }), path('M924 802l-4 -8l8 4z', { fill: '#8a0a1e' }));
     ppl.pomegranate = [930, 822];
     out.push(ellipse(560, 836, 36, 12, { fill: '#ffffff' }), path('M536 834a10 10 0 0 1 18 0zM552 832a10 10 0 0 1 18 0zM566 836a10 10 0 0 1 18 0z', { fill: '#fff4dc', stroke: '#c8102e', 'stroke-width': 2 }));
-    // a ladybird on the blanket
+    // a ladybug on the blanket
     out.push(circle(990, 836, 6, { fill: '#e8243a' }), circle(985, 833, 2.6, { fill: '#1a1a1a' }), line('M990 830v12', '#1a1a1a', 1.2));
-    ppl.ladybird = [990, 836];
+    ppl.ladybug = [990, 836];
   }
 
   // ---- grandpa the beekeeper and the painted hives
@@ -197,13 +197,13 @@ export function mid() {
   out.push(G({ transform: 'translate(1290 856)' }, path('M-20 0h34q6 0 6 -6q0 -4 -4 -4l-4 -10l-2 10z', { fill: '#c8a888' }), circle(-4, -12, 12, { fill: '#c8743a' }), path('M-4 -12m-6 0a6 6 0 1 1 6 6', { fill: 'none', stroke: '#8a4a1a', 'stroke-width': 2 })));
   ppl.snail = [1286, 846];
 
-  return { svg: compactSvg(doc(`Rosh Hashanah · mid. Concept: "a sweet new year in the orchard" at sundown as the new year begins. Focal point: on a blue checked picnic blanket mum helps the toddler dip an apple slice into the honey jar, a bee watching hopefully, beside a round spiral challah, a split pomegranate and a plate of apple slices (x 480–1010, y 640–870). A girl on a ladder picks the reddest apple from a big apple tree while her brother holds up the basket; grandpa the beekeeper in a veiled hat lifts a dripping honeycomb frame by three painted hives; on the knoll dad in a kippah blows a long curling shofar towards the setting sun. A hedgehog, a worm in a fallen apple, a bird, a butterfly, a ladybird and a snail. Light story: warm low sunset light from the right. The falling apples and honey pots are the effect's.`, defs, out)), ppl };
+  return { svg: compactSvg(doc(`Rosh Hashanah · mid. Concept: "a sweet new year in the orchard" at sundown as the new year begins. Focal point: on a blue checked picnic blanket mum helps the toddler dip an apple slice into the honey jar, a bee watching hopefully, beside a round spiral challah, a split pomegranate and a plate of apple slices (x 480–1010, y 640–870). A girl on a ladder picks the reddest apple from a big apple tree while her brother holds up the basket; grandpa the beekeeper in a veiled hat lifts a dripping honeycomb frame by three painted hives; on the knoll dad in a kippah blows a long curling shofar towards the setting sun. A hedgehog, a worm in a fallen apple, a bird, a butterfly, a ladybug and a snail. Light story: warm low sunset light from the right. The falling apples and honey pots are the effect's.`, defs, out)), ppl };
 }
 
 // ============================== front ==============================
 export function front() {
   setPrecision(1);
-  return compactSvg(doc(`Rosh Hashanah · front: tall grass and little white flowers in the bottom corners; the centre stays open`, [], [
+  return compactSvg(doc(`Rosh Hashanah · front: tall grass and little white flowers in the bottom corners; the center stays open`, [], [
     C('tall grass, bottom left'),
     line('M10 900q4 -60 -10 -110M34 900q0 -50 14 -96M56 900q-4 -40 -16 -70M80 900q6 -36 18 -60', '#4a7a2a', 5),
     path(circD(48, 804, 6) + circD(98, 840, 5), { fill: '#ffffff' }), path(circD(48, 804, 2.2) + circD(98, 840, 2), { fill: '#ffc83a' }),
@@ -221,7 +221,7 @@ export function sceneData(ppl) {
       { activity: 'wish', x: r(ppl.shofar[0]), y: r(ppl.shofar[1]), r: 56, label: 'Blow the shofar and make a wish' },
       { activity: 'card', x: r(ppl.honey[0]), y: r(ppl.honey[1]), r: 32, label: 'Make a sweet new year card' },
       { activity: 'catch', x: ppl.tree[0], y: ppl.tree[1], r: 70, label: 'Catch apples and honey' },
-      { activity: 'colour', x: r(ppl.comb[0]), y: r(ppl.comb[1]), r: 44, label: 'Colour the honeycomb' },
+      { activity: 'color', x: r(ppl.comb[0]), y: r(ppl.comb[1]), r: 44, label: 'Color the honeycomb' },
       { activity: 'memory', x: ppl.challah[0], y: ppl.challah[1], r: 40, label: 'Sweet treats memory game' },
     ],
     findables: [
@@ -230,7 +230,7 @@ export function sceneData(ppl) {
       { id: 'worm', label: 'a worm in an apple', x: ppl.worm[0], y: ppl.worm[1], r: 16 },
       { id: 'bird', label: 'a bluebird', x: r(ppl.bird[0]), y: r(ppl.bird[1]), r: 18 },
       { id: 'pomegranate', label: 'a pomegranate', x: ppl.pomegranate[0], y: ppl.pomegranate[1], r: 20 },
-      { id: 'ladybird', label: 'a ladybird', x: ppl.ladybird[0], y: ppl.ladybird[1], r: 14 },
+      { id: 'ladybug', label: 'a ladybug', x: ppl.ladybug[0], y: ppl.ladybug[1], r: 14 },
       { id: 'snail', label: 'a snail', x: ppl.snail[0], y: ppl.snail[1], r: 18 },
     ],
   };

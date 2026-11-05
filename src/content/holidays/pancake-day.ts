@@ -9,7 +9,7 @@ const content: HolidayContent = {
   ],
   facts: [
     {
-      text: 'The town of Olney in England says its pancake race began in 1445, when a woman heard the church bell and ran out still holding her frying pan. Today\'s runners sprint about 415 yards (380 metres) carrying a frying pan and must flip their pancake on the way.',
+      text: 'The town of Olney in England says its pancake race began in 1445, when a woman heard the church bell and ran out still holding her frying pan. Today\'s runners sprint about 415 yards (380 meters) carrying a frying pan and must flip their pancake on the way.',
       wow: true,
     },
     {
@@ -62,7 +62,7 @@ const content: HolidayContent = {
         { text: 'Stack the pancakes on a plate and cover with a clean towel while you cook the rest.' },
         { text: 'Taste test! Squeeze on lemon and sprinkle sugar, or pile on berries, and dig in.' },
       ],
-      tip: 'For the first pancake, test the heat: if it browns in under a minute, turn the hob down a notch.',
+      tip: 'For the first pancake, test the heat: if it browns in under a minute, turn the stovetop down a notch.',
     },
   ],
   crafts: [],

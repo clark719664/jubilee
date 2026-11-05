@@ -40,8 +40,8 @@ export class GlobeRenderer implements SceneView {
   colors: GlobeColors = DEFAULT_COLORS;
   private highlightColor = DEFAULT_COLORS.highlight;
   /**
-   * The countries actually painted in the highlight colour. A holiday the whole planet shares
-   * (New Year, Earth Day…) leaves the land natural: one colour everywhere tells a child nothing,
+   * The countries actually painted in the highlight color. A holiday the whole planet shares
+   * (New Year, Earth Day…) leaves the land natural: one color everywhere tells a child nothing,
    * and the note already says "everywhere".
    */
   private lit: ReadonlySet<string> = new Set();
@@ -212,7 +212,7 @@ export class GlobeRenderer implements SceneView {
 
   /**
    * Shallow water hugging the coasts, a crisp coastline, the land with thin paper-seam
-   * borders, then the celebrating countries glowing in the theme colour with a white edge.
+   * borders, then the celebrating countries glowing in the theme color with a white edge.
    * The coastline is stroked before the fill so the fill hides it along shared borders.
    */
   private paintLand(ctx: CanvasRenderingContext2D, lw: number, landFill: string | CanvasGradient): void {

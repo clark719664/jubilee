@@ -8,11 +8,11 @@
       "label": "Make a wish on a sparkler"
     },
     {
-      "activity": "colour",
+      "activity": "color",
       "x": 800,
       "y": 642,
       "r": 74,
-      "label": "Colour in the bonfire"
+      "label": "Color in the bonfire"
     },
     {
       "activity": "dressup",
@@ -26,7 +26,7 @@
       "x": 1042,
       "y": 800,
       "r": 32,
-      "label": "Make a cosy hot-chocolate card"
+      "label": "Make a cozy hot-chocolate card"
     },
     {
       "activity": "memory",
@@ -81,7 +81,7 @@
     },
     {
       "id": "dog-coat",
-      "label": "a dog in a tartan coat",
+      "label": "a dog in a plaid coat",
       "x": 1112,
       "y": 820,
       "r": 28

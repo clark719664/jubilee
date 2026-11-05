@@ -1,4 +1,4 @@
-// Grandparents Day sticker ("Big Hug"): a big, cosy hand-knitted red heart with a happy face, wearing a pair of
+// Grandparents Day sticker ("Big Hug"): a big, cozy hand-knitted red heart with a happy face, wearing a pair of
 // round grandma-and-grandpa glasses, two wooden knitting needles poking out of its ball of yarn tail; it sits in an
 // ornate gold oval picture frame — the kind on grandma's mantelpiece — with a warm sepia photo-backdrop. The needles
 // and the yarn break out of the frame.
@@ -73,5 +73,5 @@ export function sticker() {
     circle(H.x - 36, H.y - 4, 28, { fill: 'none', stroke: '#c8901e', 'stroke-width': 6 }), circle(H.x + 36, H.y - 4, 28, { fill: 'none', stroke: '#c8901e', 'stroke-width': 6 }),
     path(`M${H.x - 8} ${H.y - 6}q8 -8 16 0M${H.x - 64} ${H.y - 10}l-24 -6M${H.x + 64} ${H.y - 10}l24 -6`, { fill: 'none', stroke: '#c8901e', 'stroke-width': 5, 'stroke-linecap': 'round' }),
   );
-  return stickerDoc(ID, 'Grandparents Day sticker: a cosy hand-knitted red heart with a happy face, wearing round gold glasses, with knitting needles and a ball of yarn, in an ornate gold oval picture frame with a warm sepia backdrop', defs, sil, art);
+  return stickerDoc(ID, 'Grandparents Day sticker: a cozy hand-knitted red heart with a happy face, wearing round gold glasses, with knitting needles and a ball of yarn, in an ornate gold oval picture frame with a warm sepia backdrop', defs, sil, art);
 }

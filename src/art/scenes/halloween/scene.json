@@ -1,11 +1,11 @@
 {
   "hotspots": [
     {
-      "activity": "colour",
+      "activity": "color",
       "x": 636,
       "y": 804,
       "r": 76,
-      "label": "Colour in the Great Pumpkin"
+      "label": "Color in the Great Pumpkin"
     },
     {
       "activity": "doors",
@@ -19,7 +19,7 @@
       "x": 850,
       "y": 806,
       "r": 30,
-      "label": "Catch sweets in the pail"
+      "label": "Catch candy in the pail"
     },
     {
       "activity": "dressup",

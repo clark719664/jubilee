@@ -1,12 +1,12 @@
 /**
  * Sticker Book (§3.1 `#/stickers`, §9 item 10): one shelf per season for the chosen
  * year (Winter Dec–Feb, Spring Mar–May, Summer Jun–Aug, Autumn Sep–Nov, by the month
- * of each holiday's main day). Earned stickers are in colour with "You were here on
+ * of each holiday's main day). Earned stickers are in color with "You were here on
  * Diwali 2026"; the rest are soft silhouettes that only ever look forward — "in 12
  * sleeps", "see you next year" — never a penalty. Birthdays and custom days get their
  * own shelf of Birthday Stars. The badges row shows a meter toward each badge.
  *
- * The count ("14 of 52 this year") counts the catalogue's tier 1–2 holidays only:
+ * The count ("14 of 52 this year") counts the catalog's tier 1–2 holidays only:
  * silly days have no sticker, and custom days are a bonus shelf on top.
  */
 import type { ViewFactory } from '../app/context';

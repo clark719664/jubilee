@@ -1,16 +1,16 @@
 /**
- * leaves — autumn leaves on a gusty wind, piling up along the ground.
+ * leaves — fall leaves on a gusty wind, piling up along the ground.
  * Ambient: maple, oak and ginkgo leaves in continuous depth (far: small, faint, slow · near: big, quick)
  *   tumble down on a slow gusting wind; each flutters on its own frequency (drawn as width·|cos φ|, the
  *   flip fake) and spins. Leaves that reach the ground lie down in a growing pile; the oldest fade away.
  *   Warm motes of dust drift in a 'lighter' pass. On Thanksgiving (theme 'harvest' with no custom palette,
  *   or variant 'turkey') a turkey struts along the bottom, stopping now and then to peck.
- * Behaviours: gravity to a depth terminal + flutter + horizontal drag + wind + spin; settle into the pile.
+ * Behaviors: gravity to a depth terminal + flutter + horizontal drag + wind + spin; settle into the pile.
  * Tap: a gust — leaves near the finger are blown outward and swirled round it, leaves in the pile are
  *   kicked back up into the air, the whole sky leans with the wind for a moment, and the leaf closest to
- *   the finger changes colour with a little sparkle. Tapping the turkey makes it hop.
+ *   the finger changes color with a little sparkle. Tapping the turkey makes it hop.
  * Still: a leaf pile along the bottom with leaves frozen mid-air (and the turkey standing by).
- * Params: palette (leaf colours; default crimson, orange, amber, gold, rust, mustard), density;
+ * Params: palette (leaf colors; default crimson, orange, amber, gold, rust, mustard), density;
  *   variant 'turkey' forces the turkey, 'noturkey' hides it.
  */
 import type { Theme } from '../../theme/themes';
@@ -64,8 +64,8 @@ export class LeavesEffect extends PooledEffect {
   private turkey = false;
   /** Extra wind from taps, px/s; decays. */
   gust = 0;
-  /** Leaves recoloured by taps (tests). */
-  recoloured = 0;
+  /** Leaves recolored by taps (tests). */
+  recolored = 0;
 
   private readonly palette = new Palette();
   private readonly fall = new Emitter();
@@ -289,7 +289,7 @@ export class LeavesEffect extends PooledEffect {
     if (nearest >= 0) {
       const n = Math.max(1, this.palette.colors.length);
       pool.color[nearest] = (pool.color[nearest]! + 1 + Math.floor(rand() * (n - 1))) % n;
-      this.recoloured++;
+      this.recolored++;
       this.sparkX = pool.x[nearest]!;
       this.sparkY = pool.y[nearest]!;
       spawnEdge(pool, 'point', w, h, this.budget.take(8), rand, this.initSpark, this.sparkX, this.sparkY);
@@ -308,7 +308,7 @@ export class LeavesEffect extends PooledEffect {
     this.turkeyVy = 0;
     const pile = this.budget.take(input.budget * 0.38);
     for (let n = 0; n < pile; n++) {
-      // Two heaps: x is the mean of two uniforms around a heap centre, so leaves bunch into mounds.
+      // Two heaps: x is the mean of two uniforms around a heap center, so leaves bunch into mounds.
       const cx = n % 3 === 0 ? 0.28 : 0.66;
       const x = w * clamp(cx + (rand() + rand() - 1) * 0.3, 0, 1);
       spawnEdge(pool, 'point', w, h, 1, rand, this.initRest, x, 0);

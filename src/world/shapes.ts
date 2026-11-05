@@ -2,14 +2,14 @@
  * Country and lake outlines prepared once for drawing and hit testing.
  *
  * The source rings (Natural Earth, see data/countries.ts) are clockwise in lon/lat, i.e.
- * clockwise seen from outside the globe. The hemisphere clipper wants them anticlockwise
+ * clockwise seen from outside the globe. The hemisphere clipper wants them counterclockwise
  * (interior on the left), so each ring's orientation is measured in 3D — the vector area
  * Σ vᵢ × vᵢ₊₁ against the ring's mean direction — and flipped when needed. That test is
  * also right for Antarctica, whose ring runs round the South Pole. Points on the poles are
  * dropped from the 3D copy: in lon/lat they make the flat map's bottom edge, but on the
  * sphere they collapse into a zero-width spike that would draw a line to the pole.
  *
- * Every ring also gets a bounding cap (centre + angular radius) so the globe can skip
+ * Every ring also gets a bounding cap (center + angular radius) so the globe can skip
  * rings on the far side, and a lon/lat bbox for the flat map and for point-in-polygon.
  * `prepareShapes()` runs once and is memoised; nothing here allocates per frame.
  */
@@ -17,13 +17,13 @@ import { COUNTRIES, LAKES, countryName } from './data/countries';
 import { DEG, RAD, normLon, type LonLat } from './geo';
 
 export interface PreparedRing {
-  /** Unit vectors, x y z per point, anticlockwise seen from outside, pole points dropped. */
+  /** Unit vectors, x y z per point, counterclockwise seen from outside, pole points dropped. */
   readonly vec: Float32Array;
   /** Degrees, lon lat per point, in source order (closed: last point repeats the first). */
   readonly lonlat: Float32Array;
   /** [minLon, minLat, maxLon, maxLat] in degrees. */
   readonly bbox: Float32Array;
-  /** Bounding cap: centre unit vector, then cos and sin of its angular radius. */
+  /** Bounding cap: center unit vector, then cos and sin of its angular radius. */
   readonly cap: Float32Array;
   /** Rough area in steradians (|vector area|), for picking a country's main ring. */
   readonly area: number;
@@ -33,7 +33,7 @@ export interface PreparedCountry {
   readonly iso: string;
   readonly name: string;
   readonly rings: readonly PreparedRing[];
-  /** Area-weighted centre of the largest ring: where "spin to India" points the globe. */
+  /** Area-weighted center of the largest ring: where "spin to India" points the globe. */
   readonly center: LonLat;
   /** Union of the rings' boxes. */
   readonly bbox: Float32Array;
@@ -62,7 +62,7 @@ function prepareRing(tenths: readonly number[]): PreparedRing {
     if (lat > bbox[3]!) bbox[3] = lat;
   }
 
-  // 3D copy: no pole points, no repeated neighbours, no closing duplicate.
+  // 3D copy: no pole points, no repeated neighbors, no closing duplicate.
   const xyz: number[] = [];
   for (let i = 0; i < n; i++) {
     const lat = lonlat[2 * i + 1]!;
@@ -114,7 +114,7 @@ function prepareRing(tenths: readonly number[]): PreparedRing {
   return { vec, lonlat, bbox, cap, area: Math.hypot(sx, sy, sz) / 2 };
 }
 
-/** Area-weighted centre of a ring (triangle fan from its first vertex), as lon/lat. */
+/** Area-weighted center of a ring (triangle fan from its first vertex), as lon/lat. */
 function ringCenter(ring: PreparedRing): LonLat {
   const v = ring.vec;
   const m = v.length / 3;
@@ -205,7 +205,7 @@ export function countryAt(lon: number, lat: number): PreparedCountry | null {
 
 /**
  * True when a list covers (nearly) every country with an outline: a holiday the whole planet
- * shares, which the globe shows as natural land rather than one colour everywhere.
+ * shares, which the globe shows as natural land rather than one color everywhere.
  */
 export function isEverywhere(isos: { readonly size: number } | readonly string[]): boolean {
   const n = 'size' in isos ? isos.size : isos.length;

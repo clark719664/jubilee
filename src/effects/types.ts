@@ -20,7 +20,7 @@ export interface StageEllipse {
   readonly ry: number;
 }
 
-/** A sabzeh dish on the scene artboard: centre x, the soil line y at the rim, half the inner width. */
+/** A sabzeh dish on the scene artboard: center x, the soil line y at the rim, half the inner width. */
 export interface StageDish {
   readonly x: number;
   readonly y: number;
@@ -98,7 +98,7 @@ export interface SpriteCache {
   register(name: string, painter: SpritePainter): void;
   has(name: string): boolean;
   /**
-   * Draw a cached sprite centred at (x, y) with optional rotation and scale; `squash` scales the result
+   * Draw a cached sprite centered at (x, y) with optional rotation and scale; `squash` scales the result
    * vertically after the rotation (a flat thing lying on the ground, seen in perspective).
    */
   draw(

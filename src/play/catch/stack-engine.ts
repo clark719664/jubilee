@@ -5,9 +5,9 @@
  * base (a plate, a table…). A piece swings on a ribbon above the tower; tap (or Space/Enter/↓) drops it,
  * or drag it into place and let go. Physics is simple AABB with damping:
  *  - the falling piece lands on the top piece when their x ranges overlap; its offset `dx` decides
- *    whether it stays (centre over the support) or slides off the edge with a giggle;
+ *    whether it stays (center over the support) or slides off the edge with a giggle;
  *  - landings kick a damped angular wobble; a fresh top piece whose offset plus the lean pushes its
- *    centre past the edge below slides off too (only the top piece ever goes — the tower never falls);
+ *    center past the edge below slides off too (only the top piece ever goes — the tower never falls);
  *  - Easy pulls near-misses toward the middle (a gentle magnet) and swings slower.
  * Nothing is lost: sliding pieces just leave, and the next one is already swinging.
  */

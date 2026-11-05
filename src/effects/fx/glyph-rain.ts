@@ -5,13 +5,13 @@
  *   finger and drifts down with the rest.
  * Variant 'chalk' (Pi Day): a chalkboard — eraser smudges and faint chalk formulas as the ambient
  *   texture; the digits of π fall in reading order, a row at a time (3 . 1 4 1 5 9 2 6 …), in chalk
- *   with the odd coloured digit; π symbols tumble; lattice pies drift down, slowly rotating.
+ *   with the odd colored digit; π symbols tumble; lattice pies drift down, slowly rotating.
  *   Tap: "3.14159…" bursts out along a spiral from the finger. Secret: three taps within 1.6 s rains
  *   100 digits of π.
  * Variant 'hop' (Leap Day): frogs drift down; now and then one leaps mid-air. Tap: the nearest frog
  *   (or a new one, if none is close) hops away from the finger in three bouncy arcs, squashing as it
  *   lands and stretching as it takes off.
- * Behaviours: flutter + terminal fall (glyphs, digits), spin (pies, π), ballistic arcs (hops, puffs),
+ * Behaviors: flutter + terminal fall (glyphs, digits), spin (pies, π), ballistic arcs (hops, puffs),
  *   spiral (π burst), twinkle (motes).
  * Still: glyphs scattered across the sky — on the chalkboard, rows of π digits, pies and the formulas.
  * Scene mode (`params.stage`): the scene is the board and the bake sale, so the chalk variant keeps only its
@@ -129,7 +129,7 @@ export class GlyphRainEffect extends PooledEffect {
     pool.alpha[i] = 0.92;
     pool.color[i] = charIndex(PI_DIGITS[this.piCursor % PI_DIGITS.length]!);
     pool.maxLife[i] = 0;
-    // Digits never rotate, so `rot` holds the chalk colour: mostly white, every seventh in a pastel.
+    // Digits never rotate, so `rot` holds the chalk color: mostly white, every seventh in a pastel.
     pool.rot[i] = this.piCursor % 7 === 3 ? 1 + (this.piCursor % 3) : 0;
     this.piCursor = (this.piCursor + 1) % PI_DIGITS.length;
   };

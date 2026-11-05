@@ -207,7 +207,7 @@ export function mid() {
 // ============================== front ==============================
 export function front() {
   setPrecision(1);
-  return compactSvg(doc(`Cinco de Mayo · front: a talavera pot with an agave bottom left and a pot of marigolds bottom right; the centre stays open`, [], [
+  return compactSvg(doc(`Cinco de Mayo · front: a talavera pot with an agave bottom left and a pot of marigolds bottom right; the center stays open`, [], [
     C('a talavera pot with an agave'),
     path('M10 900l10 -60h100l10 60z', { fill: '#ffffff' }), path('M24 856h92M28 876h84', { fill: 'none', stroke: '#2a5aa8', 'stroke-width': 4 }),
     path('M70 840l-50 -60l60 50zM70 840l-10 -90l20 90zM70 840l50 -70l-40 70zM70 840l-70 -20l70 10zM70 840l74 -14l-70 22z', { fill: '#5aa87a' }),
@@ -224,7 +224,7 @@ export function sceneData(ppl) {
     hotspots: [
       { activity: 'catch', x: ppl.pinata[0], y: ppl.pinata[1], r: 56, label: 'Catch the piñata sweets' },
       { activity: 'dressup', x: r(ppl.dancer[0]), y: r(ppl.dancer[1]), r: 56, label: 'Dress up for the fiesta' },
-      { activity: 'colour', x: r(ppl.skirt[0]), y: r(ppl.skirt[1]), r: 44, label: 'Colour the dancing skirt' },
+      { activity: 'color', x: r(ppl.skirt[0]), y: r(ppl.skirt[1]), r: 44, label: 'Color the dancing skirt' },
       { activity: 'memory', x: r(ppl.guitar[0]), y: r(ppl.guitar[1]), r: 44, label: 'Match the mariachi instruments' },
     ],
     findables: [
