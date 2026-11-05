@@ -295,13 +295,13 @@ export function mountWorld(host: HTMLElement, deps: WorldDeps): WorldInstance {
       h('span', { class: 'world-bubble-emoji emoji', 'aria-hidden': 'true' }, emoji),
       h('div', { class: 'world-bubble-body' },
         h('strong', {}, title),
-        h('span', {}, text),
-        chips.length > 0
-          ? h('div', { class: 'world-bubble-chips' }, ...chips.map((c) => h('button', {
-            type: 'button', class: 'chip chip-sm', onclick: () => select(c.id, true),
-          }, `${c.emoji} ${c.name}`)))
-          : null),
+        h('span', {}, text)),
       h('button', { type: 'button', class: 'btn btn-secondary btn-icon', 'aria-label': WORLD_COPY.close, onclick: hideBubble }, icon('close', 18)),
+      chips.length > 0
+        ? h('div', { class: 'world-bubble-chips' }, ...chips.map((c) => h('button', {
+          type: 'button', class: 'chip chip-sm', onclick: () => select(c.id, true),
+        }, `${c.emoji} ${c.name}`)))
+        : '',
     );
     bubble.hidden = false;
   }
