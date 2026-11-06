@@ -35,7 +35,7 @@ function voiceFor(lang: string): SpeechSynthesisVoice | null {
 
 /** The book's language for the voice: the reader's own English variant when they have one. */
 export function bookLang(locale: string): string {
-  return /^en(-|$)/i.test(locale) ? locale : 'en';
+  return locale;
 }
 
 export class ReadAloud {
@@ -49,7 +49,7 @@ export class ReadAloud {
 
   /** A matching voice exists right now (Chrome fills the list in late; see onVoicesChanged). */
   available(): boolean {
-    return voiceReady() || voiceFor(this.lang) !== null;
+    return (/^en/i.test(this.lang) && voiceReady()) || voiceFor(this.lang) !== null;
   }
 
   get active(): boolean {

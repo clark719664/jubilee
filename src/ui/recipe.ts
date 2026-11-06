@@ -9,6 +9,7 @@
  *     then "I made it!" → markRecipeDone + badge check + a confetti finish. Esc, the close button or browser Back
  *     close it; focus goes back to the recipe card's Start button. Print prints the recipe card, not the dialog.
  */
+import { currentLang } from '../i18n/index';
 import type { AppContext, ViewFactory, ViewInstance } from '../app/context';
 import type { Units } from '../app/format';
 import { formatRoute } from '../app/router';
@@ -100,6 +101,7 @@ export function recipeCard(recipe: Recipe, opts: RecipeCardOptions): RecipeCard 
   const ingredients = checklist(`${key}/ingredients`, recipe.ingredients.length, (i) => ingredientLine(recipe.ingredients[i], units));
 
   const body = h('div', { class: 'recipe-body' },
+    currentLang() === 'en' ? null : h('p', { class: 'help' }, 'This recipe was translated by a computer. Always check the ingredients and allergens yourself.'),
     swapsBlock(recipe),
     h('h4', { class: 'h3 sub-title' }, 'You need'),
     h('ul', { class: 'equipment' }, ...recipe.equipment.map((e) => h('li', {}, e))),

@@ -2,6 +2,7 @@
  * The page parents land on. It works as plain HTML; this adds the live countdown over the next
  * holiday's real scene, the holiday wall and the install help.
  */
+import { currentLang, initLang, LANGUAGES, setLang } from '../i18n/index';
 import './landing.css';
 import { detectRegion } from '../app/settings';
 import { sceneFor, stickerUrl } from '../art/index';
@@ -95,7 +96,16 @@ function setUpInstall(): void {
 // Links from before the app moved to app/ still reach the page they meant.
 if (location.hash.startsWith('#/')) location.replace(`app/${location.hash}`);
 
+function setUpLanguage(): void {
+  const select = byId<HTMLSelectElement>('language');
+  select.append(...LANGUAGES.map((l) => h('option', { value: l.code }, l.name)));
+  select.value = currentLang();
+  select.addEventListener('change', () => setLang(select.value));
+}
+
 showNextHoliday();
 showHolidays();
 setUpInstall();
+setUpLanguage();
+void initLang();
 registerOffline(import.meta.env.PROD);

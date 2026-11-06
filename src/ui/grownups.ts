@@ -6,6 +6,7 @@
  * Every control is a real labeled form control (inputs, radios, a select) at least
  * 48 px tall. Settings save immediately through the Store; nothing leaves the device.
  */
+import { currentLang, LANGUAGES, setLang } from '../i18n/index';
 import { clearPlayStorage, playStorageLines } from '../play/storage';
 import type { AppContext, ViewFactory } from '../app/context';
 import { NAME_MAX } from '../app/state';
@@ -178,6 +179,14 @@ function choiceGroup<V extends string>(
   return h('fieldset', { class: 'choices' }, h('legend', { class: 'field-label' }, legend), row);
 }
 
+function languageSelect(): HTMLSelectElement {
+  const select = h('select', {}, ...LANGUAGES.map((l) => h('option', { value: l.code }, l.name)));
+  select.setAttribute('translate', 'no');
+  select.value = currentLang();
+  select.addEventListener('change', () => setLang(select.value));
+  return select;
+}
+
 function field(label: string, control: HTMLElement, error?: HTMLElement): HTMLElement {
   const id = control.id || uid('f');
   control.id = id;
@@ -213,6 +222,7 @@ function settings(ctx: AppContext): HTMLElement {
 
   return section(T.settings, h('div', { class: 'form' },
     nameForm,
+    field('Language', languageSelect()),
     field(COPY['grownups.region'], regionSelect),
     ctx.flags.region ? h('p', { class: 'help' }, t(T.regionFlag, { region: ctx.flags.region })) : null,
     h('label', { class: 'switch' }, everywhere, h('span', { class: 'field-label' }, COPY['grownups.everywhere'])),

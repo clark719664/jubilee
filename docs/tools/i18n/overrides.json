@@ -1,0 +1,13 @@
+{
+  "words": ["milk", "egg", "wheat", "gluten", "peanuts", "tree nuts", "soy", "sesame", "fish", "shellfish"],
+  "es": ["leche", "huevo", "trigo", "gluten", "cacahuates", "frutos secos", "soya", "sésamo", "pescado", "mariscos"],
+  "zh": ["牛奶", "鸡蛋", "小麦", "麸质", "花生", "坚果", "大豆", "芝麻", "鱼", "贝类"],
+  "hi": ["दूध", "अंडा", "गेहूं", "ग्लूटेन", "मूंगफली", "मेवे", "सोया", "तिल", "मछली", "शंख और झींगा"],
+  "ar": ["حليب", "بيض", "قمح", "غلوتين", "فول سوداني", "مكسرات", "صويا", "سمسم", "سمك", "قشريات ومحار"],
+  "fr": ["lait", "œuf", "blé", "gluten", "arachides", "fruits à coque", "soja", "sésame", "poisson", "fruits de mer"],
+  "bn": ["দুধ", "ডিম", "গম", "গ্লুটেন", "চিনাবাদাম", "বাদাম", "সয়া", "তিল", "মাছ", "চিংড়ি ও ঝিনুক"],
+  "pt": ["leite", "ovo", "trigo", "glúten", "amendoim", "castanhas", "soja", "gergelim", "peixe", "frutos do mar"],
+  "ru": ["молоко", "яйцо", "пшеница", "глютен", "арахис", "орехи", "соя", "кунжут", "рыба", "моллюски и ракообразные"],
+  "ur": ["دودھ", "انڈہ", "گندم", "گلوٹین", "مونگ پھلی", "میوے", "سویا", "تل", "مچھلی", "جھینگا اور سیپ"],
+  "id": ["susu", "telur", "gandum", "gluten", "kacang tanah", "kacang pohon", "kedelai", "wijen", "ikan", "kerang dan udang"]
+}

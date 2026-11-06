@@ -11,14 +11,22 @@
  */
 import './story.css';
 import type { Activity } from '../types';
+import { t } from '../../i18n/index';
 import { autoBook } from './auto';
 import { bookFor } from './books/index';
 import { COPY } from './copy';
+import type { StoryBook } from './types';
 import { mountStory } from './view';
 
 export { BOOKS, bookFor } from './books/index';
 export { keepFor, sanitizeKeep } from './text';
 export type { StoryBook, StoryKeep } from './types';
+
+const translated = (book: StoryBook): StoryBook => ({
+  ...book,
+  title: t(book.title),
+  pages: book.pages.map((p) => ({ ...p, text: t(p.text), ...(p.solo ? { solo: t(p.solo) } : {}) })),
+});
 
 export const storyActivity: Activity = {
   id: 'story',
@@ -26,5 +34,5 @@ export const storyActivity: Activity = {
   emoji: COPY.emoji,
   blurb: COPY.blurb,
   available: (meta, content) => bookFor(meta.id) !== undefined || autoBook(meta, content).pages.length > 0,
-  mount: (env) => mountStory(env, bookFor(env.meta.id) ?? autoBook(env.meta, env.content)),
+  mount: (env) => mountStory(env, translated(bookFor(env.meta.id) ?? autoBook(env.meta, env.content))),
 };

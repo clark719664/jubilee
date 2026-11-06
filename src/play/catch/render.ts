@@ -4,6 +4,7 @@
  * shared sprite cache or the RasterCache, so a frame is mostly `drawImage` calls and allocates nothing.
  * Reduced motion: no particles (only a static "+1" that fades in place) and no shake.
  */
+import { t } from '../../i18n/index';
 import { ParticlePool } from '../../effects/particles';
 import { mulberry32 } from '../../effects/rng';
 import type { SpriteCacheImpl } from '../../effects/sprites';
@@ -189,9 +190,9 @@ export class Renderer {
     g.lineJoin = 'round';
     g.lineWidth = Math.max(4, size * 0.2);
     g.strokeStyle = INK;
-    g.strokeText(text, x, y);
+    g.strokeText(t(text), x, y);
     g.fillStyle = fill;
-    g.fillText(text, x, y);
+    g.fillText(t(text), x, y);
   }
 
   // ---------------------------------------------------------------- shared

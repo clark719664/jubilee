@@ -6,6 +6,7 @@
  * Views come from the registry in ./ui/views.ts; every route change destroys
  * the previous view and mounts the next one into the shell's #view.
  */
+import { currentLang, initLang, localeFor } from './i18n/index';
 import './ui/styles.css';
 import { localClock, MidnightTicker, parseTodayFlag, pretendClock } from './app/clock';
 import { registerOffline } from './sw/template';
@@ -42,7 +43,7 @@ function boot(root: HTMLElement): void {
   const flags = parseQuery(location.search);
   const pretend = parseTodayFlag(new URLSearchParams(location.search).get('today'));
   const clock = pretend ? pretendClock(pretend) : localClock();
-  const locale = 'en-US';
+  const locale = localeFor(currentLang());
   const detectedRegion = detectRegion(navigator.language);
 
   // ── progress ──
@@ -129,5 +130,5 @@ function main(): void {
   }
 }
 
-main();
+void initLang().then(main);
 registerOffline(import.meta.env.PROD, '../');

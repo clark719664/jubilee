@@ -13,6 +13,7 @@
  *
  * Nothing runs while idle: a rAF loop only exists between a release and the settle.
  */
+import { t } from '../i18n/index';
 import { daysInMonth } from '../dates/civil';
 import type { MotionMode } from '../effects/types';
 import { h } from './dom';
@@ -225,7 +226,7 @@ export function mountWheel(opts: WheelOptions): WheelInstance {
       g.fillStyle = ink;
       g.font = `700 ${Math.max(11, Math.round(R * 0.06))}px ${font}`;
       const tr = bandIn - dotR * 7;
-      g.fillText('You are here', c + Math.cos(a) * tr, c + Math.sin(a) * tr);
+      g.fillText(t('You are here'), c + Math.cos(a) * tr, c + Math.sin(a) * tr);
     }
 
     // Pointer notch at 12 o'clock
@@ -241,7 +242,7 @@ export function mountWheel(opts: WheelOptions): WheelInstance {
       g.fillText(it.emoji, c, c - R * 0.06);
       g.fillStyle = ink;
       g.font = `700 ${Math.max(13, Math.round(R * 0.075))}px ${font}`;
-      g.fillText(fitText(g, it.name, R * 1.0), c, c + R * 0.22);
+      g.fillText(fitText(g, t(it.name), R * 1.0), c, c + R * 0.22);
     }
   }
 

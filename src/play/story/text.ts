@@ -6,6 +6,7 @@
  * name is typed on the cover, kept only while the book is open (and on the Fridge if the child saves the
  * story), and cleaned to a single first name of letters.
  */
+import { t } from '../../i18n/index';
 import type { StoryBook, StoryKeep, StoryPage } from './types';
 
 export const NAME_FALLBACK = 'our hero';
@@ -87,7 +88,7 @@ function capitalize(s: string): string {
 
 /** Fills one sentence template. A friend token with no friend falls back to "a friend" (books avoid this). */
 export function fillSentence(tpl: string, w: Who): string {
-  const out = tpl.replace(TOKEN, (_m, k: string) => (k === 'name' ? w.name ?? NAME_FALLBACK : w.friend ?? 'a friend'));
+  const out = tpl.replace(TOKEN, (_m, k: string) => (k === 'name' ? w.name ?? t(NAME_FALLBACK) : w.friend ?? 'a friend'));
   return capitalize(out);
 }
 

@@ -12,6 +12,7 @@
  *     .seek-strip                  the cards to find
  *     .seek-done                   the finish card (dialog)
  */
+import { currentLang, localeFor, t } from '../../i18n/index';
 import { stickerUrl } from '../../art/index';
 import { formatIso } from '../../dates/civil';
 import { EffectLayer } from '../../effects/layer';
@@ -287,7 +288,7 @@ export function mountSeek(env: PlayEnv, scene: SeekScene): ActivityInstance {
     void btn.offsetWidth;
     btn.classList.add('is-bounce');
     const lookFor = say('lookFor', { thing: thing(byId.get(id)?.label ?? '') });
-    speak(lookFor, 'en');
+    speak(t(lookFor), localeFor(currentLang()));
     ctx.announce(lookFor);
   });
 

@@ -1,4 +1,5 @@
 import { SILLY_CONTENT } from './silly';
+import { loadHolidayText } from '../i18n/index';
 import type { ContentLoader, HolidayContent, HolidayId } from './types';
 
 /**
@@ -36,5 +37,5 @@ export function hasContent(id: HolidayId): boolean {
 export function loadContent(id: HolidayId): Promise<HolidayContent> {
   const loader = hasContent(id) ? CONTENT_LOADERS[id] : undefined;
   if (!loader) return Promise.reject(new Error(`No content for holiday "${id}"`));
-  return loader();
+  return Promise.all([loader(), loadHolidayText(id)]).then(([content]) => content);
 }
