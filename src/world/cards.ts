@@ -12,7 +12,7 @@
 import { formatShort, type CivilDate } from '../dates/civil';
 import { COPY } from '../ui/copy';
 import { h } from '../ui/dom';
-import { WORLD_COPY, durationClock, wfmt } from './copy';
+import { WORLD_COPY, durationClock, durationWords, wfmt } from './copy';
 import { CITIES, type City } from './data/cities';
 import { inNewYearWindow, newYearTarget } from './midnight';
 import { drawMoon } from './moon-draw';
@@ -203,7 +203,7 @@ export function trackerCards(o: CardsOptions): TrackerCards {
     const first = c.next[0];
     waveHud = {
       kind: 'wave', emoji: '🎆', title: c.status, show: showing,
-      line: just || (first ? `${WORLD_COPY.waveMidnight}: ${first.city.name} ${durationClock(first.msUntil)}` : c.yourText),
+      line: just || (first ? `${WORLD_COPY.waveMidnight}: ${first.city.name} ${first.msUntil > 86_400_000 ? durationWords(first.msUntil) : durationClock(first.msUntil)}` : c.yourText),
     };
   }
 

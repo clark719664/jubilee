@@ -14,7 +14,7 @@ import type { Globe, GlobeMarker } from './globe';
 import { arrivalOrder, inNewYearWindow, midnightMeridian, newYearShowStart, newYearTarget, utcDayStart } from './midnight';
 import { santaArrivals, waveArrivals, type Arrival } from './album';
 import { WORLD_COPY, wfmt } from './copy';
-import { homeCityId, santaPosition, santaRoute, type SantaRoute } from './santa';
+import { homeCityId, inSantaSeason, santaPosition, santaRoute, type SantaRoute } from './santa';
 import { subsolarPoint } from './sun';
 import { showTime } from './trackers';
 
@@ -203,6 +203,14 @@ export class LiveLayers {
       g.setTrailHead(pos.lon, pos.lat);
       if (following && this.show?.kind === 'santa') g.followTo(pos.lon, Math.max(-35, Math.min(50, pos.lat)));
       g.invalidate();
+    } else if (!this.show && inSantaSeason(today)) {
+      // All December he waits at the North Pole, so the sleigh is always somewhere to find.
+      if (this.lastLeg !== -2) { this.lastLeg = -2; g.setTrail(null); }
+      this.sleigh.lon = -40;
+      this.sleigh.lat = 86;
+      this.sleigh.toward = null;
+      this.sleigh.label = WORLD_COPY.santaWaiting;
+      if (!this.santaOn) { this.santaOn = true; this.o.onMarkers(); }
     } else if (this.santaOn) {
       this.santaOn = false;
       this.lastLeg = -2;
@@ -225,7 +233,7 @@ export class LiveLayers {
 
   /** Where to point the camera first: at Santa while he is flying for real. */
   santaNow(): { lon: number; lat: number } | null {
-    return this.santaOn && !this.show ? { lon: this.sleigh.lon, lat: this.sleigh.lat } : null;
+    return this.santaOn && !this.show ? { lon: this.sleigh.lon, lat: Math.min(this.sleigh.lat, 62) } : null;
   }
 
   /** …or at the next city the real New Year wave is about to reach. */

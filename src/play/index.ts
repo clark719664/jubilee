@@ -24,6 +24,13 @@ const LOADERS: Partial<Record<ActivityId, () => Promise<Activity>>> = {
   treats: () => import('./treats').then((m) => m.treatsActivity),
   potion: () => import('./potion').then((m) => m.potionActivity),
   peekaboo: () => import('./peekaboo').then((m) => m.peekabooActivity),
+  // One signature game for other big holidays, linked the same way.
+  presents: () => import('./presents').then((m) => m.presentsActivity),
+  dreidel: () => import('./dreidel').then((m) => m.dreidelActivity),
+  rangoli: () => import('./rangoli').then((m) => m.rangoliActivity),
+  eggs: () => import('./eggs').then((m) => m.eggsActivity),
+  lanterns: () => import('./lanterns').then((m) => m.lanternsActivity),
+  fireworks: () => import('./fireworks').then((m) => m.fireworksActivity),
 };
 
 /** Whether `id` is built (cheap: no chunk is fetched). */

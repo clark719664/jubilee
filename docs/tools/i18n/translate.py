@@ -2,7 +2,7 @@
 
     python translate.py <kaggle-cli> <job.json> <output-dir>
 
-job.json is {"langs": {"es": "Spanish"}, "todo": {"es": ["english", "..."]}}. Pass only what is left to do:
+job.json is {"langs": {"es": "Spanish"}, "strings": [...]}, or "todo": {"es": [...]} per language. Pass only what is left to do:
 Kaggle refuses scripts over about a megabyte. Each language's results are saved as it goes.
 """
 import base64
@@ -70,7 +70,7 @@ for code, name in JOB["langs"].items():
     if time.time() - T0 > LIMIT:
         break
     done = {}
-    todo = JOB["todo"][code]
+    todo = JOB["todo"][code] if "todo" in JOB else JOB["strings"]
     start = time.time()
     pool = cf.ThreadPoolExecutor(4 * len(PORTS))
     for i, (src, t) in enumerate(pool.map(lambda s: one(s, code, name) if time.time() - T0 < LIMIT else (s, None), todo)):

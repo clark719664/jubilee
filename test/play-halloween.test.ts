@@ -203,8 +203,8 @@ describe('the Halloween games are wired up', () => {
 
   it('get their own row on the Halloween page and nowhere else', () => {
     expect(ids(holidayGamesFor('halloween')!.links)).toEqual([...GAMES]);
-    expect(holidayGamesFor('christmas')).toBeUndefined();
-    expect(HOLIDAY_GAMES.length).toBe(1);
+    expect(holidayGamesFor('thanksgiving')).toBeUndefined();
+    expect(HOLIDAY_GAMES.filter((g) => g.links.some((l) => (GAMES as readonly string[]).includes(l.id))).length).toBe(1);
     // Not mixed into the everyday activities every holiday links.
     for (const g of GAMES) expect(ids(PLAY_LINKS)).not.toContain(g);
   });

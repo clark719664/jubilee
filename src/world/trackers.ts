@@ -221,7 +221,7 @@ export function santaCard(now: Date, cities: readonly City[], deviceZone: string
     else if (!s.to.city) headline = wfmt('santaHeadingHome');
     else {
       const c = countryAt(s.lonlat.lon, s.lonlat.lat);
-      headline = c ? wfmt('santaOver', { place: c.name }) : wfmt('santaOverSea');
+      headline = c ? wfmt('santaOver', { place: c.name }) : wfmt('santaJustLeft', { city: s.from.city.name });
     }
     if (s.next) lines.push(wfmt('santaNext', { city: cityLabel(s.next), time: durationWords(s.msUntilNextStop) }));
     const time = durationWords(s.msUntilYourHouse);

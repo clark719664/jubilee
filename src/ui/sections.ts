@@ -61,7 +61,7 @@ export function sectionDomId(section: PageSection): string {
 // ───────────────────────────────────────────────────────── Play: activity links + countdown-doors teaser
 
 /** The activities every holiday page links to (the play view wires `#/h/:id/play/:activity`). */
-export type PlayLinkId = Extract<ActivityId, 'doors' | 'seek' | 'color' | 'card' | 'wish' | 'memory' | 'catch' | 'dressup' | 'quiz' | 'path' | 'story' | 'pumpkin' | 'treats' | 'monster' | 'potion' | 'peekaboo'>;
+export type PlayLinkId = Extract<ActivityId, 'doors' | 'seek' | 'color' | 'card' | 'wish' | 'memory' | 'catch' | 'dressup' | 'quiz' | 'path' | 'story' | 'pumpkin' | 'treats' | 'monster' | 'potion' | 'peekaboo' | 'presents' | 'dreidel' | 'rangoli' | 'eggs' | 'lanterns' | 'fireworks'>;
 
 export interface PlayLink {
   readonly id: PlayLinkId;
@@ -99,6 +99,18 @@ export interface HolidayGames {
   readonly links: readonly PlayLink[];
 }
 
+const game = (heading: string, id: PlayLinkId, label: string, emoji: string, holidays: readonly string[]): HolidayGames[] =>
+  holidays.map((holiday) => ({ holiday, heading, links: [{ id, label, emoji }] }));
+
+const SIGNATURE_GAMES: readonly HolidayGames[] = [
+  ...game('Christmas game', 'presents', 'Present Drop', '🎁', ['christmas']),
+  ...game('Hanukkah game', 'dreidel', 'Spin the Dreidel', '🕎', ['hanukkah']),
+  ...game('Diwali game', 'rangoli', 'Rangoli Maker', '🪔', ['diwali']),
+  ...game('Easter game', 'eggs', 'Egg Painter', '🥚', ['easter', 'orthodox-easter']),
+  ...game('Holiday game', 'lanterns', 'Lantern Lights', '🏮', ['eid-al-fitr', 'ramadan', 'eid-al-adha']),
+  ...game('Holiday game', 'fireworks', 'Fireworks Show', '🎆', ['independence-day-us', 'new-years-eve', 'canada-day', 'bastille-day']),
+];
+
 export const HOLIDAY_GAMES: readonly HolidayGames[] = [
   {
     holiday: 'halloween',
@@ -111,6 +123,7 @@ export const HOLIDAY_GAMES: readonly HolidayGames[] = [
       { id: 'peekaboo', label: 'Peekaboo Ghosts', emoji: '👻' },
     ],
   },
+  ...SIGNATURE_GAMES,
 ];
 
 /** The holiday-only games row for a holiday, if it has one. */

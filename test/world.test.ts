@@ -678,7 +678,7 @@ describe('tracker cards', () => {
     expect(durationWords(3 * 86_400_000)).toBe('3 days');
     expect(durationWords(86_400_000 + 4 * 3_600_000)).toBe('1 day 4 h');
     expect(durationWords(5 * 3_600_000 + 12 * 60_000)).toBe('5 h 12 min');
-    expect(durationWords(12 * 60_000 + 5000)).toBe('12 min 5 s');
+    expect(durationWords(12 * 60_000 + 5000)).toBe('12 min');
     expect(durationWords(-5)).toBe('0 s');
     expect(durationClock(26 * 3_600_000 + 4 * 60_000 + 9000)).toBe('26:04:09');
   });

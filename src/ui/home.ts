@@ -22,6 +22,7 @@ import {
 } from '../dates/occurrences';
 import { THEMES } from '../theme/themes';
 import { mountCelebration } from './celebrate';
+import { santaLink } from './santa-link';
 import { COPY, fmt, VIEW_NAMES } from './copy';
 import { h } from './dom';
 import { canHear, onVoicesChanged, speak } from './greetings';
@@ -219,6 +220,7 @@ export const homeView: ViewFactory<'home'> = (ctx) => {
 
   // ── morning hello (filled in when the holiday's content chunk arrives) and the first-launch name card ──
   const cards = h('div', { class: 'home-cards' });
+  if (today.m === 12 && today.d <= 25) el.append(santaLink(today));
   el.append(cards);
   let hello: Piece | null = null;
   let card: HTMLElement | null = null;

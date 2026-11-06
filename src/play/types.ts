@@ -19,11 +19,13 @@ import type { Theme } from '../theme/themes';
 export type ActivityId =
   | 'doors' | 'seek' | 'color' | 'card' | 'wish' | 'memory' | 'catch' | 'quiz' | 'dressup' | 'story' | 'path'
   // Holiday-only games (available() is true only for the holidays they are made for).
-  | 'pumpkin' | 'treats' | 'monster' | 'potion' | 'peekaboo';
+  | 'pumpkin' | 'treats' | 'monster' | 'potion' | 'peekaboo'
+  | 'presents' | 'dreidel' | 'rangoli' | 'eggs' | 'lanterns' | 'fireworks';
 
 export const ACTIVITY_IDS: readonly ActivityId[] = [
   'doors', 'seek', 'color', 'card', 'wish', 'memory', 'catch', 'quiz', 'dressup', 'story', 'path',
   'pumpkin', 'treats', 'monster', 'potion', 'peekaboo',
+  'presents', 'dreidel', 'rangoli', 'eggs', 'lanterns', 'fireworks',
 ];
 
 export interface PlayEnv {

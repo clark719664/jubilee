@@ -1,0 +1,29 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   Lantern Lights — .ln (root) .ln-sky .ln-row .ln-lantern (.is-lit .is-step) .ln-pick .ln-status
+   ═══════════════════════════════════════════════════════════════════════════ */
+.ln-layout { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; align-items: center; justify-content: space-evenly; gap: 10px; }
+.ln-moon { flex: none; width: clamp(72px, 22vw, 120px); height: auto; display: block; filter: drop-shadow(0 0 14px color-mix(in srgb, var(--h-glow) 55%, transparent)); }
+.ln-hang { position: relative; width: 100%; display: flex; flex-direction: column; align-items: center; }
+.ln-string { width: 100%; max-width: 560px; height: 6px; border-radius: 3px; background: color-mix(in srgb, var(--h-ink) 60%, transparent); }
+.ln-row { list-style: none; margin: 0; padding: 0; width: 100%; display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 6px; }
+.ln-lantern {
+  position: relative; display: block; width: clamp(44px, 14vw, 92px); min-height: 44px; aspect-ratio: 64 / 120; padding: 0; margin: 0;
+  border: 0; background: none; cursor: pointer; border-radius: 16px; touch-action: manipulation; -webkit-tap-highlight-color: transparent;
+}
+.ln-lantern:disabled { cursor: default; }
+.ln-lantern svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; overflow: visible; }
+.ln-glow { opacity: 0; transition: opacity .12s; }
+.ln-lantern.is-lit .ln-glow { opacity: 1; }
+.ln-lantern.is-lit svg { filter: drop-shadow(0 0 14px var(--ln-lit)); }
+.ln-num { opacity: 0; font: 800 22px/1 var(--font-display); fill: #2b1a4d; text-anchor: middle; }
+.ln-lantern.is-step .ln-num { opacity: 1; }
+.ln-lantern.is-step .ln-ring { opacity: 1; }
+.ln-ring { opacity: 0; fill: none; stroke: #fff; stroke-width: 5; }
+.ln-status { flex: none; min-height: 1.4em; margin: 0; text-align: center; font: 700 clamp(17px, 4.6vw, 22px)/1.25 var(--font-display); overflow-wrap: anywhere; }
+.ln-controls { flex: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.ln-pick { display: flex; gap: 6px; }
+.ln-opt { min-height: 48px; min-width: 48px; padding: 0 14px; border-radius: 999px; cursor: pointer; border: 3px solid var(--sp-ink); background: var(--sp-paper); color: var(--sp-ink); font: 700 16px/1 var(--font-display); box-shadow: 0 3px 0 var(--sp-ink); touch-action: manipulation; }
+.ln-opt[aria-checked="true"] { background: var(--h-accent); color: var(--h-accent-ink, var(--sp-ink)); transform: translateY(-2px); }
+.ln-done-line { font: 700 18px/1.25 var(--font-display); }
+.sp-calm .ln-glow, .sp-calm .ln-opt { transition: none; }
+@media (max-height: 520px) and (orientation: landscape) { .ln-moon { width: 56px; } .ln-layout { gap: 4px; } }

@@ -1,0 +1,37 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   Fireworks Show — .fw (root) .fw-stage .fw-canvas .fw-city .fw-aim .fw-row .fw-pick .fw-actions
+   ═══════════════════════════════════════════════════════════════════════════ */
+.fw-stage {
+  position: relative; flex: 1 1 auto; min-height: 200px; overflow: hidden; border-radius: 24px; cursor: crosshair; touch-action: none;
+  border: 3px solid var(--sp-ink); color: #0a0a1c;
+  background:
+    radial-gradient(1.5px 1.5px at 12% 18%, #fff 50%, transparent 52%), radial-gradient(1.5px 1.5px at 34% 8%, #fff 50%, transparent 52%),
+    radial-gradient(1.5px 1.5px at 58% 22%, #fff 50%, transparent 52%), radial-gradient(1.5px 1.5px at 76% 10%, #fff 50%, transparent 52%),
+    radial-gradient(1.5px 1.5px at 90% 28%, #fff 50%, transparent 52%), radial-gradient(1.5px 1.5px at 22% 38%, #fff 50%, transparent 52%),
+    linear-gradient(180deg, #050716 0%, #131a45 70%, #2a2560 100%);
+}
+.fw-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.fw-city { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 18%; min-height: 40px; display: block; pointer-events: none; }
+.fw-aim {
+  position: absolute; width: 28px; height: 28px; margin: -14px 0 0 -14px; border-radius: 50%; pointer-events: none;
+  border: 3px dashed rgba(255, 255, 255, .85); box-shadow: 0 0 0 2px rgba(10, 10, 28, .6);
+}
+.fw-aim::after { content: ''; position: absolute; left: 50%; top: 50%; width: 6px; height: 6px; margin: -3px 0 0 -3px; border-radius: 50%; background: #fff; }
+.fw-row { flex: none; display: flex; gap: 6px; overflow-x: auto; padding: 2px 2px 6px; scrollbar-width: none; }
+.fw-row::-webkit-scrollbar { display: none; }
+.fw-pick {
+  flex: none; display: inline-flex; align-items: center; gap: 8px; min-height: 48px; min-width: 48px; padding: 0 14px; border-radius: 999px; cursor: pointer;
+  border: 3px solid var(--sp-ink); background: var(--sp-paper); color: var(--sp-ink); box-shadow: 0 3px 0 var(--sp-ink);
+  font: 700 16px/1 var(--font-display); white-space: nowrap; touch-action: manipulation; -webkit-tap-highlight-color: transparent;
+}
+.fw-pick[aria-checked="true"] { background: var(--h-accent); color: var(--h-accent-ink, var(--sp-ink)); outline: 4px solid var(--h-glow); outline-offset: 0; }
+.fw-shape-art { width: 28px; height: 28px; flex: none; }
+.fw-swatches { display: inline-flex; flex: none; }
+.fw-swatches i { width: 14px; height: 22px; border: 2px solid var(--sp-ink); margin-left: -4px; border-radius: 8px; }
+.fw-swatches i:first-child { margin-left: 0; }
+.fw-actions { flex: none; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.fw-count { flex: 1 1 100%; margin: 0; font: 700 15px/1.2 var(--font-display); text-align: center; }
+.fw-show, .fw-clear { flex: 1 1 140px; min-height: 48px; }
+.fw-show:disabled, .fw-clear:disabled { opacity: .55; cursor: default; }
+@media (min-width: 720px) { .fw-count { flex: 0 1 auto; margin-right: auto; text-align: left; } .fw-show, .fw-clear { flex: 0 0 auto; } }
+@media (max-height: 520px) and (orientation: landscape) { .fw-stage { min-height: 120px; } .fw-row { padding-bottom: 2px; } }

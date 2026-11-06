@@ -1,0 +1,26 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   Rangoli Maker — .rg (root) .rg-page .rg-stage .rg-art .rg-group .rg-shape (.is-empty .is-puff) .rg-swatch .rg-layout .rg-act
+   ═══════════════════════════════════════════════════════════════════════════ */
+.rg-page { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; align-items: center; gap: 12px; overflow-y: auto; padding: 4px 2px 12px; }
+.rg-stage { flex: 0 1 auto; width: min(100%, 56vh, 560px); aspect-ratio: 1; min-height: 200px; }
+.rg-art { display: block; width: 100%; height: 100%; filter: drop-shadow(0 6px 0 rgba(0, 0, 0, .25)); }
+.rg-floor { fill: #2a1d3f; }
+.rg-edge { fill: none; stroke: #ffb300; stroke-width: 1.6; stroke-dasharray: 1.5 4; stroke-linecap: round; opacity: .8; }
+.rg-heart { fill: #ffb300; stroke: #fff3c4; stroke-width: 1.5; pointer-events: none; }
+.rg-group .rg-shape { pointer-events: all; }
+.rg-group { cursor: pointer; outline: none; -webkit-tap-highlight-color: transparent; }
+.rg-shape { stroke: rgba(255, 255, 255, .85); stroke-width: 1; stroke-linejoin: round; transform-box: fill-box; transform-origin: center; }
+.rg-shape.is-empty { fill: rgba(255, 255, 255, .12); stroke: rgba(255, 255, 255, .5); }
+.rg-group:hover .rg-shape.is-empty { fill: rgba(255, 255, 255, .26); }
+.rg-group:focus-visible .rg-shape { stroke: #fff; stroke-width: 2.6; }
+.rg-shape.is-puff { animation: rg-puff .4s var(--spring, ease-out); }
+@keyframes rg-puff { from { transform: scale(.4); } to { transform: scale(1); } }
+.rg-swatches { display: grid; grid-template-columns: repeat(5, 44px); justify-content: center; gap: 8px; flex: none; }
+.rg-swatch { width: 44px; height: 44px; padding: 0; border-radius: 50%; border: 3px solid var(--sp-ink); cursor: pointer; touch-action: manipulation; box-shadow: 0 3px 0 var(--sp-ink); }
+.rg-swatch[aria-checked="true"] { outline: 4px solid var(--h-glow); outline-offset: 2px; transform: translateY(-2px) scale(1.08); }
+.rg-layouts, .rg-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; flex: none; }
+.rg-layout, .rg-act { min-width: 88px; min-height: 44px; }
+.rg-layout[aria-checked="true"] { background: var(--h-accent); color: var(--h-accent-ink, var(--sp-ink)); outline: 3px solid var(--h-glow); }
+.rg-act:disabled { opacity: .5; }
+@media (min-width: 720px) { .rg-swatches { grid-template-columns: repeat(10, 44px); } }
+@media (max-height: 520px) and (orientation: landscape) { .rg-stage { width: min(48vh, 100%); min-height: 160px; } }

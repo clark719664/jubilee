@@ -66,7 +66,8 @@ export const WORLD_COPY = {
   santaEve: 'Santa takes off from the North Pole in {time}!',
   santaOffSeason: 'Santa is busy in the workshop. The tracker opens on December 1.',
   santaOver: 'Now over {place}',
-  santaOverSea: 'Flying over the sea',
+  santaJustLeft: 'Just left {city}',
+  santaWaiting: 'Santa is here!',
   santaLeaving: 'Leaving the North Pole',
   santaHeadingHome: 'Heading home to the North Pole',
   santaNext: 'Next stop: {city} in {time}',
@@ -77,8 +78,8 @@ export const WORLD_COPY = {
   santaDone: 'Santa is back at the North Pole, fast asleep. 💤',
   santaNextShort: 'Next: {city}',
   santaHomeShort: 'Home time!',
-  santaReplay: 'Peek at last year’s route',
-  santaReplayStop: 'Stop the replay',
+  santaReplay: 'Watch a practice flight',
+  santaReplayStop: 'Stop the practice flight',
   hudStop: 'Stop',
   // ── right now ──
   nowTitle: 'Right now around the world',
@@ -92,7 +93,9 @@ export const WORLD_COPY = {
   durDays: '{d} days',
   durDayHours: '1 day {h} h',
   durHours: '{h} h {m} min',
+  durHoursOnly: '{h} h',
   durMinutes: '{m} min {s} s',
+  durMinutesOnly: '{m} min',
   durSeconds: '{s} s',
 } as const;
 
@@ -112,8 +115,8 @@ export function durationWords(ms: number): string {
   const sec = s % 60;
   if (d >= 2) return wfmt('durDays', { d });
   if (d === 1) return wfmt('durDayHours', { h });
-  if (h > 0) return wfmt('durHours', { h, m });
-  if (m > 0) return wfmt('durMinutes', { m, s: sec });
+  if (h > 0) return wfmt(m === 0 ? 'durHoursOnly' : 'durHours', { h, m });
+  if (m > 0) return wfmt(sec === 0 || m >= 10 ? 'durMinutesOnly' : 'durMinutes', { m, s: sec });
   return wfmt('durSeconds', { s: sec });
 }
 

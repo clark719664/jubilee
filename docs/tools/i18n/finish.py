@@ -14,10 +14,11 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 SCRIPTS = {
     'latin': r'[A-Za-zÀ-ɏ]', 'cyrillic': r'[Ѐ-ӿ]', 'arabic': r'[؀-ۿ]', 'devanagari': r'[ऀ-ॣ०-ॿ]',
-    'bengali': r'[ঀ-৿]', 'han': r'[一-鿿]',
+    'bengali': r'[ঀ-৿]', 'han': r'[一-鿿]', 'telugu': r'[ఀ-౿]', 'tamil': r'[஀-௿]', 'hangul': r'[가-힣]', 'kana': r'[぀-ヿ]',
 }
-OWN = {'es': 'latin', 'fr': 'latin', 'pt': 'latin', 'id': 'latin', 'ru': 'cyrillic', 'ar': 'arabic', 'ur': 'arabic', 'hi': 'devanagari', 'bn': 'bengali', 'zh': 'han'}
-VERB_LAST = {'hi', 'bn', 'ur'}
+OWN = {'es': 'latin', 'fr': 'latin', 'pt': 'latin', 'id': 'latin', 'ru': 'cyrillic', 'ar': 'arabic', 'ur': 'arabic', 'hi': 'devanagari', 'bn': 'bengali', 'zh': 'han',
+       'de': 'latin', 'tr': 'latin', 'vi': 'latin', 'tl': 'latin', 'ja': 'han', 'ko': 'hangul', 'ta': 'tamil', 'te': 'telugu', 'mr': 'devanagari'}
+VERB_LAST = {'hi', 'bn', 'ur', 'mr', 'te', 'ta', 'ja', 'ko', 'tr'}
 HAND = {
     'hi': {'Surprise!': 'आश्चर्य!'}, 'bn': {'Back': 'পেছনে'}, 'zh': {'World': '世界'}, 'ur': {'Stickers': 'اسٹیکر', 'Play': 'کھیلیں', 'Undo': 'واپس کریں', 'Play now': 'ابھی کھیلیں!'},
 }
@@ -25,6 +26,8 @@ FOUND = {
     'es': '{n} de {total} encontrados', 'zh': '已找到 {n} / {total}', 'hi': '{total} में से {n} मिले', 'ar': 'تم العثور على {n} من {total}',
     'fr': '{n} sur {total} trouvés', 'bn': '{total}টির মধ্যে {n}টি পাওয়া গেছে', 'pt': '{n} de {total} encontrados', 'ru': 'Найдено {n} из {total}',
     'ur': '{total} میں سے {n} ملے', 'id': '{n} dari {total} ditemukan',
+    'de': '{n} von {total} gefunden', 'ja': '{total} こ中 {n} こ見つけた', 'tr': '{total} içinden {n} bulundu', 'vi': 'Đã tìm thấy {n}/{total}', 'ko': '{total}개 중 {n}개 찾음',
+    'ta': '{total} இல் {n} கண்டுபிடிக்கப்பட்டது', 'te': '{total} లో {n} దొరికాయి', 'mr': '{total} पैकी {n} सापडले', 'tl': '{n} sa {total} ang nakita',
 }
 
 
@@ -40,13 +43,22 @@ SLEEPS = {
     'ru': ('ночей', 'ночь', '{sleeps} до праздника {name}', 'через {n} ночей', '{n} ночей до праздника {name}'),
     'ur': ('راتیں', 'رات', '{name} تک {sleeps}', '{n} راتوں میں', '{name} تک {n} راتیں'),
     'id': ('malam', 'malam', '{sleeps} lagi menuju {name}', 'dalam {n} malam', '{n} malam lagi menuju {name}'),
+    'de': ('Nächte', 'Nacht', '{sleeps} bis {name}', 'in {n} Nächten', '{n} Nächte bis {name}'),
+    'ja': ('回ねると', '回ねると', '{sleeps}{name}', 'あと {n} 回ねると', 'あと {n} 回ねると{name}'),
+    'tr': ('gece', 'gece', '{sleeps} kaldı: {name}', '{n} gece sonra', '{name} için {n} gece kaldı'),
+    'vi': ('đêm', 'đêm', '{sleeps} nữa là đến {name}', 'sau {n} đêm', 'còn {n} đêm nữa là đến {name}'),
+    'ko': ('밤', '밤', '{sleeps} 자면 {name}', '{n}밤 뒤', '{n}밤 자면 {name}'),
+    'ta': ('இரவுகள்', 'இரவு', '{name} வர {sleeps}', '{n} இரவுகளில்', '{name} வர {n} இரவுகள்'),
+    'te': ('రాత్రులు', 'రాత్రి', '{name} వరకు {sleeps}', '{n} రాత్రులలో', '{name} వరకు {n} రాత్రులు'),
+    'mr': ('रात्री', 'रात्र', '{name} पर्यंत {sleeps}', '{n} रात्रींत', '{name} पर्यंत {n} रात्री'),
+    'tl': ('gabi', 'gabi', '{sleeps} bago ang {name}', 'sa loob ng {n} gabi', '{n} gabi bago ang {name}'),
 }
 
 
 def foreign(code, text):
     """True when text uses a script from neither its own language nor a kept name in Latin letters."""
-    own = OWN[code]
-    return any(re.search(p, text) for name, p in SCRIPTS.items() if name not in (own, 'latin'))
+    allowed = {OWN[code], 'latin'} | ({'kana'} if code == 'ja' else set())
+    return any(re.search(p, text) for name, p in SCRIPTS.items() if name not in allowed)
 
 
 def main():
@@ -55,6 +67,8 @@ def main():
     items = set(json.load(open(ingredient_file, encoding='utf-8')))
     os.makedirs(out, exist_ok=True)
     for code in OWN:
+        if not os.path.exists(f'{src}/{code}.json'):
+            continue
         raw = json.load(open(f'{src}/{code}.json', encoding='utf-8'))
         done = {}
         dropped = 0

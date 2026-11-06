@@ -1,0 +1,29 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   Present Drop — .pr (root) .pr-stage .pr-sleigh .pr-house .pr-window (.is-lit) .pr-gift (.is-rest) .pr-controls
+   ═══════════════════════════════════════════════════════════════════════════ */
+.pr-stage {
+  position: relative; flex: 1 1 auto; min-height: 240px; overflow: hidden; border-radius: 28px; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent;
+  background: linear-gradient(180deg, rgba(0, 0, 0, .12) 0, rgba(255, 255, 255, .08) 100%); border: 3px solid color-mix(in srgb, var(--h-ink) 22%, transparent);
+}
+.pr-sleigh { position: absolute; top: 6%; display: flex; flex-direction: column; align-items: center; transform: translateX(-50%); font-size: clamp(34px, 9vw, 56px); line-height: 1; pointer-events: none; }
+.pr-santa { margin-bottom: -.35em; position: relative; }
+.pr-house { position: absolute; bottom: 7%; width: 18%; max-width: 110px; transform: translateX(-50%); pointer-events: none; }
+.pr-house-svg { display: block; width: 100%; height: auto; overflow: visible; }
+.pr-chimney { fill: #8c4a3a; }
+.pr-hole { fill: #2a1b17; }
+.pr-wall { fill: #6d5848; }
+.pr-roof { fill: #b3453d; }
+.pr-snow { fill: #fff; }
+.pr-window { fill: #2c3452; stroke: #1f1a3d; stroke-width: 2; }
+.pr-window.is-lit { fill: #ffd66b; stroke: #fff3c4; filter: drop-shadow(0 0 5px #ffd66b); }
+.pr-ground { position: absolute; left: 0; right: 0; bottom: 0; height: 9%; background: #f6f9ff; border-top: 3px solid #d7e2f3; }
+.pr-gift { position: absolute; transform: translateX(-50%); font-size: clamp(22px, 6vw, 32px); line-height: 1; pointer-events: none; transition: top .6s cubic-bezier(.5, 0, 1, .6); }
+.pr-gift.is-rest { animation: pr-bounce .5s ease-out; }
+@keyframes pr-bounce { 0% { transform: translate(-50%, 0); } 40% { transform: translate(-50%, -14px); } 70% { transform: translate(-50%, 0); } 85% { transform: translate(-50%, -4px); } 100% { transform: translate(-50%, 0); } }
+.sp-calm .pr-gift { transition: none; }
+.pr-controls { flex: none; display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; }
+.pr-progress { font: 700 16px/1.25 var(--font-display); }
+.pr-say { min-height: 1.4em; font: 700 17px/1.25 var(--font-display); overflow-wrap: anywhere; }
+.pr-drop { min-height: 56px; max-width: 100%; }
+.pr-done-line { font: 700 18px/1.25 var(--font-display); }
+@media (max-height: 520px) and (orientation: landscape) { .pr-stage { min-height: 150px; } .pr-sleigh { font-size: 30px; } }

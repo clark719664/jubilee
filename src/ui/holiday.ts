@@ -8,6 +8,7 @@
  * page renders in one frame and the router's scroll restore lands. Visiting during the holiday's span earns its
  * sticker (the Store keeps pretend days in memory only); every visit counts toward World Traveler.
  */
+import { santaLink } from './santa-link';
 import { customMeta, type AppContext, type ViewFactory, type ViewInstance } from '../app/context';
 import type { Units } from '../app/format';
 import { formatRoute } from '../app/router';
@@ -188,6 +189,11 @@ function stickerBody(ctx: AppContext, meta: HolidayMeta, current: Current | null
 
 /** Play: a round button into every activity. Links only: the play view decides what each holiday can do. */
 function playBody(meta: HolidayMeta): Child[] {
+  if (meta.id === 'christmas') return [santaLink(), ...playTiles(meta)];
+  return playTiles(meta);
+}
+
+function playTiles(meta: HolidayMeta): Child[] {
   const button = (p: PlayLink): HTMLElement => h('li', { class: 'hp-item' },
     h('a', { class: 'hp-btn', href: playHref(meta.id, p.id), 'data-activity': p.id },
       h('span', { class: 'hp-disc', 'aria-hidden': 'true' }, h('span', { class: 'hp-emoji emoji' }, p.emoji)),
