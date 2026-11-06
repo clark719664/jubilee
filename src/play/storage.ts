@@ -12,6 +12,7 @@ export const PLAY_STORAGE: readonly PlayStoreKey[] = [
   { key: 'jubilee.jubi.v1', label: "Jubi's outfit" },
   { key: 'jubilee.arcade.v1', label: 'Best scores in Catch & Stack' },
   { key: 'jubilee.postcards.v1', label: 'Postcards collected' },
+  { key: 'jubilee.santa.v1', label: 'Treats left out for Santa' },
   { key: 'jubilee.path.v1', label: "Jubi's Path puzzles solved" },
 ];
 

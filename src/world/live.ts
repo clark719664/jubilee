@@ -47,6 +47,8 @@ export class LiveLayers {
   private show: Show | null = null;
   private showRoute: SantaRoute | null = null;
   private followPausedUntil = 0;
+  /** The child asked the camera to stay on the sleigh, even for the real flight. */
+  private followSleigh = false;
   /** While a postcard is up, the show's clock stands still (performance.now() when it stopped). */
   private heldAt: number | null = null;
   private waveOn = false;
@@ -104,6 +106,12 @@ export class LiveLayers {
   /** The child took hold of the globe: stop following for a few seconds. */
   pauseFollow(): void {
     this.followPausedUntil = performance.now() + FOLLOW_PAUSE_MS;
+  }
+
+  /** Mission Control's Follow switch: keep the camera on the sleigh until it is switched off. */
+  follow(on: boolean): void {
+    this.followSleigh = on;
+    this.followPausedUntil = 0;
   }
 
   /** Starts a show, or stops it if it is the one running. Returns the show now running. */
@@ -201,7 +209,7 @@ export class LiveLayers {
       }
       if (!this.santaOn) { this.santaOn = true; this.o.onMarkers(); }
       g.setTrailHead(pos.lon, pos.lat);
-      if (following && this.show?.kind === 'santa') g.followTo(pos.lon, Math.max(-35, Math.min(50, pos.lat)));
+      if ((following && this.show?.kind === 'santa') || (this.followSleigh && tNow > this.followPausedUntil && this.heldAt === null)) g.followTo(pos.lon, Math.max(-35, Math.min(50, pos.lat)));
       g.invalidate();
     } else if (!this.show && inSantaSeason(today)) {
       // All December he waits at the North Pole, so the sleigh is always somewhere to find.

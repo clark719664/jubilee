@@ -35,6 +35,7 @@ import { deviceZone } from '../world/zones';
 import { COPY, fmt } from './copy';
 import { h } from './dom';
 import { icon } from './icons';
+import { santaMission, type SantaMission } from './santa-mission';
 import { albumCount, albumDialog, kindOf, postcardShow, POSTCARD_COPY, type PostcardShow } from './postcard-show';
 
 export type { WorldHoliday };
@@ -153,6 +154,17 @@ export function mountWorld(host: HTMLElement, deps: WorldDeps): WorldInstance {
       aria: POSTCARD_COPY.albumAria,
     },
   });
+  const mission: SantaMission = santaMission({
+    clock: () => live.clock('santa'),
+    showing: () => live.showing === 'santa',
+    today: () => today,
+    zone, locale: deps.locale, motion,
+    pretending: deps.pretending ?? false,
+    onFind: (lon, lat) => { quiet(); globe.spinTo(lon, mode === 'globe' ? lat : 0, 1200); focusStage(); },
+    onHouse: (city) => pinCity(city),
+    onFollow: (on) => { live.follow(on); if (on) { globe.autoRotate(0); touched = true; live.sync(today); } },
+    ...(deps.name ? { name: deps.name } : {}),
+  });
   postcards = postcardShow({
     stage, globe, live, album,
     motion: () => motion,
@@ -167,6 +179,7 @@ export function mountWorld(host: HTMLElement, deps: WorldDeps): WorldInstance {
     ),
     h('section', { class: 'world-where', 'aria-label': WORLD_COPY.where }, chipRow, note),
     h('div', { class: 'world-stage' }, stage),
+    mission.el,
     h('h2', { class: 'h2' }, COPY['world.trackers']),
     cards.grid,
   ));
@@ -334,6 +347,10 @@ export function mountWorld(host: HTMLElement, deps: WorldDeps): WorldInstance {
     }
   }
 
+  function focusStage(): void {
+    stage.scrollIntoView({ block: 'nearest', behavior: motion === 'full' ? 'smooth' : 'auto' });
+  }
+
   function pinCity(c: City): void {
     pinned = c;
     pushMarkers();
@@ -385,6 +402,7 @@ export function mountWorld(host: HTMLElement, deps: WorldDeps): WorldInstance {
       if (f) globe.spinTo(f.lon, mode === 'globe' ? f.lat : 0, 1200);
     }
     cards.refresh();
+    mission.refresh();
     renderHud();
     renderLabel();
   }
@@ -424,6 +442,7 @@ export function mountWorld(host: HTMLElement, deps: WorldDeps): WorldInstance {
     }
     if (!(live.showing && motion === 'full')) live.sync(today);
     cards.refresh();
+    mission.refresh();
     renderHud();
     renderLabel();
   }
@@ -439,6 +458,7 @@ export function mountWorld(host: HTMLElement, deps: WorldDeps): WorldInstance {
   select(deps.initial ?? null, false);
   buildChips();
   live.sync(today);
+  mission.refresh();
   pushMarkers();
   // On Christmas Eve the camera starts on the sleigh, in New Year week on the wave; otherwise on the holiday.
   const start = live.santaNow() ?? live.waveNow() ?? focusNow() ?? { lon: 0, lat: 15 };
@@ -460,6 +480,7 @@ export function mountWorld(host: HTMLElement, deps: WorldDeps): WorldInstance {
   return {
     destroy(): void {
       window.clearInterval(timer);
+      mission.destroy();
       postcards?.destroy();
       globe.destroy();
     },
@@ -469,6 +490,7 @@ export function mountWorld(host: HTMLElement, deps: WorldDeps): WorldInstance {
     setMotion(m: MotionMode): void {
       motion = m;
       globe.setMotion(m);
+      mission.setMotion(m);
       globe.setTicker(live.showing && m === 'full' ? frame : null);
     },
   };
