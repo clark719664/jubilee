@@ -237,6 +237,10 @@ def main():
         # in a scrap of code.
         for k in [k for k in done if '{name}day' in k or '.replace(' in k]:
             del done[k]
+        # Allergen lines go through "contains {list}" so the hand-checked words above are used; an old whole-line
+        # translation once said "contains wheat and tar".
+        for k in [k for k in done if re.match(r'(?i)(?:contains|may contain)\b', k) and '{' not in k]:
+            del done[k]
         for k, v in list(done.items()):
             bare = re.sub(r'^(a|an|the|some) ', '', k)
             if bare != k:
