@@ -15,6 +15,8 @@ export const LANGUAGES: readonly Language[] = [
   { code: 'en', name: 'English' }, { code: 'es', name: 'Español' }, { code: 'zh', name: '中文' }, { code: 'hi', name: 'हिन्दी' },
   { code: 'ar', name: 'العربية', rtl: true }, { code: 'fr', name: 'Français' }, { code: 'bn', name: 'বাংলা' }, { code: 'pt', name: 'Português' },
   { code: 'ru', name: 'Русский' }, { code: 'ur', name: 'اردو', rtl: true }, { code: 'id', name: 'Bahasa Indonesia' },
+  { code: 'de', name: 'Deutsch' }, { code: 'ja', name: '日本語' }, { code: 'tr', name: 'Türkçe' }, { code: 'vi', name: 'Tiếng Việt' },
+  { code: 'ko', name: '한국어' }, { code: 'ta', name: 'தமிழ்' }, { code: 'te', name: 'తెలుగు' }, { code: 'mr', name: 'मराठी' }, { code: 'tl', name: 'Tagalog' },
 ];
 
 const KEY = 'jubilee.lang';

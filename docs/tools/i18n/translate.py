@@ -2,7 +2,8 @@
 
     python translate.py <kaggle-cli> <job.json> <output-dir>
 
-job.json is {"langs": {"es": "Spanish"}, "strings": [...]}, or "todo": {"es": [...]} per language. Pass only what is left to do:
+job.json is {"langs": {"es": "Spanish"}, "strings": [...]}, or "todo": {"es": [...]} per language, plus an optional
+"context": {string: hint} for words that are ambiguous alone ("Pot", "Ring"). Pass only what is left to do:
 Kaggle refuses scripts over about a megabyte. Each language's results are saved as it goes.
 """
 import base64
@@ -20,7 +21,17 @@ OUT = "/kaggle/working"
 T0 = time.time()
 LIMIT = 8.3 * 3600  # stop cleanly before Kaggle's session limit, so finished work is kept
 def log(*a): print(round(time.time() - T0), *a, flush=True)
-subprocess.run("apt-get install -y -qq zstd >/dev/null 2>&1; curl -fsSL https://ollama.com/install.sh | sh", shell=True, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+for attempt in range(4):  # the download behind Ollama's installer sometimes fails partway
+    # Not "curl | sh": when the download fails, sh runs nothing and still reports success.
+    r = subprocess.run("apt-get install -y -qq zstd >/dev/null 2>&1; curl -fsSL --retry 3 -o /tmp/ollama-install.sh https://ollama.com/install.sh"
+                       " && sh /tmp/ollama-install.sh && command -v ollama", shell=True, capture_output=True, text=True)
+    if r.returncode == 0:
+        log("ollama installed at", r.stdout.strip().splitlines()[-1])
+        break
+    log("ollama install failed", r.returncode, (r.stdout + r.stderr)[-1500:])
+    time.sleep(30)
+else:
+    raise SystemExit("could not install ollama")
 gpus = subprocess.run("nvidia-smi -L | wc -l", shell=True, capture_output=True, text=True).stdout.strip()
 log("gpus", gpus)
 PORTS = [11434 + i for i in range(max(1, int(gpus or 1)))]
@@ -32,14 +43,15 @@ subprocess.run(["ollama", "pull", "translategemma:12b"], env=dict(os.environ, OL
 log("model ready")
 SLOT = re.compile(r"\{\w+\}")
 ports = itertools.cycle(PORTS)
-def ask(text, code, name):
+def ask(text, code, name, hint="", temperature=0.1):
     prompt = (f"You are a professional English (en) to {name} ({code}) translator. Your goal is to accurately convey the meaning "
               f"and nuances of the original English text while adhering to {name} grammar, vocabulary, and cultural sensitivities. "
               f"This is friendly text for young children in a holiday app. "
+              + (f"For context: {hint}. " if hint else "") +
               f"Produce only the {name} translation, without any additional explanations or commentary. "
               f"Please translate the following English text into {name}:\n\n\n{text}")
     req = urllib.request.Request(f"http://127.0.0.1:{next(ports)}/api/generate", data=json.dumps({
-        "model": "translategemma:12b", "prompt": prompt, "stream": False, "options": {"temperature": 0.1, "num_predict": 700}}).encode(),
+        "model": "translategemma:12b", "prompt": prompt, "stream": False, "options": {"temperature": temperature, "num_predict": 700}}).encode(),
         headers={"Content-Type": "application/json"})
     return json.loads(urllib.request.urlopen(req, timeout=300).read())["response"].strip()
 def clean(src, out):
@@ -48,6 +60,9 @@ def clean(src, out):
     if src[-1:] not in ".!?…" and out[-1:] in ".。।۔":
         out = out[:-1].rstrip()
     return out
+def bad(src, out):
+    # Notes about the translation, alternatives on new lines, or rambling: ask again, a little more freely.
+    return ("(" in out and "(" not in src) or "\n" in out or len(out) > 3 * len(src) + 40
 def one(text, code, name):
     slots = SLOT.findall(text)
     masked = text
@@ -56,8 +71,8 @@ def one(text, code, name):
     masked = re.sub(r"\b([Ss])leeps? (until|to go|left)", lambda m: ("N" if m[1] == "S" else "n") + "ights " + m[2], masked)
     for attempt in range(3):
         try:
-            t = clean(text, ask(masked, code, name))
-            if not t or re.search(r"[{}]", t) or "```" in t:
+            t = clean(text, ask(masked, code, name, JOB.get("context", {}).get(text, ""), 0.1 + 0.3 * attempt))
+            if not t or re.search(r"[{}]", t) or "```" in t or bad(masked, t):
                 continue
             if all(f"XQ{i}X" in t for i in range(len(slots))):
                 for i, s in enumerate(slots):

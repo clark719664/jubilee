@@ -964,3 +964,7 @@ h1:focus, h2:focus, h1:focus-visible, h2:focus-visible { outline: none; box-shad
 .santa-link-emoji { flex: none; font-size: 36px; }
 .santa-link-text { display: grid; gap: 2px; min-width: 0; }
 .santa-link-text b { font: 700 20px/1.1 var(--font-display); }
+
+/* Translations run longer than English and some languages write very long words: wrap them instead of pushing the page sideways. */
+html:not([lang|="en"]) body { overflow-wrap: anywhere; }
+html:not([lang|="en"]) :is(.chip, .pill) { max-width: 100%; }
