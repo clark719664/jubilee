@@ -14,6 +14,7 @@
 import './memory.css';
 import { stickerUrl } from '../../art/index';
 import { mulberry32 } from '../../effects/rng';
+import { plural } from '../../i18n/index';
 import { applyTheme } from '../../theme/apply';
 import { h, trapFocus } from '../../ui/dom';
 import { icon } from '../../ui/icons';
@@ -21,7 +22,7 @@ import { mascot } from '../../ui/mascot';
 import type { Activity, ActivityInstance, PlayEnv } from '../types';
 import { Burst } from './burst';
 import { cardEl, setCardState, stickerArt, type CardEls } from './card';
-import { COPY, fill } from './copy';
+import { COPY, COUNTS, fill } from './copy';
 import { deal, earnedHolidays, myDeck, MY_DECK_MIN, seasonDeck, type BoardSize, type DealtCard, type MemorySticker } from './deck';
 import { flip, hintPair, isWon, moveFocus, newGame, settle, type GameState } from './game';
 import { fitBoard, sizeBoard, type Fit } from './layout';
@@ -151,7 +152,7 @@ function mountMemory(env: PlayEnv): ActivityInstance {
 
     els = cards.map((c) => cardEl(c.index, c.sticker, meta.emoji));
     els.forEach((e, i) => e.button.addEventListener('click', () => onFlip(i)));
-    grid = h('div', { class: 'mem-grid', role: 'group', 'aria-label': fill(COPY.cardsGroup, { pairs: game.pairs }) }, ...els.map((e) => e.button));
+    grid = h('div', { class: 'mem-grid', role: 'group', 'aria-label': plural(game.pairs, COUNTS.cardsGroup, { pairs: game.pairs }) }, ...els.map((e) => e.button));
     grid.addEventListener('keydown', onKey);
     stage.replaceChildren(h('div', { class: 'mem-board' }, grid));
     fit = null;
@@ -165,7 +166,7 @@ function mountMemory(env: PlayEnv): ActivityInstance {
         { duration: 420, delay: i * 28, easing: 'cubic-bezier(.2,.8,.2,1)', fill: 'backwards' },
       ));
     }
-    ctx.announce(fill(COPY.sayStart, { pairs: game.pairs }));
+    ctx.announce(plural(game.pairs, COUNTS.sayStart, { pairs: game.pairs }));
   }
 
   function layout(fresh: boolean): void {
@@ -242,8 +243,8 @@ function mountMemory(env: PlayEnv): ActivityInstance {
 
   function updateCounts(): void {
     trayCount.textContent = `${game.pairsFound}/${game.pairs}`;
-    tray.setAttribute('aria-label', fill(COPY.progress, { n: game.pairsFound, total: game.pairs }));
-    flipsChip.textContent = game.flips === 1 ? COPY.flip1 : fill(COPY.flips, { n: game.flips });
+    tray.setAttribute('aria-label', plural(game.pairs, COUNTS.progress, { n: game.pairsFound, total: game.pairs }));
+    flipsChip.textContent = plural(game.flips, { one: '{n} flip', other: '{n} flips' });
   }
 
   function centerOf(i: number): { x: number; y: number } {
@@ -328,7 +329,7 @@ function mountMemory(env: PlayEnv): ActivityInstance {
         h('p', { class: 'mem-done-sub' }, COPY.doneSub),
         h('ul', { class: 'mem-done-stickers', 'aria-hidden': 'true' },
           ...uniqueStickers().map((s, k) => h('li', { style: `--k:${k}` }, stickerArt(s)))),
-        lastOptions.countFlips ? h('p', { class: 'mem-done-flips' }, fill(perfect ? COPY.donePerfect : COPY.doneFlips, { n: game.flips })) : null,
+        lastOptions.countFlips ? h('p', { class: 'mem-done-flips' }, perfect ? plural(game.flips, { one: 'Wow, {n} flip, not one extra!', other: 'Wow, {n} flips, not one extra!' }) : plural(game.flips, { one: 'You did it in {n} flip.', other: 'You did it in {n} flips.' })) : null,
         h('div', { class: 'mem-done-actions' },
           playAgain,
           h('button', { type: 'button', class: 'btn btn-secondary', onclick: () => showSetup(true) }, COPY.otherBoard),
@@ -338,7 +339,7 @@ function mountMemory(env: PlayEnv): ActivityInstance {
     root.append(panel);
     untrap = trapFocus(panel);
     playAgain.focus({ preventScroll: true });
-    ctx.announce(fill(COPY.sayDone, { total: game.pairs }));
+    ctx.announce(plural(game.pairs, COUNTS.sayDone, { total: game.pairs }));
   }
 
   function uniqueStickers(): MemorySticker[] {

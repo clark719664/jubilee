@@ -12,7 +12,7 @@
  *     .seek-strip                  the cards to find
  *     .seek-done                   the finish card (dialog)
  */
-import { currentLang, localeFor, t } from '../../i18n/index';
+import { currentLang, localeFor, plural, t } from '../../i18n/index';
 import { stickerUrl } from '../../art/index';
 import { formatIso } from '../../dates/civil';
 import { EffectLayer } from '../../effects/layer';
@@ -217,7 +217,8 @@ export function mountSeek(env: PlayEnv, scene: SeekScene): ActivityInstance {
     const cheerText = CHEERS[cheerIndex++ % CHEERS.length] ?? CHEERS[0];
     cheer(marks, p.x, p.y - Math.max(30, f.r * v.s), cheerText);
     const left = items.length - found.size;
-    ctx.announce(`${say('found', { thing: thing(f.label) })} ${left === 0 ? '' : left === 1 ? COPY.leftOne : say('left', { n: left })}`.trim());
+    const leftText = left === 0 ? '' : left === 1 ? COPY.leftOne : plural(left, { one: '{n} more to find.', other: '{n} more to find.' });
+    ctx.announce([say('found', { thing: thing(f.label) }), leftText].filter(Boolean).join(' '));
     hintBtn.hidden = left === 0;
     if (left === 0) later(finish, reduced() ? 400 : 1100);
   };
@@ -377,7 +378,7 @@ export function mountSeek(env: PlayEnv, scene: SeekScene): ActivityInstance {
       h('div', { class: 'seek-done-art' }, art, h('span', { class: 'seek-done-stamp' }, COPY.stampWord)),
       h('h2', { class: 'h2 seek-done-title', id: titleId }, COPY.done),
       h('p', { class: 'seek-done-body' }, say('doneBody', { holiday: meta.name })),
-      rounds > 1 ? h('p', { class: 'seek-done-rounds' }, '⭐ ', say('doneRounds', { n: rounds })) : null,
+      rounds > 1 ? h('p', { class: 'seek-done-rounds' }, '⭐ ', plural(rounds, { one: 'You have found them all {n} time!', other: 'You have found them all {n} times!' })) : null,
       recap,
       h('div', { class: 'seek-done-actions' }, homeBtn, againBtn, admireBtn));
     const overlay = h('div', { class: 'seek-done' }, card);

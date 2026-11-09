@@ -1,5 +1,6 @@
 /** Kid-facing words for Countdown Doors (kept here, not in ui/copy.ts, per the play brief). */
 import type { DoorKind } from '../../content/types';
+import { plural } from '../../i18n/index';
 
 export const COPY = {
   title: 'Countdown Doors',
@@ -12,25 +13,19 @@ export const COPY = {
   missedReady: 'Some doors are waiting for you to peek inside.',
   celebrating: 'It’s {name}! Every door is open.',
   after: 'We just celebrated {name}! Every door is still open.',
-  farTitle: 'The first door opens in {n} sleeps',
   farTitleOne: 'The first door opens tomorrow!',
-  farSub: '{name} is {m} sleeps away. The doors are waiting!',
   farLastTime: 'Doors with a star are the ones you opened last time. You can peek again!',
   beyond: 'My calendar for this holiday ends in 2035.',
-  notYet: 'Not yet! {n} more sleeps',
   notYetOne: 'Not yet! 1 more sleep',
   shut: 'This door is shut for now.',
   doorN: 'Door {n}',
   doorLabel: 'Door {n}',
-  labelLocked: 'Door {n}, opens in {w} sleeps',
   labelLockedOne: 'Door {n}, opens tomorrow',
   labelToday: 'Door {n}, today’s door! Open it',
   labelReady: 'Door {n}, ready to open',
   labelOpened: 'Door {n}, open: {kind}',
   labelStar: 'Door {n}, you opened it last time: {kind}',
   today: 'Today!',
-  garland: 'You’ve peeked inside {k} of {t} doors',
-  garlandNone: '{t} doors waiting for you',
   boardLabel: '{name} countdown doors',
   tellMe: 'Tell me!',
   playSeek: 'Let’s play Seek & Find',
@@ -43,9 +38,7 @@ export const COPY = {
   stripToday: 'Today’s door',
   stripNext: 'Next door',
   stripTomorrow: 'Tomorrow',
-  stripInN: 'In {n} sleeps',
   stripAllOpen: 'Every door is open! Come and peek inside.',
-  stripFirst: 'The first door opens in {n} sleeps',
   stripOpenAll: 'See all the doors',
   jubi: 'Jubi the star lantern. Tap for a spin!',
 } as const;
@@ -63,6 +56,19 @@ export function fill(template: string, vars: Readonly<Record<string, string | nu
   return template.replace(/\{(\w+)\}/g, (m, k: string) => (k in vars ? String(vars[k]) : m));
 }
 
+/** Counts of sleeps and doors; plural() picks the grammatical form for the reader's language. */
+export const COUNTS = {
+  countdown: { one: '{n} sleep until {name}!', other: '{n} sleeps until {name}!' },
+  farTitle: { one: 'The first door opens in {n} sleep', other: 'The first door opens in {n} sleeps' },
+  farSub: { one: '{name} is {n} sleep away. The doors are waiting!', other: '{name} is {n} sleeps away. The doors are waiting!' },
+  notYet: { one: 'Not yet! {n} more sleep', other: 'Not yet! {n} more sleeps' },
+  labelLocked: { one: 'Door {door}, opens in {n} sleep', other: 'Door {door}, opens in {n} sleeps' },
+  stripInN: { one: 'In {n} sleep', other: 'In {n} sleeps' },
+  stripFirst: { one: 'The first door opens in {n} sleep', other: 'The first door opens in {n} sleeps' },
+  garland: { one: 'You’ve peeked inside {k} of {n} door', other: 'You’ve peeked inside {k} of {n} doors' },
+  garlandNone: { one: '{n} door waiting for you', other: '{n} doors waiting for you' },
+} as const;
+
 export function notYetText(wait: number): string {
-  return wait === 1 ? COPY.notYetOne : fill(COPY.notYet, { n: wait });
+  return plural(wait, COUNTS.notYet);
 }

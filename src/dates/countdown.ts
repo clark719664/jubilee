@@ -1,4 +1,5 @@
 import type { HolidayMeta } from '../content/types';
+import { fill, plural } from '../i18n/index';
 import { toDayNumber, type CivilDate, type DayNumber } from './civil';
 import type { Occurrence, Status } from './occurrences';
 
@@ -35,7 +36,7 @@ export function finalDayBreakdown(now: Date, midnight: Date): Breakdown {
 
 /** "1 sleep" / "12 sleeps" / "1,096 sleeps". */
 export function pluralSleeps(n: number): string {
-  return n === 1 ? '1 sleep' : `${n.toLocaleString('en-US')} sleeps`;
+  return plural(n, { one: '{n} sleep', other: '{n} sleeps' });
 }
 
 /**
@@ -52,10 +53,10 @@ export function labelFor(status: Status, meta: Pick<HolidayMeta, 'dayNames'>): s
       if (status.tonight) return 'Tonight at sundown!';
       if (status.sleepsToMain === 0) return "IT'S TODAY!";
       if (status.sleepsToMain > 0) return pluralSleeps(status.sleepsToMain);
-      return `Day ${status.day} of ${status.of}`;
+      return fill('Day {day} of {total}', { day: status.day, total: status.of });
     }
     case 'passed':
-      return status.daysAgo <= 7 ? 'we just celebrated!' : `${status.daysAgo} days ago`;
+      return status.daysAgo <= 7 ? 'we just celebrated!' : plural(status.daysAgo, { one: '{n} day ago', other: '{n} days ago' });
   }
 }
 

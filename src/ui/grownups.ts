@@ -6,7 +6,7 @@
  * Every control is a real labeled form control (inputs, radios, a select) at least
  * 48 px tall. Settings save immediately through the Store; nothing leaves the device.
  */
-import { currentLang, LANGUAGES, setLang } from '../i18n/index';
+import { currentLang, fill, LANGUAGES, plural, setLang, t as translate } from '../i18n/index';
 import { clearPlayStorage, playStorageLines } from '../play/storage';
 import type { AppContext, ViewFactory } from '../app/context';
 import { NAME_MAX } from '../app/state';
@@ -68,7 +68,7 @@ export function validateCustom(input: CustomInput, thisYear: number): CustomChec
   const errors: Partial<Record<CustomField, string>> = {};
   const name = input.name.trim();
   if (!name) errors.name = 'Give the day a name.';
-  else if (name.length > NAME_MAX) errors.name = `Keep the name to ${NAME_MAX} letters or fewer.`;
+  else if (name.length > NAME_MAX) errors.name = plural(NAME_MAX, { one: 'Keep the name to {n} letter or fewer.', other: 'Keep the name to {n} letters or fewer.' });
   const emoji = input.emoji || '🎂';
   if (!CUSTOM_EMOJI.some(([e]) => e === emoji)) errors.emoji = 'Pick one of the pictures.';
   const month = Number(input.month);
@@ -76,19 +76,19 @@ export function validateCustom(input: CustomInput, thisYear: number): CustomChec
   if (!Number.isInteger(month) || month < 1 || month > 12) errors.month = 'Pick a month.';
   if (!Number.isInteger(day) || day < 1) errors.day = 'Pick a day.';
   else if (!errors.month && day > daysInMonth(2024, month)) {
-    errors.day = `${MONTH_EN[month - 1]} only has ${daysInMonth(2024, month)} days.`;
+    errors.day = plural(daysInMonth(2024, month), { one: '{month} only has {n} day.', other: '{month} only has {n} days.' }, { month: MONTH_EN[month - 1]! });
   }
   const yearText = String(input.year).trim();
   let year: number | undefined;
   if (yearText !== '') {
     year = Number(yearText);
-    if (!/^\d{4}$/.test(yearText) || year < 1900 || year > thisYear) errors.year = `Use a year between 1900 and ${thisYear}, or leave it empty.`;
-    else if (month === 2 && day === 29 && !isLeap(year)) errors.year = `February 29 didn’t happen in ${year}. Check the year?`;
+    if (!/^\d{4}$/.test(yearText) || year < 1900 || year > thisYear) errors.year = fill('Use a year between 1900 and {year}, or leave it empty.', { year: thisYear });
+    else if (month === 2 && day === 29 && !isLeap(year)) errors.year = fill('February 29 didn’t happen in {year}. Check the year?', { year });
   }
   if (Object.keys(errors).length > 0) return { ok: false, errors };
   const value: Omit<CustomHoliday, 'id'> = { name, emoji, month, day, ...(year !== undefined ? { year } : {}) };
   if (month === 2 && day === 29) {
-    return { ok: true, value, note: `A February 29 day only shows up in leap years. The next one is ${nextLeapYear(thisYear)}.` };
+    return { ok: true, value, note: fill('A February 29 day only shows up in leap years. The next one is {year}.', { year: nextLeapYear(thisYear) }) };
   }
   return { ok: true, value };
 }
@@ -108,7 +108,7 @@ export function tableUsers(metas: readonly HolidayMeta[]): Map<TableId, string[]
   };
   for (const m of metas) {
     if (m.rule.kind === 'table') add(m.rule.table, m.name);
-    if (typeof m.days === 'object') add(m.days.untilTable, `${m.name} (its last day)`);
+    if (typeof m.days === 'object') add(m.days.untilTable, fill('{name} (its last day)', { name: m.name }));
   }
   return out;
 }
@@ -128,7 +128,6 @@ const T = {
   added: 'Added {name}!',
   turns: 'turns {age} in {year}',
   removed: 'Removed {name}',
-  tablesOpen: 'The {n} calendar tables',
   exact: 'Exact date',
   sighting: 'Depends on the new moon being seen, so the app says “expected”',
   sourcesOpen: 'Sources for each holiday',
@@ -276,7 +275,7 @@ function customSection(ctx: AppContext, list: HTMLElement): HTMLElement {
   };
   const updateNote = (): void => {
     note.textContent = monthSel.value === '2' && daySel.value === '29'
-      ? `A February 29 day only shows up in leap years. The next one is ${nextLeapYear(thisYear)}.` : '';
+      ? fill('A February 29 day only shows up in leap years. The next one is {year}.', { year: nextLeapYear(thisYear) }) : '';
   };
   monthSel.addEventListener('change', () => { fillDays(); updateNote(); });
   daySel.addEventListener('change', updateNote);
@@ -342,7 +341,7 @@ function renderCustomList(ctx: AppContext, list: HTMLElement): void {
       h('span', { class: 'row' }, h('span', { class: 'emoji', 'aria-hidden': 'true', style: 'font-size:28px' }, c.emoji),
         h('span', {}, h('strong', {}, c.name), h('span', { class: 'small muted' }, ` · ${when}${age}`))),
       h('button', {
-        class: 'btn btn-secondary', type: 'button', 'aria-label': `${COPY['grownups.remove']} ${c.name}`,
+        class: 'btn btn-secondary', type: 'button', 'aria-label': `${translate(COPY['grownups.remove'])} ${c.name}`,
         onclick: () => { ctx.store.removeCustom(c.id); ctx.toast(t(T.removed, { name: c.name })); },
       }, COPY['grownups.remove']),
     );
@@ -363,12 +362,12 @@ function datesSection(): HTMLElement {
     const tb = TABLES[id];
     const retrieved = parseIso(tb.retrieved);
     return h('li', { class: 'gu-table' },
-      h('h4', { class: 'h3' }, (users.get(id) ?? [id]).join(', ')),
+      h('h4', { class: 'h3' }, (users.get(id) ?? [id]).map((n) => translate(n)).join(', ')),
       h('dl', {},
         h('dt', {}, 'Calendar'), h('dd', {}, CALENDAR_NAMES[tb.calendar]),
         h('dt', {}, 'How we count'), h('dd', {}, tb.convention),
-        h('dt', {}, 'Source'), h('dd', {}, `${tb.source}${retrieved ? ` (checked ${tb.retrieved})` : ''}`),
-        h('dt', {}, 'Years'), h('dd', {}, `${tb.coverage.from} to ${tb.coverage.to}`),
+        h('dt', {}, 'Source'), h('dd', {}, retrieved ? fill('{source} (checked {date})', { source: tb.source, date: tb.retrieved }) : tb.source),
+        h('dt', {}, 'Years'), h('dd', {}, `${tb.coverage.from}–${tb.coverage.to}`),
         h('dt', {}, 'Confidence'), h('dd', {}, tb.confidence === 'sighting' ? T.sighting : T.exact),
       ),
     );
@@ -376,7 +375,7 @@ function datesSection(): HTMLElement {
   return section(COPY['grownups.dates'],
     h('p', { class: 'prose' }, COPY['grownups.datesText']),
     h('details', { class: 'gu-details' }, h('summary', {}, T.rules), h('ul', { class: 'gu-bullets' }, ...COMPUTED_RULES.map((r) => h('li', {}, r)))),
-    h('details', { class: 'gu-details' }, h('summary', {}, t(T.tablesOpen, { n: cards.length })), h('ul', { class: 'gu-tables' }, ...cards)),
+    h('details', { class: 'gu-details' }, h('summary', {}, plural(cards.length, { one: 'The {n} calendar table', other: 'The {n} calendar tables' })), h('ul', { class: 'gu-tables' }, ...cards)),
     sourcesFold(),
   );
 }
@@ -438,8 +437,9 @@ const grownups: ViewFactory<'grownups'> = (ctx) => {
   const refresh = (): void => {
     const lines = [...ctx.store.whatWeStore(), ...playStorageLines()];
     storeList.replaceChildren(...(lines.length > 0 ? lines : [COPY['grownups.storeNone']]).map((l) => {
-      const i = l.indexOf(': ');
-      return i > 0 ? h('li', {}, h('span', {}, l.slice(0, i)), h('strong', {}, l.slice(i + 2))) : h('li', {}, l);
+      const line = translate(l);
+      const cut = /: |：/.exec(line);
+      return cut && cut.index > 0 ? h('li', {}, h('span', {}, line.slice(0, cut.index)), h('strong', {}, line.slice(cut.index + cut[0].length))) : h('li', {}, line);
     }));
     renderCustomList(ctx, customList);
   };

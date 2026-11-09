@@ -13,7 +13,7 @@
  *
  * Nothing runs while idle: a rAF loop only exists between a release and the settle.
  */
-import { t } from '../i18n/index';
+import { fill, plural, t } from '../i18n/index';
 import { daysInMonth } from '../dates/civil';
 import type { MotionMode } from '../effects/types';
 import { h } from './dom';
@@ -126,7 +126,7 @@ export function mountWheel(opts: WheelOptions): WheelInstance {
     cardEmoji, h('span', { class: 'wheel-card-text' }, cardName, cardDate), cardLink);
   const stage = h('div', {
     class: 'wheel-stage', tabindex: 0,
-    'aria-label': `${opts.label}. Use the left and right arrow keys to pick a holiday and Enter to open it.`,
+    'aria-label': `${opts.label}. ${t('Use the left and right arrow keys to pick a holiday and Enter to open it.')}`,
     'aria-describedby': card.id,
   }, canvas);
   const el = h('div', { class: 'wheel' }, stage, card);
@@ -145,7 +145,7 @@ export function mountWheel(opts: WheelOptions): WheelInstance {
     cardDate.textContent = it.dateText;
     cardLink.hidden = false;
     cardLink.href = it.href;
-    cardLink.setAttribute('aria-label', `Visit ${it.name}`);
+    cardLink.setAttribute('aria-label', fill('Visit {name}', { name: it.name }));
   }
 
   function draw(): void {
@@ -411,6 +411,9 @@ export function mountWheel(opts: WheelOptions): WheelInstance {
 
 /** For the year view: a short descriptive label for the canvas. */
 export function wheelLabel(year: number, count: number, todayDoy: number | null): string {
-  const here = todayDoy === null ? '' : ' A star marks today.';
-  return `Year wheel for ${year}: the seasons in a circle with ${count} holidays as colored dots.${here}`;
+  const dots = plural(count, {
+    one: 'Year wheel for {year}: the seasons in a circle with {n} holiday as colored dots.',
+    other: 'Year wheel for {year}: the seasons in a circle with {n} holidays as colored dots.',
+  }, { year });
+  return todayDoy === null ? dots : `${dots} ${t('A star marks today.')}`;
 }

@@ -10,6 +10,7 @@ import { formatLong, fromDayNumber, type CivilDate, type DayNumber } from '../da
 import { labelFor } from '../dates/countdown';
 import type { NextResult, Occurrence } from '../dates/occurrences';
 import { TABLES } from '../dates/tables/index';
+import { fill, t } from '../i18n/index';
 import { COPY, fmt } from './copy';
 import { append, h } from './dom';
 import { icon } from './icons';
@@ -63,13 +64,13 @@ export function howWeKnow(ctx: AppContext, meta: HolidayMeta, occ: Occurrence | 
     const t = TABLES[table];
     // The copy already wraps the source in brackets, so a source's own trailing bracket becomes a dash.
     lines.push(fmt('howWeKnowTable', { source: t.source.replace(/\s*\(([^()]*)\)\s*$/, ' — $1') }));
-    lines.push(t.confidence === 'sighting' ? COPY.expectedLong : `It covers ${t.coverage.from} to ${t.coverage.to}.`);
+    lines.push(t.confidence === 'sighting' ? COPY.expectedLong : fill('It covers {from} to {to}.', { from: t.coverage.from, to: t.coverage.to }));
   } else {
     const nameOf = (id: string): string | undefined => ctx.metaOf(id)?.name;
     lines.push(fmt('howWeKnowRule', { rule: ruleInWords(meta.rule, ctx.region, nameOf, ctx.locale) }));
   }
   if (occ?.note !== undefined && heroNote(occ.note) !== occ.note) lines.push(/[.!?]$/.test(occ.note) ? occ.note : `${occ.note}.`);
-  if (occ?.alt !== undefined) lines.push(`${capital(fmt('altDay', { date: dayText(occ.alt, ctx.locale) }))}.`);
+  if (occ?.alt !== undefined) lines.push(`${capital(t(fmt('altDay', { date: dayText(occ.alt, ctx.locale) })))}.`);
   return h('p', {}, lines.join(' '));
 }
 
@@ -88,7 +89,7 @@ function chips(ctx: AppContext, meta: HolidayMeta, occ: Occurrence): HTMLElement
 function breakdown(ctx: AppContext, meta: HolidayMeta, occ: Occurrence, today: CivilDate): HTMLElement | null {
   if (occ.end === occ.start) return null;
   const lines = compactLines(spanLines(meta, occ, today));
-  return h('ol', { class: 'dates-breakdown', 'aria-label': `The days of ${meta.name}` },
+  return h('ol', { class: 'dates-breakdown', 'aria-label': fill('The days of {name}', { name: meta.name }) },
     ...lines.map((l) => h('li', { class: l.today ? 'dates-day is-today' : 'dates-day' },
       h('span', { class: 'dates-date' }, shortDay(l.n, ctx.locale)),
       ' ',
@@ -103,7 +104,7 @@ export function datesBody(ctx: AppContext, meta: HolidayMeta, input: DatesInput)
   if (previous && celebrated !== null) {
     out.append(h('p', { class: 'dates-row just-celebrated' },
       h('span', { 'aria-hidden': 'true' }, '🎉 '),
-      h('span', { class: 'dates-what' }, `${capital(COPY.justCelebrated)} (${dayText(previous.main, ctx.locale)})`)));
+      h('span', { class: 'dates-what' }, `${capital(t(COPY.justCelebrated))} (${dayText(previous.main, ctx.locale)})`)));
   }
   if ('beyondCoverage' in next) {
     out.append(h('p', { class: 'dates-row is-this' }, icon('year', 20), ' ', COPY.beyondCoverage));

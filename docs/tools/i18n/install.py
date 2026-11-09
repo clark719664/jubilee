@@ -2,14 +2,16 @@
 
     python install.py <strings.json> <results-dir> [<results-dir> ...]
 
-public/i18n/<code>/ui.json loads at start; h/<holiday>.json loads with that holiday.
+public/i18n/<code>/ui.json loads at start; h/<holiday>.json loads with that holiday. Counts come from plurals.json,
+{code: {English "other" form: {Intl.PluralRules category: text}}}, and go in ui.json as objects.
 """
 import glob
 import json
 import os
 import sys
 
-OUT = os.path.join(os.path.dirname(__file__), '../../../public/i18n')
+HERE = os.path.dirname(__file__)
+OUT = os.path.join(HERE, '../../../public/i18n')
 
 
 def main():
@@ -20,11 +22,13 @@ def main():
             code = os.path.basename(f)[:-5]
             if 2 <= len(code) <= 3:
                 results.setdefault(code, {}).update(json.load(open(f, encoding='utf-8')))
+    plurals = json.load(open(os.path.join(HERE, 'plurals.json'), encoding='utf-8'))
     for code, done in sorted(results.items()):
         groups = {}
         for item in strings:
-            if item['s'] in done:
+            if item['s'] in done and 'one' not in item:
                 groups.setdefault(item['g'], {})[item['s']] = done[item['s']]
+        groups.setdefault('ui', {}).update(plurals.get(code, {}))
         for group, entries in groups.items():
             path = os.path.join(OUT, code, f'{group}.json')
             os.makedirs(os.path.dirname(path), exist_ok=True)

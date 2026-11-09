@@ -3,6 +3,7 @@
  * offer, and the bag. Nothing here can go wrong: there are no points against the child, no timer, and
  * the bag never fills up for good.
  */
+import { plural } from '../../i18n/index';
 export interface Treat {
   readonly id: string;
   readonly name: string;
@@ -64,8 +65,7 @@ export function bagSummary(bag: Bag): readonly { readonly treat: Treat; readonly
 /** "You have 7 treats!" in words a counting game can read out. */
 export function countLine(total: number): string {
   if (total === 0) return 'Your bag is empty. Knock on a door!';
-  if (total === 1) return 'You have 1 treat!';
-  return `You have ${total} treats!`;
+  return plural(total, { one: 'You have {n} treat!', other: 'You have {n} treats!' });
 }
 
 /** A cheer at a few round numbers (never a limit). */

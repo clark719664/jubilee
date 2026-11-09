@@ -12,6 +12,8 @@ export const COPY = {
   inside: 'Inside',
   frontLabel: 'Front of your card',
   insideLabel: 'Inside of your card',
+  frontLower: 'front of your card',
+  insideLower: 'inside of your card',
   undo: 'Undo',
   redo: 'Redo',
   tools: 'Card tools',

@@ -15,7 +15,7 @@ import './pumpkin.css';
 import { mulberry32 } from '../../effects/rng';
 import { h } from '../../ui/dom';
 import { icon } from '../../ui/icons';
-import { KIT_COPY, createShell, keepOnFridge, pick, wireGroup, type Shell } from '../spooky/kit';
+import { KIT_COPY, createShell, fill, keepOnFridge, pick, wireGroup, type Shell } from '../spooky/kit';
 import type { Activity, ActivityInstance, PlayEnv } from '../types';
 import {
   COLORS, DEFAULT_PUMPKIN, EYES, HATS, MOUTHS, NOSES, describePumpkin, drawPumpkin, partPreview, pumpkinTitle, randomPumpkin, withPart,
@@ -141,8 +141,7 @@ function mountPumpkin(env: PlayEnv): ActivityInstance {
     redraw();
     renderOptions(true);
     carveFx();
-    const msg = `${p.name}: carved!`;
-    ctx.announce(slot === 'color' || slot === 'hat' ? `${p.name} chosen` : msg);
+    ctx.announce(slot === 'color' || slot === 'hat' ? fill('{name} chosen', { name: p.name }) : fill('{name}: carved!', { name: p.name }));
   }
 
   function carveFx(): void {

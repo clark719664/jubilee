@@ -14,6 +14,7 @@
  */
 import type { DoorKind, Greeting, HolidayContent, HolidayMeta } from '../../content/types';
 import { toDayNumber, type CivilDate } from '../../dates/civil';
+import { fill } from '../../i18n/index';
 import type { NextResult, Occurrence } from '../../dates/occurrences';
 
 /** Christmas Day: advent door d opens at (25 − d) sleeps. */
@@ -82,7 +83,7 @@ const ANY_DAY = [
 export function fallbackDoors(content: HolidayContent, name = 'this holiday'): BoardDoor[] {
   const told = content.facts.length < MIN_DOORS ? content.story : [];
   const facts = [...content.facts.map((f) => f.text), ...told].map((text) => ({ kind: 'fact' as const, text }));
-  const says = content.greetings.map((g, i) => ({ kind: 'say' as const, text: `Learn to say “${g.roman ?? g.text}” in ${g.langName}.`, greeting: i }));
+  const says = content.greetings.map((g, i) => ({ kind: 'say' as const, text: fill('Learn to say “{greeting}” in {language}.', { greeting: g.roman ?? g.text, language: g.langName }), greeting: i }));
   const crafts = [
     ...content.crafts.map((c) => ({ kind: 'craft' as const, text: `${c.title}: ${c.blurb}` })),
     ...(content.facts.length + content.crafts.length < MIN_DOORS ? ANY_DAY.map((t) => ({ kind: 'craft' as const, text: t.replace('{name}', name) })) : []),

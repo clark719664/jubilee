@@ -1,3 +1,5 @@
+import { fill, plural } from '../i18n/index';
+
 /** What the landing page needs to work out about the browser and the count. Pure, so it can be tested without one. */
 export type Platform = 'ios' | 'android' | 'desktop';
 
@@ -16,6 +18,6 @@ export function inAppBrowser(ua: string): boolean {
 
 /** "3 sleeps until Diwali", split so the number can be the big part. */
 export function countWords(n: number, name: string): { readonly big: string; readonly small: string } {
-  if (n <= 0) return { big: 'Today', small: `is ${name}!` };
-  return { big: String(n), small: `${n === 1 ? 'sleep' : 'sleeps'} until ${name}` };
+  if (n <= 0) return { big: 'Today', small: fill('is {name}!', { name }) };
+  return { big: String(n), small: plural(n, { one: 'sleep until {name}', other: 'sleeps until {name}' }, { name }) };
 }

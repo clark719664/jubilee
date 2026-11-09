@@ -4,6 +4,7 @@
  */
 import { sceneDataFor } from '../../art/index';
 import type { HolidayContent, HolidayMeta } from '../../content/types';
+import { fill } from '../../i18n/index';
 import type { Camera, StoryBook, StoryPage } from './types';
 
 const MAX_PAGES = 8;
@@ -27,5 +28,5 @@ export function autoBook(meta: HolidayMeta, content: HolidayContent): StoryBook 
     return s ? { x: s.x, y: s.y, zoom: 1.8 + (i % 3) * 0.3 } : { x: 800, y: 500, zoom: 1 };
   };
   const pages: StoryPage[] = lines.map((text, i) => ({ text, camera: camera(i), prop: meta.emoji }));
-  return { id: meta.id, title: `{name} and ${meta.name}`, cover: { x: 800, y: 560, zoom: 1.25 }, pages };
+  return { id: meta.id, title: fill('{name} and {holiday}', { holiday: meta.name }), cover: { x: 800, y: 560, zoom: 1.25 }, pages };
 }

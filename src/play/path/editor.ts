@@ -18,7 +18,8 @@
  */
 import { h } from '../../ui/dom';
 import { cardFace, cardKind, cardName } from './cards';
-import { COPY, fill } from './copy';
+import { plural } from '../../i18n/index';
+import { COPY, COUNTS, fill } from './copy';
 import { balanced, cardCount, depths, insertCard, isRepeat, MAX_DEPTH, maxDepth, moveCard, moveCardTo, partners, removeCard, type Card, type LoopMark } from './model';
 
 export interface EditorOptions {
@@ -179,7 +180,7 @@ export class ProgramEditor {
   add(card: Card, at = this.caret): void {
     if (this.locked) return;
     if (cardCount(this.cards) >= this.max) {
-      this.say(fill(COPY.sayFull, { max: this.max }));
+      this.say(plural(this.max, COUNTS.sayFull, { max: this.max }));
       this.bumpMeter();
       return;
     }
@@ -193,7 +194,7 @@ export class ProgramEditor {
     this.render(focus);
     this.opts.onChange(this.cards);
     const n = cardCount(this.cards);
-    this.say(isRepeat(card) ? fill(COPY.sayAddedRepeat, { card: cardName(card) }) : fill(COPY.sayAdded, { card: cardName(card), n, max: this.max }));
+    this.say(isRepeat(card) ? fill(COPY.sayAddedRepeat, { card: cardName(card) }) : plural(this.max, COUNTS.sayAdded, { card: cardName(card), n, max: this.max }));
   }
 
   private remove(i: number): void {
@@ -213,7 +214,7 @@ export class ProgramEditor {
       else this.focusPalette();
     }
     this.opts.onChange(this.cards);
-    if (removed > 0) this.say(fill(COPY.sayRemoved, { card: cardName(named), n: cardCount(this.cards), max: this.max }));
+    if (removed > 0) this.say(plural(this.max, COUNTS.sayRemoved, { card: cardName(named), n: cardCount(this.cards), max: this.max }));
   }
 
   private move(i: number, by: -1 | 1): boolean {
@@ -304,11 +305,11 @@ export class ProgramEditor {
     this.setCaret(this.caret);
     const n = cardCount(this.cards);
     this.meter.replaceChildren(
-      h('span', { 'aria-hidden': 'true' }, fill(COPY.cardsUsed, { n, max: this.max })),
-      h('span', { class: 'sr-only' }, fill(COPY.cardsUsedLabel, { n, max: this.max })));
+      h('span', { 'aria-hidden': 'true' }, plural(this.max, COUNTS.cardsUsed, { n, max: this.max })),
+      h('span', { class: 'sr-only' }, plural(this.max, COUNTS.cardsUsedLabel, { n, max: this.max })));
     this.meter.classList.toggle('is-full', n >= this.max);
-    this.list.setAttribute('aria-label', fill(COPY.stripLabel, { n, max: this.max }));
-    this.note.textContent = n >= this.max ? fill(COPY.stripFull, { max: this.max }) : '';
+    this.list.setAttribute('aria-label', plural(this.max, COUNTS.stripLabel, { n, max: this.max }));
+    this.note.textContent = n >= this.max ? plural(this.max, COUNTS.stripFull, { max: this.max }) : '';
     this.palette.classList.toggle('is-full', n >= this.max);
   }
 

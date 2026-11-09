@@ -103,8 +103,20 @@ export function hueGap(a: number, b: number): number {
   return d > 180 ? 360 - d : d;
 }
 
+export type ColorWord = 'white' | 'black' | 'silver' | 'gray' | 'brown' | 'pink' | 'red' | 'peach' | 'orange' | 'gold' | 'cream' | 'yellow'
+  | 'pine green' | 'green' | 'teal' | 'navy' | 'blue' | 'lilac' | 'purple' | 'magenta';
+
+/** Whole names, so each one is a collected template with words in it, not "{holiday} {color}". */
+const THEME_NAMES: Record<ColorWord, string> = {
+  white: '{holiday} white', black: '{holiday} black', silver: '{holiday} silver', gray: '{holiday} gray', brown: '{holiday} brown',
+  pink: '{holiday} pink', red: '{holiday} red', peach: '{holiday} peach', orange: '{holiday} orange', gold: '{holiday} gold',
+  cream: '{holiday} cream', yellow: '{holiday} yellow', 'pine green': '{holiday} pine green', green: '{holiday} green',
+  teal: '{holiday} teal', navy: '{holiday} navy', blue: '{holiday} blue', lilac: '{holiday} lilac', purple: '{holiday} purple',
+  magenta: '{holiday} magenta',
+};
+
 /** A plain color word for a theme crayon's name: "Christmas gold", "Diwali pink". */
-export function colorWord(hex: string): string {
+export function colorWord(hex: string): ColorWord {
   const { h, s, l } = toHsl(hex);
   if (l > 0.93) return 'white';
   if (l < 0.13) return 'black';
@@ -161,7 +173,7 @@ function magicStops(theme: Theme): [string, string, string] {
 /** The holiday's 4 theme crayons + 2 magic crayons. */
 export function holidayCrayons(theme: Theme, holidayName: string): Crayon[] {
   const theme4: Crayon[] = themeColors(theme).map((c, i) => ({
-    id: `t-${i + 1}`, kind: 'theme', name: fill(COPY.themeCrayon, { holiday: holidayName, color: colorWord(c) }), color: c,
+    id: `t-${i + 1}`, kind: 'theme', name: fill(THEME_NAMES[colorWord(c)], { holiday: holidayName }), color: c,
   }));
   const [g, a, b] = magicStops(theme);
   // A white glow (day themes) would make a white-on-white core: glow from white into a pale accent instead.

@@ -1,3 +1,5 @@
+import { plural } from '../i18n/index';
+
 /**
  * Microcopy for the World view and its trackers. Kid-level, present tense, no URLs. Shared
  * world keys (title, Santa, New Year, Globe/Flat map) live in src/ui/copy.ts; the
@@ -16,11 +18,9 @@ export const WORLD_COPY = {
   hostLabel: 'Interactive globe',
   globeAria: 'Globe centered on {place}',
   mapAria: 'Flat map of the world',
-  ariaHighlight: 'showing the {n} countries where {name} is celebrated',
   ariaToday: 'showing the countries celebrating something today',
   ariaNight: 'with the night side shaded',
   ariaSanta: 'Santa is {where}',
-  ariaWave: '{n} of {total} places have reached {year}',
   ocean: 'Splash! That is the ocean. Most of our planet is water.',
   space: 'That is outer space. Tap the planet instead!',
   countryHolidays: 'Holidays celebrated here. Tap one to light it up:',
@@ -34,9 +34,10 @@ export const WORLD_COPY = {
   legendSun: 'Sun overhead',
   // ── day & night ──
   sunTitle: 'Day and night',
-  sunStatus: '{n} of {total} cities are having daytime',
   sunRising: 'The sun is rising in {city}',
   sunSetting: 'and setting in {city}.',
+  sunRisingOnly: 'The sun is rising in {city}.',
+  sunRisingSetting: 'The sun is rising in {rising} and setting in {setting}.',
   nightToggle: 'Night side',
   // ── moon ──
   moonTitle: 'Moon tonight',
@@ -45,12 +46,13 @@ export const WORLD_COPY = {
   moonNewTonight: 'It’s a new moon tonight, so the sky is extra dark.',
   moonNextFull: 'Next full moon in {sleeps}',
   moonNextNew: 'New moon in {sleeps}',
+  moonNewThenFull: 'It’s a new moon tonight, so the sky is extra dark. Next full moon in {sleeps}',
+  moonNextBoth: 'New moon in {newSleeps} · Next full moon in {fullSleeps}',
   moonHintFull: '{emoji} {name} is {when}, and it is always on a full moon!',
   moonHintNew: '{emoji} {name} is {when}. It starts at a new moon, when the sky is darkest.',
   moonHintCrescent: '{emoji} {name} is {when}. It begins when the first thin crescent moon is seen.',
   moonHintMoon: '{emoji} {name} is {when}. Its date follows the moon, too.',
   // ── New Year wave ──
-  waveStatus: '{n} of {total} places are already in {year}!',
   waveStartsIn: 'The New Year wave starts in {time}, in {city}.',
   waveAll: 'Everyone is in {year}! The wave went all the way round.',
   waveYourTurn: 'Your turn in {time}',
@@ -71,7 +73,6 @@ export const WORLD_COPY = {
   santaLeaving: 'Leaving the North Pole',
   santaHeadingHome: 'Heading home to the North Pole',
   santaNext: 'Next stop: {city} in {time}',
-  santaPresents: '{n} presents delivered',
   santaYourHouse: 'Santa reaches your house at midnight, in {time}. Be asleep!',
   santaYourHouseName: 'Santa reaches {name}’s house at midnight, in {time}. Be asleep!',
   santaBeenHere: 'Santa has already been to your house! 🎁',
@@ -88,16 +89,13 @@ export const WORLD_COPY = {
   missionStageFlying: 'Live flight',
   missionStageLanded: 'Mission complete',
   missionSpeed: 'Speed',
-  missionDialAria: 'Speedometer: {kmh} kilometers per hour',
   missionKmh: 'km/h',
   missionMph: 'or {mph} mph',
   missionAltitude: 'Altitude',
-  missionAltitudeSub: '{m} meters',
   missionCruise: 'Cruising: {lo} to {hi} ft',
   missionFt: '{n} ft',
   missionDistance: 'Distance flown',
   missionDistanceSub: '{km} km',
-  missionMiles: '{n} miles',
   missionStops: 'Stops',
   missionStopsOf: '{done} of {total}',
   missionPresents: 'Presents delivered',
@@ -118,7 +116,6 @@ export const WORLD_COPY = {
   missionEta: 'in {time}',
   missionHome: 'Distance to your house',
   missionHomeName: 'Distance to {name}’s house',
-  missionAway: '{km} km ({mi} miles) away',
   missionHomeEta: 'Santa gets to {city} in {time}',
   missionHomeVisited: 'Santa visited {city} at {time}!',
   missionBedtime: 'Bedtime alert!',
@@ -134,7 +131,6 @@ export const WORLD_COPY = {
   missionTreatsAte: 'Santa ate your {list}! Yum, thank you!',
   missionTreatsNone: 'Santa stopped by. Leave him a snack next time!',
   missionPreflight: 'Pre-flight checklist',
-  missionPreflightDone: '{n} of {total} jobs done',
   missionTakeoff: 'Takeoff in',
   missionReport: 'Flight report',
   missionReportFor: 'Santa’s flight report for {name}',
@@ -154,14 +150,27 @@ export const WORLD_COPY = {
   nowYesterday: 'yesterday',
   nowNothing: 'An ordinary day',
   cityNow: 'It’s {time} on {day}, {date}',
+  cityNowHolidays: 'It’s {time} on {day}, {date} · {holidays}',
+  waveMidnightNext: 'Midnight: {city} {time}',
   // ── durations ──
-  durDays: '{d} days',
   durDayHours: '1 day {h} h',
   durHours: '{h} h {m} min',
   durHoursOnly: '{h} h',
   durMinutes: '{m} min {s} s',
   durMinutesOnly: '{m} min',
   durSeconds: '{s} s',
+} as const;
+
+export const WORLD_COUNTS = {
+  sunStatus: { one: '{n} of {total} city is having daytime', other: '{n} of {total} cities are having daytime' },
+  waveStatus: { one: '{n} of {total} place is already in {year}!', other: '{n} of {total} places are already in {year}!' },
+  missionPreflightDone: { one: '{n} of {total} job done', other: '{n} of {total} jobs done' },
+  ariaHighlight: { one: 'showing the {n} country where {name} is celebrated', other: 'showing the {n} countries where {name} is celebrated' },
+  ariaWave: { one: '{n} of {total} place has reached {year}', other: '{n} of {total} places have reached {year}' },
+  missionDialAria: { one: 'Speedometer: {kmh} kilometer per hour', other: 'Speedometer: {kmh} kilometers per hour' },
+  missionAltitudeSub: { one: '{m} meter', other: '{m} meters' },
+  missionMiles: { one: '{n} mile', other: '{n} miles' },
+  missionAway: { one: '{km} km ({mi} mile) away', other: '{km} km ({mi} miles) away' },
 } as const;
 
 export type WorldCopyKey = keyof typeof WORLD_COPY;
@@ -178,7 +187,7 @@ export function durationWords(ms: number): string {
   const h = Math.floor((s % 86_400) / 3600);
   const m = Math.floor((s % 3600) / 60);
   const sec = s % 60;
-  if (d >= 2) return wfmt('durDays', { d });
+  if (d >= 2) return plural(d, { one: '{n} day', other: '{n} days' });
   if (d === 1) return wfmt('durDayHours', { h });
   if (h > 0) return wfmt(m === 0 ? 'durHoursOnly' : 'durHours', { h, m });
   if (m > 0) return wfmt(sec === 0 || m >= 10 ? 'durMinutesOnly' : 'durMinutes', { m, s: sec });

@@ -6,6 +6,7 @@
  * streamers in Japan, twelve grapes in Spain); anything contested, such as which country has the
  * most Jewish families, is simply not asked.
  */
+import { fill } from '../../i18n/index';
 import { COUNTRY_NAMES } from '../../world/data/countries';
 
 export type PlaceKind =
@@ -154,12 +155,13 @@ export function countryLabel(iso: string): string {
 
 /** "the USA", "Nepal" — for the middle of a sentence. */
 export function countryPhrase(iso: string): string {
-  return THE.has(iso) ? `the ${countryLabel(iso)}` : countryLabel(iso);
+  return THE.has(iso) ? fill('the {country}', { country: countryLabel(iso) }) : countryLabel(iso);
 }
 
 /** "The USA", "Nepal" — for the start of a sentence. */
 export function countryPhraseStart(iso: string): string {
-  const p = countryPhrase(iso);
+  if (THE.has(iso)) return fill('The {country}', { country: countryLabel(iso) });
+  const p = countryLabel(iso);
   return p.charAt(0).toUpperCase() + p.slice(1);
 }
 

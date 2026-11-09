@@ -12,6 +12,7 @@
  * is as far as Santa goes), never mentions money, shops, email or the internet.
  */
 import { mulberry32 } from '../../effects/rng';
+import { plural } from '../../i18n/index';
 import type { WishLetter, WishReply } from './letter';
 import { chipById, skinById } from './skins';
 
@@ -151,7 +152,7 @@ const upperFirst = (s: string): string => (s ? s[0]!.toUpperCase() + s.slice(1) 
 export function kindQuote(kind: string): string {
   let s = kind.replace(/\s+/g, ' ').trim().slice(0, 120);
   if (!s) return '';
-  if (!/^(I|I'm|I've|I'd|I'll|Me|My|We)\b/i.test(s)) s = `I've been kind by ${s[0]!.toLowerCase()}${s.slice(1)}`;
+  if (!/^(I|I'm|I've|I'd|I'll|Me|My|We)\b/i.test(s)) s = fill("I've been kind by {kind}", { kind: `${s[0]!.toLowerCase()}${s.slice(1)}` });
   else s = s[0]!.toUpperCase() + s.slice(1);
   return /[.!?…]$/u.test(s) ? s : `${s}.`;
 }
@@ -182,7 +183,7 @@ export function writeReply(letter: WishLetter, letterId: string): WishReply {
     if (aside) paragraphs.push(aside);
   } else {
     const n = wordCount(letter.text);
-    if (n > 0) paragraphs.push(fill(pick(WISHES_WORDS, rand), { ...vars, words: n === 1 ? 'one word' : `${n} words` }));
+    if (n > 0) paragraphs.push(fill(pick(WISHES_WORDS, rand), { ...vars, words: n === 1 ? 'one word' : plural(n, { one: '{n} word', other: '{n} words' }) }));
   }
 
   const kind = kindQuote(letter.kind);

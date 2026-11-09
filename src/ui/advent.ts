@@ -6,7 +6,7 @@
 import type { AppContext } from '../app/context';
 import type { AdventDoor } from '../content/types';
 import type { CivilDate } from '../dates/civil';
-import { fmt } from './copy';
+import { fill, plural } from '../i18n/index';
 import { h } from './dom';
 import { adventKey, doorState, sleepsUntilDoor, type DoorState } from './sections';
 
@@ -14,10 +14,9 @@ const KIND_EMOJI: Record<AdventDoor['kind'], string> = { fact: '💡', joke: '�
 const KIND_LABEL: Record<AdventDoor['kind'], string> = { fact: 'A fact', joke: 'A joke', craft: 'A tiny craft' };
 
 function doorLabel(day: number, state: DoorState, isToday: boolean): string {
-  const base = fmt('adventDoor', { day });
-  if (state === 'locked') return `${base}, not yet`;
-  if (state === 'opened') return `${base}, open`;
-  return isToday ? `${base}, open it today!` : `${base}, ready to open`;
+  if (state === 'locked') return fill('Door {day}, not yet', { day });
+  if (state === 'opened') return fill('Door {day}, open', { day });
+  return isToday ? fill('Door {day}, open it today!', { day }) : fill('Door {day}, ready to open', { day });
 }
 
 export function adventStrip(ctx: AppContext, doors: readonly AdventDoor[], today: CivilDate): HTMLElement {
@@ -28,7 +27,7 @@ export function adventStrip(ctx: AppContext, doors: readonly AdventDoor[], today
 
   const show = (door: AdventDoor): void => {
     peek.replaceChildren(
-      h('p', { class: 'door-peek-kind' }, h('span', { 'aria-hidden': 'true' }, KIND_EMOJI[door.kind], ' '), `${fmt('adventDoor', { day: door.day })} · ${KIND_LABEL[door.kind]}`),
+      h('p', { class: 'door-peek-kind' }, h('span', { 'aria-hidden': 'true' }, KIND_EMOJI[door.kind], ' '), fill('Door {day}', { day: door.day }), ' · ', KIND_LABEL[door.kind]),
       h('p', { class: 'door-peek-text' }, door.text),
     );
   };
@@ -50,7 +49,7 @@ export function adventStrip(ctx: AppContext, doors: readonly AdventDoor[], today
       const door = byDay.get(day);
       if (state === 'locked') {
         const n = sleepsUntilDoor(day, today);
-        peek.replaceChildren(h('p', { class: 'door-peek-text' }, h('span', { 'aria-hidden': 'true' }, '🤫 '), fmt('notYet', { n })));
+        peek.replaceChildren(h('p', { class: 'door-peek-text' }, h('span', { 'aria-hidden': 'true' }, '🤫 '), plural(n, { one: 'Not yet! {n} more sleep', other: 'Not yet! {n} more sleeps' })));
         if (ctx.motion === 'full') {
           btn.classList.remove('is-shaking');
           void btn.offsetWidth; // restart the shake

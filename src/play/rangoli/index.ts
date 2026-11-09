@@ -8,6 +8,7 @@
  * layouts. Esc goes back. Motion: full → the powder puffs in; otherwise it just appears.
  */
 import './rangoli.css';
+import { visible } from '../../i18n/index';
 import { h, svg } from '../../ui/dom';
 import { createShell, fill, wireGroup } from '../spooky/kit';
 import type { Activity, ActivityInstance, PlayEnv } from '../types';
@@ -28,14 +29,14 @@ export const COPY = {
   swatchLabel: '{color} powder',
   layoutLabel: '{layout} pattern',
   groupLabel: 'Ring {ring} of 5, {shape} {n}, {state}. Press to pour {color}.',
-  stateEmpty: 'empty',
+  stateEmpty: visible({ empty: 'empty' }).empty,
   stateFilled: 'filled with {color}',
   poured: '{color} poured in all 8 places.',
   undo: 'Undo',
   clear: 'Clear',
   undone: 'Undone.',
   cleared: 'All clear. Start a new pattern!',
-  shapeNames: { petal: 'petal', dot: 'dot', diamond: 'diamond' },
+  shapeNames: visible({ petal: 'petal', dot: 'dot', diamond: 'diamond' }),
 } as const;
 
 export const rangoliActivity: Activity = {

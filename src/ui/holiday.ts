@@ -21,6 +21,7 @@ import { nextOccurrence, nextThree, previousOccurrence, type NextResult, type Oc
 import { kinaraLit } from '../effects/kinara-order';
 import { THEMES } from '../theme/themes';
 import { adventStrip } from './advent';
+import { fill, plural } from '../i18n/index';
 import { COPY, SECTION_LABELS, VIEW_NAMES, fmt } from './copy';
 import { craftCard } from './craft';
 import { datesBody, howWeKnow } from './dates';
@@ -73,7 +74,7 @@ function unknownHoliday(ctx: AppContext): ViewInstance {
 
 function loadingCard(meta: HolidayMeta): HTMLElement {
   return h('div', { class: 'card card-pad stack center holiday-loading', role: 'status' },
-    mascot('curious', 84), h('p', { class: 'lead' }, `Opening the ${meta.name} page…`));
+    mascot('curious', 84), h('p', { class: 'lead' }, fill('Opening the {name} page…', { name: meta.name })));
 }
 
 function errorCard(retry: () => void): HTMLElement {
@@ -106,7 +107,7 @@ function candle(lit: boolean, cls: string): HTMLElement {
  * never shows two different candle patterns for the same night.
  */
 function candleRow(panel: NonNullable<DayPanel['candles']>): HTMLElement {
-  const row = h('div', { class: 'candles', role: 'img', 'aria-label': `${panel.lit} of ${panel.of} candles lit` });
+  const row = h('div', { class: 'candles', role: 'img', 'aria-label': plural(panel.of, { one: '{lit} of {n} candle lit', other: '{lit} of {n} candles lit' }, { lit: panel.lit }) });
   if (panel.of === 8) {
     for (let i = 0; i < 8; i++) {
       if (i === 4) row.append(candle(true, 'c-shamash'));
@@ -131,7 +132,7 @@ function dayPanelBlock(meta: HolidayMeta, panel: DayPanel): HTMLElement {
     h('h3', { class: 'daypanel-headline' }, panel.headline),
     panel.candles ? candleRow(panel.candles) : null,
     panel.detail ? h('p', { class: 'daypanel-detail' }, panel.detail) : null,
-    panel.progress !== null ? meter(panel.progress, `How far through ${meta.name}`) : null,
+    panel.progress !== null ? meter(panel.progress, fill('How far through {name}', { name: meta.name })) : null,
   );
 }
 
@@ -200,7 +201,7 @@ function playTiles(meta: HolidayMeta): Child[] {
       h('span', { class: 'hp-label' }, p.label)));
   const special = holidayGamesFor(meta.id);
   return [
-    h('ul', { class: 'hp-grid', 'aria-label': `Games and toys for ${meta.name}` }, ...playLinksFor(meta.id).map(button)),
+    h('ul', { class: 'hp-grid', 'aria-label': fill('Games and toys for {name}', { name: meta.name }) }, ...playLinksFor(meta.id).map(button)),
     special ? h('h3', { class: 'hp-games-title' }, special.heading) : null,
     special ? h('ul', { class: 'hp-grid hp-games', 'aria-label': special.heading }, ...special.links.map(button)) : null,
   ];
@@ -240,7 +241,7 @@ interface PillBar { readonly el: HTMLElement; watch(sections: readonly HTMLEleme
 /** Anchor links (shareable `?s=` URLs) that scroll in place; the pill of the section on screen is marked current. */
 function pillBar(ctx: AppContext, meta: HolidayMeta, available: readonly PageSection[]): PillBar {
   const pills = new Map<PageSection, HTMLAnchorElement>();
-  const bar = h('nav', { class: 'pillbar', 'aria-label': `${meta.name}: sections` });
+  const bar = h('nav', { class: 'pillbar', 'aria-label': fill('{name}: sections', { name: meta.name }) });
   for (const s of available) {
     const a = h('a', { class: 'pill', href: sectionHref(meta.id, s) }, icon(SECTION_ICONS[s], 18), SECTION_NAMES[s]);
     a.addEventListener('click', (e) => {
@@ -362,7 +363,7 @@ export const holidayView: ViewFactory<'holiday'> = (ctx, route): ViewInstance =>
         h('h2', { class: 'section-title', id: 'sec-advent-title' }, icon('gift', 28), 'Advent calendar'),
         adventStrip(ctx, content.advent, today),
         h('p', { class: 'advent-more' },
-          h('a', { class: 'btn btn-secondary', href: playHref(meta.id, 'doors') }, icon('gift', 20), `See all ${content.advent.length} doors`)))
+          h('a', { class: 'btn btn-secondary', href: playHref(meta.id, 'doors') }, icon('gift', 20), plural(content.advent.length, { one: 'See all {n} door', other: 'See all {n} doors' }))))
       : null;
     body.replaceChildren(pills.el, ...(advent ? [advent] : []), ...sections);
     disposers.push(pills.watch(sections));

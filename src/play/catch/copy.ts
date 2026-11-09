@@ -1,4 +1,6 @@
 /** Every kid-facing string in Catch & Stack (kept here, not in ui/copy.ts). `{n}`/`{noun}` are filled in. */
+import type { PluralForms } from '../../i18n/index';
+
 export const COPY = {
   title: 'Catch & Stack',
   emoji: '🧺',
@@ -19,9 +21,7 @@ export const COPY = {
   paused: 'Taking a breather',
   pausedNote: 'Your game is waiting right here.',
   cocoa: 'Time for cocoa!',
-  caught: 'You caught {n} {noun}!',
   caughtNone: 'The basket had a lovely nap. Want another go?',
-  tower: 'Your tower was {n} {noun} tall!',
   towerNone: 'Everything slid off. Wheee! Want another go?',
   newBest: 'New best!',
   best: 'Your best: {n}',
@@ -59,3 +59,34 @@ export const COPY = {
 export function fill(template: string, vars: Readonly<Record<string, string | number>>): string {
   return template.replace(/\{(\w+)\}/g, (m, k: string) => (k in vars ? String(vars[k]) : m));
 }
+
+/** How tall the tower got, per skin's stacked thing: a whole sentence each, so every language can count its own way. */
+export const TOWERS: Readonly<Record<string, PluralForms>> = {
+  'books': { one: 'Your tower was {n} book tall!', other: 'Your tower was {n} books tall!' },
+  'boxes': { one: 'Your tower was {n} box tall!', other: 'Your tower was {n} boxes tall!' },
+  'cakes': { one: 'Your tower was {n} cake tall!', other: 'Your tower was {n} cakes tall!' },
+  'chocolate bars': { one: 'Your tower was {n} chocolate bar tall!', other: 'Your tower was {n} chocolate bars tall!' },
+  'gift boxes': { one: 'Your tower was {n} gift box tall!', other: 'Your tower was {n} gift boxes tall!' },
+  'gifts': { one: 'Your tower was {n} gift tall!', other: 'Your tower was {n} gifts tall!' },
+  'gold bars': { one: 'Your tower was {n} gold bar tall!', other: 'Your tower was {n} gold bars tall!' },
+  'honey cakes': { one: 'Your tower was {n} honey cake tall!', other: 'Your tower was {n} honey cakes tall!' },
+  'latkes': { one: 'Your tower was {n} latke tall!', other: 'Your tower was {n} latkes tall!' },
+  'lucky boxes': { one: 'Your tower was {n} lucky box tall!', other: 'Your tower was {n} lucky boxes tall!' },
+  'macarons': { one: 'Your tower was {n} macaron tall!', other: 'Your tower was {n} macarons tall!' },
+  'mooncakes': { one: 'Your tower was {n} mooncake tall!', other: 'Your tower was {n} mooncakes tall!' },
+  'pancakes': { one: 'Your tower was {n} pancake tall!', other: 'Your tower was {n} pancakes tall!' },
+  'party boxes': { one: 'Your tower was {n} party box tall!', other: 'Your tower was {n} party boxes tall!' },
+  'pies': { one: 'Your tower was {n} pie tall!', other: 'Your tower was {n} pies tall!' },
+  'presents': { one: 'Your tower was {n} present tall!', other: 'Your tower was {n} presents tall!' },
+  'rainbow cakes': { one: 'Your tower was {n} rainbow cake tall!', other: 'Your tower was {n} rainbow cakes tall!' },
+  'red velvet cakes': { one: 'Your tower was {n} red velvet cake tall!', other: 'Your tower was {n} red velvet cakes tall!' },
+  'rice cakes': { one: 'Your tower was {n} rice cake tall!', other: 'Your tower was {n} rice cakes tall!' },
+  'story books': { one: 'Your tower was {n} story book tall!', other: 'Your tower was {n} story books tall!' },
+  'sweet boxes': { one: 'Your tower was {n} sweet box tall!', other: 'Your tower was {n} sweet boxes tall!' },
+  'sweet breads': { one: 'Your tower was {n} sweet bread tall!', other: 'Your tower was {n} sweet breads tall!' },
+  'sweet cakes': { one: 'Your tower was {n} sweet cake tall!', other: 'Your tower was {n} sweet cakes tall!' },
+  'treat boxes': { one: 'Your tower was {n} treat box tall!', other: 'Your tower was {n} treat boxes tall!' },
+};
+/** The caught things are a list ("snowflakes and presents"), so a language may count them however reads well. */
+export const CAUGHT: PluralForms = { one: 'You caught {n} {noun}!', other: 'You caught {n} {noun}!' };
+export const TOWER_ANY: PluralForms = { one: 'Your tower was {n} piece tall!', other: 'Your tower was {n} pieces tall!' };

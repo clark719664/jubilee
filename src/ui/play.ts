@@ -8,6 +8,7 @@
  */
 import type { ViewFactory } from '../app/context';
 import { loadContent } from '../content/loader';
+import { fill } from '../i18n/index';
 import { hasActivity, loadActivity } from '../play';
 import type { ActivityInstance } from '../play/types';
 import { THEMES } from '../theme/themes';
@@ -35,7 +36,7 @@ export const playView: ViewFactory<'play'> = (ctx, route) => {
   const theme = THEMES[meta.theme];
   ctx.setTheme(theme);
   if (!hasActivity(route.activity)) {
-    return { el: card(`${meta.emoji} Coming soon!`, 'The elves are still building this one. Try another game for now.', `${back}?s=play`, `Back to ${meta.name}`) };
+    return { el: card(fill('{emoji} Coming soon!', { emoji: meta.emoji }), 'The elves are still building this one. Try another game for now.', `${back}?s=play`, fill('Back to {name}', { name: meta.name })) };
   }
 
   const root = h('section', { class: 'play-host', 'aria-busy': 'true' },
@@ -48,9 +49,9 @@ export const playView: ViewFactory<'play'> = (ctx, route) => {
   Promise.all([loadActivity(route.activity), loadContent(route.id)]).then(([activity, content]) => {
     if (disposed) return;
     if (!activity || !activity.available(meta, content)) {
-      const title = activity ? `${activity.emoji} Not for ${meta.name} yet` : `${meta.emoji} Coming soon!`;
-      const body = activity ? `${activity.title} needs pictures this holiday doesn't have yet. Try another game!` : 'The elves are still building this one. Try another game for now.';
-      root.replaceChildren(card(title, body, `${back}?s=play`, `Back to ${meta.name}`));
+      const title = activity ? `${activity.emoji} ${fill('Not for {name} yet', { name: meta.name })}` : fill('{emoji} Coming soon!', { emoji: meta.emoji });
+      const body = activity ? fill("{title} needs pictures this holiday doesn't have yet. Try another game!", { title: activity.title }) : 'The elves are still building this one. Try another game for now.';
+      root.replaceChildren(card(title, body, `${back}?s=play`, fill('Back to {name}', { name: meta.name })));
       root.removeAttribute('aria-busy');
       return;
     }
@@ -63,7 +64,7 @@ export const playView: ViewFactory<'play'> = (ctx, route) => {
     if (!active || active === document.body) focusHeading(root);
   }).catch(() => {
     if (disposed) return;
-    root.replaceChildren(card('Oops, that one tripped over its shoelaces', 'Something went wrong loading this game. Please try again.', back, `Back to ${meta.name}`));
+    root.replaceChildren(card('Oops, that one tripped over its shoelaces', 'Something went wrong loading this game. Please try again.', back, fill('Back to {name}', { name: meta.name })));
     root.removeAttribute('aria-busy');
   });
 

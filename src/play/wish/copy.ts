@@ -13,12 +13,10 @@ export const COPY = {
   wishList: 'Wishes on your paper',
   remove: 'Take {label} off your paper',
   chipAdd: '{label}',
-  chipsGroup: '{title}: {n} pictures. Arrow keys move, Enter or Space picks.',
   chipFull: 'Your paper is full! Tap a picture on it to swap.',
   chosen: '{n} of {max} picked',
   sayAdded: '{label} added. {n} on your paper.',
   sayRemoved: '{label} taken off.',
-  charsLeft: '{n} letters left',
   to: 'To',
   toLabel: 'Who is it for?',
   toPick: 'For {who}',
@@ -57,6 +55,11 @@ export const COPY = {
   sayOpen: '{title}. Pick pictures with the arrow keys and Enter, then write if you like.',
   wordsOnly: 'Just words',
   wishN: 'Wish {n}',
+} as const;
+
+export const COUNTS = {
+  chipsGroup: { one: '{title}: {n} picture. Arrow keys move, Enter or Space picks.', other: '{title}: {n} pictures. Arrow keys move, Enter or Space picks.' },
+  charsLeft: { one: '{n} letter left', other: '{n} letters left' },
 } as const;
 
 export function fill(text: string, vars: Record<string, string | number> = {}): string {

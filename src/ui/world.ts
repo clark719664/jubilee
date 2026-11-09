@@ -22,7 +22,7 @@ import type { MotionMode } from '../effects/types';
 import { THEMES, type Theme } from '../theme/themes';
 import { albumStorage, postcardsReached } from '../world/album';
 import { trackerCards, type TrackerCards } from '../world/cards';
-import { WORLD_COPY, wfmt } from '../world/copy';
+import { WORLD_COPY, WORLD_COUNTS, wfmt } from '../world/copy';
 import { CELEBRATED, holidaysCelebratedIn } from '../world/data/celebrated';
 import { CITIES, flagEmoji, type City } from '../world/data/cities';
 import { countryName } from '../world/data/countries';
@@ -32,7 +32,8 @@ import { globePalette, type GlobeColors } from '../world/palette';
 import { countryAt, countryCenter, isEverywhere } from '../world/shapes';
 import { lunarHintFor, memoHolidays, type WorldHoliday } from '../world/trackers';
 import { deviceZone } from '../world/zones';
-import { COPY, fmt } from './copy';
+import { currentLang, localeFor, plural, t as translate } from '../i18n/index';
+import { COPY } from './copy';
 import { h } from './dom';
 import { icon } from './icons';
 import { santaMission, type SantaMission } from './santa-mission';
@@ -101,7 +102,7 @@ export function mountWorld(host: HTMLElement, deps: WorldDeps): WorldInstance {
   const zoomOut = h('button', { type: 'button', class: 'btn btn-secondary btn-icon', 'aria-label': WORLD_COPY.zoomOut, onclick: () => { globe.zoomBy(1 / 1.5); quiet(); } }, icon('minus', 22));
   const stage = h('div', {
     class: 'world-canvas', tabindex: 0, role: 'group', 'aria-roledescription': 'globe',
-    'aria-label': `${WORLD_COPY.hostLabel}. ${WORLD_COPY.canvasHelp}`,
+    'aria-label': `${translate(WORLD_COPY.hostLabel)}. ${translate(WORLD_COPY.canvasHelp)}`,
   }, canvas, h('div', { class: 'world-zoom' }, zoomIn, zoomOut), bubble);
   // Heads-up panel on the globe while a show (or the real flight or wave) is on.
   const hudEmoji = h('span', { class: 'world-hud-emoji emoji', 'aria-hidden': 'true' });
@@ -150,7 +151,7 @@ export function mountWorld(host: HTMLElement, deps: WorldDeps): WorldInstance {
     album: {
       count: (kind) => albumCount(album.read(), kindOf(kind)),
       open: (kind) => { albumDialog(document.body, album.read(), kindOf(kind), deps.pretending ?? false); },
-      label: (n) => (n > 0 ? `${POSTCARD_COPY.album} (${n})` : POSTCARD_COPY.album),
+      label: (n) => (n > 0 ? `${translate(POSTCARD_COPY.album)} (${n})` : POSTCARD_COPY.album),
       aria: POSTCARD_COPY.albumAria,
     },
   });
@@ -223,7 +224,7 @@ export function mountWorld(host: HTMLElement, deps: WorldDeps): WorldInstance {
       const meta = byId.get(first.id);
       return {
         id, name: WORLD_COPY.todayChip, emoji: '🌍', countries: [...countries],
-        note: wfmt('todayList', { list: hs.map((x) => `${x.emoji} ${x.name}`).join(', ') }),
+        note: wfmt('todayList', { list: hs.map((x) => `${x.emoji} ${translate(x.name)}`).join(', ') }),
         focus: focusOf(first.id), palette: globePalette(meta ? THEMES[meta.theme] : deps.theme),
       };
     }
@@ -252,7 +253,7 @@ export function mountWorld(host: HTMLElement, deps: WorldDeps): WorldInstance {
   }
 
   function renderNote(sel: Selection): void {
-    const names = sel.countries.map(countryName).sort((a, b) => a.localeCompare(b));
+    const names = sel.countries.map((c) => translate(countryName(c))).sort((a, b) => a.localeCompare(b, localeFor(currentLang())));
     const when = sel.id === TODAY ? null : whenText(sel.id);
     note.replaceChildren(
       h('div', { class: 'world-note-head' },
@@ -260,7 +261,7 @@ export function mountWorld(host: HTMLElement, deps: WorldDeps): WorldInstance {
         when ? h('span', { class: 'world-note-when' }, when) : null),
       h('p', {}, sel.note),
       h('details', { class: 'world-places' },
-        h('summary', {}, fmt('world.celebratedIn', { n: names.length })),
+        h('summary', {}, plural(names.length, { one: 'Celebrated in {n} place', other: 'Celebrated in {n} places' })),
         h('p', { class: 'small' }, names.join(', '))),
     );
     if (sel.id !== TODAY) note.append(link(`#/h/${encodeURIComponent(sel.id)}`, wfmt('peek', { name: sel.name }), 'btn btn-secondary'));
@@ -423,12 +424,12 @@ export function mountWorld(host: HTMLElement, deps: WorldDeps): WorldInstance {
     const place = countryAt(c.lon, c.lat)?.name ?? WORLD_COPY.theSea;
     const parts = [mode === 'globe' ? wfmt('globeAria', { place }) : WORLD_COPY.mapAria];
     if (current && live.showing === null) {
-      parts.push(current.id === TODAY ? WORLD_COPY.ariaToday : wfmt('ariaHighlight', { n: current.countries.length, name: current.name }));
+      parts.push(current.id === TODAY ? WORLD_COPY.ariaToday : plural(current.countries.length, WORLD_COUNTS.ariaHighlight, { name: current.name }));
     }
     if (cards.night) parts.push(WORLD_COPY.ariaNight);
     if (live.santa) parts.push(wfmt('ariaSanta', { where: cards.santaWhere() }));
-    if (live.wave) parts.push(wfmt('ariaWave', { n: live.arrived, total: CITIES.length, year: today.m === 1 ? today.y : today.y + 1 }));
-    globe.setLabel(`${parts.join(', ')}.`);
+    if (live.wave) parts.push(plural(CITIES.length, WORLD_COUNTS.ariaWave, { n: live.arrived, total: CITIES.length, year: today.m === 1 ? today.y : today.y + 1 }));
+    globe.setLabel(`${parts.map(translate).join(', ')}.`);
   }
 
   // ── once a second ──

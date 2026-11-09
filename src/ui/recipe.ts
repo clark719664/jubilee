@@ -9,7 +9,7 @@
  *     then "I made it!" → markRecipeDone + badge check + a confetti finish. Esc, the close button or browser Back
  *     close it; focus goes back to the recipe card's Start button. Print prints the recipe card, not the dialog.
  */
-import { currentLang } from '../i18n/index';
+import { currentLang, fill, plural, t as translate } from '../i18n/index';
 import type { AppContext, ViewFactory, ViewInstance } from '../app/context';
 import type { Units } from '../app/format';
 import { formatRoute } from '../app/router';
@@ -58,7 +58,7 @@ function ingredientLine(ing: Ingredient | undefined, units: Units): Child[] {
     allergens.length > 0
       ? h('span', { class: 'ing-allergens' },
         ...allergens.map((a) => icon(ALLERGEN_ICON[a], 18)),
-        h('span', { class: 'sr-only' }, ` (contains ${allergens.map((a) => ALLERGEN_NAMES[a]).join(', ')})`))
+        h('span', { class: 'sr-only' }, ' (', fill('contains {list}', { list: allergens.map((a) => ALLERGEN_NAMES[a]).join(', ') }), ')'))
       : null,
   ];
 }
@@ -192,7 +192,7 @@ function stepMode(ctx: AppContext, meta: HolidayMeta, recipe: Recipe, close: () 
   }, bar);
   const head = h('div', { class: 'stepmode-head sm-head sky' },
     h('button', { class: 'btn btn-icon btn-secondary', type: 'button', 'aria-label': COPY.close, onclick: close }, icon('close', 22)),
-    h('div', { class: 'grow sm-titles' }, h('p', { class: 'sm-kicker' }, `${meta.name} · Step mode`), title),
+    h('div', { class: 'grow sm-titles' }, h('p', { class: 'sm-kicker' }, fill('{name} · Step mode', { name: meta.name })), title),
     h('button', { class: 'btn btn-icon btn-secondary', type: 'button', 'aria-label': COPY.printRecipe, onclick: () => window.print() }, icon('print', 22)),
     h('div', { class: 'sm-progress-row' }, progress, count),
   );
@@ -227,8 +227,8 @@ function stepMode(ctx: AppContext, meta: HolidayMeta, recipe: Recipe, close: () 
     timerText.textContent = view.label;
     timerSub.textContent = t.rang ? COPY.timerDone : t.startedAt !== null ? 'Tap to pause' : view.progress > 0 ? 'Paused · tap to go' : 'Tap to start';
     timerButton.setAttribute('aria-label', t.rang
-      ? `${COPY.timerDone}. Tap to reset the timer.`
-      : t.startedAt !== null ? `Timer running, ${timerWords(view.remainingMs)}. Tap to pause.` : `Start ${minutesToText(t.totalMs / 60_000)} timer`);
+      ? fill('{done}. Tap to reset the timer.', { done: COPY.timerDone })
+      : t.startedAt !== null ? fill('Timer running, {time}. Tap to pause.', { time: timerWords(view.remainingMs) }) : fill('Start {time} timer', { time: minutesToText(t.totalMs / 60_000) }));
   };
 
   const tick = (): void => {
@@ -243,7 +243,7 @@ function stepMode(ctx: AppContext, meta: HolidayMeta, recipe: Recipe, close: () 
         // No sound, ever: a buzz where the device can, and words on screen.
         if (typeof navigator !== 'undefined' && typeof navigator.vibrate === 'function') navigator.vibrate([300, 120, 300]);
         ctx.toast(COPY.timerDone, '⏰');
-        ctx.announce(`${COPY.timerDone} (${fmt('stepOf', { n: i + 1, of: total })})`);
+        ctx.announce(`${translate(COPY.timerDone)} (${translate(fmt('stepOf', { n: i + 1, of: total }))})`);
       } else {
         running = true;
       }
@@ -259,7 +259,7 @@ function stepMode(ctx: AppContext, meta: HolidayMeta, recipe: Recipe, close: () 
     if (t.rang) { t.rang = false; t.elapsed = 0; t.startedAt = null; }
     else if (t.startedAt === null) {
       t.startedAt = now;
-      ctx.announce(`Timer started: ${minutesToText(t.totalMs / 60_000)}`);
+      ctx.announce(fill('Timer started: {time}', { time: minutesToText(t.totalMs / 60_000) }));
       if (!ticker) ticker = window.setInterval(tick, 250);
     } else { t.elapsed += now - t.startedAt; t.startedAt = null; }
     paintTimer();
@@ -306,7 +306,7 @@ function stepMode(ctx: AppContext, meta: HolidayMeta, recipe: Recipe, close: () 
     index = i;
     render();
     const step = steps[index];
-    ctx.announce(`${fmt('stepOf', { n: index + 1, of: total })}. ${step?.adult ? 'Grown-up step. ' : ''}${step?.text ?? ''}`);
+    ctx.announce(`${translate(fmt('stepOf', { n: index + 1, of: total }))}. ${step?.adult ? `${translate('Grown-up step')}. ` : ''}${step?.text !== undefined ? translate(step.text) : ''}`);
   };
 
   const stamp = (): void => {
@@ -351,18 +351,18 @@ function stepMode(ctx: AppContext, meta: HolidayMeta, recipe: Recipe, close: () 
       h('div', { class: 'chef-meter' },
         h('span', { class: 'chef-meter-hat', 'aria-hidden': 'true' }, icon('chefHat', 28)),
         h('div', { class: 'grow' },
-          h('p', { class: 'chef-meter-label' }, have >= need ? `${chef.emoji} ${chef.name} badge: it's yours!` : `${chef.name}: ${have} of ${need} recipes`),
+          h('p', { class: 'chef-meter-label' }, have >= need ? fill("{emoji} {name} badge: it's yours!", { emoji: chef.emoji, name: chef.name }) : plural(need, { one: '{name}: {have} of {n} recipe', other: '{name}: {have} of {n} recipes' }, { name: chef.name, have })),
           h('div', { class: 'meter', role: 'progressbar', 'aria-label': chef.name, 'aria-valuemin': 0, 'aria-valuemax': need, 'aria-valuenow': have }, meterFill),
         ),
       ),
     ));
     nav.replaceChildren(
       h('button', { class: 'btn btn-secondary btn-lg', type: 'button', onclick: restart }, icon('shuffle', 22), 'Make it again'),
-      h('button', { class: 'btn btn-lg', type: 'button', onclick: close }, icon('home', 22), `Back to ${meta.name}`),
+      h('button', { class: 'btn btn-lg', type: 'button', onclick: close }, icon('home', 22), fill('Back to {name}', { name: meta.name })),
     );
     paintProgress();
     count.textContent = COPY.iMadeIt;
-    ctx.announce(`You made it! ${recipe.title}.`);
+    ctx.announce(fill('You made it! {title}.', { title: recipe.title }));
     // The confetti finish: a burst on top of the holiday's own colors (one still frame when motion is calm).
     confetti = new EffectLayer(canvas, body, { seed: 7 });
     confetti.setMotion(ctx.motion);
@@ -418,7 +418,7 @@ function missingRecipe(meta: HolidayMeta): HTMLElement {
     h('div', { class: 'card card-pad stack center' },
       mascot('curious', 110),
       h('h1', { class: 'h1' }, 'That recipe is hiding'),
-      h('p', { class: 'lead' }, `We can't find it, but ${meta.name} has other things to make.`),
+      h('p', { class: 'lead' }, fill("We can't find it, but {name} has other things to make.", { name: meta.name })),
       h('a', { class: 'btn', href: formatRoute({ view: 'holiday', id: meta.id, section: 'make' }) }, icon('back', 20), meta.name),
     ),
   );

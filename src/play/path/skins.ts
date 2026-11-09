@@ -118,3 +118,15 @@ export function focusColor(theme: Theme): string {
   const ok = (c: string): boolean => ringSurfaces(theme).every((bg) => contrastRatio(c, bg) >= 3);
   return ok(theme.glow) ? theme.glow : theme.ink;
 }
+
+/** Skin words again with a capital first letter, for the start of a sentence. */
+const CAPITAL: Readonly<Record<string, string>> = {
+  'deliver': 'Deliver', 'gather': 'Gather', 'light': 'Light', 'hand out': 'Hand out',
+  'put a pumpkin on': 'Put a pumpkin on', 'pick up': 'Pick up', 'collect': 'Collect',
+  'the cozy house': 'The cozy house', 'the house': 'The house', 'the front door': 'The front door',
+  'the moon gate': 'The moon gate', 'the basket': 'The basket', 'the arch': 'The arch', 'the cottage': 'The cottage',
+  'snowmen': 'Snowmen', 'flower pots': 'Flower pots', 'lantern posts': 'Lantern posts', 'hay bales': 'Hay bales',
+  'bushes': 'Bushes', 'rocks': 'Rocks', 'big pots': 'Big pots',
+};
+
+export const capitalOf = (word: string): string => CAPITAL[word] ?? word.charAt(0).toUpperCase() + word.slice(1);

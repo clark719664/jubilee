@@ -20,6 +20,7 @@ import type { Occurrence, Status, Upcoming } from '../dates/occurrences';
 import { EffectLayer } from '../effects/layer';
 import type { Theme } from '../theme/themes';
 import { THEMES } from '../theme/themes';
+import { t as translate } from '../i18n/index';
 import { COPY, fmt, VIEW_NAMES } from './copy';
 import { h } from './dom';
 import { mountHero, seedFor, type HeroInstance } from './hero';
@@ -88,7 +89,7 @@ function nextLink(next: { readonly meta: HolidayMeta; readonly upcoming: Upcomin
   const when = nextWhen(next.upcoming);
   return h('a', {
     class: 'btn btn-secondary hero-next', href: formatRoute({ view: 'holiday', id: next.meta.id }),
-    'aria-label': `${COPY.seeWhatsNext}: ${next.meta.name}, ${when}`,
+    'aria-label': `${translate(COPY.seeWhatsNext)}: ${translate(next.meta.name)}, ${translate(when)}`,
   }, COPY.seeWhatsNext, h('span', { class: 'emoji', 'aria-hidden': 'true' }, next.meta.emoji), icon('arrowRight', 20));
 }
 

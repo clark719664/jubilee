@@ -21,6 +21,7 @@ import { commaNumber, pluralSleeps } from '../app/format';
 import type { HolidayMeta } from '../content/types';
 import { finalDayBreakdown, labelFor, type Breakdown } from '../dates/countdown';
 import type { Occurrence, Status } from '../dates/occurrences';
+import { fill, list, plural, t } from '../i18n/index';
 import { COPY, fmt, milestoneCopy } from './copy';
 import { h, svg } from './dom';
 import { icon } from './icons';
@@ -80,15 +81,18 @@ export function isNewYearsEveClock(meta: Pick<HolidayMeta, 'id'>, status: Status
 
 /** "sleeps until Halloween" (the number sits beside it). */
 export function sleepsLabel(sleeps: number, name: string): string {
-  return fmt('sleepsUntil', { sleeps: sleeps === 1 ? COPY.sleepsOne : COPY.sleepsMany, name });
+  return plural(sleeps, { one: 'sleep until {name}', other: 'sleeps until {name}' }, { name });
 }
 
 function dayNameOf(meta: Pick<HolidayMeta, 'dayNames'>, day: number): string | null {
   return meta.dayNames?.[day - 1] ?? null;
 }
 
+/** "Halloween: IT'S TODAY!" — each piece is translated first, since the joined line is not a string the dictionary knows. */
+const said = (name: string, what: string): string => `${t(name)}: ${t(what)}`;
+
 function sentence(...parts: (string | null)[]): string {
-  return parts.filter((p): p is string => p !== null && p !== '').join('. ').replace(/([!?.…])\./g, '$1');
+  return parts.filter((p): p is string => p !== null && p !== '').map(t).join('. ').replace(/([!?.…])\./g, '$1');
 }
 
 function sleepsModel(meta: HolidayMeta, sleeps: number, todayName: string | null): CounterModel {
@@ -107,34 +111,34 @@ function sleepsModel(meta: HolidayMeta, sleeps: number, todayName: string | null
  */
 export function counterModel(meta: HolidayMeta, occ: Occurrence, status: Status): CounterModel {
   if (isNewYearsEveClock(meta, status)) {
-    return { kind: 'clock', label: UNTIL_MIDNIGHT, speech: `${meta.name}: ${COPY.itsToday}` };
+    return { kind: 'clock', label: UNTIL_MIDNIGHT, speech: said(meta.name, COPY.itsToday) };
   }
   switch (status.kind) {
     case 'upcoming':
       return sleepsModel(meta, status.sleeps, null);
     case 'passed': {
       const label = labelFor(status, meta);
-      return { kind: 'passed', label, speech: `${meta.name}: ${label}` };
+      return { kind: 'passed', label, speech: said(meta.name, label) };
     }
     case 'ongoing': {
       const name = dayNameOf(meta, status.day);
       if (status.tonight || status.sleepsToMain === 0) {
         const word = status.tonight ? COPY.tonight : COPY.itsToday;
         const dayLabel = name ?? (status.of > 1 ? fmt('dayOf', { day: status.day, of: status.of }) : null);
-        return { kind: 'today', tonight: status.tonight, word, dayLabel, speech: sentence(`${meta.name}: ${word}`, dayLabel) };
+        return { kind: 'today', tonight: status.tonight, word, dayLabel, speech: sentence(said(meta.name, word), dayLabel) };
       }
       if (status.sleepsToMain > 0) return sleepsModel(meta, status.sleepsToMain, name ?? fmt('dayOf', { day: status.day, of: status.of }));
       if (occ.beginsAtSundown) {
         if (status.day >= status.of) {
           const label = name ?? fmt('lastDay', { name: meta.name });
-          return { kind: 'day', day: null, label, dayName: null, speech: `${meta.name}: ${label}` };
+          return { kind: 'day', day: null, label, dayName: null, speech: said(meta.name, label) };
         }
         const label = fmt('nightOf', { night: status.day, of: status.of - 1 });
         const dayName = name !== null && name !== `Night ${status.day}` ? name : null;
-        return { kind: 'day', day: status.day, label, dayName, speech: sentence(`${meta.name}: ${label}`, dayName) };
+        return { kind: 'day', day: status.day, label, dayName, speech: sentence(said(meta.name, label), dayName) };
       }
       const label = fmt('dayOf', { day: status.day, of: status.of });
-      return { kind: 'day', day: status.day, label, dayName: name, speech: sentence(`${meta.name}: ${label}`, name) };
+      return { kind: 'day', day: status.day, label, dayName: name, speech: sentence(said(meta.name, label), name) };
     }
   }
 }
@@ -168,20 +172,21 @@ export function clockAnnounceKey(total: number): string | null {
   return `m${Math.ceil(total / 60)}`;
 }
 
-const plural = (n: number, one: string, many: string): string => `${n} ${n === 1 ? one : many}`;
-
 /** The words the live region says for the clock ("7 hours and 12 minutes until midnight", "3!"). */
 export function clockSpeech(b: Breakdown, name?: string): string {
   const total = totalSeconds(b);
   if (total <= 0) return happyNewYear(name);
-  if (total === GIANT_SECONDS) return `${GIANT_SECONDS} seconds to midnight!`;
+  if (total === GIANT_SECONDS) return plural(GIANT_SECONDS, { one: '{n} second to midnight!', other: '{n} seconds to midnight!' });
   if (total < GIANT_SECONDS) return `${total}!`;
-  if (total < 60) return `${plural(total, 'second', 'seconds')} until midnight`;
+  if (total < 60) return plural(total, { one: '{n} second until midnight', other: '{n} seconds until midnight' });
   const minutes = Math.ceil(total / 60);
   const hours = Math.floor(minutes / 60);
   const rest = minutes % 60;
-  const parts = [hours > 0 ? plural(hours, 'hour', 'hours') : '', rest > 0 ? plural(rest, 'minute', 'minutes') : ''].filter(Boolean);
-  return `${parts.join(' and ')} until midnight`;
+  const parts = [
+    hours > 0 ? plural(hours, { one: '{n} hour', other: '{n} hours' }) : '',
+    rest > 0 ? plural(rest, { one: '{n} minute', other: '{n} minutes' }) : '',
+  ].filter(Boolean);
+  return fill('{time} until midnight', { time: list(parts) });
 }
 
 /** "Happy New Year, Maya!" */

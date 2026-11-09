@@ -3,6 +3,7 @@
  * (`MonsterSpec`) the Fridge keeps as data; `drawMonster` rebuilds the picture anywhere. Every monster is
  * cuddly: round shapes, big shiny eyes with a catchlight, a smile somewhere, soft cheeks, friendly teeth.
  */
+import { fill } from '../../i18n/index';
 import { build, cheek, uid, type Spec } from '../spooky/draw';
 
 export interface MonsterSpec {
@@ -87,14 +88,37 @@ export function randomMonster(rand: () => number): MonsterSpec {
 }
 
 export function monsterTitle(spec: MonsterSpec): string {
-  return `${spec.name} the monster`;
+  return fill('{name} the monster', { name: spec.name });
 }
 
+/** Each part name again in lower case, for the middle of a sentence. */
+const LOWER: Readonly<Record<string, string>> = {
+  'Blobby body': 'blobby body', 'Tall body': 'tall body', 'Round body': 'round body', 'Squarey body': 'squarey body',
+  'Bean body': 'bean body', 'One big eye': 'one big eye', 'Two eyes': 'two eyes', 'Three eyes': 'three eyes',
+  'Four eyes': 'four eyes', 'Big smile': 'big smile', 'Toothy grin': 'toothy grin', 'Surprised “oh”': 'surprised “oh”',
+  'Tongue out': 'tongue out', 'Friendly fangs': 'friendly fangs', 'Buck teeth': 'buck teeth',
+  'Wavy mouth': 'wavy mouth', 'Tiny smile': 'tiny smile', 'Nothing on top': 'nothing on top',
+  'Little horns': 'little horns', 'Antennae': 'antennae', 'Floppy ears': 'floppy ears', 'Hair tuft': 'hair tuft',
+  'Soft bumps': 'soft bumps', 'Plain': 'plain', 'Spots': 'spots', 'Stripes': 'stripes', 'Tummy patch': 'tummy patch',
+  'Purple': 'purple', 'Lime': 'lime', 'Teal': 'teal', 'Pink': 'pink', 'Blue': 'blue', 'Orange': 'orange',
+  'Yellow': 'yellow', 'Berry': 'berry',
+};
+
 export function describeMonster(spec: MonsterSpec): string {
-  const name = (list: readonly Part[], id: string): string => (list.find((p) => p.id === id)?.name ?? id).toLowerCase();
-  const top = spec.top === 'none' ? '' : `, with ${name(TOPS, spec.top)}`;
-  const pat = spec.pattern === 'none' ? '' : ` and ${name(PATTERNS, spec.pattern)}`;
-  return `${spec.name}, a ${name(COLORS, spec.color)} monster with a ${name(BODIES, spec.body)}, ${name(EYES, spec.eyes)} and a ${name(MOUTHS, spec.mouth)}${top}${pat}`;
+  const name = (list: readonly Part[], id: string): string => {
+    const text = list.find((p) => p.id === id)?.name ?? id;
+    return LOWER[text] ?? text.toLowerCase();
+  };
+  const vars = {
+    name: spec.name, color: name(COLORS, spec.color), body: name(BODIES, spec.body), eyes: name(EYES, spec.eyes),
+    mouth: name(MOUTHS, spec.mouth), top: name(TOPS, spec.top), pattern: name(PATTERNS, spec.pattern),
+  };
+  const topped = spec.top !== 'none';
+  const marked = spec.pattern !== 'none';
+  if (topped && marked) return fill('{name}, a {color} monster with a {body}, {eyes} and a {mouth}, with {top} and {pattern}', vars);
+  if (topped) return fill('{name}, a {color} monster with a {body}, {eyes} and a {mouth}, with {top}', vars);
+  if (marked) return fill('{name}, a {color} monster with a {body}, {eyes} and a {mouth} and {pattern}', vars);
+  return fill('{name}, a {color} monster with a {body}, {eyes} and a {mouth}', vars);
 }
 
 // ── drawing (a 200 × 240 board; feet at y ≈ 212) ──

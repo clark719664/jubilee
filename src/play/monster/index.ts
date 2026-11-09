@@ -14,7 +14,7 @@ import './monster.css';
 import { mulberry32 } from '../../effects/rng';
 import { h } from '../../ui/dom';
 import { icon } from '../../ui/icons';
-import { createShell, keepOnFridge, pick, wireGroup } from '../spooky/kit';
+import { createShell, fill, keepOnFridge, pick, wireGroup } from '../spooky/kit';
 import type { Activity, ActivityInstance, PlayEnv } from '../types';
 import {
   BODIES, COLORS, DEFAULT_MONSTER, EYES, MOUTHS, PATTERNS, TOPS, describeMonster, drawMonster, monsterName, monsterTitle, partPreview, randomMonster, withPart,
@@ -125,7 +125,7 @@ function mountMonster(env: PlayEnv): ActivityInstance {
     redraw();
     renderOptions(true);
     bounce('is-bounce', 520);
-    ctx.announce(`${p.name} chosen`);
+    ctx.announce(fill('{name} chosen', { name: p.name }));
   }
 
   function speak(text: string): void {
@@ -138,7 +138,7 @@ function mountMonster(env: PlayEnv): ActivityInstance {
   }
 
   function hello(): void {
-    speak(pick(COPY.hellos, rand).replace('{name}', spec.name));
+    speak(fill(pick(COPY.hellos, rand), { name: spec.name }));
     bounce('is-wiggle', 700);
   }
 
@@ -147,13 +147,13 @@ function mountMonster(env: PlayEnv): ActivityInstance {
     redraw();
     renderOptions();
     bounce('is-bounce', 520);
-    speak(`Meet ${spec.name}!`);
+    speak(fill('Meet {name}!', { name: spec.name }));
   }
 
   function rename(): void {
     spec = { ...spec, name: monsterName(rand) };
     redraw();
-    speak(`Call me ${spec.name}!`);
+    speak(fill('Call me {name}!', { name: spec.name }));
   }
 
   function keep(): void {

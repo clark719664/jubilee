@@ -9,6 +9,7 @@
  */
 import './dreidel.css';
 import { mulberry32 } from '../../effects/rng';
+import { plural } from '../../i18n/index';
 import { h } from '../../ui/dom';
 import { icon } from '../../ui/icons';
 import { createShell, fill } from '../spooky/kit';
@@ -26,8 +27,6 @@ export const COPY = {
   you: 'You',
   jubi: 'Jubi',
   pot: 'Pot',
-  coin: '{n} coin',
-  coins: '{n} coins',
   scoreLabel: 'You have {you}. Jubi has {jubi}. The pot has {pot}.',
   spin: 'Spin',
   spinning: 'Spinning…',
@@ -85,7 +84,7 @@ export const dreidelActivity: Activity = {
 export const SPIN_MS = 1300;
 export const PAUSE_MS = 1700;
 
-const coinWord = (n: number): string => fill(n === 1 ? COPY.coin : COPY.coins, { n });
+const coinWord = (n: number): string => plural(n, { one: '{n} coin', other: '{n} coins' });
 
 function mountDreidel(env: PlayEnv): ActivityInstance {
   const { ctx } = env;

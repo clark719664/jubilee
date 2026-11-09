@@ -4,6 +4,8 @@
  * blending the corners of a red-yellow-blue color cube; white drops lighten and night ink darkens.
  * Every mix has a friendly name, and the orders friends ask for are all makeable in a few drops.
  */
+import { fill, list, plural, type PluralForms } from '../../i18n/index';
+
 export type Drop = 'red' | 'yellow' | 'blue' | 'white' | 'ink';
 export const DROPS: readonly Drop[] = ['red', 'yellow', 'blue', 'white', 'ink'];
 export type Mix = Readonly<Record<Drop, number>>;
@@ -74,6 +76,21 @@ function hsl(c: Rgb): { h: number; s: number; l: number } {
   return { h, s, l };
 }
 
+const LIGHT: Readonly<Record<string, string>> = {
+  Red: 'Light red', Orange: 'Light orange', Brown: 'Light brown', Green: 'Light green',
+  Teal: 'Light teal', Blue: 'Light blue', Purple: 'Light purple', Raspberry: 'Light raspberry',
+};
+
+/** Every color name again in lower case, for the middle of a sentence ("The potion is light blue."). */
+const LOWER: Readonly<Record<string, string>> = {
+  Water: 'water', Midnight: 'midnight', White: 'white', 'Dark gray': 'dark gray', Gray: 'gray', Pink: 'pink', Yellow: 'yellow',
+  Lime: 'lime', Red: 'red', Orange: 'orange', Brown: 'brown', Green: 'green', Teal: 'teal', Blue: 'blue', Purple: 'purple',
+  Raspberry: 'raspberry', 'Light red': 'light red', 'Light orange': 'light orange', 'Light brown': 'light brown',
+  'Light green': 'light green', 'Light teal': 'light teal', 'Light blue': 'light blue', 'Light purple': 'light purple',
+  'Light raspberry': 'light raspberry',
+};
+export const lowerName = (name: string): string => LOWER[name] ?? name.toLowerCase();
+
 /** A friendly name for a color: "Orange", "Light blue", "Pink", "Midnight"… */
 export function colorName(c: Rgb): string {
   const { h, s, l } = hsl(c);
@@ -92,7 +109,7 @@ export function colorName(c: Rgb): string {
   else if (h < 258) name = 'Blue';
   else if (h < 300) name = 'Purple';
   else name = l < 0.6 ? 'Raspberry' : 'Pink';
-  if (l > 0.76 && name !== 'Pink' && name !== 'Yellow' && name !== 'Lime') return `Light ${name.toLowerCase()}`;
+  if (l > 0.76 && name !== 'Pink' && name !== 'Yellow' && name !== 'Lime') return LIGHT[name] ?? name;
   if (name === 'Brown' && l > 0.5) return 'Orange';
   return name;
 }
@@ -127,7 +144,11 @@ export function nextOrder(rand: () => number, last: string | null): Order {
 export function hintFor(o: Order): string {
   const counts = new Map<Drop, number>();
   for (const d of o.recipe) counts.set(d, (counts.get(d) ?? 0) + 1);
-  const label: Readonly<Record<Drop, string>> = { red: 'red', yellow: 'yellow', blue: 'blue', white: 'white', ink: 'night ink' };
-  const parts = [...counts].map(([d, n]) => (n > 1 ? `${n} ${label[d]}` : `1 ${label[d]}`));
-  return `Try ${parts.length > 1 ? `${parts.slice(0, -1).join(', ')} and ${parts[parts.length - 1]}` : parts[0]}.`;
+  const label: Readonly<Record<Drop, PluralForms>> = {
+    red: { one: '{n} red', other: '{n} red' }, yellow: { one: '{n} yellow', other: '{n} yellow' },
+    blue: { one: '{n} blue', other: '{n} blue' }, white: { one: '{n} white', other: '{n} white' },
+    ink: { one: '{n} night ink', other: '{n} night ink' },
+  };
+  const parts = [...counts].map(([d, n]) => plural(n, label[d]));
+  return fill('Try {list}.', { list: list(parts) });
 }

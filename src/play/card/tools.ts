@@ -206,7 +206,7 @@ export class Tools {
       const text = g?.text ?? fill(COPY.greetingHappy, { holiday: this.meta.name });
       const b = h('button', { type: 'button', class: 'cm-greet', 'aria-pressed': 'false', onclick: () => this.ctl.setGreeting(g) },
         h('span', { class: 'cm-greet-text', lang: g?.lang ?? 'en', dir: 'auto' }, text),
-        g?.roman ? h('span', { class: 'cm-greet-roman' }, g.roman) : null,
+        g?.roman ? h('span', { class: 'cm-greet-roman', translate: 'no' }, g.roman) : null,
         h('span', { class: 'cm-greet-lang' }, g?.langName ?? COPY.english));
       this.greetBtns.push({ b, g });
       const row = h('div', { class: 'cm-greet-row' }, b);

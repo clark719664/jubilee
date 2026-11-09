@@ -15,6 +15,7 @@ import { formatRoute } from '../app/router';
 import { traditionsVisited } from '../app/stickers';
 import { stickerLabel } from '../content/registry';
 import { formatIso, formatLong, parseIso, type IsoDate } from '../dates/civil';
+import { fill, t as translate } from '../i18n/index';
 import { COPY, fmt, SEASON_LABELS, VIEW_NAMES } from './copy';
 import { h } from './dom';
 import { icon } from './icons';
@@ -53,7 +54,7 @@ function stickerEl(e: StickerEntry, year: number, todayIso: IsoDate, locale: str
   const when = e.earned ? parseIso(e.earned) : null;
   return h('a', {
     class: cls.join(' '), href: formatRoute({ view: 'holiday', id: e.meta.id }),
-    'aria-label': `${label}, ${e.meta.name}: ${status}`,
+    'aria-label': `${translate(label)}, ${translate(e.meta.name)}: ${translate(status)}`,
     ...(when ? { title: formatLong(when, locale, { year: true }) } : {}),
   },
     h('span', { class: 'sticker-emoji emoji', 'aria-hidden': 'true' }, e.meta.sticker.emoji),
@@ -79,7 +80,7 @@ function badgeEl(row: BadgeRow, locale: string): HTMLElement {
     h('h3', { class: 'badge-name' }, row.copy.name),
     h('p', { class: 'badge-desc' }, row.copy.description),
     h('div', {
-      class: 'meter', role: 'progressbar', 'aria-label': `${row.copy.name} progress`,
+      class: 'meter', role: 'progressbar', 'aria-label': fill('{name} progress', { name: row.copy.name }),
       'aria-valuemin': 0, 'aria-valuemax': 100, 'aria-valuenow': row.percent, 'aria-valuetext': meterText,
     }, h('i', { style: `--p:${row.percent}%` })),
     h('p', { class: 'small' }, meterText),

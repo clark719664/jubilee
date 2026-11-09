@@ -2,6 +2,7 @@
  * storage.ts — every localStorage key the activities use, in one place, so the grown-ups page can list
  * exactly what is kept on this device and "Reset everything" really clears everything.
  */
+import { fill } from '../i18n/index';
 export interface PlayStoreKey { readonly key: string; readonly label: string }
 
 export const PLAY_STORAGE: readonly PlayStoreKey[] = [
@@ -48,7 +49,7 @@ export function playStorageLines(storage: KeyValueStore | null = defaultStorage(
     try { raw = storage.getItem(key); } catch { raw = null; }
     if (raw === null) continue;
     const n = countOf(raw);
-    out.push(`${label}: ${n === null ? 'saved' : `${n} saved`}`);
+    out.push(n === null ? fill('{label}: saved', { label }) : fill('{label}: {n} saved', { label, n }));
   }
   return out;
 }

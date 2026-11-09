@@ -6,6 +6,7 @@
  * than exact; a child measuring 7 ml instead of 7.5 ml is still making the recipe.
  */
 import type { Ingredient, Measure, Unit } from '../content/types';
+import { fill, plural, type PluralForms } from '../i18n/index';
 
 export type Units = 'us' | 'metric';
 
@@ -28,17 +29,18 @@ export function commaNumber(n: number): string {
 
 /** "1 sleep", "2 sleeps", "1,096 sleeps". */
 export function pluralSleeps(n: number): string {
-  return `${commaNumber(n)} ${n === 1 ? 'sleep' : 'sleeps'}`;
+  return plural(n, { one: '{n} sleep', other: '{n} sleeps' }, { n: commaNumber(n) });
 }
 
 /** "5 min", "45 min", "1 hour", "1 hour 30 min", "2 hours". */
 export function minutesToText(minutes: number): string {
   const m = Math.max(0, Math.round(minutes));
-  if (m < 60) return `${m} min`;
+  const mins = (n: number): string => plural(n, { one: '{n} min', other: '{n} min' });
+  if (m < 60) return mins(m);
   const h = Math.floor(m / 60);
   const rest = m % 60;
-  const hours = `${h} ${h === 1 ? 'hour' : 'hours'}`;
-  return rest === 0 ? hours : `${hours} ${rest} min`;
+  const hours = plural(h, { one: '{n} hour', other: '{n} hours' });
+  return rest === 0 ? hours : fill('{hours} {minutes}', { hours, minutes: mins(rest) });
 }
 
 // ───────────────────────────────────────────────────────────── measures
@@ -125,23 +127,27 @@ export function fractionText(qty: number): string {
 
 /** Unit word for a quantity; pieces are implied ("2 bananas"), so 'piece' returns ''. */
 export function unitLabel(unit: Unit, qty: number): string {
-  const one = qty <= 1;
-  switch (unit) {
-    case 'cup': return one ? 'cup' : 'cups';
-    case 'piece': return '';
-    case 'pinch': return one ? 'pinch' : 'pinches';
-    case 'slice': return one ? 'slice' : 'slices';
-    case 'can': return one ? 'can' : 'cans';
-    case 'sheet': return one ? 'sheet' : 'sheets';
-    default: return unit;
-  }
+  const words = UNIT_WORDS[unit];
+  if (words) return plural(qty, words, { n: '' }).trim();
+  return unit === 'piece' ? '' : unit;
 }
+
+const UNIT_WORDS: Partial<Record<Unit, PluralForms>> = {
+  cup: { one: '{n} cup', other: '{n} cups' },
+  tbsp: { one: '{n} tbsp', other: '{n} tbsp' },
+  tsp: { one: '{n} tsp', other: '{n} tsp' },
+  pinch: { one: '{n} pinch', other: '{n} pinches' },
+  slice: { one: '{n} slice', other: '{n} slices' },
+  can: { one: '{n} can', other: '{n} cans' },
+  sheet: { one: '{n} sheet', other: '{n} sheets' },
+};
 
 /** "1½ cups", "240 ml", "2", "1 pinch". */
 export function formatMeasureText(m: Measure): string {
   const qty = isMetricUnit(m.unit) ? String(Math.round(m.qty)) : fractionText(m.qty);
-  const label = unitLabel(m.unit, m.qty);
-  return label ? `${qty} ${label}` : qty;
+  const words = UNIT_WORDS[m.unit];
+  if (words) return plural(m.qty, words, { n: qty });
+  return m.unit === 'piece' ? qty : `${qty} ${m.unit}`;
 }
 
 /** The ingredient's measure in the requested system, deriving the missing side when only one was authored. '' when none. */

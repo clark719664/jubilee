@@ -11,17 +11,18 @@
  * Keyboard: Tab to a bottle, Enter/Space drops it in; Esc goes back.
  * Motion: full → drops fall, bubbles rise, the liquid ripples; otherwise the color simply changes.
  */
+import { plural, visible } from '../../i18n/index';
 import { playClip } from '../../ui/voice';
 import './potion.css';
 import { mulberry32 } from '../../effects/rng';
 import { build, type Spec } from '../spooky/draw';
 import { h } from '../../ui/dom';
 import { icon } from '../../ui/icons';
-import { createShell, pick } from '../spooky/kit';
+import { createShell, fill, pick } from '../spooky/kit';
 import { drawVisitor } from '../treats/art';
 import { VISITORS } from '../treats/logic';
 import type { Activity, ActivityInstance, PlayEnv } from '../types';
-import { DROPS, EMPTY, MAX_DROPS, addDrop, hex, hintFor, mixColor, mixFrom, nameOf, nextOrder, totalDrops, type Drop, type Mix, type Order } from './logic';
+import { DROPS, EMPTY, MAX_DROPS, addDrop, hex, hintFor, lowerName, mixColor, mixFrom, nameOf, nextOrder, totalDrops, type Drop, type Mix, type Order } from './logic';
 
 export { DROPS, ORDERS, addDrop, colorName, hex, hintFor, mixColor, mixFrom, nameOf, nextOrder, totalDrops } from './logic';
 
@@ -39,10 +40,10 @@ export const COPY = {
   full: 'The cauldron is full! Bottle it or pour it out.',
   match: 'That’s the one! Bottle it!',
   thanks: 'Thank you! It’s perfect!',
-  bottles: {
+  bottles: visible<Readonly<Record<Drop, { name: string; label: string }>>>({
     red: { name: 'Ruby berries', label: 'red' }, yellow: { name: 'Sunbeam drops', label: 'yellow' }, blue: { name: 'Moon dew', label: 'blue' },
     white: { name: 'Cloud fluff', label: 'white' }, ink: { name: 'Night ink', label: 'dark' },
-  } as Readonly<Record<Drop, { name: string; label: string }>>,
+  }),
 } as const;
 
 const BOTTLE_COLOR: Readonly<Record<Drop, string>> = { red: '#ed1f33', yellow: '#ffdb1f', blue: '#295ed9', white: '#ffffff', ink: '#1f0f38' };
@@ -106,7 +107,7 @@ function mountPotion(env: PlayEnv): ActivityInstance {
   // ── bottles and actions ──
   const bottles = h('div', { class: 'pc-bottles', role: 'group', 'aria-label': 'Ingredients' },
     ...DROPS.map((d) => h('button', {
-      type: 'button', class: 'pc-bottle', 'aria-label': `Add a drop of ${COPY.bottles[d].label}: ${COPY.bottles[d].name}`, onclick: () => drop(d),
+      type: 'button', class: 'pc-bottle', 'aria-label': fill('Add a drop of {color}: {name}', { color: COPY.bottles[d].label, name: COPY.bottles[d].name }), onclick: () => drop(d),
     }, bottleSvg(d), h('span', { class: 'pc-bottle-name' }, COPY.bottles[d].name))));
   const bottleBtn = h('button', { type: 'button', class: 'btn btn-lg pc-bottle-btn', onclick: () => bottleIt() }, icon('check', 22), COPY.bottle);
   const pourBtn = h('button', { type: 'button', class: 'btn btn-secondary', 'aria-label': COPY.pour, onclick: () => pourOut() }, icon('close', 22), h('span', { class: 'sp-act-text' }, COPY.pour));
@@ -123,7 +124,7 @@ function mountPotion(env: PlayEnv): ActivityInstance {
     potWrap.style.setProperty('--liquid', c);
     const n = totalDrops(mix);
     const name = nameOf(mix);
-    nameTag.textContent = n === 0 ? COPY.water : `${name} potion`;
+    nameTag.textContent = n === 0 ? COPY.water : fill('{color} potion', { color: name });
     pips.replaceChildren(...Array.from({ length: MAX_DROPS }, (_, i) => h('i', { class: i < n ? 'is-on' : '' })));
     const matched = n > 0 && name === order.color;
     bottleBtn.classList.toggle('is-ready', matched);
@@ -134,12 +135,12 @@ function mountPotion(env: PlayEnv): ActivityInstance {
   }
 
   function renderOrder(): void {
-    ask.textContent = `Can I have ${order.ask}, please?`;
+    ask.textContent = fill('Can I have {ask}, please?', { ask: order.ask });
     swatch.style.background = hex(mixColor(mixFrom(order.recipe)));
     swatch.textContent = order.color;
     friend.replaceChildren(drawVisitor(visitorId));
     hintLine.hidden = true;
-    ctx.announce(`A friend asks for ${order.ask}.`);
+    ctx.announce(fill('A friend asks for {ask}.', { ask: order.ask }));
   }
 
   function speak(text: string): void {
@@ -166,7 +167,11 @@ function mountPotion(env: PlayEnv): ActivityInstance {
     const n = totalDrops(mix);
     const name = nameOf(mix);
     if (name === order.color) speak(COPY.match);
-    ctx.announce(`${COPY.bottles[d].label} added. ${n} ${n === 1 ? 'drop' : 'drops'}. The potion is ${name.toLowerCase()}.`);
+    ctx.announce(fill('{color} added. {drops}. The potion is {potion}.', {
+      color: COPY.bottles[d].label,
+      drops: plural(n, { one: '{n} drop', other: '{n} drops' }),
+      potion: lowerName(name),
+    }));
   }
 
   function bottleIt(): void {
@@ -174,7 +179,7 @@ function mountPotion(env: PlayEnv): ActivityInstance {
     const name = nameOf(mix);
     const color = hex(mixColor(mix));
     const wasOrder = name === order.color;
-    shelfItems.push({ name: `${name} potion`, color });
+    shelfItems.push({ name: fill('{color} potion', { color: name }), color });
     shelf.replaceChildren(...shelfItems.slice(-8).map((p) => h('li', { class: 'pc-shelf-item' }, h('i', { style: `background:${p.color}`, 'aria-hidden': 'true' }), h('span', {}, p.name))));
     mix = EMPTY;
     setColor();
@@ -182,7 +187,7 @@ function mountPotion(env: PlayEnv): ActivityInstance {
       speak(COPY.thanks);
       const next = nextOrder(rand, order.color);
       shell.later(() => { order = next; visitorId = pick(VISITORS.filter((v) => v.id !== visitorId), rand).id; renderOrder(); }, shell.full() ? 1500 : 800);
-    } else speak(`A ${name.toLowerCase()} potion! On the shelf it goes.`);
+    } else speak(fill('A {color} potion! On the shelf it goes.', { color: lowerName(name) }));
   }
 
   function pourOut(): void {

@@ -23,7 +23,7 @@ import type { Activity, ActivityInstance, PlayEnv } from '../types';
 import { itemById, type Slot } from './catalog';
 import { COPY, fill } from './copy';
 import { createDrawer } from './drawer';
-import { describeOutfit, dressFor, isEmptyOutfit, loadOutfit, saveOutfit, surpriseOutfit, toggleItem, without, type Outfit } from './outfit';
+import { describeOutfit, dressFor, lowerItemName, isEmptyOutfit, loadOutfit, saveOutfit, surpriseOutfit, toggleItem, without, type Outfit } from './outfit';
 import { captionDate, oldestOnFridge, pictureCard, savePicture, takeDown, type DressupPicture } from './picture';
 import { seasonFor } from './season';
 import { createStage } from './stage';
@@ -135,10 +135,10 @@ function mountDressup(env: PlayEnv): ActivityInstance {
       stage.mood('excited', 1500);
       apply(next, it.slot);
       if (it.says) stage.say(it.says);
-      ctx.announce(fill(COPY.sayWear, { name: it.name.toLowerCase() }));
+      ctx.announce(fill(COPY.sayWear, { name: lowerItemName(it.name) }));
     } else {
       apply(next, null);
-      ctx.announce(fill(COPY.sayOff, { name: it.name.toLowerCase() }));
+      ctx.announce(fill(COPY.sayOff, { name: lowerItemName(it.name) }));
     }
   }
 
@@ -212,7 +212,7 @@ function mountDressup(env: PlayEnv): ActivityInstance {
     const today = ctx.clock.today();
     const name = ctx.store.progress.name;
     const pic: DressupPicture = { v: 1, outfit, theme: meta.theme, state: 'excited' };
-    const who = name ? `${name}’s Jubi` : 'Jubi';
+    const who = name ? fill('{name}’s Jubi', { name }) : 'Jubi';
     const card = pictureCard(pic, { caption: fill(COPY.pictureCaption, { who, date: captionDate(today) }), size: 200 });
     const title = describeOutfit(outfit, meta.name);
     const status = h('div', { class: 'dz-status' });

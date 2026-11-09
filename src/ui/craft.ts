@@ -8,6 +8,7 @@
 import { minutesToText } from '../app/format';
 import { HAZARD_LABELS } from '../content/allergens';
 import type { AdultHelp, Craft, HolidayId, Hazard, Material, Step } from '../content/types';
+import { fill } from '../i18n/index';
 import { ADULT_HELP_LABELS, COPY, MESS_LABELS, fmt } from './copy';
 import { append, h, svg, type Child } from './dom';
 import { HAZARD_ICON, icon } from './icons';
@@ -32,7 +33,7 @@ export function stepList(steps: readonly Step[]): HTMLOListElement {
     h('div', { class: 'step-main' },
       h('p', { class: 'step-text' }, s.text),
       hazardChips(s.hazards, s.adult === true),
-      s.timerMinutes ? h('span', { class: 'chip chip-sm step-timer', 'aria-label': `Timer: ${minutesToText(s.timerMinutes)}` },
+      s.timerMinutes ? h('span', { class: 'chip chip-sm step-timer', 'aria-label': fill('Timer: {time}', { time: minutesToText(s.timerMinutes) }) },
         icon('timer', 18), minutesToText(s.timerMinutes)) : null,
       s.tip ? h('p', { class: 'step-tip' }, h('span', { 'aria-hidden': 'true' }, '💡 '), s.tip) : null,
     ),
@@ -126,7 +127,7 @@ function materialLine(m: Material): Child[] {
     m.qty ? h('span', { class: 'ing-qty' }, m.qty, ' ') : null,
     m.item,
     m.optional ? h('span', { class: 'muted' }, ' (if you have it)') : null,
-    m.substitute ? h('span', { class: 'muted' }, ` — or ${m.substitute}`) : null,
+    m.substitute ? h('span', { class: 'muted' }, ' — ', fill('or {item}', { item: m.substitute })) : null,
   ];
 }
 

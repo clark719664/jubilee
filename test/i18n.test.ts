@@ -14,8 +14,8 @@ describe('translation', () => {
     expect(t('3 of 8 found')).toBe('3 de 8 encontrados');
   });
   it('translates allergen lists item by item', () => {
-    learn({ 'May contain {list}': 'Puede contener {list}', milk: 'leche', soy: 'soya' });
-    expect(t('May contain milk and soy')).toBe('Puede contener leche and soya');
+    learn({ 'May contain {list}': 'Puede contener {list}', milk: 'leche', soy: 'soya' }, 'es');
+    expect(t('May contain milk and soy')).toBe('Puede contener leche y soya');
   });
   it('never treats a bare slot as a template, which would match every string', () => {
     expect(t('Some other words')).toBe('Some other words');

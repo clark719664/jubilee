@@ -13,7 +13,7 @@ import { h, svg } from '../../ui/dom';
 import { mascot, type MascotState } from '../../ui/mascot';
 import { COPY, fill } from './copy';
 import type { Board, Dir, Frame, Pos } from './model';
-import type { Skin } from './skins';
+import { capitalOf, type Skin } from './skins';
 import { blockSprite, goalSprite, itemSprite, LIGHTS } from './sprites';
 
 const SPRING = 'cubic-bezier(.2,.8,.2,1)';
@@ -205,14 +205,14 @@ export class BoardView {
     if (!b || !s) return;
     const parts = [fill(COPY.describe, {
       cols: b.cols, rows: b.rows, row: pos.y + 1, col: pos.x + 1, facing: COPY.facing[dir] ?? '',
-      goal: s.goalName.charAt(0).toUpperCase() + s.goalName.slice(1), grow: b.goal.y + 1, gcol: b.goal.x + 1,
+      goal: capitalOf(s.goalName), grow: b.goal.y + 1, gcol: b.goal.x + 1,
     })];
     const waiting = b.items.filter((_, i) => !done[i]);
     if (waiting.length > 0) {
       parts.push(fill(COPY.describeItems, { list: waiting.map((p) => fill(COPY.describeItem, { one: s.one, row: p.y + 1, col: p.x + 1 })).join('; ') }));
     }
     if (b.blocks.length > 0) {
-      const blocks = s.blocks.charAt(0).toUpperCase() + s.blocks.slice(1);
+      const blocks = capitalOf(s.blocks);
       parts.push(fill(COPY.describeBlocks, { Blocks: blocks, list: b.blocks.map((p) => fill(COPY.rowCol, { row: p.y + 1, col: p.x + 1 })).join(', ') }));
     }
     this.desc.textContent = parts.join(' ');

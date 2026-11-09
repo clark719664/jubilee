@@ -257,7 +257,7 @@ function mountCard(env: PlayEnv): ActivityInstance {
     faceBtns.inside.setAttribute('aria-pressed', String(f === 'inside'));
     stage.showFace(f);
     render();
-    ctx.announce(fill(COPY.sayFace, { face: f === 'front' ? COPY.frontLabel.toLowerCase() : COPY.insideLabel.toLowerCase() }));
+    ctx.announce(fill(COPY.sayFace, { face: f === 'front' ? COPY.frontLower : COPY.insideLower }));
   }
 
   function add(art: StickerArt, label: string): void {

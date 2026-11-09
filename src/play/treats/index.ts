@@ -17,7 +17,7 @@ import './treats.css';
 import { mulberry32 } from '../../effects/rng';
 import { h } from '../../ui/dom';
 import { icon } from '../../ui/icons';
-import { createShell } from '../spooky/kit';
+import { createShell, fill } from '../spooky/kit';
 import type { Activity, ActivityInstance, PlayEnv } from '../types';
 import { drawHouse, drawPail, drawVisitor, LOOKS } from './art';
 import { HOUSES, addToBag, bagSummary, bagTotal, countLine, milestone, pickOffer, pickVisitor, type Bag, type Treat } from './logic';
@@ -120,18 +120,18 @@ function mountTreats(env: PlayEnv): ActivityInstance {
         }
         const n = bagTotal(bag);
         speak(milestone(n) ?? `${visitor.thanks}`);
-        ctx.announce(COPY.added.replace('{name}', t.name).replace('{line}', countLine(n)));
+        ctx.announce(fill(COPY.added, { name: t.name, line: countLine(n) }));
       };
       const treatBtn = (t: Treat): HTMLElement => h('button', { type: 'button', class: 'tt-treat', 'aria-label': t.name, onclick: () => choose(t) },
         h('span', { class: 'emoji tt-treat-emoji', 'aria-hidden': 'true' }, t.emoji), h('span', { class: 'tt-treat-name' }, t.name));
-      const d = shell.dialog(`House ${i + 1}`, [
+      const d = shell.dialog(fill('House {n}', { n: i + 1 }), [
         h('div', { class: 'tt-visitor' }, drawVisitor(visitor.id)),
         h('p', { class: 'tt-line' }, visitor.line),
         h('p', { class: 'tt-pick' }, COPY.pick),
         h('div', { class: 'tt-offer' }, treatBtn(a), treatBtn(b)),
         h('button', { type: 'button', class: 'btn btn-ghost tt-skip', onclick: () => d.close() }, COPY.skip),
       ], () => { shell.later(() => renderHouse(i, false), shell.full() ? 500 : 0); house.focus({ preventScroll: true }); });
-      ctx.announce(`${visitor.name} opens the door. ${visitor.line}`);
+      ctx.announce(fill('{name} opens the door. {line}', { name: visitor.name, line: visitor.line }));
     };
     if (shell.full()) shell.later(open, 600); else open();
   }
@@ -148,7 +148,7 @@ function mountTreats(env: PlayEnv): ActivityInstance {
         h('button', { type: 'button', class: 'btn btn-lg', onclick: () => d.close() }, COPY.keep),
         h('button', { type: 'button', class: 'btn btn-secondary', onclick: () => { bag = {}; renderBag(); d.close(); speak('All tipped out! Ready for more?'); } }, COPY.empty)),
     ], () => countBtn.focus({ preventScroll: true }));
-    ctx.announce(`${countLine(n)} ${bagSummary(bag).map((r) => `${r.count} ${r.treat.name}`).join(', ')}`);
+    ctx.announce(`${countLine(n)} ${bagSummary(bag).map((r) => fill('{count} {treat}', { count: r.count, treat: r.treat.name })).join(', ')}`);
   }
 
   renderBag();

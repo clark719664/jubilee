@@ -3,8 +3,9 @@
  * Plain words a six-year-old can follow. Nothing says "wrong": a program that stops early is just Jubi
  * bumping into something, with a friendly idea for what to try next.
  */
+import { plural } from '../../i18n/index';
 import { DX, DY, open, type Board, type Card, type Dir, type Outcome, type Pos } from './model';
-import type { Skin } from './skins';
+import { capitalOf, type Skin } from './skins';
 
 export const COPY = {
   title: "Jubi's Path",
@@ -14,7 +15,6 @@ export const COPY = {
   puzzleN: 'Puzzle {n}',
   bonusN: 'Bonus {n}',
   puzzleOf: 'Puzzle {n} of {total}',
-  starsLabel: '{n} of {total} puzzles solved',
   puzzles: 'Puzzles',
   prevPuzzle: 'Previous puzzle',
   nextPuzzle: 'Next puzzle',
@@ -32,11 +32,7 @@ export const COPY = {
   palette: 'Cards',
   paletteHelp: 'Tap a card to add it, or drag it into the path.',
   strip: 'Your path',
-  stripLabel: "Jubi's program, {n} of {max} cards used",
   stripEmpty: 'Tap cards to build a path for Jubi.',
-  stripFull: 'That’s all {max} cards. Press Go to try your path!',
-  cardsUsed: '{n} / {max} cards',
-  cardsUsedLabel: '{n} of {max} cards used',
   go: 'Go!',
   stop: 'Stop',
   again: 'Try again',
@@ -70,11 +66,8 @@ export const COPY = {
   dropped: '{card} is now at position {n} of {total}.',
   putBack: '{card} put back.',
   cantMove: 'A Repeat card has to come before its End card.',
-  sayAdded: '{card} added. {n} of {max} cards used.',
   sayAddedRepeat: '{card} added. The next cards go inside it until its End card.',
-  sayRemoved: '{card} removed. {n} of {max} cards used.',
   sayCleared: 'The path is empty. Add some cards!',
-  sayFull: 'All {max} cards are used.',
   tooDeep: 'Two repeats inside each other is the most Jubi can follow!',
   sayRun: 'Jubi is walking the path.',
   sayLevel: '{label}: {name}. {goal}',
@@ -86,7 +79,6 @@ export const COPY = {
   winNoItems: 'Jubi made it to {goal}!',
   winFirst: 'You earned a star!',
   winAgain: 'Solved again. Nice!',
-  winShort: 'Wow, only {n} cards!',
   hintEmpty: 'Add some cards to the path, then press Go!',
   hintBlock: 'Jubi bumped into {aBlock}. Try turning first!',
   hintBlockJump: 'Jubi bumped into {aBlock}. A Jump card hops right over it!',
@@ -95,8 +87,6 @@ export const COPY = {
   hintJumpBlockTurn: 'Jubi can’t land on {aBlock}. Try turning first!',
   hintJumpEdge: 'That jump would land off {place}! Try a Step or a turn instead.',
   hintJumpEdgeTurn: 'That jump would land off {place}! Try turning first.',
-  hintShortOne: '1 more {one} to {verb}! Can Jubi reach it?',
-  hintShort: '{n} more {many} to {verb}! Can Jubi reach them?',
   hintHome: 'Every {one} is {done}! Now walk Jubi to {goal}.',
   hintHomeNoItems: 'Nearly! Now walk Jubi all the way to {goal}.',
   hintLoopy: 'Jubi went round and round. Try fewer repeats!',
@@ -110,17 +100,27 @@ export const COPY = {
   tipTitle: 'New card!',
 } as const;
 
+export const COUNTS = {
+  starsLabel: { one: '{n} of {total} puzzle solved', other: '{n} of {total} puzzles solved' },
+  stripLabel: { one: "Jubi's program, {n} of {max} card used", other: "Jubi's program, {n} of {max} cards used" },
+  stripFull: { one: 'That’s all {max} card. Press Go to try your path!', other: 'That’s all {max} cards. Press Go to try your path!' },
+  cardsUsed: { one: '{n} / {max} card', other: '{n} / {max} cards' },
+  cardsUsedLabel: { one: '{n} of {max} card used', other: '{n} of {max} cards used' },
+  sayAdded: { one: '{card} added. {n} of {max} card used.', other: '{card} added. {n} of {max} cards used.' },
+  sayRemoved: { one: '{card} removed. {n} of {max} card used.', other: '{card} removed. {n} of {max} cards used.' },
+  sayFull: { one: 'All {max} card is used.', other: 'All {max} cards are used.' },
+} as const;
+
 export function fill(text: string, vars: Record<string, string | number> = {}): string {
   return text.replace(/\{(\w+)\}/g, (m, k: string) => (k in vars ? String(vars[k]) : m));
 }
 
-const cap = (s: string): string => s.charAt(0).toUpperCase() + s.slice(1);
 
 /** The level's goal line: "Light 3 diyas and get to the front door!" */
 export function goalLine(skin: Skin, items: number): string {
   if (items === 0) return fill(COPY.goalNone, { goal: skin.goalName });
-  if (items === 1) return fill(COPY.goalOne, { verb: cap(skin.verb), one: skin.one, goal: skin.goalName });
-  return fill(COPY.goal, { verb: cap(skin.verb), count: `${items} ${skin.many}`, goal: skin.goalName });
+  if (items === 1) return fill(COPY.goalOne, { verb: capitalOf(skin.verb), one: skin.one, goal: skin.goalName });
+  return fill(COPY.goal, { verb: capitalOf(skin.verb), count: plural(items, { one: '{n} {item}', other: '{n} {items}' }, { item: skin.one, items: skin.many }), goal: skin.goalName });
 }
 
 /** Where Jubi stopped: the board, her square and the way she faces. */
@@ -149,7 +149,10 @@ export function hintFor(outcome: Outcome, skin: Skin, opts: { jumpOffered: boole
       return fill(clear(1) && clear(3) ? COPY.hintJumpBlock : COPY.hintJumpBlockTurn, v);
     case 'short':
       if (opts.loopy) return COPY.hintLoopy;
-      return fill(outcome.left === 1 ? COPY.hintShortOne : COPY.hintShort, { ...v, n: outcome.left });
+      return plural(outcome.left, {
+        one: '{n} more {one} to {verb}! Can Jubi reach it?',
+        other: '{n} more {many} to {verb}! Can Jubi reach them?',
+      }, v);
     case 'notHome': return fill(opts.items > 0 ? COPY.hintHome : COPY.hintHomeNoItems, v);
     case 'win': return '';
   }

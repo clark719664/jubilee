@@ -24,6 +24,7 @@ import { C, E, GY, L, P, PIC_H, PIC_W, R, add, glowAt, group, linear, mix, palet
 import { drawGenericSkyline, drawSkyline } from './postcard-skylines';
 import { hhmm, localClock } from './zones';
 import { svg } from '../ui/dom';
+import { fill } from '../i18n/index';
 
 export interface PostcardView {
   readonly kind: PostcardKind;
@@ -111,18 +112,18 @@ export function postcardWords(v: PostcardView): { label: string; greeting: strin
   const side = v.kind === 'christmas' ? v.card.christmas : v.card.newYear;
   const g = side.greeting;
   return {
-    label: `Postcard from ${v.city.name}`,
+    label: fill('Postcard from {city}', { city: v.city.name }),
     greeting: g.text,
     roman: g.roman ?? null,
-    say: `Say it: ${g.sayIt}`,
-    meaning: `${g.langName}: “${g.meaning}”`,
+    say: fill('Say it: {words}', { words: g.sayIt }),
+    meaning: fill('{language}: “{meaning}”', { language: g.langName, meaning: g.meaning }),
     fact: side.fact,
   };
 }
 
 export function postmarkFor(v: PostcardView): { city: string; time: string; date: string } {
   const lc = localClock(v.city.tz, new Date(v.at));
-  return { city: v.city.name.toUpperCase(), time: hhmm(lc.h, lc.min), date: `${lc.d} ${MONTHS[lc.m - 1]} ${lc.y}` };
+  return { city: v.city.name.toUpperCase(), time: hhmm(lc.h, lc.min), date: fill('{day} {month} {year}', { day: lc.d, month: MONTHS[lc.m - 1]!, year: lc.y }) };
 }
 
 export function layoutPostcard(v: PostcardView): PostcardLayout {
@@ -156,7 +157,9 @@ export function postcardLabel(v: PostcardView): string {
   const pm = postmarkFor(v);
   const country = countryName(v.city.country);
   const roman = w.roman ? ` (${w.roman})` : '';
-  return `${w.label}, ${country}. ${w.greeting}${roman}. ${w.say}. ${w.meaning}. ${w.fact} Postmarked ${pm.time} on ${pm.date}.`;
+  return fill('{label}, {country}. {greeting}{roman}. {say}. {meaning}. {fact} Postmarked {time} on {date}.', {
+    label: w.label, country, greeting: w.greeting, roman, say: w.say, meaning: w.meaning, fact: w.fact, time: pm.time, date: pm.date,
+  });
 }
 
 // ───────────────────────────────────────────────────────── drawing
@@ -324,7 +327,7 @@ export function drawPostcard(v: PostcardView): SVGSVGElement {
   const H = lay.height;
   const el = svg('svg', { viewBox: `-4 -4 ${CARD_W + 14} ${H + 14}`, role: 'img', 'aria-label': postcardLabel(v), class: 'postcard-svg' });
   const title = svg('title');
-  title.textContent = `${postcardWords(v).label}: ${postcardWords(v).greeting}`;
+  title.textContent = fill('{label}: {greeting}', { label: postcardWords(v).label, greeting: postcardWords(v).greeting });
   const desc = svg('desc');
   desc.textContent = v.card.skyline;
   const defs = svg('defs');

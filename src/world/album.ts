@@ -17,6 +17,7 @@
  * the visit only.
  */
 import type { City } from './data/cities';
+import { fill } from '../i18n/index';
 import { postcardFor, type PostcardCity } from './data/postcards';
 
 export type PostcardKind = 'christmas' | 'newyear';
@@ -100,7 +101,7 @@ export function albums(save: AlbumSave): { kind: PostcardKind; year: number; ent
 }
 
 export function albumTitle(kind: PostcardKind, year: number): string {
-  return kind === 'christmas' ? `Postcards from Christmas Eve ${year}` : `Postcards from New Year ${year}`;
+  return kind === 'christmas' ? fill('Postcards from Christmas Eve {year}', { year }) : fill('Postcards from New Year {year}', { year });
 }
 
 // ───────────────────────────────────────────────────────── which stop sends which card

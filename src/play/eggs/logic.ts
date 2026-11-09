@@ -3,6 +3,8 @@
  * color and a pattern. Painting is never wrong, Undo steps back, Surprise paints every band, and a
  * finished egg goes into the basket (the last six are kept). Nothing can be lost.
  */
+import { visible } from '../../i18n/index';
+
 export const BAND_COUNT = 5;
 export const BASKET_MAX = 6;
 export const UNDO_MAX = 40;
@@ -13,17 +15,17 @@ export interface Swatch {
   readonly hex: string;
 }
 
-export const COLORS: readonly Swatch[] = [
+export const COLORS: readonly Swatch[] = visible([
   { id: 'red', name: 'red', hex: '#e03a45' }, { id: 'orange', name: 'orange', hex: '#f0872a' },
   { id: 'yellow', name: 'yellow', hex: '#f7c60f' }, { id: 'green', name: 'green', hex: '#3f9f4d' },
   { id: 'teal', name: 'teal', hex: '#17a99b' }, { id: 'blue', name: 'blue', hex: '#2f7be0' },
   { id: 'purple', name: 'purple', hex: '#8d56c8' }, { id: 'pink', name: 'pink', hex: '#f26aa8' },
-];
+]);
 
-export const PATTERNS: readonly Swatch[] = [
+export const PATTERNS: readonly Swatch[] = visible([
   { id: 'plain', name: 'plain', hex: '' }, { id: 'stripes', name: 'stripes', hex: '' }, { id: 'dots', name: 'dots', hex: '' },
   { id: 'zigzag', name: 'zigzag', hex: '' }, { id: 'stars', name: 'stars', hex: '' },
-];
+]);
 
 export interface Band {
   readonly color: number;

@@ -3,6 +3,8 @@
  * back. The pattern starts at two and grows by one after each right round, up to eight. A wrong tap only
  * replays the same pattern: nothing is lost, timed or scored.
  */
+import { visible } from '../../i18n/index';
+
 export const START_LENGTH = 2;
 export const MAX_LENGTH = 8;
 export const EASY_LANTERNS = 4;
@@ -56,11 +58,11 @@ export function tap(g: Game, i: number): { readonly game: Game; readonly result:
 export const ROUNDS = MAX_LENGTH - START_LENGTH + 1;
 export const roundOf = (g: Game): number => g.length - START_LENGTH + 1;
 
-export const LANTERN_COLORS: readonly { readonly id: string; readonly name: string; readonly body: string; readonly lit: string }[] = [
+export const LANTERN_COLORS: readonly { readonly id: string; readonly name: string; readonly body: string; readonly lit: string }[] = visible([
   { id: 'red', name: 'red', body: '#c2334d', lit: '#ff8aa0' },
   { id: 'gold', name: 'gold', body: '#d99a1a', lit: '#ffe27a' },
   { id: 'green', name: 'green', body: '#1f9a6b', lit: '#8cf5c4' },
   { id: 'blue', name: 'blue', body: '#2f6fd0', lit: '#9cc7ff' },
   { id: 'purple', name: 'purple', body: '#7a48b8', lit: '#d3b0ff' },
   { id: 'orange', name: 'orange', body: '#e0672a', lit: '#ffb98a' },
-];
+]);

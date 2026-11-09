@@ -23,6 +23,7 @@ import { allOccurrences, statusOf, type Occurrence, type Upcoming } from '../dat
 import type { Region } from '../dates/rules';
 import { applyTheme } from '../theme/apply';
 import { THEMES } from '../theme/themes';
+import { plural, t } from '../i18n/index';
 import { COPY, fmt, SORT_LABELS, VIEW_NAMES } from './copy';
 import { h } from './dom';
 import { icon } from './icons';
@@ -336,7 +337,7 @@ export const paradeView: ViewFactory<'parade'> = (ctx: AppContext, route) => {
   );
 
   // ── the grid ──
-  const count = `${entries.length} ${entries.length === 1 ? 'holiday' : 'holidays'}`;
+  const count = plural(entries.length, { one: '{n} holiday', other: '{n} holidays' });
   let grid: HTMLElement;
   if (entries.length === 0) {
     grid = h('div', { class: 'card card-pad stack center parade-empty' },
@@ -372,7 +373,7 @@ export const paradeView: ViewFactory<'parade'> = (ctx: AppContext, route) => {
     if (pf && Date.now() - pf.at < FOCUS_TTL_MS) {
       const target = el.querySelector<HTMLElement>(`[data-focus="${pf.key}"]`);
       target?.focus({ preventScroll: true });
-      ctx.announce(`${tag === undefined ? COPY['parade.all'] : tag === 'mine' ? COPY['parade.mine'] : TAG_LABELS[tag]}: ${count}`);
+      ctx.announce(`${t(tag === undefined ? COPY['parade.all'] : tag === 'mine' ? COPY['parade.mine'] : TAG_LABELS[tag])}: ${count}`);
     }
   }, 0);
 

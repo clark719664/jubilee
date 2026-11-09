@@ -23,6 +23,7 @@ import {
 import { THEMES } from '../theme/themes';
 import { mountCelebration } from './celebrate';
 import { santaLink } from './santa-link';
+import { fill, t as translate } from '../i18n/index';
 import { COPY, fmt, VIEW_NAMES } from './copy';
 import { h } from './dom';
 import { canHear, onVoicesChanged, speak } from './greetings';
@@ -64,7 +65,8 @@ export function pickGreeting<T>(greetings: readonly T[], day: number): T | null 
 
 /** "Good morning, Maya!" before noon, "Hello, Maya!" after. */
 export function helloHi(hour: number, name: string | undefined): string {
-  return `${hour < 12 ? 'Good morning' : 'Hello'}${name ? `, ${name}` : ''}!`;
+  if (hour < 12) return name ? fill('Good morning, {name}!', { name }) : 'Good morning!';
+  return name ? fill('Hello, {name}!', { name }) : 'Hello!';
 }
 
 export interface EarnedSticker { readonly holidayId: string; readonly year: number; readonly date: string }
@@ -94,7 +96,7 @@ let nameCardSkipped = false;
 interface Piece { readonly el: HTMLElement; destroy(): void }
 
 function helloCard(ctx: AppContext, g: Greeting): Piece {
-  const hear = h('button', { class: 'btn btn-secondary btn-icon hello-hear hidden', type: 'button', 'aria-label': `${COPY.hearIt}: ${g.text}` },
+  const hear = h('button', { class: 'btn btn-secondary btn-icon hello-hear hidden', type: 'button', 'aria-label': `${translate(COPY.hearIt)}: ${g.text}` },
     icon('speaker', 20));
   hear.addEventListener('click', () => { speak(g.text, g.lang); });
   const refresh = (): void => { hear.classList.toggle('hidden', !canHear(g.text, g.lang)); };
@@ -103,8 +105,8 @@ function helloCard(ctx: AppContext, g: Greeting): Piece {
   const el = h('section', { class: 'hello card', 'aria-label': 'Today’s hello' },
     h('div', { class: 'hello-text' },
       h('p', { class: 'hello-hi' }, helloHi(ctx.clock.now().getHours(), ctx.store.progress.name)),
-      h('p', { class: 'hello-word', lang: g.lang }, g.text),
-      h('p', { class: 'hello-say' }, g.sayIt),
+      h('p', { class: 'hello-word', lang: g.lang, translate: 'no' }, g.text),
+      h('p', { class: 'hello-say', translate: 'no' }, g.sayIt),
       h('p', { class: 'hello-mean' }, `“${g.meaning}”`),
     ),
     hear,
@@ -253,7 +255,7 @@ export const homeView: ViewFactory<'home'> = (ctx) => {
   if (nameCardDue(ctx.store.progress, iso, nameCardSkipped)) {
     card = nameCard(ctx, (name) => {
       if (name === null) nameCardSkipped = true;
-      else ctx.toast(`Hi, ${name}!`, '👋');
+      else ctx.toast(fill('Hi, {name}!', { name }), '👋');
       card?.remove();
       card = null;
       // Re-greet with the new name, and leave focus somewhere sensible (the hello, or the page title).

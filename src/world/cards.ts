@@ -9,6 +9,7 @@
  * button and move to the end of the grid. While a show (or a real flight or wave) is on, a
  * one-line summary is also offered for the heads-up panel on the globe (`hud()`).
  */
+import { t } from '../i18n/index';
 import { formatShort, type CivilDate } from '../dates/civil';
 import { COPY } from '../ui/copy';
 import { h } from '../ui/dom';
@@ -93,7 +94,7 @@ function setText(el: HTMLElement, text: string): void {
 }
 
 function holidayText(list: readonly WorldHoliday[]): string {
-  return list.map((x) => `${x.emoji} ${x.name}`).join(', ');
+  return list.map((x) => `${x.emoji} ${t(x.name)}`).join(', ');
 }
 
 /** The Santa card's picture: the illustrated sleigh if there is one, else the vector sprite. */
@@ -203,7 +204,7 @@ export function trackerCards(o: CardsOptions): TrackerCards {
     const first = c.next[0];
     waveHud = {
       kind: 'wave', emoji: '🎆', title: c.status, show: showing,
-      line: just || (first ? `${WORLD_COPY.waveMidnight}: ${first.city.name} ${first.msUntil > 86_400_000 ? durationWords(first.msUntil) : durationClock(first.msUntil)}` : c.yourText),
+      line: just || (first ? wfmt('waveMidnightNext', { city: first.city.name, time: first.msUntil > 86_400_000 ? durationWords(first.msUntil) : durationClock(first.msUntil) }) : c.yourText),
     };
   }
 
@@ -310,8 +311,8 @@ export function trackerCards(o: CardsOptions): TrackerCards {
       const now = deps.now();
       const lc = localClock(city.tz, now);
       const hs = o.holidaysOn({ y: lc.y, m: lc.m, d: lc.d });
-      const base = wfmt('cityNow', { time: formatClock(city.tz, now, deps.locale), day: dayName(lc), date: formatShort(lc, deps.locale) });
-      return hs.length ? `${base} · ${holidayText(hs)}` : base;
+      const vars = { time: formatClock(city.tz, now, deps.locale), day: dayName(lc), date: formatShort(lc, deps.locale) };
+      return hs.length ? wfmt('cityNowHolidays', { ...vars, holidays: holidayText(hs) }) : wfmt('cityNow', vars);
     },
   };
 }

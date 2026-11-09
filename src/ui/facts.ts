@@ -6,6 +6,7 @@
  */
 import type { AppContext } from '../app/context';
 import type { Fact, HolidayId } from '../content/types';
+import { fill } from '../i18n/index';
 import { h } from './dom';
 import { icon } from './icons';
 
@@ -18,7 +19,7 @@ export function factCard(ctx: AppContext, holidayId: HolidayId, fact: Fact, inde
   const key = `${holidayId}:${index}`;
   const front = h('span', { class: 'flip-face flip-front' },
     h('span', { class: 'flip-emoji', 'aria-hidden': 'true' }, FRONT_EMOJI[index % FRONT_EMOJI.length]),
-    h('span', { class: 'flip-title' }, fact.wow ? `Wow fact #${index + 1}` : `Fact #${index + 1}`),
+    h('span', { class: 'flip-title' }, fact.wow ? fill('Wow fact #{n}', { n: index + 1 }) : fill('Fact #{n}', { n: index + 1 })),
     fact.bigKids ? h('span', { class: 'flip-tag' }, 'Big kids') : null,
     h('span', { class: 'flip-hint', 'aria-hidden': 'true' }, icon('shuffle', 18)),
   );

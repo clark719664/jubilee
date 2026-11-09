@@ -3,9 +3,10 @@
  * Plain words a five-year-old can follow. Nothing judges the picture, nothing says "wrong", and
  * nothing pretends the picture was sent anywhere: it goes on the Fridge, on this device.
  */
+import { visible } from '../../i18n/index';
+
 export const COPY = {
   title: 'Coloring',
-  pickTitle: 'Pick one of {n} pages',
   pickOne: 'Coloring page {n} of {total}',
   pickStarted: 'Started',
   holidayGlitter: '{holiday} glitter',
@@ -20,7 +21,8 @@ export const COPY = {
   regionFilled: '{name}, {color}',
   crayonBox: 'Crayons',
   crayonsHint: 'Pick a crayon. The [ and ] keys change crayon too.',
-  themeCrayon: '{holiday} {color}',
+  sky: visible({ sky: 'sky' }).sky,
+  part: 'part {n}',
   magicGlow: 'Magic glow',
   magicSwirl: 'Magic swirl',
   eraser: 'Eraser',
@@ -74,11 +76,18 @@ export const COPY = {
 } as const;
 
 /** Fills `{name}` placeholders. */
+export const COUNTS = {
+  pickTitle: { one: 'Pick one of {n} page', other: 'Pick one of {n} pages' },
+} as const;
+
 export function fill(text: string, vars: Record<string, string | number> = {}): string {
   return text.replace(/\{(\w+)\}/g, (m, k: string) => (k in vars ? String(vars[k]) : m));
 }
 
-/** "star-2" → "star 2", "lantern_glass" → "lantern glass": the spoken name of a region id. */
+/** The spoken name of a region: "sky", "part 12" for a numbered id, otherwise "star-2" → "star 2". */
 export function regionName(id: string): string {
+  if (id === 'sky') return COPY.sky;
+  const numbered = /^r(\d+)$/.exec(id);
+  if (numbered) return fill(COPY.part, { n: numbered[1]! });
   return id.replace(/[-_]+/g, ' ').replace(/([a-z])([A-Z])/g, '$1 $2').trim().toLowerCase();
 }

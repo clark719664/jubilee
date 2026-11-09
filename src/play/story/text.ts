@@ -6,7 +6,7 @@
  * name is typed on the cover, kept only while the book is open (and on the Fridge if the child saves the
  * story), and cleaned to a single first name of letters.
  */
-import { t } from '../../i18n/index';
+import { fill, t } from '../../i18n/index';
 import type { StoryBook, StoryKeep, StoryPage } from './types';
 
 export const NAME_FALLBACK = 'our hero';
@@ -98,13 +98,13 @@ export function pageSentences(page: StoryPage, w: Who): string[] {
 }
 
 export function bookTitle(book: StoryBook, w: Who): string {
-  return book.title.replace(TOKEN, (_m, k: string) => (k === 'name' ? w.name ?? TITLE_FALLBACK : w.friend ?? ''));
+  return book.title.replace(TOKEN, (_m, k: string) => (k === 'name' ? w.name ?? t(TITLE_FALLBACK) : w.friend ?? ''));
 }
 
 /** "Starring Maya and Sam" style credit line pieces for the cover and The End. */
 export function starring(w: Who): string {
-  const n = w.name ?? TITLE_FALLBACK;
-  return w.friend ? `${n} and ${w.friend}` : n;
+  const n = w.name ?? t(TITLE_FALLBACK);
+  return w.friend ? fill('{name} and {friend}', { name: n, friend: w.friend }) : n;
 }
 
 /** Word spans of a sentence (for read-along highlighting): [start, end) character offsets. */

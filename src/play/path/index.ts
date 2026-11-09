@@ -18,9 +18,10 @@ import { h, svg, trapFocus } from '../../ui/dom';
 import { icon } from '../../ui/icons';
 import { mascot } from '../../ui/mascot';
 import { Burst } from '../memory/burst';
+import { plural } from '../../i18n/index';
 import type { Activity, ActivityInstance, PlayEnv } from '../types';
 import { BoardView } from './board';
-import { COPY, fill, goalLine, hintFor } from './copy';
+import { COPY, COUNTS, fill, goalLine, hintFor } from './copy';
 import { ProgramEditor } from './editor';
 import { boardOf, CHAPTERS, freshCards, levelLabel, levelsFor, type Level } from './levels';
 import { cardCount, cardsOf, run, type Board, type Card, type Dir, type Pos } from './model';
@@ -155,7 +156,7 @@ function mountPath(env: PlayEnv): ActivityInstance {
 
   function syncStars(): void {
     starsText.textContent = `${stars.count(ids)}/${ids.length}`;
-    pickBtn.setAttribute('aria-label', `${COPY.puzzlesLabel}. ${fill(COPY.starsLabel, { n: stars.count(ids), total: ids.length })}`);
+    pickBtn.setAttribute('aria-label', `${COPY.puzzlesLabel}. ${plural(ids.length, COUNTS.starsLabel, { n: stars.count(ids), total: ids.length })}`);
     levelStar.hidden = !stars.has(level.id);
     root.classList.toggle('is-solved', stars.has(level.id));
   }
@@ -287,7 +288,7 @@ function mountPath(env: PlayEnv): ActivityInstance {
         h('h2', { class: 'pth-dialog-title', id: 'pth-win-title' }, cheer),
         h('p', { class: 'pth-dialog-sub' }, sub),
         h('p', { class: `pth-win-star${fresh ? ' is-new' : ''}` }, starGlyph(), h('span', {}, fresh ? COPY.winFirst : COPY.winAgain)),
-        used < cardCount(cardsOf(level.solution)) ? h('p', { class: 'pth-dialog-sub' }, fill(COPY.winShort, { n: used })) : null,
+        used < cardCount(cardsOf(level.solution)) ? h('p', { class: 'pth-dialog-sub' }, plural(used, { one: 'Wow, only {n} card!', other: 'Wow, only {n} cards!' })) : null,
         h('div', { class: 'pth-dialog-actions' },
           nextB,
           h('button', { type: 'button', class: 'btn btn-secondary', onclick: () => { closePanel(); editor.setCards(lastProgram); start(); goBtn.focus({ preventScroll: true }); } }, COPY.watch),

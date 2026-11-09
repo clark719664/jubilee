@@ -14,11 +14,16 @@ import './presents.css';
 import { mulberry32 } from '../../effects/rng';
 import { h, svg } from '../../ui/dom';
 import { icon } from '../../ui/icons';
+import { plural } from '../../i18n/index';
 import { createShell, fill, pick } from '../spooky/kit';
 import type { Activity, ActivityInstance, PlayEnv } from '../types';
 import { AGAIN_LINES, CALM_STEP, CHIMNEY_COUNT, CHIMNEY_X, IN_LINES, MISS_LINES, advance, count, drop, isDone, newStreet, wrap, type Street } from './logic';
 
 export { CHIMNEY_COUNT, CHIMNEY_X, advance, chimneyAt, count, drop, isDone, newStreet } from './logic';
+
+const COUNTS = {
+  progress: { one: '{n} of {total} chimney has presents', other: '{n} of {total} chimneys have presents' },
+} as const;
 
 export const COPY = {
   title: 'Present Drop',
@@ -30,7 +35,6 @@ export const COPY = {
   houseLabel: 'Rooftop {n}: {state}',
   lit: 'window is lit',
   dark: 'waiting for a present',
-  progress: '{n} of {total} chimneys have presents',
   doneTitle: 'Every chimney has a present!',
   doneLine: 'The whole street is glowing. Happy holidays!',
   again: 'Play again',
@@ -92,7 +96,7 @@ function mountPresents(env: PlayEnv): ActivityInstance {
       parts[i]!.window.classList.toggle('is-lit', on);
       el.setAttribute('aria-label', fill(COPY.houseLabel, { n: i + 1, state: on ? COPY.lit : COPY.dark }));
     });
-    progress.textContent = fill(COPY.progress, { n: count(street), total: CHIMNEY_COUNT });
+    progress.textContent = plural(CHIMNEY_COUNT, COUNTS.progress, { n: count(street), total: CHIMNEY_COUNT });
   }
 
   function tick(now: number): void {

@@ -2,6 +2,7 @@
  * crayon-sets.ts — the big box beyond the 12 basics: mixed shades, blends, glitter, shiny foils and
  * patterns. Pure data. Ids are stored in saved pictures, so a crayon's id must never change.
  */
+import { fill } from '../../i18n/index';
 import type { Crayon, GradientStop, Texture } from './crayons';
 
 const shade = (name: string, color: string): Crayon => ({
@@ -61,7 +62,7 @@ export const BLENDS: readonly Crayon[] = [
 ];
 
 const glitter = (name: string, base: string, ...flecks: string[]): Crayon => ({
-  id: `g-${name.toLowerCase().replace(/[^a-z0-9]/g, '')}`, kind: 'glitter', name: `${name} glitter`, color: base,
+  id: `g-${name.toLowerCase().replace(/[^a-z0-9]/g, '')}`, kind: 'glitter', name: fill('{color} glitter', { color: name }), color: base,
   texture: { type: 'glitter', base, flecks },
 });
 

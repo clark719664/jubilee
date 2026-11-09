@@ -8,6 +8,7 @@
  * Motion: full → lanterns glow softly; otherwise the lantern shown gets a static ring and its step number.
  */
 import './lanterns.css';
+import { plural } from '../../i18n/index';
 import { mulberry32 } from '../../effects/rng';
 import { h, svg } from '../../ui/dom';
 import { icon } from '../../ui/icons';
@@ -31,13 +32,13 @@ export const COPY = {
   lanternLabel: 'The {color} lantern, number {n}',
   stepLabel: 'Lantern {n} glows, step {step}',
   levelLabel: 'How many lanterns',
-  easy: '4 lanterns',
-  hard: '6 lanterns',
   replay: 'Watch again',
   doneTitle: 'All the lanterns are shining!',
   doneLine: 'You remembered every light. What a bright night!',
   again: 'Play again',
 } as const;
+
+const COUNTS = { lanterns: { one: '{n} lantern', other: '{n} lanterns' } } as const;
 
 export const lanternsActivity: Activity = {
   id: 'lanterns',
@@ -89,7 +90,7 @@ function mountLanterns(env: PlayEnv): ActivityInstance {
 
   const status = h('p', { class: 'ln-status', 'aria-live': 'polite' });
   const row = h('ul', { class: 'ln-row' });
-  const sizes = [{ n: EASY_LANTERNS, text: COPY.easy }, { n: HARD_LANTERNS, text: COPY.hard }];
+  const sizes = [{ n: EASY_LANTERNS, text: plural(EASY_LANTERNS, COUNTS.lanterns) }, { n: HARD_LANTERNS, text: plural(HARD_LANTERNS, COUNTS.lanterns) }];
   const levels = sizes.map((l) => h('button', {
     type: 'button', class: 'ln-opt', role: 'radio', 'aria-checked': String(l.n === count), tabindex: l.n === count ? 0 : -1,
     onclick: () => chooseCount(l.n),

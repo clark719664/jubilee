@@ -8,6 +8,7 @@
  */
 import type { HolidayId, HolidayMeta, Tag } from '../../content/types';
 import { mulberry32 } from '../../effects/rng';
+import { fill, list } from '../../i18n/index';
 import type { ThemeId } from '../../theme/themes';
 import { ITEMS, SEASON_TAGS, SLOTS, itemById, itemsFor, type Item, type Slot } from './catalog';
 
@@ -203,16 +204,65 @@ export function surpriseOutfit(seed: number): Outfit {
   return out;
 }
 
+/** Each item name again in lower case, for the middle of a sentence. */
+const LOWER: Readonly<Record<string, string>> = {
+  'Santa hat': 'santa hat', 'Elf hat': 'elf hat', 'Reindeer antlers': 'reindeer antlers', 'Witch hat': 'witch hat',
+  'Paper crown': 'paper crown', 'Party hat': 'party hat', 'Flower crown': 'flower crown',
+  'Tiny top hat': 'tiny top hat', 'Leprechaun hat': 'leprechaun hat', 'Bobble beanie': 'bobble beanie',
+  'Sun hat': 'sun hat', 'Bunny ears': 'bunny ears', 'Lion-dance headband': 'lion-dance headband',
+  'Thinking cap': 'thinking cap', 'Pirate hat': 'pirate hat', 'Chef hat': 'chef hat', 'Bee boppers': 'bee boppers',
+  'Shamrock clip': 'shamrock clip', 'Marigold clip': 'marigold clip', 'Heart bow': 'heart bow',
+  'Heart glasses': 'heart glasses', 'Star glasses': 'star glasses', 'Round glasses': 'round glasses',
+  'Sunglasses': 'sunglasses', 'Rainbow glasses': 'rainbow glasses', 'Stripy scarf': 'stripy scarf',
+  'Bow tie': 'bow tie', 'Flower garland': 'flower garland', 'Gold medal': 'gold medal',
+  'Snowflake necklace': 'snowflake necklace', 'Tinsel boa': 'tinsel boa', 'Pirate bandana': 'pirate bandana',
+  'Paper lantern': 'paper lantern', 'Ramadan lantern': 'ramadan lantern', 'Diya lamp': 'diya lamp',
+  'Dreidel': 'dreidel', 'Balloon': 'balloon', 'Pumpkin pail': 'pumpkin pail', 'Pinwheel': 'pinwheel', 'Kite': 'kite',
+  'Paper plane': 'paper plane', 'Wrapped present': 'wrapped present', 'Mooncake': 'mooncake',
+  'Red envelope': 'red envelope', 'Paintbrush': 'paintbrush', 'Bowl of colors': 'bowl of colors',
+  'Umbrella': 'umbrella', 'Magic wand': 'magic wand', 'Egg basket': 'egg basket',
+  'Bunch of flowers': 'bunch of flowers', 'Heart lollipop': 'heart lollipop', 'Ice cream': 'ice cream',
+  'Autumn leaf': 'autumn leaf', 'Fruit basket': 'fruit basket', 'Sunny glow': 'sunny glow', 'Rose glow': 'rose glow',
+  'Mint glow': 'mint glow', 'Ocean glow': 'ocean glow', 'Grape glow': 'grape glow', 'Ember glow': 'ember glow',
+  'Rainbow glow': 'rainbow glow', 'Stripes': 'stripes', 'Polka dots': 'polka dots', 'Little stars': 'little stars',
+  'Rainbow': 'rainbow', 'Hearts': 'hearts',
+};
+
+/** Each item name as a noun phrase; pairs and plurals (glasses, ears, antlers) take no article. */
+const WITH_ARTICLE: Readonly<Record<string, string>> = {
+  'Santa hat': 'a santa hat', 'Elf hat': 'an elf hat', 'Reindeer antlers': 'reindeer antlers',
+  'Witch hat': 'a witch hat', 'Paper crown': 'a paper crown', 'Party hat': 'a party hat',
+  'Flower crown': 'a flower crown', 'Tiny top hat': 'a tiny top hat', 'Leprechaun hat': 'a leprechaun hat',
+  'Bobble beanie': 'a bobble beanie', 'Sun hat': 'a sun hat', 'Bunny ears': 'bunny ears',
+  'Lion-dance headband': 'a lion-dance headband', 'Thinking cap': 'a thinking cap', 'Pirate hat': 'a pirate hat',
+  'Chef hat': 'a chef hat', 'Bee boppers': 'bee boppers', 'Shamrock clip': 'a shamrock clip',
+  'Marigold clip': 'a marigold clip', 'Heart bow': 'a heart bow', 'Heart glasses': 'heart glasses',
+  'Star glasses': 'star glasses', 'Round glasses': 'round glasses', 'Sunglasses': 'sunglasses',
+  'Rainbow glasses': 'rainbow glasses', 'Stripy scarf': 'a stripy scarf', 'Bow tie': 'a bow tie',
+  'Flower garland': 'a flower garland', 'Gold medal': 'a gold medal', 'Snowflake necklace': 'a snowflake necklace',
+  'Tinsel boa': 'a tinsel boa', 'Pirate bandana': 'a pirate bandana', 'Paper lantern': 'a paper lantern',
+  'Ramadan lantern': 'a ramadan lantern', 'Diya lamp': 'a diya lamp', 'Dreidel': 'a dreidel', 'Balloon': 'a balloon',
+  'Pumpkin pail': 'a pumpkin pail', 'Pinwheel': 'a pinwheel', 'Kite': 'a kite', 'Paper plane': 'a paper plane',
+  'Wrapped present': 'a wrapped present', 'Mooncake': 'a mooncake', 'Red envelope': 'a red envelope',
+  'Paintbrush': 'a paintbrush', 'Bowl of colors': 'bowl of colors', 'Umbrella': 'an umbrella',
+  'Magic wand': 'a magic wand', 'Egg basket': 'an egg basket', 'Bunch of flowers': 'bunch of flowers',
+  'Heart lollipop': 'a heart lollipop', 'Ice cream': 'an ice cream', 'Autumn leaf': 'an autumn leaf',
+  'Fruit basket': 'a fruit basket', 'Sunny glow': 'a sunny glow', 'Rose glow': 'a rose glow',
+  'Mint glow': 'a mint glow', 'Ocean glow': 'an ocean glow', 'Grape glow': 'a grape glow',
+  'Ember glow': 'an ember glow', 'Rainbow glow': 'a rainbow glow', 'Stripes': 'stripes', 'Polka dots': 'polka dots',
+  'Little stars': 'little stars', 'Rainbow': 'a rainbow', 'Hearts': 'hearts',
+};
+
+export const lowerItemName = (name: string): string => LOWER[name] ?? name.toLowerCase();
+
 /** "Jubi in a Santa hat and a stripy scarf" — the Fridge picture's title. */
 export function describeOutfit(o: Outfit, holidayName?: string): string {
   const names = (['hat', 'glasses', 'neck', 'held'] as const)
-    .map((s) => itemById(o[s])?.name.toLowerCase())
+    .map((s) => itemById(o[s])?.name)
     .filter((n): n is string => n !== undefined);
-  if (names.length === 0) return holidayName ? `Jubi on ${holidayName}` : 'Jubi';
-  // Pairs and plurals (glasses, ears, antlers) take no article.
-  const a = (n: string): string => (/s$/.test(n) ? n : /^[aeiou]/.test(n) ? `an ${n}` : `a ${n}`);
-  const list = names.slice(0, 2).map(a);
-  return `Jubi in ${list.join(' and ')}${names.length > 2 ? ' and more' : ''}`;
+  if (names.length === 0) return holidayName ? fill('Jubi on {holiday}', { holiday: holidayName }) : 'Jubi';
+  const items = list(names.slice(0, 2).map((n) => WITH_ARTICLE[n] ?? lowerItemName(n)));
+  return fill(names.length > 2 ? 'Jubi in {items} and more' : 'Jubi in {items}', { items });
 }
 
 /** The ids of the holidays an item belongs to that exist in a catalog (for tests and labels). */

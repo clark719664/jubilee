@@ -20,7 +20,8 @@ import { mascot, mascotState, spin, type MascotState } from '../../ui/mascot';
 import type { Activity, ActivityInstance, PlayEnv } from '../types';
 import { skinArt } from './boards';
 import { doorCard } from './card';
-import { COPY, fill, notYetText } from './copy';
+import { plural } from '../../i18n/index';
+import { COPY, COUNTS, fill, notYetText } from './copy';
 import { makeDoor, paintDoor, sparkleBurst, wiggle } from './door';
 import {
   boardDoors, boardOrder, boardYear, canOpen, doorView, featured, moonFill, phaseOf, skinFor, unlockedCount,
@@ -68,22 +69,28 @@ const playHash = (id: string, activity: string): string => `#/h/${id}/play/${act
 
 // ───────── headline copy ─────────
 
+/** "[3] sleeps until Easter!": the count sits in its own bubble when the sentence starts with it. */
+function countdownHead(sleeps: number, name: string): Node {
+  const text = plural(sleeps, COUNTS.countdown, { name });
+  const digits = sleeps.toLocaleString('en-US');
+  if (!text.startsWith(digits)) return h('span', {}, text);
+  return h('span', { class: 'dr-headrow' }, h('span', { class: 'dr-big' }, String(sleeps)), ' ',
+    h('span', { class: 'dr-headtext' }, text.slice(digits.length).trim()));
+}
+
 function headline(phase: Phase, meta: HolidayMeta): { readonly big: Node; readonly sub: string } {
   switch (phase.kind) {
     case 'countdown':
       return {
-        big: phase.sleeps === 1
-          ? h('span', {}, fill(COPY.countdownOne, { name: meta.name }))
-          : h('span', { class: 'dr-headrow' }, h('span', { class: 'dr-big' }, String(phase.sleeps)), ' ',
-            h('span', { class: 'dr-headtext' }, fill(COPY.countdown, { n: '', name: meta.name }).trim())),
+        big: phase.sleeps === 1 ? h('span', {}, fill(COPY.countdownOne, { name: meta.name })) : countdownHead(phase.sleeps, meta.name),
         sub: '',
       };
     case 'celebrating': return { big: h('span', {}, fill(COPY.celebrating, { name: meta.name })), sub: '' };
     case 'after': return { big: h('span', {}, fill(COPY.after, { name: meta.name })), sub: '' };
     case 'far':
       return {
-        big: h('span', {}, phase.firstIn === 1 ? COPY.farTitleOne : fill(COPY.farTitle, { n: phase.firstIn })),
-        sub: fill(COPY.farSub, { name: meta.name, m: phase.sleeps }),
+        big: h('span', {}, phase.firstIn === 1 ? COPY.farTitleOne : plural(phase.firstIn, COUNTS.farTitle)),
+        sub: plural(phase.sleeps, COUNTS.farSub, { name: meta.name }),
       };
     case 'beyond': return { big: h('span', {}, COPY.beyond), sub: '' };
   }
@@ -211,7 +218,7 @@ function mount(env: PlayEnv): ActivityInstance {
       }
       // Bulbs light in board order from the left, so the garland visibly fills.
       bulbs.forEach((b, i) => b.classList.toggle('is-lit', i < peeked));
-      garlandText.textContent = peeked === 0 ? fill(COPY.garlandNone, { t: m.doors.length }) : fill(COPY.garland, { k: peeked, t: m.doors.length });
+      garlandText.textContent = peeked === 0 ? plural(m.doors.length, COUNTS.garlandNone) : plural(m.doors.length, COUNTS.garland, { k: peeked });
       let s = head.sub;
       if (m.phase.kind === 'countdown') s = todayExists ? (todayOpened ? (waiting ? COPY.missedReady : COPY.todayOpened) : COPY.todayReady) : (waiting ? COPY.missedReady : '');
       if ((m.phase.kind === 'far' || m.phase.kind === 'beyond') && [...buttons.keys()].some((d) => m.view(d).fromLastTime)) s = `${s} ${COPY.farLastTime}`.trim();
@@ -391,15 +398,15 @@ export function doorStrip(env: PlayEnv): HTMLElement {
   const row: HTMLElement[] = [];
   let lead = '';
   if (m.phase.kind === 'countdown') {
-    lead = m.phase.sleeps === 1 ? fill(COPY.countdownOne, { name: meta.name }) : fill(COPY.countdown, { n: m.phase.sleeps, name: meta.name });
+    lead = m.phase.sleeps === 1 ? fill(COPY.countdownOne, { name: meta.name }) : plural(m.phase.sleeps, COUNTS.countdown, { name: meta.name });
     if (f.today) row.push(mini(f.today, COPY.stripToday));
     if (f.next) {
       const wait = m.view(f.next).wait;
-      row.push(mini(f.next, wait === 1 ? COPY.stripTomorrow : fill(COPY.stripInN, { n: wait })));
+      row.push(mini(f.next, wait === 1 ? COPY.stripTomorrow : plural(wait, COUNTS.stripInN)));
     }
   } else if (m.phase.kind === 'far') {
-    lead = m.phase.firstIn === 1 ? COPY.farTitleOne : fill(COPY.stripFirst, { n: m.phase.firstIn });
-    if (f.next) row.push(mini(f.next, m.phase.firstIn === 1 ? COPY.stripTomorrow : fill(COPY.stripInN, { n: m.phase.firstIn })));
+    lead = m.phase.firstIn === 1 ? COPY.farTitleOne : plural(m.phase.firstIn, COUNTS.stripFirst);
+    if (f.next) row.push(mini(f.next, m.phase.firstIn === 1 ? COPY.stripTomorrow : plural(m.phase.firstIn, COUNTS.stripInN)));
   } else if (m.phase.kind === 'beyond') {
     lead = COPY.beyond;
   } else {

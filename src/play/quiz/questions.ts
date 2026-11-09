@@ -15,6 +15,7 @@
  * in Node (Intl zone data is the only outside input).
  */
 import type { Greeting, HolidayContent, HolidayMeta } from '../../content/types';
+import { plural } from '../../i18n/index';
 import { CELEBRATED, isWorldwide } from '../../world/data/celebrated';
 import { COUNTRY_NAMES, hasOutline } from '../../world/data/countries';
 import { hoursPhrase, newYearPair, nightPair } from './clocks';
@@ -162,7 +163,7 @@ export function placeQuestions(meta: HolidayMeta, rand: () => number): MapQuesti
   if (!hasDoing && hasPlainQuestion(meta.id) && !isWorldwide(meta.id) && meta.tier !== 3) {
     const answers = celebratedOutlined(meta.id);
     if (answers.length > 0) {
-      out.push(mapQ(`place:${meta.id}:plain`, meta.id, 'doing', `Tap a country where people celebrate ${meta.name}.`, answers, false, kidNote(c.note) ?? countReveal(meta, answers.length, false), rand));
+      out.push(mapQ(`place:${meta.id}:plain`, meta.id, 'doing', fill('Tap a country where people celebrate {holiday}.', { holiday: meta.name }), answers, false, kidNote(c.note) ?? countReveal(meta, answers.length, false), rand));
     }
   }
   return out;
@@ -179,8 +180,12 @@ export function kidNote(note: string): string | null {
 }
 
 function countReveal(meta: HolidayMeta, n: number, any: boolean): string {
-  if (any) return `Everyone on Earth is invited to ${meta.name}!`;
-  return n === 1 ? `${meta.name} is celebrated in one country on this globe.` : `${n} countries on this globe celebrate ${meta.name}. Look, they are all lit up!`;
+  if (any) return fill('Everyone on Earth is invited to {holiday}!', { holiday: meta.name });
+  if (n === 1) return fill('{holiday} is celebrated in one country on this globe.', { holiday: meta.name });
+  return plural(n, {
+    one: '{n} country on this globe celebrates {holiday}. Look, they are all lit up!',
+    other: '{n} countries on this globe celebrate {holiday}. Look, they are all lit up!',
+  }, { holiday: meta.name });
 }
 
 function mapQ(key: string, holiday: string, place: PlaceKind, prompt: string, answers: readonly string[], any: boolean, reveal: string, rand: () => number): MapQuestion {

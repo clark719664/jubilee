@@ -10,6 +10,7 @@
 import { loadContent } from '../../content/loader';
 import type { HolidayContent, HolidayMeta } from '../../content/types';
 import { mulberry32 } from '../../effects/rng';
+import { plural } from '../../i18n/index';
 import { applyTheme } from '../../theme/apply';
 import { THEMES } from '../../theme/themes';
 import { h, trapFocus } from '../../ui/dom';
@@ -329,7 +330,7 @@ export function mountQuiz(env: PlayEnv): ActivityInstance {
     updateDots(true);
     const name = ctx.store.progress.name;
     const places = stamps.filter((iso, i, a) => a.indexOf(iso) === i);
-    const subText = places.length === 0 ? COPY.doneSub0 : places.length === 1 ? COPY.doneSub1 : fill(COPY.doneSub, { n: places.length });
+    const subText = places.length === 0 ? COPY.doneSub0 : plural(places.length, { one: 'You visited {n} place around the world.', other: 'You visited {n} places around the world.' });
     const again = h('button', { type: 'button', class: 'btn btn-lg quiz-again', onclick: () => { closeDone(); void begin(scope); } }, icon('shuffle', 22), COPY.again);
     const switchTo: Scope | null = scope === EVERYTHING ? (ownRound ? meta.id : null) : EVERYTHING;
     const panelEl = h('div', { class: 'quiz-done', role: 'dialog', 'aria-modal': 'true', 'aria-labeledby': 'quiz-done-title' },

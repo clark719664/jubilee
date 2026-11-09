@@ -13,6 +13,7 @@ import { toDayNumber, type CivilDate, type DayNumber } from '../dates/civil';
 import { candlesLit, spanProgress } from '../dates/countdown';
 import type { Occurrence, Status } from '../dates/occurrences';
 import type { DateRule, Region } from '../dates/rules';
+import { fill, plural, t as translate } from '../i18n/index';
 import type { ActivityId } from '../play/types';
 import { COPY, fmt } from './copy';
 
@@ -252,11 +253,9 @@ export function compactLines(lines: readonly DayLine[], max = MAX_LINES): DayLin
 
 /** "Today is Dhanteras", but day names that already talk about tonight stand on their own. */
 export function headlineForName(name: string, holidayName: string): string {
-  if (GENERIC_NAME.test(name)) return `${holidayName} — ${name}`;
-  return /tonight/i.test(name) ? name : `Today is ${name}`;
+  if (GENERIC_NAME.test(name)) return `${translate(holidayName)} — ${translate(name)}`;
+  return /tonight/i.test(name) ? name : fill('Today is {name}', { name });
 }
-
-const plural = (n: number, one: string, many: string): string => `${n} ${n === 1 ? one : many}`;
 
 /**
  * The Story section's per-day panel while a multi-day holiday is on: what today is, the candles burning tonight
@@ -274,24 +273,24 @@ export function dayPanel(meta: HolidayMeta, occ: Occurrence, status: Status, tod
   if (meta.effect === 'menorah') {
     const lit = candlesLit(occ, today, 8);
     if (status.day <= 8) {
-      const headline = `${fmt('nightOf', { night: lit, of: 8 })} — tonight we light ${plural(lit, 'candle', 'candles')}`;
+      const headline = plural(lit, { one: '{night} — tonight we light {n} candle', other: '{night} — tonight we light {n} candles' }, { night: translate(fmt('nightOf', { night: lit, of: 8 })) });
       return { headline, detail: name !== undefined && !GENERIC_NAME.test(name) ? name : null, candles: { lit, of: 8 }, progress: null };
     }
     return { headline: name ?? fmt('lastDay', { name: meta.name }), detail: 'All eight candles shone last night.', candles: { lit: 8, of: 8 }, progress: null };
   }
   if (meta.effect === 'kinara') {
     const lit = candlesLit(occ, today, 7);
-    const headline = name !== undefined ? `${fmt('dayOf', { day: status.day, of: 7 })} — today's principle is ${name}` : dayOf;
-    return { headline, detail: `${plural(lit, 'candle', 'candles')} glow on the kinara tonight.`, candles: { lit, of: 7 }, progress: null };
+    const headline = name !== undefined ? fill("{day} — today's principle is {name}", { day: translate(fmt('dayOf', { day: status.day, of: 7 })), name }) : dayOf;
+    return { headline, detail: plural(lit, { one: '{n} candle glows on the kinara tonight.', other: '{n} candles glow on the kinara tonight.' }), candles: { lit, of: 7 }, progress: null };
   }
   if (name !== undefined) {
     const mainName = meta.dayNames?.[occ.main - occ.start];
     const detail = status.sleepsToMain > 0
-      ? `${pluralSleeps(status.sleepsToMain)} until ${mainName !== undefined && !GENERIC_NAME.test(mainName) ? mainName : meta.name}`
+      ? fmt('sleepsUntil', { sleeps: pluralSleeps(status.sleepsToMain), name: mainName !== undefined && !GENERIC_NAME.test(mainName) ? mainName : meta.name })
       : GENERIC_NAME.test(name) ? null : dayOf;
     return { headline: headlineForName(name, meta.name), detail, candles: null, progress };
   }
-  return { headline: `${meta.name} — ${dayOf}`, detail: null, candles: null, progress };
+  return { headline: `${translate(meta.name)} — ${translate(dayOf)}`, detail: null, candles: null, progress };
 }
 
 // ───────────────────────────────────────────────────────── Lunar New Year zodiac
@@ -424,10 +423,10 @@ export function timerWords(ms: number): string {
   const m = Math.floor((total % 3600) / 60);
   const s = total % 60;
   const parts: string[] = [];
-  if (h > 0) parts.push(plural(h, 'hour', 'hours'));
-  if (m > 0) parts.push(plural(m, 'minute', 'minutes'));
-  if (s > 0 || parts.length === 0) parts.push(plural(s, 'second', 'seconds'));
-  return `${parts.join(' ')} left`;
+  if (h > 0) parts.push(plural(h, { one: '{n} hour', other: '{n} hours' }));
+  if (m > 0) parts.push(plural(m, { one: '{n} minute', other: '{n} minutes' }));
+  if (s > 0 || parts.length === 0) parts.push(plural(s, { one: '{n} second', other: '{n} seconds' }));
+  return fill('{time} left', { time: parts.join(' ') });
 }
 
 // ───────────────────────────────────────────────────────── ingredient checklist & units
@@ -442,7 +441,7 @@ export function toggleChecked(checked: ReadonlySet<number>, index: number): Set<
 /** "3 of 11 ready" / "Everything is ready!" */
 export function checklistSummary(checked: number, total: number): string {
   if (total > 0 && checked >= total) return 'Everything is ready!';
-  return `${Math.min(checked, total)} of ${total} ready`;
+  return fill('{n} of {total} ready', { n: Math.min(checked, total), total });
 }
 
 /** Session memory of ticked ingredients and materials, keyed `${holidayId}/${itemId}`, so Step Mode and Back keep them. */
@@ -496,7 +495,7 @@ function weekdayName(weekday: number, locale: string | undefined): string {
   return new Intl.DateTimeFormat(locale, { weekday: 'long' }).format(new Date(2024, 0, 7 + weekday, 12));
 }
 
-const days = (n: number): string => plural(Math.abs(n), 'day', 'days');
+const days = (n: number): string => plural(Math.abs(n), { one: '{n} day', other: '{n} days' });
 
 /**
  * A computed rule as a short phrase for the Dates section: "the fourth Thursday of November", "47 days before
@@ -505,11 +504,11 @@ const days = (n: number): string => plural(Math.abs(n), 'day', 'days');
 export function ruleInWords(rule: DateRule, region: Region, nameOf: (id: HolidayId) => string | undefined, locale?: string): string {
   switch (rule.kind) {
     case 'fixed':
-      return rule.month === 2 && rule.day === 29 ? 'February 29, which only exists in leap years' : `${monthDay(rule.month, rule.day, locale)} every year`;
+      return rule.month === 2 && rule.day === 29 ? 'February 29, which only exists in leap years' : fill('{date} every year', { date: monthDay(rule.month, rule.day, locale) });
     case 'nthWeekday':
-      return `the ${NTH[rule.n - 1] ?? `${rule.n}th`} ${weekdayName(rule.weekday, locale)} of ${monthName(rule.month, locale)}`;
+      return fill('the {nth} {weekday} of {month}', { nth: NTH[rule.n - 1] ?? `${rule.n}th`, weekday: weekdayName(rule.weekday, locale), month: monthName(rule.month, locale) });
     case 'lastWeekday':
-      return `the last ${weekdayName(rule.weekday, locale)} of ${monthName(rule.month, locale)}`;
+      return fill('the last {weekday} of {month}', { weekday: weekdayName(rule.weekday, locale), month: monthName(rule.month, locale) });
     case 'easter': {
       const easter = rule.calendar === 'julian' ? 'Orthodox Easter Sunday (worked out on the old Julian calendar)' : 'Easter Sunday';
       if (rule.offset === 0) {
@@ -517,10 +516,10 @@ export function ruleInWords(rule: DateRule, region: Region, nameOf: (id: Holiday
           ? 'the Orthodox Easter rule: the first Sunday after the spring full moon, worked out on the old Julian calendar'
           : 'the first Sunday after the first full moon of spring (the Easter rule)';
       }
-      return `${days(rule.offset)} ${rule.offset < 0 ? 'before' : 'after'} ${easter}`;
+      return fill(rule.offset < 0 ? '{days} before {name}' : '{days} after {name}', { days: days(rule.offset), name: easter });
     }
     case 'relative':
-      return `${days(rule.offset)} ${rule.offset < 0 ? 'before' : 'after'} ${nameOf(rule.to) ?? rule.to}`;
+      return fill(rule.offset < 0 ? '{days} before {name}' : '{days} after {name}', { days: days(rule.offset), name: nameOf(rule.to) ?? rule.to });
     case 'byRegion':
       return ruleInWords(rule.variants[region] ?? rule.fallback, region, nameOf, locale);
     case 'custom':

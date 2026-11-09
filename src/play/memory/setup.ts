@@ -6,7 +6,8 @@
 import { h } from '../../ui/dom';
 import { icon } from '../../ui/icons';
 import { stickerArt } from './card';
-import { COPY, fill } from './copy';
+import { plural } from '../../i18n/index';
+import { COPY, COUNTS, fill } from './copy';
 import { BOARDS, type BoardSize, type MemorySticker } from './deck';
 
 export type DeckChoice = 'season' | 'mine';
@@ -70,12 +71,12 @@ export function setupPanel(p: SetupProps): SetupView {
       const copy = COPY.boards[b.id];
       const btn = h('button', {
         type: 'button', class: `mem-board-btn mem-board-${b.id}`,
-        'aria-label': fill(COPY.boardLabel, { name: copy.name, pairs: b.pairs, cols: b.cols, rows: b.rows }),
+        'aria-label': plural(b.pairs, COUNTS.boardLabel, { name: copy.name, pairs: b.pairs, cols: b.cols, rows: b.rows }),
         onclick: () => p.onPick(b),
       },
       miniBoard(b, deck, p.holidayEmoji),
       h('span', { class: 'mem-board-name' }, copy.name),
-      h('span', { class: 'mem-board-pairs' }, fill(COPY.pairsN, { n: b.pairs })),
+      h('span', { class: 'mem-board-pairs' }, plural(b.pairs, COUNTS.pairsN)),
       h('span', { class: 'mem-board-note' }, copy.note));
       boardButtons.push(btn);
       boardsRow.append(btn);

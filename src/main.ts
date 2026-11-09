@@ -6,7 +6,7 @@
  * Views come from the registry in ./ui/views.ts; every route change destroys
  * the previous view and mounts the next one into the shell's #view.
  */
-import { currentLang, initLang, localeFor } from './i18n/index';
+import { currentLang, fill, initLang, localeFor } from './i18n/index';
 import './ui/styles.css';
 import { localClock, MidnightTicker, parseTodayFlag, pretendClock } from './app/clock';
 import { registerOffline } from './sw/template';
@@ -95,7 +95,7 @@ function boot(root: HTMLElement): void {
       mounted.view.append(errorCard(err));
     }
     mounted.setActive(tabFor(route));
-    document.title = `${VIEW_NAMES[route.view]} · Jubilee`;
+    document.title = fill('{view} · Jubilee', { view: VIEW_NAMES[route.view] });
   };
   router.onChange((route) => render(route));
   router.start();

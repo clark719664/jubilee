@@ -2,6 +2,7 @@ import { formatIso, isValid, parseIso, type CivilDate, type IsoDate } from '../d
 import { REGIONS, type Region } from '../dates/rules';
 import type { CustomHoliday, HolidayId } from '../content/types';
 import { COPY } from '../ui/copy';
+import { fill, visible } from '../i18n/index';
 
 export const STORAGE_KEY = 'jubilee.v1';
 
@@ -177,6 +178,9 @@ export interface StoreOptions {
 
 export type Subscriber = (p: Progress) => void;
 
+/** Words the grown-ups page shows after a setting's name. */
+const SWITCH_WORDS = visible({ on: 'on', off: 'off', auto: 'auto', light: 'light', dark: 'dark' });
+
 export class Store {
   private p: Progress;
   private readonly storage: StorageLike | null;
@@ -323,21 +327,21 @@ export class Store {
   whatWeStore(): string[] {
     const p = this.p;
     const lines: string[] = [];
-    if (p.name) lines.push(`Name: ${p.name}`);
-    if (p.region) lines.push(`Region: ${p.region}`);
-    lines.push(`Moving skies: ${p.motion}`);
-    lines.push(`Measurements: ${p.units === 'us' ? COPY.unitsUs : COPY.unitsMetric}`);
-    lines.push(`Holidays from everywhere: ${p.everywhere ? 'on' : 'off'}`);
-    if (p.scheme) lines.push(`Colors: ${p.scheme}`);
-    lines.push(`Stickers earned: ${Object.keys(p.stickers).length}`);
-    lines.push(`Badges: ${Object.keys(p.badges).length}`);
-    lines.push(`Holiday pages visited: ${Object.keys(p.visited).length}`);
-    lines.push(`Recipes finished: ${p.recipesDone.length}`);
-    lines.push(`Facts flipped: ${p.factsFlipped}`);
-    lines.push(`Days opened (last ${OPEN_DAYS_CAP}): ${p.openDays.length}`);
-    lines.push(`Birthdays and custom days: ${p.custom.length}`);
-    if (Object.keys(p.adventOpened).length > 0) lines.push(`Advent doors opened: ${Object.keys(p.adventOpened).length}`);
-    if (p.greetedToday) lines.push(`Last morning hello: ${p.greetedToday}`);
+    if (p.name) lines.push(fill('Name: {name}', { name: p.name }));
+    if (p.region) lines.push(fill('Region: {region}', { region: p.region }));
+    lines.push(fill('Moving skies: {state}', { state: p.motion === 'on' ? SWITCH_WORDS.on : p.motion === 'off' ? SWITCH_WORDS.off : SWITCH_WORDS.auto }));
+    lines.push(fill('Measurements: {units}', { units: p.units === 'us' ? COPY.unitsUs : COPY.unitsMetric }));
+    lines.push(fill('Holidays from everywhere: {state}', { state: p.everywhere ? SWITCH_WORDS.on : SWITCH_WORDS.off }));
+    if (p.scheme) lines.push(fill('Colors: {scheme}', { scheme: SWITCH_WORDS[p.scheme] }));
+    lines.push(fill('Stickers earned: {n}', { n: Object.keys(p.stickers).length }));
+    lines.push(fill('Badges: {n}', { n: Object.keys(p.badges).length }));
+    lines.push(fill('Holiday pages visited: {n}', { n: Object.keys(p.visited).length }));
+    lines.push(fill('Recipes finished: {n}', { n: p.recipesDone.length }));
+    lines.push(fill('Facts flipped: {n}', { n: p.factsFlipped }));
+    lines.push(fill('Days opened (last {cap}): {n}', { cap: OPEN_DAYS_CAP, n: p.openDays.length }));
+    lines.push(fill('Birthdays and custom days: {n}', { n: p.custom.length }));
+    if (Object.keys(p.adventOpened).length > 0) lines.push(fill('Advent doors opened: {n}', { n: Object.keys(p.adventOpened).length }));
+    if (p.greetedToday) lines.push(fill('Last morning hello: {date}', { date: p.greetedToday }));
     return lines;
   }
 }

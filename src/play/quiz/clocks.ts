@@ -10,6 +10,7 @@
  * (rough metro population ≥ 1 million), and only whole or half-hour offsets, so the answer sentence
  * reads "8 hours", never "5 hours and 45 minutes". Pure: tested in Node.
  */
+import { plural } from '../../i18n/index';
 import { CITIES, type City } from '../../world/data/cities';
 import { hasOutline } from '../../world/data/countries';
 import { localClock, offsetMinutes } from '../../world/zones';
@@ -84,5 +85,5 @@ export function hoursPhrase(minutes: number): string {
   const half = minutes % 60 >= 30;
   if (h === 0) return 'half an hour';
   if (h === 1 && !half) return 'one hour';
-  return half ? `${h} and a half hours` : `${h} hours`;
+  return half ? plural(h, { one: '{n} and a half hours', other: '{n} and a half hours' }) : plural(h, { one: '{n} hour', other: '{n} hours' });
 }

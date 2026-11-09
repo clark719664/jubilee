@@ -62,8 +62,6 @@ export const COPY = {
   // done
   doneTitle: 'What a trip!',
   doneName: 'What a trip, {name}!',
-  doneSub: 'You visited {n} places around the world.',
-  doneSub1: 'You visited 1 place around the world.',
   doneSub0: 'You answered all five questions!',
   stamps: 'Your passport stamps',
   again: 'Play again',

@@ -7,7 +7,8 @@
 import { commaNumber, pluralSleeps } from '../app/format';
 import { diffDays, formatIso, type CivilDate } from '../dates/civil';
 import { CITIES, SHOWCASE_CITY_IDS, type City } from './data/cities';
-import { durationWords, wfmt } from './copy';
+import { durationWords, WORLD_COUNTS, wfmt } from './copy';
+import { fill, plural, t } from '../i18n/index';
 import { normLon } from './geo';
 import {
   arrivalOrder, arrivedCount, midnightMeridian, nextArrivals, utcDayStart, yourTurn, type Arrival, type YourTurn,
@@ -32,7 +33,7 @@ export function altitudeAt(sub: SubsolarPoint, lon: number, lat: number): number
 }
 
 function cityLabel(c: City): string {
-  return c.emoji ? `${c.name} ${c.emoji}` : c.name;
+  return c.emoji ? `${t(c.name)} ${c.emoji}` : t(c.name);
 }
 
 // ───────────────────────────────────────────────────────── ☀️ day & night
@@ -65,11 +66,11 @@ export function sunCard(now: Date, cities: readonly City[] = CITIES): SunCard {
       if (score < riseScore) { riseScore = score; rising = c; }
     } else if (score < setScore) { setScore = score; setting = c; }
   }
-  const status = wfmt('sunStatus', { n: daylight, total: cities.length });
+  const status = plural(cities.length, WORLD_COUNTS.sunStatus, { n: daylight, total: cities.length });
   let detail = '';
-  if (rising) detail = wfmt('sunRising', { city: cityLabel(rising) });
-  if (setting) detail = detail ? `${detail} ${wfmt('sunSetting', { city: cityLabel(setting) })}` : wfmt('sunSetting', { city: cityLabel(setting) });
-  else if (detail) detail += '.';
+  if (rising && setting) detail = wfmt('sunRisingSetting', { rising: cityLabel(rising), setting: cityLabel(setting) });
+  else if (rising) detail = wfmt('sunRisingOnly', { city: cityLabel(rising) });
+  else if (setting) detail = wfmt('sunSetting', { city: cityLabel(setting) });
   return { subsolar: sub, daylight, total: cities.length, rising, setting, status, detail };
 }
 
@@ -134,10 +135,10 @@ export function moonCard(now: Date, hint: LunarHint | null = null): MoonCard {
   const status = wfmt('moonStatus', { phase: phase.label });
   let detail: string;
   if (phase.phase === 'full' || sleepsToFull === 0) detail = wfmt('moonFullTonight');
-  else if (phase.phase === 'new' || sleepsToNew === 0) detail = `${wfmt('moonNewTonight')} ${wfmt('moonNextFull', { sleeps: pluralSleeps(sleepsToFull) })}`;
+  else if (phase.phase === 'new' || sleepsToNew === 0) detail = wfmt('moonNewThenFull', { sleeps: pluralSleeps(sleepsToFull) });
   else detail = waxing
     ? wfmt('moonNextFull', { sleeps: pluralSleeps(sleepsToFull) })
-    : `${wfmt('moonNextNew', { sleeps: pluralSleeps(sleepsToNew) })} · ${wfmt('moonNextFull', { sleeps: pluralSleeps(sleepsToFull) })}`;
+    : wfmt('moonNextBoth', { newSleeps: pluralSleeps(sleepsToNew), fullSleeps: pluralSleeps(sleepsToFull) });
   let hintText: string | null = null;
   if (hint) {
     const when = hint.sleeps === 0 ? wfmt('isToday') : wfmt('inSleeps', { sleeps: pluralSleeps(hint.sleeps) });
@@ -173,7 +174,7 @@ export function midnightCard(now: Date, cities: readonly City[], deviceZone: str
   let status: string;
   if (arrived === 0 && first) status = wfmt('waveStartsIn', { time: durationWords(first.msUntil), city: cityLabel(first.city) });
   else if (arrived === total) status = wfmt('waveAll', { year: target.y });
-  else status = wfmt('waveStatus', { n: arrived, total, year: target.y });
+  else status = plural(total, WORLD_COUNTS.waveStatus, { n: arrived, total, year: target.y });
   const time = durationWords(yours.msUntil);
   const yourText = yours.arrived
     ? wfmt('waveYourDone', { year: target.y })
@@ -208,7 +209,7 @@ export function santaWhere(s: SantaStatus): string {
   if (!s.from.city) return 'leaving the North Pole';
   if (!s.to.city) return 'heading home to the North Pole';
   const c = countryAt(s.lonlat.lon, s.lonlat.lat);
-  return c ? `over ${c.name}` : 'over the sea';
+  return c ? fill('over {country}', { country: c.name }) : 'over the sea';
 }
 
 export function santaCard(now: Date, cities: readonly City[], deviceZone: string, today: CivilDate, name?: string): SantaCard {
@@ -239,7 +240,7 @@ export function santaCard(now: Date, cities: readonly City[], deviceZone: string
   } else {
     headline = wfmt('santaOffSeason');
   }
-  const presents = s.phase === 'workshop' ? null : wfmt('santaPresents', { n: commaNumber(s.presents) });
+  const presents = s.phase === 'workshop' ? null : plural(s.presents, { one: '{n} present delivered', other: '{n} presents delivered' }, { n: commaNumber(s.presents) });
   return { status: s, season, headline, lines, presents, where: santaWhere(s) };
 }
 
@@ -312,7 +313,7 @@ export function celebratingNowCard(now: Date, cities: readonly City[], holidaysO
     for (const r of rows) {
       if (r.shift !== want || headline) continue;
       const h = r.holidays.find((x) => isBig(x.id) && !todays.has(x.id));
-      if (h) headline = wfmt(want === 1 ? 'nowAlready' : 'nowStill', { holiday: `${h.name} ${h.emoji}`, city: r.city.name });
+      if (h) headline = wfmt(want === 1 ? 'nowAlready' : 'nowStill', { holiday: `${t(h.name)} ${h.emoji}`, city: r.city.name });
     }
   }
   return { rows, headline };

@@ -2,6 +2,7 @@
  * paper.ts — a finished wish or Santa's reply drawn as paper, for reading again and for printing.
  * The live, editable paper lives in compose.ts; this is the same look, read-only.
  */
+import { fill } from '../../i18n/index';
 import { h } from '../../ui/dom';
 import { chipIcon } from './chip-icons';
 import { COPY } from './copy';
@@ -17,8 +18,10 @@ export function chipsOf(skin: Skin, ids: readonly string[]): WishChip[] {
 export function salutationOf(skin: Skin, letter: Pick<WishLetter, 'to'>): string {
   if (skin.id === 'love') {
     // "Dear Mom," but "To my family," (never "Dear My family,").
-    if (!letter.to) return `${skin.salutation} you,`;
-    return /^my\b/i.test(letter.to) ? `To ${letter.to[0]!.toLowerCase()}${letter.to.slice(1)},` : `${skin.salutation} ${letter.to},`;
+    if (!letter.to) return fill('{salutation} you,', { salutation: skin.salutation });
+    return /^my\b/i.test(letter.to)
+      ? fill('To {name},', { name: `${letter.to[0]!.toLowerCase()}${letter.to.slice(1)}` })
+      : fill('{salutation} {name},', { salutation: skin.salutation, name: letter.to });
   }
   return skin.salutation;
 }

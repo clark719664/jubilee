@@ -10,6 +10,7 @@
  */
 import { greetingLine, hasClip, playClip, speaksNatively } from './voice';
 import type { Greeting } from '../content/types';
+import { t as translate } from '../i18n/index';
 import { COPY } from './copy';
 import { h } from './dom';
 import { icon } from './icons';
@@ -98,14 +99,14 @@ function latnTag(lang: string): string {
 export interface GreetingCard { readonly el: HTMLElement; refreshVoice(): void }
 
 export function greetingCard(g: Greeting): GreetingCard {
-  const hear = h('button', { class: 'btn btn-secondary btn-icon greeting-speak hidden', type: 'button', 'aria-label': `${COPY.hearIt}: ${g.text}` },
+  const hear = h('button', { class: 'btn btn-secondary btn-icon greeting-speak hidden', type: 'button', 'aria-label': `${translate(COPY.hearIt)}: ${g.text}` },
     icon('speaker', 20));
   hear.addEventListener('click', () => { speak(g.text, g.lang); });
   const el = h('article', { class: 'greeting' },
     h('p', { class: 'greeting-lang' }, g.langName),
-    h('p', { class: 'greeting-text', lang: g.lang, dir: 'auto' }, g.text),
-    g.roman ? h('p', { class: 'greeting-roman', lang: latnTag(g.lang) }, g.roman) : null,
-    h('p', { class: 'greeting-say' }, g.sayIt),
+    h('p', { class: 'greeting-text', lang: g.lang, dir: 'auto', translate: 'no' }, g.text),
+    g.roman ? h('p', { class: 'greeting-roman', lang: latnTag(g.lang), translate: 'no' }, g.roman) : null,
+    h('p', { class: 'greeting-say', translate: 'no' }, g.sayIt),
     h('p', { class: 'greeting-meaning' }, `“${g.meaning}”`),
     hear,
   );

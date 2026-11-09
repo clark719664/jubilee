@@ -9,7 +9,8 @@
 import type { MotionMode } from '../../effects/types';
 import { h } from '../../ui/dom';
 import { chipIcon } from './chip-icons';
-import { COPY, fill } from './copy';
+import { plural } from '../../i18n/index';
+import { COPY, COUNTS, fill } from './copy';
 import { KIND_MAX, TEXT_BODY_MAX, toggleChip, type Draft } from './letter';
 import { salutationOf } from './paper';
 import type { Skin, WishChip } from './skins';
@@ -42,7 +43,7 @@ export function compose(opts: ComposeOptions): ComposeView {
   // ── the tray ──
   const chipEls = new Map<string, HTMLButtonElement>();
   const counter = h('span', { class: 'wish-tray-count', 'aria-live': 'off' });
-  const grid = h('div', { class: 'wish-chips', role: 'group', 'aria-label': fill(COPY.chipsGroup, { title: skin.pickTitle, n: skin.chips.length }) });
+  const grid = h('div', { class: 'wish-chips', role: 'group', 'aria-label': plural(skin.chips.length, COUNTS.chipsGroup, { title: skin.pickTitle }) });
   let roving = 0;
   skin.chips.forEach((c, i) => {
     const b = h('button', {
@@ -131,7 +132,7 @@ export function compose(opts: ComposeOptions): ComposeView {
 
   function updateLeft(): void {
     const n = TEXT_BODY_MAX - text.value.length;
-    left.textContent = n <= 80 ? fill(COPY.charsLeft, { n }) : '';
+    left.textContent = n <= 80 ? plural(n, COUNTS.charsLeft) : '';
   }
 
   function stickerFor(c: WishChip): HTMLElement {

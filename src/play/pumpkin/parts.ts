@@ -4,6 +4,7 @@
  * Everything is a friendly cut-out: the carved shapes are filled with `--cut` (dark soot when the pumpkin
  * is dark, warm candle-yellow when lit), and nothing here is ever scary.
  */
+import { fill } from '../../i18n/index';
 import { build, uid, type Spec } from '../spooky/draw';
 
 export interface PumpkinSpec {
@@ -82,24 +83,49 @@ export function randomPumpkin(rand: () => number, lit = false): PumpkinSpec {
   return { v: 1, eyes: p(EYES), nose: p(NOSES), mouth: p(MOUTHS), hat: p(HATS), color: p(COLORS), lit };
 }
 
-const MOUTH_WORD: Readonly<Record<string, string>> = {
-  smile: 'smiley', grin: 'grinning', teeth: 'toothy', zigzag: 'zigzag', oh: 'surprised', tongue: 'silly', cat: 'whiskery', laugh: 'giggly',
+/** Each part name again in lower case, for the middle of a sentence. */
+const LOWER: Readonly<Record<string, string>> = {
+  'Round eyes': 'round eyes', 'Triangle eyes': 'triangle eyes', 'Happy eyes': 'happy eyes', 'Star eyes': 'star eyes',
+  'Sleepy eyes': 'sleepy eyes', 'Big oval eyes': 'big oval eyes', 'Heart eyes': 'heart eyes',
+  'Triangle nose': 'triangle nose', 'Dot nose': 'dot nose', 'Square nose': 'square nose', 'Two dots': 'two dots',
+  'Heart nose': 'heart nose', 'No nose': 'no nose', 'Smile': 'smile', 'Grin': 'grin', 'Toothy smile': 'toothy smile',
+  'Zigzag': 'zigzag', 'Surprised “oh”': 'surprised “oh”', 'Tongue out': 'tongue out', 'Cat mouth': 'cat mouth',
+  'Big laugh': 'big laugh', 'Orange': 'orange', 'White': 'white', 'Green': 'green', 'Blue-gray': 'blue-gray',
+  'Pink': 'pink',
+};
+
+const TITLE: Readonly<Record<string, string>> = {
+  smile: 'Smiley {color} pumpkin', grin: 'Grinning {color} pumpkin', teeth: 'Toothy {color} pumpkin', zigzag: 'Zigzag {color} pumpkin',
+  oh: 'Surprised {color} pumpkin', tongue: 'Silly {color} pumpkin', cat: 'Whiskery {color} pumpkin', laugh: 'Giggly {color} pumpkin',
 };
 
 /** "Grinning orange pumpkin": what the Fridge calls it. */
 export function pumpkinTitle(spec: PumpkinSpec): string {
-  const word = MOUTH_WORD[spec.mouth] ?? 'friendly';
-  const color = (COLORS.find((c) => c.id === spec.color) ?? COLORS[0]!).name.toLowerCase();
-  const t = `${word} ${color} pumpkin`;
-  return t.charAt(0).toUpperCase() + t.slice(1);
+  const color = lowerOf((COLORS.find((c) => c.id === spec.color) ?? COLORS[0]!).name);
+  return fill(TITLE[spec.mouth] ?? 'Friendly {color} pumpkin', { color });
 }
+
+const lowerOf = (text: string): string => LOWER[text] ?? text.toLowerCase();
+
+const HAT_PHRASE: Readonly<Record<string, string>> = {
+  witch: 'a witch hat', party: 'a party hat', crown: 'a crown', bow: 'a bow', bat: 'a little bat',
+};
 
 /** For a screen reader. */
 export function describePumpkin(spec: PumpkinSpec): string {
-  const name = (list: readonly Part[], id: string): string => (list.find((p) => p.id === id)?.name ?? id).toLowerCase();
-  const hat = spec.hat === 'none' ? '' : ` wearing ${name(HATS, spec.hat) === 'a little bat' ? 'a little bat' : `a ${name(HATS, spec.hat)}`}`;
-  const nose = spec.nose === 'none' ? 'no nose' : name(NOSES, spec.nose);
-  return `A ${spec.lit ? 'glowing ' : ''}${name(COLORS, spec.color)} jack-o’-lantern${hat}, with ${name(EYES, spec.eyes)}, ${nose} and a ${name(MOUTHS, spec.mouth)}`;
+  const name = (list: readonly Part[], id: string): string => lowerOf(list.find((p) => p.id === id)?.name ?? id);
+  const vars = {
+    color: name(COLORS, spec.color), eyes: name(EYES, spec.eyes), mouth: name(MOUTHS, spec.mouth),
+    nose: spec.nose === 'none' ? 'no nose' : name(NOSES, spec.nose), hat: HAT_PHRASE[spec.hat] ?? name(HATS, spec.hat),
+  };
+  if (spec.hat === 'none') {
+    return spec.lit
+      ? fill('A glowing {color} jack-o’-lantern, with {eyes}, {nose} and a {mouth}', vars)
+      : fill('A {color} jack-o’-lantern, with {eyes}, {nose} and a {mouth}', vars);
+  }
+  return spec.lit
+    ? fill('A glowing {color} jack-o’-lantern wearing {hat}, with {eyes}, {nose} and a {mouth}', vars)
+    : fill('A {color} jack-o’-lantern wearing {hat}, with {eyes}, {nose} and a {mouth}', vars);
 }
 
 // ── drawing (a 200 × 220 board; the pumpkin sits low so hats have headroom) ──

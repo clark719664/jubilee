@@ -10,7 +10,8 @@
  */
 import { h } from '../../ui/dom';
 import { insideArt } from './boards';
-import { COPY, KIND_EMOJI, KIND_NAME, fill } from './copy';
+import { plural } from '../../i18n/index';
+import { COPY, COUNTS, KIND_EMOJI, KIND_NAME, fill } from './copy';
 import type { BoardDoor, DoorView, Skin } from './logic';
 
 export function makeDoor(door: BoardDoor, skin: Skin, index: number): HTMLButtonElement {
@@ -32,7 +33,7 @@ export function doorLabel(door: BoardDoor, v: DoorView): string {
   if (v.state === 'locked') {
     if (v.fromLastTime) return fill(COPY.labelStar, vars);
     if (v.wait <= 0) return `${fill(COPY.doorLabel, vars)}. ${COPY.shut}`;
-    return fill(v.wait === 1 ? COPY.labelLockedOne : COPY.labelLocked, vars);
+    return v.wait === 1 ? fill(COPY.labelLockedOne, vars) : plural(v.wait, COUNTS.labelLocked, { door: door.n });
   }
   if (v.state === 'today') return fill(COPY.labelToday, vars);
   if (v.state === 'ready') return fill(COPY.labelReady, vars);

@@ -9,7 +9,8 @@
 import './santa-mission.css';
 import type { CivilDate } from '../dates/civil';
 import type { MotionMode } from '../effects/types';
-import { WORLD_COPY, durationClock, durationWords, wfmt } from '../world/copy';
+import { fill as fillText, list as listOf, plural, t as translate } from '../i18n/index';
+import { WORLD_COPY, WORLD_COUNTS, durationClock, durationWords, wfmt } from '../world/copy';
 import { CITIES, cityById, type City } from '../world/data/cities';
 import {
   CRUISE_FT, REINDEER, TREAT_KEYS, comingUp, dialScale, flightLog, flightReport, homeInfo, liveStats, missionStage, preflight,
@@ -255,6 +256,7 @@ export function santaMission(deps: MissionDeps): SantaMission {
   let deerDrawn = 0;
 
   // ── treats ──
+  const TREAT_WORDS: Record<TreatKey, string> = { cookies: 'cookies', milk: 'milk', carrots: 'carrots' };
   const treatLabels: Record<TreatKey, readonly [string, string]> = {
     cookies: ['🍪', WORLD_COPY.missionCookiesTreat],
     milk: ['🥛', WORLD_COPY.missionMilkTreat],
@@ -305,10 +307,10 @@ export function santaMission(deps: MissionDeps): SantaMission {
     return h('div', { class: 'mc-rep' },
       name ? h('p', { class: 'mc-rep-name' }, wfmt('missionReportFor', { name })) : null,
       h('dl', { class: 'mc-rep-list' },
-        row(WORLD_COPY.missionRepDistance, `${nf.format(report.distanceKm)} km (${wfmt('missionMiles', { n: nf.format(report.distanceMi) })})`),
+        row(WORLD_COPY.missionRepDistance, `${nf.format(report.distanceKm)} km (${plural(report.distanceMi, WORLD_COUNTS.missionMiles, { n: nf.format(report.distanceMi) })})`),
         row(WORLD_COPY.missionRepStops, nf.format(report.stops)),
         row(WORLD_COPY.missionRepPresents, nf.format(report.presents)),
-        row(WORLD_COPY.missionRepTop, `${nf.format(report.topKmh)} ${WORLD_COPY.missionKmh} (${nf.format(report.topMph)} mph)`),
+        row(WORLD_COPY.missionRepTop, `${nf.format(report.topKmh)} ${translate(WORLD_COPY.missionKmh)} (${translate(fillText('{n} mph', { n: nf.format(report.topMph) }))})`),
         row(WORLD_COPY.missionRepTime, durationWords(report.flightMs))),
       report.homeAt === null ? null : h('p', { class: 'mc-rep-home' }, wfmt('missionRepHome', { city: city.name, time: formatClock(city.tz, new Date(report.homeAt), locale) })),
       h('p', { class: 'mc-rep-thanks' }, `🎄 ${WORLD_COPY.missionRepThanks}`));
@@ -343,7 +345,7 @@ export function santaMission(deps: MissionDeps): SantaMission {
     if (needleCss !== lastCache.needle) { lastCache.needle = needleCss; needle.style.transform = needleCss; }
     const dash = `${(frac * 100).toFixed(1)} 100`;
     if (dash !== lastCache.fill) { lastCache.fill = dash; fill.style.strokeDasharray = dash; }
-    const aria = wfmt('missionDialAria', { kmh: nf.format(kmh) });
+    const aria = plural(Math.round(kmh), WORLD_COUNTS.missionDialAria, { kmh: nf.format(kmh) });
     if (aria !== lastCache.aria) { lastCache.aria = aria; dial.setAttribute('aria-label', aria); }
   }
 
@@ -355,8 +357,8 @@ export function santaMission(deps: MissionDeps): SantaMission {
       b.classList.toggle('is-locked', visited);
       b.setAttribute('aria-disabled', String(visited));
     }
-    const given = TREAT_KEYS.filter((k) => treats[k]).map((k) => treatLabels[k][1].toLowerCase());
-    const list = given.length > 1 ? `${given.slice(0, -1).join(', ')} and ${given[given.length - 1]}` : given[0] ?? '';
+    const given = TREAT_KEYS.filter((k) => treats[k]).map((k) => TREAT_WORDS[k]);
+    const list = listOf(given);
     setText(treatNote, visited ? (given.length > 0 ? wfmt('missionTreatsAte', { list }) : WORLD_COPY.missionTreatsNone) : given.length > 0 ? WORLD_COPY.missionTreatsWait : '');
     treatNote.hidden = treatNote.textContent === '';
   }
@@ -393,9 +395,9 @@ export function santaMission(deps: MissionDeps): SantaMission {
     setText(kmhValue, nf.format(stats.speedKmh));
     setText(mphValue, wfmt('missionMph', { mph: nf.format(stats.speedMph) }));
     setText(altitude.value, wfmt('missionFt', { n: nf.format(stats.altitudeFt) }));
-    setText(altitude.sub, wfmt('missionAltitudeSub', { m: nf.format(stats.altitudeM) }));
+    setText(altitude.sub, plural(stats.altitudeM, WORLD_COUNTS.missionAltitudeSub, { m: nf.format(stats.altitudeM) }));
     setText(distance.value, wfmt('missionDistanceSub', { km: nf.format(stats.distanceKm) }));
-    setText(distance.sub, wfmt('missionMiles', { n: nf.format(stats.distanceMi) }));
+    setText(distance.sub, plural(stats.distanceMi, WORLD_COUNTS.missionMiles, { n: nf.format(stats.distanceMi) }));
     setText(stops.value, wfmt('missionStopsOf', { done: nf.format(stats.stopsDone), total: nf.format(stats.stopsTotal) }));
     setText(presents.value, big.format(stats.presents));
     setText(bagText, wfmt('missionBagLeft', { pct: stats.percentLeft }));
@@ -408,7 +410,7 @@ export function santaMission(deps: MissionDeps): SantaMission {
     // distance to your house
     const place = deps.name ? wfmt('missionHomeName', { name: deps.name }) : WORLD_COPY.missionHome;
     setText(homeLabel, place);
-    setText(homeBig, wfmt('missionAway', { km: nf.format(info.distanceKm), mi: nf.format(info.distanceMi) }));
+    setText(homeBig, plural(info.distanceMi, WORLD_COUNTS.missionAway, { km: nf.format(info.distanceKm), mi: nf.format(info.distanceMi) }));
     const arrival = info.at === null ? '' : formatClock(home.tz, new Date(info.at), locale);
     setText(homeEta, info.stage === 'visited' ? wfmt('missionHomeVisited', { city: home.name, time: arrival }) : info.at === null ? '' : wfmt('missionHomeEta', { city: home.name, time: durationWords(info.etaMs) }));
     const close = info.stage === 'close' && stage === 'flying';
@@ -423,7 +425,7 @@ export function santaMission(deps: MissionDeps): SantaMission {
       const list = preflight(showing ? localDate(zone, nowDate) : deps.today());
       if (list.done !== jobsKey) {
         jobsKey = list.done;
-        setText(jobsDone, wfmt('missionPreflightDone', { n: list.done, total: list.jobs.length }));
+        setText(jobsDone, plural(list.jobs.length, WORLD_COUNTS.missionPreflightDone, { n: list.done, total: list.jobs.length }));
         jobList.replaceChildren(...list.jobs.map((j) => h('li', { class: j.done ? 'is-done' : '' },
           h('label', {}, h('input', { type: 'checkbox', checked: j.done, disabled: true }), h('span', {}, j.text)))));
       }
@@ -458,7 +460,7 @@ export function santaMission(deps: MissionDeps): SantaMission {
         h('span', { class: 'mc-city' }, e.city.name), nextEtas[i]!)));
       nextEmpty.hidden = next.length > 0;
     }
-    next.forEach((e, i) => { const n = nextEtas[i]; if (n) setText(n, wfmt('missionEta', { time: durationWords(e.etaMs) })); });
+    next.forEach((e, i) => { const n = nextEtas[i]; if (n) setText(n, fillText(translate(WORLD_COPY.missionEta), { time: durationWords(e.etaMs) })); });
 
     // reindeer: moods change by leg, so hold the roster to once a second
     if (force || perf - deerDrawn >= 1000 || deerDrawn === 0) {

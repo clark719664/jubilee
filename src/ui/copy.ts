@@ -6,6 +6,7 @@
  * Use `fmt(key, vars)` for strings with {placeholders} and `COPY[key]` or
  * `fmt(key)` for plain ones. Section-specific label maps live below.
  */
+import { fill, list, visible } from '../i18n/index';
 import type { Route } from '../app/router';
 import type { BadgeId } from '../app/state';
 import type { AdultHelp, Allergen, Hazard } from '../content/types';
@@ -96,7 +97,6 @@ export const COPY = {
   close: 'Close',
   // ── world ──
   'world.title': 'Around the world',
-  'world.celebratedIn': 'Celebrated in {n} places',
   'world.trackers': 'Trackers',
   'world.santa': 'Santa tracker',
   'world.newYear': 'New Year around the world',
@@ -209,14 +209,12 @@ export const ADULT_HELP_LABELS: Record<AdultHelp, string> = {
   none: COPY.kidsCanDoIt, some: COPY.grownUpSome, needed: COPY.grownUpNeeded,
 };
 
-export const MESS_LABELS: Record<1 | 2 | 3, string> = { 1: 'tidy', 2: 'a bit messy', 3: 'very messy' };
-export const DIFFICULTY_LABELS: Record<1 | 2 | 3, string> = { 1: 'easy peasy', 2: 'a little tricky', 3: 'big-kid level' };
+export const MESS_LABELS: Record<1 | 2 | 3, string> = visible({ 1: 'tidy', 2: 'a bit messy', 3: 'very messy' });
+export const DIFFICULTY_LABELS: Record<1 | 2 | 3, string> = visible({ 1: 'easy peasy', 2: 'a little tricky', 3: 'big-kid level' });
 
 /** "milk, wheat and gluten" */
 export function listJoin(items: readonly string[]): string {
-  if (items.length === 0) return '';
-  if (items.length === 1) return items[0]!;
-  return `${items.slice(0, -1).join(', ')} and ${items[items.length - 1]}`;
+  return list(items);
 }
 
 /**
@@ -231,7 +229,7 @@ export function allergenNote(allergens: readonly Allergen[], mayContain: readonl
 /** "Grown-up step: hot oven or stove and sharp knife" / "Careful: small parts". */
 export function hazardSentence(hazards: readonly Hazard[], adult = false): string {
   const names = listJoin(hazards.map((hz) => HAZARD_NAMES[hz]));
-  if (adult && names) return `Grown-up step: ${names}`;
+  if (adult && names) return fill('Grown-up step: {names}', { names });
   if (adult) return 'Grown-up step';
-  return names ? `Careful: ${names}` : '';
+  return names ? fill('Careful: {names}', { names }) : '';
 }

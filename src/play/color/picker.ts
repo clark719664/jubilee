@@ -5,7 +5,8 @@
 import { h } from '../../ui/dom';
 import { icon } from '../../ui/icons';
 import type { ActivityInstance, PlayEnv } from '../types';
-import { COPY, fill } from './copy';
+import { plural } from '../../i18n/index';
+import { COPY, COUNTS, fill } from './copy';
 import { colorStorage } from './store';
 import { mountColor, type ColorOptions } from './view';
 
@@ -35,7 +36,7 @@ export function mountPicker(env: PlayEnv, pages: readonly string[], opts: ColorO
         h('button', { type: 'button', class: 'btn btn-icon', 'aria-label': label, title: label, onclick: () => env.close() }, icon('back')),
         h('div', {},
           h('p', { class: 'cp-pick-holiday' }, env.meta.name),
-          h('h1', { class: 'h2' }, fill(COPY.pickTitle, { n: pages.length })))),
+          h('h1', { class: 'h2' }, plural(pages.length, COUNTS.pickTitle)))),
       grid);
   };
 

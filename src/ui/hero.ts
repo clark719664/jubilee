@@ -228,8 +228,33 @@ function layerImg(layer: SceneLayer, onMissing: () => void): HTMLImageElement {
   return img;
 }
 
+/** The sky's aria-label: "Poke the sky: " and the effect's description in lower case, spelled out so each is translatable. */
+const SKY_LABELS: Record<keyof typeof DESCRIBE, string> = {
+  snow: 'Poke the sky: snowflakes drifting down over the sky',
+  confetti: 'Poke the sky: confetti tumbling through the air',
+  fireworks: 'Poke the sky: fireworks blooming in the night sky',
+  bats: 'Poke the sky: bats flitting through a misty night sky',
+  hearts: 'Poke the sky: hearts floating up through the sky',
+  holi: 'Poke the sky: puffs of bright color powder in the air',
+  lanterns: 'Poke the sky: glowing lanterns in the sky',
+  diyas: 'Poke the sky: a row of little oil lamps flickering under the stars',
+  leaves: 'Poke the sky: autumn leaves tumbling in the wind',
+  shamrocks: 'Poke the sky: shamrocks drifting under a rainbow',
+  eggs: 'Poke the sky: patterned eggs hopping through spring grass',
+  menorah: 'Poke the sky: a menorah with candles flickering',
+  kinara: 'Poke the sky: a kinara with candles glowing',
+  petals: 'Poke the sky: flower petals drifting down',
+  crescent: 'Poke the sky: a crescent moon with twinkling stars and lanterns',
+  moon: 'Poke the sky: a big full moon with drifting clouds and lanterns',
+  sabzeh: 'Poke the sky: green sprouts growing while goldfish swim by',
+  'glyph-rain': 'Poke the sky: little pictures raining gently from the sky',
+  balloons: 'Poke the sky: balloons floating up into the sky',
+  bubbles: 'Poke the sky: bubbles rising through the air',
+  planes: 'Poke the sky: paper airplanes gliding across the sky',
+};
+
 function skyLabel(meta: HolidayMeta): string {
-  return `Poke the sky: ${DESCRIBE[meta.effect].toLowerCase()}`;
+  return SKY_LABELS[meta.effect];
 }
 
 function stringLights(): HTMLElement {

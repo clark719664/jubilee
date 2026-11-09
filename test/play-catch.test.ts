@@ -5,7 +5,8 @@ import {
   BOUNCING, CatchGame, FALLING, GOOD, MAX_ITEMS, OOPS, ROUND_SECONDS, SPECIAL, type CatchEvent,
 } from '../src/play/catch/catch-engine';
 import { FULL_MOON_HOLIDAYS } from '../src/play/catch/backdrop';
-import { COPY, fill } from '../src/play/catch/copy';
+import { CAUGHT, COPY, fill, TOWERS } from '../src/play/catch/copy';
+import { plural } from '../src/i18n/index';
 import { knownSprite } from '../src/play/catch/painters';
 import { PIECE_ASPECT, SKINS, defaultSkin, skinFor, skinSprites } from '../src/play/catch/skins';
 import { HEIGHT_MILESTONES, MAX_PIECES, StackGame, type StackEvent } from '../src/play/catch/stack-engine';
@@ -375,7 +376,9 @@ describe('backdrop', () => {
 
 describe('copy', () => {
   it('fills templates and never judges', () => {
-    expect(fill(COPY.caught, { n: 3, noun: 'eggs' })).toBe('You caught 3 eggs!');
+    expect(plural(3, CAUGHT, { noun: 'eggs' })).toBe('You caught 3 eggs!');
+    expect(plural(1, TOWERS['pancakes']!)).toBe('Your tower was 1 pancake tall!');
+    expect(plural(4, TOWERS['pancakes']!)).toBe('Your tower was 4 pancakes tall!');
     expect(fill('{a} {b}', { a: 1 })).toBe('1 {b}');
     const all = JSON.stringify(COPY).toLowerCase();
     for (const bad of ['wrong', 'fail', 'lose', 'lost', 'game over', 'naughty', 'too slow', 'http', 'www.']) expect(all).not.toContain(bad);

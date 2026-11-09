@@ -18,12 +18,6 @@ export const COPY = {
     medium: { name: 'Middle', note: 'A bit trickier' },
     big: { name: 'Big', note: 'For memory masters' },
   },
-  pairsN: '{n} pairs',
-  boardLabel: '{name} board, {pairs} pairs, {cols} by {rows} cards',
-  cardsGroup: '{pairs} pairs of sticker cards',
-  progress: '{n} of {total} pairs found',
-  flips: '{n} flips',
-  flip1: '1 flip',
   hint: 'Hint',
   hintLabel: 'Hint: wiggle two cards that match',
   newBoard: 'New board',
@@ -34,17 +28,22 @@ export const COPY = {
   sayMatch: 'A pair! {label}. {n} of {total} found.',
   sayMiss: 'Not a pair this time. They will turn back over. Remember where they are!',
   sayHint: 'Look at the two wiggling cards. They match!',
-  sayStart: '{pairs} pairs to find. Use the arrow keys to move and Enter to flip.',
   cheers: ['Pair!', 'Snap!', 'Got it!', 'Yes!', 'Match!', 'Awesome!', 'Woohoo!'],
   streak: { 2: 'Two in a row!', 3: 'Three in a row!', 4: 'On a roll!', 5: 'Super memory!' } as Record<number, string>,
   doneTitle: 'You found them all!',
   doneName: 'You found them all, {name}!',
   doneSub: 'Every sticker has its partner.',
-  doneFlips: 'You did it in {n} flips.',
-  donePerfect: 'Wow, {n} flips, not one extra!',
   playAgain: 'Play again',
   otherBoard: 'Change board',
-  sayDone: 'You found all {total} pairs!',
+} as const;
+
+export const COUNTS = {
+  pairsN: { one: '{n} pair', other: '{n} pairs' },
+  boardLabel: { one: '{name} board, {pairs} pair, {cols} by {rows} cards', other: '{name} board, {pairs} pairs, {cols} by {rows} cards' },
+  sayStart: { one: '{pairs} pair to find. Use the arrow keys to move and Enter to flip.', other: '{pairs} pairs to find. Use the arrow keys to move and Enter to flip.' },
+  sayDone: { one: 'You found all {total} pair!', other: 'You found all {total} pairs!' },
+  progress: { one: '{n} of {total} pair found', other: '{n} of {total} pairs found' },
+  cardsGroup: { one: '{pairs} pair of sticker cards', other: '{pairs} pairs of sticker cards' },
 } as const;
 
 export function fill(text: string, vars: Record<string, string | number> = {}): string {

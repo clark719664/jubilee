@@ -15,6 +15,7 @@
 import './wish.css';
 import { sceneFor } from '../../art/index';
 import { formatIso } from '../../dates/civil';
+import { fill as i18nFill } from '../../i18n/index';
 import { applyTheme } from '../../theme/apply';
 import { h, trapFocus } from '../../ui/dom';
 import { icon } from '../../ui/icons';
@@ -104,7 +105,10 @@ function mountWish(env: PlayEnv): ActivityInstance {
     keepCount.hidden = letters.length === 0;
     const waiting = hasReply(skin.id) && letters.some((l) => replyState(l) === 'ready');
     keepDot.hidden = !waiting;
-    keepBtn.setAttribute('aria-label', `${skin.keepTitle}${letters.length ? `, ${fill(COPY.keepCount, { n: letters.length })}` : ''}${waiting ? `. ${COPY.replyWaiting}` : ''}`);
+    const keepVars = { title: skin.keepTitle, count: fill(COPY.keepCount, { n: letters.length }), reply: COPY.replyWaiting };
+    keepBtn.setAttribute('aria-label', letters.length
+      ? (waiting ? i18nFill('{title}, {count}. {reply}', keepVars) : i18nFill('{title}, {count}', keepVars))
+      : (waiting ? i18nFill('{title}. {reply}', keepVars) : skin.keepTitle));
     keepBtn.classList.toggle('has-mail', waiting);
   }
   const offFridge = box.subscribe(() => { syncKeep(); if (keepEl) showKeep(false); });
@@ -130,7 +134,7 @@ function mountWish(env: PlayEnv): ActivityInstance {
     const today = ctx.clock.today();
     const letter = makeLetter(skin, draft, today.y, name);
     const previous = mine().letters.length;
-    const added = box.add({ kind: 'wish', holidayId: meta.id, made: formatIso(today), title: letter.to ? `${skin.itemTitle} for ${letter.to}` : skin.itemTitle, data: letter });
+    const added = box.add({ kind: 'wish', holidayId: meta.id, made: formatIso(today), title: letter.to ? i18nFill('{title} for {name}', { title: skin.itemTitle, name: letter.to }) : skin.itemTitle, data: letter });
     root.classList.add('is-flying');
     const f = fly({ root, skin, letter, motion: () => ctx.motion, previous, scene, effect: meta.effect, theme, keepTarget: keepBtn });
     flight = f;
@@ -183,7 +187,7 @@ function mountWish(env: PlayEnv): ActivityInstance {
     };
     const takeDown = (id: string): void => {
       box.remove(id);
-      const r = box.add({ kind: 'wish', holidayId: meta.id, made: formatIso(ctx.clock.today()), title: letter.to ? `${skin.itemTitle} for ${letter.to}` : skin.itemTitle, data: letter });
+      const r = box.add({ kind: 'wish', holidayId: meta.id, made: formatIso(ctx.clock.today()), title: letter.to ? i18nFill('{title} for {name}', { title: skin.itemTitle, name: letter.to }) : skin.itemTitle, data: letter });
       wrap.replaceChildren(h('p', { class: 'wish-done-note' }, r.ok ? COPY.fridgeSaved : COPY.fridgeNotKept));
     };
     render();

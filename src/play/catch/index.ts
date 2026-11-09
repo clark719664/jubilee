@@ -22,7 +22,8 @@ import type { Activity, ActivityInstance, PlayEnv } from '../types';
 import { paintBackdrop } from './backdrop';
 import { ArcadeMemory, type ArcadeMode } from './best';
 import { CatchGame, OOPS, SPECIAL } from './catch-engine';
-import { COPY, fill } from './copy';
+import { plural } from '../../i18n/index';
+import { CAUGHT, COPY, fill, TOWER_ANY, TOWERS } from './copy';
 import { registerSprites } from './painters';
 import { paintPreview, Renderer } from './render';
 import { PIECE_ASPECT, skinFor, skinSprites } from './skins';
@@ -417,8 +418,8 @@ export function mountCatch(env: PlayEnv): ActivityInstance {
     const shownAt = performance.now();
     const again = (): void => { if (performance.now() - shownAt > 900) start(); };
     const line = mode === 'catch'
-      ? (s > 0 ? fill(COPY.caught, { n: s, noun: skin.catchNoun }) : COPY.caughtNone)
-      : (s > 0 ? fill(COPY.tower, { n: s, noun: skin.stackNoun }) : COPY.towerNone);
+      ? (s > 0 ? plural(s, CAUGHT, { noun: skin.catchNoun }) : COPY.caughtNone)
+      : (s > 0 ? plural(s, TOWERS[skin.stackNoun] ?? TOWER_ANY) : COPY.towerNone);
     ctx.announce(fill(COPY.ended, { line }));
     const other: ArcadeMode = mode === 'catch' ? 'stack' : 'catch';
     return h('div', { class: 'card catch-card catch-end', role: 'group', 'aria-label': COPY.cocoa },

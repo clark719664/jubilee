@@ -9,6 +9,7 @@
  * Motion: full → a painted band pops and a basketed egg bounces in; otherwise they just appear.
  */
 import './eggs.css';
+import { plural, visible } from '../../i18n/index';
 import { mulberry32 } from '../../effects/rng';
 import { svg, h } from '../../ui/dom';
 import { icon } from '../../ui/icons';
@@ -29,20 +30,30 @@ export const COPY = {
   patternsLabel: 'Patterns',
   colorLabel: '{name}',
   patternLabel: '{name} pattern',
-  eggLabel: 'Your egg, {n} of {total} stripes painted',
   bandLabel: 'Stripe {n} of {total}, {where}: {state}. Paint it.',
-  where: ['top', 'upper middle', 'middle', 'lower middle', 'bottom'],
+  where: visible(['top', 'upper middle', 'middle', 'lower middle', 'bottom']),
   empty: 'not painted yet',
-  painted: '{color} {pattern}',
-  painting: 'Painting with {color} {pattern}',
+  painting: 'Painting with {painted}',
   surprise: 'Surprise',
   undo: 'Undo',
   basket: 'Put it in the basket',
-  basketLabel: 'Basket: {n} of {max} eggs',
   announceSurprise: 'Surprise! Every stripe is painted.',
   announceUndo: 'Undone.',
   announceBasket: 'Into the basket! Here is a fresh egg.',
-  announceFresh: 'Basket: {n} of {max} eggs.',
+} as const;
+
+const PAINTED = {
+  plain: '{color} plain',
+  stripes: '{color} stripes',
+  dots: '{color} dots',
+  zigzag: '{color} zigzag',
+  stars: '{color} stars',
+} as const;
+
+const COUNTS = {
+  eggLabel: { one: 'Your egg, {n} of {total} stripe painted', other: 'Your egg, {n} of {total} stripes painted' },
+  basketLabel: { one: 'Basket: {n} of {max} egg', other: 'Basket: {n} of {max} eggs' },
+  announceFresh: { one: 'Basket: {n} of {max} egg.', other: 'Basket: {n} of {max} eggs.' },
 } as const;
 
 export const eggsActivity: Activity = {
@@ -97,17 +108,18 @@ function mountEggs(env: PlayEnv): ActivityInstance {
   function syncPicks(): void {
     colorBtns.forEach((b, i) => b.setAttribute('aria-pressed', String(i === color)));
     patternBtns.forEach((b, i) => { b.setAttribute('aria-pressed', String(i === pattern)); b.replaceChildren(patternThumb(i)); });
-    status.textContent = fill(COPY.painting, { color: COLORS[color]!.name, pattern: PATTERNS[pattern]!.name });
+    status.textContent = fill(COPY.painting, { painted: paintedAs(current()) });
   }
 
-  const bandState = (b: Band | null): string => (b ? fill(COPY.painted, { color: COLORS[b.color]!.name, pattern: PATTERNS[b.pattern]!.name }) : COPY.empty);
+  const paintedAs = (b: Band): string => fill(PAINTED[PATTERNS[b.pattern]!.id as keyof typeof PAINTED], { color: COLORS[b.color]!.name });
+  const bandState = (b: Band | null): string => (b ? paintedAs(b) : COPY.empty);
 
   function renderEgg(popped: number | null): void {
     const focused = stage.querySelector<SVGElement>('.eg-hit:focus');
     const keep = focused ? Number(focused.dataset['band']) : null;
     const art = eggSvg(state.egg, nextEggId(), 'eg-egg', true);
     art.svg.setAttribute('role', 'group');
-    art.svg.setAttribute('aria-label', fill(COPY.eggLabel, { n: paintedCount(state.egg), total: BAND_COUNT }));
+    art.svg.setAttribute('aria-label', plural(BAND_COUNT, COUNTS.eggLabel, { n: paintedCount(state.egg), total: BAND_COUNT }));
     art.hits.forEach((hit, i) => {
       hit.dataset['band'] = String(i);
       hit.setAttribute('aria-label', fill(COPY.bandLabel, { n: i + 1, total: BAND_COUNT, where: COPY.where[i]!, state: bandState(state.egg[i] ?? null) }));
@@ -128,7 +140,7 @@ function mountEggs(env: PlayEnv): ActivityInstance {
 
   function renderBasket(newest: boolean): void {
     const n = state.basket.length;
-    tray.setAttribute('aria-label', fill(COPY.basketLabel, { n, max: BASKET_MAX }));
+    tray.setAttribute('aria-label', plural(BASKET_MAX, COUNTS.basketLabel, { n, max: BASKET_MAX }));
     tray.replaceChildren(...Array.from({ length: BASKET_MAX }, (_, k) => {
       const egg: Egg | undefined = state.basket[k];
       const last = newest && k === n - 1;
@@ -156,7 +168,7 @@ function mountEggs(env: PlayEnv): ActivityInstance {
     renderEgg(null);
     renderBasket(true);
     renderControls();
-    ctx.announce(`${COPY.announceBasket} ${fill(COPY.announceFresh, { n: state.basket.length, max: BASKET_MAX })}`);
+    ctx.announce(`${COPY.announceBasket} ${plural(BASKET_MAX, COUNTS.announceFresh, { n: state.basket.length, max: BASKET_MAX })}`);
     (stage.querySelector<SVGElement>('.eg-hit'))?.focus({ preventScroll: true });
   }
 

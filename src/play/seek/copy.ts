@@ -20,7 +20,6 @@ export const COPY = {
   already: 'You already found the {thing}. Great memory!',
   done: 'You found them all!',
   doneBody: 'Every hidden thing in the {holiday} picture. What a super seeker!',
-  doneRounds: 'You have found them all {n} times!',
   again: 'Play again',
   admire: 'Look at the picture',
   ribbon: 'Found them all before! Can you do it again?',

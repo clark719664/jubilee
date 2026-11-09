@@ -19,6 +19,7 @@ import { CITIES } from '../world/data/cities';
 import { countryName } from '../world/data/countries';
 import { postcardFor } from '../world/data/postcards';
 import type { ShowKind } from '../world/live';
+import { t } from '../i18n/index';
 import { drawPostcard, postcardWords, type PostcardView } from '../world/postcards';
 import { h, trapFocus } from './dom';
 import { icon } from './icons';
@@ -52,8 +53,9 @@ export const kindOf = (show: ShowKind): PostcardKind => (show === 'santa' ? 'chr
 export function arrivalText(v: PostcardView): string {
   const w = postcardWords(v);
   const roman = w.roman ? ` (${w.roman})` : '';
-  const said = fill(POSTCARD_COPY.greetingIs, { greeting: `“${w.greeting}”${roman}` }).replace(/([!?.])”\./, '$1”');
-  return `${fill(POSTCARD_COPY.arrived, { city: v.city.name, country: countryName(v.city.country) })} ${said}`;
+  // Each sentence translates on its own; the page can't match the two joined.
+  const said = t(fill(POSTCARD_COPY.greetingIs, { greeting: `“${w.greeting}”${roman}` })).replace(/([!?.])”\./, '$1”');
+  return `${t(fill(POSTCARD_COPY.arrived, { city: v.city.name, country: countryName(v.city.country) }))} ${said}`;
 }
 
 // ───────────────────────────────────────────────────────── the pop-up
@@ -145,7 +147,7 @@ export function postcardShow(d: PostcardShowDeps): PostcardShow {
     const hint = h('span', { class: 'postcard-pop-hint' }, POSTCARD_COPY.keep);
     const button = h('button', {
       type: 'button', class: 'postcard-pop-card',
-      'aria-label': `${arrivalText(view)} ${POSTCARD_COPY.keep}.`,
+      'aria-label': `${arrivalText(view)} ${t(POSTCARD_COPY.keep)}.`,
       onclick: () => tap(),
     }, art);
     const close = h('button', { type: 'button', class: 'btn btn-secondary btn-icon postcard-pop-x', 'aria-label': POSTCARD_COPY.close, onclick: () => dismiss() }, icon('close', 20));
@@ -165,7 +167,7 @@ export function postcardShow(d: PostcardShowDeps): PostcardShow {
       window.clearTimeout(current.timer);
       current.hint.textContent = POSTCARD_COPY.kept;
       current.el.classList.add('is-kept');
-      current.button.setAttribute('aria-label', `${current.button.getAttribute('aria-label')?.replace(`${POSTCARD_COPY.keep}.`, '') ?? ''}${POSTCARD_COPY.kept}.`);
+      current.button.setAttribute('aria-label', `${current.button.getAttribute('aria-label')?.replace(`${t(POSTCARD_COPY.keep)}.`, '') ?? ''}${t(POSTCARD_COPY.kept)}.`);
       return;
     }
     dismiss();

@@ -52,16 +52,16 @@ WORDS = {
     'pt': {'Ring': 'Aro', 'Lead': 'Líder', 'Following Santa': 'Acompanhando o Papai Noel'},
     'fr': {'Lotus': 'Lotus', 'Lead': 'En tête', 'Following Santa': 'Suivi du Père Noël'},
     'de': {'Lead': 'Anführer', 'Following Santa': 'Weihnachtsmann im Blick', 'Live flight': 'Im Flug'},
-    'ru': {'Lead': 'Вожак', 'Following Santa': 'Следим за Сантой'},
-    'zh': {'Lead': '领头', 'Following Santa': '正在跟随圣诞老人', 'Coming up': '下一站', 'Live flight': '飞行中',
+    'ru': {'Lead': 'Вожак', 'Following Santa': 'Следим за Сантой', 'Source': 'Источник'},
+    'zh': {'Source': '来源', 'Lead': '领头', 'Following Santa': '正在跟随圣诞老人', 'Coming up': '下一站', 'Live flight': '飞行中',
            'Santa takes off from the North Pole in {time}!': '{time}后，圣诞老人就要从北极出发啦！', 'Your tower was {n} {noun} tall!': '你的塔有 {n} {noun}高！'},
-    'ja': {'Ring': '輪', 'Lotus': '蓮の花', 'Lead': '先頭', 'Following Santa': 'サンタさんを追跡中', 'Live flight': '飛行中'},
+    'ja': {'Source': '出典', 'Ring': '輪', 'Lotus': '蓮の花', 'Lead': '先頭', 'Following Santa': 'サンタさんを追跡中', 'Live flight': '飛行中'},
     'ko': {'Ring': '고리', 'You': '나', 'Lead': '선두', 'Following Santa': '산타 따라가는 중', 'Coming up': '다음 장소', 'Live flight': '비행 중'},
     'tr': {'Lotus': 'Nilüfer', 'Lead': 'Öncü', 'Following Santa': "Noel Baba'yı takip ediyoruz"},
     'vi': {'Saffron': 'Nghệ tây', 'Lead': 'Dẫn đầu', 'Following Santa': 'Đang theo dõi Ông già Noel'},
     'id': {'Ring': 'Lingkaran', 'Lead': 'Pemimpin', 'Following Santa': 'Mengikuti Santa'},
     'tl': {'Lead': 'Nangunguna', 'Following Santa': 'Sinusundan si Santa'},
-    'hi': {'Ring': 'छल्ला'}, 'bn': {'Ring': 'বলয়'},
+    'hi': {'Ring': 'छल्ला'}, 'bn': {'Ring': 'বলয়'}, 'ur': {'Aqua': 'آبی', 'Madrid': 'میڈرڈ'},
 }
 # The runner hides each {slot} as XQ0X; sometimes the model spelled that out in its own script, too.
 SPELLED = r'(?:एक्स|এক্স|எக்ஸ்|ఎక్స్|ایکس|إكس|エックス|엑스|[Ээ]кс)[\s\u200c]*(?:क्यू|কিউ|க்யூ|క్యూ|کیو|كيو|キュー|큐|[Кк]ью)'
@@ -71,6 +71,26 @@ REPAIR = re.compile(r'[\'"‘“]?' + SPELLED + r'[^()\n]{0,16}?[\'"’”]?\s*\
 BRACKETED = re.compile(r'\((\{\w+\})\)')
 RUDOLPH = re.compile(r'Rudol|Rodolf|Рудольф|ルドルフ|루돌프|鲁道夫|魯道夫|रुडोल्फ|রুডল্ফ|رودولف|روڈولف|ருடால்ஃப்|రుడాల్ఫ్', re.I)
 
+# Holiday names the translator turned into greetings ("Holi" into "Hello!", "Thanksgiving" into "Thank you!").
+HOLIDAY_NAMES = {
+    'es': {'Holi': 'Holi', 'Canada Day': 'Día de Canadá'},
+    'zh': {'Holi': '洒红节', "New Year's Day": '元旦', 'Pi Day': '圆周率日'},
+    'hi': {'Holi': 'होली'}, 'ar': {'Holi': 'هولي'}, 'fr': {'Holi': 'Holi', 'Thanksgiving': 'Thanksgiving'},
+    'pt': {'Holi': 'Holi'}, 'ru': {'Holi': 'Холи'}, 'ur': {'Earth Day': 'یومِ ارض'}, 'id': {'Holi': 'Holi'},
+    'de': {'Holi': 'Holi', 'Pancake Day': 'Pfannkuchentag'}, 'ja': {'Holi': 'ホーリー', 'Easter': 'イースター'},
+    'tr': {'Holi': 'Holi', 'Pancake Day': 'Krep Günü'}, 'vi': {'Holi': 'Holi'},
+    'ko': {'Holi': '홀리', 'Halloween': '핼러윈', 'Nowruz': '노루즈', 'Pancake Day': '팬케이크 데이', 'Pi Day': '파이 데이', 'Purim': '부림절',
+           'Ramadan': '라마단', "St Patrick's Day": '성 패트릭의 날'},
+    'ta': {"New Year's Day": 'புத்தாண்டு தினம்'}, 'mr': {'Grandparents Day': 'आजी-आजोबा दिन', 'Three Kings Day': 'तीन राजांचा दिवस'},
+    'tl': {'Holi': 'Holi'},
+}
+# "in {sleeps}" around a whole count ("3 nights"), which now carries its own noun.
+IN_SLEEPS = {
+    'es': 'en {sleeps}', 'zh': '{sleeps}后', 'hi': '{sleeps} में', 'ar': 'بعد {sleeps}', 'fr': 'dans {sleeps}', 'bn': '{sleeps} পরে',
+    'pt': 'em {sleeps}', 'ru': 'через {sleeps}', 'ur': '{sleeps} میں', 'id': 'dalam {sleeps}', 'de': 'in {sleeps}', 'ja': 'あと{sleeps}と',
+    'tr': '{sleeps} sonra', 'vi': 'sau {sleeps}', 'ko': '{sleeps} 뒤', 'ta': '{sleeps} கழித்து', 'te': '{sleeps} తర్వాత', 'mr': '{sleeps} नंतर',
+    'tl': 'sa loob ng {sleeps}',
+}
 # Recipe amounts get followed, so like the allergen words they are written by hand: machine translation turned
 # "½ tbsp" into teaspoons and "1 can" into "1 is able".
 UNIT_KEYS = ('{n} cup', '{n} cups', '{n} tbsp', '{n} tsp', '{n} pinch', '{n} pinches', '{n} slice', '{n} slices', '{n} can', '{n} cans',
@@ -138,7 +158,7 @@ SLEEPS = {
     'ur': ('راتیں', 'رات', '{name} تک {sleeps}', '{n} راتوں میں', '{name} تک {n} راتیں'),
     'id': ('malam', 'malam', '{sleeps} lagi menuju {name}', 'dalam {n} malam', '{n} malam lagi menuju {name}'),
     'de': ('Nächte', 'Nacht', '{sleeps} bis {name}', 'in {n} Nächten', '{n} Nächte bis {name}'),
-    'ja': ('回ねると', '回ねると', '{sleeps}{name}', 'あと {n} 回ねると', 'あと {n} 回ねると{name}'),
+    'ja': ('回ねると', '回ねると', 'あと{sleeps}と{name}', 'あと {n} 回ねると', 'あと {n} 回ねると{name}'),
     'tr': ('gece', 'gece', '{sleeps} kaldı: {name}', '{n} gece sonra', '{name} için {n} gece kaldı'),
     'vi': ('đêm', 'đêm', '{sleeps} nữa là đến {name}', 'sau {n} đêm', 'còn {n} đêm nữa là đến {name}'),
     'ko': ('밤', '밤', '{sleeps} 자면 {name}', '{n}밤 뒤', '{n}밤 자면 {name}'),
@@ -147,6 +167,11 @@ SLEEPS = {
     'mr': ('रात्री', 'रात्र', '{name} पर्यंत {sleeps}', '{n} रात्रींत', '{name} पर्यंत {n} रात्री'),
     'tl': ('gabi', 'gabi', '{sleeps} bago ang {name}', 'sa loob ng {n} gabi', '{n} gabi bago ang {name}'),
 }
+
+
+def own_text(key, text):
+    """The translation without characters the English already has (the 福 a lesson teaches stays 福)."""
+    return ''.join(ch for ch in text if ch not in key)
 
 
 def foreign(code, text):
@@ -178,7 +203,7 @@ def main():
             if '(' not in k:
                 v = BRACKETED.sub(r'\1', v)
             doubled = any(v.count(slot) > k.count(slot) for slot in set(re.findall(r'\{\w+\}', k)))
-            if foreign(code, v) or not v or len(v) > len(k) * 4 + 30 or JUNK.search(v) or doubled or (RUDOLPH.search(v) and not RUDOLPH.search(k)):
+            if foreign(code, own_text(k, v)) or not v or len(v) > len(k) * 4 + 30 or JUNK.search(v) or doubled or (RUDOLPH.search(v) and not RUDOLPH.search(k)):
                 dropped += 1
                 continue
             m = re.search(r'\{(\w+)\} (?:out )?of \{(\w+)\}', k)
@@ -195,6 +220,7 @@ def main():
         done['{n} of {total} found'] = FOUND[code]
         done.update(HAND.get(code, {}))
         done.update(WORDS.get(code, {}))
+        done.update(HOLIDAY_NAMES.get(code, {}))
         units = dict(zip(UNIT_KEYS, UNITS[code]))
         for unit in ('cups', 'tbsp', 'tsp'):
             for part in '¼½¾':
@@ -204,7 +230,7 @@ def main():
             done.update(zip(english, own or english))
         done.update(reviewed.get(code, {}))
         many, one, until, soon, left = SLEEPS[code]
-        done.update({'sleeps': many, 'sleep': one, '{sleeps} until {name}': until, 'in {sleeps}': soon.replace('{n}', '{sleeps}'), 'in {n} sleeps': soon, '{n} sleeps until {name}': left})
+        done.update({'sleeps': many, 'sleep': one, '{sleeps} until {name}': until, 'in {sleeps}': IN_SLEEPS[code], 'in {n} sleeps': soon, '{n} sleeps until {name}': left})
         for brand in ('Jubilee', 'Jubi'):
             done.pop(brand, None)
         # Collecting page text once matched "Holi" inside "Holiday", leaving fake "{name}day" templates, and took

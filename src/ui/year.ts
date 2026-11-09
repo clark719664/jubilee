@@ -18,6 +18,7 @@ import { allOccurrences, type Occurrence } from '../dates/occurrences';
 import type { DateRule, Region } from '../dates/rules';
 import { relativeLuminance } from '../theme/contrast';
 import { THEMES, type Theme } from '../theme/themes';
+import { plural, t as translate } from '../i18n/index';
 import { COPY } from './copy';
 import { h } from './dom';
 import { icon } from './icons';
@@ -188,12 +189,11 @@ const T = {
   hideSpin: 'Hide the wheel',
   silly: 'Silly days',
   list: 'All holidays in {year}',
-  days: '{n} days',
-  range: '{from} to {to}',
   onDay: 'Holidays on {date}',
   clamped: 'My calendar shows the years {from} to {to}.',
   endsNote: '{names}: my calendar for these holidays ends in 2035.',
 } as const;
+const COUNTS = { span: { one: '{n} day, {from} to {to}', other: '{n} days, {from} to {to}' } } as const;
 const t = (s: string, vars: Record<string, string | number>): string => s.replace(/\{(\w+)\}/g, (m, k: string) => (k in vars ? String(vars[k]) : m));
 
 /** Session memory: the wheel and the silly-days switch stay as the child left them. */
@@ -252,7 +252,7 @@ function monthCard(b: MonthBuild, month: number): HTMLElement {
     if (entries && entries[0]) {
       const first = entries[0];
       if (entries.length > 1) cell.classList.add('has-more');
-      const title = entries.map((e) => e.meta.name).join(', ');
+      const title = entries.map((e) => translate(e.meta.name)).join(', ');
       const dot = entries.length === 1
         ? h('a', { class: 'day-dot emoji', href: holidayHref(first.meta.id), tabindex: -1, title }, first.meta.emoji)
         : h('button', { class: 'day-dot emoji', type: 'button', tabindex: -1, title, onclick: () => b.openDay(c.day, entries) }, first.meta.emoji);
@@ -277,9 +277,9 @@ function entryLine(e: YearEntry, locale: string): string {
   const main = formatLong(civilOf(e.occ.main), locale);
   const parts = [main];
   if (e.span > 1) {
-    parts.push(`${t(T.days, { n: e.span })}, ${t(T.range, { from: formatShort(civilOf(e.occ.start), locale), to: formatShort(civilOf(e.occ.end), locale) })}`);
+    parts.push(plural(e.span, COUNTS.span, { from: formatShort(civilOf(e.occ.start), locale), to: formatShort(civilOf(e.occ.end), locale) }));
   }
-  if (e.occ.approx) parts.push(COPY.expected);
+  if (e.occ.approx) parts.push(translate(COPY.expected));
   return parts.join(' · ');
 }
 
@@ -338,7 +338,7 @@ const year: ViewFactory<'year'> = (ctx, route) => {
     const notes: HTMLElement[] = [];
     if (wanted !== y) notes.push(h('p', { class: 'small muted' }, t(T.clamped, { from: YEAR_MIN, to: YEAR_MAX }), ' ', COPY.beyondCoverage));
     if (model.missing.length > 0) {
-      notes.push(h('p', { class: 'small muted' }, t(T.endsNote, { names: model.missing.map((m) => m.name).join(', ') })));
+      notes.push(h('p', { class: 'small muted' }, t(T.endsNote, { names: model.missing.map((m) => translate(m.name)).join(', ') })));
     } else if (y === YEAR_MAX) {
       notes.push(h('p', { class: 'small muted' }, COPY['empty.year']));
     }

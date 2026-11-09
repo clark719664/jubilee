@@ -12,6 +12,7 @@
  */
 import './color.css';
 import { formatIso, formatShort, parseIso } from '../../dates/civil';
+import { t as translate } from '../../i18n/index';
 import { applyTheme } from '../../theme/apply';
 import { h } from '../../ui/dom';
 import { icon } from '../../ui/icons';
@@ -209,7 +210,8 @@ export function mountColor(env: PlayEnv, opts: ColorOptions): ActivityInstance {
   // ── painting ──
   function regionLabel(id: string): string {
     const c = doc.fills[id];
-    return c ? fill(COPY.regionFilled, { name: regionName(id), color: nameOf(c) }) : fill(COPY.regionBlank, { name: regionName(id) });
+    // "{name}, {color}" has no words to match on, so its two pieces are translated before they are joined.
+    return c ? fill(COPY.regionFilled, { name: translate(regionName(id)), color: translate(nameOf(c)) }) : fill(COPY.regionBlank, { name: regionName(id) });
   }
 
   function apply(next: Doc, how: { from?: { x: number; y: number }; animate: boolean; wave?: boolean }): void {
