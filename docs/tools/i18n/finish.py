@@ -158,6 +158,9 @@ def foreign(code, text):
 def main():
     src, ingredient_file, out = sys.argv[1:4]
     over = json.load(open(os.path.join(HERE, 'overrides.json'), encoding='utf-8'))
+    # Short labels with slots, checked line by line in every language: machine translation had no way to know
+    # what "{date}" or "{name}" would hold, so many read wrong ("Written {date}" as "written by").
+    reviewed = json.load(open(os.path.join(HERE, 'reviewed.json'), encoding='utf-8'))
     items = set(json.load(open(ingredient_file, encoding='utf-8')))
     os.makedirs(out, exist_ok=True)
     for code in OWN:
@@ -199,10 +202,15 @@ def main():
         done.update(units)
         for english, own in zip((REINDEER, LETTERS), NAMES[code]):
             done.update(zip(english, own or english))
+        done.update(reviewed.get(code, {}))
         many, one, until, soon, left = SLEEPS[code]
         done.update({'sleeps': many, 'sleep': one, '{sleeps} until {name}': until, 'in {sleeps}': soon.replace('{n}', '{sleeps}'), 'in {n} sleeps': soon, '{n} sleeps until {name}': left})
         for brand in ('Jubilee', 'Jubi'):
             done.pop(brand, None)
+        # Collecting page text once matched "Holi" inside "Holiday", leaving fake "{name}day" templates, and took
+        # in a scrap of code.
+        for k in [k for k in done if '{name}day' in k or '.replace(' in k]:
+            del done[k]
         for k, v in list(done.items()):
             bare = re.sub(r'^(a|an|the|some) ', '', k)
             if bare != k:
